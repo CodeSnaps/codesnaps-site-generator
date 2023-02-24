@@ -12,11 +12,13 @@ function TopLoadingBarIndicator() {
       return;
     }
 
-    ref.current.continuousStart(0, 250);
+    const loadingBarRef = ref.current;
+
+    loadingBarRef.continuousStart(0, 250);
     runningRef.current = true;
 
     return () => {
-      ref?.current?.complete();
+      loadingBarRef.complete();
       runningRef.current = false;
     };
   }, [ref]);

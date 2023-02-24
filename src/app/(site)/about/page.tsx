@@ -34,7 +34,7 @@ const AboutPage = () => {
             <div>
               With a passion for innovation and a commitment to excellence, we
               are dedicated to creating products and services that will improve
-              people's lives and make a positive impact on society.
+              people&apos;s lives and make a positive impact on society.
             </div>
 
             <div>
@@ -49,9 +49,9 @@ const AboutPage = () => {
             <div>
               Today, we are proud to be a leader in our field, and our products
               and services are used by millions of people all over the world.
-              But we're not done yet. We still have big dreams and even bigger
-              plans, and we're always looking for ways to push the boundaries of
-              what's possible.
+              But we&apos;re not done yet. We still have big dreams and even
+              bigger plans, and we&apos;re always looking for ways to push the
+              boundaries of what&apos;s possible.
             </div>
 
             <div>

@@ -11,7 +11,6 @@ function getLogger() {
   const isDev = process.env.NODE_ENV !== 'production';
 
   if (isDev) {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const pretty = require('pino-pretty');
 
     logger = pino(
