@@ -11,5 +11,5 @@ body {
   text-rendering: geometricPrecision;
   font-feature-settings: 'rlig' 1, 'calt' 1, 'ss01' 1;
 
-  @apply bg-white text-gray-800 dark:bg-black-500 dark:text-gray-300 antialiased;
+  @apply bg-white text-gray-800 antialiased dark:bg-black-500 dark:text-gray-300;
 }
