@@ -68,7 +68,7 @@ function getSidebarItemClassBuilder() {
       variants: {
         collapsed: {
           true: `justify-center space-x-0 px-0.5 py-2 [&>span]:hidden`,
-          false: `py-2 px-3.5 pr-12 space-x-2.5`,
+          false: `py-2 px-3 pr-12 space-x-2.5`,
         },
         active: {
           true: `bg-primary-50 font-medium text-current dark:bg-primary-300/10 dark:text-primary-contrast`,
@@ -79,7 +79,7 @@ function getSidebarItemClassBuilder() {
         {
           collapsed: true,
           active: true,
-          className: `bg-primary-500/5 dark:bg-primary-500/20 text-primary-500`,
+          className: `bg-primary-500/5 dark:bg-primary-500/10 !text-primary-500`,
         },
         {
           collapsed: false,

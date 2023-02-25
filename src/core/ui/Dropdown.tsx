@@ -75,7 +75,7 @@ const DropdownMenuContent = React.forwardRef<
       sideOffset={sideOffset}
       alignOffset={alignOffset}
       className={classNames(
-        'animate-in data-[side=bottom]:slide-in-from-top-2 w-screen lg:w-auto' +
+        'animate-in data-[side=bottom]:slide-in-from-top-2 w-screen md:w-auto' +
           ' data-[side=top]:slide-in-from-bottom-2 z-50 min-w-[8rem]' +
           ' overflow-hidden border border-gray-50 bg-white p-1 lg:rounded-md' +
           ' shadow-md dark:border-black-300 dark:bg-black-300' +

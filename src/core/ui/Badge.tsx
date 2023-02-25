@@ -26,7 +26,7 @@ function getClassNameBuilder() {
     variants: {
       color: {
         normal: `text-gray-500 bg-gray-100 dark:text-gray-300 dark:bg-black-300`,
-        success: `bg-green-50 dark:bg-green-500/10 text-green-800`,
+        success: `bg-green-50 dark:bg-green-500/10 text-green-700`,
         warn: `bg-yellow-50 dark:bg-yellow-100/10 text-yellow-800`,
         error: `bg-red-50 dark:bg-red-500/10 text-red-800`,
         info: `bg-blue-50 dark:bg-blue-500/10 text-blue-800`,

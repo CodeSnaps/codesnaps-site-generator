@@ -96,15 +96,15 @@ function InnerButtonContainerElement({
 function getClassNameBuilder() {
   return cva(
     [
-      `flex items-center justify-center rounded-md font-medium outline-none transition-colors focus:ring-2 disabled:cursor-not-allowed disabled:opacity-50`,
+      `flex items-center justify-center rounded-md font-medium outline-none transition-colors focus:ring-2 ring-offset-1 dark:focus:ring-offset-black-500 disabled:cursor-not-allowed disabled:opacity-50`,
     ],
     {
       variants: {
         color: {
-          primary: `ring-primary-400`,
+          primary: `ring-primary-200`,
           secondary: `ring-gray-200`,
-          danger: `ring-red-300`,
-          transparent: `text-gray-800 ring-primary-50 hover:bg-gray-50 active:bg-gray-100 dark:text-gray-300 dark:ring-black-400 dark:hover:bg-black-400 dark:hover:text-white dark:active:bg-black-300`,
+          danger: `ring-red-200`,
+          transparent: `text-gray-800 focus:ring-gray-50 dark:focus:ring-black-300 ring-primary-50 hover:bg-gray-50 active:bg-gray-100 dark:text-gray-300 dark:ring-black-400 dark:hover:bg-black-400 dark:hover:text-white dark:active:bg-black-300`,
           custom: ``,
         },
         variant: {
@@ -117,38 +117,38 @@ function getClassNameBuilder() {
         {
           color: 'primary',
           variant: 'normal',
-          className: `bg-primary-500 text-primary-contrast hover:bg-primary-600 active:bg-primary-700 dark:text-primary-contrast`,
+          className: `bg-primary-500 dark:focus:ring-primary-500/70 text-primary-contrast hover:bg-primary-600 active:bg-primary-700 dark:text-primary-contrast`,
         },
         {
           color: 'danger',
           variant: 'normal',
-          className: `bg-red-400 text-white hover:bg-red-500 active:bg-red-600`,
+          className: `bg-red-400 dark:focus:ring-red-500/70 text-white hover:bg-red-500 active:bg-red-600`,
         },
         {
           color: 'secondary',
           variant: 'normal',
-          className: `bg-gray-100 hover:bg-gray-200 active:bg-gray-200 dark:bg-black-300 dark:ring-black-200 dark:hover:bg-black-200 dark:active:bg-black-400`,
+          className: `bg-gray-100 dark:focus:ring-gray-200 hover:bg-gray-200 active:bg-gray-200 dark:bg-black-300 dark:ring-black-200 dark:hover:bg-black-200 dark:active:bg-black-400`,
         },
         {
           color: 'primary',
           variant: 'outline',
-          className: `border-2 border-primary-500 bg-transparent text-primary-700 hover:text-white`,
+          className: `border-2 border-primary-500 dark:focus:ring-primary-500/70 bg-transparent text-primary-700`,
         },
         {
           color: 'danger',
           variant: 'outline',
-          className: `border-2 border-red-400 bg-transparent text-red-400 hover:text-white`,
+          className: `border-2 border-red-400 dark:focus:ring-red-500/70 bg-transparent text-red-400`,
         },
         {
           color: 'primary',
           variant: 'flat',
-          className: `bg-primary-500/10 text-primary-500 hover:bg-primary-500/20 ring-0 
+          className: `bg-primary-500/10 dark:focus:ring-primary-500/70 text-primary-500 hover:bg-primary-500/20 
       active:bg-primary-500/30 dark:hover:bg-primary-500/20 dark:active:bg-primary-500/30`,
         },
         {
           color: 'danger',
           variant: 'flat',
-          className: `bg-red-500/10 text-red-500 ring-0 
+          className: `bg-red-500/10 text-red-500 dark:focus:ring-red-500/70
     active:bg-red-500/30 hover:bg-red-500/20 dark:active:bg-red-500/30`,
         },
       ],
@@ -162,8 +162,8 @@ function getClassNameBuilder() {
 
 function getSizesClassName() {
   return {
-    normal: `text-sm py-2 px-5 h-10`,
-    small: `py-2 px-3 text-xs`,
+    normal: `text-sm py-2 px-3 h-10`,
+    small: `py-2 px-2 text-xs`,
     large: `py-2.5 px-6 h-12 text-lg h-12`,
     custom: ``,
   };

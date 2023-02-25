@@ -18,7 +18,7 @@ const OrganizationSettingsTabs = () => {
 
   return (
     <>
-      <div className={'hidden h-full w-full w-[12rem] lg:flex'}>
+      <div className={'hidden h-full min-w-[12rem] lg:flex'}>
         <NavigationMenu vertical pill>
           <NavigationItem
             depth={0}

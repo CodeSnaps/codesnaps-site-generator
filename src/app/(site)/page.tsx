@@ -241,7 +241,7 @@ function HeroTitle({ children }: React.PropsWithChildren) {
       className={
         'text-center text-4xl text-black-500 dark:text-white' +
         ' flex flex-col space-y-2 font-extrabold md:text-6xl' +
-        ' xl:text-7xl 2xl:text-[5rem]'
+        ' xl:text-7xl'
       }
     >
       {children}

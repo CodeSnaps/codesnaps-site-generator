@@ -18,8 +18,9 @@ type Props = React.PropsWithChildren<DefaultProps | DivProps>;
 
 const CLASSNAME = `rounded-full bg-transparent h-10 w-10
   flex items-center justify-center
-  ring-primary-400 transition-colors outline-none
-  duration-300 hover:bg-gray-100 focus:ring 
+  transition-colors outline-none p-0
+  hover:bg-gray-100 focus:ring-2 ring-offset-1
+  ring-primary-200 dark:ring-primary-500/70
   disabled:cursor-not-allowed disabled:opacity-50
   dark:hover:bg-black-300 dark:active:bg-gray-100 dark:active:bg-black-200
  `;

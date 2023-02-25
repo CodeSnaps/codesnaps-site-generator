@@ -1,7 +1,8 @@
 import { Fragment } from 'react';
 import { Transition } from '@headlessui/react';
-import Trans from '~/core/ui/Trans';
+import { Trans } from 'react-i18next';
 import XMarkIcon from '@heroicons/react/24/outline/XMarkIcon';
+import { Close as DialogPrimitiveClose } from '@radix-ui/react-dialog';
 
 import IconButton from '~/core/ui/IconButton';
 import If from '~/core/ui/If';
@@ -51,23 +52,25 @@ const Modal: React.FC<
             <div className="inline-block max-h-[90%] w-full max-w-xl transform overflow-auto rounded-xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-black-400">
               <div className={'flex flex-col space-y-4'}>
                 <div className="flex items-center">
-                  <DialogTitle className="flex w-full text-xl font-medium text-current">
-                    {heading}
+                  <DialogTitle className="flex w-full text-xl font-semibold text-current">
+                    <span className={'max-w-[90%] truncate'}>{heading}</span>
                   </DialogTitle>
-
-                  <If condition={useCloseButton}>
-                    <div className={'justify-end'}>
-                      <IconButton
-                        label={'Close Modal'}
-                        onClick={() => setIsOpen(false)}
-                      >
-                        <XMarkIcon className={'h-6'} />
-                      </IconButton>
-                    </div>
-                  </If>
                 </div>
 
                 <div className="relative">{children}</div>
+
+                <If condition={useCloseButton}>
+                  <DialogPrimitiveClose asChild>
+                    <IconButton
+                      className={'absolute top-0 right-4 flex items-center'}
+                      label={'Close Modal'}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <XMarkIcon className={'h-6'} />
+                      <span className="sr-only">Close</span>
+                    </IconButton>
+                  </DialogPrimitiveClose>
+                </If>
               </div>
             </div>
           </div>

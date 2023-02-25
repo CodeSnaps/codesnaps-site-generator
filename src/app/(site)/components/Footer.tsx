@@ -65,7 +65,7 @@ function Footer() {
             </div>
 
             <div>
-              <div className={'flex flex-col space-y-2.5'}>
+              <div className={'flex flex-col space-y-4'}>
                 <Heading type={5}>Product</Heading>
 
                 <FooterSectionList>
