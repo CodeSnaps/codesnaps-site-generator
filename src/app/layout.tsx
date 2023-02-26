@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import initializeServerI18n from '~/i18n/i18n.server';
 import { I18N_COOKIE_NAME } from '~/i18n/i18n.settings';
 import ThemeSetter from '~/components/ThemeSetter';
-
+import Fonts from '~/components/Fonts';
 import configuration from '~/configuration';
 
 export default async function RootLayout({
@@ -27,6 +27,7 @@ export default async function RootLayout({
       <body>{children}</body>
 
       <ThemeSetter />
+      <Fonts />
     </html>
   );
 }

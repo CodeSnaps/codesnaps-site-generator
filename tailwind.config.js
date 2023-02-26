@@ -8,20 +8,18 @@ module.exports = {
     extend: {
       fontFamily: {
         serif: ['serif'],
-        sans: [
+        heading: [
+          'var(--font-family-heading)',
           'Inter',
           'SF Pro Text',
           'system-ui',
-          'BlinkMacSystemFont',
-          'Segoe UI',
-          'Roboto',
-          'Ubuntu',
         ],
+        sans: ['var(--font-family-sans)'],
         monospace: [`SF Mono`, `ui-monospace`, `Monaco`, 'Monospace'],
       },
       colors: {
         primary: {
-          ...colors.blue,
+          ...colors.indigo,
           contrast: '#fff',
         },
         black: {

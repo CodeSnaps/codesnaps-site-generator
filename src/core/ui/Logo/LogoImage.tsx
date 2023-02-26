@@ -25,10 +25,7 @@ const LogoImage: React.FCC<{
           gradientUnits="userSpaceOnUse"
         >
           <stop stopColor="#0E73CC" />
-          <stop offset="0.255208" stopColor="#8E79DE" />
-          <stop offset="0.494792" stopColor="#EF4444" />
-          <stop offset="0.755208" stopColor="#FCB061" />
-          <stop offset="1" stopColor="#FFE81D" />
+          <stop offset="0.661458" stopColor="#8E79DE" />
         </linearGradient>
       </defs>
     </svg>

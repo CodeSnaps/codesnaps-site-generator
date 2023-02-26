@@ -15,6 +15,7 @@ type Variant = `normal` | `outline` | `flat`;
 type Props = React.ButtonHTMLAttributes<unknown> &
   React.PropsWithChildren<{
     block?: boolean;
+    round?: boolean;
     color?: Color;
     size?: Size;
     variant?: Variant;
@@ -39,6 +40,7 @@ const Button: React.FCC<Props> = forwardRef<React.ElementRef<'button'>, Props>(
       }),
       block ? `w-full` : ``,
       loading ? `opacity-70` : ``,
+      props.round ? 'rounded-full' : 'rounded-md',
       props.className
     );
 
@@ -96,7 +98,7 @@ function InnerButtonContainerElement({
 function getClassNameBuilder() {
   return cva(
     [
-      `flex items-center justify-center rounded-md font-medium outline-none transition-colors focus:ring-2 ring-offset-1 dark:focus:ring-offset-black-500 disabled:cursor-not-allowed disabled:opacity-50`,
+      `flex items-center justify-center font-medium outline-none transition-colors focus:ring-2 ring-offset-1 dark:focus:ring-offset-transparent disabled:cursor-not-allowed disabled:opacity-50`,
     ],
     {
       variants: {
@@ -162,8 +164,8 @@ function getClassNameBuilder() {
 
 function getSizesClassName() {
   return {
-    normal: `text-sm py-2 px-3 h-10`,
-    small: `py-2 px-2 text-xs`,
+    normal: `text-sm py-2 px-4 h-10`,
+    small: `py-2 px-3 text-xs`,
     large: `py-2.5 px-6 h-12 text-lg h-12`,
     custom: ``,
   };

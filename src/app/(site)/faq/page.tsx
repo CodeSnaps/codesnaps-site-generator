@@ -20,6 +20,18 @@ const DATA = [
     question: `Where can I find my invoices?`,
     answer: `You can find your invoices in your account settings.`,
   },
+  {
+    question: `What payment methods do you accept?`,
+    answer: `We accept all major credit cards and PayPal.`,
+  },
+  {
+    question: `Can I upgrade or downgrade my plan?`,
+    answer: `Yes, you can upgrade or downgrade your plan at any time. You can do this from your account settings.`,
+  },
+  {
+    question: `Do you offer discounts for non-profits?`,
+    answer: `Yes, we offer a 50% discount for non-profits. Please contact us to learn more.`,
+  },
 ];
 
 const FAQPage = () => {

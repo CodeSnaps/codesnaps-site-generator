@@ -31,18 +31,20 @@ const links = {
 };
 
 const SiteNavigation = () => {
+  const className = 'dark:text-gray-400';
+
   return (
     <>
       <div className={'hidden items-center space-x-0.5 lg:flex'}>
         <NavigationMenu>
           <NavigationMenuItem
-            className={'flex lg:hidden'}
+            className={className + ' flex lg:hidden'}
             link={links.SignIn}
           />
 
-          <NavigationMenuItem link={links.About} />
-          <NavigationMenuItem link={links.Pricing} />
-          <NavigationMenuItem link={links.FAQ} />
+          <NavigationMenuItem className={className} link={links.About} />
+          <NavigationMenuItem className={className} link={links.Pricing} />
+          <NavigationMenuItem className={className} link={links.FAQ} />
         </NavigationMenu>
       </div>
 

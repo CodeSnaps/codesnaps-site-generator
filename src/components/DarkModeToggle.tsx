@@ -57,7 +57,7 @@ const DarkModeToggle = () => {
           data-cy={'dark-mode-toggle'}
           className={
             'm-auto !w-10 items-center justify-center !rounded-full' +
-            ' border-transparent' +
+            ' border-transparent p-0' +
             ' bg-transparent shadow hover:bg-transparent hover:shadow-md' +
             ' dark:border-black-300'
           }

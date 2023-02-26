@@ -48,7 +48,7 @@ function Footer() {
           >
             <div>
               <div className={'flex flex-col space-y-4'}>
-                <Heading type={5}>Our Company</Heading>
+                <Heading type={6}>Our Company</Heading>
 
                 <FooterSectionList>
                   <FooterLink>
@@ -66,7 +66,7 @@ function Footer() {
 
             <div>
               <div className={'flex flex-col space-y-4'}>
-                <Heading type={5}>Product</Heading>
+                <Heading type={6}>Product</Heading>
 
                 <FooterSectionList>
                   <FooterLink>
@@ -84,7 +84,7 @@ function Footer() {
 
             <div>
               <div className={'flex flex-col space-y-4'}>
-                <Heading type={5}>Legal</Heading>
+                <Heading type={6}>Legal</Heading>
 
                 <FooterSectionList>
                   <FooterLink>
@@ -117,7 +117,16 @@ function FooterSectionList(props: React.PropsWithChildren) {
 }
 
 function FooterLink(props: React.PropsWithChildren) {
-  return <li className={'text-sm 2xl:text-base'}>{props.children}</li>;
+  return (
+    <li
+      className={
+        'text-sm [&>a]:transition-colors [&>a]:hover:text-current' +
+        ' dark:[&>a]:hover:text-white'
+      }
+    >
+      {props.children}
+    </li>
+  );
 }
 
 export default Footer;
