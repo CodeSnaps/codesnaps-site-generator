@@ -36,7 +36,7 @@ const SiteNavigation = () => {
       <div className={'hidden items-center space-x-0.5 lg:flex'}>
         <NavigationMenu>
           <NavigationMenuItem
-            className={className + ' flex lg:hidden'}
+            className={'flex lg:hidden'}
             link={links.SignIn}
           />
 
