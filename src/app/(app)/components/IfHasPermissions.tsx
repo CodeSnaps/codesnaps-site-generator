@@ -26,11 +26,15 @@ import useCurrentUserRole from '~/lib/organizations/hooks/use-current-user-role'
 function IfHasPermissions({
   children,
   condition,
-}: React.PropsWithChildren<{ condition: (role: MembershipRole) => boolean }>) {
+  fallback = null,
+}: React.PropsWithChildren<{
+  condition: (role: MembershipRole) => boolean;
+  fallback?: React.ReactNode | null;
+}>) {
   const currentUserRole = useCurrentUserRole();
 
   if (currentUserRole === undefined || !condition(currentUserRole)) {
-    return null;
+    return fallback ? <>{fallback}</> : null;
   }
 
   return <>{children}</>;

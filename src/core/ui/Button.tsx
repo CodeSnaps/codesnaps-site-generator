@@ -49,6 +49,7 @@ const Button: React.FCC<Props> = forwardRef<React.ElementRef<'button'>, Props>(
     return (
       <button
         {...props}
+        tabIndex={href ? -1 : 0}
         ref={ref}
         className={className}
         disabled={loading || props.disabled}
@@ -106,7 +107,7 @@ function getClassNameBuilder() {
           primary: `ring-primary-200`,
           secondary: `ring-gray-200`,
           danger: `ring-red-200`,
-          transparent: `text-gray-800 focus:ring-gray-50 dark:focus:ring-black-300 ring-primary-50 hover:bg-gray-50 active:bg-gray-100 dark:text-gray-300 dark:ring-black-400 dark:hover:bg-black-400 dark:hover:text-white dark:active:bg-black-300`,
+          transparent: `text-gray-800 focus:ring-2 focus:ring-gray-50 dark:focus:ring-black-300 ring-primary-50 hover:bg-gray-50 active:bg-gray-100 dark:text-gray-300 dark:ring-black-400 dark:hover:bg-black-400 dark:hover:text-white dark:active:bg-black-300`,
           custom: ``,
         },
         variant: {

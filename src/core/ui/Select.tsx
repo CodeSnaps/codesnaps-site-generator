@@ -18,8 +18,8 @@ const SelectTrigger = React.forwardRef<
         rounded-md border bg-transparent py-1.5 px-2.5 ring-offset-1 transition-all
         duration-300 placeholder:text-gray-400 hover:bg-gray-50
         focus:outline-none focus:ring-2 focus:ring-primary-200 disabled:cursor-not-allowed
-        disabled:opacity-50 dark:border-black-200 dark:hover:border-black-100
-        dark:hover:bg-black-400 dark:focus:ring-primary-500/70 dark:focus:ring-offset-black-500`,
+        disabled:opacity-50 dark:border-black-200 dark:bg-black-400
+        dark:ring-primary-500/70 dark:hover:border-black-100 dark:hover:bg-black-300 dark:focus:ring-offset-black-400`,
       className
     )}
     {...props}

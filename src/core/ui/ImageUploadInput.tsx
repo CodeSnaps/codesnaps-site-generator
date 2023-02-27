@@ -99,7 +99,7 @@ const ImageUploadInput = forwardRef<React.ElementRef<'input'>, Props>(
         tabIndex={0}
         className={`
         relative flex h-10 cursor-pointer rounded-md border border-dashed border-gray-200 bg-white py-2 px-3 outline-none ring-offset-1 transition-all hover:bg-gray-50 focus:ring-2
-        focus:ring-primary-200 dark:border-black-200 dark:bg-black-500 dark:ring-offset-black-500 dark:hover:border-black-300 dark:focus:ring-primary-500/70`}
+        focus:ring-primary-200 dark:border-black-200 dark:bg-black-400 dark:hover:border-black-100 dark:focus:ring-primary-500/70 dark:focus:ring-offset-black-400`}
       >
         <input
           {...props}

@@ -120,7 +120,7 @@ function FooterLink(props: React.PropsWithChildren) {
   return (
     <li
       className={
-        'text-sm [&>a]:transition-colors [&>a]:hover:text-current' +
+        'text-sm [&>a]:transition-colors [&>a]:hover:text-gray-800' +
         ' dark:[&>a]:hover:text-white'
       }
     >

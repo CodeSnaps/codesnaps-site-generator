@@ -32,7 +32,7 @@ const Input = forwardRef<React.ElementRef<'input'>, Props>(
         rounded-md border border-gray-200 bg-white font-medium text-gray-800
         shadow-sm ring-primary-200 ring-offset-1 transition-all focus-within:ring-2
         hover:border-gray-300 hover:bg-gray-50 
-        dark:border-black-200 dark:bg-black-500
+        dark:border-black-200 dark:bg-black-400
         dark:text-gray-200 dark:focus-within:ring-primary-500/70 dark:focus-within:ring-offset-black-500
         dark:hover:border-black-100 dark:focus:bg-black-400 lg:text-sm`,
           className,

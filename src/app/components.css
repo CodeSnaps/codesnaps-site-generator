@@ -21,11 +21,11 @@
   .NavigationItem {
     @apply flex items-center justify-center
         rounded-md p-1 text-sm font-medium leading-loose
-        text-gray-600 transition-colors lg:px-2.5;
+        text-gray-600 transition-colors lg:px-2.5 outline-primary-200 dark:outline-primary-500/70;
   }
 
   .NavigationItemActive {
-    @apply text-primary-500;
+    @apply text-primary-500 dark:text-white;
   }
 
   .PillNavigationMenu .NavigationItemActive {

@@ -7,6 +7,7 @@ import { canChangeBilling } from '~/lib/organizations/permissions';
 
 import If from '~/core/ui/If';
 import Trans from '~/core/ui/Trans';
+import Alert from '~/core/ui/Alert';
 
 import PricingTable from '~/components/PricingTable';
 import IfHasPermissions from '~/app/(app)/components/IfHasPermissions';
@@ -19,7 +20,10 @@ const PlanSelectionForm: React.FCC<{
 }> = ({ organization, customerId }) => {
   return (
     <div className={'flex flex-col space-y-6'}>
-      <IfHasPermissions condition={canChangeBilling}>
+      <IfHasPermissions
+        condition={canChangeBilling}
+        fallback={<NoPermissionsAlert />}
+      >
         <div className={'flex w-full flex-col space-y-8'}>
           <PricingTable
             CheckoutButton={(props) => {
@@ -57,3 +61,15 @@ const PlanSelectionForm: React.FCC<{
 };
 
 export default PlanSelectionForm;
+
+function NoPermissionsAlert() {
+  return (
+    <Alert type={'warn'}>
+      <Alert.Heading>
+        <Trans i18nKey={'subscription:noPermissionsAlertHeading'} />
+      </Alert.Heading>
+
+      <Trans i18nKey={'subscription:noPermissionsAlertBody'} />
+    </Alert>
+  );
+}
