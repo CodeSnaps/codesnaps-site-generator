@@ -77,9 +77,10 @@ const DropdownMenuContent = React.forwardRef<
       className={classNames(
         'animate-in data-[side=bottom]:slide-in-from-top-2 w-screen md:w-auto' +
           ' data-[side=top]:slide-in-from-bottom-2 z-50 min-w-[8rem]' +
-          ' overflow-hidden border border-gray-50 bg-white p-1 lg:rounded-md' +
-          ' shadow-md dark:border-black-300 dark:bg-black-300' +
-          ' dark:text-gray-300',
+          ' overflow-hidden border border-transparent border-t-gray-50' +
+          ' bg-white p-1 shadow-xl dark:border-black-200 dark:bg-black-300' +
+          ' dark:shadow-[0_0_40px_0] dark:shadow-primary-600/10' +
+          ' dark:text-gray-300 lg:rounded-md',
         className
       )}
       {...props}

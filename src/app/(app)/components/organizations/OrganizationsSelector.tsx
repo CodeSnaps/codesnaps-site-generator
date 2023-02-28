@@ -65,7 +65,10 @@ const OrganizationsSelector = () => {
         onOpenChange={setIsSelectOpen}
         onValueChange={onOrganizationChange}
       >
-        <SelectTrigger data-cy={'organization-selector'}>
+        <SelectTrigger
+          data-cy={'organization-selector'}
+          className={'!bg-transparent'}
+        >
           <span
             className={'max-w-[5rem] text-sm lg:max-w-[12rem] lg:text-base'}
           >
@@ -77,7 +80,7 @@ const OrganizationsSelector = () => {
           </span>
         </SelectTrigger>
 
-        <SelectContent position={'popper'} collisionPadding={{ top: 100 }}>
+        <SelectContent position={'popper'}>
           <SelectArrow />
 
           <SelectGroup>

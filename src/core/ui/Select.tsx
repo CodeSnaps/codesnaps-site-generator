@@ -39,15 +39,16 @@ SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 const SelectContent = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
->(({ className, children, ...props }, ref) => (
+>(({ className, children, sideOffset = 4, ...props }, ref) => (
   <SelectPrimitive.Portal>
     <SelectPrimitive.Content
       ref={ref}
       className={classNames(
-        `animate-in fade-in-250 relative z-50 w-auto min-w-[8rem] overflow-hidden border
-          border-gray-50 bg-white shadow-xl dark:border-black-300 dark:bg-black-300 lg:rounded-md`,
+        `animate-in fade-in-250 relative z-50 w-auto min-w-[8rem] overflow-hidden border border-transparent
+          border-t-gray-50 bg-white shadow-xl dark:border-black-200 dark:bg-black-300 dark:shadow-[0_0_40px_0] dark:shadow-primary-600/10 lg:rounded-md`,
         className
       )}
+      sideOffset={sideOffset}
       {...props}
     >
       <SelectPrimitive.Viewport className={'flex flex-col space-y-0.5 p-1'}>
