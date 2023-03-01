@@ -30,7 +30,7 @@ const defaultVariant = `normal`;
 
 const Button: React.FCC<Props> = forwardRef<React.ElementRef<'button'>, Props>(
   function ButtonComponent(
-    { children, color, size, variant, block, loading, href, ...props },
+    { children, color, size, variant, block, loading, round, href, ...props },
     ref
   ) {
     const className = classNames(
@@ -40,7 +40,7 @@ const Button: React.FCC<Props> = forwardRef<React.ElementRef<'button'>, Props>(
       }),
       block ? `w-full` : ``,
       loading ? `opacity-70` : ``,
-      props.round ? 'rounded-full' : 'rounded-md',
+      round ? 'rounded-full' : 'rounded-md',
       props.className
     );
 
