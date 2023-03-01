@@ -69,7 +69,7 @@ const EmailLinkAuth: React.FC = () => {
           </TextField.Label>
         </TextField>
 
-        <Button size={'large'} loading={signInWithOtpMutation.isMutating}>
+        <Button loading={signInWithOtpMutation.isMutating}>
           <If
             condition={signInWithOtpMutation.isMutating}
             fallback={<Trans i18nKey={'auth:sendEmailLink'} />}

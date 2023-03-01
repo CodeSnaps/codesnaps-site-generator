@@ -15,7 +15,7 @@ const heading = HeadingFont({
   variable: '--font-family-heading',
   fallback: ['--font-family-sans'],
   preload: true,
-  weight: ['400'],
+  weight: ['400', '500'],
 });
 
 function Fonts() {
