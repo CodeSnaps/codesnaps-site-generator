@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useSearchParams } from 'next/navigation';
+import { ReadonlyURLSearchParams, useSearchParams } from 'next/navigation';
 
 import If from '~/core/ui/If';
 import Alert from '~/core/ui/Alert';
@@ -78,7 +78,11 @@ function useSubscriptionStatus() {
   return getStatus(params);
 }
 
-function getStatus(params: URLSearchParams) {
+function getStatus(params: ReadonlyURLSearchParams | null) {
+  if (!params) {
+    return;
+  }
+
   const error = params.has(SubscriptionStatusQueryParams.Error);
   const canceled = params.has(SubscriptionStatusQueryParams.Cancel);
   const success = params.has(SubscriptionStatusQueryParams.Success);
