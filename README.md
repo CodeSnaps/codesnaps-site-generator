@@ -1,8 +1,113 @@
+# MakerKit - SaaS Starter for Next.js and Supabase
+
+MakerKit is a SaaS starter project built with Next.js, Supabase and Tailwind CSS.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+### Requirements
+
+Ensure you have the following installed:
+
+- Node.js
+- Git
+- Docker
+
+### Cloning the Repository
+
+Clone this repository and name it according to your preferences:
+
+```
+git clone https://github.com/makerkit/next-supabase-saas-kit.git your-saas --depth=1
+```
+
+Move to the folder just cloned:
+
+```
+cd your-saas
+```
+
+Reinitialize Git and set this repository as your upstream fork, so you can
+pull updates when needed:
+
+```
+rm -rf .git
+git init
+git remote add upstream https://github.com/makerkit/next-supabase-saas-kit
+```
+
+We recommend to watch to the repository, so you know when there's an update.
+To pull the latest updates, use:
+
+```
+git pull upstream main --allow-unrelated-histories
+```
+
+In case we change the same files, you will need to resolve the conflicts.
+
+Alternatively, you can cherry-pick changes so to reduce the amount of
+conflicts across the files.
+
+### Installing the Node Modules
+
+Install the Node modules with the following command:
+
+```
+npm i
+```
+
+### Supabase
+
+First, run the Supabase stack:
+
+```bash
+npm run supabase:start
+```
+
+#### Adding the Supabase Keys to the Environment Variables
+
+If this is the first time you run this command, we will need to get the 
+Supabase keys and add them to our local environment variables configuration 
+file `.env.local`.
+
+When running the command, we will see a message like this:
+
+```bash
+> supabase start
+
+Applying migration 20221215192558_schema.sql...
+Seeding data supabase/seed.sql...
+Started supabase local development setup.
+
+         API URL: http://localhost:54321
+          DB URL: postgresql://postgres:postgres@localhost:54322/postgres
+      Studio URL: http://localhost:54323
+    Inbucket URL: http://localhost:54324
+      JWT secret: super-secret-jwt-token-with-at-least-32-characters-long
+        anon key: ****************************************************
+service_role key: ****************************************************
+```
+
+Now, we need to copy the `anon key` and `service_role key` values and add 
+them to the `.env.local` file:
+
+```
+SUPABASE_ANON_KEY=****************************************************
+SUPABASE_SERVICE_ROLE_KEY=****************************************************
+```
+
+#### Database types (optional)
+
+Now, generate the DB types with:
+
+```
+npm run typegen
+```
+
+### Next.js Server
+
+Then, run the Next.js development server:
 
 ```bash
 npm run dev
@@ -12,24 +117,34 @@ yarn dev
 pnpm dev
 ```
 
+### Running the Stripe CLI
+
+If you're testing Stripe, also run the Stripe server (requires Docker running):
+
+```
+npm run stripe:listen
+```
+
+Then, copy the printed webhook key and add it to your environment files.
+This can also be used for running the E2E tests.
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### After Creating your Supabase Project
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Make sure to add the environment variables to the provider you're deploying.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Running Tests
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Before running tests, add the required environment variables to your `.env.test` file:
 
-## Learn More
+```
+SUPABASE_URL=http://localhost:54321
+SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Retrieve the keys after starting the Supabase server and paste them in the `.env.test` file.
 
 ## Deploy on Vercel
 
