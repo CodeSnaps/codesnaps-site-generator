@@ -21,10 +21,11 @@ export async function POST(req: Request) {
   const { user } = await requireSession(client);
 
   const userId = user.id;
-  const parsedBody = await getBodySchema().safeParseAsync(req.body);
+  const body = await req.json();
+  const parsedBody = await getBodySchema().safeParseAsync(body);
 
   if (!parsedBody.success) {
-    return throwBadRequestException();
+    return throwBadRequestException(`Invalid request body`);
   }
 
   const organizationName = parsedBody.data.organization;
@@ -68,6 +69,6 @@ export async function POST(req: Request) {
 
 function getBodySchema() {
   return z.object({
-    organization: z.string(),
+    organization: z.string().trim().min(1),
   });
 }

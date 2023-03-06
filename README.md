@@ -34,6 +34,8 @@ pull updates when needed:
 ```
 rm -rf .git
 git init
+git add .
+git commit -am "Inital Commit"
 git remote add upstream https://github.com/makerkit/next-supabase-saas-kit
 ```
 
@@ -68,8 +70,7 @@ npm run supabase:start
 #### Adding the Supabase Keys to the Environment Variables
 
 If this is the first time you run this command, we will need to get the 
-Supabase keys and add them to our local environment variables configuration 
-file `.env.local`.
+Supabase keys and add them to our local environment variables configuration file `.env.local`.
 
 When running the command, we will see a message like this:
 
@@ -93,7 +94,7 @@ Now, we need to copy the `anon key` and `service_role key` values and add
 them to the `.env.local` file:
 
 ```
-SUPABASE_ANON_KEY=****************************************************
+NEXT_PUBLIC_SUPABASE_ANON_KEY=****************************************************
 SUPABASE_SERVICE_ROLE_KEY=****************************************************
 ```
 
@@ -128,6 +129,12 @@ npm run stripe:listen
 Then, copy the printed webhook key and add it to your environment files.
 This can also be used for running the E2E tests.
 
+The environment variable name is `STRIPE_WEBHOOK_SECRET`.
+
+```
+STRIPE_WEBHOOK_SECRET=whsec_***********************
+```
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ### After Creating your Supabase Project
@@ -140,7 +147,7 @@ Before running tests, add the required environment variables to your `.env.test`
 
 ```
 SUPABASE_URL=http://localhost:54321
-SUPABASE_ANON_KEY=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
 SUPABASE_SERVICE_ROLE_KEY=
 ```
 

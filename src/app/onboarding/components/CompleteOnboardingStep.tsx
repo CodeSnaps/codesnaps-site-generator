@@ -1,3 +1,5 @@
+'use client';
+
 import { useCallback, useEffect } from 'react';
 import useSWRMutation from 'swr/mutation';
 import { useRouter } from 'next/navigation';
@@ -49,7 +51,7 @@ function useCompleteOnboardingRequest() {
     }
   >();
 
-  const endpoint = `/onboarding`;
+  const endpoint = `/onboarding/complete`;
 
   return useSWRMutation(
     endpoint,

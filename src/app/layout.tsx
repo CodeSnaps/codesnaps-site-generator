@@ -16,10 +16,10 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const ii8n = await initializeServerI18n(getLanguageCookie());
+  const i18n = await initializeServerI18n(getLanguageCookie());
 
   return (
-    <html lang={ii8n.language} className={getClassName()}>
+    <html lang={i18n.language} className={getClassName()}>
       <Fonts />
       <ThemeSetter />
 
