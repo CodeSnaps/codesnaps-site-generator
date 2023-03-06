@@ -17,6 +17,8 @@ const loadAppData = async () => {
     const client = getSupabaseServerClient();
     const { user } = await requireSession(client);
 
+    console.log({ user });
+
     // if for any reason we're not able to fetch the user's data, we redirect
     // back to the login page
     if (!user) {
@@ -72,14 +74,8 @@ function redirectToOnboarding() {
   return redirectTo(configuration.paths.onboarding);
 }
 
-function redirectToLogin(redirectPath = configuration.paths.signIn) {
-  // we build the sign in URL
-  // appending the "returnUrl" query parameter so that we can redirect the user
-  // straight to where they were headed and the "signOut" parameter
-  // to force the client to sign the user out from the client SDK
-  const destination = `${redirectPath}?&signOut=true`;
-
-  return redirectTo(destination);
+function redirectToLogin() {
+  return redirectTo(configuration.paths.signIn);
 }
 
 function redirectToHomePage() {

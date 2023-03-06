@@ -1,10 +1,9 @@
 import { z } from 'zod';
-import { NextResponse } from 'next/server';
+import { redirect } from 'next/navigation';
 
 import getLogger from '~/core/logger';
 import requireSession from '~/lib/user/require-session';
 import completeOnboarding from '~/lib/server/onboarding/complete-onboarding';
-import { createOrganizationIdCookie } from '~/lib/server/cookies/organization.cookie';
 
 import {
   throwBadRequestException,
@@ -12,10 +11,10 @@ import {
 } from '~/core/http-exceptions';
 
 import getSupabaseServerClient from '~/core/supabase/server-client';
+import configuration from '~/configuration';
 
 export async function POST(req: Request) {
   const logger = getLogger();
-  const response = new NextResponse();
 
   const client = await getSupabaseServerClient();
   const { user } = await requireSession(client);
@@ -43,28 +42,30 @@ export async function POST(req: Request) {
     `Completing onboarding for user...`
   );
 
-  try {
-    // complete onboarding and get the organization id created
-    const organizationId = await completeOnboarding(payload);
+  // complete onboarding and get the organization id created
+  const { data: organizationId, error } = await completeOnboarding(payload);
 
-    logger.info(
+  if (error) {
+    logger.error(
       {
+        error,
         userId,
-        organizationId,
       },
-      `Onboarding successfully completed for user`
+      `Error completing onboarding for user`
     );
 
-    response.cookies.set(createOrganizationIdCookie(organizationId));
-
-    return NextResponse.json({
-      success: true,
-    });
-  } catch (error) {
-    logger.error({ error }, `Failed to complete onboarding`);
-
-    return throwInternalServerErrorException();
+    throw throwInternalServerErrorException();
   }
+
+  logger.info(
+    {
+      userId,
+      organizationId,
+    },
+    `Onboarding successfully completed for user`
+  );
+
+  return redirect(configuration.paths.appHome);
 }
 
 function getBodySchema() {

@@ -20,8 +20,6 @@ const CompleteOnboardingStep: React.FC<{
 
   const callRequestCallback = useCallback(async () => {
     await submit.trigger(data);
-
-    return router.push(configuration.paths.appHome);
   }, [submit, data, router]);
 
   useEffect(() => {

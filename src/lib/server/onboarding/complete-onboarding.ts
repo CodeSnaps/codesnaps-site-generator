@@ -20,18 +20,12 @@ async function completeOnboarding({
   organizationName,
   client,
 }: Params) {
-  const { data, error } = await client
+  return client
     .rpc('create_new_organization', {
       user_id: userId,
       org_name: organizationName,
     })
     .single<number>();
-
-  if (error) {
-    throw error;
-  }
-
-  return data;
 }
 
 export default completeOnboarding;

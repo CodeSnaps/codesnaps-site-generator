@@ -40,10 +40,10 @@ const DarkModeToggle = () => {
     const shouldUseSystemDarkTheme = isSystemTheme && isDarkSystemTheme();
 
     if (isDarkTheme || shouldUseSystemDarkTheme) {
-      return <MoonIcon className={'h-5'} />;
+      return <MoonIcon className={'h-4'} />;
     }
 
-    return <SunIcon className={'h-5'} />;
+    return <SunIcon className={'h-4'} />;
   }, [isSystemTheme, isDarkTheme]);
 
   useEffect(() => {

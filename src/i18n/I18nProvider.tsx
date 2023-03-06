@@ -1,12 +1,13 @@
 'use client';
 
 import { Suspense } from 'react';
+import type { i18n } from 'i18next';
 
 import initializeI18nClient from '~/i18n/i18n.client';
 import initializeServerI18n from '~/i18n/i18n.server';
 import isBrowser from '~/core/generic/is-browser';
 
-let i18nDidInitialize = false;
+let client: i18n;
 
 function I18nProvider(
   props: React.PropsWithChildren<{
@@ -27,7 +28,7 @@ function I18nInitializer(
     lang?: string;
   }>
 ) {
-  if (!i18nDidInitialize) {
+  if (!client) {
     throw initializeI18n(props.lang);
   }
 
@@ -35,13 +36,17 @@ function I18nInitializer(
 }
 
 async function initializeI18n(lang?: string) {
-  const isServer = !isBrowser();
+  client = isBrowser()
+    ? await initializeI18nClient(lang)
+    : await initializeServerI18n(lang);
 
-  if (isServer) {
-    await initializeServerI18n(lang);
-  } else {
-    await initializeI18nClient(lang);
-  }
+  console.log(isBrowser() ? 'client' : 'server');
 
-  i18nDidInitialize = true;
+  console.log(
+    client.getFixedT(client.language)('auth:doNotHaveAccountYet') ?? 'nope'
+  );
+
+  console.log(
+    client.getFixedT(client.language)('common:emailAddress') ?? 'nope'
+  );
 }

@@ -6,7 +6,7 @@ import Backend from 'i18next-http-backend';
 
 import getI18nSettings, { I18N_COOKIE_NAME } from './i18n.settings';
 
-function initializeI18nClient(lng?: Maybe<string>, ns?: string[]) {
+async function initializeI18nClient(lng?: Maybe<string>, ns?: string[]) {
   const settings = getI18nSettings(lng, ns);
 
   return i18next
@@ -20,7 +20,7 @@ function initializeI18nClient(lng?: Maybe<string>, ns?: string[]) {
       },
       detection: {
         order: ['htmlTag'],
-        caches: ['cookie', 'localStorage'],
+        caches: ['cookie'],
         lookupCookie: I18N_COOKIE_NAME,
       },
     })
