@@ -39,14 +39,4 @@ async function initializeI18n(lang?: string) {
   client = isBrowser()
     ? await initializeI18nClient(lang)
     : await initializeServerI18n(lang);
-
-  console.log(isBrowser() ? 'client' : 'server');
-
-  console.log(
-    client.getFixedT(client.language)('auth:doNotHaveAccountYet') ?? 'nope'
-  );
-
-  console.log(
-    client.getFixedT(client.language)('common:emailAddress') ?? 'nope'
-  );
 }

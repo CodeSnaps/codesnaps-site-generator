@@ -8,7 +8,9 @@ const CSRF_TOKEN_HEADER = 'X-CSRF-Token';
 const CSRF_SECRET_COOKIE = 'csrfSecret';
 
 export const config = {
-  matcher: ['/((?!api/stripe/webhook).)*'],
+  matcher: [
+    '/((?!_next/static|_next/image|favicon.ico|locales|assets|api/stripe/webhook).*)',
+  ],
 };
 
 const csrfMiddleware = csrf({
@@ -41,11 +43,12 @@ async function withCsrfMiddleware(request: NextRequest) {
 
     const response = NextResponse.next({ request: { headers } });
 
-    response.cookies.set(
-      CSRF_SECRET_COOKIE,
-      (csrfResponse.cookies.get(CSRF_SECRET_COOKIE)?.value ?? '') ||
-        (request.cookies.get(CSRF_SECRET_COOKIE)?.value ?? '')
-    );
+    const nextCsrfSecret =
+      csrfResponse.cookies.get(CSRF_SECRET_COOKIE)?.value ?? '';
+
+    if (nextCsrfSecret) {
+      response.cookies.set(CSRF_SECRET_COOKIE, nextCsrfSecret);
+    }
 
     return response;
   }

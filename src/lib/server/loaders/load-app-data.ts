@@ -17,8 +17,6 @@ const loadAppData = async () => {
     const client = getSupabaseServerClient();
     const { user } = await requireSession(client);
 
-    console.log({ user });
-
     // if for any reason we're not able to fetch the user's data, we redirect
     // back to the login page
     if (!user) {
@@ -51,8 +49,10 @@ const loadAppData = async () => {
       return redirectToOnboarding();
     }
 
+    const csrfToken = getCsrfToken();
+
     return {
-      csrfToken: getCsrfToken(),
+      csrfToken,
       session: user,
       user: userRecord,
       organization: organizationData?.organization,
