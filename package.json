@@ -50,7 +50,7 @@
     "@sentry/node": "^7.41.0",
     "@sentry/react": "^7.41.0",
     "@sentry/tracing": "^7.41.0",
-    "@supabase/auth-helpers-nextjs": "^0.5.5",
+    "@supabase/auth-helpers-nextjs": "^0.5.6",
     "@supabase/supabase-js": "^2.10.0",
     "classnames": "^2.3.2",
     "csrf": "^3.1.0",
@@ -97,7 +97,7 @@
     "postcss": "^8.4.21",
     "prettier": "2.8.4",
     "prettier-plugin-tailwindcss": "^0.2.4",
-    "supabase": "1.42.1",
+    "supabase": "1.42.3",
     "tailwindcss": "^3.2.7"
   }
 }
