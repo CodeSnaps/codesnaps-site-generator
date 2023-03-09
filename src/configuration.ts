@@ -37,6 +37,7 @@ const configuration = {
     signIn: '/auth/sign-in',
     signUp: '/auth/sign-up',
     signInFromLink: '/auth/link',
+    signInMfa: '/auth/verify',
     onboarding: `/onboarding`,
     appHome: '/dashboard',
     settings: {

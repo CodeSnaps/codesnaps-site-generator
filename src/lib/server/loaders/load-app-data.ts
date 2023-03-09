@@ -17,13 +17,15 @@ import getLanguageCookie from '~/i18n/get-language-cookie';
 const loadAppData = async () => {
   try {
     const client = getSupabaseServerClient();
-    const { user } = await requireSession(client);
+    const sessionResult = await requireSession(client);
 
-    // if for any reason we're not able to fetch the user's data, we redirect
-    // back to the login page
-    if (!user) {
-      return redirectToLogin();
+    // if the session returns a redirect object,
+    // we simply return it to the caller
+    if ('redirect' in sessionResult) {
+      return sessionResult;
     }
+
+    const user = sessionResult.user;
 
     // we fetch the user record from the Database
     // which is a separate object from the auth metadata
@@ -76,10 +78,6 @@ const loadAppData = async () => {
 
 function redirectToOnboarding() {
   return redirectTo(configuration.paths.onboarding);
-}
-
-function redirectToLogin() {
-  return redirectTo(configuration.paths.signIn);
 }
 
 function redirectToHomePage() {

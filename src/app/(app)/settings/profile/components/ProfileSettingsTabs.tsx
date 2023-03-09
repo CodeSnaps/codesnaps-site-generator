@@ -12,6 +12,10 @@ const links = {
     path: '/settings/profile',
     label: 'profile:generalTab',
   },
+  Authentication: {
+    path: '/settings/profile/authentication',
+    label: 'profile:authenticationTab',
+  },
   Email: {
     path: '/settings/profile/email',
     label: 'profile:emailTab',
@@ -50,6 +54,11 @@ const ProfileSettingsTabs = () => {
             depth={0}
             className={itemClassName}
             link={links.General}
+          />
+
+          <NavigationItem
+            className={itemClassName}
+            link={links.Authentication}
           />
 
           <NavigationItem
