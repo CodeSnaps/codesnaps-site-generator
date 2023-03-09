@@ -2,11 +2,10 @@
 
 import { useCallback, useEffect } from 'react';
 import useSWRMutation from 'swr/mutation';
-import { useRouter } from 'next/navigation';
 
 import Spinner from '~/core/ui/Spinner';
 import useApiRequest from '~/core/hooks/use-api';
-import configuration from '~/configuration';
+import useCsrfTokenHeader from '~/core/hooks/use-csrf-token-header';
 
 interface CompleteOnboardingStepData {
   organization: string;
@@ -16,11 +15,10 @@ const CompleteOnboardingStep: React.FC<{
   data: CompleteOnboardingStepData;
 }> = ({ data }) => {
   const submit = useCompleteOnboardingRequest();
-  const router = useRouter();
 
   const callRequestCallback = useCallback(async () => {
     await submit.trigger(data);
-  }, [submit, data, router]);
+  }, [submit, data]);
 
   useEffect(() => {
     if (submit.isMutating || submit.error || submit.data) {
@@ -48,7 +46,7 @@ function useCompleteOnboardingRequest() {
       organization: string;
     }
   >();
-
+  const csrfTokenHeader = useCsrfTokenHeader();
   const endpoint = `/onboarding/complete`;
 
   return useSWRMutation(
@@ -67,6 +65,7 @@ function useCompleteOnboardingRequest() {
         path,
         method: 'POST',
         body,
+        headers: csrfTokenHeader,
       });
     }
   );

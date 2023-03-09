@@ -1,7 +1,12 @@
-import getSupabaseServerClient from '~/core/supabase/server-client';
 import configuration from '~/configuration';
 
+import getSupabaseServerClient from '~/core/supabase/server-client';
+import initializeServerI18n from '~/i18n/i18n.server';
+import getLanguageCookie from '~/i18n/get-language-cookie';
+
 const loadAuthPageData = async () => {
+  const { language } = await initializeServerI18n(getLanguageCookie());
+
   try {
     const client = getSupabaseServerClient();
 
@@ -16,9 +21,13 @@ const loadAuthPageData = async () => {
       };
     }
 
-    return {};
+    return {
+      language,
+    };
   } catch (e) {
-    return {};
+    return {
+      language,
+    };
   }
 };
 

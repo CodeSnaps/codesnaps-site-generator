@@ -1,7 +1,3 @@
-import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
-import invariant from 'tiny-invariant';
-import fetch from 'nodemailer/lib/fetch';
-
 // we use a namespace not to pollute the IDE with methods from the tests
 const authPageObject = {
   getDefaultUserEmail: () => Cypress.env(`USER_EMAIL`) as string,

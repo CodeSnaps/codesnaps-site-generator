@@ -1,7 +1,5 @@
 import { useCallback, useRef } from 'react';
-import useCsrfToken from '~/core/hooks/use-csrf-token';
-
-const CSRF_TOKEN_HEADER = 'x-csrf-token';
+import useCsrfTokenHeader from '~/core/hooks/use-csrf-token-header';
 
 /**
  * @name useApiRequest
@@ -12,7 +10,7 @@ const CSRF_TOKEN_HEADER = 'x-csrf-token';
  */
 function useApiRequest<Resp = unknown, Body = void>() {
   const headersRef = useRef<StringObject>({});
-  const csrfToken = useCsrfToken();
+  const csrfTokenHeader = useCsrfTokenHeader();
 
   return useCallback(
     async (params: {
@@ -29,8 +27,11 @@ function useApiRequest<Resp = unknown, Body = void>() {
       }
 
       // add the CSRF token to the request headers if it exists
-      if (csrfToken) {
-        headersRef.current[CSRF_TOKEN_HEADER] = csrfToken;
+      if (csrfTokenHeader['X-CSRF-Token']) {
+        headersRef.current = {
+          ...headersRef.current,
+          ...csrfTokenHeader,
+        };
       }
 
       // execute the fetch request
@@ -41,7 +42,7 @@ function useApiRequest<Resp = unknown, Body = void>() {
         headersRef.current
       );
     },
-    [csrfToken]
+    [csrfTokenHeader]
   );
 }
 

@@ -2,18 +2,24 @@
 
 import { useCallback, useState } from 'react';
 
+import If from '~/core/ui/If';
+import CsrfTokenContext from '~/lib/contexts/csrf';
+
 import OrganizationInfoStep, {
   OrganizationInfoStepData,
 } from './OrganizationInfoStep';
 
 import CompleteOnboardingStep from './CompleteOnboardingStep';
-import If from '~/core/ui/If';
 
 interface Data {
   organization: string;
 }
 
-function OnboardingContainer() {
+function OnboardingContainer(
+  props: React.PropsWithChildren<{
+    csrfToken: string | null;
+  }>
+) {
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState<Data>();
 
@@ -29,15 +35,17 @@ function OnboardingContainer() {
   );
 
   return (
-    <div className={'w-9/12'}>
-      <If condition={currentStep === 0}>
-        <OrganizationInfoStep onSubmit={onFirstStepSubmitted} />
-      </If>
+    <CsrfTokenContext.Provider value={props.csrfToken}>
+      <div className={'w-9/12'}>
+        <If condition={currentStep === 0}>
+          <OrganizationInfoStep onSubmit={onFirstStepSubmitted} />
+        </If>
 
-      <If condition={currentStep === 1 && formData}>
-        {(formData) => <CompleteOnboardingStep data={formData} />}
-      </If>
-    </div>
+        <If condition={currentStep === 1 && formData}>
+          {(formData) => <CompleteOnboardingStep data={formData} />}
+        </If>
+      </div>
+    </CsrfTokenContext.Provider>
   );
 }
 

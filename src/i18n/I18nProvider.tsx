@@ -2,10 +2,10 @@
 
 import { Suspense } from 'react';
 import type { i18n } from 'i18next';
-
-import initializeI18nClient from '~/i18n/i18n.client';
-import initializeServerI18n from '~/i18n/i18n.server';
 import isBrowser from '~/core/generic/is-browser';
+
+import initializeClientI18n from '~/i18n/i18n.client';
+import initializeServerI18n from '~/i18n/i18n.server';
 
 let client: i18n;
 
@@ -29,14 +29,17 @@ function I18nInitializer(
   }>
 ) {
   if (!client) {
-    throw initializeI18n(props.lang);
+    throw withI18nClient(props.lang);
   }
 
   return <>{props.children}</>;
 }
 
-async function initializeI18n(lang?: string) {
-  client = isBrowser()
-    ? await initializeI18nClient(lang)
-    : await initializeServerI18n(lang);
+async function withI18nClient(lang?: string) {
+  if (isBrowser()) {
+    client = await initializeClientI18n(lang);
+    console.log(client, lang);
+  } else {
+    client = await initializeServerI18n(lang);
+  }
 }

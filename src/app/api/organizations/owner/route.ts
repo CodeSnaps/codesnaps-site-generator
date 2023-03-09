@@ -16,13 +16,7 @@ import requireSession from '~/lib/user/require-session';
 import { getUserDataById } from '~/lib/server/queries';
 import { transferOwnership } from '~/lib/memberships/mutations';
 
-type Params = {
-  params: {
-    organization: string;
-  };
-};
-
-export async function PUT(req: Request, { params }: Params) {
+export async function PUT(req: Request) {
   const result = await getBodySchema().safeParseAsync(await req.json());
 
   // validate the form data

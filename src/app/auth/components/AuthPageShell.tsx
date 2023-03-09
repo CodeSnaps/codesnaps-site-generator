@@ -1,7 +1,13 @@
 import Logo from '~/core/ui/Logo';
 import SlideUpTransition from '~/core/ui/SlideUpTransition';
+import I18nProvider from '~/i18n/I18nProvider';
 
-function AuthPageShell({ children }: React.PropsWithChildren) {
+function AuthPageShell({
+  children,
+  language,
+}: React.PropsWithChildren<{
+  language?: string;
+}>) {
   return (
     <SlideUpTransition>
       <div
@@ -14,7 +20,7 @@ function AuthPageShell({ children }: React.PropsWithChildren) {
         >
           <Logo />
 
-          {children}
+          <I18nProvider lang={language}>{children}</I18nProvider>
         </div>
       </div>
     </SlideUpTransition>

@@ -1,15 +1,21 @@
+import { use } from 'react';
+
 import AuthPageShell from '~/app/auth/components/AuthPageShell';
-import useCurrentLanguage from '~/i18n/use-current-language';
-import I18nProvider from '~/i18n/I18nProvider';
+import initializeServerI18n from '~/i18n/i18n.server';
+import getLanguageCookie from '~/i18n/get-language-cookie';
 
 function InvitePageLayout({ children }: React.PropsWithChildren) {
-  const lang = useCurrentLanguage();
+  const { language } = use(loadInvitePageData());
 
-  return (
-    <I18nProvider lang={lang}>
-      <AuthPageShell>{children}</AuthPageShell>
-    </I18nProvider>
-  );
+  return <AuthPageShell language={language}>{children}</AuthPageShell>;
 }
 
 export default InvitePageLayout;
+
+async function loadInvitePageData() {
+  const { language } = await initializeServerI18n(getLanguageCookie());
+
+  return {
+    language,
+  };
+}

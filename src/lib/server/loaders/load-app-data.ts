@@ -11,6 +11,8 @@ import requireSession from '~/lib/user/require-session';
 import getLogger from '~/core/logger';
 
 import configuration from '~/configuration';
+import initializeServerI18n from '~/i18n/i18n.server';
+import getLanguageCookie from '~/i18n/get-language-cookie';
 
 const loadAppData = async () => {
   try {
@@ -50,8 +52,10 @@ const loadAppData = async () => {
     }
 
     const csrfToken = getCsrfToken();
+    const { language } = await initializeServerI18n(getLanguageCookie());
 
     return {
+      language,
       csrfToken,
       session: user,
       user: userRecord,

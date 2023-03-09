@@ -16,9 +16,12 @@ import OrganizationContext from '~/lib/contexts/organization';
 import CsrfTokenContext from '~/lib/contexts/csrf';
 import SidebarContext from '~/lib/contexts/sidebar';
 import UserSessionContext from '~/core/session/contexts/user-session';
+import I18nProvider from '~/i18n/I18nProvider';
+
 import { setCookie } from '~/core/generic/cookies';
 
 interface Data {
+  language: string;
   csrfToken: string | null;
   session: User;
   user: UserData;
@@ -71,17 +74,19 @@ const RouteShell: React.FCC<{
     <UserSessionContext.Provider value={{ userSession, setUserSession }}>
       <OrganizationContext.Provider value={{ organization, setOrganization }}>
         <CsrfTokenContext.Provider value={data.csrfToken}>
-          <GuardedPage whenSignedOut={'/'}>
-            <main>
-              <Toaster />
+          <I18nProvider lang={data.language}>
+            <GuardedPage whenSignedOut={'/'}>
+              <main>
+                <Toaster />
 
-              <RouteShellWithSidebar
-                collapsed={data.ui.sidebarState === 'collapsed'}
-              >
-                {children}
-              </RouteShellWithSidebar>
-            </main>
-          </GuardedPage>
+                <RouteShellWithSidebar
+                  collapsed={data.ui.sidebarState === 'collapsed'}
+                >
+                  {children}
+                </RouteShellWithSidebar>
+              </main>
+            </GuardedPage>
+          </I18nProvider>
         </CsrfTokenContext.Provider>
       </OrganizationContext.Provider>
     </UserSessionContext.Provider>
