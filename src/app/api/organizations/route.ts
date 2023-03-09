@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { NextResponse } from 'next/server';
+import { redirect } from 'next/navigation';
 
 import getLogger from '~/core/logger';
 import { throwInternalServerErrorException } from '~/core/http-exceptions';
@@ -12,9 +13,14 @@ export async function POST(req: Request) {
   const client = getSupabaseServerClient();
 
   try {
-    const session = await requireSession(client);
+    const sessionResult = await requireSession(client);
+
+    if ('redirect' in sessionResult) {
+      return redirect(sessionResult.destination);
+    }
+
     const { organization } = await getBodySchema().parseAsync(await req.json());
-    const userId = session.user.id;
+    const userId = sessionResult.user.id;
 
     logger.info(
       {

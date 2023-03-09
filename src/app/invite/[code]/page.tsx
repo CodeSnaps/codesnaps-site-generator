@@ -11,6 +11,9 @@ import getSupabaseServerClient from '~/core/supabase/server-client';
 import { getMembershipByInviteCode } from '~/lib/memberships/queries';
 import ExistingUserInviteForm from '~/app/invite/components/ExistingUserInviteForm';
 import NewUserInviteForm from '~/app/invite/components/NewUserInviteForm';
+import I18nProvider from '~/i18n/I18nProvider';
+import initializeServerI18n from '~/i18n/i18n.server';
+import getLanguageCookie from '~/i18n/get-language-cookie';
 
 interface Context {
   params: {
@@ -32,7 +35,7 @@ const InvitePage = ({ params }: Context) => {
   const organization = data.membership.organization;
 
   return (
-    <>
+    <I18nProvider lang={data.language}>
       <Heading type={4}>
         <Trans
           i18nKey={'auth:joinOrganizationHeading'}
@@ -63,7 +66,7 @@ const InvitePage = ({ params }: Context) => {
       <If condition={data.user} fallback={<NewUserInviteForm />}>
         {(user) => <ExistingUserInviteForm user={user} />}
       </If>
-    </>
+    </I18nProvider>
   );
 };
 
@@ -110,10 +113,13 @@ async function loadInviteData(code: string) {
     const { data: userSession } = await adminClient.auth.getSession();
     const user = userSession?.session?.user;
 
+    const { language } = await initializeServerI18n(getLanguageCookie());
+
     return {
       user,
       membership,
       code,
+      language,
     };
   } catch (error) {
     logger.error(

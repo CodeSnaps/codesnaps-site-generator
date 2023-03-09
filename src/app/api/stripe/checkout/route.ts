@@ -41,8 +41,13 @@ export async function POST(request: Request) {
   const client = getSupabaseServerClient();
 
   // require the user to be logged in
-  const session = await requireSession(client);
-  const userId = session.user.id;
+  const sessionResult = await requireSession(client);
+
+  if ('redirect' in sessionResult) {
+    return redirect(sessionResult.destination);
+  }
+
+  const userId = sessionResult.user.id;
 
   const currentOrganizationId = Number(
     await parseOrganizationIdCookie(cookies())

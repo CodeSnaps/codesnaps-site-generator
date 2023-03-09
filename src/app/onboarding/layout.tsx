@@ -52,8 +52,14 @@ export default OnboardingLayout;
 async function loadData() {
   try {
     const client = getSupabaseServerClient();
-    const session = await requireSession(client);
-    const userData = await getUserDataById(client, session.user.id);
+    const sessionResult = await requireSession(client);
+
+    if ('redirect' in sessionResult) {
+      return sessionResult;
+    }
+
+    const user = sessionResult.user;
+    const userData = await getUserDataById(client, user.id);
 
     await initializeServerI18n(getLanguageCookie());
 
@@ -62,7 +68,7 @@ async function loadData() {
     // so that the record wil be created after the end of the flow
     if (!userData) {
       const response = {
-        auth: session.user || undefined,
+        auth: user || undefined,
         data: userData ?? undefined,
         role: undefined,
       };
@@ -89,7 +95,7 @@ async function loadData() {
     }
 
     return {
-      auth: session.user,
+      auth: user,
       data: userData,
       role: undefined,
     };

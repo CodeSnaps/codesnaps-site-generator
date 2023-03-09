@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
+import { redirect } from 'next/navigation';
 
 import { z } from 'zod';
 
@@ -22,8 +23,13 @@ export async function POST(request: Request) {
 
   const organizationId = Number(await parseOrganizationIdCookie(cookies()));
   const client = getSupabaseServerClient();
-  const { user } = await requireSession(client);
-  const inviterId = user.id;
+  const sessionResult = await requireSession(client);
+
+  if ('redirect' in sessionResult) {
+    return redirect(sessionResult.destination);
+  }
+
+  const inviterId = sessionResult.user.id;
 
   // throw an error when we cannot retrieve the inviter's id or the organization id
   if (!inviterId || !organizationId) {

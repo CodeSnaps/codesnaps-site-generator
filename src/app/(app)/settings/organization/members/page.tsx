@@ -111,10 +111,16 @@ async function loadMembers() {
     await parseOrganizationIdCookie(cookies())
   );
 
-  const { user } = await requireSession(client);
+  const sessionResult = await requireSession(client);
+
+  if ('redirect' in sessionResult) {
+    return redirect(sessionResult.destination);
+  }
 
   if (Number.isNaN(organizationId)) {
-    organizationId = await getFirstOrganizationByUserId(client, user.id).then(
+    const userId = sessionResult.user.id;
+
+    organizationId = await getFirstOrganizationByUserId(client, userId).then(
       (result) => result?.data?.organization.id
     );
   }

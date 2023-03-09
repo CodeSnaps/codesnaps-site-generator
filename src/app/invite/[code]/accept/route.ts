@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { redirect } from 'next/navigation';
 
 import { throwInternalServerErrorException } from '~/core/http-exceptions';
 import getLogger from '~/core/logger';
@@ -20,7 +21,13 @@ export async function POST(request: Request, { params }: Context) {
   const logger = getLogger();
   const adminClient = getSupabaseServerClient({ admin: true });
 
-  const { user } = await requireSession(adminClient);
+  const sessionResult = await requireSession(adminClient);
+
+  if ('redirect' in sessionResult) {
+    return redirect(sessionResult.destination);
+  }
+
+  const user = sessionResult.user;
   const userId = user.id;
 
   logger.info(

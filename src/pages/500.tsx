@@ -1,28 +1,30 @@
 import '../app/globals.css';
 
 import Head from 'next/head';
+import { GetStaticPropsContext } from 'next';
 
 import configuration from '~/configuration';
 import Button from '~/core/ui/Button';
 import Heading from '~/core/ui/Heading';
 import Trans from '~/core/ui/Trans';
-import Fonts from '~/components/Fonts';
+import { PagesDirectoryFonts } from '~/components/Fonts';
 
 import SiteHeader from '~/app/(site)/components/SiteHeader';
-import ServerI18nProvider from '~/i18n/ServerI18nProvider';
+import I18nProvider from '~/i18n/I18nProvider';
 
-const InternalServerErrorPage = () => {
+const InternalServerErrorPage: React.FC<{
+  locale: string;
+}> = ({ locale }) => {
   return (
     <>
-      <Fonts />
-
       <Head>
         <title key="title">{`An error occurred - ${configuration.site.name}`}</title>
+        <PagesDirectoryFonts />
       </Head>
 
       <SiteHeader />
 
-      <ServerI18nProvider>
+      <I18nProvider lang={locale}>
         <div
           className={
             'm-auto flex min-h-[50vh] w-full items-center justify-center'
@@ -62,8 +64,18 @@ const InternalServerErrorPage = () => {
             </div>
           </div>
         </div>
-      </ServerI18nProvider>
+      </I18nProvider>
     </>
   );
 };
 export default InternalServerErrorPage;
+
+export function getStaticProps(context: GetStaticPropsContext) {
+  const locale = context.locale ?? context.defaultLocale ?? 'en';
+
+  return {
+    props: {
+      locale,
+    },
+  };
+}

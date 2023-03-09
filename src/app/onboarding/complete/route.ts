@@ -17,9 +17,13 @@ export async function POST(req: Request) {
   const logger = getLogger();
 
   const client = await getSupabaseServerClient();
-  const { user } = await requireSession(client);
+  const sessionResult = await requireSession(client);
 
-  const userId = user.id;
+  if ('redirect' in sessionResult) {
+    return redirect(sessionResult.destination);
+  }
+
+  const userId = sessionResult.user.id;
   const body = await req.json();
   const parsedBody = await getBodySchema().safeParseAsync(body);
 

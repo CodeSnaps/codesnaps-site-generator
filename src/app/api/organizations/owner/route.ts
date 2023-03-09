@@ -15,6 +15,7 @@ import { parseOrganizationIdCookie } from '~/lib/server/cookies/organization.coo
 import requireSession from '~/lib/user/require-session';
 import { getUserDataById } from '~/lib/server/queries';
 import { transferOwnership } from '~/lib/memberships/mutations';
+import { redirect } from 'next/navigation';
 
 export async function PUT(req: Request) {
   const result = await getBodySchema().safeParseAsync(await req.json());
@@ -30,8 +31,13 @@ export async function PUT(req: Request) {
   const organizationId = Number(await parseOrganizationIdCookie(cookies()));
 
   const targetUserMembershipId = result.data.membershipId;
-  const session = await requireSession(client);
-  const currentUserId = session.user.id;
+  const sessionResult = await requireSession(client);
+
+  if ('redirect' in sessionResult) {
+    return redirect(sessionResult.destination);
+  }
+
+  const currentUserId = sessionResult.user.id;
   const currentUser = await getUserDataById(client, currentUserId);
 
   logger.info(
