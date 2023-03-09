@@ -31,13 +31,7 @@ function ExistingUserInviteForm(
 
   return (
     <GuardedPage whenSignedOut={redirectOnSignOut}>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          return onInviteAccepted();
-        }}
-        className={'flex flex-col space-y-8'}
-      >
+      <div className={'flex flex-col space-y-4'}>
         <p className={'text-center text-sm'}>
           <Trans
             i18nKey={'auth:clickToAcceptAs'}
@@ -46,7 +40,12 @@ function ExistingUserInviteForm(
           />
         </p>
 
-        <Button data-cy={'accept-invite-submit-button'} type={'submit'}>
+        <Button
+          block
+          onClick={onInviteAccepted}
+          data-cy={'accept-invite-submit-button'}
+          type={'submit'}
+        >
           <Trans i18nKey={'auth:acceptInvite'} />
         </Button>
 
@@ -73,7 +72,7 @@ function ExistingUserInviteForm(
             </Button>
           </div>
         </div>
-      </form>
+      </div>
     </GuardedPage>
   );
 }

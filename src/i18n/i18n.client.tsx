@@ -16,14 +16,13 @@ function initializeI18nClient(lng?: Maybe<string>, ns?: string[]) {
   }
 
   promise = new Promise<i18n>((resolve, reject) => {
-    i18next
+    return i18next
       .use(initReactI18next)
       .use(Backend)
       .use(LanguageDetector)
       .init(
         {
           ...settings,
-          debug: true,
           backend: {
             loadPath: '/locales/{{lng}}/{{ns}}.json',
           },
