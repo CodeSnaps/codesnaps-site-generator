@@ -1,5 +1,5 @@
 import type UserData from '~/core/session/types/user-data';
-import type { User } from '@supabase/gotrue-js';
+import type { Session } from '@supabase/gotrue-js';
 import type MembershipRole from '~/lib/organizations/types/membership-role';
 
 /**
@@ -7,7 +7,7 @@ import type MembershipRole from '~/lib/organizations/types/membership-role';
  * Supabase Auth and the user's record in Database
  */
 interface UserSession {
-  auth: Maybe<User>;
+  auth: Maybe<Session>;
   data: Maybe<UserData>;
   role: Maybe<MembershipRole>;
 }

@@ -24,11 +24,11 @@ import type UserData from '~/core/session/types/user-data';
 import AuthErrorMessage from '~/app/auth/components/AuthErrorMessage';
 
 function UpdateProfileForm({
-  user,
+  session,
   onUpdateProfileData,
   onUpdateAuthData,
 }: {
-  user: UserSession;
+  session: UserSession;
   onUpdateProfileData: (user: Partial<UserData>) => void;
   onUpdateAuthData: (data: Partial<User>) => void;
 }) {
@@ -37,10 +37,12 @@ function UpdateProfileForm({
   const client = useSupabase();
   const { t } = useTranslation();
 
-  const currentPhotoURL = user.data?.photoUrl ?? '';
-  const currentDisplayName = user.data?.displayName ?? '';
-  const currentPhoneNumber = user.auth?.phone ?? '';
-  const email = user.auth?.email ?? '';
+  const currentPhotoURL = session.data?.photoUrl ?? '';
+  const currentDisplayName = session?.data?.displayName ?? '';
+
+  const user = session.auth?.user;
+  const currentPhoneNumber = user?.phone ?? '';
+  const email = user?.email ?? '';
 
   const { register, handleSubmit, reset, setValue } = useForm({
     defaultValues: {
@@ -59,18 +61,18 @@ function UpdateProfileForm({
   const onSubmit = async (displayName: string, photoFile: Maybe<File>) => {
     const photoName = photoFile?.name;
 
-    if (!user.auth?.id) {
+    if (!user?.id) {
       return;
     }
 
     const photoUrl = photoName
-      ? await uploadUserProfilePhoto(client, photoFile, user.auth.id)
+      ? await uploadUserProfilePhoto(client, photoFile, user.id)
       : currentPhotoURL;
 
     const isAvatarRemoved = avatarIsDirty && !photoName;
 
     const info = {
-      id: user.auth.id,
+      id: user.id,
       displayName,
       photoUrl: isAvatarRemoved ? '' : photoUrl,
     };

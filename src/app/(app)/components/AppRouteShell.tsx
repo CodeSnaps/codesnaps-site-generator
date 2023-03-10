@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { User } from '@supabase/supabase-js';
+import { Session } from '@supabase/supabase-js';
 
 import useCollapsible from '~/core/hooks/use-sidebar-state';
 import GuardedPage from '~/app/(app)/components/GuardedPage';
@@ -23,7 +23,7 @@ import { setCookie } from '~/core/generic/cookies';
 interface Data {
   language: string;
   csrfToken: string | null;
-  session: User;
+  session: Session;
   user: UserData;
   organization: Organization;
   role: MembershipRole;
@@ -75,7 +75,7 @@ const RouteShell: React.FCC<{
       <OrganizationContext.Provider value={{ organization, setOrganization }}>
         <CsrfTokenContext.Provider value={data.csrfToken}>
           <I18nProvider lang={data.language}>
-            <GuardedPage whenSignedOut={'/'}>
+            <GuardedPage session={data.session} whenSignedOut={'/'}>
               <main>
                 <Toaster />
 

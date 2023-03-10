@@ -41,8 +41,8 @@ const ProfileDropdown: React.FCC<{
 }> = ({ userSession, signOutRequested }) => {
   const signedInAsLabel = useMemo(() => {
     const displayName = userSession?.data?.displayName || undefined;
-    const email = userSession?.auth?.email || undefined;
-    const phone = userSession?.auth?.phone || undefined;
+    const email = userSession?.auth?.user.email || undefined;
+    const phone = userSession?.auth?.user.phone || undefined;
 
     return displayName ?? email ?? phone;
   }, [userSession]);

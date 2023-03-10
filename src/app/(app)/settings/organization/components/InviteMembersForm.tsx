@@ -71,7 +71,7 @@ const InviteMembersForm = () => {
                 return t<string>(`duplicateInviteEmailError`);
               }
 
-              const isSameAsCurrentUserEmail = user?.auth?.email === value;
+              const isSameAsCurrentUserEmail = user?.auth?.user.email === value;
 
               if (isSameAsCurrentUserEmail) {
                 return t<string>(`invitingOwnAccountError`);

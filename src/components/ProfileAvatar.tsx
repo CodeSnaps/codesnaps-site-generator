@@ -44,7 +44,9 @@ function getDisplayName(session: Maybe<UserSession>) {
     return '';
   }
 
-  return session.data?.displayName ?? session.auth?.email ?? '';
+  const email = session.auth?.user.email;
+
+  return session.data?.displayName ?? email ?? '';
 }
 
 export default ProfileAvatar;

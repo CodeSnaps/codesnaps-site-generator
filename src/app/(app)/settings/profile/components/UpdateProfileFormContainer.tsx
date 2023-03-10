@@ -10,7 +10,7 @@ import UpdateProfileForm from '~/app/(app)/settings/profile/components/UpdatePro
 
 function UpdateProfileFormContainer() {
   const { userSession, setUserSession } = useContext(UserSessionContext);
-  const user = useUserSession();
+  const session = useUserSession();
 
   const onUpdateProfileData = useCallback(
     (data: Partial<UserData>) => {
@@ -46,13 +46,13 @@ function UpdateProfileFormContainer() {
     [setUserSession, userSession]
   );
 
-  if (!user) {
+  if (!session) {
     return null;
   }
 
   return (
     <UpdateProfileForm
-      user={user}
+      session={session}
       onUpdateAuthData={onUpdateAuthData}
       onUpdateProfileData={onUpdateProfileData}
     />

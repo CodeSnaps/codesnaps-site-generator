@@ -1,14 +1,20 @@
 'use client';
 
 import { useCallback, useEffect } from 'react';
+import type { Session } from '@supabase/gotrue-js';
+import { useRouter } from 'next/navigation';
+
 import isBrowser from '~/core/generic/is-browser';
 import useSupabase from '~/core/hooks/use-supabase';
 
 const AuthRedirectListener: React.FCC<{
   whenSignedOut?: string;
-}> = ({ children, whenSignedOut }) => {
+  session: Session;
+}> = ({ children, session, whenSignedOut }) => {
   const client = useSupabase();
+  const router = useRouter();
   const redirectUserAway = useRedirectUserAway();
+  const serverSessionToken = session.access_token;
 
   useEffect(() => {
     // keep this running for the whole session
@@ -20,6 +26,14 @@ const AuthRedirectListener: React.FCC<{
 
       if (shouldLogOut) {
         return redirectUserAway(whenSignedOut);
+      }
+
+      const isOutOfSync = user?.access_token !== serverSessionToken;
+
+      // server and client are out of sync.
+      // We need to recall active loaders after actions complete
+      if (isOutOfSync) {
+        void router.refresh();
       }
     });
 
@@ -33,8 +47,10 @@ const AuthRedirectListener: React.FCC<{
 export default function GuardedPage({
   children,
   whenSignedOut,
+  session,
 }: React.PropsWithChildren<{
   whenSignedOut?: string;
+  session: Session;
 }>) {
   const shouldActivateListener = isBrowser();
 
@@ -45,7 +61,7 @@ export default function GuardedPage({
   }
 
   return (
-    <AuthRedirectListener whenSignedOut={whenSignedOut}>
+    <AuthRedirectListener session={session} whenSignedOut={whenSignedOut}>
       {children}
     </AuthRedirectListener>
   );

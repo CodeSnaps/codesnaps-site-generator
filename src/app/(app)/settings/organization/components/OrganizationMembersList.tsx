@@ -12,8 +12,8 @@ import { canUpdateUser } from '~/lib/organizations/permissions';
 import OrganizationMembersActionsContainer from './OrganizationMembersActionsContainer';
 import type UserData from '~/core/session/types/user-data';
 import type MembershipRole from '~/lib/organizations/types/membership-role';
-import useUserSession from '~/core/hooks/use-user-session';
 import ProfileAvatar from '~/components/ProfileAvatar';
+import useUserId from '~/core/hooks/use-user-id';
 
 function OrganizationMembersList({
   members,
@@ -25,8 +25,7 @@ function OrganizationMembersList({
     data: UserData;
   }>;
 }>) {
-  const session = useUserSession();
-  const currentUserId = session?.auth?.id;
+  const currentUserId = useUserId();
 
   const currentUser = useMemo(() => {
     return members.find((member) => {

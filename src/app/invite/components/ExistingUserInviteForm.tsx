@@ -2,7 +2,7 @@
 
 import { useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import type { User } from '@supabase/auth-helpers-nextjs';
+import type { Session } from '@supabase/auth-helpers-nextjs';
 
 import Trans from '~/core/ui/Trans';
 import Button from '~/core/ui/Button';
@@ -15,7 +15,7 @@ import configuration from '~/configuration';
 
 function ExistingUserInviteForm(
   props: React.PropsWithChildren<{
-    user: User;
+    session: Session;
   }>
 ) {
   const signOut = useSignOut();
@@ -30,12 +30,12 @@ function ExistingUserInviteForm(
   }, [acceptInvite, router]);
 
   return (
-    <GuardedPage whenSignedOut={redirectOnSignOut}>
+    <GuardedPage session={props.session} whenSignedOut={redirectOnSignOut}>
       <div className={'flex flex-col space-y-4'}>
         <p className={'text-center text-sm'}>
           <Trans
             i18nKey={'auth:clickToAcceptAs'}
-            values={{ email: props.user?.email }}
+            values={{ email: props.session?.user.email }}
             components={{ b: <b /> }}
           />
         </p>

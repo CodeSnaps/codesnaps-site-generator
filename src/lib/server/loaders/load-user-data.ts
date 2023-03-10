@@ -10,16 +10,17 @@ async function loadUserData() {
   const client = getSupabaseServerClient();
 
   try {
-    const { data, error } = await client.auth.getUser();
+    const { data, error } = await client.auth.getSession();
 
-    if (!data.user || error) {
+    if (!data.session || error) {
       return emptyUserData();
     }
 
-    const userData = await getUserDataById(client, data.user.id);
+    const userId = data.session.user.id;
+    const userData = await getUserDataById(client, userId);
 
     return {
-      auth: data.user,
+      auth: data.session,
       data: userData || undefined,
       role: undefined,
     };

@@ -14,11 +14,11 @@ function useAuthStateChangeListener() {
         }
 
         return userSession
-          ? { ...userSession, auth: session.user }
+          ? { ...userSession, auth: session }
           : {
               role: undefined,
               data: undefined,
-              auth: session?.user,
+              auth: session,
             };
       });
     });

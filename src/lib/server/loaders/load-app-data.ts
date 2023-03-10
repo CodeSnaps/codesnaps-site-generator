@@ -59,7 +59,7 @@ const loadAppData = async () => {
     return {
       language,
       csrfToken,
-      session: user,
+      session: sessionResult,
       user: userRecord,
       organization: organizationData?.organization,
       role: organizationData?.role,

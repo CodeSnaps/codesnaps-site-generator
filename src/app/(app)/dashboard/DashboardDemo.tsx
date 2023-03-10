@@ -164,7 +164,7 @@ export default function DashboardDemo() {
 function UserGreetings() {
   const user = useUserSession();
   const userDisplayName =
-    user?.data?.displayName ?? user?.auth?.email ?? `Anonymous`;
+    user?.data?.displayName ?? user?.auth?.user.email ?? `Anonymous`;
 
   return (
     <div>
