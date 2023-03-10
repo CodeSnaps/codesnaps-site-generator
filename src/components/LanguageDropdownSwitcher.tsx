@@ -20,7 +20,10 @@ const LanguageSwitcherDropdown: React.FC<{
   const refresh = useRefresh();
 
   const { language: currentLanguage, options } = i18n;
-  const locales = options.supportedLngs as string[];
+
+  const locales = (options.supportedLngs as string[]).filter(
+    (locale) => locale.toLowerCase() !== 'cimode'
+  );
 
   const languageNames = useMemo(() => {
     return new Intl.DisplayNames([currentLanguage], {

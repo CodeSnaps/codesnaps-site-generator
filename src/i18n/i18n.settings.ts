@@ -1,5 +1,5 @@
 const fallbackLng = process.env.DEFAULT_LOCALE ?? 'en';
-const languages: string[] = [fallbackLng, 'it'];
+const languages: string[] = [fallbackLng];
 
 export const I18N_COOKIE_NAME = 'lang';
 

@@ -29,7 +29,7 @@ function I18nInitializer(
     lang?: string;
   }>
 ) {
-  if (!client) {
+  if (!client || client.language !== props.lang) {
     throw withI18nClient(props.lang);
   }
 
