@@ -31,8 +31,6 @@ export async function parseCsrfSecretCookie(cookies: AnyCookies) {
   const secret = process.env.SECRET_KEY;
   const csrfSecret = await readServerCookie(cookies, CSRF_SECRET_COOKIE_NAME);
 
-  console.log(cookies);
-
   if (!csrfSecret) {
     return;
   }

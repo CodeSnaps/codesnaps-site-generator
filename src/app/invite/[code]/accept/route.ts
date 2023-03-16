@@ -44,8 +44,6 @@ export async function POST(request: Request, { params }: Context) {
       userId,
     });
 
-    console.error(error);
-
     if (error) {
       return handleError({ error, code, userId });
     }
@@ -66,13 +64,10 @@ export async function POST(request: Request, { params }: Context) {
     const organizationCookie = createOrganizationIdCookie(organizationId);
     const cookies = new NextResponse().cookies.set(organizationCookie);
 
-    console.log({
-      cookies: cookies.toString(),
-    });
-
     return NextResponse.json(
       {},
       {
+        status: 200,
         headers: {
           'Set-Cookie': cookies.toString(),
         },

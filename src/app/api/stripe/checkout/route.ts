@@ -55,11 +55,6 @@ export async function POST(request: Request) {
 
   const matchesSessionOrganizationId = currentOrganizationId === organizationId;
 
-  console.log({
-    currentOrganizationId,
-    organizationId,
-  });
-
   // check if the organization ID in the cookie matches the one in the request
   if (!matchesSessionOrganizationId) {
     return redirectToErrorPage(`Conflicting Organizations`);

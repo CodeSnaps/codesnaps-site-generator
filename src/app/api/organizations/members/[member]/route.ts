@@ -34,9 +34,14 @@ async function handleRemoveMemberRequest(
 ) {
   await deleteMembershipById(client, membershipId);
 
-  return NextResponse.json({
-    success: true,
-  });
+  return NextResponse.json(
+    {
+      success: true,
+    },
+    {
+      status: 200,
+    }
+  );
 }
 
 async function handleUpdateMemberRequest(
@@ -51,9 +56,14 @@ async function handleUpdateMemberRequest(
     role,
   });
 
-  return NextResponse.json({
-    success: true,
-  });
+  return NextResponse.json(
+    {
+      success: true,
+    },
+    {
+      status: 200,
+    }
+  );
 }
 
 function getRoleSchema() {
