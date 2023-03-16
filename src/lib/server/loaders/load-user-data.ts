@@ -1,5 +1,7 @@
 import { getUserDataById } from '~/lib/server/queries';
 import getSupabaseServerClient from '~/core/supabase/server-client';
+import initializeServerI18n from '~/i18n/i18n.server';
+import getLanguageCookie from '~/i18n/get-language-cookie';
 
 /**
  * @name loadUserData
@@ -18,6 +20,8 @@ async function loadUserData() {
 
     const userId = data.session.user.id;
     const userData = await getUserDataById(client, userId);
+
+    await initializeServerI18n(getLanguageCookie());
 
     return {
       auth: data.session,
