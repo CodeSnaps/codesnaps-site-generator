@@ -1,19 +1,20 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import toaster from 'react-hot-toast';
 
 import useSupabase from '~/core/hooks/use-supabase';
+import useMutation from 'swr/mutation';
 
 import Button from '~/core/ui/Button';
 import Alert from '~/core/ui/Alert';
 import TextField from '~/core/ui/TextField';
 import Modal from '~/core/ui/Modal';
 import If from '~/core/ui/If';
+import Trans from '~/core/ui/Trans';
 
 import SlideUpTransition from '~/core/ui/SlideUpTransition';
 import useFactorsMutationKey from '~/core/hooks/use-user-factors-mutation-key';
 import VerificationCodeInput from '~/app/auth/components/VerificationCodeInput';
-import useMutation from 'swr/mutation';
 
 function MultiFactorAuthSetupModal(
   props: React.PropsWithChildren<{

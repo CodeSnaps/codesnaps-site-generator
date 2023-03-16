@@ -39,7 +39,13 @@ const AuthRedirectListener: React.FCC<{
 
     // destroy listener on un-mounts
     return () => listener.data.subscription.unsubscribe();
-  }, [client.auth, redirectUserAway, whenSignedOut]);
+  }, [
+    client.auth,
+    redirectUserAway,
+    router,
+    serverSessionToken,
+    whenSignedOut,
+  ]);
 
   return <>{children}</>;
 };

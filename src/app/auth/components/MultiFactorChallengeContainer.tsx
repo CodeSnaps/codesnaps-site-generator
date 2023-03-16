@@ -1,7 +1,6 @@
 import type { FormEventHandler } from 'react';
 import { useCallback, useEffect, useState } from 'react';
 import useMutation from 'swr/mutation';
-import { Trans } from 'react-i18next';
 
 import useSupabase from '~/core/hooks/use-supabase';
 import Spinner from '~/core/ui/Spinner';
@@ -10,6 +9,7 @@ import Button from '~/core/ui/Button';
 import useSignOut from '~/core/hooks/use-sign-out';
 import Heading from '~/core/ui/Heading';
 import If from '~/core/ui/If';
+import Trans from '~/core/ui/Trans';
 
 import VerificationCodeInput from './VerificationCodeInput';
 import useFetchAuthFactors from '~/core/hooks/use-fetch-factors';

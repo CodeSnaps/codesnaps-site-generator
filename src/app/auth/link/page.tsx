@@ -1,6 +1,6 @@
-import { Trans } from 'react-i18next';
 import PageLoadingIndicator from '~/core/ui/PageLoadingIndicator';
 import AuthLinkRedirect from '~/app/auth/components/AuthLinkRedirect';
+import Trans from '~/core/ui/Trans';
 
 function AuthLinkPage() {
   return (
