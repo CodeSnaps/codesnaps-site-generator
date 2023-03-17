@@ -6,7 +6,6 @@ import getLanguageCookie from '~/i18n/get-language-cookie';
 /**
  * @name loadUserData
  * @description Loads the user's data from Supabase Auth and Database
- * @param args
  */
 async function loadUserData() {
   const client = getSupabaseServerClient();
@@ -20,10 +19,10 @@ async function loadUserData() {
 
     const userId = data.session.user.id;
     const userData = await getUserDataById(client, userId);
-
-    await initializeServerI18n(getLanguageCookie());
+    const language = await getLanguage();
 
     return {
+      language,
       auth: data.session,
       data: userData || undefined,
       role: undefined,
@@ -33,8 +32,11 @@ async function loadUserData() {
   }
 }
 
-function emptyUserData() {
+async function emptyUserData() {
+  const language = await getLanguage();
+
   return {
+    language,
     auth: undefined,
     data: undefined,
     role: undefined,
@@ -42,3 +44,9 @@ function emptyUserData() {
 }
 
 export default loadUserData;
+
+async function getLanguage() {
+  const { language } = await initializeServerI18n(getLanguageCookie());
+
+  return language;
+}
