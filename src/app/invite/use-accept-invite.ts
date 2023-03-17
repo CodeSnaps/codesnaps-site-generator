@@ -2,18 +2,31 @@ import useApiRequest from '~/core/hooks/use-api';
 import useSWRMutation from 'swr/mutation';
 
 function useAcceptInvite() {
-  const fetcher = useApiRequest<void, {}>();
+  const fetcher = useApiRequest<
+    {
+      verifyEmail: boolean;
+    },
+    {
+      userId?: string;
+    }
+  >();
+
   const key = ['invite', 'accept'];
 
-  return useSWRMutation(key, async () => {
-    const path = [window.location.pathname, 'accept'].join('/');
+  return useSWRMutation(
+    key,
+    async (_, { arg }: { arg: { userId?: string } }) => {
+      const path = [window.location.pathname, 'accept'].join('/');
 
-    return fetcher({
-      path,
-      method: 'POST',
-      body: {},
-    });
-  });
+      return fetcher({
+        path,
+        method: 'POST',
+        body: {
+          userId: arg.userId,
+        },
+      });
+    }
+  );
 }
 
 export default useAcceptInvite;

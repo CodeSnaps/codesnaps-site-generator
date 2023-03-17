@@ -16,7 +16,7 @@ const requireEmailConfirmation = configuration.auth.requireEmailConfirmation;
 
 const EmailPasswordSignUpContainer: React.FCC<{
   onSignUp?: () => unknown;
-  onSubmit?: () => void;
+  onSubmit?: (userId?: string) => void;
   onError?: (error?: unknown) => unknown;
 }> = ({ onSignUp, onSubmit, onError }) => {
   const signUpMutation = useSignUpWithEmailAndPasswordMutation();
@@ -41,14 +41,15 @@ const EmailPasswordSignUpContainer: React.FCC<{
       }
 
       try {
-        await signUpMutation.trigger(params);
+        const data = await signUpMutation.trigger(params);
 
         // If the user is required to confirm their email, we display a message
         if (requireEmailConfirmation) {
           setShowVerifyEmailAlert(true);
 
           if (onSubmit) {
-            onSubmit();
+            const userId = data?.user?.id;
+            onSubmit(userId);
           }
         } else {
           // Otherwise, we redirect the user to the onboarding page

@@ -8,6 +8,8 @@ import requireSession from '~/lib/user/require-session';
 
 import { createOrganizationIdCookie } from '~/lib/server/cookies/organization.cookie';
 import { acceptInviteToOrganization } from '~/lib/memberships/mutations';
+import { z } from 'zod';
+import configuration from '~/configuration';
 
 interface Context {
   params: {
@@ -21,14 +23,23 @@ export async function POST(request: Request, { params }: Context) {
   const logger = getLogger();
   const adminClient = getSupabaseServerClient({ admin: true });
 
-  const sessionResult = await requireSession(adminClient);
+  // if the user ID is provided, we use it
+  // (for example, when signing up for the 1st time)
+  let userId = getBodySchema().parse(request.body).userId;
+  let signedIn = false;
 
-  if ('redirect' in sessionResult) {
-    return redirect(sessionResult.destination);
+  // if the user ID is not provided, we try to get it from the session
+  if (!userId) {
+    const sessionResult = await requireSession(adminClient);
+
+    // if the user is not signed in, we redirect them to the sign in page
+    if ('redirect' in sessionResult) {
+      return redirect(sessionResult.destination);
+    }
+
+    userId = sessionResult.user.id;
+    signedIn = true;
   }
-
-  const user = sessionResult.user;
-  const userId = user.id;
 
   logger.info(
     {
@@ -64,8 +75,13 @@ export async function POST(request: Request, { params }: Context) {
     const organizationCookie = createOrganizationIdCookie(organizationId);
     const cookies = new NextResponse().cookies.set(organizationCookie);
 
+    const verifyEmail =
+      configuration.auth.requireEmailConfirmation && !signedIn;
+
     return NextResponse.json(
-      {},
+      {
+        verifyEmail,
+      },
       {
         status: 200,
         headers: {
@@ -82,4 +98,10 @@ function handleError(params: { error: unknown; code: string; userId: string }) {
   getLogger().error(params, `Encountered an error while accepting invite`);
 
   return throwInternalServerErrorException();
+}
+
+function getBodySchema() {
+  return z.object({
+    userId: z.string().uuid().optional(),
+  });
 }
