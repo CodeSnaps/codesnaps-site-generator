@@ -1,25 +1,18 @@
-import { useCallback } from 'react';
+import { useCallback, useContext } from 'react';
 import useSupabase from '~/core/hooks/use-supabase';
+import UserSessionContext from '~/core/session/contexts/user-session';
 
 /**
  * @name useSignOut
- * @param redirect - whether it should redirect to the home page
  */
-function useSignOut(redirect = true) {
+function useSignOut() {
+  const { setUserSession } = useContext(UserSessionContext);
   const client = useSupabase();
 
   return useCallback(async () => {
     await client.auth.signOut();
-
-    if (redirect) {
-      window.location.assign('/');
-    } else {
-      // TODO: remove this whe Supabase fixes it.
-      // Supabase has a bug: it doesn't emit a logout event
-      // so we force it by reloading the page
-      window.location.reload();
-    }
-  }, [client.auth, redirect]);
+    setUserSession(undefined);
+  }, [client.auth, setUserSession]);
 }
 
 export default useSignOut;

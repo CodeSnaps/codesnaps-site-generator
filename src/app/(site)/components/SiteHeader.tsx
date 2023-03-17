@@ -20,7 +20,7 @@ const fixedClassName = `FixedHeader`;
 const SiteHeader: React.FCC<{
   fixed?: boolean;
 }> = ({ fixed }) => {
-  const signOut = useSignOut(false);
+  const signOut = useSignOut();
   const userSession = useUserSession();
 
   return (
