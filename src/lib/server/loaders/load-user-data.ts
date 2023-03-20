@@ -20,8 +20,10 @@ async function loadUserData() {
     const userId = data.session.user.id;
     const userData = await getUserDataById(client, userId);
     const language = await getLanguage();
+    const accessToken = data.session.access_token;
 
     return {
+      accessToken,
       language,
       auth: data.session,
       data: userData || undefined,
@@ -36,6 +38,7 @@ async function emptyUserData() {
   const language = await getLanguage();
 
   return {
+    accessToken: undefined,
     language,
     auth: undefined,
     data: undefined,

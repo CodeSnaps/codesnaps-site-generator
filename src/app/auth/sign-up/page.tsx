@@ -28,7 +28,7 @@ function SignUpPage() {
       <div className={'flex justify-center text-xs'}>
         <p className={'flex space-x-1'}>
           <span>
-            <Trans i18nKey={'auth:doNotHaveAccountYet'} />
+            <Trans i18nKey={'auth:alreadyHaveAnAccount'} />
           </span>
 
           <Link

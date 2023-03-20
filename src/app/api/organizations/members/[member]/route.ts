@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import type { SupabaseClient } from '@supabase/supabase-js';
+import { NextResponse } from 'next/server';
 
 import MembershipRole from '~/lib/organizations/types/membership-role';
 
@@ -9,7 +10,7 @@ import {
 } from '~/lib/memberships/mutations';
 
 import getSupabaseServerClient from '~/core/supabase/server-client';
-import { NextResponse } from 'next/server';
+import getLogger from '~/core/logger';
 
 type Params = { params: { member: string } };
 
@@ -32,16 +33,27 @@ async function handleRemoveMemberRequest(
   client: SupabaseClient,
   membershipId: number
 ) {
+  const logger = getLogger();
+
+  logger.info(
+    {
+      membershipId,
+    },
+    `Removing member...`
+  );
+
   await deleteMembershipById(client, membershipId);
 
-  return NextResponse.json(
+  logger.info(
     {
-      success: true,
+      membershipId,
     },
-    {
-      status: 200,
-    }
+    `Member successfully removed.`
   );
+
+  return NextResponse.json({
+    success: true,
+  });
 }
 
 async function handleUpdateMemberRequest(
@@ -49,21 +61,31 @@ async function handleUpdateMemberRequest(
   membershipId: number,
   body: UnknownObject
 ) {
+  const logger = getLogger();
   const role = getRoleSchema().parse(Number(body.role));
+
+  logger.info(
+    {
+      membershipId,
+    },
+    `Updating member...`
+  );
 
   await updateMembershipById(client, {
     id: membershipId,
     role,
   });
 
-  return NextResponse.json(
+  logger.info(
     {
-      success: true,
+      membershipId,
     },
-    {
-      status: 200,
-    }
+    `Member successfully updated.`
   );
+
+  return NextResponse.json({
+    success: true,
+  });
 }
 
 function getRoleSchema() {

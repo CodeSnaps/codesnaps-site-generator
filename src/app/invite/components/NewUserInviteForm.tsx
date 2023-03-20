@@ -17,6 +17,7 @@ import Alert from '~/core/ui/Alert';
 import configuration from '~/configuration';
 import useAcceptInvite from '~/app/invite/use-accept-invite';
 import PageLoadingIndicator from '~/core/ui/PageLoadingIndicator';
+import isBrowser from '~/core/generic/is-browser';
 
 enum Mode {
   SignUp,
@@ -27,6 +28,7 @@ function NewUserInviteForm() {
   const [mode, setMode] = useState<Mode>(Mode.SignUp);
   const acceptInvite = useAcceptInvite();
   const router = useRouter();
+  const oAuthReturnUrl = isBrowser() ? window.location.pathname : '';
 
   const onInviteAccepted = useCallback(
     async (userId?: string) => {
@@ -62,7 +64,7 @@ function NewUserInviteForm() {
         </PageLoadingIndicator>
       </If>
 
-      <OAuthProviders onSignIn={onInviteAccepted} />
+      <OAuthProviders returnUrl={oAuthReturnUrl} />
 
       <If condition={configuration.auth.providers.emailPassword}>
         <If condition={mode === Mode.SignUp}>

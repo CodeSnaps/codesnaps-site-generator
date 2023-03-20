@@ -7,9 +7,7 @@ import type { Session } from '@supabase/auth-helpers-nextjs';
 import Trans from '~/core/ui/Trans';
 import Button from '~/core/ui/Button';
 
-import GuardedPage from '~/app/(app)/components/GuardedPage';
 import useSignOut from '~/core/hooks/use-sign-out';
-import isBrowser from '~/core/generic/is-browser';
 import useAcceptInvite from '~/app/invite/use-accept-invite';
 import configuration from '~/configuration';
 
@@ -19,7 +17,6 @@ function ExistingUserInviteForm(
   }>
 ) {
   const signOut = useSignOut();
-  const redirectOnSignOut = getRedirectPath();
   const acceptInvite = useAcceptInvite();
   const router = useRouter();
 
@@ -30,7 +27,7 @@ function ExistingUserInviteForm(
   }, [acceptInvite, router]);
 
   return (
-    <GuardedPage session={props.session} whenSignedOut={redirectOnSignOut}>
+    <>
       <div className={'flex flex-col space-y-4'}>
         <p className={'text-center text-sm'}>
           <Trans
@@ -73,12 +70,8 @@ function ExistingUserInviteForm(
           </div>
         </div>
       </div>
-    </GuardedPage>
+    </>
   );
 }
 
 export default ExistingUserInviteForm;
-
-function getRedirectPath() {
-  return isBrowser() ? window.location.pathname : undefined;
-}

@@ -4,7 +4,6 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Session } from '@supabase/supabase-js';
 
 import useCollapsible from '~/core/hooks/use-sidebar-state';
-import GuardedPage from '~/app/(app)/components/GuardedPage';
 import AppSidebar from '~/app/(app)/components/AppSidebar';
 import Toaster from '~/app/(app)/components/Toaster';
 import MembershipRole from '~/lib/organizations/types/membership-role';
@@ -19,8 +18,10 @@ import UserSessionContext from '~/core/session/contexts/user-session';
 import I18nProvider from '~/i18n/I18nProvider';
 
 import { setCookie } from '~/core/generic/cookies';
+import AuthChangeListener from '~/app/(app)/components/AuthChangeListener';
 
 interface Data {
+  accessToken: Maybe<string>;
   language: string;
   csrfToken: string | null;
   session: Session;
@@ -75,7 +76,10 @@ const RouteShell: React.FCC<{
       <OrganizationContext.Provider value={{ organization, setOrganization }}>
         <CsrfTokenContext.Provider value={data.csrfToken}>
           <I18nProvider lang={data.language}>
-            <GuardedPage session={data.session} whenSignedOut={'/'}>
+            <AuthChangeListener
+              accessToken={data.accessToken}
+              whenSignedOut={'/'}
+            >
               <main>
                 <Toaster />
 
@@ -85,7 +89,7 @@ const RouteShell: React.FCC<{
                   {children}
                 </RouteShellWithSidebar>
               </main>
-            </GuardedPage>
+            </AuthChangeListener>
           </I18nProvider>
         </CsrfTokenContext.Provider>
       </OrganizationContext.Provider>

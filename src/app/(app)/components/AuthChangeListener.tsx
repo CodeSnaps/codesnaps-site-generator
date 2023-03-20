@@ -1,7 +1,6 @@
 'use client';
 
 import { useCallback, useEffect } from 'react';
-import type { Session } from '@supabase/gotrue-js';
 import { useRouter } from 'next/navigation';
 
 import isBrowser from '~/core/generic/is-browser';
@@ -9,12 +8,11 @@ import useSupabase from '~/core/hooks/use-supabase';
 
 const AuthRedirectListener: React.FCC<{
   whenSignedOut?: string;
-  session: Session;
-}> = ({ children, session, whenSignedOut }) => {
+  accessToken: Maybe<string>;
+}> = ({ children, whenSignedOut, accessToken }) => {
   const client = useSupabase();
   const router = useRouter();
   const redirectUserAway = useRedirectUserAway();
-  const serverSessionToken = session.access_token;
 
   useEffect(() => {
     // keep this running for the whole session
@@ -28,7 +26,7 @@ const AuthRedirectListener: React.FCC<{
         return redirectUserAway(whenSignedOut);
       }
 
-      const isOutOfSync = user?.access_token !== serverSessionToken;
+      const isOutOfSync = user?.access_token !== accessToken;
 
       // server and client are out of sync.
       // We need to recall active loaders after actions complete
@@ -39,24 +37,18 @@ const AuthRedirectListener: React.FCC<{
 
     // destroy listener on un-mounts
     return () => listener.data.subscription.unsubscribe();
-  }, [
-    client.auth,
-    redirectUserAway,
-    router,
-    serverSessionToken,
-    whenSignedOut,
-  ]);
+  }, [client.auth, redirectUserAway, router, accessToken, whenSignedOut]);
 
   return <>{children}</>;
 };
 
-export default function GuardedPage({
+export default function AuthChangeListener({
   children,
   whenSignedOut,
-  session,
+  accessToken,
 }: React.PropsWithChildren<{
   whenSignedOut?: string;
-  session: Session;
+  accessToken: Maybe<string>;
 }>) {
   const shouldActivateListener = isBrowser();
 
@@ -67,7 +59,10 @@ export default function GuardedPage({
   }
 
   return (
-    <AuthRedirectListener session={session} whenSignedOut={whenSignedOut}>
+    <AuthRedirectListener
+      accessToken={accessToken}
+      whenSignedOut={whenSignedOut}
+    >
       {children}
     </AuthRedirectListener>
   );

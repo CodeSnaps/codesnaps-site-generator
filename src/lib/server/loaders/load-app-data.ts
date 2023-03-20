@@ -54,9 +54,11 @@ const loadAppData = async () => {
     }
 
     const csrfToken = getCsrfToken();
+    const accessToken = sessionResult.access_token;
     const { language } = await initializeServerI18n(getLanguageCookie());
 
     return {
+      accessToken,
       language,
       csrfToken,
       session: sessionResult,

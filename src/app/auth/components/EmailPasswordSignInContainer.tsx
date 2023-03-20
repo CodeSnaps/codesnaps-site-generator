@@ -14,10 +14,14 @@ const EmailPasswordSignInContainer: React.FCC<{
 
   const onSubmit = useCallback(
     async (credentials: { email: string; password: string }) => {
-      const data = await signInMutation.trigger(credentials);
-      const userId = data?.user?.id;
+      try {
+        const data = await signInMutation.trigger(credentials);
+        const userId = data?.user?.id;
 
-      onSignIn(userId);
+        onSignIn(userId);
+      } catch (e) {
+        // wrong credentials, do nothing
+      }
     },
     [onSignIn, signInMutation]
   );

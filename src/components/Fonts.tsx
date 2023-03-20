@@ -23,6 +23,7 @@ function Fonts() {
   useServerInsertedHTML(() => {
     return (
       <style
+        key={'fonts'}
         dangerouslySetInnerHTML={{
           __html: `
           :root {
