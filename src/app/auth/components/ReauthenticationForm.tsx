@@ -6,7 +6,7 @@ const ReauthenticationForm: React.FC<{
 }> = ({ onSuccess }) => {
   return (
     <div className={'flex flex-col space-y-4'}>
-      <OAuthProviders onSignIn={onSuccess} />
+      <OAuthProviders />
       <EmailPasswordSignInContainer onSignIn={onSuccess} />
     </div>
   );

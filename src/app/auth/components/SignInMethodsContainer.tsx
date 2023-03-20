@@ -22,7 +22,7 @@ function SignInMethodsContainer() {
 
   return (
     <>
-      <OAuthProviders onSignIn={onSignIn} />
+      <OAuthProviders />
 
       <If condition={configuration.auth.providers.emailPassword}>
         <div>
