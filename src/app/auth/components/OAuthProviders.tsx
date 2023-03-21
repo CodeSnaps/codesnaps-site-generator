@@ -16,7 +16,7 @@ const OAUTH_PROVIDERS = configuration.auth.providers.oAuth;
 
 const OAuthProviders: React.FCC<{
   returnUrl?: string;
-}> = ({ returnUrl }) => {
+}> = (props) => {
   const signInWithProviderMutation = useSignInWithProvider();
 
   // we make the UI "busy" until the next page is fully loaded
@@ -58,14 +58,12 @@ const OAuthProviders: React.FCC<{
                   const origin = window.location.origin;
                   const signInFromLink = configuration.paths.signInFromLink;
 
-                  const returnUrlParams = returnUrl
-                    ? `returnUrl=${returnUrl}`
+                  const returnUrlParams = props.returnUrl
+                    ? `?returnUrl=${props.returnUrl}`
                     : '';
 
-                  const redirectTo = [
-                    origin,
-                    signInFromLink + `?${returnUrlParams}`,
-                  ].join('');
+                  const returnUrl = [signInFromLink, returnUrlParams].join('');
+                  const redirectTo = [origin, returnUrl].join('');
 
                   const credentials = {
                     provider,
