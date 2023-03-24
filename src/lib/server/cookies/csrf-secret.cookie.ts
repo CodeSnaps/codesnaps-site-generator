@@ -18,11 +18,12 @@ export function serializeCsrfSecretCookie(csrfSecret: string) {
   }
 
   const value = secret ? encrypt(csrfSecret, secret) : csrfSecret;
+  const secure = process.env.ENVIRONMENT === 'production';
 
   return serialize(CSRF_SECRET_COOKIE_NAME, value, {
     path: '/',
     httpOnly: true,
-    secure: process.env.EMULATOR !== `true`,
+    secure,
     sameSite: 'strict' as const,
   });
 }

@@ -5,7 +5,7 @@ import readServerCookie, {
 const ORGANIZATION_ID_COOKIE_NAME = 'organizationId';
 
 export function createOrganizationIdCookie(organizationId: number) {
-  const secure = process.env.EMULATOR !== 'true';
+  const secure = process.env.ENVIRONMENT === 'production';
 
   return {
     name: ORGANIZATION_ID_COOKIE_NAME,

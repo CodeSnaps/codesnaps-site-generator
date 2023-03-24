@@ -8,10 +8,12 @@ export function parseSidebarStateCookie() {
 }
 
 export async function serializeSidebarCookie(value: string) {
+  const secure = process.env.ENVIRONMENT === 'production';
+
   return serialize(SIDEBAR_STATE_COOKIE_NAME, value, {
     path: '/',
     httpOnly: false,
-    secure: process.env.EMULATOR !== `true`,
+    secure,
     sameSite: 'strict' as const,
   });
 }

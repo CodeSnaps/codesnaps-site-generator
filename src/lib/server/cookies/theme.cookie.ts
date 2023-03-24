@@ -8,10 +8,12 @@ export function parseThemeCookie() {
 }
 
 export function serializeThemeCookie(value: string) {
+  const secure = process.env.ENVIRONMENT === 'production';
+
   return serialize(THEME_COOKIE_NAME, value, {
     path: '/',
     httpOnly: false,
-    secure: process.env.EMULATOR !== `true`,
+    secure,
     sameSite: 'lax' as const,
   });
 }
