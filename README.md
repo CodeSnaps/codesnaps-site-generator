@@ -6,6 +6,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+This is a quick guide to get you started with the project. For more details, 
+please refer to the [documentation](https://makerkit.dev/docs/next-supabase/introduction).
+
 ### Requirements
 
 Ensure you have the following installed:
