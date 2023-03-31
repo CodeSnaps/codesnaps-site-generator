@@ -70,6 +70,15 @@ First, run the Supabase stack:
 npm run supabase:start
 ```
 
+**NB**: this does not run your remote Supabase project, but a local instance
+using Docker. This is useful for development and testing. For production,
+you will need to copy your remote instance keys, and push the database
+migrations to your remote instance.
+
+My recommendation is to use the local instance for development, and the
+production instance when you're ready to deploy. Please set up the local
+instance first before attempting to use the production instance.
+
 #### Adding the Supabase Keys to the Environment Variables
 
 If this is the first time you run this command, we will need to get the 
