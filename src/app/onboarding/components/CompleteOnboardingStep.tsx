@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import useSWRMutation from 'swr/mutation';
 
 import Spinner from '~/core/ui/Spinner';
@@ -14,19 +14,26 @@ interface CompleteOnboardingStepData {
 const CompleteOnboardingStep: React.FC<{
   data: CompleteOnboardingStepData;
 }> = ({ data }) => {
-  const submit = useCompleteOnboardingRequest();
+  const { trigger } = useCompleteOnboardingRequest();
+  const submitted = useRef(false);
 
   const callRequestCallback = useCallback(async () => {
-    await submit.trigger(data);
-  }, [submit, data]);
-
-  useEffect(() => {
-    if (submit.isMutating || submit.error || submit.data) {
+    if (submitted.current) {
       return;
     }
 
+    submitted.current = true;
+
+    try {
+      await trigger(data);
+    } catch (e) {
+      submitted.current = false;
+    }
+  }, [data, trigger]);
+
+  useEffect(() => {
     void callRequestCallback();
-  }, [callRequestCallback, submit.data, submit.error, submit.isMutating]);
+  }, [callRequestCallback]);
 
   return (
     <div className={'flex flex-1 flex-col items-center space-y-8'}>
