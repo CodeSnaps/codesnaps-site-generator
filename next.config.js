@@ -1,3 +1,5 @@
+const withAnalyzer = require('@next/bundle-analyzer');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
@@ -13,4 +15,6 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})(nextConfig);

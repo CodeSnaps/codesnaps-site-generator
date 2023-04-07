@@ -1,16 +1,12 @@
-import dynamic from 'next/dynamic';
+import { lazy } from 'react';
+
 import Trans from '~/core/ui/Trans';
 import { Squares2X2Icon } from '@heroicons/react/24/outline';
 
 import AppHeader from '~/app/(app)/components/AppHeader';
 import AppContainer from '~/app/(app)/components/AppContainer';
 
-const DashboardDemo = dynamic(
-  () => import('~/app/(app)/dashboard/DashboardDemo'),
-  {
-    ssr: false,
-  }
-);
+const DashboardDemo = lazy(() => import('~/app/(app)/dashboard/DashboardDemo'));
 
 export const metadata = {
   title: 'Dashboard',

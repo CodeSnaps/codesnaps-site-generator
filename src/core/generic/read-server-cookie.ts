@@ -1,12 +1,10 @@
-import type { RequestCookies } from 'next/dist/server/web/spec-extension/cookies';
-import { ReadonlyRequestCookies } from 'next/dist/server/app-render';
+import type { cookies } from 'next/headers';
 
 export type AnyCookies =
-  | RequestCookies
+  | ReturnType<typeof cookies>
   | Partial<{
       key: string;
-    }>
-  | ReadonlyRequestCookies;
+    }>;
 
 async function readServerCookie(cookies: AnyCookies, key: string) {
   if ('get' in cookies && typeof cookies.get === 'function') {

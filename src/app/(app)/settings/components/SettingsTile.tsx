@@ -1,5 +1,3 @@
-'use client';
-
 import Heading from '~/core/ui/Heading';
 import If from '~/core/ui/If';
 

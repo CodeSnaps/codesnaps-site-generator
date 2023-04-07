@@ -1,5 +1,5 @@
 /* Add here you favorite fonts */
-@import 'components.css';
+@import './components.css';
 
 @tailwind base;
 

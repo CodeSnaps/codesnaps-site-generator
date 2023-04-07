@@ -10,7 +10,9 @@ import { URL } from 'url';
  * @param headers
  * @param defaultPath
  */
-export default function getApiRefererPath(headers: Headers, defaultPath = '/') {
+export default function getApiRefererPath<
+  ReadonlyHeaders extends Omit<Headers, 'append' | 'delete' | 'set'>
+>(headers: ReadonlyHeaders, defaultPath = '/') {
   const fullPath = headers.get('referer') || headers.get('origin');
 
   if (!fullPath) {

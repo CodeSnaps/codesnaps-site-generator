@@ -1,5 +1,3 @@
-import { readFile } from 'fs/promises';
-
 import { createInstance } from 'i18next';
 import { initReactI18next } from 'react-i18next/initReactI18next';
 import getI18nSettings from './i18n.settings';
@@ -7,12 +5,13 @@ import getI18nSettings from './i18n.settings';
 async function initializeServerI18n(lang?: Maybe<string>) {
   const i18nInstance = createInstance();
   const settings = getI18nSettings(lang);
-  const bundle = await createLanguageBundle(settings.lng);
+  const namespaces = Array.isArray(settings.ns) ? settings.ns : [settings.ns];
+  const bundles = await createLanguageBundles(namespaces, settings.lng);
 
   await i18nInstance.use(initReactI18next).init({
     ...settings,
     resources: {
-      [settings.lng]: bundle,
+      [settings.lng]: bundles,
     },
   });
 
@@ -21,29 +20,24 @@ async function initializeServerI18n(lang?: Maybe<string>) {
 
 export default initializeServerI18n;
 
-async function createLanguageBundle(language: string) {
-  const fetchBundle = (bundle: string) => readTranslationFile(language, bundle);
-
-  const [common, auth, organization, profile, subscription] = await Promise.all(
-    [
-      fetchBundle('common'),
-      fetchBundle('auth'),
-      fetchBundle('organization'),
-      fetchBundle('profile'),
-      fetchBundle('subscription'),
-    ]
+async function createLanguageBundles(namespaces: string[], language: string) {
+  const bundles = await Promise.all(
+    namespaces.map((namespace) => {
+      return readTranslationFile(language, namespace);
+    })
   );
 
-  return {
-    common,
-    auth,
-    organization,
-    profile,
-    subscription,
-  };
+  return namespaces.reduce((acc, namespace, index) => {
+    return {
+      ...acc,
+      [namespace]: bundles[index],
+    };
+  }, {});
 }
 
 async function readTranslationFile(language: string, fileName: string) {
+  const { readFile } = await import('fs/promises');
+
   try {
     const prefix = `${process.cwd()}/public/locales`;
 

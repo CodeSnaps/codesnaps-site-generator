@@ -5,8 +5,6 @@ import type { i18n } from 'i18next';
 import { I18nextProvider } from 'react-i18next';
 
 import isBrowser from '~/core/generic/is-browser';
-import initializeClientI18n from '~/i18n/i18n.client';
-import initializeServerI18n from '~/i18n/i18n.server';
 
 let client: i18n;
 
@@ -38,8 +36,12 @@ function I18nInitializer(
 
 async function withI18nClient(lang?: string) {
   if (isBrowser()) {
-    client = await initializeClientI18n(lang);
+    const { default: initialize18n } = await import('~/i18n/i18n.client');
+
+    client = await initialize18n(lang);
   } else {
-    client = await initializeServerI18n(lang);
+    const { default: initialize18n } = await import('~/i18n/i18n.server');
+
+    client = await initialize18n(lang);
   }
 }

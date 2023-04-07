@@ -6,8 +6,8 @@ import NavigationItem from '~/core/ui/Navigation/NavigationItem';
 import AppHeader from '~/app/(app)/components/AppHeader';
 import AppContainer from '~/app/(app)/components/AppContainer';
 import Trans from '~/core/ui/Trans';
-import I18nProvider from '~/i18n/I18nProvider';
 import getLanguageCookie from '~/i18n/get-language-cookie';
+import initializeServerI18n from '~/i18n/i18n.server';
 
 const links = [
   {
@@ -25,10 +25,10 @@ const links = [
 ];
 
 async function SettingsLayout({ children }: React.PropsWithChildren) {
-  const language = getLanguageCookie();
+  await initializeServerI18n(getLanguageCookie());
 
   return (
-    <I18nProvider lang={language}>
+    <>
       <AppHeader>
         <span className={'flex space-x-2'}>
           <Cog8ToothIcon className="w-6" />
@@ -56,7 +56,7 @@ async function SettingsLayout({ children }: React.PropsWithChildren) {
           {children}
         </div>
       </AppContainer>
-    </I18nProvider>
+    </>
   );
 }
 
