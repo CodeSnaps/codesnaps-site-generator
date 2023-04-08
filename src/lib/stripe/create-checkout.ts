@@ -7,6 +7,7 @@ interface CreateCheckoutParams {
   organizationId: number;
   priceId: string;
   customerId?: string;
+  trialPeriodDays?: Maybe<number>;
 }
 
 /**
@@ -49,6 +50,11 @@ export default async function createStripeCheckout(
     price: params.priceId,
   };
 
+  const subscriptionData: Stripe.Checkout.SessionCreateParams.SubscriptionData =
+    {
+      trial_period_days: params.trialPeriodDays,
+    };
+
   return stripe.checkout.sessions.create({
     mode,
     customer,
@@ -56,6 +62,7 @@ export default async function createStripeCheckout(
     success_url: successUrl,
     cancel_url: cancelUrl,
     client_reference_id: clientReferenceId.toString(),
+    subscription_data: subscriptionData,
   });
 }
 

@@ -15,6 +15,7 @@ import { parseOrganizationIdCookie } from '~/lib/server/cookies/organization.coo
 import { getUserMembershipByOrganization } from '~/lib/memberships/queries';
 import requireSession from '~/lib/user/require-session';
 import getSupabaseServerClient from '~/core/supabase/server-client';
+import configuration from '~/configuration';
 
 export async function POST(request: Request) {
   const logger = getLogger();
@@ -60,6 +61,15 @@ export async function POST(request: Request) {
     return redirectToErrorPage(`Conflicting Organizations`);
   }
 
+  const plan = getPlanByPriceId(priceId);
+
+  // check if the plan exists in the configuration.
+  if (!plan) {
+    console.warn(
+      `Plan not found for price ID "${priceId}". Did you forget to add it to the configuration? If the Price ID is incorrect, the checkout will be rejected. Please check the Stripe dashboard`
+    );
+  }
+
   // check the user's role has access to the checkout
   const canChangeBilling = await getUserCanAccessCheckout(client, {
     organizationId,
@@ -90,6 +100,7 @@ export async function POST(request: Request) {
       organizationId,
       priceId,
       customerId,
+      trialPeriodDays: plan?.trialPeriodDays,
     });
 
     // retrieve the Checkout Portal URL
@@ -146,6 +157,20 @@ function getBodySchema() {
     customerId: z.string().optional(),
     returnUrl: z.string().min(1),
   });
+}
+
+function getPlanByPriceId(priceId: string) {
+  const products = configuration.stripe.products;
+
+  type Plan = (typeof products)[0]['plans'][0];
+
+  return products.reduce<Maybe<Plan>>((acc, product) => {
+    if (acc) {
+      return acc;
+    }
+
+    return product.plans.find(({ stripePriceId }) => stripePriceId === priceId);
+  }, undefined);
 }
 
 /**
