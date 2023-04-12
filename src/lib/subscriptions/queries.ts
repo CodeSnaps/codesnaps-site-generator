@@ -8,6 +8,10 @@ type Client = SupabaseClient<Database>;
  * @name getOrganizationSubscription
  * @description Returns the organization's subscription
  */
+/**
+ * @name getOrganizationSubscription
+ * @description Returns the organization's subscription
+ */
 export async function getOrganizationSubscription(
   client: Client,
   organizationId: number
@@ -18,21 +22,22 @@ export async function getOrganizationSubscription(
       `
         id,
         status,
-        currency,
-        interval,
-        intervalCount: interval_count,
-        priceId: price_id,
-        subscriptionId: subscription_id,
+        updatePaymentMethodUrl: update_payment_method_url,
+        billingAnchor: billing_anchor,
+        variantId: variant_id,
         createdAt: created_at,
-        periodStartsAt: period_starts_at,
-        periodEndsAt: period_ends_at,
+        endsAt: ends_at,
+        renewsAt: renews_at,
         trialStartsAt: trial_starts_at,
-        trialEndsAt: trial_ends_at
+        trialEndsAt: trial_ends_at,
+        organizations_subscriptions!inner (
+          organization_id
+        )
       `
     )
-    .eq('organization_id', organizationId)
+    .eq('organizations_subscriptions.organization_id', organizationId)
     .throwOnError()
-    .single();
+    .maybeSingle();
 }
 
 /**
