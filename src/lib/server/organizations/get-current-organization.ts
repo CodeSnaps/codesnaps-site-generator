@@ -83,6 +83,7 @@ async function getFirstOrganization(client: SupabaseClient, userId: string) {
 
     return error ? null : data;
   } catch (e) {
+    console.log(e);
     return null;
   }
 }
