@@ -90,8 +90,12 @@ export default PasswordResetContainer;
 /**
  * @description
  * Return the URL where the user will be redirected to after resetting
- * their password. By default, we will redirect to the sign-in page
+ * their password
  */
 function getReturnUrl() {
-  return `${window.location.origin}${configuration.paths.signIn}`;
+  const host = window.location.origin;
+  const signInFromLink = configuration.paths.signInFromLink;
+  const redirectPath = configuration.paths.settings.password;
+
+  return `${host}${signInFromLink}?redirectPath=${redirectPath}`;
 }
