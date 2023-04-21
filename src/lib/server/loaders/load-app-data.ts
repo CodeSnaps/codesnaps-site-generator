@@ -26,30 +26,25 @@ const loadAppData = async () => {
     }
 
     const user = sessionResult.user;
+    const userId = user.id;
+
+    const organizationId = Number(await parseOrganizationIdCookie(cookies()));
 
     // we fetch the user record from the Database
     // which is a separate object from the auth metadata
-    const userRecord = await getUserDataById(client, user.id);
+    const [userRecord, organizationData] = await Promise.all([
+      getUserDataById(client, userId),
+      getCurrentOrganization(client, {
+        userId,
+        organizationId,
+      }),
+    ]);
+
     const isOnboarded = Boolean(userRecord?.onboarded);
 
     // when the user is not yet onboarded,
     // we simply redirect them back to the onboarding flow
-    if (!isOnboarded || !userRecord) {
-      return redirectToOnboarding();
-    }
-
-    const currentOrganizationId = Number(
-      await parseOrganizationIdCookie(cookies())
-    );
-
-    // we fetch the current organization
-    const organizationData = await getCurrentOrganization(client, {
-      userId: userRecord.id,
-      organizationId: currentOrganizationId,
-    });
-
-    // if it's not found, we redirect the user to the onboarding flow
-    if (!organizationData) {
+    if (!isOnboarded || !userRecord || !organizationData) {
       return redirectToOnboarding();
     }
 

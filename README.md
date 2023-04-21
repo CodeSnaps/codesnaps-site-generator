@@ -86,7 +86,10 @@ If you are planning to deploy Supabase to production right away, [please ensure 
 #### Adding the Supabase Keys to the Environment Variables
 
 If this is the first time you run this command, we will need to get the 
-Supabase keys and add them to our local environment variables configuration file `.env.local`.
+Supabase keys and add them to our local environment variables configuration 
+file `.env.local`. The file does not exist because it's not supposed to be 
+pushed to the repository: please create it and add the environment variables 
+below.
 
 When running the command, we will see a message like this:
 
