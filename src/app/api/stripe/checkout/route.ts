@@ -94,13 +94,18 @@ export async function POST(request: Request) {
   }
 
   try {
+    const trialPeriodDays =
+      plan && 'trialPeriodDays' in plan
+        ? (plan.trialPeriodDays as number)
+        : undefined;
+
     // create the Stripe Checkout session
     const { url } = await createStripeCheckout({
       returnUrl,
       organizationId,
       priceId,
       customerId,
-      trialPeriodDays: plan?.trialPeriodDays,
+      trialPeriodDays,
     });
 
     // retrieve the Checkout Portal URL
