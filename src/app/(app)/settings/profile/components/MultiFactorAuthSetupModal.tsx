@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import toaster from 'react-hot-toast';
@@ -287,7 +289,7 @@ function FactorNameForm(
 function QrImage({ src }: { src: string }) {
   return (
     <SlideUpTransition>
-      <img alt={'QR Code'} src={src} width={160} height={160} />
+      <Image alt={'QR Code'} src={src} width={160} height={160} />
     </SlideUpTransition>
   );
 }

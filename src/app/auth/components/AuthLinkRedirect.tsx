@@ -31,5 +31,5 @@ function useRedirectOnSignIn(redirectPath: string) {
     });
 
     return () => data.subscription.unsubscribe();
-  }, [supabase, router]);
+  }, [supabase, router, redirectPath]);
 }

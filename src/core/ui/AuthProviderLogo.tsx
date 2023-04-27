@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import {
   AtSymbolIcon,
   DevicePhoneMobileIcon,
@@ -14,7 +16,7 @@ const AuthProviderLogo: React.FC<{
 
   if (typeof image === `string`) {
     return (
-      <img
+      <Image
         decoding={'async'}
         loading={'lazy'}
         src={image}
