@@ -35,7 +35,7 @@ const PlanSelectionForm: React.FCC<{
                   recommended={props.recommended}
                 >
                   <Trans
-                    i18nKey={'subscriptions:checkout'}
+                    i18nKey={'subscription:checkout'}
                     defaults={'Checkout'}
                   />
                 </CheckoutRedirectButton>
