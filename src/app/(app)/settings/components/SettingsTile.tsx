@@ -9,7 +9,12 @@ const SettingsTile: React.FCC<{
   return (
     <div className={'flex w-full flex-col space-y-6'}>
       <div className={'flex flex-col space-y-1.5'}>
-        <div className={'flex items-center justify-between'}>
+        <div
+          className={
+            'flex flex-col space-y-4 lg:flex-row lg:space-y-0' +
+            ' lg:items-center lg:justify-between'
+          }
+        >
           <If condition={heading}>
             <div className={'flex flex-col space-y-1'}>
               <Heading type={4}>

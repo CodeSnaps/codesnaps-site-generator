@@ -44,11 +44,16 @@ const MobileNavigationDropdown: React.FC<{
         </Button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent>
+      <DropdownMenuContent
+        className={'divide-y divide-gray-100 dark:divide-black-300'}
+      >
         {Object.values(links).map((link) => {
           return (
-            <DropdownMenuItem key={link.path}>
-              <Link href={link.path}>
+            <DropdownMenuItem asChild key={link.path}>
+              <Link
+                className={'flex h-12 w-full items-center'}
+                href={link.path}
+              >
                 <Trans i18nKey={link.label} defaults={link.label} />
               </Link>
             </DropdownMenuItem>
