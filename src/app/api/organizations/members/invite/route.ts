@@ -23,13 +23,8 @@ export async function POST(request: Request) {
 
   const organizationId = Number(await parseOrganizationIdCookie(cookies()));
   const client = getSupabaseServerClient();
-  const sessionResult = await requireSession(client);
-
-  if ('redirect' in sessionResult) {
-    return redirect(sessionResult.destination);
-  }
-
-  const inviterId = sessionResult.user.id;
+  const session = await requireSession(client);
+  const inviterId = session.user.id;
 
   // throw an error when we cannot retrieve the inviter's id or the organization id
   if (!inviterId || !organizationId) {

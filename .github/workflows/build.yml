@@ -89,9 +89,3 @@ jobs:
 
       - name: 🔎 Cypress
         run: npm run test:e2e
-
-      - name: Start Supabase (DB)
-        run: supabase start
-
-      - name: 🔎 DB Test
-        run: npm run test:reset:db

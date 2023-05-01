@@ -1,4 +1,3 @@
-import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { use } from 'react';
 
@@ -6,10 +5,7 @@ import type { User } from '@supabase/gotrue-js';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import Trans from '~/core/ui/Trans';
 
-import { parseOrganizationIdCookie } from '~/lib/server/cookies/organization.cookie';
-
 import {
-  getFirstOrganizationByUserId,
   getMembersAuthMetadata,
   getOrganizationInvitedMembers,
   getOrganizationMembers,
@@ -25,6 +21,7 @@ import SettingsTile from '~/app/(app)/settings/components/SettingsTile';
 import OrganizationMembersList from '~/app/(app)/settings/organization/components/OrganizationMembersList';
 import OrganizationInvitedMembersList from '~/app/(app)/settings/organization/components/OrganizationInvitedMembersList';
 import InviteMembersLinkButton from '~/app/(app)/settings/organization/components/InviteMembersLinkButton';
+import getCurrentOrganization from '~/lib/server/organizations/get-current-organization';
 
 export const metadata = {
   title: 'Members',
@@ -107,27 +104,17 @@ async function loadMembers() {
     admin: true,
   });
 
-  let organizationId: number | undefined = Number(
-    await parseOrganizationIdCookie(cookies())
-  );
+  const session = await requireSession(client);
 
-  const sessionResult = await requireSession(client);
+  const organizationResponse = await getCurrentOrganization({
+    userId: session.user.id,
+  });
 
-  if ('redirect' in sessionResult) {
-    return redirect(sessionResult.destination);
-  }
-
-  if (Number.isNaN(organizationId)) {
-    const userId = sessionResult.user.id;
-
-    organizationId = await getFirstOrganizationByUserId(client, userId).then(
-      (result) => result?.data?.organization.id
-    );
-  }
-
-  if (!organizationId) {
+  if (!organizationResponse) {
     throw redirect(configuration.paths.appHome);
   }
+
+  const organizationId = organizationResponse.organization.id;
 
   const [members, invitedMembers] = await Promise.all([
     fetchOrganizationMembers(client, organizationId).catch(() => []),

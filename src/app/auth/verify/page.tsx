@@ -31,7 +31,7 @@ function VerifyPage() {
 
 export default VerifyPage;
 
-export async function loadData() {
+async function loadData() {
   const client = getSupabaseServerClient();
   const needsMfa = await verifyRequiresMfa(client);
 

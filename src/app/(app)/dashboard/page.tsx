@@ -1,10 +1,12 @@
 import dynamic from 'next/dynamic';
+import { use } from 'react';
 
 import Trans from '~/core/ui/Trans';
 import { Squares2X2Icon } from '@heroicons/react/24/outline';
 
 import AppHeader from '~/app/(app)/components/AppHeader';
 import AppContainer from '~/app/(app)/components/AppContainer';
+import getCurrentOrganization from '~/lib/server/organizations/get-current-organization';
 
 const DashboardDemo = dynamic(
   () => import('~/app/(app)/dashboard/DashboardDemo'),
@@ -18,6 +20,11 @@ export const metadata = {
 };
 
 function DashboardPage() {
+  const organization = use(getCurrentOrganization());
+
+  // use the organization data here
+  console.log(organization);
+
   return (
     <>
       <AppHeader

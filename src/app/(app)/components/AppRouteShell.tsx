@@ -6,6 +6,8 @@ import { Session } from '@supabase/supabase-js';
 import useCollapsible from '~/core/hooks/use-sidebar-state';
 import AppSidebar from '~/app/(app)/components/AppSidebar';
 import Toaster from '~/app/(app)/components/Toaster';
+import SentryBrowserWrapper from '~/components/SentryProvider';
+
 import MembershipRole from '~/lib/organizations/types/membership-role';
 import UserData from '~/core/session/types/user-data';
 import Organization from '~/lib/organizations/types/organization';
@@ -72,28 +74,30 @@ const RouteShell: React.FCC<{
   useEffect(updateCurrentUser, [updateCurrentUser]);
 
   return (
-    <UserSessionContext.Provider value={{ userSession, setUserSession }}>
-      <OrganizationContext.Provider value={{ organization, setOrganization }}>
-        <CsrfTokenContext.Provider value={data.csrfToken}>
-          <I18nProvider lang={data.language}>
-            <AuthChangeListener
-              accessToken={data.accessToken}
-              whenSignedOut={'/'}
-            >
-              <main>
-                <Toaster />
+    <SentryBrowserWrapper>
+      <UserSessionContext.Provider value={{ userSession, setUserSession }}>
+        <OrganizationContext.Provider value={{ organization, setOrganization }}>
+          <CsrfTokenContext.Provider value={data.csrfToken}>
+            <I18nProvider lang={data.language}>
+              <AuthChangeListener
+                accessToken={data.accessToken}
+                whenSignedOut={'/'}
+              >
+                <main>
+                  <Toaster />
 
-                <RouteShellWithSidebar
-                  collapsed={data.ui.sidebarState === 'collapsed'}
-                >
-                  {children}
-                </RouteShellWithSidebar>
-              </main>
-            </AuthChangeListener>
-          </I18nProvider>
-        </CsrfTokenContext.Provider>
-      </OrganizationContext.Provider>
-    </UserSessionContext.Provider>
+                  <RouteShellWithSidebar
+                    collapsed={data.ui.sidebarState === 'collapsed'}
+                  >
+                    {children}
+                  </RouteShellWithSidebar>
+                </main>
+              </AuthChangeListener>
+            </I18nProvider>
+          </CsrfTokenContext.Provider>
+        </OrganizationContext.Provider>
+      </UserSessionContext.Provider>
+    </SentryBrowserWrapper>
   );
 };
 

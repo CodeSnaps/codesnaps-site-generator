@@ -1,10 +1,13 @@
 import { themingPo } from '../support/theming.po';
 
 describe(`Theming`, () => {
+  beforeEach(() => {
+    cy.visit('/');
+    cy.wait(500);
+  });
+
   describe('When setting the dark theme', () => {
     it('should use the dark theme', () => {
-      cy.visit('/');
-
       themingPo.toggleDarkMode();
       themingPo.assertIsDarkTheme();
 
@@ -16,8 +19,6 @@ describe(`Theming`, () => {
 
   describe('When setting the light theme', () => {
     it('should use the light theme', () => {
-      cy.visit('/');
-
       themingPo.toggleLightMode();
       themingPo.assertIsNotDarkMode();
 
@@ -29,8 +30,6 @@ describe(`Theming`, () => {
 
   describe('When setting the system theme', () => {
     it('should use the selected system theme', () => {
-      cy.visit('/');
-
       themingPo.toggleSystemMode();
       themingPo.assertIsCorrectSystemTheme();
 

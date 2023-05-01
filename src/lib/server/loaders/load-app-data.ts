@@ -1,7 +1,15 @@
-import { cookies, headers } from 'next/headers';
+import 'server-only';
+
+import { cache } from 'react';
+import { headers } from 'next/headers';
+import { redirect } from 'next/navigation';
+
+import {
+  isRedirectError,
+  getURLFromRedirectError,
+} from 'next/dist/client/components/redirect';
 
 import getCurrentOrganization from '~/lib/server/organizations/get-current-organization';
-import { parseOrganizationIdCookie } from '~/lib/server/cookies/organization.cookie';
 
 import getUIStateCookies from '~/lib/server/loaders/utils/get-ui-state-cookies';
 import { getUserDataById } from '../queries';
@@ -14,30 +22,25 @@ import configuration from '~/configuration';
 import initializeServerI18n from '~/i18n/i18n.server';
 import getLanguageCookie from '~/i18n/get-language-cookie';
 
-const loadAppData = async () => {
+/**
+ * @name loadAppData
+ * @description This function is responsible for loading the application data
+ * from the server-side, used in the (app) layout. The data is cached for
+ * the request lifetime, which allows you to call the same across layouts.
+ */
+const loadAppData = cache(async () => {
   try {
     const client = getSupabaseServerClient();
-    const sessionResult = await requireSession(client);
+    const session = await requireSession(client);
 
-    // if the session returns a redirect object,
-    // we simply return it to the caller
-    if ('redirect' in sessionResult) {
-      return sessionResult;
-    }
-
-    const user = sessionResult.user;
+    const user = session.user;
     const userId = user.id;
-
-    const organizationId = Number(await parseOrganizationIdCookie(cookies()));
 
     // we fetch the user record from the Database
     // which is a separate object from the auth metadata
     const [userRecord, organizationData] = await Promise.all([
       getUserDataById(client, userId),
-      getCurrentOrganization(client, {
-        userId,
-        organizationId,
-      }),
+      getCurrentOrganization({ userId }),
     ]);
 
     const isOnboarded = Boolean(userRecord?.onboarded);
@@ -49,48 +52,50 @@ const loadAppData = async () => {
     }
 
     const csrfToken = getCsrfToken();
-    const accessToken = sessionResult.access_token;
+    const accessToken = session.access_token;
+
+    // we initialize the i18n server-side
     const { language } = await initializeServerI18n(getLanguageCookie());
 
     return {
       accessToken,
       language,
       csrfToken,
-      session: sessionResult,
+      session,
       user: userRecord,
       organization: organizationData?.organization,
       role: organizationData?.role,
       ui: getUIStateCookies(),
     };
   } catch (error) {
+    // if the error is a redirect error, we simply redirect the user
+    // to the destination URL extracted from the error
+    if (isRedirectError(error)) {
+      const url = getURLFromRedirectError(error);
+
+      throw redirect(url);
+    }
+
     getLogger().warn(
       `Could not load application data: ${JSON.stringify(error)}`
     );
 
     // in case of any error, we redirect the user to the home page
     // to avoid any potential infinite loop
-    return redirectToHomePage();
+    throw redirectToHomePage();
   }
-};
+});
 
 function redirectToOnboarding() {
-  return redirectTo(configuration.paths.onboarding);
+  return redirect(configuration.paths.onboarding);
 }
 
 function redirectToHomePage() {
-  return redirectTo('/');
+  return redirect('/');
 }
 
 function getCsrfToken() {
   return headers().get('X-CSRF-Token');
-}
-
-function redirectTo(destination: string) {
-  return {
-    data: undefined,
-    redirect: true,
-    destination,
-  };
 }
 
 export default loadAppData;

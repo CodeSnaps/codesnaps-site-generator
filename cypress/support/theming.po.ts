@@ -1,6 +1,6 @@
 export namespace themingPo {
   function openDarkModeMenu() {
-    cy.cyGet('dark-mode-toggle').wait(50).click();
+    cy.cyGet('dark-mode-toggle').click();
   }
 
   export function assertIsNotDarkMode() {

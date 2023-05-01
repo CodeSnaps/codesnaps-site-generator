@@ -43,11 +43,6 @@ export async function POST(request: Request) {
 
   // require the user to be logged in
   const sessionResult = await requireSession(client);
-
-  if ('redirect' in sessionResult) {
-    return redirect(sessionResult.destination);
-  }
-
   const userId = sessionResult.user.id;
 
   const currentOrganizationId = Number(

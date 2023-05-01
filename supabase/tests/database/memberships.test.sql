@@ -25,7 +25,8 @@ select
     select
       * from memberships
       where
-        id = 17 $$, 'an authenticated user can read a membership if it belongs to the same organization');
+        id = 18 $$, 'an authenticated user can read a membership if it
+        belongs to the same organization');
 
 select
   tests.authenticate_as ('user-2');

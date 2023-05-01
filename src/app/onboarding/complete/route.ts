@@ -16,14 +16,10 @@ import configuration from '~/configuration';
 export async function POST(req: Request) {
   const logger = getLogger();
 
-  const client = await getSupabaseServerClient();
-  const sessionResult = await requireSession(client);
+  const client = getSupabaseServerClient();
+  const session = await requireSession(client);
+  const userId = session.user.id;
 
-  if ('redirect' in sessionResult) {
-    return redirect(sessionResult.destination);
-  }
-
-  const userId = sessionResult.user.id;
   const body = await req.json();
   const parsedBody = await getBodySchema().safeParseAsync(body);
 

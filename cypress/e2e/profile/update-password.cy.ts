@@ -1,15 +1,15 @@
 import profilePo from '../../support/profile.po';
+import authPo from '../../support/auth.po';
 
 describe(`Update Password`, () => {
   const newPassword = `newpassword`;
 
   function signIn() {
-    cy.signIn(`/settings/profile/password`);
+    cy.signIn(`/settings/profile/password`, {
+      email: `test-update-password@makerkit.dev`,
+      password: authPo.getDefaultUserPassword(),
+    });
   }
-
-  after(() => {
-    cy.resetDatabase();
-  });
 
   function fillForm(params: { newPassword: string; repeatPassword: string }) {
     profilePo.$getNewPasswordInput().clear().type(params.newPassword);

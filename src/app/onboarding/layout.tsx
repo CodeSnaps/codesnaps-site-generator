@@ -1,4 +1,3 @@
-import { use } from 'react';
 import { redirect } from 'next/navigation';
 
 import getSupabaseServerClient from '~/core/supabase/server-client';
@@ -11,12 +10,8 @@ import Logo from '~/core/ui/Logo';
 import getLanguageCookie from '~/i18n/get-language-cookie';
 import initializeServerI18n from '~/i18n/i18n.server';
 
-function OnboardingLayout({ children }: React.PropsWithChildren) {
-  const data = use(loadData());
-
-  if ('redirect' in data) {
-    return redirect(data.destination);
-  }
+async function OnboardingLayout({ children }: React.PropsWithChildren) {
+  await initializeOnboardingRoute();
 
   return (
     <div className={'flex flex-1 flex-col dark:bg-black-500'}>
@@ -49,39 +44,31 @@ function OnboardingLayout({ children }: React.PropsWithChildren) {
 
 export default OnboardingLayout;
 
-async function loadData() {
+async function initializeOnboardingRoute() {
   try {
     const client = getSupabaseServerClient();
-    const sessionResult = await requireSession(client);
+    const session = await requireSession(client);
 
-    if ('redirect' in sessionResult) {
-      return sessionResult;
-    }
-
-    const user = sessionResult.user;
+    const user = session.user;
     const userData = await getUserDataById(client, user.id);
 
+    // initialize i18n for the server
     await initializeServerI18n(getLanguageCookie());
 
     // if we cannot find the user's Database record
     // the user should go to the onboarding flow
     // so that the record wil be created after the end of the flow
     if (!userData) {
-      const response = {
+      return {
         auth: user || undefined,
         data: userData ?? undefined,
         role: undefined,
       };
-
-      return response;
     }
 
     const userId = userData.id;
 
-    const organization = await getCurrentOrganization(client, {
-      userId,
-    });
-
+    const organization = await getCurrentOrganization({ userId });
     const onboarded = userData.onboarded;
 
     // there are two cases when we redirect the user to the onboarding
@@ -91,7 +78,7 @@ async function loadData() {
     // NB: you should remove this if you want to
     // allow organization-less users within the application
     if (onboarded && organization) {
-      return redirectTo('/');
+      throw redirect('/');
     }
 
     return {
@@ -102,16 +89,6 @@ async function loadData() {
   } catch (e) {
     console.error(e);
 
-    return redirectTo('/auth/sign-in');
+    throw redirect('/auth/sign-in');
   }
-}
-
-function redirectTo(destination: string): {
-  redirect: true;
-  destination: string;
-} {
-  return {
-    redirect: true,
-    destination,
-  };
 }

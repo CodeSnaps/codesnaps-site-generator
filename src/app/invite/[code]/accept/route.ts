@@ -1,14 +1,13 @@
 import { NextResponse } from 'next/server';
-import { redirect } from 'next/navigation';
+import { z } from 'zod';
 
 import { throwInternalServerErrorException } from '~/core/http-exceptions';
 import getLogger from '~/core/logger';
 import getSupabaseServerClient from '~/core/supabase/server-client';
-import requireSession from '~/lib/user/require-session';
 
 import { createOrganizationIdCookie } from '~/lib/server/cookies/organization.cookie';
 import { acceptInviteToOrganization } from '~/lib/memberships/mutations';
-import { z } from 'zod';
+
 import configuration from '~/configuration';
 
 interface Context {
@@ -30,14 +29,14 @@ export async function POST(request: Request, { params }: Context) {
 
   // if the user ID is not provided, we try to get it from the session
   if (!userId) {
-    const sessionResult = await requireSession(adminClient);
+    const { data } = await adminClient.auth.getSession();
 
-    // if the user is not signed in, we redirect them to the sign in page
-    if ('redirect' in sessionResult) {
-      return redirect(sessionResult.destination);
+    // if the session is not available, we throw an error
+    if (!data.session) {
+      return throwInternalServerErrorException();
     }
 
-    userId = sessionResult.user.id;
+    userId = data.session.user.id;
     signedIn = true;
   }
 

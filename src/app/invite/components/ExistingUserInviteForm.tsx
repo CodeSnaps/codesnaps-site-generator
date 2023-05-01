@@ -8,6 +8,7 @@ import Trans from '~/core/ui/Trans';
 import Button from '~/core/ui/Button';
 
 import useSignOut from '~/core/hooks/use-sign-out';
+import useRefresh from '~/core/hooks/use-refresh';
 import useAcceptInvite from '~/app/invite/use-accept-invite';
 import configuration from '~/configuration';
 
@@ -19,6 +20,12 @@ function ExistingUserInviteForm(
   const signOut = useSignOut();
   const acceptInvite = useAcceptInvite();
   const router = useRouter();
+  const refresh = useRefresh();
+
+  const onSignOut = useCallback(async () => {
+    await signOut();
+    await refresh();
+  }, [refresh, signOut]);
 
   const onInviteAccepted = useCallback(async () => {
     await acceptInvite.trigger({});
@@ -62,7 +69,7 @@ function ExistingUserInviteForm(
               block
               color={'transparent'}
               size={'small'}
-              onClick={signOut}
+              onClick={onSignOut}
               type={'button'}
             >
               <Trans i18nKey={'auth:signOut'} />

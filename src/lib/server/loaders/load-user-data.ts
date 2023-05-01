@@ -1,3 +1,5 @@
+import 'server-only';
+
 import { getUserDataById } from '~/lib/server/queries';
 import getSupabaseServerClient from '~/core/supabase/server-client';
 import initializeServerI18n from '~/i18n/i18n.server';
@@ -5,7 +7,8 @@ import getLanguageCookie from '~/i18n/get-language-cookie';
 
 /**
  * @name loadUserData
- * @description Loads the user's data from Supabase Auth and Database
+ * @description Loads the user's data from Supabase Auth and Database.
+ * This is used in the (site) layout to display the user's name and avatar.
  */
 async function loadUserData() {
   const client = getSupabaseServerClient();

@@ -38,13 +38,9 @@ export async function POST(request: Request) {
 
   const client = getSupabaseServerClient();
   const logger = getLogger();
-  const sessionResult = await requireSession(client);
+  const session = await requireSession(client);
 
-  if ('redirect' in sessionResult) {
-    return redirect(sessionResult.destination);
-  }
-
-  const userId = sessionResult.user.id;
+  const userId = session.user.id;
 
   // get permissions to see if the user can access the portal
   const canAccess = await getUserCanAccessCustomerPortal(client, {
