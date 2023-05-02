@@ -1,11 +1,6 @@
 'use client';
 
-import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline';
-import classNames from 'classnames';
-import { useState } from 'react';
-
-import Heading from '~/core/ui/Heading';
-import IconButton from '~/core/ui/IconButton';
+import { ChevronDownIcon } from '@heroicons/react/24/outline';
 
 function FaqItem({
   item,
@@ -15,47 +10,39 @@ function FaqItem({
     answer: string;
   };
 }>) {
-  const [expanded, setExpanded] = useState(false);
-
-  const toggle = () => setExpanded((isExpanded) => !isExpanded);
-
   return (
-    <div className={'border-b border-gray-100 py-4 px-2 dark:border-black-300'}>
-      <div className={'flex justify-between'}>
-        <Heading type={2}>
-          <span
-            onClick={toggle}
-            className={
-              'text-lg font-semibold text-gray-700 hover:text-current' +
-              ' cursor-pointer hover:underline dark:text-gray-300' +
-              ' dark:hover:text-white'
-            }
-          >
-            {item.question}
-          </span>
-        </Heading>
+    <details
+      className={
+        'group border-b border-gray-100 px-2 py-4 dark:border-black-300'
+      }
+    >
+      <summary
+        className={'flex items-center justify-between hover:cursor-pointer'}
+      >
+        <h2
+          className={
+            'font-sans text-lg font-medium text-gray-700' +
+            ' hover:underline-none group-hover:underline' +
+            ' cursor-pointer dark:text-gray-300 dark:hover:text-white'
+          }
+        >
+          {item.question}
+        </h2>
 
         <div>
-          <IconButton onClick={toggle}>
-            {expanded ? (
-              <MinusIcon className={'h-5'} />
-            ) : (
-              <PlusIcon className={'h-5'} />
-            )}
-          </IconButton>
+          <ChevronDownIcon
+            className={'h-5 transition duration-300 group-open:-rotate-180'}
+          />
         </div>
-      </div>
+      </summary>
 
       <div
-        className={classNames(
-          'flex flex-col space-y-2 py-1 text-gray-500 dark:text-gray-400',
-          {
-            hidden: !expanded,
-          }
-        )}
+        className={
+          'flex flex-col space-y-2 py-1 text-gray-500 dark:text-gray-400'
+        }
         dangerouslySetInnerHTML={{ __html: item.answer }}
       />
-    </div>
+    </details>
   );
 }
 
