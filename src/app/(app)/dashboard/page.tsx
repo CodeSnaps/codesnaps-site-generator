@@ -1,4 +1,4 @@
-import dynamic from 'next/dynamic';
+import loadDynamic from 'next/dynamic';
 import { use } from 'react';
 
 import Trans from '~/core/ui/Trans';
@@ -8,7 +8,7 @@ import AppHeader from '~/app/(app)/components/AppHeader';
 import AppContainer from '~/app/(app)/components/AppContainer';
 import getCurrentOrganization from '~/lib/server/organizations/get-current-organization';
 
-const DashboardDemo = dynamic(
+const DashboardDemo = loadDynamic(
   () => import('~/app/(app)/dashboard/DashboardDemo'),
   {
     ssr: false,

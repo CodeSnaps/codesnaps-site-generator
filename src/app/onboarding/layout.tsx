@@ -1,4 +1,5 @@
 import { redirect } from 'next/navigation';
+import { isRedirectError } from 'next/dist/client/components/redirect';
 
 import getSupabaseServerClient from '~/core/supabase/server-client';
 import requireSession from '~/lib/user/require-session';
@@ -9,6 +10,9 @@ import OnboardingIllustration from '~/app/onboarding/components/OnboardingIllust
 import Logo from '~/core/ui/Logo';
 import getLanguageCookie from '~/i18n/get-language-cookie';
 import initializeServerI18n from '~/i18n/i18n.server';
+import getLogger from '~/core/logger';
+
+export const dynamic = 'force-dynamic';
 
 async function OnboardingLayout({ children }: React.PropsWithChildren) {
   await initializeOnboardingRoute();
@@ -45,6 +49,8 @@ async function OnboardingLayout({ children }: React.PropsWithChildren) {
 export default OnboardingLayout;
 
 async function initializeOnboardingRoute() {
+  const logger = getLogger();
+
   try {
     const client = getSupabaseServerClient();
     const session = await requireSession(client);
@@ -78,7 +84,7 @@ async function initializeOnboardingRoute() {
     // NB: you should remove this if you want to
     // allow organization-less users within the application
     if (onboarded && organization) {
-      throw redirect('/');
+      return redirect('/');
     }
 
     return {
@@ -87,8 +93,13 @@ async function initializeOnboardingRoute() {
       role: undefined,
     };
   } catch (e) {
-    console.error(e);
+    if (!isRedirectError(e)) {
+      logger.error(
+        `
+        Error while initializing onboarding route: ${e}`
+      );
 
-    throw redirect('/auth/sign-in');
+      throw redirect('/auth/sign-in');
+    }
   }
 }

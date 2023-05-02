@@ -6,6 +6,8 @@ import I18nProvider from '~/i18n/I18nProvider';
 import AuthChangeListener from '~/app/(app)/components/AuthChangeListener';
 import SiteHeaderSessionProvider from '~/app/(site)/components/SiteHeaderSessionProvider';
 
+export const dynamic = 'force-dynamic';
+
 function SiteLayout(props: React.PropsWithChildren) {
   const data = use(loadUserData());
 
