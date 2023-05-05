@@ -4,7 +4,6 @@ const withAnalyzer = require('@next/bundle-analyzer');
 const nextConfig = {
   experimental: {
     appDir: true,
-    enableUndici: true,
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {
