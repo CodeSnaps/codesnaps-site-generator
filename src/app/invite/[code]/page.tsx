@@ -1,6 +1,7 @@
 import { use } from 'react';
 import { notFound, redirect } from 'next/navigation';
 import { headers } from 'next/headers';
+import { isNotFoundError } from 'next/dist/client/components/not-found';
 
 import invariant from 'tiny-invariant';
 import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs';
@@ -30,10 +31,6 @@ export const metadata = {
 
 const InvitePage = ({ params }: Context) => {
   const data = use(loadInviteData(params.code));
-
-  if ('redirect' in data) {
-    return redirect(data.destination);
-  }
 
   const organization = data.membership.organization;
 
@@ -126,20 +123,17 @@ async function loadInviteData(code: string) {
       code,
     };
   } catch (error) {
+    if (isNotFoundError(error)) {
+      return notFound();
+    }
+
     logger.error(
       error,
       `Error encountered while fetching invite. Redirecting to home page...`
     );
 
-    return redirectTo('/');
+    return redirect('/');
   }
-}
-
-function redirectTo(destination: string) {
-  return {
-    redirect: true,
-    destination: destination,
-  };
 }
 
 /**

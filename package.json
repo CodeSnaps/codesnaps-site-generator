@@ -1,6 +1,6 @@
 {
   "name": "next-supabase-saas-kit",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -100,7 +100,7 @@
     "postcss": "^8.4.23",
     "prettier": "2.8.8",
     "prettier-plugin-tailwindcss": "^0.2.8",
-    "supabase": "^1.54.5",
+    "supabase": "^1.55.0",
     "tailwindcss": "^3.3.2",
     "typescript": "5.0.4"
   }

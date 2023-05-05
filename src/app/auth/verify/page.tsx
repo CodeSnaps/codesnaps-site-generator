@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
 import { use } from 'react';
+import { redirect } from 'next/navigation';
 
 import verifyRequiresMfa from '~/core/session/utils/check-requires-mfa';
 import getSupabaseServerClient from '~/core/supabase/server-client';
@@ -17,10 +17,6 @@ export const metadata = {
 
 function VerifyPage() {
   const data = use(loadData());
-
-  if ('redirect' in data && data.destination) {
-    return redirect(data.destination);
-  }
 
   return (
     <I18nProvider lang={data.language}>
@@ -43,8 +39,5 @@ async function loadData() {
     };
   }
 
-  return {
-    redirect: true,
-    destination: configuration.paths.signIn,
-  };
+  return redirect(configuration.paths.signIn);
 }

@@ -1,6 +1,11 @@
 import 'server-only';
 
 import { redirect } from 'next/navigation';
+import {
+  isRedirectError,
+  getURLFromRedirectError,
+} from 'next/dist/client/components/redirect';
+
 import configuration from '~/configuration';
 
 import getSupabaseServerClient from '~/core/supabase/server-client';
@@ -38,6 +43,12 @@ const loadAuthPageData = async () => {
       language,
     };
   } catch (e) {
+    if (isRedirectError(e)) {
+      return redirect(getURLFromRedirectError(e));
+    }
+
+    console.error(e);
+
     return {
       language,
     };
