@@ -27,14 +27,16 @@ const SiteHeader: React.FCC<{
     <div className={`w-full py-4 ${fixed ? fixedClassName : ''}`}>
       <Container>
         <div className="flex w-full items-center justify-between">
-          <div className={'flex items-center space-x-4 lg:space-x-8'}>
+          <div className={'flex items-center lg:space-x-8'}>
             <Logo />
 
-            <SiteNavigation />
+            <div className={'hidden lg:flex'}>
+              <SiteNavigation />
+            </div>
           </div>
 
           <div className={'flex flex-1 items-center justify-end space-x-4'}>
-            <div className={'flex items-center'}>
+            <div className={'flex hidden items-center lg:flex'}>
               <If
                 condition={
                   configuration.enableThemeSwitcher && !userSession?.auth
@@ -44,12 +46,18 @@ const SiteHeader: React.FCC<{
               </If>
             </div>
 
-            <If condition={userSession?.auth} fallback={<AuthButtons />}>
-              <ProfileDropdown
-                userSession={userSession}
-                signOutRequested={signOut}
-              />
+            <If condition={userSession} fallback={<AuthButtons />}>
+              {(session) => (
+                <ProfileDropdown
+                  userSession={session}
+                  signOutRequested={signOut}
+                />
+              )}
             </If>
+
+            <div className={'flex lg:hidden'}>
+              <SiteNavigation />
+            </div>
           </div>
         </div>
       </Container>

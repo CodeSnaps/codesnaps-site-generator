@@ -54,6 +54,9 @@ jobs:
         with:
           useLockFile: false
 
+      - name: Build Content
+        run: ./node_modules/.bin/contentlayer build
+
       - name: 🔎 Type check
         run: npm run typecheck --if-present
 

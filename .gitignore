@@ -39,3 +39,8 @@ next-env.d.ts
 .vscode
 
 cypress/screenshots
+
+.contentlayer
+
+public/robots.txt
+public/sitemap.xml

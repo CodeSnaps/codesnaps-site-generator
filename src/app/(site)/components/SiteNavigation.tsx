@@ -16,9 +16,9 @@ const links = {
     label: 'Sign In',
     path: '/auth/sign-in',
   },
-  About: {
-    label: 'About',
-    path: '/about',
+  Blog: {
+    label: 'Blog',
+    path: '/blog',
   },
   Pricing: {
     label: 'Pricing',
@@ -40,13 +40,13 @@ const SiteNavigation = () => {
             link={links.SignIn}
           />
 
-          <NavigationMenuItem link={links.About} />
+          <NavigationMenuItem link={links.Blog} />
           <NavigationMenuItem link={links.Pricing} />
           <NavigationMenuItem link={links.FAQ} />
         </NavigationMenu>
       </div>
 
-      <div className={'ml-4 flex items-center lg:hidden'}>
+      <div className={'flex items-center lg:hidden'}>
         <MobileDropdown />
       </div>
     </>

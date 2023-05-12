@@ -27,7 +27,8 @@
     "paths": {
       "~/*": [
         "./src/*"
-      ]
+      ],
+      "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },
   "include": [
@@ -35,7 +36,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "/Users/giancarlo/Code/next-supabase-saas-kit/.next/types/**/*.ts"
+    ".contentlayer/generated"
   ],
   "exclude": [
     "node_modules",

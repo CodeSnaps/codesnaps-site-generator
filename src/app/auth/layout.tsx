@@ -1,5 +1,4 @@
 import { use } from 'react';
-import { redirect } from 'next/navigation';
 
 import loadAuthPageData from '~/lib/server/loaders/load-auth-page-data';
 import AuthPageShell from '~/app/auth/components/AuthPageShell';
