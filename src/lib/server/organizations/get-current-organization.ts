@@ -11,6 +11,7 @@ import { getUserMembershipByOrganization } from '~/lib/memberships/queries';
 import requireSession from '~/lib/user/require-session';
 import { parseOrganizationIdCookie } from '~/lib/server/cookies/organization.cookie';
 import getSupabaseServerClient from '~/core/supabase/server-client';
+import getLogger from '~/core/logger';
 
 /**
  * @description
@@ -96,6 +97,13 @@ const getFirstOrganization = cache(async (userId: string) => {
 
     return error ? null : data;
   } catch (e) {
+    getLogger().error(
+      {
+        userId,
+      },
+      `Failed to fetch first organization: ${e}`
+    );
+
     return null;
   }
 });
