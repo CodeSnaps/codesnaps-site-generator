@@ -2,10 +2,12 @@
 
 import { useCallback, useEffect, useRef } from 'react';
 import useSWRMutation from 'swr/mutation';
+import { useRouter } from 'next/navigation';
 
 import Spinner from '~/core/ui/Spinner';
 import useApiRequest from '~/core/hooks/use-api';
 import useCsrfTokenHeader from '~/core/hooks/use-csrf-token-header';
+import configuration from '~/configuration';
 
 interface CompleteOnboardingStepData {
   organization: string;
@@ -16,6 +18,7 @@ const CompleteOnboardingStep: React.FC<{
 }> = ({ data }) => {
   const { trigger } = useCompleteOnboardingRequest();
   const submitted = useRef(false);
+  const router = useRouter();
 
   const callRequestCallback = useCallback(async () => {
     if (submitted.current) {
@@ -26,10 +29,12 @@ const CompleteOnboardingStep: React.FC<{
 
     try {
       await trigger(data);
+
+      router.push(configuration.paths.appHome);
     } catch (e) {
       submitted.current = false;
     }
-  }, [data, trigger]);
+  }, [data, trigger, router]);
 
   useEffect(() => {
     void callRequestCallback();

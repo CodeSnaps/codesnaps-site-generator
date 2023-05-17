@@ -6,7 +6,7 @@ import SiteHeader from '~/app/(site)/components/SiteHeader';
 import UserSessionContext from '~/core/session/contexts/user-session';
 import UserSession from '~/core/session/types/user-session';
 
-type Data = {
+type Session = {
   role: UserSession['role'];
   auth: UserSession['auth'];
   data: UserSession['data'];
@@ -14,10 +14,10 @@ type Data = {
 
 function SiteHeaderSessionProvider(
   props: React.PropsWithChildren<{
-    data: Data;
+    data: Maybe<Session>;
   }>
 ) {
-  const [userSession, setUserSession] = useState<Maybe<Data>>(props.data);
+  const [userSession, setUserSession] = useState(props.data);
 
   return (
     <UserSessionContext.Provider value={{ userSession, setUserSession }}>

@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { redirect } from 'next/navigation';
+import { NextResponse } from 'next/server';
 
 import getLogger from '~/core/logger';
 import requireSession from '~/lib/user/require-session';
@@ -11,7 +11,7 @@ import {
 } from '~/core/http-exceptions';
 
 import getSupabaseServerClient from '~/core/supabase/server-client';
-import configuration from '~/configuration';
+import { createOrganizationIdCookie } from '~/lib/server/cookies/organization.cookie';
 
 export async function POST(req: Request) {
   const logger = getLogger();
@@ -65,7 +65,19 @@ export async function POST(req: Request) {
     `Onboarding successfully completed for user`
   );
 
-  return redirect(configuration.paths.appHome);
+  const response = new NextResponse(
+    JSON.stringify({
+      success: true,
+    })
+  );
+
+  response.cookies.set(
+    'organizationId',
+    organizationId.toString(),
+    createOrganizationIdCookie(organizationId)
+  );
+
+  return response;
 }
 
 function getBodySchema() {

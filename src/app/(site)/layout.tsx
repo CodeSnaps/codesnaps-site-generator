@@ -14,7 +14,7 @@ function SiteLayout(props: React.PropsWithChildren) {
   return (
     <I18nProvider lang={data.language}>
       <AuthChangeListener accessToken={data.accessToken}>
-        <SiteHeaderSessionProvider data={data} />
+        <SiteHeaderSessionProvider data={data.session} />
 
         {props.children}
 
