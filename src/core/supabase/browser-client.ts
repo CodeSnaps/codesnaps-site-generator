@@ -6,7 +6,7 @@ import {
 import invariant from 'tiny-invariant';
 import type { Database } from '~/database.types';
 
-let client: SupabaseClient;
+let client: SupabaseClient<Database>;
 
 /**
  * @name getSupabaseBrowserClient
