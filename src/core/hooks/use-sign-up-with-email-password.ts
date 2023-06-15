@@ -20,7 +20,7 @@ function useSignUpWithEmailAndPassword() {
       const emailRedirectTo = [
         window.location.origin,
         configuration.paths.authCallback,
-      ].join('/');
+      ].join('');
 
       return client.auth
         .signUp({
