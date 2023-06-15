@@ -56,13 +56,13 @@ const OAuthProviders: React.FCC<{
                 providerId={provider}
                 onClick={() => {
                   const origin = window.location.origin;
-                  const signInFromLink = configuration.paths.signInFromLink;
+                  const callback = configuration.paths.authCallback;
 
                   const returnUrlParams = props.returnUrl
                     ? `?returnUrl=${props.returnUrl}`
                     : '';
 
-                  const returnUrl = [signInFromLink, returnUrlParams].join('');
+                  const returnUrl = [callback, returnUrlParams].join('');
                   const redirectTo = [origin, returnUrl].join('');
 
                   const credentials = {

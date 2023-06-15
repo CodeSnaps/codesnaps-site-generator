@@ -43,7 +43,7 @@ const organizationPageObject = {
   $transferOwnershipAction: () => $get('transfer-ownership-action'),
   $updateMemberRoleActionButton: () => $get(`update-member-role-action`),
   getDefaultOrganizationId() {
-    return 6;
+    return 'bc3ab22c-c444-4491-84f2-cd8d9873e8c2';
   },
   openOrganizationsDropdown() {
     organizationPageObject.$currentOrganization().wait(500).click();
@@ -60,7 +60,9 @@ const organizationPageObject = {
     cy.wait(1000);
   },
   useDefaultOrganization() {
-    cy.setCookie('organizationId', this.getDefaultOrganizationId().toString());
+    cy.setCookie('organizationId', this.getDefaultOrganizationId());
+
+    return this.getDefaultOrganizationId();
   },
   getOrganizationDropdownItem(name: string) {
     return cy.contains('[data-cy="organization-selector-item"]', name);
@@ -113,8 +115,6 @@ const organizationPageObject = {
     return this;
   },
   updateMemberRole(email: string, role: MembershipRole) {
-    cy.intercept('**api/organizations/members/**').as('updateMember');
-
     this.$getMemberByEmail(email).within(() => {
       this.openMemberActionsDropdown();
     });
@@ -123,7 +123,6 @@ const organizationPageObject = {
     this.selectRole(role);
 
     cy.cyGet(`confirm-update-member-role`).click();
-    cy.wait('@updateMember');
 
     return this;
   },

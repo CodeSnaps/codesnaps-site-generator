@@ -1,7 +1,6 @@
 'use client';
 
-import { useCallback } from 'react';
-import { useRouter } from 'next/navigation';
+import { useCallback, useTransition } from 'react';
 import type { Session } from '@supabase/auth-helpers-nextjs';
 
 import Trans from '~/core/ui/Trans';
@@ -9,18 +8,19 @@ import Button from '~/core/ui/Button';
 
 import useSignOut from '~/core/hooks/use-sign-out';
 import useRefresh from '~/core/hooks/use-refresh';
-import useAcceptInvite from '~/app/invite/use-accept-invite';
-import configuration from '~/configuration';
+import useCsrfToken from '~/core/hooks/use-csrf-token';
+import { acceptInviteAction } from '~/lib/memberships/actions';
 
 function ExistingUserInviteForm(
   props: React.PropsWithChildren<{
     session: Session;
+    code: string;
   }>
 ) {
   const signOut = useSignOut();
-  const acceptInvite = useAcceptInvite();
-  const router = useRouter();
   const refresh = useRefresh();
+  const [isSubmitting, startTransition] = useTransition();
+  const csrfToken = useCsrfToken();
 
   const onSignOut = useCallback(async () => {
     await signOut();
@@ -28,10 +28,13 @@ function ExistingUserInviteForm(
   }, [refresh, signOut]);
 
   const onInviteAccepted = useCallback(async () => {
-    await acceptInvite.trigger({});
-
-    return router.push(configuration.paths.appHome);
-  }, [acceptInvite, router]);
+    return startTransition(async () => {
+      await acceptInviteAction({
+        csrfToken,
+        code: props.code,
+      });
+    });
+  }, [props.code, csrfToken, startTransition]);
 
   return (
     <>
@@ -46,6 +49,7 @@ function ExistingUserInviteForm(
 
         <Button
           block
+          loading={isSubmitting}
           onClick={onInviteAccepted}
           data-cy={'accept-invite-submit-button'}
           type={'submit'}
@@ -67,6 +71,7 @@ function ExistingUserInviteForm(
 
             <Button
               block
+              disabled={isSubmitting}
               color={'transparent'}
               size={'small'}
               onClick={onSignOut}

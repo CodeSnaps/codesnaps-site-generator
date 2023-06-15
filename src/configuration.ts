@@ -17,8 +17,7 @@ const configuration = {
     locale: process.env.NEXT_PUBLIC_DEFAULT_LOCALE,
   },
   auth: {
-    // ensure this is the same as your Supabase project
-    // by default - it's true in production and false in development
+    // ensure this is the same as your Supabase project. By default - it's true
     requireEmailConfirmation:
       process.env.NEXT_PUBLIC_REQUIRE_EMAIL_CONFIRMATION === 'true',
     // NB: Enable the providers below in the Supabase Console
@@ -36,26 +35,20 @@ const configuration = {
   paths: {
     signIn: '/auth/sign-in',
     signUp: '/auth/sign-up',
-    signInFromLink: '/auth/link',
     signInMfa: '/auth/verify',
     onboarding: `/onboarding`,
+    appPrefix: '/dashboard',
     appHome: '/dashboard',
+    authCallback: '/auth/callback',
     settings: {
-      profile: '/settings/profile',
-      authentication: '/settings/profile/authentication',
-      email: '/settings/profile/email',
-      password: '/settings/profile/password',
+      profile: 'settings/profile',
+      authentication: 'settings/profile/authentication',
+      email: 'settings/profile/email',
+      password: 'settings/profile/password',
     },
     api: {
       checkout: `/api/stripe/checkout`,
       billingPortal: `/api/stripe/portal`,
-      organizations: {
-        create: `/api/organizations`,
-        current: `/api/organizations/[organization]/current`,
-        transferOwnership: `/api/organizations/owner`,
-        members: `/api/organizations/members`,
-        member: `/api/organizations/members/[member]`,
-      },
     },
   },
   email: {

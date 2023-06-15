@@ -28,13 +28,16 @@ const NavigationMenuItem: React.FCC<{
     [`NavigationItemNotActive`]: !isActive,
   });
 
+  if (disabled) {
+    return (
+      <span className={itemClassName}>
+        <Trans i18nKey={label}>{label}</Trans>
+      </span>
+    );
+  }
+
   return (
-    <Link
-      prefetch={prefetch}
-      className={itemClassName}
-      aria-disabled={disabled}
-      href={disabled ? '' : link.path}
-    >
+    <Link prefetch={prefetch} className={itemClassName} href={link.path}>
       <Trans i18nKey={label}>{label}</Trans>
     </Link>
   );

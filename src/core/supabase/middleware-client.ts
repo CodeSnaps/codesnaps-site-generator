@@ -1,4 +1,6 @@
-import { createMiddlewareSupabaseClient } from '@supabase/auth-helpers-nextjs';
+import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@supabase/supabase-js';
+
 import { NextRequest, NextResponse } from 'next/server';
 
 import invariant from 'tiny-invariant';
@@ -31,19 +33,18 @@ function getSupabaseMiddlewareClient(
 
     invariant(serviceRoleKey, `Supabase Service Role Key not provided`);
 
-    return createMiddlewareSupabaseClient<Database>(
+    return createClient<Database>(
+      env.NEXT_PUBLIC_SUPABASE_URL,
+      serviceRoleKey,
       {
-        req,
-        res,
-      },
-      {
-        supabaseUrl: env.NEXT_PUBLIC_SUPABASE_URL,
-        supabaseKey: serviceRoleKey,
+        auth: {
+          persistSession: false,
+        },
       }
     );
   }
 
-  return createMiddlewareSupabaseClient<Database>(
+  return createMiddlewareClient<Database>(
     {
       req,
       res,

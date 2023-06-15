@@ -1,10 +1,10 @@
 import { use } from 'react';
 import { notFound, redirect } from 'next/navigation';
-import { headers } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import { isNotFoundError } from 'next/dist/client/components/not-found';
 
 import invariant from 'tiny-invariant';
-import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 
 import If from '~/core/ui/If';
 import Heading from '~/core/ui/Heading';
@@ -30,7 +30,8 @@ export const metadata = {
 };
 
 const InvitePage = ({ params }: Context) => {
-  const data = use(loadInviteData(params.code));
+  const code = params.code;
+  const data = use(loadInviteData(code));
 
   const organization = data.membership.organization;
 
@@ -64,8 +65,13 @@ const InvitePage = ({ params }: Context) => {
       </div>
 
       <InviteCsrfTokenProvider csrfToken={data.csrfToken}>
-        <If condition={data.session} fallback={<NewUserInviteForm />}>
-          {(session) => <ExistingUserInviteForm session={session} />}
+        <If
+          condition={data.session}
+          fallback={<NewUserInviteForm code={code} />}
+        >
+          {(session) => (
+            <ExistingUserInviteForm code={code} session={session} />
+          )}
         </If>
       </InviteCsrfTokenProvider>
     </>
@@ -76,8 +82,10 @@ export default InvitePage;
 
 async function loadInviteData(code: string) {
   const logger = getLogger();
+  const client = getSupabaseServerClient();
 
   // we use an admin client to be able to read the pending membership
+  // without having to be logged in
   const adminClient = getSupabaseServerClient({ admin: true });
 
   try {
@@ -112,7 +120,7 @@ async function loadInviteData(code: string) {
       return notFound();
     }
 
-    const { data: userSession } = await adminClient.auth.getSession();
+    const { data: userSession } = await client.auth.getSession();
     const session = userSession?.session;
     const csrfToken = headers().get('x-csrf-token');
 
@@ -132,7 +140,7 @@ async function loadInviteData(code: string) {
       `Error encountered while fetching invite. Redirecting to home page...`
     );
 
-    return redirect('/');
+    redirect('/');
   }
 }
 
@@ -148,10 +156,7 @@ function getAdminClient() {
 
   // we build a server client to be able to read the pending membership
   // bypassing the session using empty headers and cookies
-  return createServerComponentSupabaseClient<Database>({
-    supabaseUrl: url,
-    supabaseKey: serviceRoleKey,
-    headers: () => {},
-    cookies: () => {},
+  return createServerComponentClient<Database>({
+    cookies,
   });
 }

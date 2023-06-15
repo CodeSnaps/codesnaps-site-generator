@@ -45,10 +45,14 @@ function hasMatchingSegments(
   const segments = splitIntoSegments(targetLink);
   const matchingSegments = numberOfMatchingSegments(currentRoute, segments);
 
+  if (targetLink === currentRoute) {
+    return true;
+  }
+
   // how far down should segments be matched?
   // - if depth = 1 => only highlight the links of the immediate parent
   // - if depth = 2 => for url = /settings match /settings/organization/members
-  return matchingSegments > segments.length - depth;
+  return matchingSegments > segments.length - (depth - 1);
 }
 
 function numberOfMatchingSegments(href: string, segments: string[]) {

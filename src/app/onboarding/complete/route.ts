@@ -1,5 +1,7 @@
 import { z } from 'zod';
-import { NextResponse } from 'next/server';
+
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 
 import getLogger from '~/core/logger';
 import requireSession from '~/lib/user/require-session';
@@ -12,6 +14,8 @@ import {
 
 import getSupabaseServerClient from '~/core/supabase/server-client';
 import { createOrganizationIdCookie } from '~/lib/server/cookies/organization.cookie';
+
+import configuration from '~/configuration';
 
 export async function POST(req: Request) {
   const logger = getLogger();
@@ -43,7 +47,7 @@ export async function POST(req: Request) {
   );
 
   // complete onboarding and get the organization id created
-  const { data: organizationId, error } = await completeOnboarding(payload);
+  const { data: organizationUid, error } = await completeOnboarding(payload);
 
   if (error) {
     logger.error(
@@ -60,24 +64,18 @@ export async function POST(req: Request) {
   logger.info(
     {
       userId,
-      organizationId,
+      organizationUid,
     },
     `Onboarding successfully completed for user`
   );
 
-  const response = new NextResponse(
-    JSON.stringify({
-      success: true,
-    })
+  cookies().set(createOrganizationIdCookie(organizationUid));
+
+  const redirectPath = [configuration.paths.appPrefix, organizationUid].join(
+    '/'
   );
 
-  response.cookies.set(
-    'organizationId',
-    organizationId.toString(),
-    createOrganizationIdCookie(organizationId)
-  );
-
-  return response;
+  return redirect(redirectPath);
 }
 
 function getBodySchema() {

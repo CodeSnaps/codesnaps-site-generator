@@ -1,17 +1,20 @@
 import profilePo from '../../support/profile.po';
+import organizationPageObject from '../../support/organization.po';
 
 describe(`Update Email`, () => {
   const newEmailAddress = `new-email@makerkit.dev`;
 
   function signIn() {
-    cy.signIn(`/settings/profile/email`);
+    const organization = organizationPageObject.useDefaultOrganization();
+
+    cy.signIn(`/dashboard/${organization}/settings/profile/email`);
   }
 
   describe(`When updating the user email`, () => {
     it('should successfully update the user email', () => {
       signIn();
 
-      cy.intercept('PUT', '**auth/v1/user').as('updateEmail');
+      cy.intercept('PUT', '**auth/v1/user**').as('updateEmail');
 
       profilePo.$getNewEmailInput().clear().type(newEmailAddress);
       profilePo.$getRepeatEmailInput().clear().type(newEmailAddress);

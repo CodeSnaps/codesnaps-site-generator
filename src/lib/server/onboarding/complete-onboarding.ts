@@ -25,7 +25,7 @@ async function completeOnboarding({
       user_id: userId,
       org_name: organizationName,
     })
-    .single<number>();
+    .single<string>();
 }
 
 export default completeOnboarding;

@@ -1,11 +1,14 @@
 import profilePo from '../../support/profile.po';
 import authPo from '../../support/auth.po';
+import organizationPageObject from '../../support/organization.po';
 
 describe(`Update Password`, () => {
   const newPassword = `newpassword`;
 
   function signIn() {
-    cy.signIn(`/settings/profile/password`, {
+    const organization = organizationPageObject.useDefaultOrganization();
+
+    cy.signIn(`/dashboard/${organization}/settings/profile/password`, {
       email: `test-update-password@makerkit.dev`,
       password: authPo.getDefaultUserPassword(),
     });
@@ -20,10 +23,11 @@ describe(`Update Password`, () => {
   describe(`When successfully updating the password`, () => {
     it('should successfully execute the request', () => {
       signIn();
-      cy.intercept('PUT', '**auth/v1/user').as('updatePassword');
+
+      cy.intercept('PUT', 'auth/v1/user**').as('updatePassword');
 
       fillForm({
-        newPassword: newPassword,
+        newPassword,
         repeatPassword: newPassword,
       });
 

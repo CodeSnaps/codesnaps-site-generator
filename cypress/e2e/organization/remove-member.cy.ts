@@ -4,8 +4,8 @@ describe(`Remove Member`, () => {
   const targetEmail = `test-remove@makerkit.dev`;
 
   function signIn() {
-    organizationPageObject.useDefaultOrganization();
-    cy.signIn(`/settings/organization/members`);
+    const organization = organizationPageObject.useDefaultOrganization();
+    cy.signIn(`/dashboard/${organization}/settings/organization/members`);
   }
 
   describe(`Given the current user removes a member from the organization`, () => {

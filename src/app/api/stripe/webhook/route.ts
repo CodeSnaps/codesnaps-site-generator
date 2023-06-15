@@ -123,7 +123,7 @@ async function onCheckoutCompleted(
   session: Stripe.Checkout.Session,
   subscription: Stripe.Subscription
 ) {
-  const organizationId = getOrganizationIdFromClientReference(session);
+  const organizationUid = getOrganizationUidFromClientReference(session);
   const customerId = session.customer as string;
 
   // build organization subscription and set on the organization document
@@ -140,19 +140,19 @@ async function onCheckoutCompleted(
   }
 
   return setOrganizationSubscriptionData(client, {
-    organizationId,
+    organizationUid,
     customerId,
     subscriptionId: data.id,
   });
 }
 
 /**
- * @name getOrganizationIdFromClientReference
- * @description Get the organization ID from the client reference ID
+ * @name getOrganizationUidFromClientReference
+ * @description Get the organization UUID from the client reference ID
  * @param session
  */
-function getOrganizationIdFromClientReference(
+function getOrganizationUidFromClientReference(
   session: Stripe.Checkout.Session
 ) {
-  return Number(session.client_reference_id);
+  return session.client_reference_id as string;
 }

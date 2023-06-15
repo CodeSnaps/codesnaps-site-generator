@@ -16,6 +16,7 @@ import { getUserMembershipByOrganization } from '~/lib/memberships/queries';
 import requireSession from '~/lib/user/require-session';
 import getSupabaseServerClient from '~/core/supabase/server-client';
 import configuration from '~/configuration';
+import { getOrganizationByUid } from '~/lib/organizations/database/queries';
 
 export async function POST(request: Request) {
   const logger = getLogger();
@@ -36,7 +37,7 @@ export async function POST(request: Request) {
     return redirectToErrorPage(`Invalid request body`);
   }
 
-  const { organizationId, priceId, customerId, returnUrl } = bodyResult.data;
+  const { organizationUid, priceId, customerId, returnUrl } = bodyResult.data;
 
   // create the Supabase client
   const client = getSupabaseServerClient();
@@ -45,15 +46,19 @@ export async function POST(request: Request) {
   const sessionResult = await requireSession(client);
   const userId = sessionResult.user.id;
 
-  const currentOrganizationId = Number(
-    await parseOrganizationIdCookie(cookies())
-  );
-
-  const matchesSessionOrganizationId = currentOrganizationId === organizationId;
+  const currentOrganizationUid = await parseOrganizationIdCookie(cookies());
+  const matchesSessionOrganizationId =
+    currentOrganizationUid === organizationUid;
 
   // check if the organization ID in the cookie matches the one in the request
   if (!matchesSessionOrganizationId) {
     return redirectToErrorPage(`Conflicting Organizations`);
+  }
+
+  const { error } = await getOrganizationByUid(client, organizationUid);
+
+  if (error) {
+    return redirectToErrorPage(`Organization not found`);
   }
 
   const plan = getPlanByPriceId(priceId);
@@ -67,7 +72,7 @@ export async function POST(request: Request) {
 
   // check the user's role has access to the checkout
   const canChangeBilling = await getUserCanAccessCheckout(client, {
-    organizationId,
+    organizationUid,
     userId,
   });
 
@@ -78,7 +83,7 @@ export async function POST(request: Request) {
     logger.debug(
       {
         userId,
-        organizationId,
+        organizationUid,
       },
       `User attempted to access checkout but lacked permissions`
     );
@@ -97,7 +102,7 @@ export async function POST(request: Request) {
     // create the Stripe Checkout session
     const { url } = await createStripeCheckout({
       returnUrl,
-      organizationId,
+      organizationUid,
       priceId,
       customerId,
       trialPeriodDays,
@@ -126,7 +131,7 @@ export async function POST(request: Request) {
 async function getUserCanAccessCheckout(
   client: SupabaseClient,
   params: {
-    organizationId: number;
+    organizationUid: string;
     userId: string;
   }
 ) {
@@ -148,11 +153,7 @@ async function getUserCanAccessCheckout(
 function getBodySchema() {
   return z.object({
     csrf_token: z.string().min(1),
-    organizationId: z
-      .number({
-        coerce: true,
-      })
-      .min(1),
+    organizationUid: z.string().uuid(),
     priceId: z.string().min(1),
     customerId: z.string().optional(),
     returnUrl: z.string().min(1),

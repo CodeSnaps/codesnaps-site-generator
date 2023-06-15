@@ -1,5 +1,6 @@
 import { getMDXComponent } from 'next-contentlayer/hooks';
-import Components from '~/app/(site)/blog/components/MDXComponents';
+import type { NestedMDXComponents } from 'mdx/types';
+import MDXComponents from '~/app/(site)/blog/components/MDXComponents';
 
 function Mdx({
   code,
@@ -8,7 +9,7 @@ function Mdx({
 }>) {
   const Component = getMDXComponent(code);
 
-  return <Component components={Components} />;
+  return <Component components={MDXComponents as NestedMDXComponents} />;
 }
 
 export default Mdx;

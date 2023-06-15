@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { forwardRef } from 'react';
-import type { MDXComponents } from 'mdx/types';
 
 import classNames from 'classnames';
 
@@ -79,10 +78,8 @@ const Video: React.FCC<{
   );
 };
 
-const Components: MDXComponents = {
-  // @ts-ignore
+const Components = {
   img: NextImage,
-  // @ts-ignore
   a: ExternalLink,
   TweetEmbed,
   Video,

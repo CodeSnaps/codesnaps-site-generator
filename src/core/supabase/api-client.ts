@@ -1,6 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
+import { createPagesServerClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@supabase/supabase-js';
+
 import invariant from 'tiny-invariant';
 import type { Database } from '~/database.types';
 
@@ -30,16 +32,18 @@ function getSupabaseAPIClient(
 
     invariant(serviceRoleKey, `Supabase Service Role Key not provided`);
 
-    return createServerSupabaseClient<Database>(
-      { req, res },
+    return createClient<Database>(
+      env.NEXT_PUBLIC_SUPABASE_URL,
+      serviceRoleKey,
       {
-        supabaseUrl: env.NEXT_PUBLIC_SUPABASE_URL,
-        supabaseKey: serviceRoleKey,
+        auth: {
+          persistSession: false,
+        },
       }
     );
   }
 
-  return createServerSupabaseClient<Database>(
+  return createPagesServerClient<Database>(
     { req, res },
     {
       supabaseUrl: env.NEXT_PUBLIC_SUPABASE_URL,

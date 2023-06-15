@@ -36,7 +36,7 @@ const SiteHeader: React.FCC<{
           </div>
 
           <div className={'flex flex-1 items-center justify-end space-x-4'}>
-            <div className={'flex hidden items-center lg:flex'}>
+            <div className={'hidden items-center lg:flex'}>
               <If
                 condition={
                   configuration.enableThemeSwitcher && !userSession?.auth

@@ -1,11 +1,12 @@
 import profilePo from '../../support/profile.po';
+import organizationPageObject from '../../support/organization.po';
 
 describe(`Update Profile`, () => {
   describe(`When updating the user Display name`, () => {
     const newDisplayName = `Makerkit Guy`;
 
     it('should execute a request to update the profile', () => {
-      cy.signIn(`/settings/profile`);
+      signIn();
 
       cy.intercept('PATCH', '/rest/v1/users**').as('updateProfile');
 
@@ -18,7 +19,7 @@ describe(`Update Profile`, () => {
     });
 
     it('should store the new profile name', () => {
-      cy.signIn(`/settings/profile`);
+      signIn();
 
       profilePo
         .$getDisplayNameInput()
@@ -27,3 +28,8 @@ describe(`Update Profile`, () => {
     });
   });
 });
+
+function signIn() {
+  const organization = organizationPageObject.useDefaultOrganization();
+  cy.signIn(`/dashboard/${organization}/settings/profile`);
+}

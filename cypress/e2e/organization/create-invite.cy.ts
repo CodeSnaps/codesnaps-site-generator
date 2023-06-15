@@ -7,8 +7,10 @@ describe(`Create Invite`, () => {
   const defaultEmailAddress = authPo.getDefaultUserEmail();
 
   function signIn() {
-    organizationPageObject.useDefaultOrganization();
-    cy.signIn(`/settings/organization/members/invite`);
+    const organization = organizationPageObject.useDefaultOrganization();
+    cy.signIn(
+      `/dashboard/${organization}/settings/organization/members/invite`
+    );
   }
 
   describe(`Given a user invites a new member`, () => {

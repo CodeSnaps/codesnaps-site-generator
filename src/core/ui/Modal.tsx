@@ -12,7 +12,7 @@ import { Dialog, DialogContent, DialogTitle } from '~/core/ui/Dialog';
 
 const Modal: React.FC<
   React.PropsWithChildren<{
-    heading: string | JSX.Element;
+    heading: string | React.ReactNode;
     isOpen: boolean;
     setIsOpen: (isOpen: boolean) => unknown;
     closeButton?: boolean;
@@ -63,7 +63,7 @@ const Modal: React.FC<
                 <If condition={useCloseButton}>
                   <DialogPrimitiveClose asChild>
                     <IconButton
-                      className={'absolute top-0 right-4 flex items-center'}
+                      className={'absolute right-4 top-0 flex items-center'}
                       label={'Close Modal'}
                       onClick={() => setIsOpen(false)}
                     >

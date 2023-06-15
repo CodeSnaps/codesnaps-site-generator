@@ -35,7 +35,7 @@ function SignUpMethodsContainer() {
       </If>
 
       <If condition={configuration.auth.providers.phoneNumber}>
-        <PhoneNumberSignInContainer onSignIn={onSignUp} />
+        <PhoneNumberSignInContainer onSuccess={onSignUp} mode={'signUp'} />
       </If>
 
       <If condition={configuration.auth.providers.emailLink}>

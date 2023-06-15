@@ -66,6 +66,12 @@ Cypress.Commands.add(`signOutSession`, () => {
   cy.request(`POST`, `/auth/sign-out`);
 });
 
+Cypress.on('uncaught:exception', (err, runnable) => {
+  if (err.message.includes('NEXT_REDIRECT')) {
+    return false;
+  }
+});
+
 export function createCySelector(name: string) {
   return `[data-cy="${name}"]`;
 }

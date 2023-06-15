@@ -94,8 +94,8 @@ export default PasswordResetContainer;
  */
 function getReturnUrl() {
   const host = window.location.origin;
-  const signInFromLink = configuration.paths.signInFromLink;
+  const callback = configuration.paths.authCallback;
   const redirectPath = configuration.paths.settings.password;
 
-  return `${host}${signInFromLink}?redirectPath=${redirectPath}`;
+  return `${host}${callback}?redirectPath=${redirectPath}`;
 }

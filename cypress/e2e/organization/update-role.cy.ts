@@ -5,7 +5,9 @@ describe(`Update User Role`, () => {
   const email = `test-role-update@makerkit.dev`;
 
   function signIn() {
-    cy.signIn(`/settings/organization/members`);
+    const organization = organizationPageObject.useDefaultOrganization();
+
+    cy.signIn(`/dashboard/${organization}/settings/organization/members`);
   }
 
   describe(`Given the current user updates a member's role`, () => {

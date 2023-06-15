@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import Link, { LinkProps } from 'next/link';
 import classNames from 'classnames';
 import { cva } from 'cva';
 
@@ -20,7 +20,7 @@ type Props = React.ButtonHTMLAttributes<unknown> &
     size?: Size;
     variant?: Variant;
     loading?: boolean;
-    href?: Maybe<string>;
+    href?: Maybe<LinkProps['href']>;
   }>;
 
 const classNameBuilder = getClassNameBuilder();
@@ -84,7 +84,7 @@ function Animation() {
 function InnerButtonContainerElement({
   children,
   href,
-}: React.PropsWithChildren<{ href: Maybe<string> }>) {
+}: React.PropsWithChildren<{ href: Maybe<LinkProps['href']> }>) {
   if (href) {
     return (
       <Link className={`flex w-full items-center`} href={href}>

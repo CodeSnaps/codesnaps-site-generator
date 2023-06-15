@@ -35,7 +35,7 @@ function SignInMethodsContainer() {
       </If>
 
       <If condition={configuration.auth.providers.phoneNumber}>
-        <PhoneNumberSignInContainer onSignIn={onSignIn} />
+        <PhoneNumberSignInContainer onSuccess={onSignIn} mode={'signIn'} />
       </If>
 
       <If condition={configuration.auth.providers.emailLink}>

@@ -5,7 +5,9 @@ describe(`Update Organization`, () => {
 
   describe(`Given the user updates the organization name and logo`, () => {
     it('the UI will be updated', () => {
-      cy.signIn(`/settings/organization`);
+      const organization = organizationPageObject.useDefaultOrganization();
+
+      cy.signIn(`/dashboard/${organization}/settings/organization`);
 
       organizationPageObject
         .$getOrganizationNameInput()

@@ -2,42 +2,30 @@
 
 import type { FormEventHandler } from 'react';
 import { useCallback } from 'react';
-import toaster from 'react-hot-toast';
-import Trans from '~/core/ui/Trans';
-import { useTranslation } from 'react-i18next';
 
 import If from '~/core/ui/If';
 import TextField from '~/core/ui/TextField';
 import Button from '~/core/ui/Button';
+import Trans from '~/core/ui/Trans';
 
-import useUpdateUserMutation from '~/core/hooks/use-update-user-mutation';
+type ActionTypes = `link` | `signIn`;
 
 const PhoneNumberCredentialForm: React.FC<{
-  onSuccess: (phoneNumber: string) => void;
-  action: string;
-}> = ({ onSuccess, action }) => {
-  const { t } = useTranslation();
-  const updateUserMutation = useUpdateUserMutation();
-
+  onSubmit: (phoneNumber: string) => void;
+  action: ActionTypes;
+  loading?: boolean;
+}> = ({ onSubmit, action, loading }) => {
   const onLinkPhoneNumberSubmit: FormEventHandler<HTMLFormElement> =
     useCallback(
-      async (event) => {
+      (event) => {
         event.preventDefault();
 
         const data = new FormData(event.currentTarget);
-        const phone = data.get('phoneNumber') as string;
+        const phoneNumber = data.get('phoneNumber') as string;
 
-        const promise = updateUserMutation.trigger({ phone });
-
-        await toaster.promise(promise, {
-          loading: t<string>(`profile:verifyPhoneNumberLoading`),
-          success: t<string>(`profile:verifyPhoneNumberSuccess`),
-          error: t<string>(`profile:verifyPhoneNumberError`),
-        });
-
-        onSuccess(phone);
+        onSubmit(phoneNumber);
       },
-      [onSuccess, t, updateUserMutation]
+      [onSubmit]
     );
 
   return (
@@ -52,11 +40,11 @@ const PhoneNumberCredentialForm: React.FC<{
             name={'phoneNumber'}
             type={'tel'}
             placeholder={'Ex. +919367788755'}
-            disabled={updateUserMutation.isMutating}
+            disabled={loading}
           />
         </TextField.Label>
 
-        <Button size={'large'} block type={'submit'}>
+        <Button loading={loading} block type={'submit'}>
           <If condition={action === 'link'}>
             <Trans i18nKey={'profile:verifyPhoneNumberSubmitLabel'} />
           </If>

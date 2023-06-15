@@ -3,7 +3,6 @@ import { use } from 'react';
 import Footer from '~/app/(site)/components/Footer';
 import loadUserData from '~/lib/server/loaders/load-user-data';
 import I18nProvider from '~/i18n/I18nProvider';
-import AuthChangeListener from '~/app/(app)/components/AuthChangeListener';
 import SiteHeaderSessionProvider from '~/app/(site)/components/SiteHeaderSessionProvider';
 
 export const dynamic = 'force-dynamic';
@@ -13,13 +12,14 @@ function SiteLayout(props: React.PropsWithChildren) {
 
   return (
     <I18nProvider lang={data.language}>
-      <AuthChangeListener accessToken={data.accessToken}>
-        <SiteHeaderSessionProvider data={data.session} />
+      <SiteHeaderSessionProvider
+        data={data.session}
+        accessToken={data.accessToken}
+      />
 
-        {props.children}
+      {props.children}
 
-        <Footer />
-      </AuthChangeListener>
+      <Footer />
     </I18nProvider>
   );
 }

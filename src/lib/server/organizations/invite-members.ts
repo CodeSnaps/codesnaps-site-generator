@@ -9,7 +9,7 @@ import getLogger from '~/core/logger';
 import configuration from '~/configuration';
 
 import { getUserById } from '~/lib/user/database/queries';
-import { getOrganizationById } from '~/lib/organizations/database/queries';
+import { getOrganizationByUid } from '~/lib/organizations/database/queries';
 
 import {
   getMembershipByEmail,
@@ -34,7 +34,7 @@ interface Params {
 
   // we use the admin client to retrieve the user's email address
   adminClient: SupabaseClient;
-  organizationId: number;
+  organizationUid: string;
   inviterId: string;
   invites: Invite[];
 }
@@ -45,12 +45,12 @@ interface Params {
  * @param params
  */
 export default async function inviteMembers(params: Params) {
-  const { organizationId, invites, inviterId, adminClient, client } = params;
+  const { organizationUid, invites, inviterId, adminClient, client } = params;
   const logger = getLogger();
 
   const [{ data: inviter }, { data: organization }] = await Promise.all([
     getUserById(client, params.inviterId),
-    getOrganizationById(client, params.organizationId),
+    getOrganizationByUid(client, organizationUid),
   ]);
 
   // Check if the inviter exists
@@ -64,10 +64,11 @@ export default async function inviteMembers(params: Params) {
   }
 
   const organizationName = organization.name;
+  const organizationId = organization.id;
 
   // retrieve the inviter's membership in the organization to validate permissions
   const { role: inviterRole } = await getUserMembershipByOrganization(client, {
-    organizationId: params.organizationId,
+    organizationUid,
     userId: params.inviterId,
   });
 

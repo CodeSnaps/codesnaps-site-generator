@@ -5,9 +5,9 @@ import organizationPageObject from '../../support/organization.po';
 describe(`Create Subscription`, () => {
   before(() => {
     // switch to the organization that is mapped to the Stripe mocks
-    organizationPageObject.useDefaultOrganization();
+    const organization = organizationPageObject.useDefaultOrganization();
 
-    cy.signIn(`/settings/subscription`);
+    cy.signIn(`/dashboard/${organization}/settings/subscription`);
   });
 
   describe('Using Webhooks', () => {

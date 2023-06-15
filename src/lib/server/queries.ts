@@ -16,7 +16,7 @@ export async function getUserDataById(client: SupabaseClient, userId: string) {
     `
     )
     .eq('id', userId)
-    .single();
+    .maybeSingle();
 
   return result.data;
 }

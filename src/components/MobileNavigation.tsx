@@ -13,8 +13,10 @@ import {
 
 import NAVIGATION_CONFIG from '../navigation.config';
 
-const MobileNavigation: React.FC = () => {
-  const Links = NAVIGATION_CONFIG.items.map((item) => {
+const MobileNavigation: React.FC<{
+  organization: string;
+}> = ({ organization }) => {
+  const Links = NAVIGATION_CONFIG(organization).items.map((item) => {
     return (
       <DropdownMenuItem key={item.path}>
         <Link

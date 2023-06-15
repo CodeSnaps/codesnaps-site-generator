@@ -1,6 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import { SUBSCRIPTIONS_TABLE } from '~/lib/db-tables';
-import type { Database } from '../../database.types';
+import type { Database } from '~/database.types';
 
 type Client = SupabaseClient<Database>;
 
@@ -18,44 +18,22 @@ export async function getOrganizationSubscription(
       `
         id,
         status,
-        currency,
-        interval,
-        intervalCount: interval_count,
-        priceId: price_id,
-        subscriptionId: subscription_id,
+        updatePaymentMethodUrl: update_payment_method_url,
+        billingAnchor: billing_anchor,
+        variantId: variant_id,
         createdAt: created_at,
-        periodStartsAt: period_starts_at,
-        periodEndsAt: period_ends_at,
+        endsAt: ends_at,
+        renewsAt: renews_at,
         trialStartsAt: trial_starts_at,
-        trialEndsAt: trial_ends_at
+        trialEndsAt: trial_ends_at,
+        organizations_subscriptions!inner (
+          organization_id
+        )
       `
     )
-    .eq('organization_id', organizationId)
+    .eq('organizations_subscriptions.organization_id', organizationId)
     .throwOnError()
-    .single();
-}
-
-/**
- * @name getOrganizationBySubscriptionId
- * @description Retrieve an Organization record given its
- * subscription ID {@link subscriptionId}. Throws an error when not found.
- */
-async function getOrganizationBySubscriptionId(
-  client: Client,
-  subscriptionId: number
-) {
-  return client
-    .from(SUBSCRIPTIONS_TABLE)
-    .select<string>(
-      `
-        organizations: (
-          id,
-          name,
-         )
-       `
-    )
-    .eq('id', subscriptionId)
-    .throwOnError();
+    .maybeSingle();
 }
 
 /**

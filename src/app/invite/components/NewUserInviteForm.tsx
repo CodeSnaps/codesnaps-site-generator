@@ -1,7 +1,6 @@
 'use client';
 
-import { useCallback, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useCallback, useState, useTransition } from 'react';
 
 import EmailLinkAuth from '~/app/auth/components/EmailLinkAuth';
 import OAuthProviders from '~/app/auth/components/OAuthProviders';
@@ -15,36 +14,44 @@ import Trans from '~/core/ui/Trans';
 import Alert from '~/core/ui/Alert';
 
 import configuration from '~/configuration';
-import useAcceptInvite from '~/app/invite/use-accept-invite';
 import PageLoadingIndicator from '~/core/ui/PageLoadingIndicator';
 import isBrowser from '~/core/generic/is-browser';
+import useCsrfToken from '~/core/hooks/use-csrf-token';
+import { acceptInviteAction } from '~/lib/memberships/actions';
 
 enum Mode {
   SignUp,
   SignIn,
 }
 
-function NewUserInviteForm() {
+function NewUserInviteForm(
+  props: React.PropsWithChildren<{
+    code: string;
+  }>
+) {
   const [mode, setMode] = useState<Mode>(Mode.SignUp);
-  const acceptInvite = useAcceptInvite();
-  const router = useRouter();
+  const [isSubmitting, startTransition] = useTransition();
+  const [verifyEmail, setVerifyEmail] = useState(false);
+  const csrfToken = useCsrfToken();
+
   const oAuthReturnUrl = isBrowser() ? window.location.pathname : '';
 
   const onInviteAccepted = useCallback(
     async (userId?: string) => {
-      const data = await acceptInvite.trigger({ userId });
-      const shouldVerifyEmail = data?.verifyEmail;
+      startTransition(async () => {
+        const shouldVerifyEmail = await acceptInviteAction({
+          code: props.code,
+          userId,
+          csrfToken,
+        });
 
-      // if the user is *not* required to confirm their email
-      // we redirect them to the app home
-      if (!shouldVerifyEmail) {
-        return router.push(configuration.paths.appHome);
-      }
+        setVerifyEmail(shouldVerifyEmail);
+      });
     },
-    [acceptInvite, router]
+    [csrfToken, props.code]
   );
 
-  if (acceptInvite.data?.verifyEmail) {
+  if (verifyEmail) {
     return (
       <Alert type={'success'}>
         <Alert.Heading>
@@ -58,7 +65,7 @@ function NewUserInviteForm() {
 
   return (
     <>
-      <If condition={acceptInvite.isMutating}>
+      <If condition={isSubmitting}>
         <PageLoadingIndicator fullPage>
           Accepting invite. Please wait...
         </PageLoadingIndicator>
@@ -99,7 +106,10 @@ function NewUserInviteForm() {
       </If>
 
       <If condition={configuration.auth.providers.phoneNumber}>
-        <PhoneNumberSignInContainer onSignIn={onInviteAccepted} />
+        <PhoneNumberSignInContainer
+          onSuccess={onInviteAccepted}
+          mode={'signUp'}
+        />
       </If>
 
       <If condition={configuration.auth.providers.emailLink}>

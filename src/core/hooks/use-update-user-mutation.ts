@@ -3,6 +3,8 @@ import type { UserAttributes } from '@supabase/gotrue-js';
 
 import useSupabase from '~/core/hooks/use-supabase';
 
+type Params = { arg: UserAttributes & { redirectTo: string } };
+
 /**
  * @name useUpdateUserMutation
  */
@@ -10,14 +12,20 @@ function useUpdateUserMutation() {
   const client = useSupabase();
   const key = ['auth', 'update-user'];
 
-  return useMutation(key, (_, { arg: attributes }: { arg: UserAttributes }) => {
-    return client.auth.updateUser(attributes).then((response) => {
-      if (response.error) {
-        throw response.error;
-      }
+  return useMutation(key, (_, { arg: attributes }: Params) => {
+    const { redirectTo, ...params } = attributes;
 
-      return response.data;
-    });
+    return client.auth
+      .updateUser(params, {
+        emailRedirectTo: redirectTo,
+      })
+      .then((response) => {
+        if (response.error) {
+          throw response.error;
+        }
+
+        return response.data;
+      });
   });
 }
 

@@ -30,7 +30,7 @@ const AuthProviderLogo: React.FC<{
   return <>{image}</>;
 };
 
-function getOAuthProviderLogos(): Record<string, string | JSX.Element> {
+function getOAuthProviderLogos(): Record<string, string | React.ReactNode> {
   return {
     email: <AtSymbolIcon className={'h-7'} />,
     phone: <DevicePhoneMobileIcon className={'h-7'} />,

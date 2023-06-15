@@ -5,7 +5,8 @@ describe(`Transfer Ownership`, () => {
   const targetMemberEmail = `test-transfer-ownership@makerkit.dev`;
 
   function signIn() {
-    cy.signIn(`/settings/organization/members`);
+    const organization = organizationPageObject.useDefaultOrganization();
+    cy.signIn(`/dashboard/${organization}/settings/organization/members`);
   }
 
   function transferOwnership(email: string) {
@@ -16,7 +17,6 @@ describe(`Transfer Ownership`, () => {
   describe(`When the owner transfers ownership to another member`, () => {
     it('should update the users roles', () => {
       // sign in
-      organizationPageObject.useDefaultOrganization();
       signIn();
 
       // transfer ownership

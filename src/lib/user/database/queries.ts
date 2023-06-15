@@ -13,10 +13,10 @@ export function getUserById(client: SupabaseClient, userId: string) {
       `
       id,
       displayName: display_name,
-      photoUrl: photo_url
+      photoUrl: photo_url,
+      onboarded
     `
     )
     .eq('id', userId)
-    .throwOnError()
-    .single();
+    .maybeSingle();
 }

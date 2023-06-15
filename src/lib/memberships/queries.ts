@@ -41,16 +41,23 @@ export async function getUserMembershipByOrganization(
   client: Client,
   params: {
     userId: string;
-    organizationId: number;
+    organizationUid: string;
   }
 ) {
   const { data, error } = await client
     .from(MEMBERSHIPS_TABLE)
-    .select<string, Membership>(`*`)
+    .select<string, Membership>(
+      `
+      *,
+      organization: organization_id !inner (
+        uuid
+      )
+     `
+    )
     .eq('user_id', params.userId)
-    .eq('organization_id', params.organizationId)
-    .throwOnError()
-    .single();
+    .eq('organization.uuid', params.organizationUid)
+    .single()
+    .throwOnError();
 
   if (error) {
     throw error;

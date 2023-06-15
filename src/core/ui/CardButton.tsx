@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 import Button from '~/core/ui/Button';
+import classNames from 'classnames';
 
 const CardButton = forwardRef<
   typeof Button,
@@ -10,12 +11,10 @@ const CardButton = forwardRef<
       {...props}
       size={'large'}
       color={'custom'}
-      className={
-        'h-28 rounded-sm shadow dark:shadow-primary-500/30' +
-        ' cursor-pointer transition-all hover:shadow-lg' +
-        ' ring-primary-500 active:bg-gray-50 dark:active:bg-black-300' +
-        ' dark:ring-primary-500/70'
-      }
+      className={classNames(
+        props.className,
+        `h-28 cursor-pointer rounded-sm shadow ring-primary-500 transition-all hover:shadow-lg active:bg-gray-50 dark:shadow-primary-500/30 dark:ring-primary-500/70 dark:active:bg-black-300`
+      )}
     >
       {props.children}
     </Button>

@@ -5,8 +5,8 @@ describe(`Delete Invite`, () => {
   const invitedMemberEmail = `invite-delete@makerkit.dev`;
 
   function signIn() {
-    organizationPageObject.useDefaultOrganization();
-    cy.signIn(`/settings/organization/members`);
+    const organization = organizationPageObject.useDefaultOrganization();
+    cy.signIn(`/dashboard/${organization}/settings/organization/members`);
   }
 
   function deleteInvite() {

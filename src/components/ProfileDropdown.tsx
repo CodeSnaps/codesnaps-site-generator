@@ -1,10 +1,11 @@
+'use client';
+
 import { useMemo } from 'react';
 import Trans from '~/core/ui/Trans';
 import Link from 'next/link';
 
 import {
   ChevronDownIcon,
-  Cog8ToothIcon,
   ArrowLeftOnRectangleIcon,
   Squares2X2Icon,
   PaintBrushIcon,
@@ -84,18 +85,6 @@ const ProfileDropdown: React.FCC<{
             <Squares2X2Icon className={'h-5'} />
             <span>
               <Trans i18nKey={'common:dashboardTabLabel'} />
-            </span>
-          </Link>
-        </DropdownMenuItem>
-
-        <DropdownMenuItem>
-          <Link
-            className={'full flex w-full items-center space-x-2'}
-            href={'/settings/profile'}
-          >
-            <Cog8ToothIcon className={'h-5'} />
-            <span>
-              <Trans i18nKey={'common:settingsTabLabel'} />
             </span>
           </Link>
         </DropdownMenuItem>

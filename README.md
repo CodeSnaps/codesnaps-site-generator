@@ -154,6 +154,19 @@ The environment variable name is `STRIPE_WEBHOOK_SECRET`.
 STRIPE_WEBHOOK_SECRET=whsec_***********************
 ```
 
+#### Signing In for the first time
+
+You should now be able to sign in. To quickly get started, use the following credentials:
+
+```
+email = test@makerkit.dev
+password = testingpassword
+```
+
+#### Email Confirmations
+
+When signing up, Supabase sends an email confirmation to a testing account. You can access the InBucket testing emails [using the following link](http://localhost:54324/monitor), and can follow the links to complete the sign up process.
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ### After Creating your Supabase Project

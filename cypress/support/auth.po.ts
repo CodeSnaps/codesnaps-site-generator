@@ -44,6 +44,9 @@ const authPageObject = {
     const apiKey = Cypress.env('SUPABASE_ANON_KEY');
     const url = `${apiUrl}/auth/v1/token?grant_type=password`;
 
+    const host = new URL(apiUrl).hostname.split('.')[0];
+    const cookieName = `sb-${host}-auth-token`;
+
     cy.request({
       url,
       method: 'POST',
@@ -65,7 +68,7 @@ const authPageObject = {
       .its('body')
       .then((body) => {
         cy.setCookie(
-          'supabase-auth-token',
+          cookieName,
           JSON.stringify([
             body.access_token,
             body.refresh_token,

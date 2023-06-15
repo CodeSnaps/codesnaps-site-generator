@@ -17,27 +17,23 @@ describe(`Accept Invite - Existing User`, () => {
   }
 
   describe(`when the user accepts the invite`, () => {
-    before(() => {
+    it('should be redirected to the dashboard', () => {
       signIn();
       authPo.$getAcceptInviteSubmitButton().wait(150).click();
-    });
 
-    it('should be redirected to the dashboard', () => {
       cy.url().should('contain', configuration.paths.appHome);
     });
   });
 
   describe(`when the user visits the members page`, () => {
-    before(() => {
-      cy.signIn(`/settings/organization/members`, {
+    it('should add the new member to the members list', () => {
+      const organization = organizationPageObject.useDefaultOrganization();
+
+      cy.signIn(`/dashboard/${organization}/settings/organization/members`, {
         email: existingUserEmail,
         password,
       });
 
-      organizationPageObject.switchToOrganization('IndieCorp');
-    });
-
-    it('should add the new member to the members list', () => {
       organizationPageObject
         .$getMemberByEmail(existingUserEmail)
         .should('exist');

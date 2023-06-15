@@ -21,10 +21,7 @@ const Hint: React.FC<React.PropsWithChildren> = ({ children }) => {
 };
 
 const Input = forwardRef<React.ElementRef<'input'>, Props>(
-  function TextFieldInputComponent(
-    { className, children, defaultValue, ...props },
-    ref
-  ) {
+  function TextFieldInputComponent({ className, children, ...props }, ref) {
     return (
       <div
         className={classNames(
@@ -49,7 +46,7 @@ const Input = forwardRef<React.ElementRef<'input'>, Props>(
         <input
           {...props}
           className={classNames(
-            `h-10 flex-1 rounded-md bg-transparent py-2 px-3 outline-none disabled:cursor-not-allowed disabled:opacity-30`,
+            `h-10 flex-1 rounded-md bg-transparent px-3 py-2 outline-none disabled:cursor-not-allowed disabled:opacity-30`,
             className
           )}
           ref={ref}

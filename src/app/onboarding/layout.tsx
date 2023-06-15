@@ -4,13 +4,13 @@ import { isRedirectError } from 'next/dist/client/components/redirect';
 import getSupabaseServerClient from '~/core/supabase/server-client';
 import requireSession from '~/lib/user/require-session';
 import { getUserDataById } from '~/lib/server/queries';
-import getCurrentOrganization from '~/lib/server/organizations/get-current-organization';
 import OnboardingIllustration from '~/app/onboarding/components/OnboardingIllustration';
 
 import Logo from '~/core/ui/Logo';
 import getLanguageCookie from '~/i18n/get-language-cookie';
 import initializeServerI18n from '~/i18n/i18n.server';
 import getLogger from '~/core/logger';
+import configuration from '~/configuration';
 
 export const dynamic = 'force-dynamic';
 
@@ -72,9 +72,6 @@ async function initializeOnboardingRoute() {
       };
     }
 
-    const userId = userData.id;
-
-    const organization = await getCurrentOrganization({ userId });
     const onboarded = userData.onboarded;
 
     // there are two cases when we redirect the user to the onboarding
@@ -83,7 +80,7 @@ async function initializeOnboardingRoute() {
     //
     // NB: you should remove this if you want to
     // allow organization-less users within the application
-    if (onboarded && organization) {
+    if (onboarded) {
       return redirect('/');
     }
 
@@ -99,7 +96,7 @@ async function initializeOnboardingRoute() {
         Error while initializing onboarding route: ${e}`
       );
 
-      throw redirect('/auth/sign-in');
+      redirect(configuration.paths.signIn);
     }
   }
 }

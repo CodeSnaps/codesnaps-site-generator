@@ -13,6 +13,7 @@ type Client = SupabaseClient<Database>;
 
 const FETCH_ORGANIZATION_QUERY = `
   id,
+  uuid,
   name,
   logoURL: logo_url,
   subscription: organizations_subscriptions (
@@ -137,6 +138,25 @@ export function getOrganizationMembers(client: Client, organizationId: number) {
 }
 
 /**
+ * @name getOrganizationByUid
+ * @description Returns the Database record of the organization by its UUID
+ * {@link uid}
+ */
+export function getOrganizationByUid(client: Client, uid: string) {
+  return client
+    .from(ORGANIZATIONS_TABLE)
+    .select<
+      string,
+      Organization & {
+        subscription: OrganizationSubscription;
+      }
+    >(FETCH_ORGANIZATION_QUERY)
+    .eq('uuid', uid)
+    .throwOnError()
+    .maybeSingle();
+}
+
+/**
  * @name getOrganizationById
  * @description Returns the Database record of the organization by its ID
  * {@link organizationId}
@@ -173,6 +193,7 @@ export function getOrganizationByCustomerId(
       id,
       name,
       logoURL: logo_url,
+      uuid,
       subscription: organizations_subscriptions (
         customerId: customer_id
       )
@@ -188,14 +209,30 @@ export function getOrganizationByCustomerId(
  * @param client
  * @param userIds
  */
-export function getMembersAuthMetadata(client: Client, userIds: string[]) {
-  return Promise.all(
+export async function getMembersAuthMetadata(
+  client: Client,
+  userIds: string[]
+) {
+  const users = await Promise.all(
     userIds.map((userId) => {
       const response = client.auth.admin.getUserById(userId);
 
-      return response.then((response) => {
-        return response.data.user as User;
-      });
+      return response
+        .then((response) => {
+          return response.data.user as User;
+        })
+        .catch((error) => {
+          console.error(
+            {
+              userId,
+            },
+            `Error fetching user: ${error}`
+          );
+
+          return undefined;
+        });
     }) ?? []
   );
+
+  return users.filter(Boolean) as User[];
 }

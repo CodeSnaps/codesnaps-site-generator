@@ -57,11 +57,11 @@ insert into public.users (id, display_name, photo_url, onboarded)
 insert into public.users (id, display_name, photo_url, onboarded)
   values ('e6058751-75dc-4831-b773-dd6e0c821963', null, null, true);
 
-insert into public.organizations (id, name, logo_url) OVERRIDING system VALUE
-  values (6, 'IndieCorp', null);
+insert into public.organizations (id, name, logo_url, uuid) OVERRIDING system
+VALUE values (6, 'IndieCorp', null, 'bc3ab22c-c444-4491-84f2-cd8d9873e8c2');
 
-insert into public.organizations (id, name, logo_url) OVERRIDING system VALUE
-  values (7, 'Test', null);
+insert into public.organizations (id, name, logo_url, uuid) OVERRIDING system
+VALUE values (7, 'Test', null, '4a562b19-3dea-4126-88d8-47ee20a5cd67');
 
 insert into public.memberships (id, user_id, organization_id, role, invited_email, code) OVERRIDING system VALUE
   values (7, '2b4a6624-7118-4551-8f0f-6b753e32e139', 7, 2, null, null);

@@ -5,6 +5,7 @@ const { withContentlayer } = require('next-contentlayer');
 const nextConfig = {
   experimental: {
     appDir: true,
+    serverActions: true,
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {

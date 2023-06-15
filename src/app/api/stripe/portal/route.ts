@@ -88,21 +88,21 @@ async function getUserCanAccessCustomerPortal(
   }
 ) {
   try {
-    const { data: organization } = await getOrganizationByCustomerId(
+    const { data: organization, error } = await getOrganizationByCustomerId(
       client,
       params.customerId
     );
 
-    const organizationId = organization?.id;
-
-    if (!organizationId) {
+    if (error) {
       return throwNotFoundException(
         `Organization not found for customer ${params.customerId}`
       );
     }
 
+    const organizationUid = organization.uuid;
+
     const { role } = await getUserMembershipByOrganization(client, {
-      organizationId,
+      organizationUid,
       userId: params.userId,
     });
 
