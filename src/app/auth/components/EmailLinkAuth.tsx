@@ -36,9 +36,9 @@ const EmailLinkAuth: React.FC = () => {
       });
 
       await toast.promise(promise, {
-        loading: t<string>('auth:sendingEmailLink'),
-        success: t<string>(`auth:sendLinkSuccessToast`),
-        error: t<string>(`auth:errors.link`),
+        loading: t('auth:sendingEmailLink'),
+        success: t(`auth:sendLinkSuccessToast`),
+        error: t(`auth:errors.link`),
       });
     },
     [signInWithOtpMutation, t]

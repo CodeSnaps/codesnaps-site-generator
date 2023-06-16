@@ -31,10 +31,10 @@ const UpdateEmailForm: React.FC<{ user: User }> = ({ user }) => {
       const promise = updateUserMutation.trigger({ email, redirectTo });
 
       return toast.promise(promise, {
-        success: t<string>(`profile:updateEmailSuccess`),
-        loading: t<string>(`profile:updateEmailLoading`),
+        success: t(`profile:updateEmailSuccess`),
+        loading: t(`profile:updateEmailLoading`),
         error: (error: Error) => {
-          return error.message ?? t<string>(`profile:updateEmailError`);
+          return error.message ?? t(`profile:updateEmailError`);
         },
       });
     },

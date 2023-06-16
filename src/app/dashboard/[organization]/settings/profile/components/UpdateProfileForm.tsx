@@ -91,9 +91,9 @@ function UpdateProfileForm({
     });
 
     return toaster.promise(promise, {
-      success: t<string>(`profile:updateProfileSuccess`),
-      error: t<string>(`profile:updateProfileError`),
-      loading: t<string>(`profile:updateProfileLoading`),
+      success: t(`profile:updateProfileSuccess`),
+      error: t(`profile:updateProfileError`),
+      loading: t(`profile:updateProfileLoading`),
     });
   };
 
@@ -261,9 +261,9 @@ function RemovePhoneNumberButton({
     });
 
     return toaster.promise(promise, {
-      loading: t<string>(`profile:unlinkActionLoading`),
-      success: t<string>(`profile:unlinkActionSuccess`),
-      error: t<string>(`profile:unlinkActionError`),
+      loading: t(`profile:unlinkActionLoading`),
+      success: t(`profile:unlinkActionSuccess`),
+      error: t(`profile:unlinkActionError`),
     });
   }, [unlinkProfileNumberMutation, t, onSuccess]);
 

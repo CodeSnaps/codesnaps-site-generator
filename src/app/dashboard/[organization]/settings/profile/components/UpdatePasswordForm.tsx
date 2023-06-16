@@ -35,12 +35,12 @@ const UpdatePasswordForm: React.FCC<{ user: User }> = ({ user }) => {
     required: true,
     minLength: {
       value: 6,
-      message: t<string>(`auth:passwordLengthError`),
+      message: t(`auth:passwordLengthError`),
     },
     validate: (value) => {
       // current password cannot be the same as the current one
       if (value === getValues('currentPassword')) {
-        return t<string>(`profile:passwordNotChanged`);
+        return t(`profile:passwordNotChanged`);
       }
     },
   });
@@ -50,12 +50,12 @@ const UpdatePasswordForm: React.FCC<{ user: User }> = ({ user }) => {
     required: true,
     minLength: {
       value: 6,
-      message: t<string>(`profile:passwordLengthError`),
+      message: t(`profile:passwordLengthError`),
     },
     validate: (value) => {
       // new password and repeat new password must match
       if (value !== getValues('newPassword')) {
-        return t<string>(`profile:passwordNotMatching`);
+        return t(`profile:passwordNotMatching`);
       }
     },
   });
@@ -70,9 +70,9 @@ const UpdatePasswordForm: React.FCC<{ user: User }> = ({ user }) => {
       const promise = updateUserMutation.trigger({ password, redirectTo });
 
       return await toast.promise(promise, {
-        success: t<string>(`profile:updatePasswordSuccess`),
-        error: t<string>(`profile:updatePasswordError`),
-        loading: t<string>(`profile:updatePasswordLoading`),
+        success: t(`profile:updatePasswordSuccess`),
+        error: t(`profile:updatePasswordError`),
+        loading: t(`profile:updatePasswordLoading`),
       });
     },
     [updateUserMutation, t]

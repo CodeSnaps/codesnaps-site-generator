@@ -40,7 +40,7 @@ const UpdateOrganizationForm = () => {
       const organizationId = organization?.id;
 
       if (!organizationId) {
-        const errorMessage = t<string>(`updateOrganizationErrorMessage`);
+        const errorMessage = t(`updateOrganizationErrorMessage`);
 
         return toast.error(errorMessage);
       }
@@ -57,7 +57,7 @@ const UpdateOrganizationForm = () => {
           logo: logoFile,
           organizationId,
         }).catch(() => {
-          toast.error(t<string>(`updateLogoErrorMessage`));
+          toast.error(t(`updateLogoErrorMessage`));
 
           return null;
         });
@@ -80,9 +80,9 @@ const UpdateOrganizationForm = () => {
       const promise = updateOrganizationMutation.trigger(organizationData);
 
       await toast.promise(promise, {
-        loading: t<string>(`updateOrganizationLoadingMessage`),
-        success: t<string>(`updateOrganizationSuccessMessage`),
-        error: t<string>(`updateOrganizationErrorMessage`),
+        loading: t(`updateOrganizationLoadingMessage`),
+        success: t(`updateOrganizationSuccessMessage`),
+        error: t(`updateOrganizationErrorMessage`),
       });
 
       setOrganization({
