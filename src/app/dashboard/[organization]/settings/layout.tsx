@@ -33,8 +33,6 @@ async function SettingsLayout({
     organization: string;
   };
 }>) {
-  await initializeServerI18n(getLanguageCookie());
-
   const links = getLinks(params.organization);
 
   return (

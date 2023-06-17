@@ -22,15 +22,17 @@ function SignUpMethodsContainer() {
 
   return (
     <>
-      <OAuthProviders />
+      <If condition={configuration.auth.providers.oAuth.length}>
+        <OAuthProviders />
 
-      <If condition={configuration.auth.providers.emailPassword}>
         <div>
           <span className={'text-xs text-gray-400'}>
             <Trans i18nKey={'auth:orContinueWithEmail'} />
           </span>
         </div>
+      </If>
 
+      <If condition={configuration.auth.providers.emailPassword}>
         <EmailPasswordSignUpContainer onSignUp={onSignUp} />
       </If>
 
