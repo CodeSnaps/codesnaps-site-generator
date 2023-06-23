@@ -4,6 +4,7 @@ import SettingsTile from '~/app/dashboard/[organization]/settings/components/Set
 import InviteMembersForm from '~/app/dashboard/[organization]/settings/organization/components/InviteMembersForm';
 import Trans from '~/core/ui/Trans';
 import Button from '~/core/ui/Button';
+import { withI18n } from '~/i18n/with-i18n';
 
 export const metadata = {
   title: 'Invite Members',
@@ -28,7 +29,7 @@ const OrganizationMembersInvitePage = () => {
   );
 };
 
-export default OrganizationMembersInvitePage;
+export default withI18n(OrganizationMembersInvitePage);
 
 function GoBackToMembersButton() {
   return (

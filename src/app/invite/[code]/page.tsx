@@ -18,6 +18,7 @@ import ExistingUserInviteForm from '~/app/invite/components/ExistingUserInviteFo
 import NewUserInviteForm from '~/app/invite/components/NewUserInviteForm';
 import InviteCsrfTokenProvider from '~/app/invite/components/InviteCsrfTokenProvider';
 import { Database } from '~/database.types';
+import { withI18n } from '~/i18n/with-i18n';
 
 interface Context {
   params: {
@@ -78,7 +79,7 @@ const InvitePage = ({ params }: Context) => {
   );
 };
 
-export default InvitePage;
+export default withI18n(InvitePage);
 
 async function loadInviteData(code: string) {
   const logger = getLogger();

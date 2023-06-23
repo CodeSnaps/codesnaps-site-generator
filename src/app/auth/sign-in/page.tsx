@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Trans from '~/core/ui/Trans';
 
 import Heading from '~/core/ui/Heading';
+import { withI18n } from '~/i18n/with-i18n';
+
 import configuration from '~/configuration';
 import SignInMethodsContainer from '~/app/auth/components/SignInMethodsContainer';
 
@@ -42,4 +44,4 @@ function SignInPage() {
   );
 }
 
-export default SignInPage;
+export default withI18n(SignInPage);

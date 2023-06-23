@@ -6,8 +6,7 @@ import NavigationItem from '~/core/ui/Navigation/NavigationItem';
 import AppHeader from '~/app/dashboard/[organization]/components/AppHeader';
 import AppContainer from '~/app/dashboard/[organization]/components/AppContainer';
 import Trans from '~/core/ui/Trans';
-import getLanguageCookie from '~/i18n/get-language-cookie';
-import initializeServerI18n from '~/i18n/i18n.server';
+import { withI18n } from '~/i18n/with-i18n';
 import configuration from '~/configuration';
 
 const getLinks = (organizationId: string) => [
@@ -68,7 +67,7 @@ async function SettingsLayout({
   );
 }
 
-export default SettingsLayout;
+export default withI18n(SettingsLayout);
 
 function getPath(organizationId: string, path: string) {
   const appPrefix = configuration.paths.appPrefix;

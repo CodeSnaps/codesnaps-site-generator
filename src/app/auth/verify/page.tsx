@@ -8,6 +8,7 @@ import VerifyFormContainer from './components/VerifyFormContainer';
 import getLanguageCookie from '~/i18n/get-language-cookie';
 import initializeServerI18n from '~/i18n/i18n.server';
 import I18nProvider from '~/i18n/I18nProvider';
+import { withI18n } from '~/i18n/with-i18n';
 
 import configuration from '~/configuration';
 
@@ -25,7 +26,7 @@ function VerifyPage() {
   );
 }
 
-export default VerifyPage;
+export default withI18n(VerifyPage);
 
 async function loadData() {
   const client = getSupabaseServerClient();

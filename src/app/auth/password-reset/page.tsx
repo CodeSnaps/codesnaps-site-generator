@@ -5,6 +5,7 @@ import Heading from '~/core/ui/Heading';
 import Trans from '~/core/ui/Trans';
 
 import PasswordResetContainer from '~/app/auth/components/PasswordResetContainer';
+import { withI18n } from '~/i18n/with-i18n';
 
 export const metadata = {
   title: 'Password Reset',
@@ -45,4 +46,4 @@ function PasswordResetPage() {
   );
 }
 
-export default PasswordResetPage;
+export default withI18n(PasswordResetPage);

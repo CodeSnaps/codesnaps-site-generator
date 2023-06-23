@@ -91,7 +91,8 @@ async function OrganizationsPage() {
                   >
                     <span
                       className={
-                        'absolute left-6 top-4 flex items-center space-x-4'
+                        'absolute left-6 top-4 flex justify-start' +
+                        ' h-full w-full items-center space-x-4'
                       }
                     >
                       <If condition={organization.logoURL}>

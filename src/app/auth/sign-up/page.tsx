@@ -2,9 +2,10 @@ import Link from 'next/link';
 
 import Trans from '~/core/ui/Trans';
 import Heading from '~/core/ui/Heading';
+import SignUpMethodsContainer from '~/app/auth/components/SignUpMethodsContainer';
 
 import configuration from '~/configuration';
-import SignUpMethodsContainer from '~/app/auth/components/SignUpMethodsContainer';
+import { withI18n } from '~/i18n/with-i18n';
 
 const SIGN_IN_PATH = configuration.paths.signIn;
 
@@ -43,4 +44,4 @@ function SignUpPage() {
   );
 }
 
-export default SignUpPage;
+export default withI18n(SignUpPage);

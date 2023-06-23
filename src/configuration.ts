@@ -46,10 +46,6 @@ const configuration = {
       email: 'settings/profile/email',
       password: 'settings/profile/password',
     },
-    api: {
-      checkout: `/api/stripe/checkout`,
-      billingPortal: `/api/stripe/portal`,
-    },
   },
   email: {
     host: '',

@@ -1,6 +1,7 @@
 import SettingsTile from '~/app/dashboard/[organization]/settings/components/SettingsTile';
 import UpdateOrganizationForm from './components/UpdateOrganizationForm';
 import Trans from '~/core/ui/Trans';
+import { withI18n } from '~/i18n/with-i18n';
 
 export const metadata = {
   title: 'Organization Details',
@@ -17,4 +18,4 @@ const OrganizationSettingsPage = () => {
   );
 };
 
-export default OrganizationSettingsPage;
+export default withI18n(OrganizationSettingsPage);

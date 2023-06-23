@@ -4,17 +4,14 @@ import { ArrowRightIcon } from '@heroicons/react/24/outline';
 
 import Button from '~/core/ui/Button';
 import useCsrfToken from '~/core/hooks/use-csrf-token';
-
-import configuration from '~/configuration';
-
-const BILLING_PORTAL_REDIRECT_ENDPOINT = configuration.paths.api.billingPortal;
+import { createBillingPortalSessionAction } from '~/lib/stripe/actions';
 
 const BillingPortalRedirectButton: React.FCC<{
   customerId: string;
   className?: string;
 }> = ({ children, customerId, className }) => {
   return (
-    <form method="POST" action={BILLING_PORTAL_REDIRECT_ENDPOINT}>
+    <form method="POST" action={createBillingPortalSessionAction}>
       <input type={'hidden'} name={'customerId'} value={customerId} />
 
       <CsrfTokenInput />

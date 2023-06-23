@@ -5,25 +5,19 @@ import ArrowRightIcon from '@heroicons/react/24/outline/ArrowRightIcon';
 import classNames from 'classnames';
 
 import Button from '~/core/ui/Button';
-import configuration from '~/configuration';
 import isBrowser from '~/core/generic/is-browser';
 import useCsrfToken from '~/core/hooks/use-csrf-token';
-
-const CHECKOUT_SESSION_API_ENDPOINT = configuration.paths.api.checkout;
+import { createCheckoutAction } from '~/lib/stripe/actions';
 
 const CheckoutRedirectButton: React.FCC<{
   disabled?: boolean;
   stripePriceId?: string;
   recommended?: boolean;
-  organizationUid: Maybe<string>;
+  organizationUid: string;
   customerId: Maybe<string>;
 }> = ({ children, ...props }) => {
   return (
-    <form
-      data-cy={'checkout-form'}
-      action={CHECKOUT_SESSION_API_ENDPOINT}
-      method="POST"
-    >
+    <form data-cy={'checkout-form'} action={createCheckoutAction}>
       <CheckoutFormData
         customerId={props.customerId}
         organizationUid={props.organizationUid}

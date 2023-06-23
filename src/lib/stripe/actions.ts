@@ -1,27 +1,34 @@
+'use server';
+
 import { z } from 'zod';
 import { join } from 'path';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import { redirect } from 'next/navigation';
-import { NextResponse } from 'next/server';
-import { cookies, headers } from 'next/headers';
+import { headers } from 'next/headers';
+import { RedirectType } from 'next/dist/client/components/redirect';
 
 import getLogger from '~/core/logger';
-import HttpStatusCode from '~/core/generic/http-status-code.enum';
 import getApiRefererPath from '~/core/generic/get-api-referer-path';
 
 import createStripeCheckout from '~/lib/stripe/create-checkout';
 import { canChangeBilling } from '~/lib/organizations/permissions';
-import { parseOrganizationIdCookie } from '~/lib/server/cookies/organization.cookie';
 import { getUserMembershipByOrganization } from '~/lib/memberships/queries';
 import requireSession from '~/lib/user/require-session';
 import getSupabaseServerClient from '~/core/supabase/server-client';
-import configuration from '~/configuration';
-import { getOrganizationByUid } from '~/lib/organizations/database/queries';
 
-export async function POST(request: Request) {
+import {
+  getOrganizationByCustomerId,
+  getOrganizationByUid,
+} from '~/lib/organizations/database/queries';
+
+import configuration from '~/configuration';
+import createBillingPortalSession from '~/lib/stripe/create-billing-portal-session';
+import { throwNotFoundException } from '~/core/http-exceptions';
+
+export async function createCheckoutAction(formData: FormData) {
   const logger = getLogger();
-  const body = Object.fromEntries(await request.formData());
-  const bodyResult = await getBodySchema().safeParseAsync(body);
+  const body = Object.fromEntries(formData);
+  const bodyResult = await getCheckoutBodySchema().safeParseAsync(body);
 
   const redirectToErrorPage = (error?: string) => {
     const referer = getApiRefererPath(headers());
@@ -45,15 +52,6 @@ export async function POST(request: Request) {
   // require the user to be logged in
   const sessionResult = await requireSession(client);
   const userId = sessionResult.user.id;
-
-  const currentOrganizationUid = await parseOrganizationIdCookie(cookies());
-  const matchesSessionOrganizationId =
-    currentOrganizationUid === organizationUid;
-
-  // check if the organization ID in the cookie matches the one in the request
-  if (!matchesSessionOrganizationId) {
-    return redirectToErrorPage(`Conflicting Organizations`);
-  }
 
   const { error } = await getOrganizationByUid(client, organizationUid);
 
@@ -93,33 +91,29 @@ export async function POST(request: Request) {
     );
   }
 
-  try {
-    const trialPeriodDays =
-      plan && 'trialPeriodDays' in plan
-        ? (plan.trialPeriodDays as number)
-        : undefined;
+  const trialPeriodDays =
+    plan && 'trialPeriodDays' in plan
+      ? (plan.trialPeriodDays as number)
+      : undefined;
 
-    // create the Stripe Checkout session
-    const { url } = await createStripeCheckout({
-      returnUrl,
-      organizationUid,
-      priceId,
-      customerId,
-      trialPeriodDays,
-    });
-
-    // retrieve the Checkout Portal URL
-    const portalUrl = getCheckoutPortalUrl(url, returnUrl);
-
-    // redirect user back based on the response
-    return NextResponse.redirect(portalUrl, {
-      status: HttpStatusCode.SeeOther,
-    });
-  } catch (e) {
+  // create the Stripe Checkout session
+  const { url } = await createStripeCheckout({
+    returnUrl,
+    organizationUid,
+    priceId,
+    customerId,
+    trialPeriodDays,
+  }).catch((e) => {
     logger.error(e, `Stripe Checkout error`);
 
     return redirectToErrorPage(`An unexpected error occurred`);
-  }
+  });
+
+  // retrieve the Checkout Portal URL
+  const portalUrl = getCheckoutPortalUrl(url, returnUrl);
+
+  // redirect user back based on the response
+  return redirect(portalUrl, RedirectType.replace);
 }
 
 /**
@@ -150,7 +144,103 @@ async function getUserCanAccessCheckout(
   }
 }
 
-function getBodySchema() {
+export async function createBillingPortalSessionAction(formData: FormData) {
+  const body = Object.fromEntries(formData);
+  const bodyResult = await getBillingPortalBodySchema().safeParseAsync(body);
+  const referrerPath = getApiRefererPath(headers());
+
+  // Validate the body schema
+  if (!bodyResult.success) {
+    return redirectToErrorPage(referrerPath);
+  }
+
+  const { customerId } = bodyResult.data;
+
+  const client = getSupabaseServerClient();
+  const logger = getLogger();
+  const session = await requireSession(client);
+
+  const userId = session.user.id;
+
+  // get permissions to see if the user can access the portal
+  const canAccess = await getUserCanAccessCustomerPortal(client, {
+    customerId,
+    userId,
+  });
+
+  // validate that the user can access the portal
+  if (!canAccess) {
+    return redirectToErrorPage(referrerPath);
+  }
+
+  const referer = headers().get('referer');
+  const origin = headers().get('origin');
+  const returnUrl = referer || origin || configuration.paths.appHome;
+
+  // get the Stripe Billing Portal session
+  const { url } = await createBillingPortalSession({
+    returnUrl,
+    customerId,
+  }).catch((e) => {
+    logger.error(e, `Stripe Billing Portal redirect error`);
+
+    return redirectToErrorPage(referrerPath);
+  });
+
+  // redirect to the Stripe Billing Portal
+  return redirect(url, RedirectType.replace);
+}
+
+/**
+ * @name getUserCanAccessCustomerPortal
+ * @description Returns whether a user {@link userId} has access to the
+ * Stripe portal of an organization with customer ID {@link customerId}
+ */
+async function getUserCanAccessCustomerPortal(
+  client: SupabaseClient,
+  params: {
+    customerId: string;
+    userId: string;
+  }
+) {
+  try {
+    const { data: organization, error } = await getOrganizationByCustomerId(
+      client,
+      params.customerId
+    );
+
+    if (error) {
+      return throwNotFoundException(
+        `Organization not found for customer ${params.customerId}`
+      );
+    }
+
+    const organizationUid = organization.uuid;
+
+    const { role } = await getUserMembershipByOrganization(client, {
+      organizationUid,
+      userId: params.userId,
+    });
+
+    if (role === undefined) {
+      return false;
+    }
+
+    return canChangeBilling(role);
+  } catch (e) {
+    getLogger().error(e, `Could not retrieve user role`);
+
+    return false;
+  }
+}
+
+function getBillingPortalBodySchema() {
+  return z.object({
+    customerId: z.string().min(1),
+  });
+}
+
+function getCheckoutBodySchema() {
   return z.object({
     csrf_token: z.string().min(1),
     organizationUid: z.string().uuid(),
@@ -198,4 +288,10 @@ function isTestingMode() {
   const enableStripeTesting = process.env.ENABLE_STRIPE_TESTING;
 
   return enableStripeTesting === 'true';
+}
+
+function redirectToErrorPage(referrerPath: string) {
+  const url = join(referrerPath, `?error=true`);
+
+  return redirect(url);
 }

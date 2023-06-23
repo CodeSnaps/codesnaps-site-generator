@@ -7,6 +7,7 @@ import requireSession from '~/lib/user/require-session';
 import getSupabaseServerClient from '~/core/supabase/server-client';
 import { getUserDataById } from '~/lib/server/queries';
 import configuration from '~/configuration';
+import { withI18n } from '~/i18n/with-i18n';
 
 export const metadata = {
   title: 'Onboarding',
@@ -18,7 +19,7 @@ function OnboardingPage() {
   return <OnboardingContainer csrfToken={csrfToken} />;
 }
 
-export default OnboardingPage;
+export default withI18n(OnboardingPage);
 
 async function loadData() {
   const csrfToken = headers().get('X-CSRF-Token');

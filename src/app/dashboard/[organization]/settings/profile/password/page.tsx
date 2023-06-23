@@ -1,6 +1,7 @@
 import UpdatePasswordFormContainer from '~/app/dashboard/[organization]/settings/profile/components/UpdatePasswordFormContainer';
 import SettingsTile from '~/app/dashboard/[organization]/settings/components/SettingsTile';
 import Trans from '~/core/ui/Trans';
+import { withI18n } from '~/i18n/with-i18n';
 
 export const metadata = {
   title: 'Update Password',
@@ -17,4 +18,4 @@ const ProfilePasswordSettingsPage = () => {
   );
 };
 
-export default ProfilePasswordSettingsPage;
+export default withI18n(ProfilePasswordSettingsPage);

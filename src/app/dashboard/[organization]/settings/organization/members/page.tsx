@@ -22,6 +22,7 @@ import OrganizationMembersList from '~/app/dashboard/[organization]/settings/org
 import OrganizationInvitedMembersList from '~/app/dashboard/[organization]/settings/organization/components/OrganizationInvitedMembersList';
 import InviteMembersLinkButton from '~/app/dashboard/[organization]/settings/organization/components/InviteMembersLinkButton';
 import getCurrentOrganization from '~/lib/server/organizations/get-current-organization';
+import { withI18n } from '~/i18n/with-i18n';
 
 export const metadata = {
   title: 'Members',
@@ -60,7 +61,7 @@ const OrganizationMembersPage: React.FC<{
   );
 };
 
-export default OrganizationMembersPage;
+export default withI18n(OrganizationMembersPage);
 
 function getMembersPayload<
   Payload extends {

@@ -3,6 +3,7 @@ import Trans from '~/core/ui/Trans';
 import SettingsTile from '~/app/dashboard/[organization]/settings/components/SettingsTile';
 import Plans from '~/app/dashboard/[organization]/settings/subscription/components/Plans';
 import PlansStatusAlertContainer from '~/app/dashboard/[organization]/settings/subscription/components/PlanStatusAlertContainer';
+import { withI18n } from '~/i18n/with-i18n';
 
 export const metadata = {
   title: 'Subscription',
@@ -23,4 +24,4 @@ const SubscriptionSettingsPage = () => {
   );
 };
 
-export default SubscriptionSettingsPage;
+export default withI18n(SubscriptionSettingsPage);
