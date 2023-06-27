@@ -11,7 +11,6 @@ export default async function getCurrentOrganization(params: {
   userId: string;
 }) {
   const { userId, organizationUid } = params;
-
   const { data, error } = await fetchOrganization(organizationUid);
 
   if (error) {

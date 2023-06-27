@@ -7,10 +7,7 @@ import {
 
 import type Organization from '~/lib/organizations/types/organization';
 import type { Database } from '~/database.types';
-import {
-  getOrganizationById,
-  getOrganizationByUid,
-} from '~/lib/organizations/database/queries';
+import { getOrganizationByUid } from '~/lib/organizations/database/queries';
 
 type OrganizationRow = Database['public']['Tables']['organizations']['Row'];
 
@@ -75,11 +72,16 @@ export async function setOrganizationSubscriptionData(
 
   return client
     .from(ORGANIZATIONS_SUBSCRIPTIONS_TABLE)
-    .upsert({
-      customer_id: customerId,
-      subscription_id: subscriptionId,
-      organization_id: organizationId,
-    })
-    .match({ id: organizationId })
+    .upsert(
+      {
+        customer_id: customerId,
+        subscription_id: subscriptionId,
+        organization_id: organizationId,
+      },
+      {
+        onConflict: 'customer_id',
+      }
+    )
+    .match({ customer_id: customerId })
     .throwOnError();
 }

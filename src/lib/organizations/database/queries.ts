@@ -63,31 +63,6 @@ export function getOrganizationsByUserId(client: Client, userId: string) {
     .throwOnError();
 }
 
-/**
- * @name getFirstOrganizationByUserId
- * @description Get the first organization where the user {@link userId} is a member
- * @param client
- * @param userId
- */
-export async function getFirstOrganizationByUserId(
-  client: Client,
-  userId: string
-) {
-  return client
-    .from(MEMBERSHIPS_TABLE)
-    .select<string, UserOrganizationData>(
-      `
-        role,
-        userId: user_id,
-        organization:organization_id (${FETCH_ORGANIZATION_QUERY})
-      )`
-    )
-    .eq('user_id', userId)
-    .limit(1)
-    .throwOnError()
-    .single();
-}
-
 export async function getOrganizationInvitedMembers(
   client: Client,
   organizationId: number
