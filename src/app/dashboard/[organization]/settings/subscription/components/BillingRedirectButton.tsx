@@ -11,7 +11,7 @@ const BillingPortalRedirectButton: React.FCC<{
   className?: string;
 }> = ({ children, customerId, className }) => {
   return (
-    <form method="POST" action={createBillingPortalSessionAction}>
+    <form action={createBillingPortalSessionAction}>
       <input type={'hidden'} name={'customerId'} value={customerId} />
 
       <CsrfTokenInput />
