@@ -1,11 +1,6 @@
 import 'server-only';
 
 import { redirect } from 'next/navigation';
-import {
-  isRedirectError,
-  getURLFromRedirectError,
-} from 'next/dist/client/components/redirect';
-
 import configuration from '~/configuration';
 
 import getSupabaseServerClient from '~/core/supabase/server-client';
@@ -23,36 +18,23 @@ import verifyRequiresMfa from '~/core/session/utils/check-requires-mfa';
  */
 const loadAuthPageData = async () => {
   const { language } = await initializeServerI18n(getLanguageCookie());
+  const client = getSupabaseServerClient();
 
-  try {
-    const client = getSupabaseServerClient();
+  const {
+    data: { session },
+  } = await client.auth.getSession();
 
-    const {
-      data: { session },
-    } = await client.auth.getSession();
+  const requiresMultiFactorAuthentication = await verifyRequiresMfa(client);
 
-    const requiresMultiFactorAuthentication = await verifyRequiresMfa(client);
-
-    // If the user is logged in and does not require multi-factor authentication,
-    // redirect them to the home page.
-    if (session && !requiresMultiFactorAuthentication) {
-      return redirect(configuration.paths.appHome);
-    }
-
-    return {
-      language,
-    };
-  } catch (e) {
-    if (isRedirectError(e)) {
-      return redirect(getURLFromRedirectError(e));
-    }
-
-    console.error(e);
-
-    return {
-      language,
-    };
+  // If the user is logged in and does not require multi-factor authentication,
+  // redirect them to the home page.
+  if (session && !requiresMultiFactorAuthentication) {
+    redirect(configuration.paths.appHome);
   }
+
+  return {
+    language,
+  };
 };
 
 export default loadAuthPageData;

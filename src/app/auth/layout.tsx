@@ -5,8 +5,8 @@ import AuthPageShell from '~/app/auth/components/AuthPageShell';
 
 export const dynamic = 'force-dynamic';
 
-function AuthLayout({ children }: React.PropsWithChildren) {
-  const data = use(loadAuthPageData());
+async function AuthLayout({ children }: React.PropsWithChildren) {
+  const data = await loadAuthPageData();
 
   return <AuthPageShell language={data.language}>{children}</AuthPageShell>;
 }
