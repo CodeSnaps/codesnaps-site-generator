@@ -1,11 +1,9 @@
-import { use } from 'react';
-
 import loadAppData from '~/lib/server/loaders/load-app-data';
 import AppRouteShell from '~/app/dashboard/[organization]/components/AppRouteShell';
 
 export const dynamic = 'force-dynamic';
 
-function AppLayout({
+async function AppLayout({
   children,
   params,
 }: React.PropsWithChildren<{
@@ -13,7 +11,7 @@ function AppLayout({
     organization: string;
   };
 }>) {
-  const data = use(loadAppData(params.organization));
+  const data = await loadAppData(params.organization);
 
   return <AppRouteShell data={data}>{children}</AppRouteShell>;
 }
