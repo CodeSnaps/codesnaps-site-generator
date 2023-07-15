@@ -1,6 +1,6 @@
 {
   "name": "next-supabase-saas-kit",
-  "version": "0.2.13",
+  "version": "0.2.15",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -59,7 +59,6 @@
     "@supabase/supabase-js": "^2.26.0",
     "classnames": "^2.3.2",
     "contentlayer": "0.3.1",
-    "csrf": "^3.1.0",
     "cva": "npm:class-variance-authority@^0.6.1",
     "date-fns": "^2.30.0",
     "edge-csrf": "^1.0.4",
