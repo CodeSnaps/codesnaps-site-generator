@@ -1,4 +1,4 @@
-import { cookies, headers } from 'next/headers';
+import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import Image from 'next/image';
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
@@ -33,7 +33,7 @@ async function OrganizationsPage() {
     redirect(configuration.paths.onboarding);
   }
 
-  const organizationUidCookie = await parseOrganizationIdCookie(cookies());
+  const organizationUidCookie = await parseOrganizationIdCookie();
 
   if (organizationUidCookie) {
     const currentOrganizationResponse = await getCurrentOrganization({

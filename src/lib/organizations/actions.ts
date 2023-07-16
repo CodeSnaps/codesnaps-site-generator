@@ -41,7 +41,7 @@ export const createNewOrganizationAction = withCsrfCheck(
         userId,
         organization,
       },
-      `Creating organization...`
+      `Creating organization...`,
     );
 
     const { data: organizationUid, error } = await client
@@ -62,17 +62,17 @@ export const createNewOrganizationAction = withCsrfCheck(
         userId,
         organization,
       },
-      `Organization successfully created`
+      `Organization successfully created`,
     );
 
     cookies().set(createOrganizationIdCookie(organizationUid));
 
     const redirectPath = [configuration.paths.appHome, organizationUid].join(
-      '/'
+      '/',
     );
 
     redirect(redirectPath);
-  })
+  }),
 );
 
 export const transferOrganizationOwnershipAction = withCsrfCheck(
@@ -80,11 +80,11 @@ export const transferOrganizationOwnershipAction = withCsrfCheck(
     async (
       params: z.infer<
         ReturnType<typeof getTransferOrganizationOwnershipBodySchema>
-      >
+      >,
     ) => {
       const result =
         await getTransferOrganizationOwnershipBodySchema().safeParseAsync(
-          params
+          params,
         );
 
       // validate the form data
@@ -95,7 +95,7 @@ export const transferOrganizationOwnershipAction = withCsrfCheck(
       const logger = getLogger();
       const client = getSupabaseServerActionClient();
 
-      const organizationUid = await parseOrganizationIdCookie(cookies());
+      const organizationUid = await parseOrganizationIdCookie();
 
       if (!organizationUid) {
         throw new Error(`Invalid organization UUID`);
@@ -113,7 +113,7 @@ export const transferOrganizationOwnershipAction = withCsrfCheck(
           currentUserId,
           targetUserMembershipId,
         },
-        `Transferring organization ownership...`
+        `Transferring organization ownership...`,
       );
 
       // return early if we can't get the current user
@@ -123,7 +123,7 @@ export const transferOrganizationOwnershipAction = withCsrfCheck(
 
       const { error, data: organization } = await getOrganizationByUid(
         client,
-        organizationUid
+        organizationUid,
       );
 
       if (error || !organization) {
@@ -133,7 +133,7 @@ export const transferOrganizationOwnershipAction = withCsrfCheck(
             currentUserId,
             targetUserMembershipId,
           },
-          `Error retrieving organization`
+          `Error retrieving organization`,
         );
 
         throw new Error(`Error retrieving organization`);
@@ -153,7 +153,7 @@ export const transferOrganizationOwnershipAction = withCsrfCheck(
             currentUserId,
             targetUserMembershipId,
           },
-          `Error transferring organization ownership`
+          `Error transferring organization ownership`,
         );
 
         throw new Error(`Error transferring ownership`);
@@ -166,24 +166,25 @@ export const transferOrganizationOwnershipAction = withCsrfCheck(
           currentUserId,
           targetUserMembershipId,
         },
-        `Ownership successfully transferred to target user`
+        `Ownership successfully transferred to target user`,
       );
 
       return { success: true };
-    }
-  )
+    },
+  ),
 );
 
 export const inviteMembersToOrganizationAction = withCsrfCheck(
   withSession(
     async (payload: z.infer<ReturnType<typeof getInviteMembersBodySchema>>) => {
-      const { invites } = await getInviteMembersBodySchema().parseAsync(
-        payload
-      );
+      const { invites, organizationUid } =
+        await getInviteMembersBodySchema().parseAsync(payload);
+
+      if (!organizationUid) {
+        throw new Error(`Organization not found`);
+      }
 
       const logger = getLogger();
-
-      const organizationUid = await parseOrganizationIdCookie(cookies());
       const client = getSupabaseServerActionClient();
       const session = await requireSession(client);
       const inviterId = session.user.id;
@@ -191,10 +192,6 @@ export const inviteMembersToOrganizationAction = withCsrfCheck(
       // throw an error when we cannot retrieve the inviter's id or the organization id
       if (!inviterId) {
         throw new Error(`User is not logged in or does not exist`);
-      }
-
-      if (!organizationUid) {
-        throw new Error(`Organization not found`);
       }
 
       const adminClient = getSupabaseServerActionClient({ admin: true });
@@ -215,7 +212,7 @@ export const inviteMembersToOrganizationAction = withCsrfCheck(
           {
             organizationUid,
           },
-          `Successfully invited members to organization`
+          `Successfully invited members to organization`,
         );
       } catch (e) {
         const message = `Error when inviting user to organization`;
@@ -230,18 +227,19 @@ export const inviteMembersToOrganizationAction = withCsrfCheck(
       const redirectPath = [appHome, organizationUid, path].join('/');
 
       redirect(redirectPath);
-    }
-  )
+    },
+  ),
 );
 
 function getInviteMembersBodySchema() {
   return z.object({
     csrfToken: z.string().min(1),
+    organizationUid: z.string().uuid(),
     invites: z.array(
       z.object({
         role: z.nativeEnum(MembershipRole),
         email: z.string().email(),
-      })
+      }),
     ),
   });
 }
@@ -256,7 +254,7 @@ function getTransferOrganizationOwnershipBodySchema() {
 function handleError<Error = unknown>(
   error: Error,
   message: string,
-  organizationId?: string
+  organizationId?: string,
 ) {
   const exception = error instanceof Error ? error.message : undefined;
 
@@ -265,7 +263,7 @@ function handleError<Error = unknown>(
       exception,
       organizationId,
     },
-    message
+    message,
   );
 
   throw new Error(message);

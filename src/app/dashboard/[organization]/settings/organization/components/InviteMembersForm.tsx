@@ -20,12 +20,15 @@ import useUserSession from '~/core/hooks/use-user-session';
 import Trans from '~/core/ui/Trans';
 import { inviteMembersToOrganizationAction } from '~/lib/organizations/actions';
 import useCsrfToken from '~/core/hooks/use-csrf-token';
+import useCurrentOrganization from '~/lib/organizations/hooks/use-current-organization';
 
 type InviteModel = ReturnType<typeof memberFactory>;
 
 const InviteMembersForm = () => {
   const { t } = useTranslation('organization');
   const user = useUserSession();
+  const organization = useCurrentOrganization();
+
   const [isSubmitting, startTransition] = useTransition();
   const csrfToken = useCsrfToken();
 
@@ -54,9 +57,14 @@ const InviteMembersForm = () => {
       onSubmit={(event) => {
         handleSubmit((data) => {
           startTransition(async () => {
+            if (!organization) {
+              return;
+            }
+
             await inviteMembersToOrganizationAction({
               invites: data.members,
               csrfToken,
+              organizationUid: organization.uuid,
             });
           });
         })(event);
