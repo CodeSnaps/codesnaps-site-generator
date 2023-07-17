@@ -1,5 +1,3 @@
-import { use } from 'react';
-
 import loadAuthPageData from '~/lib/server/loaders/load-auth-page-data';
 import AuthPageShell from '~/app/auth/components/AuthPageShell';
 

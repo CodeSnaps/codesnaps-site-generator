@@ -4,7 +4,7 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import Trans from '~/core/ui/Trans';
 import { Transition } from '@headlessui/react';
-import CheckCircleIcon from '@heroicons/react/24/outline/CheckCircleIcon';
+import { CheckCircleIcon } from '@heroicons/react/24/outline';
 
 import Heading from '~/core/ui/Heading';
 import Button from '~/core/ui/Button';
@@ -50,7 +50,7 @@ const STRIPE_PLANS = STRIPE_PRODUCTS.reduce<string[]>((acc, product) => {
 function PricingTable(
   props: React.PropsWithChildren<{
     CheckoutButton?: React.ComponentType<CheckoutButtonProps>;
-  }>
+  }>,
 ) {
   const [planVariant, setPlanVariant] = useState<string>(STRIPE_PLANS[0]);
 
@@ -103,7 +103,7 @@ function PricingItem(
     PricingItemProps & {
       CheckoutButton?: React.ComponentType<CheckoutButtonProps>;
     }
-  >
+  >,
 ) {
   const recommended = props.product.recommended ?? false;
 
@@ -118,7 +118,7 @@ function PricingItem(
         {
           ['bg-primary-600 text-primary-contrast']: recommended,
           ['bg-gray-50/20 dark:bg-black-300/30']: !recommended,
-        }
+        },
       )}
     >
       <div className={'flex flex-col space-y-1.5'}>
@@ -137,7 +137,7 @@ function PricingItem(
                   ['bg-primary-700 text-primary-contrast']: recommended,
                   ['bg-gray-50 text-gray-500 dark:bg-black-300' +
                   ' dark:text-gray-300']: !recommended,
-                }
+                },
               )}
             >
               {props.product.badge}
@@ -211,7 +211,7 @@ function PricingItem(
 function FeaturesList(
   props: React.PropsWithChildren<{
     features: string[];
-  }>
+  }>,
 ) {
   return (
     <ul className={'flex flex-col space-y-3'}>
@@ -256,7 +256,7 @@ function PlansSwitcher(
     plans: string[];
     plan: string;
     setPlan: (plan: string) => void;
-  }>
+  }>,
 ) {
   return (
     <div className={'flex'}>
@@ -285,7 +285,7 @@ function DefaultCheckoutButton(
   props: React.PropsWithChildren<{
     plan: PricingItemProps['plan'];
     recommended?: boolean;
-  }>
+  }>,
 ) {
   const linkHref =
     props.plan.href ??

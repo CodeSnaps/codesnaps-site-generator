@@ -2,22 +2,24 @@ import Button from '~/core/ui/Button';
 import Heading from '~/core/ui/Heading';
 import Trans from '~/core/ui/Trans';
 
-import SiteHeader from '~/app/(site)/components/SiteHeader';
-
 import configuration from '~/configuration';
 import initializeServerI18n from '~/i18n/i18n.server';
 import getLanguageCookie from '~/i18n/get-language-cookie';
+import SiteHeaderSessionProvider from '~/app/(site)/components/SiteHeaderSessionProvider';
+import loadUserData from '~/lib/server/loaders/load-user-data';
+import Fonts from '~/components/Fonts';
 
 export const metadata = {
   title: `Page not found - ${configuration.site.name}`,
 };
 
 const NotFoundPage = async () => {
-  await initializeServerI18n(getLanguageCookie());
+  const [, { session, accessToken }] = await loadData();
 
   return (
     <main>
-      <SiteHeader />
+      <Fonts />
+      <SiteHeaderSessionProvider accessToken={accessToken} data={session} />
 
       <div
         className={
@@ -68,3 +70,10 @@ const NotFoundPage = async () => {
 };
 
 export default NotFoundPage;
+
+async function loadData() {
+  return Promise.all([
+    initializeServerI18n(getLanguageCookie()),
+    loadUserData(),
+  ]);
+}
