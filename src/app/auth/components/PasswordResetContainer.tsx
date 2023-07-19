@@ -31,7 +31,7 @@ function PasswordResetContainer() {
         redirectTo,
       });
     },
-    [resetPasswordMutation]
+    [resetPasswordMutation],
   );
 
   return (
@@ -95,7 +95,6 @@ export default PasswordResetContainer;
 function getReturnUrl() {
   const host = window.location.origin;
   const callback = configuration.paths.authCallback;
-  const redirectPath = configuration.paths.settings.password;
 
-  return `${host}${callback}?redirectPath=${redirectPath}`;
+  return `${host}${callback}`;
 }

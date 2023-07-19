@@ -17,7 +17,7 @@
   "updateProfileSuccess": "Profile successfully updated",
   "updateProfileError": "Encountered an error. Please try again",
   "updatePasswordSuccess": "Password update request successful",
-  "updatePasswordSuccessMessage": "We sent you an email to confirm your new password. Please check your inbox and click on the link to confirm your new password.",
+  "updatePasswordSuccessMessage": "Your password has been successfully updated!",
   "updatePasswordError": "Encountered an error. Please try again",
   "updatePasswordLoading": "Updating password...",
   "updateProfileLoading": "Updating profile...",

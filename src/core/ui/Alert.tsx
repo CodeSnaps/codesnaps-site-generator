@@ -71,7 +71,7 @@ function AlertHeading({ children }: React.PropsWithChildren) {
 
   const Icon = useMemo(
     () => (type ? icons[type](className) : null),
-    [type, className]
+    [type, className],
   );
 
   return (
@@ -105,7 +105,7 @@ function getClassNameBuilder() {
       defaultVariants: {
         type: `info`,
       },
-    }
+    },
   );
 }
 
@@ -126,3 +126,5 @@ function getIconClassNameBuilder() {
 }
 
 export default Alert;
+
+export { Alert, AlertHeading };
