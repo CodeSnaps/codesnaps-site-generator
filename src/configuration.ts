@@ -55,7 +55,7 @@ const configuration = {
     senderAddress: 'MakerKit Team <info@makerkit.dev>',
   },
   sentry: {
-    dsn: process.env.SENTRY_DSN,
+    dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
   },
   stripe: {
     products: [
