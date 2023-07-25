@@ -75,7 +75,7 @@ export default async function inviteMembers(params: Params) {
   // validate that the inviter is currently in the organization
   if (inviterRole === undefined) {
     throw new Error(
-      `Invitee with ID ${inviterId} does not belong to the organization`
+      `Invitee with ID ${inviterId} does not belong to the organization`,
     );
   }
 
@@ -89,7 +89,7 @@ export default async function inviteMembers(params: Params) {
     // validate that the user has permissions
     // to invite the user based on their roles
     if (!canInviteUser(inviterRole, invite.role)) {
-      return;
+      continue;
     }
 
     let inviterDisplayName = inviter?.displayName;
@@ -131,7 +131,7 @@ export default async function inviteMembers(params: Params) {
           inviteId,
           organizationId,
         },
-        `Error while sending invite to member`
+        `Error while sending invite to member`,
       );
 
       logger.debug(error);
@@ -180,7 +180,7 @@ export default async function inviteMembers(params: Params) {
           // add pending membership to the Database
           const { data, error } = await createOrganizationMembership(
             client,
-            membership
+            membership,
           );
 
           if (error) {
@@ -195,7 +195,7 @@ export default async function inviteMembers(params: Params) {
               organizationId,
               membershipId,
             },
-            `Membership successfully created`
+            `Membership successfully created`,
           );
 
           // send email to user
@@ -206,7 +206,7 @@ export default async function inviteMembers(params: Params) {
               organizationId,
               membershipId,
             },
-            `Membership invite successfully sent`
+            `Membership invite successfully sent`,
           );
         } catch (e) {
           return catchCallback(e);
@@ -282,7 +282,7 @@ function getInvitePageFullUrl(code: string) {
 function assertSiteUrl(siteUrl: Maybe<string>): asserts siteUrl is string {
   if (!siteUrl && configuration.production) {
     throw new Error(
-      `Please configure the "siteUrl" property in the configuration file ~/configuration.ts`
+      `Please configure the "siteUrl" property in the configuration file ~/configuration.ts`,
     );
   }
 }

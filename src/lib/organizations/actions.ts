@@ -20,6 +20,7 @@ import MembershipRole from '~/lib/organizations/types/membership-role';
 import { withCsrfCheck, withSession } from '~/core/generic/actions-utils';
 import { getOrganizationByUid } from '~/lib/organizations/database/queries';
 import configuration from '~/configuration';
+import { revalidatePath } from 'next/cache';
 
 export const createNewOrganizationAction = withCsrfCheck(
   withSession(async (params: { organization: string; csrfToken: string }) => {
@@ -95,13 +96,8 @@ export const transferOrganizationOwnershipAction = withCsrfCheck(
       const logger = getLogger();
       const client = getSupabaseServerActionClient();
 
-      const organizationUid = await parseOrganizationIdCookie();
-
-      if (!organizationUid) {
-        throw new Error(`Invalid organization UUID`);
-      }
-
       const targetUserMembershipId = result.data.membershipId;
+      const organizationUid = result.data.organizationUid;
       const session = await requireSession(client);
 
       const currentUserId = session.user.id;
@@ -169,7 +165,16 @@ export const transferOrganizationOwnershipAction = withCsrfCheck(
         `Ownership successfully transferred to target user`,
       );
 
-      return { success: true };
+      const appHome = configuration.paths.appHome;
+      const path = `/settings/organization/members`;
+      const pathToRevalidate = [appHome, organizationUid, path].join('/');
+
+      // revalidate the organization members page
+      revalidatePath(pathToRevalidate);
+
+      return {
+        success: true,
+      };
     },
   ),
 );
@@ -226,6 +231,8 @@ export const inviteMembersToOrganizationAction = withCsrfCheck(
       const path = `/settings/organization/members`;
       const redirectPath = [appHome, organizationUid, path].join('/');
 
+      revalidatePath(redirectPath);
+
       redirect(redirectPath);
     },
   ),
@@ -248,6 +255,7 @@ function getTransferOrganizationOwnershipBodySchema() {
   return z.object({
     membershipId: z.coerce.number(),
     csrfToken: z.string().min(1),
+    organizationUid: z.string().uuid(),
   });
 }
 

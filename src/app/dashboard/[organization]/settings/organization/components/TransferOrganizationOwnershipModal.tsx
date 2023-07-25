@@ -7,6 +7,7 @@ import If from '~/core/ui/If';
 import useCsrfToken from '~/core/hooks/use-csrf-token';
 
 import { transferOrganizationOwnershipAction } from '~/lib/organizations/actions';
+import useCurrentOrganization from '~/lib/organizations/hooks/use-current-organization';
 
 const ModalHeading = <Trans i18nKey="organization:transferOwnership" />;
 
@@ -17,6 +18,8 @@ const TransferOrganizationOwnershipModal: React.FC<{
   targetDisplayName: string;
 }> = ({ isOpen, setIsOpen, targetDisplayName, membershipId }) => {
   const csrfToken = useCsrfToken();
+  const organization = useCurrentOrganization();
+  const organizationUid = organization?.uuid ?? '';
   const [pending, startTransition] = useTransition();
 
   const onSubmit = useCallback(
@@ -26,13 +29,14 @@ const TransferOrganizationOwnershipModal: React.FC<{
       startTransition(async () => {
         await transferOrganizationOwnershipAction({
           membershipId,
+          organizationUid,
           csrfToken,
         });
 
         setIsOpen(false);
       });
     },
-    [csrfToken, membershipId, setIsOpen]
+    [csrfToken, membershipId, setIsOpen],
   );
 
   return (
