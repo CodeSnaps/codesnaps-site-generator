@@ -1,4 +1,4 @@
-import GlobalLoadingIndicator from '~/app/dashboard/[organization]/components/GlobalLoadingIndicator';
+import GlobalLoadingIndicator from '~/components/GlobalLoadingIndicator';
 
 function Loading() {
   return <GlobalLoadingIndicator fullPage displayLogo />;

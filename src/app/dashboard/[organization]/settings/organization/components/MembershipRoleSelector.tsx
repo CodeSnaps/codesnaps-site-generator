@@ -11,7 +11,7 @@ import {
 import type MembershipRole from '~/lib/organizations/types/membership-role';
 import roles from '~/lib/organizations/roles';
 import { canInviteUser } from '~/lib/organizations/permissions';
-import IfHasPermissions from '~/app/dashboard/[organization]/components/IfHasPermissions';
+import IfHasPermissions from '~/components/IfHasPermissions';
 
 const MembershipRoleSelector: React.FCC<{
   value?: MembershipRole;

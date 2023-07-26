@@ -10,7 +10,7 @@ import Trans from '~/core/ui/Trans';
 import Alert from '~/core/ui/Alert';
 
 import PricingTable from '~/components/PricingTable';
-import IfHasPermissions from '~/app/dashboard/[organization]/components/IfHasPermissions';
+import IfHasPermissions from '~/components/IfHasPermissions';
 import CheckoutRedirectButton from '~/app/dashboard/[organization]/settings/subscription/components/CheckoutRedirectButton';
 import BillingPortalRedirectButton from '~/app/dashboard/[organization]/settings/subscription/components/BillingRedirectButton';
 

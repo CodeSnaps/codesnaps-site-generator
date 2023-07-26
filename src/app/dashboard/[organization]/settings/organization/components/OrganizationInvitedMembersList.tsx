@@ -7,7 +7,7 @@ import RoleBadge from './RoleBadge';
 import DeleteInviteButton from './DeleteInviteButton';
 import type Membership from '~/lib/organizations/types/membership';
 import ProfileAvatar from '~/components/ProfileAvatar';
-import IfHasPermissions from '~/app/dashboard/[organization]/components/IfHasPermissions';
+import IfHasPermissions from '~/components/IfHasPermissions';
 
 const OrganizationInvitedMembersList: React.FCC<{
   invitedMembers: Membership[];

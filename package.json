@@ -1,6 +1,6 @@
 {
   "name": "next-supabase-saas-kit",
-  "version": "0.2.20",
+  "version": "0.2.21",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -63,7 +63,7 @@
     "date-fns": "^2.30.0",
     "edge-csrf": "^1.0.4",
     "heroicons": "^2.0.18",
-    "i18next": "^23.2.11",
+    "i18next": "^23.3.0",
     "i18next-browser-languagedetector": "^7.1.0",
     "i18next-http-backend": "^2.2.1",
     "i18next-resources-to-backend": "^1.1.4",
@@ -89,9 +89,9 @@
   },
   "devDependencies": {
     "@types/cookie": "^0.5.1",
-    "@types/eslint": "^8.44.0",
+    "@types/eslint": "^8.44.1",
     "@types/i18next-fs-backend": "^1.1.2",
-    "@types/node": "^20.4.4",
+    "@types/node": "^20.4.5",
     "@types/nodemailer": "^6.4.8",
     "@types/react": "^18.2.16",
     "@types/react-dom": "^18.2.7",
@@ -102,7 +102,7 @@
     "eslint-config-next": "13.4.12",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-cypress": "^2.13.3",
-    "pino-pretty": "^10.1.0",
+    "pino-pretty": "^10.2.0",
     "postcss": "^8.4.27",
     "prettier": "3.0.0",
     "prettier-plugin-tailwindcss": "^0.4.1",

@@ -5,7 +5,7 @@ import { Session } from '@supabase/supabase-js';
 
 import useCollapsible from '~/core/hooks/use-sidebar-state';
 import AppSidebar from '~/app/dashboard/[organization]/components/AppSidebar';
-import Toaster from '~/app/dashboard/[organization]/components/Toaster';
+import Toaster from '~/components/Toaster';
 import SentryBrowserWrapper from '~/components/SentryProvider';
 
 import MembershipRole from '~/lib/organizations/types/membership-role';
@@ -20,7 +20,7 @@ import UserSessionContext from '~/core/session/contexts/user-session';
 import I18nProvider from '~/i18n/I18nProvider';
 
 import { setCookie } from '~/core/generic/cookies';
-import AuthChangeListener from '~/app/dashboard/[organization]/components/AuthChangeListener';
+import AuthChangeListener from '~/components/AuthChangeListener';
 
 interface Data {
   accessToken: Maybe<string>;
@@ -48,7 +48,7 @@ const RouteShell: React.FCC<{
   }, [data]);
 
   const [organization, setOrganization] = useState<Maybe<Organization>>(
-    data.organization
+    data.organization,
   );
 
   const [userSession, setUserSession] =
@@ -108,7 +108,7 @@ function RouteShellWithSidebar(
   props: React.PropsWithChildren<{
     collapsed: boolean;
     organization: string;
-  }>
+  }>,
 ) {
   const [collapsed, setCollapsed] = useCollapsible(props.collapsed);
 

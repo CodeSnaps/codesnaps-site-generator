@@ -2,10 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import toaster from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
-import useMutation from 'swr/mutation';
 
 import type { SupabaseClient } from '@supabase/supabase-js';
-import type { User } from '@supabase/gotrue-js';
 
 import configuration from '~/configuration';
 import useUpdateProfileMutation from '~/lib/user/hooks/use-update-profile';
@@ -13,24 +11,18 @@ import useUpdateProfileMutation from '~/lib/user/hooks/use-update-profile';
 import Button from '~/core/ui/Button';
 import TextField from '~/core/ui/TextField';
 import ImageUploadInput from '~/core/ui/ImageUploadInput';
-import If from '~/core/ui/If';
 import Trans from '~/core/ui/Trans';
-
-import Modal from '~/core/ui/Modal';
 import useSupabase from '~/core/hooks/use-supabase';
 
 import type UserSession from '~/core/session/types/user-session';
 import type UserData from '~/core/session/types/user-data';
-import AuthErrorMessage from '~/app/auth/components/AuthErrorMessage';
 
 function UpdateProfileForm({
   session,
   onUpdateProfileData,
-  onUpdateAuthData,
 }: {
   session: UserSession;
   onUpdateProfileData: (user: Partial<UserData>) => void;
-  onUpdateAuthData: (data: Partial<User>) => void;
 }) {
   const updateProfileMutation = useUpdateProfileMutation();
 
@@ -41,7 +33,6 @@ function UpdateProfileForm({
   const currentDisplayName = session?.data?.displayName ?? '';
 
   const user = session.auth?.user;
-  const currentPhoneNumber = user?.phone ?? '';
   const email = user?.email ?? '';
 
   const { register, handleSubmit, reset, setValue } = useForm({
@@ -159,36 +150,13 @@ function UpdateProfileForm({
                 type={'button'}
                 color={'transparent'}
                 size={'small'}
-                href={configuration.paths.settings.email}
+                href={'../' + configuration.paths.settings.email}
               >
                 <span className={'text-xs font-normal'}>
                   <Trans i18nKey={'profile:updateEmailSubmitLabel'} />
                 </span>
               </Button>
             </div>
-          </TextField>
-
-          <TextField>
-            <TextField.Label>
-              <Trans i18nKey={'profile:phoneNumberLabel'} />
-
-              <TextField.Input disabled value={currentPhoneNumber} />
-            </TextField.Label>
-
-            {/* Only show this if phone number is enabled */}
-            <If condition={configuration.auth.providers.phoneNumber}>
-              <div>
-                <If condition={currentPhoneNumber}>
-                  <RemovePhoneNumberButton
-                    onSuccess={() => {
-                      onUpdateAuthData({
-                        phone: undefined,
-                      });
-                    }}
-                  />
-                </If>
-              </div>
-            </If>
           </TextField>
 
           <div>
@@ -222,7 +190,7 @@ function getPhotoFile(value: string | null | FileList) {
 async function uploadUserProfilePhoto(
   client: SupabaseClient,
   photoFile: File,
-  userId: string
+  userId: string,
 ) {
   const bytes = await photoFile.arrayBuffer();
   const bucket = client.storage.from('avatars');
@@ -242,95 +210,8 @@ async function uploadUserProfilePhoto(
 
 function deleteProfilePhoto(client: SupabaseClient, url: string) {
   const bucket = client.storage.from('logos');
+
   return bucket.remove([url]);
-}
-
-function RemovePhoneNumberButton({
-  onSuccess,
-}: React.PropsWithChildren<{
-  onSuccess: () => void;
-}>) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const { t } = useTranslation();
-  const unlinkProfileNumberMutation = useUnlinkProfilePhone();
-
-  const onUnlinkPhoneNumber = useCallback(() => {
-    const promise = unlinkProfileNumberMutation.trigger().then(() => {
-      setIsModalOpen(false);
-      onSuccess();
-    });
-
-    return toaster.promise(promise, {
-      loading: t(`profile:unlinkActionLoading`),
-      success: t(`profile:unlinkActionSuccess`),
-      error: t(`profile:unlinkActionError`),
-    });
-  }, [unlinkProfileNumberMutation, t, onSuccess]);
-
-  return (
-    <>
-      <Button
-        type={'button'}
-        color={'transparent'}
-        size={'small'}
-        onClick={() => setIsModalOpen(true)}
-      >
-        <span className={'text-xs font-normal'}>
-          <Trans i18nKey={'profile:removePhoneNumber'} />
-        </span>
-      </Button>
-
-      <Modal
-        heading={<Trans i18nKey={'profile:removePhoneNumber'} />}
-        isOpen={isModalOpen}
-        setIsOpen={setIsModalOpen}
-      >
-        <div className={'flex flex-col space-y-2.5 text-sm'}>
-          <div>
-            <Trans i18nKey={'profile:confirmRemovePhoneNumberDescription'} />
-          </div>
-
-          <div>
-            <Trans i18nKey={'common:modalConfirmationQuestion'} />
-          </div>
-
-          <AuthErrorMessage error={unlinkProfileNumberMutation.error} />
-
-          <div className={'flex justify-end space-x-2'}>
-            <Modal.CancelButton onClick={() => setIsModalOpen(false)} />
-
-            <Button
-              variant={'flat'}
-              loading={unlinkProfileNumberMutation.isMutating}
-              color={'danger'}
-              onClick={onUnlinkPhoneNumber}
-            >
-              <Trans i18nKey={'profile:confirmRemovePhoneNumber'} />
-            </Button>
-          </div>
-        </div>
-      </Modal>
-    </>
-  );
-}
-
-function useUnlinkProfilePhone() {
-  const client = useSupabase();
-  const key = 'unlinkProfilePhone';
-
-  return useMutation(key, async () => {
-    return client.auth
-      .updateUser({
-        phone: undefined,
-      })
-      .then((response) => {
-        if (response.error) {
-          throw response.error;
-        }
-
-        return response.data;
-      });
-  });
 }
 
 export default UpdateProfileForm;

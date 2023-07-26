@@ -10,7 +10,7 @@ import { USERS_TABLE } from '~/lib/db-tables';
  */
 export function updateUserData(
   client: SupabaseClient,
-  { id, ...data }: WithId<Partial<UserData>>
+  { id, ...data }: WithId<Partial<UserData>>,
 ) {
   return client
     .from(USERS_TABLE)
@@ -20,13 +20,4 @@ export function updateUserData(
     })
     .match({ id })
     .throwOnError();
-}
-
-/**
- * @name createUser
- * @param client
- * @param data
- */
-export async function createUser(client: SupabaseClient, data: UserData) {
-  return client.from(USERS_TABLE).insert(data).throwOnError();
 }
