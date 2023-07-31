@@ -179,7 +179,7 @@ export default async function inviteMembers(params: Params) {
         try {
           // add pending membership to the Database
           const { data, error } = await createOrganizationMembership(
-            client,
+            adminClient,
             membership,
           );
 
