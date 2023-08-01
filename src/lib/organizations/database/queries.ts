@@ -57,7 +57,7 @@ export function getOrganizationsByUserId(client: Client, userId: string) {
       `
         role,
         userId: user_id,
-        organization:organization_id (${FETCH_ORGANIZATION_QUERY})`
+        organization:organization_id (${FETCH_ORGANIZATION_QUERY})`,
     )
     .eq('user_id', userId)
     .throwOnError();
@@ -65,7 +65,7 @@ export function getOrganizationsByUserId(client: Client, userId: string) {
 
 export async function getOrganizationInvitedMembers(
   client: Client,
-  organizationId: number
+  organizationId: number,
 ) {
   return client
     .from(MEMBERSHIPS_TABLE)
@@ -74,7 +74,7 @@ export async function getOrganizationInvitedMembers(
       id,
       role,
       invitedEmail: invited_email
-    `
+    `,
     )
     .eq('organization_id', organizationId)
     .not('code', 'is', null)
@@ -106,7 +106,7 @@ export function getOrganizationMembers(client: Client, organizationId: number) {
           photoUrl: photo_url,
           displayName: display_name
         )
-       `
+       `,
     )
     .eq('organization_id', organizationId)
     .is('code', null);
@@ -157,9 +157,9 @@ export function getOrganizationById(client: Client, organizationId: number) {
  * @param client
  * @param customerId
  */
-export function getOrganizationByCustomerId(
+export async function getOrganizationByCustomerId(
   client: Client,
-  customerId: string
+  customerId: string,
 ) {
   return client
     .from(ORGANIZATIONS_TABLE)
@@ -169,10 +169,10 @@ export function getOrganizationByCustomerId(
       name,
       logoURL: logo_url,
       uuid,
-      subscription: organizations_subscriptions (
+      subscription: organizations_subscriptions !inner (
         customerId: customer_id
       )
-      `
+      `,
     )
     .eq('organizations_subscriptions.customer_id', customerId)
     .throwOnError()
@@ -186,7 +186,7 @@ export function getOrganizationByCustomerId(
  */
 export async function getMembersAuthMetadata(
   client: Client,
-  userIds: string[]
+  userIds: string[],
 ) {
   const users = await Promise.all(
     userIds.map((userId) => {
@@ -201,12 +201,12 @@ export async function getMembersAuthMetadata(
             {
               userId,
             },
-            `Error fetching user: ${error}`
+            `Error fetching user: ${error}`,
           );
 
           return undefined;
         });
-    }) ?? []
+    }) ?? [],
   );
 
   return users.filter(Boolean) as User[];
