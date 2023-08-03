@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as SelectPrimitive from '@radix-ui/react-select';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import { ChevronDownIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 
 const Select = SelectPrimitive.Root;
@@ -18,9 +18,9 @@ const SelectTrigger = React.forwardRef<
         rounded-md border bg-transparent py-1.5 px-2.5 ring-offset-1 transition-all
         duration-300 placeholder:text-gray-400 hover:bg-gray-50
         focus:outline-none focus:ring-2 focus:ring-primary-200 disabled:cursor-not-allowed
-        disabled:opacity-50 dark:border-black-200 dark:bg-black-400
-        dark:ring-primary-500/70 dark:hover:border-black-100 dark:hover:bg-black-300 dark:focus:ring-offset-black-400`,
-      className
+        disabled:opacity-50 dark:border-dark-600 dark:bg-dark-800
+        dark:ring-primary-500/70 dark:hover:border-dark-500 dark:focus:ring-offset-dark-800`,
+      className,
     )}
     {...props}
   >
@@ -45,8 +45,8 @@ const SelectContent = React.forwardRef<
       ref={ref}
       className={classNames(
         `animate-in fade-in-250 relative z-50 w-auto min-w-[8rem] overflow-hidden border border-transparent
-          border-t-gray-50 bg-white shadow-xl dark:border-black-200 dark:bg-black-300 dark:shadow-[0_0_40px_0] dark:shadow-primary-600/10 lg:rounded-md`,
-        className
+          border-t-gray-50 bg-white shadow-xl dark:border-dark-600 dark:bg-dark-800 dark:shadow-[0_0_40px_0] dark:shadow-primary-500/30 lg:rounded-md`,
+        className,
       )}
       sideOffset={sideOffset}
       {...props}
@@ -68,7 +68,7 @@ const SelectLabel = React.forwardRef<
     ref={ref}
     className={classNames(
       'py-1.5 pr-2 pl-2 text-xs font-medium text-gray-400 dark:text-gray-400',
-      className
+      className,
     )}
     {...props}
   />
@@ -77,10 +77,10 @@ const SelectLabel = React.forwardRef<
 SelectLabel.displayName = SelectPrimitive.Label.displayName;
 
 const SelectItemClassName = `
-  relative flex select-none items-center rounded-md hover:bg-primary-50 dark:hover:bg-black-200
+  relative flex select-none items-center rounded-md hover:bg-primary-50 dark:hover:bg-dark-600
   h-11 lg:h-8 pr-4 pl-8 text-sm font-medium outline-none focus:bg-primary-50 my-0.5
   data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [data-state="checked"]:bg-primary-50
-  [data-state="checked"]:dark:bg-black-200 dark:focus:bg-black-200 cursor-pointer data-[selected]:cursor-default
+  [data-state="checked"]:dark:bg-dark-600 dark:focus:bg-dark-700 cursor-pointer data-[selected]:cursor-default
   transition-colors`;
 
 const SelectItem = React.forwardRef<
@@ -110,8 +110,6 @@ const SelectAction = React.forwardRef<
 >(function SelectActionComponent({ className, children, ...props }, ref) {
   return (
     <div
-      tabIndex={0}
-      role={'button'}
       ref={ref}
       className={classNames(SelectItemClassName, '!pr-4 !pl-4', className)}
       {...props}
@@ -128,8 +126,8 @@ const SelectSeparator = React.forwardRef<
   <SelectPrimitive.Separator
     ref={ref}
     className={classNames(
-      '-mx-1 my-1 h-px bg-gray-100 dark:bg-black-200',
-      className
+      '-mx-1 my-1 h-px bg-gray-100 dark:bg-dark-600',
+      className,
     )}
     {...props}
   />

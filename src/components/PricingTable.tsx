@@ -1,14 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import classNames from 'classnames';
-import Trans from '~/core/ui/Trans';
-import { Transition } from '@headlessui/react';
+import classNames from 'clsx';
 import { CheckCircleIcon } from '@heroicons/react/24/outline';
 
 import Heading from '~/core/ui/Heading';
 import Button from '~/core/ui/Button';
 import If from '~/core/ui/If';
+import Trans from '~/core/ui/Trans';
 
 import configuration from '~/configuration';
 
@@ -55,40 +54,38 @@ function PricingTable(
   const [planVariant, setPlanVariant] = useState<string>(STRIPE_PLANS[0]);
 
   return (
-    <>
-      <div className={'flex flex-col space-y-12'}>
-        <div className={'flex justify-center'}>
-          <PlansSwitcher
-            plans={STRIPE_PLANS}
-            plan={planVariant}
-            setPlan={setPlanVariant}
-          />
-        </div>
-
-        <div
-          className={
-            'flex flex-col items-start space-y-6 lg:space-y-0' +
-            ' justify-center lg:flex-row lg:space-x-4 xl:space-x-6'
-          }
-        >
-          {STRIPE_PRODUCTS.map((product) => {
-            const plan =
-              product.plans.find((item) => item.name === planVariant) ??
-              product.plans[0];
-
-            return (
-              <PricingItem
-                selectable
-                key={plan.stripePriceId ?? plan.name}
-                plan={plan}
-                product={product}
-                CheckoutButton={props.CheckoutButton}
-              />
-            );
-          })}
-        </div>
+    <div className={'flex flex-col space-y-12'}>
+      <div className={'flex justify-center'}>
+        <PlansSwitcher
+          plans={STRIPE_PLANS}
+          plan={planVariant}
+          setPlan={setPlanVariant}
+        />
       </div>
-    </>
+
+      <div
+        className={
+          'flex flex-col items-start space-y-6 lg:space-y-0' +
+          ' justify-center lg:flex-row lg:space-x-4 xl:space-x-6'
+        }
+      >
+        {STRIPE_PRODUCTS.map((product) => {
+          const plan =
+            product.plans.find((item) => item.name === planVariant) ??
+            product.plans[0];
+
+          return (
+            <PricingItem
+              selectable
+              key={plan.stripePriceId ?? plan.name}
+              plan={plan}
+              product={product}
+              CheckoutButton={props.CheckoutButton}
+            />
+          );
+        })}
+      </div>
+    </div>
   );
 }
 
@@ -112,22 +109,17 @@ function PricingItem(
       data-cy={'subscription-plan'}
       className={classNames(
         `
-         relative flex w-full flex-col justify-between space-y-6 rounded-2xl
-         p-6 lg:w-4/12 lg:p-8 xl:p-10 2xl:w-3/12
+         relative flex w-full flex-col justify-between space-y-4 rounded-2xl
+         p-6 lg:w-4/12 xl:p-8 2xl:w-3/12
       `,
         {
           ['bg-primary-600 text-primary-contrast']: recommended,
-          ['bg-gray-50/20 dark:bg-black-300/30']: !recommended,
         },
       )}
     >
       <div className={'flex flex-col space-y-1.5'}>
         <div className={'flex items-center space-x-3'}>
-          <Heading type={3}>
-            <span className={'font-semibold dark:text-white'}>
-              {props.product.name}
-            </span>
-          </Heading>
+          <Heading type={3}>{props.product.name}</Heading>
 
           <If condition={props.product.badge}>
             <span
@@ -135,7 +127,7 @@ function PricingItem(
                 `rounded-md py-1 px-2 text-xs font-medium`,
                 {
                   ['bg-primary-700 text-primary-contrast']: recommended,
-                  ['bg-gray-50 text-gray-500 dark:bg-black-300' +
+                  ['bg-gray-50 text-gray-500 dark:bg-dark-700' +
                   ' dark:text-gray-300']: !recommended,
                 },
               )}
@@ -155,40 +147,29 @@ function PricingItem(
         </span>
       </div>
 
-      <Transition
-        show
-        appear
-        enter={'duration-300 relative transition-all ease-in'}
-        enterFrom="opacity-0 right-1"
-        enterTo="opacity-100 right-0"
-        leave={'duration-300 relative transition-all ease-out'}
-        leaveFrom="opacity-100 right-0"
-        leaveTo={`opacity-0 right-1`}
-      >
-        <div className={'flex items-end space-x-1'}>
-          <Price>{props.plan.price}</Price>
+      <div className={'flex items-end space-x-1'}>
+        <Price>{props.plan.price}</Price>
 
-          <If condition={props.plan.name}>
-            <span
-              className={classNames(`text-lg lowercase`, {
-                'text-gray-100': recommended,
-                'text-gray-400 dark:text-gray-400': !recommended,
-              })}
-            >
-              <span>/</span>
-              <span>{props.plan.name}</span>
-            </span>
-          </If>
-        </div>
-      </Transition>
+        <If condition={props.plan.name}>
+          <span
+            className={classNames(`text-lg lowercase`, {
+              'text-gray-100': recommended,
+              'text-gray-400 dark:text-gray-400': !recommended,
+            })}
+          >
+            <span>/</span>
+            <span>{props.plan.name}</span>
+          </span>
+        </If>
+      </div>
 
-      <div className={'my-2.5 py-2.5 text-current'}>
+      <div className={'text-current'}>
         <FeaturesList features={props.product.features} />
       </div>
 
       <If condition={props.selectable}>
         <If
-          condition={props.CheckoutButton}
+          condition={props.plan.stripePriceId && props.CheckoutButton}
           fallback={
             <DefaultCheckoutButton
               recommended={recommended}
@@ -214,7 +195,7 @@ function FeaturesList(
   }>,
 ) {
   return (
-    <ul className={'flex flex-col space-y-3'}>
+    <ul className={'flex flex-col space-y-1.5'}>
       {props.features.map((feature) => {
         return (
           <ListItem key={feature}>
@@ -232,7 +213,7 @@ function FeaturesList(
 function Price({ children }: React.PropsWithChildren) {
   return (
     <div>
-      <span className={'text-2xl font-extrabold lg:text-3xl xl:text-4xl'}>
+      <span className={'text-2xl font-bold lg:text-3xl xl:text-4xl'}>
         {children}
       </span>
     </div>
@@ -261,15 +242,20 @@ function PlansSwitcher(
   return (
     <div className={'flex'}>
       {props.plans.map((plan, index) => {
+        const selected = plan === props.plan;
+
         const className = classNames('focus:!ring-0 !outline-none', {
           'rounded-r-none': index === 0,
           'rounded-l-none': index === props.plans.length - 1,
+          'border-gray-100 dark:border-dark-800 hover:bg-gray-50 dark:hover:bg-dark-800':
+            !selected,
         });
 
         return (
           <Button
+            round
             key={plan}
-            color={plan === props.plan ? 'primary' : 'secondary'}
+            color={selected ? 'primary' : 'transparent'}
             className={className}
             onClick={() => props.setPlan(plan)}
           >

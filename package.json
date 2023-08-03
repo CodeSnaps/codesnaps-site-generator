@@ -1,6 +1,6 @@
 {
   "name": "next-supabase-saas-kit",
-  "version": "0.2.25",
+  "version": "0.3.0",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -34,7 +34,6 @@
     "singleQuote": true
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.16",
     "@heroicons/react": "^2.0.18",
     "@next/bundle-analyzer": "^13.4.12",
     "@radix-ui/react-avatar": "^1.0.3",

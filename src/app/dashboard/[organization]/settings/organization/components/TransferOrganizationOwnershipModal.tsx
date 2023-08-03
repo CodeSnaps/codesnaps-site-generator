@@ -36,7 +36,7 @@ const TransferOrganizationOwnershipModal: React.FC<{
         setIsOpen(false);
       });
     },
-    [csrfToken, membershipId, setIsOpen],
+    [csrfToken, membershipId, organizationUid, setIsOpen],
   );
 
   return (

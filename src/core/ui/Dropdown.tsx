@@ -1,8 +1,6 @@
-'use client';
-
 import * as React from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
-import classNames from 'classnames';
+import classNames from 'clsx';
 
 import ChevronRightIcon from '@heroicons/react/24/outline/ChevronRightIcon';
 
@@ -32,8 +30,8 @@ const DropdownMenuSubTrigger = React.forwardRef<
         ' justify-between py-1.5 px-2 text-sm font-medium outline-none',
       inset && 'pl-8',
       clickable &&
-        `cursor-pointer transition-colors focus:bg-primary-50 active:bg-primary-100 dark:focus:bg-black-200 dark:active:bg-black-100`,
-      className
+        `cursor-pointer transition-colors focus:bg-primary-50 active:bg-primary-100 dark:focus:bg-dark-600 dark:active:bg-dark-900`,
+      className,
     )}
     {...props}
   >
@@ -55,8 +53,8 @@ const DropdownMenuSubContent = React.forwardRef<
     className={classNames(
       'animate-in slide-in-from-left-1 z-50 min-w-[8rem] overflow-hidden' +
         ' rounded-md border border-gray-100 bg-white p-1 shadow-md' +
-        ' dark:border-black-300 dark:bg-black-300',
-      className
+        ' dark:border-dark-700 dark:bg-dark-800',
+      className,
     )}
     {...props}
   />
@@ -78,10 +76,10 @@ const DropdownMenuContent = React.forwardRef<
         'animate-in data-[side=bottom]:slide-in-from-top-2 w-screen md:w-auto' +
           ' data-[side=top]:slide-in-from-bottom-2 z-50 min-w-[8rem]' +
           ' overflow-hidden border border-transparent border-t-gray-50' +
-          ' bg-white p-1 shadow-xl dark:border-black-200 dark:bg-black-300' +
-          ' dark:shadow-[0_0_40px_0] dark:shadow-primary-600/10' +
-          ' dark:text-gray-300 lg:rounded-md',
-        className
+          ' bg-white p-1 shadow-xl dark:border-dark-600 dark:bg-dark-800' +
+          ' dark:shadow-[0_0_40px_0] dark:shadow-primary-500/30' +
+          ' dark:text-gray-300 md:rounded-md',
+        className,
       )}
       {...props}
     />
@@ -105,10 +103,10 @@ const DropdownMenuItem = React.forwardRef<
         ' data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       {
         'pl-8': inset,
-        [`transition-colors focus:bg-primary-50 active:bg-primary-100 dark:focus:bg-black-200 dark:active:bg-black-100`]:
+        [`transition-colors duration-300 focus:bg-primary-50 active:bg-primary-100 dark:focus:bg-dark-700 dark:active:bg-dark-600`]:
           clickable,
       },
-      className
+      className,
     )}
     {...props}
   />
@@ -127,7 +125,7 @@ const DropdownMenuLabel = React.forwardRef<
     className={classNames(
       'px-2 py-1.5 text-sm font-semibold text-gray-500 dark:text-gray-400',
       inset && 'pl-8',
-      className
+      className,
     )}
     {...props}
   />
@@ -142,8 +140,8 @@ const DropdownMenuSeparator = React.forwardRef<
   <DropdownMenuPrimitive.Separator
     ref={ref}
     className={classNames(
-      '-mx-1 my-1 h-px bg-gray-100 dark:bg-black-200',
-      className
+      '-mx-1 my-1 h-px bg-gray-100 dark:bg-dark-600',
+      className,
     )}
     {...props}
   />

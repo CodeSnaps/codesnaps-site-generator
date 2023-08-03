@@ -6,6 +6,7 @@ import Trans from '~/core/ui/Trans';
 
 import SiteHeader from '~/app/(site)/components/SiteHeader';
 import configuration from '~/configuration';
+import I18nProvider from '~/i18n/I18nProvider';
 
 export const metadata = {
   title: `An error occurred - ${configuration.site.name}`,
@@ -13,7 +14,7 @@ export const metadata = {
 
 const ErrorPage = () => {
   return (
-    <main>
+    <I18nProvider>
       <SiteHeader />
 
       <div
@@ -22,7 +23,12 @@ const ErrorPage = () => {
         }
       >
         <div className={'flex flex-col space-y-8'}>
-          <div className={'flex space-x-8 divide-x divide-gray-100'}>
+          <div
+            className={
+              'flex space-x-8 divide-x divide-gray-100' +
+              ' dark:divide-dark-700'
+            }
+          >
             <div>
               <Heading type={1}>
                 <span className={'text-primary-500'}>500</span>
@@ -55,7 +61,7 @@ const ErrorPage = () => {
           </div>
         </div>
       </div>
-    </main>
+    </I18nProvider>
   );
 };
 

@@ -7,7 +7,7 @@
 }
 
 :global(.dark) .PostBody h2 {
-  @apply border-b-black-300;
+  @apply border-b-dark-700;
 }
 
 .PostBody h3 {
@@ -123,11 +123,11 @@ For more info: https://github.com/tailwindlabs/tailwindcss/issues/3258#issuecomm
   border-top-left-radius: 0.35rem;
   border-top-right-radius: 0.35rem;
 
-  @apply bg-black-400 relative left-3 text-[0.55rem] md:text-sm font-bold;
+  @apply bg-dark-800 relative left-3 text-[0.55rem] md:text-sm font-bold;
 }
 
 .PostBody pre[filename] {
-  @apply bg-black-300 pt-3 rounded-md;
+  @apply bg-dark-700 pt-3 rounded-md;
 }
 
 .PostBody pre[filename] code {
@@ -146,23 +146,23 @@ For more info: https://github.com/tailwindlabs/tailwindcss/issues/3258#issuecomm
 }
 
 .PostBody pre > code {
-  @apply p-3 md:p-6 text-xs md:text-sm font-medium font-monospace block bg-gray-100 dark:bg-black-400;
+  @apply p-3 md:p-6 text-xs md:text-sm font-medium font-monospace block bg-gray-100 dark:bg-dark-800;
 
   white-space: pre-wrap;
 }
 
 :global(.dark) .PostBody code {
-  @apply bg-black-400 rounded-xl;
+  @apply bg-dark-800 rounded-xl;
 }
 
 .PostBody p > code,
 .PostBody li > code {
-  @apply px-1 py-0.5 border border-black-200  rounded mx-0.5 font-semibold text-sm;
+  @apply px-1 py-0.5 border border-dark-600  rounded mx-0.5 font-semibold text-sm;
 }
 
 :global(.dark) .PostBody p > code,
 :global(.dark) .PostBody li > code {
-  @apply bg-black-300;
+  @apply bg-dark-700;
 }
 
 .PostBody hr {

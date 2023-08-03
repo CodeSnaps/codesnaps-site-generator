@@ -7,7 +7,6 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ['serif'],
         heading: [
           'var(--font-family-heading)',
           'Inter',
@@ -22,16 +21,7 @@ module.exports = {
           ...colors.indigo,
           contrast: '#fff',
         },
-        black: {
-          50: '#525252',
-          100: '#424242',
-          200: '#363636',
-          300: '#282828',
-          400: '#222',
-          500: '#141414',
-          600: '#0a0a0a',
-          700: '#000',
-        },
+        dark: colors.gray,
       },
     },
   },

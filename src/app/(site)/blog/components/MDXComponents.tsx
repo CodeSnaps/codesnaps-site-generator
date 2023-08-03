@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { forwardRef } from 'react';
 
-import classNames from 'classnames';
+import classNames from 'clsx';
 
 import LazyRender from '~/core/ui/LazyRender';
 import ClientOnly from '~/core/ui/ClientOnly';

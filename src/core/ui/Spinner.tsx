@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import classNames from 'clsx';
 
 function Spinner(
   props: React.PropsWithChildren<{

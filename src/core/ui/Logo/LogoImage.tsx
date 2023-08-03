@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import classNames from 'clsx';
 
 const LogoImage: React.FCC<{
   className?: string;

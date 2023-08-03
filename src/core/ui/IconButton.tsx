@@ -1,5 +1,5 @@
 import React, { createElement, forwardRef } from 'react';
-import classNames from 'classnames';
+import classNames from 'clsx';
 
 type DefaultProps = React.ButtonHTMLAttributes<unknown> & {
   loading?: boolean;
@@ -19,9 +19,9 @@ type Props = React.PropsWithChildren<DefaultProps | DivProps>;
 const CLASSNAME = `rounded-full bg-transparent h-10 w-10
   flex items-center justify-center dark:focus:ring-primary-500/70
   ring-primary-200 transition-all outline-none
-  focus:ring-2 hover:border dark:border-black-300 border-gray-100
+  focus:ring-2 hover:border dark:border-dark-700 border-gray-100
   disabled:cursor-not-allowed disabled:opacity-50
-  active:bg-gray-100 dark:active:bg-black-200
+  active:bg-gray-100 dark:active:bg-dark-600
  `;
 
 const IconButton = forwardRef(function IconButtonComponent(

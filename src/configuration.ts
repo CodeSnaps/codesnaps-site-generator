@@ -2,6 +2,11 @@ import type { Provider } from '@supabase/gotrue-js/src/lib/types';
 
 const production = process.env.NODE_ENV === 'production';
 
+enum Themes {
+  Light = 'light',
+  Dark = 'dark',
+}
+
 const configuration = {
   site: {
     name: 'Awesomely - Your SaaS Title',
@@ -32,6 +37,7 @@ const configuration = {
   production,
   environment: process.env.NEXT_PUBLIC_ENVIRONMENT,
   enableThemeSwitcher: true,
+  theme: Themes.Light,
   paths: {
     signIn: '/auth/sign-in',
     signUp: '/auth/sign-up',

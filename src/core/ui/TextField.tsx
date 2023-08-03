@@ -1,8 +1,7 @@
 'use client';
 
 import React, { forwardRef } from 'react';
-import classNames from 'classnames';
-import { Transition } from '@headlessui/react';
+import classNames from 'clsx';
 
 import Label from './Label';
 import If from '~/core/ui/If';
@@ -29,14 +28,14 @@ const Input = forwardRef<React.ElementRef<'input'>, Props>(
         rounded-md border border-gray-200 bg-white font-medium text-gray-800
         shadow-sm ring-primary-200 ring-offset-1 transition-all focus-within:ring-2
         hover:border-gray-300 hover:bg-gray-50 
-        dark:border-black-200 dark:bg-black-400
-        dark:text-gray-200 dark:focus-within:ring-primary-500/70 dark:focus-within:ring-offset-black-500
-        dark:hover:border-black-100 dark:focus:bg-black-400 lg:text-sm`,
+        dark:border-dark-600 dark:bg-dark-800
+        dark:text-gray-200 dark:focus-within:ring-primary-500/70 dark:focus-within:ring-offset-dark-900
+        dark:hover:border-dark-500 dark:focus:bg-dark-800 lg:text-sm`,
           className,
           {
-            [`cursor-not-allowed bg-gray-100 hover:bg-gray-100 dark:bg-black-400`]:
+            [`cursor-not-allowed bg-gray-100 hover:bg-gray-100 dark:bg-dark-800`]:
               props.disabled,
-          }
+          },
         )}
       >
         <If condition={children}>
@@ -47,13 +46,13 @@ const Input = forwardRef<React.ElementRef<'input'>, Props>(
           {...props}
           className={classNames(
             `h-10 flex-1 rounded-md bg-transparent px-3 py-2 outline-none disabled:cursor-not-allowed disabled:opacity-30`,
-            className
+            className,
           )}
           ref={ref}
         />
       </div>
     );
-  }
+  },
 );
 
 type TextFieldComponent = React.FC<
@@ -80,23 +79,16 @@ const ErrorMessage: React.FC<
 > = ({ error, ...props }) => {
   const shouldDisplay = !!error;
 
+  if (!shouldDisplay) {
+    return null;
+  }
+
   return (
-    <Transition
-      show={shouldDisplay}
-      appear={shouldDisplay}
-      enter="ease-out duration-200"
-      enterFrom="opacity-0"
-      enterTo="opacity-100"
-      leave="ease-in duration-50"
-      leaveFrom="opacity-100"
-      leaveTo="opacity-0"
-    >
-      <Hint>
-        <span {...props} className={'py-0.5 text-red-700 dark:text-red-500'}>
-          {error}
-        </span>
-      </Hint>
-    </Transition>
+    <Hint>
+      <span {...props} className={'py-0.5 text-red-700 dark:text-red-500'}>
+        {error}
+      </span>
+    </Hint>
   );
 };
 
@@ -106,3 +98,11 @@ TextField.Input = Input;
 TextField.Error = ErrorMessage;
 
 export default TextField;
+
+export {
+  TextField,
+  Hint as TextFieldHint,
+  Label as TextFieldLabel,
+  Input as TextFieldInput,
+  ErrorMessage as TextFieldError,
+};

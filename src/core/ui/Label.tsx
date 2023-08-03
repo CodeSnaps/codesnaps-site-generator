@@ -1,5 +1,5 @@
 import { createElement } from 'react';
-import classNames from 'classnames';
+import classNames from 'clsx';
 
 type Props = React.LabelHTMLAttributes<unknown> & {
   as?: string;

@@ -2,10 +2,10 @@ import type { Post } from 'contentlayer/generated';
 
 import If from '~/core/ui/If';
 import SubHeading from '~/core/ui/SubHeading';
-import Hero from '~/core/ui/Hero';
 
 import DateFormatter from './DateFormatter';
 import CoverImage from './CoverImage';
+import Heading from '~/core/ui/Heading';
 
 const PostHeader: React.FC<{
   post: Post;
@@ -17,13 +17,15 @@ const PostHeader: React.FC<{
   const preloadImage = true;
 
   return (
-    <>
-      <Hero>{title}</Hero>
+    <div className={'flex flex-col space-y-4'}>
+      <div className={'flex flex-col space-y-4'}>
+        <Heading type={1}>{title}</Heading>
 
-      <SubHeading>{description}</SubHeading>
+        <SubHeading>{description}</SubHeading>
+      </div>
 
-      <div className="mx-auto mb-4 mt-6 flex">
-        <div className="flex flex-row items-center space-x-2 text-sm text-gray-600 dark:text-gray-200">
+      <div className="flex">
+        <div className="flex flex-row items-center space-x-2 text-sm text-gray-600 dark:text-gray-400">
           <div>
             <DateFormatter dateString={date} />
           </div>
@@ -45,7 +47,7 @@ const PostHeader: React.FC<{
           </div>
         )}
       </If>
-    </>
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as AvatarPrimivite from '@radix-ui/react-avatar';
-import classNames from 'classnames';
+import classNames from 'clsx';
 
 const Avatar = React.forwardRef<
   React.ElementRef<typeof AvatarPrimivite.Root>,

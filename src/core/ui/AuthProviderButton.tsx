@@ -12,10 +12,10 @@ const AuthProviderButton: React.FCC<{
       color={'custom'}
       className={`relative border border-gray-200 text-gray-600 ring-primary-200
         ring-offset-1 transition-all hover:border-gray-300 hover:bg-gray-50
-        focus:ring-2 active:bg-gray-100 dark:border-black-300
-        dark:bg-black-400 dark:text-gray-200 dark:ring-primary-500/70
-        dark:hover:border-black-200 dark:hover:bg-black-300 
-        dark:focus:ring-offset-black-400 dark:active:bg-black-300`}
+        focus:ring-2 active:bg-gray-100 dark:border-dark-700
+        dark:bg-dark-800 dark:text-gray-200 dark:ring-primary-500/70
+        dark:hover:border-dark-600 dark:hover:bg-dark-700/50 
+        dark:focus:ring-offset-dark-800 dark:active:bg-dark-700`}
       onClick={onClick}
       data-provider={providerId}
     >

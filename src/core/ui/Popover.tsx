@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 
 import * as PopoverPrimitive from '@radix-ui/react-popover';
-import classNames from 'classnames';
+import classNames from 'clsx';
 
 const Popover = PopoverPrimitive.Root;
 
@@ -25,7 +25,7 @@ const PopoverContent = forwardRef<
           `animate-in data-[side=bottom]:slide-in-from-top-2
           data-[side=top]:slide-in-from-bottom-2 z-50 rounded-md border
           border-gray-100 bg-white p-2 shadow-lg outline-none
-          dark:border-black-300 dark:bg-black-400`,
+          dark:border-dark-700 dark:bg-dark-800`,
           className
         )}
         {...props}
@@ -42,14 +42,14 @@ const PopoverItem = forwardRef<
     <div
       ref={ref}
       className={classNames(
-        `flex cursor-pointer items-center rounded-md bg-transparent py-2 px-4 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none active:bg-gray-100 dark:hover:bg-black-300 dark:active:bg-black-300`,
+        `flex cursor-pointer items-center rounded-md bg-transparent py-2 px-4 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none active:bg-gray-100 dark:hover:bg-dark-700 dark:active:bg-dark-700`,
         className
       )}
       {...props}
     >
       <span
         className={classNames(
-          `truncate text-sm font-medium text-gray-700 hover:text-black-500 dark:text-gray-300 dark:hover:text-white`
+          `truncate text-sm font-medium text-gray-700 hover:text-dark-900 dark:text-gray-300 dark:hover:text-white`
         )}
       >
         {children}
@@ -63,7 +63,7 @@ const PopoverDivider: React.FC<{
 }> = ({ className }) => (
   <div
     className={classNames(
-      `my-1 border-t border-gray-100 dark:border-black-300`,
+      `my-1 border-t border-gray-100 dark:border-dark-700`,
       className
     )}
   />

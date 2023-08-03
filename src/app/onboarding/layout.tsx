@@ -4,7 +4,6 @@ import { isRedirectError } from 'next/dist/client/components/redirect';
 import getSupabaseServerClient from '~/core/supabase/server-client';
 import requireSession from '~/lib/user/require-session';
 import { getUserDataById } from '~/lib/server/queries';
-import OnboardingIllustration from '~/app/onboarding/components/OnboardingIllustration';
 
 import Logo from '~/core/ui/Logo';
 import getLanguageCookie from '~/i18n/get-language-cookie';
@@ -18,28 +17,19 @@ async function OnboardingLayout({ children }: React.PropsWithChildren) {
   await initializeOnboardingRoute();
 
   return (
-    <div className={'flex flex-1 flex-col dark:bg-black-500'}>
-      <div className={'flex divide-x divide-gray-100 dark:divide-black-300'}>
+    <div className={'flex flex-1 flex-col dark:bg-dark-900'}>
+      <div className={'flex divide-x divide-gray-100 dark:divide-dark-700'}>
         <div
           className={
-            'flex h-screen w-full flex-1 flex-col items-center justify-center lg:w-6/12'
+            'flex h-screen w-full flex-1 flex-col items-center' +
+            ' justify-center lg:w-6/12 mx-auto xl:max-w-3xl'
           }
         >
-          <div className={'absolute top-24 hidden lg:flex'}>
+          <div className={'absolute top-12 xl:top-24'}>
             <Logo href={'/onboarding'} />
           </div>
 
           {children}
-        </div>
-
-        <div
-          className={
-            'hidden w-6/12 flex-1 items-center justify-center bg-gray-50 dark:bg-black-400 lg:flex'
-          }
-        >
-          <div>
-            <OnboardingIllustration />
-          </div>
         </div>
       </div>
     </div>
@@ -93,7 +83,7 @@ async function initializeOnboardingRoute() {
     if (!isRedirectError(e)) {
       logger.error(
         `
-        Error while initializing onboarding route: ${e}`
+        Error while initializing onboarding route: ${e}`,
       );
 
       redirect(configuration.paths.signIn);

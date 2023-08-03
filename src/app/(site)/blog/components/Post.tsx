@@ -9,10 +9,10 @@ const Post: React.FCC<{
   content: string;
 }> = ({ post, content }) => {
   return (
-    <div className={'mx-auto max-w-2xl'}>
+    <div className={'mx-auto max-w-2xl my-8'}>
       <PostHeader post={post} />
 
-      <article className={'mx-auto flex justify-center md:mt-2'}>
+      <article className={'mx-auto flex justify-center'}>
         <PostBody content={content} />
       </article>
     </div>

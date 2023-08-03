@@ -52,7 +52,7 @@ const OrganizationsSelector = () => {
       >
         <SelectTrigger
           data-cy={'organization-selector'}
-          className={'!bg-transparent'}
+          className={'!bg-transparent !h-9'}
         >
           <span
             className={'max-w-[5rem] text-sm lg:max-w-[12rem] lg:text-base'}
@@ -122,7 +122,7 @@ function OrganizationsOptions(
       organization: Organization;
       role: MembershipRole;
     }>;
-  }>
+  }>,
 ) {
   return (
     <>
@@ -197,6 +197,6 @@ function useChangeOrganization() {
         router.push(`${organizationPath}/${route}`);
       }
     },
-    [params?.organization, path, router]
+    [params?.organization, path, router],
   );
 }

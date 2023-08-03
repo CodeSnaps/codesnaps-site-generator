@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import cn from 'classnames';
+import cn from 'clsx';
 
 type Props = {
   title: string;

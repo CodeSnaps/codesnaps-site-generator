@@ -32,8 +32,8 @@ const AuthProviderLogo: React.FC<{
 
 function getOAuthProviderLogos(): Record<string, string | React.ReactNode> {
   return {
-    email: <AtSymbolIcon className={'h-7'} />,
-    phone: <DevicePhoneMobileIcon className={'h-7'} />,
+    password: <AtSymbolIcon className={'h-[22px] w-[22px]'} />,
+    phone: <DevicePhoneMobileIcon className={'h-[22px] w-[22px]'} />,
     google: '/assets/images/google.webp',
     facebook: '/assets/images/facebook.webp',
     twitter: '/assets/images/twitter.webp',

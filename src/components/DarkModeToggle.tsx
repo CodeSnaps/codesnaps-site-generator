@@ -1,7 +1,4 @@
-'use client';
-
 import { useEffect, useMemo, useState } from 'react';
-import Trans from '~/core/ui/Trans';
 
 import {
   ComputerDesktopIcon,
@@ -28,7 +25,7 @@ import {
   SelectValue,
 } from '~/core/ui/Select';
 
-import ClientOnly from '~/core/ui/ClientOnly';
+import Trans from '~/core/ui/Trans';
 
 const DarkModeToggle = () => {
   const defaultTheme = useMemo(getStoredTheme, []);
@@ -56,15 +53,16 @@ const DarkModeToggle = () => {
         <IconButton
           data-cy={'dark-mode-toggle'}
           className={
-            'flex items-center !rounded-full border-transparent shadow-sm transition-shadow' +
-            ' !bg-transparent hover:shadow-md'
+            'flex items-center !rounded-full border-transparent transition-shadow' +
+            ' !bg-transparent hover:shadow-xl dark:border-transparent' +
+            ' dark:shadow-primary-500/50'
           }
         >
           <span hidden>
             <SelectValue />
           </span>
 
-          <ClientOnly>{Icon}</ClientOnly>
+          {Icon}
         </IconButton>
       </SelectTrigger>
 

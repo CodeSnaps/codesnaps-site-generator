@@ -1,12 +1,12 @@
 'use client';
 
-import Link, { LinkProps } from 'next/link';
-import classNames from 'classnames';
+import Link from 'next/link';
+import classNames from 'clsx';
 import { cva } from 'cva';
 
 import If from '~/core/ui/If';
 import Spinner from '~/core/ui/Spinner';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 type Color = 'primary' | 'secondary' | 'transparent' | 'danger' | 'custom';
 type Size = 'normal' | 'small' | 'large' | 'custom';
@@ -20,7 +20,7 @@ type Props = React.ButtonHTMLAttributes<unknown> &
     size?: Size;
     variant?: Variant;
     loading?: boolean;
-    href?: Maybe<LinkProps['href']>;
+    href?: Maybe<string>;
   }>;
 
 const classNameBuilder = getClassNameBuilder();
@@ -30,8 +30,8 @@ const defaultVariant = `normal`;
 
 const Button: React.FCC<Props> = forwardRef<React.ElementRef<'button'>, Props>(
   function ButtonComponent(
-    { children, color, size, variant, block, loading, round, href, ...props },
-    ref
+    { children, color, size, variant, block, loading, href, round, ...props },
+    ref,
   ) {
     const className = classNames(
       classNameBuilder({
@@ -41,7 +41,7 @@ const Button: React.FCC<Props> = forwardRef<React.ElementRef<'button'>, Props>(
       block ? `w-full` : ``,
       loading ? `opacity-70` : ``,
       round ? 'rounded-full' : 'rounded-md',
-      props.className
+      props.className,
     );
 
     const sizesClassName = getSizesClassName()[size ?? defaultSize];
@@ -54,11 +54,11 @@ const Button: React.FCC<Props> = forwardRef<React.ElementRef<'button'>, Props>(
         className={className}
         disabled={loading || props.disabled}
       >
-        <InnerButtonContainerElement href={href}>
+        <InnerButtonContainerElement href={href} disabled={props.disabled}>
           <span
             className={classNames(
               `flex w-full flex-1 items-center justify-center`,
-              sizesClassName
+              sizesClassName,
             )}
           >
             <If condition={loading}>
@@ -70,7 +70,7 @@ const Button: React.FCC<Props> = forwardRef<React.ElementRef<'button'>, Props>(
         </InnerButtonContainerElement>
       </button>
     );
-  }
+  },
 );
 
 function Animation() {
@@ -84,22 +84,28 @@ function Animation() {
 function InnerButtonContainerElement({
   children,
   href,
-}: React.PropsWithChildren<{ href: Maybe<LinkProps['href']> }>) {
-  if (href) {
+  disabled,
+}: React.PropsWithChildren<{
+  href: Maybe<string>;
+  disabled?: boolean;
+}>) {
+  const className = `flex w-full items-center transition-transform duration-500 ease-out`;
+
+  if (href && !disabled) {
     return (
-      <Link className={`flex w-full items-center`} href={href}>
+      <Link className={className} href={href}>
         {children}
       </Link>
     );
   }
 
-  return <span className={`flex w-full items-center`}>{children}</span>;
+  return <span className={className}>{children}</span>;
 }
 
 function getClassNameBuilder() {
   return cva(
     [
-      `flex items-center justify-center font-medium outline-none transition-all focus:ring-2 ring-offset-1 dark:focus:ring-offset-transparent disabled:cursor-not-allowed disabled:opacity-50`,
+      `inline-flex items-center justify-center font-medium outline-none transition-all focus:ring-2 ring-offset-1 dark:focus:ring-offset-transparent disabled:cursor-not-allowed disabled:opacity-50 active:[&>*]:translate-y-0.5`,
     ],
     {
       variants: {
@@ -107,7 +113,7 @@ function getClassNameBuilder() {
           primary: `ring-primary-200`,
           secondary: `ring-gray-200`,
           danger: `ring-red-200`,
-          transparent: `text-gray-800 focus:ring-2 focus:ring-gray-50 dark:focus:ring-black-300 ring-primary-50 hover:bg-gray-50 active:bg-gray-100 dark:text-gray-300 dark:ring-black-400 dark:hover:bg-black-400 dark:hover:text-white dark:active:bg-black-300`,
+          transparent: `text-gray-800 focus:ring-2 focus:ring-gray-50 dark:focus:ring-dark-700 ring-primary-50 hover:bg-gray-50 active:bg-gray-100 dark:text-gray-300 dark:ring-dark-800 dark:hover:bg-dark-800 dark:hover:text-white dark:active:bg-dark-700`,
           custom: ``,
         },
         variant: {
@@ -130,7 +136,7 @@ function getClassNameBuilder() {
         {
           color: 'secondary',
           variant: 'normal',
-          className: `bg-gray-100 dark:focus:ring-gray-200 hover:bg-gray-200 active:bg-gray-200 dark:bg-black-300 dark:ring-black-200 dark:hover:bg-black-200 dark:active:bg-black-400`,
+          className: `bg-gray-100 dark:focus:ring-gray-200 hover:bg-gray-200 active:bg-gray-200 dark:bg-dark-800 dark:ring-dark-600 dark:hover:bg-dark-700 dark:active:bg-dark-600`,
         },
         {
           color: 'primary',
@@ -145,21 +151,21 @@ function getClassNameBuilder() {
         {
           color: 'primary',
           variant: 'flat',
-          className: `bg-primary-500/10 dark:focus:ring-primary-500/70 text-primary-500 hover:bg-primary-500/20 
-      active:bg-primary-500/30 dark:hover:bg-primary-500/20 dark:active:bg-primary-500/30`,
+          className: `bg-primary-500/5 dark:focus:ring-primary-500/70 text-primary-500 hover:bg-primary-500/10 
+      active:bg-primary-500/20 dark:hover:bg-primary-500/20 dark:active:bg-primary-500/30`,
         },
         {
           color: 'danger',
           variant: 'flat',
-          className: `bg-red-500/10 text-red-500 dark:focus:ring-red-500/70
-    active:bg-red-500/30 hover:bg-red-500/20 dark:active:bg-red-500/30`,
+          className: `bg-red-500/5 text-red-500 dark:focus:ring-red-500/70
+    active:bg-red-500/20 hover:bg-red-500/10 dark:active:bg-red-500/30`,
         },
       ],
       defaultVariants: {
         color: 'primary',
         variant: 'normal',
       },
-    }
+    },
   );
 }
 

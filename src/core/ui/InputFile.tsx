@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import classNames from 'classnames';
+import classNames from 'clsx';
 
 const InputFile = forwardRef<
   React.ElementRef<'input'>,

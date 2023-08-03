@@ -74,7 +74,7 @@ function getSidebarItemClassBuilder() {
         },
         active: {
           true: `bg-primary-50 font-medium text-current dark:bg-primary-300/10 dark:text-primary-contrast`,
-          false: `text-gray-600 ring-transparent hover:bg-gray-50 active:bg-gray-200 dark:bg-black-500 dark:text-gray-300 dark:hover:bg-black-400 dark:hover:text-white dark:active:bg-black-300 dark:active:bg-black-300`,
+          false: `text-gray-600 ring-transparent hover:bg-gray-50 active:bg-gray-200 dark:bg-dark-900 dark:text-gray-300 dark:hover:bg-dark-800 dark:hover:text-white dark:active:bg-dark-700 dark:active:bg-dark-700`,
         },
       },
       compoundVariants: [

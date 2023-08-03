@@ -24,24 +24,20 @@ const SiteHeader: React.FCC<{
   const userSession = useUserSession();
 
   return (
-    <div className={`w-full py-4 ${fixed ? fixedClassName : ''}`}>
+    <div className={`w-full ${fixed ? fixedClassName : ''}`}>
       <Container>
-        <div className="flex w-full items-center justify-between">
-          <div className={'flex items-center lg:space-x-8'}>
+        <div className="flex py-1.5 px-1 items-center border-b border-gray-50 dark:border-dark-800 justify-between">
+          <div className={'w-4/12'}>
             <Logo />
+          </div>
 
-            <div className={'hidden lg:flex'}>
-              <SiteNavigation />
-            </div>
+          <div className={'w-4/12 justify-center hidden lg:flex'}>
+            <SiteNavigation />
           </div>
 
           <div className={'flex flex-1 items-center justify-end space-x-4'}>
-            <div className={'hidden items-center lg:flex'}>
-              <If
-                condition={
-                  configuration.enableThemeSwitcher && !userSession?.auth
-                }
-              >
+            <div className={'items-center flex'}>
+              <If condition={configuration.enableThemeSwitcher}>
                 <DarkModeToggle />
               </If>
             </div>

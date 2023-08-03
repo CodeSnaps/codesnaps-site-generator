@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ArrowRightIcon from '@heroicons/react/24/outline/ArrowRightIcon';
-import classNames from 'classnames';
+import classNames from 'clsx';
 
 import Button from '~/core/ui/Button';
 import isBrowser from '~/core/generic/is-browser';

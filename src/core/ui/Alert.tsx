@@ -11,11 +11,11 @@ import {
 } from '@heroicons/react/24/outline';
 
 import { cva } from 'cva';
+import classNames from 'clsx';
 
 import IconButton from '~/core/ui/IconButton';
 import If from '~/core/ui/If';
 import Heading from '~/core/ui/Heading';
-import classNames from 'classnames';
 
 type AlertType = 'success' | 'error' | 'warn' | 'info';
 
@@ -90,16 +90,15 @@ Alert.Heading = AlertHeading;
 function getClassNameBuilder() {
   return cva(
     [
-      `p-4 rounded relative flex
-        items-center justify-between text-black-300 rounded-lg text-sm`,
+      `p-4 relative flex items-center justify-between text-gray-700 rounded-lg text-sm border`,
     ],
     {
       variants: {
         type: {
-          success: `bg-green-50 dark:bg-green-500/10 dark:text-green-500 text-green-900`,
-          info: `bg-blue-50 dark:bg-blue-500/10 dark:text-blue-500 text-blue-900`,
-          error: `bg-red-50 dark:bg-red-500/10 dark:text-red-500 text-red-900`,
-          warn: `bg-yellow-50 dark:bg-yellow-500/5 dark:text-yellow-500 text-yellow-800`,
+          success: `bg-green-50 dark:bg-green-500/10 dark:text-green-500 text-green-800 border-green-500/10`,
+          info: `bg-sky-50 dark:bg-sky-500/10 dark:text-sky-500 text-sky-800 border-sky-500/10`,
+          error: `bg-red-50 dark:bg-red-500/10 dark:text-red-500 text-red-800 border-red-500/10`,
+          warn: `bg-yellow-50 dark:bg-yellow-500/5 dark:text-yellow-500 text-yellow-800 border-yellow-500/10`,
         },
       },
       defaultVariants: {

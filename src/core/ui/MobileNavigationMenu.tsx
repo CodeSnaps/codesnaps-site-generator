@@ -47,7 +47,7 @@ const MobileNavigationDropdown: React.FC<{
       <DropdownMenuTrigger className={'w-full'}>
         <div
           className={
-            'Button w-full justify-start ring-2 ring-gray-100 dark:ring-black-300'
+            'Button w-full justify-start ring-2 ring-gray-100 dark:ring-dark-700'
           }
         >
           <span

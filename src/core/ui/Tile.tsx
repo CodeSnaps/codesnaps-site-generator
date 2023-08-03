@@ -20,7 +20,7 @@ const Tile: React.FCC & {
     <div
       className={
         'flex flex-col space-y-3 rounded-2xl border border-gray-100' +
-        ' bg-white p-5 dark:border-black-400 dark:bg-black-500'
+        ' bg-white p-5 dark:border-dark-800 dark:bg-dark-900'
       }
     >
       {children}

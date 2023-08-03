@@ -15,10 +15,8 @@ function PasswordResetPage() {
   return (
     <>
       <div>
-        <Heading type={6}>
-          <span className={'font-medium'}>
-            <Trans i18nKey={'auth:passwordResetLabel'} />
-          </span>
+        <Heading type={5}>
+          <Trans i18nKey={'auth:passwordResetLabel'} />
         </Heading>
       </div>
 

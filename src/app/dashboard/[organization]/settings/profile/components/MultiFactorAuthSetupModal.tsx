@@ -14,7 +14,6 @@ import Modal from '~/core/ui/Modal';
 import If from '~/core/ui/If';
 import Trans from '~/core/ui/Trans';
 
-import SlideUpTransition from '~/core/ui/SlideUpTransition';
 import useFactorsMutationKey from '~/core/hooks/use-user-factors-mutation-key';
 import VerificationCodeInput from '~/app/auth/components/VerificationCodeInput';
 
@@ -22,7 +21,7 @@ function MultiFactorAuthSetupModal(
   props: React.PropsWithChildren<{
     isOpen: boolean;
     setIsOpen: (isOpen: boolean) => void;
-  }>
+  }>,
 ) {
   const { t } = useTranslation();
 
@@ -247,7 +246,7 @@ function FactorNameForm(
   props: React.PropsWithChildren<{
     onSetFactorName: (name: string) => void;
     onCancel: () => void;
-  }>
+  }>,
 ) {
   const inputName = 'factorName';
 
@@ -287,11 +286,7 @@ function FactorNameForm(
 }
 
 function QrImage({ src }: { src: string }) {
-  return (
-    <SlideUpTransition>
-      <Image alt={'QR Code'} src={src} width={160} height={160} />
-    </SlideUpTransition>
-  );
+  return <Image alt={'QR Code'} src={src} width={160} height={160} />;
 }
 
 export default MultiFactorAuthSetupModal;
@@ -342,6 +337,6 @@ function useVerifyCodeMutation() {
       }
 
       return verify;
-    }
+    },
   );
 }

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import Trans from '~/core/ui/Trans';
-import classNames from 'classnames';
+import classNames from 'clsx';
 import { cva } from 'cva';
 
 import {
@@ -131,7 +131,7 @@ export default AppSidebar;
 function getClassNameBuilder() {
   return cva(
     [
-      'relative flex hidden h-screen flex-row justify-center border-r border-gray-100 py-4 dark:border-black-300 dark:bg-black-500 lg:flex',
+      'relative flex hidden h-screen flex-row justify-center border-r border-gray-100 py-4 dark:border-dark-700 dark:bg-dark-900 lg:flex',
     ],
     {
       variants: {

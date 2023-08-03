@@ -17,10 +17,8 @@ function SignInPage() {
   return (
     <>
       <div>
-        <Heading type={6}>
-          <span className={'font-medium'}>
-            <Trans i18nKey={'auth:signInHeading'} />
-          </span>
+        <Heading type={5}>
+          <Trans i18nKey={'auth:signInHeading'} />
         </Heading>
       </div>
 

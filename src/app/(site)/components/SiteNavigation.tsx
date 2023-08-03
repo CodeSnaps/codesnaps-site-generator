@@ -31,6 +31,8 @@ const links = {
 };
 
 const SiteNavigation = () => {
+  const className = 'font-semibold';
+
   return (
     <>
       <div className={'hidden items-center space-x-0.5 lg:flex'}>
@@ -40,9 +42,9 @@ const SiteNavigation = () => {
             link={links.SignIn}
           />
 
-          <NavigationMenuItem link={links.Blog} />
-          <NavigationMenuItem link={links.Pricing} />
-          <NavigationMenuItem link={links.FAQ} />
+          <NavigationMenuItem className={className} link={links.Blog} />
+          <NavigationMenuItem className={className} link={links.Pricing} />
+          <NavigationMenuItem className={className} link={links.FAQ} />
         </NavigationMenu>
       </div>
 

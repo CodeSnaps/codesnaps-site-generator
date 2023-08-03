@@ -4,8 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { Fragment, useTransition } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
 
-import PlusCircleIcon from '@heroicons/react/24/outline/PlusCircleIcon';
-import XMarkIcon from '@heroicons/react/24/outline/XMarkIcon';
+import {
+  CheckIcon,
+  XMarkIcon,
+  PlusCircleIcon,
+} from '@heroicons/react/24/outline';
 
 import MembershipRole from '~/lib/organizations/types/membership-role';
 
@@ -103,7 +106,7 @@ const InviteMembersForm = () => {
           return (
             <Fragment key={field.id}>
               <div className={'flex items-center space-x-0.5 md:space-x-2'}>
-                <div className={'w-7/12 md:w-8/12'}>
+                <div className={'w-7/12'}>
                   <TextField.Input
                     {...emailControl}
                     data-cy={'invite-email-input'}
@@ -113,7 +116,7 @@ const InviteMembersForm = () => {
                   />
                 </div>
 
-                <div className={'w-4/12 md:w-3/12'}>
+                <div className={'w-4/12'}>
                   <MembershipRoleSelector
                     value={field.role}
                     onChange={(role) => {
@@ -122,28 +125,28 @@ const InviteMembersForm = () => {
                   />
                 </div>
 
-                <If condition={fields.length > 1}>
-                  <div className={'w-1/12'}>
-                    <Tooltip className={'flex justify-center'}>
-                      <TooltipTrigger asChild>
-                        <IconButton
-                          data-cy={'remove-invite-button'}
-                          label={t('removeInviteButtonLabel')}
-                          onClick={() => {
-                            remove(index);
-                            clearErrors(emailInputName);
-                          }}
-                        >
-                          <XMarkIcon className={'h-4 lg:h-5'} />
-                        </IconButton>
-                      </TooltipTrigger>
+                <div className={'w-[60px] flex justify-end'}>
+                  <Tooltip className={'flex justify-center'}>
+                    <TooltipTrigger asChild>
+                      <IconButton
+                        type={'button'}
+                        disabled={fields.length <= 1}
+                        data-cy={'remove-invite-button'}
+                        label={t('removeInviteButtonLabel')}
+                        onClick={() => {
+                          remove(index);
+                          clearErrors(emailInputName);
+                        }}
+                      >
+                        <XMarkIcon className={'h-4 lg:h-5'} />
+                      </IconButton>
+                    </TooltipTrigger>
 
-                      <TooltipContent>
-                        {t('removeInviteButtonLabel')}
-                      </TooltipContent>
-                    </Tooltip>
-                  </div>
-                </If>
+                    <TooltipContent>
+                      {t('removeInviteButtonLabel')}
+                    </TooltipContent>
+                  </Tooltip>
+                </div>
               </div>
             </Fragment>
           );
@@ -170,16 +173,24 @@ const InviteMembersForm = () => {
 
       <div>
         <Button
-          loading={isSubmitting}
           className={'w-full lg:w-auto'}
           data-cy={'send-invites-button'}
           type={'submit'}
+          loading={isSubmitting}
         >
-          {isSubmitting ? (
-            <Trans i18nKey={'organization:inviteMembersLoading'} />
-          ) : (
-            <Trans i18nKey={'organization:inviteMembersSubmitLabel'} />
-          )}
+          <span className={'flex space-x-2 items-center'}>
+            <CheckIcon className={'h-4'} />
+
+            <span>
+              <If condition={!isSubmitting}>
+                <Trans i18nKey={'organization:inviteMembersSubmitLabel'} />
+              </If>
+
+              <If condition={isSubmitting}>
+                <Trans i18nKey={'organization:inviteMembersLoading'} />
+              </If>
+            </span>
+          </span>
         </Button>
       </div>
     </form>

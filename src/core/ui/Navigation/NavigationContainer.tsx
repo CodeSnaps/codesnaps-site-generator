@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import classNames from 'clsx';
 
 const NavigationContainer: React.FCC<{
   className?: string;
@@ -6,7 +6,7 @@ const NavigationContainer: React.FCC<{
   return (
     <div
       className={classNames(
-        `border-b border-gray-50 dark:border-black-400 dark:border-black-400`,
+        `border-b border-gray-50 dark:border-dark-800 dark:border-dark-800`,
         className
       )}
     >
