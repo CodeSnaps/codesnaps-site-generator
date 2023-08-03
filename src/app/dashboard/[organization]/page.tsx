@@ -5,12 +5,25 @@ import { Squares2X2Icon } from '@heroicons/react/24/outline';
 import AppHeader from '~/app/dashboard/[organization]/components/AppHeader';
 import AppContainer from '~/app/dashboard/[organization]/components/AppContainer';
 import { withI18n } from '~/i18n/with-i18n';
+import Spinner from '~/core/ui/Spinner';
 
 const DashboardDemo = loadDynamic(
   () => import('~/app/dashboard/[organization]/components/DashboardDemo'),
   {
     ssr: false,
-  }
+    loading: () => (
+      <div
+        className={
+          'flex flex-1 items-center min-h-full justify-center flex-col' +
+          ' space-y-4'
+        }
+      >
+        <Spinner className={'text-primary-500'} />
+
+        <div>Loading dashboard...</div>
+      </div>
+    ),
+  },
 );
 
 export const metadata = {

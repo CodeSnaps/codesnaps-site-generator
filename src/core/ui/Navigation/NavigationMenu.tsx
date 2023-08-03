@@ -44,7 +44,7 @@ function getNavigationMenuClassBuilder() {
         lg:flex-col lg:justify-start lg:space-x-0 lg:space-y-1`,
       },
       bordered: {
-        true: `lg:space-x-3 border-b border-gray-100 dark:border-dark-600 pb-1.5`,
+        true: `lg:space-x-3 border-b border-gray-100 dark:border-dark-800 pb-1.5`,
       },
     },
   });

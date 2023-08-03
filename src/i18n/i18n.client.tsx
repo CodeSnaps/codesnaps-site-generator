@@ -32,7 +32,7 @@ function initializeI18nClient(lng?: Maybe<string>, ns?: string[]) {
             lookupCookie: I18N_COOKIE_NAME,
           },
           react: {
-            useSuspense: false,
+            useSuspense: true,
           },
         },
         (err) => {
@@ -41,7 +41,7 @@ function initializeI18nClient(lng?: Maybe<string>, ns?: string[]) {
           }
 
           resolve(i18next);
-        }
+        },
       );
   });
 

@@ -119,8 +119,13 @@ function RouteShellWithSidebar(
           <AppSidebar organization={props.organization} />
         </div>
 
-        <div className={'relative mx-auto h-screen w-full overflow-y-auto'}>
-          <div>{props.children}</div>
+        <div
+          className={
+            'relative mx-auto h-screen w-full overflow-y-auto' +
+            ' flex flex-col'
+          }
+        >
+          {props.children}
         </div>
       </SidebarContext.Provider>
     </div>
