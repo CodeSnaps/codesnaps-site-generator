@@ -1,6 +1,6 @@
 {
   "name": "next-supabase-saas-kit",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -92,7 +92,7 @@
     "@types/i18next-fs-backend": "^1.1.2",
     "@types/node": "^20.4.6",
     "@types/nodemailer": "^6.4.9",
-    "@types/react": "^18.2.18",
+    "@types/react": "^18.2.19",
     "@types/react-dom": "^18.2.7",
     "autoprefixer": "^10.4.14",
     "cypress": "12.17.3",
@@ -100,12 +100,12 @@
     "eslint": "^8.46.0",
     "eslint-config-next": "13.4.13",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-cypress": "^2.13.3",
+    "eslint-plugin-cypress": "^2.13.4",
     "pino-pretty": "^10.2.0",
     "postcss": "^8.4.27",
     "prettier": "3.0.1",
     "prettier-plugin-tailwindcss": "^0.4.1",
-    "supabase": "^1.82.6",
+    "supabase": "^1.83.7",
     "tailwindcss": "^3.3.3",
     "typescript": "5.1.6"
   }
