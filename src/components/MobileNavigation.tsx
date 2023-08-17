@@ -1,8 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Trans from '~/core/ui/Trans';
-import Bars3Icon from '@heroicons/react/24/outline/Bars3Icon';
+import { Bars3Icon } from '@heroicons/react/24/outline';
 
 import {
   DropdownMenu,
@@ -10,13 +9,14 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '~/core/ui/Dropdown';
+import Trans from '~/core/ui/Trans';
 
 import NAVIGATION_CONFIG from '../navigation.config';
 
 const MobileNavigation: React.FC<{
-  organization: string;
-}> = ({ organization }) => {
-  const Links = NAVIGATION_CONFIG(organization).items.map((item) => {
+  organizationUid: string;
+}> = ({ organizationUid }) => {
+  const Links = NAVIGATION_CONFIG(organizationUid).items.map((item) => {
     return (
       <DropdownMenuItem key={item.path}>
         <Link

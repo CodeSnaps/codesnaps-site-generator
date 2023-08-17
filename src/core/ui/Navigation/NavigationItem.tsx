@@ -40,13 +40,16 @@ const NavigationMenuItem: React.FCC<{
 
   const className = classNames(itemClassName, props.className ?? ``);
 
+  if (disabled) {
+    return (
+      <span role={'link'} className={className}>
+        <Trans i18nKey={label} defaults={label} />
+      </span>
+    );
+  }
+
   return (
-    <Link
-      className={className}
-      aria-disabled={disabled}
-      href={disabled ? '' : link.path}
-      shallow={shallow ?? active}
-    >
+    <Link className={className} href={link.path} shallow={shallow ?? active}>
       <span className={'transition-transform duration-500'}>
         <Trans i18nKey={label} defaults={label} />
       </span>

@@ -1,3 +1,5 @@
+'use client';
+
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { Close as DialogPrimitiveClose } from '@radix-ui/react-dialog';
 
@@ -6,29 +8,58 @@ import If from '~/core/ui/If';
 import Button from '~/core/ui/Button';
 import Trans from '~/core/ui/Trans';
 
-import { Dialog, DialogContent, DialogTitle } from '~/core/ui/Dialog';
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from '~/core/ui/Dialog';
 
-const Modal: React.FC<
-  React.PropsWithChildren<{
+type ControlledOpenProps = {
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => unknown;
+};
+
+type TriggerProps = {
+  Trigger?: React.ReactNode;
+};
+
+type Props = React.PropsWithChildren<
+  {
     heading: string | React.ReactNode;
-    isOpen: boolean;
-    setIsOpen: (isOpen: boolean) => unknown;
     closeButton?: boolean;
-  }>
-> & {
+  } & (ControlledOpenProps | TriggerProps)
+>;
+
+const Modal: React.FC<Props> & {
   CancelButton: typeof CancelButton;
-} = ({ isOpen, setIsOpen, closeButton, heading, children }) => {
+} = ({ closeButton, heading, children, ...props }) => {
+  const isControlled = 'isOpen' in props;
   const useCloseButton = closeButton ?? true;
+  const Trigger = ('Trigger' in props && props.Trigger) || null;
+
+  const DialogWrapper = (wrapperProps: React.PropsWithChildren) =>
+    isControlled ? (
+      <Dialog
+        open={props.isOpen}
+        onOpenChange={(open) => {
+          if (useCloseButton && !open) {
+            props.setIsOpen(false);
+          }
+        }}
+      >
+        {wrapperProps.children}
+      </Dialog>
+    ) : (
+      <Dialog>{wrapperProps.children}</Dialog>
+    );
 
   return (
-    <Dialog
-      open={isOpen}
-      onOpenChange={(open) => {
-        if (useCloseButton && !open) {
-          setIsOpen(false);
-        }
-      }}
-    >
+    <DialogWrapper>
+      <If condition={Trigger}>
+        <DialogTrigger>{Trigger}</DialogTrigger>
+      </If>
+
       <DialogContent>
         <div className="h-full min-h-screen px-4 text-center">
           <span
@@ -38,7 +69,7 @@ const Modal: React.FC<
             &#8203;
           </span>
 
-          <div className="inline-block max-h-[90%] w-full max-w-xl transform overflow-auto rounded-xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-dark-800">
+          <div className="inline-block max-h-[90%] w-full max-w-xl transform overflow-auto rounded-md bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-dark-800">
             <div className={'flex flex-col space-y-4'}>
               <div className="flex items-center">
                 <DialogTitle className="flex w-full text-xl font-semibold text-current">
@@ -51,9 +82,13 @@ const Modal: React.FC<
               <If condition={useCloseButton}>
                 <DialogPrimitiveClose asChild>
                   <IconButton
-                    className={'absolute right-4 top-0 flex items-center'}
+                    className={'absolute top-0 right-4 flex items-center'}
                     label={'Close Modal'}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => {
+                      if (isControlled) {
+                        props.setIsOpen(false);
+                      }
+                    }}
                   >
                     <XMarkIcon className={'h-6'} />
                     <span className="sr-only">Close</span>
@@ -64,7 +99,7 @@ const Modal: React.FC<
           </div>
         </div>
       </DialogContent>
-    </Dialog>
+    </DialogWrapper>
   );
 };
 

@@ -116,7 +116,7 @@ function RouteShellWithSidebar(
     <div className={'flex h-full flex-1 overflow-hidden'}>
       <SidebarContext.Provider value={{ collapsed, setCollapsed }}>
         <div className={'hidden lg:block'}>
-          <AppSidebar organization={props.organization} />
+          <AppSidebar organizationUid={props.organization} />
         </div>
 
         <div

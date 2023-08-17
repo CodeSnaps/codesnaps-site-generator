@@ -12,6 +12,8 @@ export async function GET(request: NextRequest) {
   const code = requestUrl.searchParams.get('code');
 
   const onError = (error?: string) => {
+    getLogger().error(`An error occurred while signing user in`, error);
+
     redirect(`/auth/callback/error?error=${error}`);
   };
 

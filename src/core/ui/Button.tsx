@@ -39,7 +39,7 @@ const Button: React.FCC<Props> = forwardRef<React.ElementRef<'button'>, Props>(
         color: color ?? defaultColor,
       }),
       block ? `w-full` : ``,
-      loading ? `opacity-70` : ``,
+      loading ? `opacity-80` : ``,
       round ? 'rounded-full' : 'rounded-md',
       props.className,
     );

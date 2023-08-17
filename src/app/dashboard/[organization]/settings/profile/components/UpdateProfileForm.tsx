@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form';
 
 import type { SupabaseClient } from '@supabase/supabase-js';
 
-import configuration from '~/configuration';
 import useUpdateProfileMutation from '~/lib/user/hooks/use-update-profile';
 
 import Button from '~/core/ui/Button';
@@ -16,6 +15,8 @@ import useSupabase from '~/core/hooks/use-supabase';
 
 import type UserSession from '~/core/session/types/user-session';
 import type UserData from '~/core/session/types/user-data';
+
+import configuration from '~/configuration';
 
 function UpdateProfileForm({
   session,
@@ -102,74 +103,72 @@ function UpdateProfileForm({
   }, [currentDisplayName, currentPhotoURL, reset]);
 
   return (
-    <>
-      <form
-        data-cy={'update-profile-form'}
-        onSubmit={handleSubmit((value) => {
-          return onSubmit(value.displayName, getPhotoFile(value.photoURL));
-        })}
-      >
-        <div className={'flex flex-col space-y-4'}>
-          <TextField>
-            <TextField.Label>
-              <Trans i18nKey={'profile:displayNameLabel'} />
+    <form
+      data-cy={'update-profile-form'}
+      onSubmit={handleSubmit((value) => {
+        return onSubmit(value.displayName, getPhotoFile(value.photoURL));
+      })}
+    >
+      <div className={'flex flex-col space-y-4'}>
+        <TextField>
+          <TextField.Label>
+            <Trans i18nKey={'profile:displayNameLabel'} />
 
-              <TextField.Input
-                {...displayNameControl}
-                data-cy={'profile-display-name'}
-                minLength={2}
-                placeholder={''}
-              />
-            </TextField.Label>
-          </TextField>
+            <TextField.Input
+              {...displayNameControl}
+              data-cy={'profile-display-name'}
+              minLength={2}
+              placeholder={''}
+            />
+          </TextField.Label>
+        </TextField>
 
-          <TextField>
-            <TextField.Label>
-              <Trans i18nKey={'profile:profilePictureLabel'} />
+        <TextField>
+          <TextField.Label>
+            <Trans i18nKey={'profile:profilePictureLabel'} />
 
-              <ImageUploadInput
-                {...photoURLControl}
-                multiple={false}
-                onClear={onAvatarCleared}
-                image={currentPhotoURL}
-              >
-                <Trans i18nKey={'common:imageInputLabel'} />
-              </ImageUploadInput>
-            </TextField.Label>
-          </TextField>
+            <ImageUploadInput
+              {...photoURLControl}
+              multiple={false}
+              onClear={onAvatarCleared}
+              image={currentPhotoURL}
+            >
+              <Trans i18nKey={'common:imageInputLabel'} />
+            </ImageUploadInput>
+          </TextField.Label>
+        </TextField>
 
-          <TextField>
-            <TextField.Label>
-              <Trans i18nKey={'profile:emailLabel'} />
+        <TextField>
+          <TextField.Label>
+            <Trans i18nKey={'profile:emailLabel'} />
 
-              <TextField.Input disabled value={email} />
-            </TextField.Label>
-
-            <div>
-              <Button
-                type={'button'}
-                color={'transparent'}
-                size={'small'}
-                href={'../' + configuration.paths.settings.email}
-              >
-                <span className={'text-xs font-normal'}>
-                  <Trans i18nKey={'profile:updateEmailSubmitLabel'} />
-                </span>
-              </Button>
-            </div>
-          </TextField>
+            <TextField.Input disabled value={email} />
+          </TextField.Label>
 
           <div>
             <Button
-              className={'w-full md:w-auto'}
-              loading={updateProfileMutation.isMutating}
+              type={'button'}
+              color={'transparent'}
+              size={'small'}
+              href={'../' + configuration.paths.settings.email}
             >
-              <Trans i18nKey={'profile:updateProfileSubmitLabel'} />
+              <span className={'text-xs font-normal'}>
+                <Trans i18nKey={'profile:updateEmailSubmitLabel'} />
+              </span>
             </Button>
           </div>
+        </TextField>
+
+        <div>
+          <Button
+            className={'w-full md:w-auto'}
+            loading={updateProfileMutation.isMutating}
+          >
+            <Trans i18nKey={'profile:updateProfileSubmitLabel'} />
+          </Button>
         </div>
-      </form>
-    </>
+      </div>
+    </form>
   );
 }
 

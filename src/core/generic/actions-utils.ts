@@ -1,6 +1,9 @@
+import { redirect } from 'next/navigation';
+
 import verifyCsrfToken from '~/core/verify-csrf-token';
 import requireSession from '~/lib/user/require-session';
 import getSupabaseServerActionClient from '~/core/supabase/action-client';
+import isUserSuperAdmin from '~/app/admin/utils/is-user-super-admin';
 
 /**
  * @name withCsrfCheck
@@ -14,7 +17,7 @@ export function withCsrfCheck<
   Params extends {
     csrfToken: string;
   },
-  Return extends unknown
+  Return extends unknown,
 >(fn: (params: Params) => Return) {
   return async (params: Params) => {
     await verifyCsrfToken(params.csrfToken);
@@ -31,12 +34,26 @@ export function withCsrfCheck<
  * })
  */
 export function withSession<Args extends any[]>(
-  fn: (...params: Args) => unknown
+  fn: (...params: Args) => unknown,
 ) {
   return async (...params: Args) => {
     const client = getSupabaseServerActionClient();
 
     await requireSession(client);
+
+    return fn(...params);
+  };
+}
+
+export function withAdminSession<Args extends any[]>(
+  fn: (...params: Args) => unknown,
+) {
+  return async (...params: Args) => {
+    const isAdmin = await isUserSuperAdmin();
+
+    if (!isAdmin) {
+      redirect('/');
+    }
 
     return fn(...params);
   };

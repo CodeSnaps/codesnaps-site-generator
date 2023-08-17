@@ -30,8 +30,8 @@ const AppHeader: React.FCC<{
             }
           >
             <div className={'flex items-center lg:hidden'}>
-              <If condition={currentOrganization?.id}>
-                {(id) => <MobileNavigation organization={id.toString()} />}
+              <If condition={currentOrganization?.uuid}>
+                {(uid) => <MobileNavigation organizationUid={uid} />}
               </If>
             </div>
 
