@@ -36,7 +36,9 @@ import {
   LIGHT_THEME_CLASSNAME,
   SYSTEM_THEME_CLASSNAME,
 } from '~/core/theming';
+
 import If from '~/core/ui/If';
+import GlobalRole from '~/core/session/types/global-role';
 
 const ProfileDropdown: React.FCC<{
   userSession: Maybe<UserSession>;
@@ -51,7 +53,7 @@ const ProfileDropdown: React.FCC<{
   }, [userSession]);
 
   const isSuperAdmin = useMemo(() => {
-    return userSession?.auth?.user.user_metadata.admin === 'true';
+    return userSession?.auth?.user.user_metadata.role === GlobalRole.SuperAdmin;
   }, [userSession]);
 
   return (

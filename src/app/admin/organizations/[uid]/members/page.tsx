@@ -7,8 +7,9 @@ import AdminHeader from '~/app/admin/components/AdminHeader';
 import { getMembershipsByOrganizationUid } from '~/app/admin/organizations/queries';
 import getSupabaseServerClient from '~/core/supabase/server-client';
 import OrganizationsMembersTable from '~/app/admin/organizations/[uid]/members/components/OrganizationsMembersTable';
-import configuration from '~/configuration';
 import getPageFromQueryParams from '~/app/admin/utils/get-page-from-query-param';
+
+import configuration from '~/configuration';
 
 interface AdminMembersPageParams {
   params: {
@@ -25,13 +26,13 @@ export const metadata = {
 };
 
 function AdminMembersPage(params: AdminMembersPageParams) {
-  const client = getSupabaseServerClient({ admin: true });
+  const adminClient = getSupabaseServerClient();
   const uid = params.params.uid;
-  const perPage = 2;
+  const perPage = 20;
   const page = getPageFromQueryParams(params.searchParams.page);
 
   const { data: memberships, count } = use(
-    getMembershipsByOrganizationUid(client, { uid, page, perPage }),
+    getMembershipsByOrganizationUid(adminClient, { uid, page, perPage }),
   );
 
   const pageCount = count ? Math.ceil(count / perPage) : 0;

@@ -67,7 +67,7 @@ function getMembersPayload<
   Payload extends {
     data: UserData;
     role: MembershipRole;
-  }
+  },
 >(members: Array<Payload | null>, users: User[]) {
   type NonNullMembers = Exclude<Payload, null>;
 
@@ -100,13 +100,18 @@ function getMembersPayload<
     }, []);
 }
 
-async function fetchOrganizationMembers(
-  client: SupabaseClient,
-  organizationId: number
-) {
+async function fetchOrganizationMembers({
+  client,
+  adminClient,
+  organizationId,
+}: {
+  client: SupabaseClient;
+  adminClient: SupabaseClient;
+  organizationId: number;
+}) {
   const organizationMembersResponse = await getOrganizationMembers(
     client,
-    organizationId
+    organizationId,
   );
 
   const onError = (error: unknown) => {
@@ -114,7 +119,7 @@ async function fetchOrganizationMembers(
       {
         organizationId,
       },
-      `Error fetching organization members: ${error}`
+      `Error fetching organization members: ${error}`,
     );
 
     return [];
@@ -127,7 +132,7 @@ async function fetchOrganizationMembers(
   try {
     const members = organizationMembersResponse.data;
     const userIds = members.map((member) => member.data.id).filter(Boolean);
-    const users = await getMembersAuthMetadata(client, userIds);
+    const users = await getMembersAuthMetadata(adminClient, userIds);
 
     return getMembersPayload(members, users);
   } catch (error) {
@@ -157,13 +162,15 @@ async function loadMembers(organizationUid: string) {
   }
 
   const [members, invitedMembers] = await Promise.all([
-    fetchOrganizationMembers(adminClient, organizationId).catch((error) => {
-      console.error(`Error fetching organization members: ${error}`);
+    fetchOrganizationMembers({ adminClient, client, organizationId }).catch(
+      (error) => {
+        console.error(`Error fetching organization members: ${error}`);
 
-      return [];
-    }),
+        return [];
+      },
+    ),
     getOrganizationInvitedMembers(client, organizationId).then(
-      (result) => result.data
+      (result) => result.data,
     ),
   ]);
 
