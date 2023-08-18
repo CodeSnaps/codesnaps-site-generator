@@ -7,6 +7,8 @@ import AdminSidebar from '~/app/admin/components/AdminSidebar';
 import getLanguageCookie from '~/i18n/get-language-cookie';
 import AdminProviders from '~/app/admin/components/AdminProviders';
 
+export const dynamic = 'force-dynamic';
+
 function AdminLayout({ children }: React.PropsWithChildren) {
   const isAdmin = use(isUserSuperAdmin());
   const language = getLanguageCookie();
