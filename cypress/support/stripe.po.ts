@@ -13,10 +13,7 @@ const stripe = new StripeLib.Stripe(`sk_test_12345`, {
 const $get = cy.cyGet.bind(cy);
 
 const stripePo = {
-  $plans: () => $get('subscription-plan'),
-  $checkoutForm: () => $get('checkout-form'),
   $subscriptionName: () => $get('subscription-name'),
-  $subscriptionPeriodEnd: () => $get('subscription-period-end'),
   $awaitingPaymentAlert: () => $get('awaiting-payment-alert'),
   createWebhookPayload,
   sendWebhook(params: { type: StripeWebhooks; body: UnknownObject }) {
