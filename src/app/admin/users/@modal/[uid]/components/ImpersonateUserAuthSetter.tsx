@@ -1,17 +1,18 @@
 'use client';
 
 import { useEffect } from 'react';
-
 import { useRouter } from 'next/navigation';
-import type { Session } from '@supabase/auth-helpers-nextjs';
 
 import Spinner from '~/core/ui/Spinner';
 import useSupabase from '~/core/hooks/use-supabase';
 
 function ImpersonateUserAuthSetter({
-  session,
+  tokens,
 }: React.PropsWithChildren<{
-  session: Session;
+  tokens: {
+    accessToken: string;
+    refreshToken: string;
+  };
 }>) {
   const supabase = useSupabase();
   const router = useRouter();
@@ -19,15 +20,15 @@ function ImpersonateUserAuthSetter({
   useEffect(() => {
     async function setAuth() {
       await supabase.auth.setSession({
-        refresh_token: session.refresh_token,
-        access_token: session.access_token,
+        refresh_token: tokens.refreshToken,
+        access_token: tokens.accessToken,
       });
 
       router.push('/dashboard');
     }
 
     void setAuth();
-  }, [router, session.access_token, session.refresh_token, supabase.auth]);
+  }, [router, tokens, supabase.auth]);
 
   return (
     <div

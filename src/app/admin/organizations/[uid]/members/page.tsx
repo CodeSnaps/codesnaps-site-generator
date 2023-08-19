@@ -26,7 +26,7 @@ export const metadata = {
 };
 
 function AdminMembersPage(params: AdminMembersPageParams) {
-  const adminClient = getSupabaseServerClient();
+  const adminClient = getSupabaseServerClient({ admin: true });
   const uid = params.params.uid;
   const perPage = 20;
   const page = getPageFromQueryParams(params.searchParams.page);

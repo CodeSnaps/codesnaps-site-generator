@@ -33,8 +33,8 @@ export function withCsrfCheck<
  *   //
  * })
  */
-export function withSession<Args extends any[]>(
-  fn: (...params: Args) => unknown,
+export function withSession<Args extends any[], Response>(
+  fn: (...params: Args) => Response,
 ) {
   return async (...params: Args) => {
     const client = getSupabaseServerActionClient();
@@ -45,8 +45,8 @@ export function withSession<Args extends any[]>(
   };
 }
 
-export function withAdminSession<Args extends any[]>(
-  fn: (...params: Args) => unknown,
+export function withAdminSession<Args extends any[], Response>(
+  fn: (...params: Args) => Response,
 ) {
   return async (...params: Args) => {
     const isAdmin = await isUserSuperAdmin();

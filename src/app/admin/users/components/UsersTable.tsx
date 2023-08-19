@@ -91,7 +91,7 @@ const columns: Array<ColumnDef<UserRow>> = [
     size: 50,
     id: 'displayName',
     cell: ({ row }) => {
-      return row.original.data.displayName ?? '';
+      return row.original.data?.displayName ?? '';
     },
   },
   {

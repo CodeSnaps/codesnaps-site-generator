@@ -1,7 +1,6 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
 
 import getSupabaseServerActionClient from '~/core/supabase/action-client';
 import { withAdminSession, withCsrfCheck } from '~/core/generic/actions-utils';
@@ -52,14 +51,32 @@ export const impersonateUser = withCsrfCheck(
       throw new Error(`Error generating magic link`);
     }
 
-    const actionLink = data.properties.action_link;
-    const redirectLink = `/admin/users/${userId}/impersonate/callback`;
+    const response = await fetch(data.properties?.action_link, {
+      method: 'GET',
+      redirect: 'manual',
+    });
 
-    // Due to an issue with the magic link, we need to manually construct the link
-    // TODO: remove this once the issue is fixed as Supabase should handle this
-    const impersonationLoginLink = [actionLink, redirectLink].join('/');
+    const location = response.headers.get('Location');
 
-    redirect(impersonationLoginLink);
+    if (!location) {
+      throw new Error(`Error generating magic link. Location header not found`);
+    }
+
+    const hash = new URL(location).hash.substring(1);
+    const query = new URLSearchParams(hash);
+    const accessToken = query.get('access_token');
+    const refreshToken = query.get('refresh_token');
+
+    if (!accessToken || !refreshToken) {
+      throw new Error(
+        `Error generating magic link. Tokens not found in URL hash.`,
+      );
+    }
+
+    return {
+      accessToken,
+      refreshToken,
+    };
   }),
 );
 

@@ -65,22 +65,24 @@ async function loadUsers(page = 1, perPage = 20) {
   const ids = authUsers.map((user) => user.id);
   const usersData = await getUsers(ids);
 
-  const users = authUsers.map((user) => {
-    const data = usersData.find((u) => u.id === user.id) as UserData;
-    const banDuration =
-      'banned_until' in user ? (user.banned_until as string) : 'none';
+  const users = authUsers
+    .map((user) => {
+      const data = usersData.find((u) => u.id === user.id) as UserData;
+      const banDuration =
+        'banned_until' in user ? (user.banned_until as string) : 'none';
 
-    return {
-      id: user.id,
-      email: user.email,
-      phone: user.phone,
-      createdAt: user.created_at,
-      updatedAt: user.updated_at,
-      lastSignInAt: user.last_sign_in_at,
-      banDuration,
-      data,
-    };
-  });
+      return {
+        id: user.id,
+        email: user.email,
+        phone: user.phone,
+        createdAt: user.created_at,
+        updatedAt: user.updated_at,
+        lastSignInAt: user.last_sign_in_at,
+        banDuration,
+        data,
+      };
+    })
+    .filter(Boolean);
 
   return {
     total,
