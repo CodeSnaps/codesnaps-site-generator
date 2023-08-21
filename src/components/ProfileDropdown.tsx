@@ -53,7 +53,7 @@ const ProfileDropdown: React.FCC<{
   }, [userSession]);
 
   const isSuperAdmin = useMemo(() => {
-    return userSession?.auth?.user.user_metadata.role === GlobalRole.SuperAdmin;
+    return userSession?.auth?.user.app_metadata.role === GlobalRole.SuperAdmin;
   }, [userSession]);
 
   return (
