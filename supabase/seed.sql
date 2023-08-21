@@ -1,5 +1,7 @@
 insert into auth.users
-  values ('00000000-0000-0000-0000-000000000000', '059b89cf-0417-4692-abdf-cb065496ea4c', 'authenticated', 'authenticated', 'test@makerkit.dev', '$2a$10$pbq2o5WRV0xvI/T7BeqFSOxUI7uNtNtdp0GiZQ8IJ.MRAIa4zUWwu', '2022-12-15 17:36:17.018386+00', null, '', NULL, '', null, '', '', null, '2022-12-15 17:36:17.020686+00', '{"provider": "email", "providers": ["email"]}', '{"role": "super-admin"}', null, '2022-12-15 17:36:17.013909+00', '2022-12-15 18:36:07.166183+00', null, null,
+  values ('00000000-0000-0000-0000-000000000000',
+  '059b89cf-0417-4692-abdf-cb065496ea4c', 'authenticated', 'authenticated',
+  'test@makerkit.dev', '$2a$10$pbq2o5WRV0xvI/T7BeqFSOxUI7uNtNtdp0GiZQ8IJ.MRAIa4zUWwu', '2022-12-15 17:36:17.018386+00', null, '', NULL, '', null, '', '', null, '2022-12-15 17:36:17.020686+00', '{"provider": "email", "providers": ["email"], "role": "super-admin"}', '{}', null, '2022-12-15 17:36:17.013909+00', '2022-12-15 18:36:07.166183+00', null, null,
     '', '', null, default, '', 0, NULL, '', null);
 
 insert into auth.users
