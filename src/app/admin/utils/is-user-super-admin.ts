@@ -4,6 +4,13 @@ import getSupabaseServerClient from '~/core/supabase/server-client';
 import GlobalRole from '~/core/session/types/global-role';
 
 /**
+ * @name ENFORCE_MFA
+ * @description Set this constant to true if you want the SuperAdmin user to
+ * sign in using MFA when accessing the Admin page
+ */
+const ENFORCE_MFA = false;
+
+/**
  * @name isUserSuperAdmin
  * @description Checks if the current user is an admin by checking the
  * user_metadata.role field in Supabase Auth is set to a SuperAdmin role.
@@ -13,7 +20,7 @@ const isUserSuperAdmin = cache(
     params: {
       enforceMfa?: boolean;
     } = {
-      enforceMfa: false,
+      enforceMfa: ENFORCE_MFA,
     },
   ) => {
     const client = getSupabaseServerClient();

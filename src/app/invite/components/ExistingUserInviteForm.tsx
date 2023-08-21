@@ -15,7 +15,7 @@ function ExistingUserInviteForm(
   props: React.PropsWithChildren<{
     session: Session;
     code: string;
-  }>
+  }>,
 ) {
   const signOut = useSignOut();
   const refresh = useRefresh();
@@ -24,7 +24,7 @@ function ExistingUserInviteForm(
 
   const onSignOut = useCallback(async () => {
     await signOut();
-    await refresh();
+    refresh();
   }, [refresh, signOut]);
 
   const onInviteAccepted = useCallback(async () => {
@@ -58,7 +58,7 @@ function ExistingUserInviteForm(
         </Button>
 
         <div>
-          <div className={'flex flex-col space-y-2'}>
+          <div className={'flex flex-col space-y-4'}>
             <p className={'text-center'}>
               <span
                 className={
@@ -69,16 +69,18 @@ function ExistingUserInviteForm(
               </span>
             </p>
 
-            <Button
-              block
-              disabled={isSubmitting}
-              color={'transparent'}
-              size={'small'}
-              onClick={onSignOut}
-              type={'button'}
-            >
-              <Trans i18nKey={'auth:signOut'} />
-            </Button>
+            <div className={'flex justify-center'}>
+              <Button
+                data-cy={'invite-sign-out-button'}
+                disabled={isSubmitting}
+                color={'transparent'}
+                size={'small'}
+                onClick={onSignOut}
+                type={'button'}
+              >
+                <Trans i18nKey={'auth:signOut'} />
+              </Button>
+            </div>
           </div>
         </div>
       </div>

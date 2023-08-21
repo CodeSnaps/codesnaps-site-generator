@@ -25,7 +25,10 @@ select
     select
       * from memberships
       where
-        id = 18 $$, 'an authenticated user can read a membership if it
+        id = tests.get_membership_id (
+          tests.get_organization_id ('Supabase'),
+          tests.get_supabase_uid ('user')
+        ) $$, 'an authenticated user can read a membership if it
         belongs to the same organization');
 
 select
@@ -54,7 +57,8 @@ select
 
 select
   lives_ok ($$ insert into memberships (organization_id, user_id, role)
-      values (8, tests.get_supabase_uid ('user-2'), 0) $$);
+      values (tests.get_organization_id('Supabase'), tests.get_supabase_uid ('user-2')
+      , 0) $$, 'insert membership into new organization');
 
 select
   throws_ok ($$ update

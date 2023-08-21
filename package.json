@@ -1,6 +1,6 @@
 {
   "name": "next-supabase-saas-kit",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -23,7 +23,7 @@
     "typegen": "supabase gen types typescript --local > src/database.types.ts",
     "typecheck": "tsc -b && tsc -b cypress",
     "test:e2e": "sh ./scripts/test.sh",
-    "test:db": "supabase test db --debug",
+    "test:db": "supabase test db",
     "test:reset:db": "supabase db reset && supabase test db --debug"
   },
   "prettier": {

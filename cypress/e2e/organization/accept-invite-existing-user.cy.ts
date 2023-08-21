@@ -16,6 +16,17 @@ describe(`Accept Invite - Existing User`, () => {
     });
   }
 
+  describe(`when the user signs out`, () => {
+    before(() => {
+      signIn();
+      cy.cyGet('invite-sign-out-button').click();
+    });
+
+    it('should display the new user invite flow', () => {
+      authPo.$getEmailInput().should('be.visible');
+    });
+  });
+
   describe(`when the user accepts the invite`, () => {
     it('should be redirected to the dashboard', () => {
       signIn();

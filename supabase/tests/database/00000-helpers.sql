@@ -1,7 +1,12 @@
+/*---------------------
+---- install dbdev ----
+----------------------
+Requires:
+  - pg_tle: https://github.com/aws/pg_tle
+  - pgsql-http: https://github.com/pramsey/pgsql-http
+*/
 create extension if not exists http with schema extensions;
 create extension if not exists pg_tle;
-select pgtle.uninstall_extension_if_exists('supabase-dbdev');
-drop extension if exists "supabase-dbdev";
 
 select
     pgtle.install_extension(
@@ -31,11 +36,9 @@ lateral (
 ) resp(contents);
 create extension "supabase-dbdev";
 select dbdev.install('supabase-dbdev');
-drop extension if exists "supabase-dbdev";
-create extension "supabase-dbdev";
 
 select dbdev.install('basejump-supabase_test_helpers');
-create extension "basejump-supabase_test_helpers";
+create extension "basejump-supabase_test_helpers" version '0.0.1';
 
 create or replace function tests.create_db_user (user_id uuid)
   returns void
@@ -67,14 +70,34 @@ end;
 $$
 language PLPGSQL;
 
+create or replace function tests.get_membership_id (org_id bigint, uid uuid)
+  returns bigint
+  security definer
+  set search_path = PUBLIC
+  as $$
+declare
+  membership_id bigint;
+begin
+  select
+    id into membership_id
+  from
+    memberships
+  where
+    user_id = uid and
+    organization_id = org_id
+  limit 1;
+  return membership_id;
+end;
+$$
+language PLPGSQL;
+
 -- we have to run some tests to get this to pass as the first test file.
 begin;
 
 select
-  no_plan ();
+  no_plan();
 
-select
-  function_returns ('tests', 'get_supabase_uid', array['text'], 'uuid');
+select check_test(tests.rls_enabled('public', 'organizations'), true);
 
 select
   *
