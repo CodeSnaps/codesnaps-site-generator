@@ -27,7 +27,7 @@ enum Mode {
 function NewUserInviteForm(
   props: React.PropsWithChildren<{
     code: string;
-  }>
+  }>,
 ) {
   const [mode, setMode] = useState<Mode>(Mode.SignUp);
   const [isSubmitting, startTransition] = useTransition();
@@ -48,7 +48,7 @@ function NewUserInviteForm(
         setVerifyEmail(shouldVerifyEmail);
       });
     },
-    [csrfToken, props.code]
+    [csrfToken, props.code],
   );
 
   if (verifyEmail) {
@@ -113,7 +113,7 @@ function NewUserInviteForm(
       </If>
 
       <If condition={configuration.auth.providers.emailLink}>
-        <EmailLinkAuth />
+        <EmailLinkAuth inviteCode={props.code} />
       </If>
     </>
   );

@@ -13,7 +13,9 @@ import Alert from '~/core/ui/Alert';
 import useSignInWithOtp from '~/core/hooks/use-sign-in-with-otp';
 import configuration from '~/configuration';
 
-const EmailLinkAuth: React.FC = () => {
+const EmailLinkAuth: React.FC<{
+  inviteCode?: string;
+}> = ({ inviteCode }) => {
   const { t } = useTranslation();
   const signInWithOtpMutation = useSignInWithOtp();
 
@@ -26,7 +28,13 @@ const EmailLinkAuth: React.FC = () => {
       const email = data.get('email') as string;
 
       const origin = window.location.origin;
-      const redirectUrl = [origin, configuration.paths.authCallback].join('');
+      const queryParams = inviteCode ? `?inviteCode=${inviteCode}` : '';
+
+      const redirectUrl = [
+        origin,
+        configuration.paths.authCallback,
+        queryParams,
+      ].join('');
 
       const promise = signInWithOtpMutation.trigger({
         email,
@@ -41,7 +49,7 @@ const EmailLinkAuth: React.FC = () => {
         error: t(`auth:errors.link`),
       });
     },
-    [signInWithOtpMutation, t]
+    [signInWithOtpMutation, t],
   );
 
   if (signInWithOtpMutation.data) {
