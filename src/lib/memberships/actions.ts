@@ -127,8 +127,12 @@ export const acceptInviteAction = withCsrfCheck(
     }
 
     // we set the organization ID cookie
-    const uuid = organizationResponse.data.uuid;
-    cookies().set(createOrganizationIdCookie(uuid));
+    const organizationUid = organizationResponse.data.uuid;
+
+    cookies().set(createOrganizationIdCookie({
+      userId,
+      organizationUid
+    }));
 
     const needsEmailVerification =
       configuration.auth.requireEmailConfirmation && !signedIn;

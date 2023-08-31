@@ -33,7 +33,7 @@ async function OrganizationsPage() {
     redirect(configuration.paths.onboarding);
   }
 
-  const organizationUidCookie = await parseOrganizationIdCookie();
+  const organizationUidCookie = await parseOrganizationIdCookie(userId);
 
   if (organizationUidCookie) {
     const currentOrganizationResponse = await getCurrentOrganization({

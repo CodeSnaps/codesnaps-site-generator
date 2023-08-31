@@ -1,5 +1,7 @@
+import { cache } from 'react';
 import { redirect } from 'next/navigation';
 import type { SupabaseClient } from '@supabase/supabase-js';
+
 import verifyRequiresMfa from '~/core/session/utils/check-requires-mfa';
 import configuration from '~/configuration';
 import { Database } from '~/database.types';
@@ -9,7 +11,7 @@ import { Database } from '~/database.types';
  * @description Require a session to be present in the request
  * @param client
  */
-async function requireSession(client: SupabaseClient<Database>) {
+const requireSession = cache(async (client: SupabaseClient<Database>) => {
   const { data, error } = await client.auth.getSession();
 
   if (!data.session || error) {
@@ -25,6 +27,6 @@ async function requireSession(client: SupabaseClient<Database>) {
   }
 
   return data.session;
-}
+});
 
 export default requireSession;

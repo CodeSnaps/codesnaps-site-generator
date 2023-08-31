@@ -26,51 +26,53 @@
 
 import authPo from './auth.po';
 
-Cypress.Commands.add('cyGet', (name: string) => {
-  return cy.get(createCySelector(name));
-});
+export function registerCypressCommands() {
+  Cypress.Commands.add('cyGet', (name: string) => {
+    return cy.get(createCySelector(name));
+  });
 
-Cypress.Commands.add(
-  'signIn',
-  (redirectPath = '/', credentials = authPo.getDefaultUserCredentials()) => {
-    cy.session(
-      [redirectPath, credentials.email, credentials.password, Math.random()],
-      () => {
-        cy.log(
-          `Signing in programmatically and redirecting to ${redirectPath} ...`
-        );
+  Cypress.Commands.add(
+    'signIn',
+    (redirectPath = '/', credentials = authPo.getDefaultUserCredentials()) => {
+      cy.session(
+        [redirectPath, credentials.email, credentials.password, Math.random()],
+        () => {
+          cy.log(
+            `Signing in programmatically and redirecting to ${redirectPath} ...`,
+          );
 
-        cy.wrap(authPo.signInProgrammatically(credentials));
-      }
-    );
+          cy.wrap(authPo.signInProgrammatically(credentials));
+        },
+      );
 
-    // visit page
-    cy.visit(redirectPath);
+      // visit page
+      cy.visit(redirectPath);
 
-    // let the page hydrate before continuing
-    cy.wait(1000);
-  }
-);
+      // let the page hydrate before continuing
+      cy.wait(1000);
+    },
+  );
 
-Cypress.Commands.add(`clearStorage`, () => {
-  cy.clearCookies();
-  localStorage.clear();
-  sessionStorage.clear();
-});
+  Cypress.Commands.add(`clearStorage`, () => {
+    cy.clearCookies();
+    localStorage.clear();
+    sessionStorage.clear();
+  });
 
-Cypress.Commands.add(`resetDatabase`, () => {
-  cy.task(`resetDatabase`);
-});
+  Cypress.Commands.add(`resetDatabase`, () => {
+    cy.task(`resetDatabase`);
+  });
 
-Cypress.Commands.add(`signOutSession`, () => {
-  cy.request(`POST`, `/auth/sign-out`);
-});
+  Cypress.Commands.add(`signOutSession`, () => {
+    cy.request(`POST`, `/auth/sign-out`);
+  });
 
-Cypress.on('uncaught:exception', (err, runnable) => {
-  if (err.message.includes('NEXT_REDIRECT')) {
-    return false;
-  }
-});
+  Cypress.on('uncaught:exception', (err, runnable) => {
+    if (err.message.includes('NEXT_REDIRECT')) {
+      return false;
+    }
+  });
+}
 
 export function createCySelector(name: string) {
   return `[data-cy="${name}"]`;

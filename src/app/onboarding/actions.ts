@@ -66,7 +66,7 @@ export const handleOnboardingCompleteAction = withSession(
       `Onboarding successfully completed for user`
     );
 
-    cookies().set(createOrganizationIdCookie(organizationUid));
+    cookies().set(createOrganizationIdCookie({ userId, organizationUid }));
 
     const redirectPath = [configuration.paths.appPrefix, organizationUid].join(
       '/'

@@ -1,5 +1,4 @@
 import { FormEventHandler, useCallback, useTransition } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import Modal from '~/core/ui/Modal';
 import TextField from '~/core/ui/TextField';
@@ -17,7 +16,6 @@ const CreateOrganizationModal: React.FC<{
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => unknown;
 }> = ({ isOpen, setIsOpen }) => {
-  const { t } = useTranslation();
   const [isSubmitting, startTransition] = useTransition();
   const csrfToken = useCsrfToken();
 
@@ -32,7 +30,7 @@ const CreateOrganizationModal: React.FC<{
         setIsOpen(false);
       });
     },
-    [csrfToken, setIsOpen]
+    [csrfToken, setIsOpen],
   );
 
   const onSubmit: FormEventHandler = useCallback(
@@ -43,7 +41,7 @@ const CreateOrganizationModal: React.FC<{
 
       createOrganizationMutation(organization);
     },
-    [createOrganizationMutation]
+    [createOrganizationMutation],
   );
 
   return (

@@ -58,11 +58,12 @@ const RouteShell: React.FCC<{
     setOrganization(data.organization);
 
     const organizationId = data.organization?.uuid;
+    const cookieName = `${userSession?.data?.id}-organizationId`;
 
     if (organizationId) {
-      setCookie('organizationId', organizationId.toString());
+      setCookie(cookieName, organizationId.toString());
     }
-  }, [data.organization]);
+  }, [data.organization, userSession]);
 
   const updateCurrentUser = useCallback(() => {
     if (userSessionContext.auth) {

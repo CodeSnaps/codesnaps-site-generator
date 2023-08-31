@@ -75,7 +75,12 @@ async function withCsrfMiddleware(request: NextRequest) {
       csrfResponse.cookies.get(CSRF_SECRET_COOKIE)?.value ?? '';
 
     if (nextCsrfSecret) {
-      response.cookies.set(CSRF_SECRET_COOKIE, nextCsrfSecret);
+      response.cookies.set(CSRF_SECRET_COOKIE, nextCsrfSecret, {
+        secure: configuration.production,
+        path: '/',
+        sameSite: 'lax',
+        httpOnly: true,
+      });
     }
 
     return response;

@@ -49,7 +49,7 @@ const EmailLinkAuth: React.FC<{
         error: t(`auth:errors.link`),
       });
     },
-    [signInWithOtpMutation, t],
+    [signInWithOtpMutation, inviteCode, t],
   );
 
   if (signInWithOtpMutation.data) {
