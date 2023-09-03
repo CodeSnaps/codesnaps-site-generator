@@ -7,6 +7,12 @@ import invariant from 'tiny-invariant';
 
 import type { Database } from '~/database.types';
 
+const createServerSupabaseClient = cache(() => {
+  const cookieStore = cookies();
+
+  return createServerActionClient<Database>({ cookies: () => cookieStore });
+});
+
 /**
  * @name createServerActionClient
  * @description Get a Supabase client for use in the Server Action Routes
@@ -43,7 +49,7 @@ const getSupabaseServerActionClient = cache(
       );
     }
 
-    return createServerActionClient<Database>({ cookies });
+    return createServerSupabaseClient();
   },
 );
 

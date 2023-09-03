@@ -1,4 +1,3 @@
-import { use } from 'react';
 import { redirect } from 'next/navigation';
 
 import verifyRequiresMfa from '~/core/session/utils/check-requires-mfa';
@@ -16,29 +15,21 @@ export const metadata = {
   title: 'Verify Authentication',
 };
 
-function VerifyPage() {
-  const data = use(loadData());
+async function VerifyPage() {
+  const client = getSupabaseServerClient();
+  const needsMfa = await verifyRequiresMfa(client);
+
+  if (!needsMfa) {
+    redirect(configuration.paths.signIn);
+  }
+
+  const { language } = await initializeServerI18n(getLanguageCookie());
 
   return (
-    <I18nProvider lang={data.language}>
+    <I18nProvider lang={language}>
       <VerifyFormContainer />
     </I18nProvider>
   );
 }
 
 export default withI18n(VerifyPage);
-
-async function loadData() {
-  const client = getSupabaseServerClient();
-  const needsMfa = await verifyRequiresMfa(client);
-
-  if (needsMfa) {
-    const { language } = await initializeServerI18n(getLanguageCookie());
-
-    return {
-      language,
-    };
-  }
-
-  return redirect(configuration.paths.signIn);
-}

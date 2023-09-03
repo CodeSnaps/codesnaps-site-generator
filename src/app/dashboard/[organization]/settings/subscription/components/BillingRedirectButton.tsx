@@ -30,7 +30,7 @@ const BillingPortalRedirectButton: React.FCC<{
 function CsrfTokenInput() {
   const csrfToken = useCsrfToken();
 
-  return <input type="hidden" name={'csrf_token'} defaultValue={csrfToken} />;
+  return <input type="hidden" name={'csrfToken'} defaultValue={csrfToken} />;
 }
 
 export default BillingPortalRedirectButton;

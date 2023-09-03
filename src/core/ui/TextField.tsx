@@ -26,7 +26,7 @@ const Input = forwardRef<React.ElementRef<'input'>, Props>(
         className={classNames(
           `active-within:ring-2 relative flex h-10 w-full items-center
         rounded-md border border-gray-200 bg-white font-medium text-gray-800
-        shadow-sm ring-primary-200 ring-offset-1 transition-all focus-within:ring-2
+        shadow-sm ring-primary-200 ring-offset-1 transition-colors focus-within:ring-2
         hover:border-gray-300 hover:bg-gray-50 
         dark:border-dark-600 dark:bg-dark-800
         dark:text-gray-200 dark:focus-within:ring-primary-500/70 dark:focus-within:ring-offset-dark-900

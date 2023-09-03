@@ -16,36 +16,34 @@ import {
 } from '~/lib/memberships/mutations';
 
 import getLogger from '~/core/logger';
-import { withCsrfCheck, withSession } from '~/core/generic/actions-utils';
+import { withSession } from '~/core/generic/actions-utils';
 import getSupabaseServerActionClient from '~/core/supabase/action-client';
 import { createOrganizationIdCookie } from '~/lib/server/cookies/organization.cookie';
 import { getOrganizationById } from '~/lib/organizations/database/queries';
 
 import configuration from '~/configuration';
 
-export const updateMemberAction = withCsrfCheck(
-  withSession(
-    async (params: {
-      membershipId: number;
-      role: MembershipRole;
-      csrfToken: string;
-    }) => {
-      const client = getSupabaseServerActionClient();
+export const updateMemberAction = withSession(
+  async (params: {
+    membershipId: number;
+    role: MembershipRole;
+    csrfToken: string;
+  }) => {
+    const client = getSupabaseServerActionClient();
 
-      await handleUpdateMemberRequest(client, params);
+    await handleUpdateMemberRequest(client, params);
 
-      // we revalidate the cache for the members page
-      revalidateMembersPage();
+    // we revalidate the cache for the members page
+    revalidateMembersPage();
 
-      return {
-        success: true,
-      };
-    },
-  ),
+    return {
+      success: true,
+    };
+  },
 );
 
-export const deleteMemberAction = withCsrfCheck(
-  withSession(async (params: { membershipId: number; csrfToken: string }) => {
+export const deleteMemberAction = withSession(
+  async (params: { membershipId: number; csrfToken: string }) => {
     const client = getSupabaseServerActionClient();
 
     await handleRemoveMemberRequest(client, params.membershipId);
@@ -56,110 +54,112 @@ export const deleteMemberAction = withCsrfCheck(
     return {
       success: true,
     };
-  }),
-);
-
-export const acceptInviteAction = withCsrfCheck(
-  async (params: { code: string; csrfToken: string; userId?: string }) => {
-    const code = params.code;
-
-    const logger = getLogger();
-    const adminClient = getSupabaseServerActionClient({ admin: true });
-
-    // if the user ID is provided, we use it
-    // (for example, when signing up for the 1st time)
-    let userId = params.userId;
-    let signedIn = false;
-
-    // if the user ID is not provided, we try to get it from the session
-    if (!userId) {
-      const client = getSupabaseServerActionClient();
-      const { data } = await client.auth.getSession();
-
-      // if the session is not available, we throw an error
-      if (!data.session) {
-        throw new Error(`Session not available`);
-      }
-
-      userId = data.session.user.id;
-      signedIn = true;
-    }
-
-    logger.info(
-      {
-        code,
-        userId,
-      },
-      `Adding member to organization...`,
-    );
-
-    const { data, error } = await acceptInviteToOrganization(adminClient, {
-      code,
-      userId,
-    });
-
-    if (error) {
-      throw new Error(
-        `Error accepting invite to organization: ${error.message}`,
-      );
-    }
-
-    const result = data as { organization: number; membership: number };
-    const organizationId = result.organization;
-    const membershipId = result.membership;
-
-    logger.info(
-      {
-        membershipId,
-        organizationId,
-        userId,
-      },
-      `Member successfully added to organization`,
-    );
-
-    const organizationResponse = await getOrganizationById(
-      adminClient,
-      organizationId,
-    );
-
-    if (organizationResponse.error) {
-      throw organizationResponse.error;
-    }
-
-    // we set the organization ID cookie
-    const organizationUid = organizationResponse.data.uuid;
-
-    cookies().set(createOrganizationIdCookie({
-      userId,
-      organizationUid
-    }));
-
-    const needsEmailVerification =
-      configuration.auth.requireEmailConfirmation && !signedIn;
-
-    // if the user is *not* required to confirm their email
-    // we redirect them to the app home
-    if (!needsEmailVerification) {
-      logger.info(
-        {
-          membershipId,
-        },
-        `Redirecting user to app home...`,
-      );
-
-      return redirect(configuration.paths.appHome);
-    }
-
-    logger.info(
-      {
-        membershipId,
-      },
-      `User needs to verify their email address - returning JSON response...`,
-    );
-
-    return needsEmailVerification;
   },
 );
+
+export const acceptInviteAction = async (params: {
+  code: string;
+  csrfToken: string;
+  userId?: string;
+}) => {
+  const code = params.code;
+
+  const logger = getLogger();
+  const adminClient = getSupabaseServerActionClient({ admin: true });
+
+  // if the user ID is provided, we use it
+  // (for example, when signing up for the 1st time)
+  let userId = params.userId;
+  let signedIn = false;
+
+  // if the user ID is not provided, we try to get it from the session
+  if (!userId) {
+    const client = getSupabaseServerActionClient();
+    const { data } = await client.auth.getSession();
+
+    // if the session is not available, we throw an error
+    if (!data.session) {
+      throw new Error(`Session not available`);
+    }
+
+    userId = data.session.user.id;
+    signedIn = true;
+  }
+
+  logger.info(
+    {
+      code,
+      userId,
+    },
+    `Adding member to organization...`,
+  );
+
+  const { data, error } = await acceptInviteToOrganization(adminClient, {
+    code,
+    userId,
+  });
+
+  if (error) {
+    throw new Error(`Error accepting invite to organization: ${error.message}`);
+  }
+
+  const result = data as { organization: number; membership: number };
+  const organizationId = result.organization;
+  const membershipId = result.membership;
+
+  logger.info(
+    {
+      membershipId,
+      organizationId,
+      userId,
+    },
+    `Member successfully added to organization`,
+  );
+
+  const organizationResponse = await getOrganizationById(
+    adminClient,
+    organizationId,
+  );
+
+  if (organizationResponse.error) {
+    throw organizationResponse.error;
+  }
+
+  // we set the organization ID cookie
+  const organizationUid = organizationResponse.data.uuid;
+
+  cookies().set(
+    createOrganizationIdCookie({
+      userId,
+      organizationUid,
+    }),
+  );
+
+  const needsEmailVerification =
+    configuration.auth.requireEmailConfirmation && !signedIn;
+
+  // if the user is *not* required to confirm their email
+  // we redirect them to the app home
+  if (!needsEmailVerification) {
+    logger.info(
+      {
+        membershipId,
+      },
+      `Redirecting user to app home...`,
+    );
+
+    return redirect(configuration.paths.appHome);
+  }
+
+  logger.info(
+    {
+      membershipId,
+    },
+    `User needs to verify their email address - returning JSON response...`,
+  );
+
+  return needsEmailVerification;
+};
 
 async function handleRemoveMemberRequest(
   client: SupabaseClient,

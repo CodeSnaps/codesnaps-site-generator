@@ -23,8 +23,10 @@ import {
 
 import configuration from '~/configuration';
 import createBillingPortalSession from '~/lib/stripe/create-billing-portal-session';
+import verifyCsrfToken from '~/core/verify-csrf-token';
+import { withSession } from '~/core/generic/actions-utils';
 
-export async function createCheckoutAction(formData: FormData) {
+export const createCheckoutAction = withSession(async (formData: FormData) => {
   const logger = getLogger();
   const body = Object.fromEntries(formData);
   const bodyResult = await getCheckoutBodySchema().safeParseAsync(body);
@@ -43,7 +45,11 @@ export async function createCheckoutAction(formData: FormData) {
     return redirectToErrorPage(`Invalid request body`);
   }
 
-  const { organizationUid, priceId, customerId, returnUrl } = bodyResult.data;
+  const { organizationUid, priceId, customerId, returnUrl, csrfToken } =
+    bodyResult.data;
+
+  // check CSRF token is valid
+  await verifyCsrfToken(csrfToken);
 
   // create the Supabase client
   const client = getSupabaseServerClient();
@@ -113,7 +119,7 @@ export async function createCheckoutAction(formData: FormData) {
 
   // redirect user back based on the response
   return redirect(portalUrl, RedirectType.replace);
-}
+});
 
 /**
  * @name getUserCanAccessCheckout
@@ -143,52 +149,56 @@ async function getUserCanAccessCheckout(
   }
 }
 
-export async function createBillingPortalSessionAction(formData: FormData) {
-  const body = Object.fromEntries(formData);
-  const bodyResult = await getBillingPortalBodySchema().safeParseAsync(body);
-  const referrerPath = getApiRefererPath(headers());
+export const createBillingPortalSessionAction = withSession(
+  async (formData: FormData) => {
+    const body = Object.fromEntries(formData);
+    const bodyResult = await getBillingPortalBodySchema().safeParseAsync(body);
+    const referrerPath = getApiRefererPath(headers());
 
-  // Validate the body schema
-  if (!bodyResult.success) {
-    return redirectToErrorPage(referrerPath);
-  }
+    // Validate the body schema
+    if (!bodyResult.success) {
+      return redirectToErrorPage(referrerPath);
+    }
 
-  const { customerId } = bodyResult.data;
+    const { customerId, csrfToken } = bodyResult.data;
 
-  const client = getSupabaseServerClient();
-  const logger = getLogger();
-  const session = await requireSession(client);
+    await verifyCsrfToken(csrfToken);
 
-  const userId = session.user.id;
+    const client = getSupabaseServerClient();
+    const logger = getLogger();
+    const session = await requireSession(client);
 
-  // get permissions to see if the user can access the portal
-  const canAccess = await getUserCanAccessCustomerPortal(client, {
-    customerId,
-    userId,
-  });
+    const userId = session.user.id;
 
-  // validate that the user can access the portal
-  if (!canAccess) {
-    return redirectToErrorPage(referrerPath);
-  }
+    // get permissions to see if the user can access the portal
+    const canAccess = await getUserCanAccessCustomerPortal(client, {
+      customerId,
+      userId,
+    });
 
-  const referer = headers().get('referer');
-  const origin = headers().get('origin');
-  const returnUrl = referer || origin || configuration.paths.appHome;
+    // validate that the user can access the portal
+    if (!canAccess) {
+      return redirectToErrorPage(referrerPath);
+    }
 
-  // get the Stripe Billing Portal session
-  const { url } = await createBillingPortalSession({
-    returnUrl,
-    customerId,
-  }).catch((e) => {
-    logger.error(e, `Stripe Billing Portal redirect error`);
+    const referer = headers().get('referer');
+    const origin = headers().get('origin');
+    const returnUrl = referer || origin || configuration.paths.appHome;
 
-    return redirectToErrorPage(referrerPath);
-  });
+    // get the Stripe Billing Portal session
+    const { url } = await createBillingPortalSession({
+      returnUrl,
+      customerId,
+    }).catch((e) => {
+      logger.error(e, `Stripe Billing Portal redirect error`);
 
-  // redirect to the Stripe Billing Portal
-  return redirect(url, RedirectType.replace);
-}
+      return redirectToErrorPage(referrerPath);
+    });
+
+    // redirect to the Stripe Billing Portal
+    return redirect(url, RedirectType.replace);
+  },
+);
 
 /**
  * @name getUserCanAccessCustomerPortal
@@ -244,12 +254,13 @@ async function getUserCanAccessCustomerPortal(
 function getBillingPortalBodySchema() {
   return z.object({
     customerId: z.string().min(1),
+    csrfToken: z.string().min(1),
   });
 }
 
 function getCheckoutBodySchema() {
   return z.object({
-    csrf_token: z.string().min(1),
+    csrfToken: z.string().min(1),
     organizationUid: z.string().uuid(),
     priceId: z.string().min(1),
     customerId: z.string().optional(),

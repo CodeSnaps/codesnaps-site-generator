@@ -6,6 +6,12 @@ import { cookies } from 'next/headers';
 import invariant from 'tiny-invariant';
 import type { Database } from '~/database.types';
 
+const createServerSupabaseClient = cache(() => {
+  const cookieStore = cookies();
+
+  return createServerComponentClient<Database>({ cookies: () => cookieStore });
+});
+
 /**
  * @name getSupabaseServerClient
  * @description Get a Supabase client for use in the Server Routes
@@ -42,7 +48,7 @@ const getSupabaseServerClient = cache(
       );
     }
 
-    return createServerComponentClient<Database>({ cookies });
+    return createServerSupabaseClient();
   },
 );
 

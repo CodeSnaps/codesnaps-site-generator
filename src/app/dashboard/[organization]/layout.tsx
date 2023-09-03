@@ -1,8 +1,6 @@
 import loadAppData from '~/lib/server/loaders/load-app-data';
 import AppRouteShell from '~/app/dashboard/[organization]/components/AppRouteShell';
 
-export const dynamic = 'force-dynamic';
-
 async function AppLayout({
   children,
   params,

@@ -105,7 +105,7 @@ function InnerButtonContainerElement({
 function getClassNameBuilder() {
   return cva(
     [
-      `inline-flex items-center justify-center font-medium outline-none transition-all focus:ring-2 ring-offset-1 dark:focus:ring-offset-transparent disabled:cursor-not-allowed disabled:opacity-50 active:[&>*]:translate-y-0.5`,
+      `inline-flex items-center justify-center font-medium outline-none transition-colors focus:ring-2 ring-offset-1 dark:focus:ring-offset-transparent disabled:cursor-not-allowed disabled:opacity-50 active:[&>*]:translate-y-0.5`,
     ],
     {
       variants: {

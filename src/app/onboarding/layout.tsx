@@ -11,8 +11,6 @@ import initializeServerI18n from '~/i18n/i18n.server';
 import getLogger from '~/core/logger';
 import configuration from '~/configuration';
 
-export const dynamic = 'force-dynamic';
-
 async function OnboardingLayout({ children }: React.PropsWithChildren) {
   await initializeOnboardingRoute();
 
