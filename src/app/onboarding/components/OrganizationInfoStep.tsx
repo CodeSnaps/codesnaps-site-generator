@@ -18,7 +18,7 @@ const OrganizationInfoStep: React.FCC<{
   onSubmit: (data: OrganizationInfoStepData) => void;
 }> = ({ onSubmit }) => {
   const user = useUserSession();
-  const displayName = user?.data?.displayName ?? user?.auth?.user.email ?? '';
+  const displayName = user?.auth?.user.email || '';
 
   const handleFormSubmit = useCallback(
     (event: FormEvent<HTMLFormElement>) => {
@@ -31,7 +31,7 @@ const OrganizationInfoStep: React.FCC<{
         organization,
       });
     },
-    [onSubmit]
+    [onSubmit],
   );
 
   return (

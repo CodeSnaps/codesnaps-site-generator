@@ -33,16 +33,32 @@ function getTransporter() {
 async function getSMTPTransporter() {
   const nodemailer = await import('nodemailer');
 
-  const { host, port, user, password: pass } = configuration.email;
+  const user = process.env.EMAIL_USER;
+  const pass = process.env.EMAIL_PASSWORD;
+  const host = process.env.EMAIL_HOST;
+  const port = Number(process.env.EMAIL_PORT);
+
   const secure = port === 465 && !configuration.production;
+
+  // validate that we have all the required configuration
+  if (!user || !pass || !host || !port) {
+    throw new Error(
+      `Missing email configuration. Please add the following environment variables:
+      EMAIL_USER
+      EMAIL_PASSWORD
+      EMAIL_HOST
+      EMAIL_PORT
+      `,
+    );
+  }
 
   return nodemailer.createTransport({
     host,
     port,
     secure,
     auth: {
-      user,
-      pass,
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASSWORD,
     },
   });
 }
@@ -74,7 +90,7 @@ function getMockMailTransporter() {
     sendMail(params: SendEmailParams) {
       console.log(
         `Using mock email transporter with params`,
-        JSON.stringify(params, null, 2)
+        JSON.stringify(params, null, 2),
       );
     },
   };
@@ -111,7 +127,7 @@ async function createEtherealTestAccount() {
   `);
 
   console.log(
-    `Created Ethereal test account: ${JSON.stringify(newAccount, null, 2)}`
+    `Created Ethereal test account: ${JSON.stringify(newAccount, null, 2)}`,
   );
 
   console.log(`Consider adding these credentials to your configuration file`);

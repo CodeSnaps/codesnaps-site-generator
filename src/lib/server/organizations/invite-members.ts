@@ -238,8 +238,16 @@ async function sendInviteEmail(props: {
 
   const { default: renderInviteEmail } = await import('~/lib/emails/invite');
 
-  const sender = configuration.email.senderAddress;
+  const sender = process.env.EMAIL_SENDER;
   const productName = configuration.site.siteName;
+
+  if (!sender) {
+    throw new Error(
+      `Missing email configuration. Please add the following environment variables:
+      EMAIL_SENDER
+      `,
+    );
+  }
 
   const subject = 'You have been invited to join an organization!';
   const link = getInvitePageFullUrl(code);
