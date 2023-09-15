@@ -8,6 +8,7 @@ interface CreateCheckoutParams {
   priceId: string;
   customerId?: string;
   trialPeriodDays?: Maybe<number>;
+  customerEmail?: string;
 }
 
 /**
@@ -18,7 +19,7 @@ interface CreateCheckoutParams {
  * @param params
  */
 export default async function createStripeCheckout(
-  params: CreateCheckoutParams
+  params: CreateCheckoutParams,
 ) {
   const successUrl = getUrlWithParams(params.returnUrl, {
     success: 'true',
@@ -63,6 +64,7 @@ export default async function createStripeCheckout(
     cancel_url: cancelUrl,
     client_reference_id: clientReferenceId.toString(),
     subscription_data: subscriptionData,
+    customer_email: params.customerEmail,
   });
 }
 

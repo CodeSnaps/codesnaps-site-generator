@@ -57,6 +57,7 @@ export const createCheckoutAction = withSession(async (formData: FormData) => {
   // require the user to be logged in
   const sessionResult = await requireSession(client);
   const userId = sessionResult.user.id;
+  const customerEmail = sessionResult.user.email;
 
   const { error } = await getOrganizationByUid(client, organizationUid);
 
@@ -102,20 +103,24 @@ export const createCheckoutAction = withSession(async (formData: FormData) => {
       : undefined;
 
   // create the Stripe Checkout session
-  const { url } = await createStripeCheckout({
+  const response = await createStripeCheckout({
     returnUrl,
     organizationUid,
     priceId,
     customerId,
     trialPeriodDays,
+    customerEmail,
   }).catch((e) => {
     logger.error(e, `Stripe Checkout error`);
-
-    return redirectToErrorPage(`An unexpected error occurred`);
   });
 
+  // if there was an error, redirect to the error page
+  if (!response) {
+    return redirectToErrorPage();
+  }
+
   // retrieve the Checkout Portal URL
-  const portalUrl = getCheckoutPortalUrl(url, returnUrl);
+  const portalUrl = getCheckoutPortalUrl(response.url, returnUrl);
 
   // redirect user back based on the response
   return redirect(portalUrl, RedirectType.replace);
