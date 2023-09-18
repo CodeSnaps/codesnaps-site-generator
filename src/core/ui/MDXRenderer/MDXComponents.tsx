@@ -5,7 +5,6 @@ import classNames from 'clsx';
 
 import LazyRender from '~/core/ui/LazyRender';
 import ClientOnly from '~/core/ui/ClientOnly';
-import TweetEmbed from './TweetEmbed';
 
 import configuration from '~/configuration';
 
@@ -81,7 +80,6 @@ const Video: React.FCC<{
 const Components = {
   img: NextImage,
   a: ExternalLink,
-  TweetEmbed,
   Video,
   Image: NextImage,
 };
