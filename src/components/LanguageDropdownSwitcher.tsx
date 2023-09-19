@@ -13,7 +13,7 @@ import {
 
 import useRefresh from '~/core/hooks/use-refresh';
 
-const LanguageSwitcherDropdown: React.FC<{
+const LanguageDropdownSwitcher: React.FC<{
   onChange?: (locale: string) => unknown;
 }> = ({ onChange }) => {
   const { i18n } = useTranslation();
@@ -22,7 +22,7 @@ const LanguageSwitcherDropdown: React.FC<{
   const { language: currentLanguage, options } = i18n;
 
   const locales = (options.supportedLngs as string[]).filter(
-    (locale) => locale.toLowerCase() !== 'cimode'
+    (locale) => locale.toLowerCase() !== 'cimode',
   );
 
   const languageNames = useMemo(() => {
@@ -44,7 +44,7 @@ const LanguageSwitcherDropdown: React.FC<{
       await i18n.changeLanguage(locale);
       await refresh();
     },
-    [i18n, onChange, refresh]
+    [i18n, onChange, refresh],
   );
 
   return (
@@ -77,4 +77,4 @@ function capitalize(lang: string) {
   return lang.slice(0, 1).toUpperCase() + lang.slice(1);
 }
 
-export default LanguageSwitcherDropdown;
+export default LanguageDropdownSwitcher;

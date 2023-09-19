@@ -11,7 +11,7 @@ const DocsCard: React.FC<
   return (
     <div className="flex flex-col">
       <div
-        className={`grow flex flex-col space-y-2.5 border border-gray-100 p-6 dark:border-gray-800 dark:bg-gray-900 
+        className={`grow flex flex-col space-y-2.5 border border-gray-100 p-6 dark:border-dark-800 dark:bg-dark-900 
         ${link ? 'rounded-t-2xl border-b-0' : 'rounded-2xl'}`}
       >
         <h3 className="mt-0 text-lg dark:text-white font-semibold">{label}</h3>

@@ -88,7 +88,17 @@ jobs:
         uses: supabase/setup-cli@v1
 
       - name: Start Supabase
-        run: supabase start
+        id: supabase-start
+        run: supabase start -x studio,migra,deno-relay,pgadmin-schema-diff,imgproxy
 
       - name: 🔎 Cypress
+        if: steps.supabase-start.outputs.exit_code == 0
         run: npm run test:e2e
+
+      - name: Archive test screenshots
+        uses: actions/upload-artifact@v3
+        if: ${{ failure() }}
+        with:
+          name: screenshots
+          path: ./cypress/screenshots/
+          retention-days: 2
