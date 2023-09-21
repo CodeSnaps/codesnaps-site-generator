@@ -201,11 +201,6 @@ function urlFromFilePath(doc) {
     urlPath = `/${urlPath}`;
   }
 
-  urlPath = urlPath
-    .split('/')
-    .map((segment) => segment.replace(/^\d\d\d-/, ''))
-    .join('/');
-
   return urlPath;
 }
 
