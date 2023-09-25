@@ -38,7 +38,7 @@ describe(`Authentication`, () => {
         it('should display an error message', () => {
           auth.signUpWithEmailAndPassword(
             authPo.getDefaultUserEmail(),
-            authPo.getDefaultUserPassword()
+            authPo.getDefaultUserPassword(),
           );
 
           auth.$getErrorMessage().should('exist');
@@ -55,20 +55,17 @@ describe(`Authentication`, () => {
     describe(`given the user signs in with email/password`, () => {
       describe(`when the request is not successful`, () => {
         it('should display an error message', () => {
-          const email = `awrongemail@makerkit.dev`;
-          const password = `somePassword`;
+          const wrongEmail = `awrongemail@makerkit.dev`;
+          const wrongPassword = `somePassword`;
 
-          auth.signInWithEmailAndPassword(email, password);
+          auth.signInWithEmailAndPassword(wrongEmail, wrongPassword);
           auth.$getErrorMessage().should('exist');
         });
       });
 
       describe(`when the request is successful`, () => {
         it('should take the user to the app home page', () => {
-          auth.signInWithEmailAndPassword(
-            auth.getDefaultUserEmail(),
-            auth.getDefaultUserPassword()
-          );
+          auth.signInWithEmailAndPassword(email, password);
 
           cy.url().should('contain', configuration.paths.appHome);
         });
