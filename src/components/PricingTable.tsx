@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import classNames from 'clsx';
-import { CheckCircleIcon } from '@heroicons/react/24/outline';
+import { CheckCircleIcon, SparklesIcon } from '@heroicons/react/24/outline';
 
 import Heading from '~/core/ui/Heading';
 import Button from '~/core/ui/Button';
@@ -109,37 +109,39 @@ function PricingItem(
       data-cy={'subscription-plan'}
       className={classNames(
         `
-         relative flex w-full flex-col justify-between space-y-4 rounded-2xl
+         relative flex w-full flex-col justify-between space-y-4 rounded-xl
          p-6 lg:w-4/12 xl:p-8 2xl:w-3/12
       `,
         {
-          ['bg-primary-600 text-primary-contrast']: recommended,
+          ['bg-primary text-primary-foreground']: recommended,
         },
       )}
     >
       <div className={'flex flex-col space-y-1.5'}>
-        <div className={'flex items-center space-x-3'}>
+        <div className={'flex items-center space-x-6'}>
           <Heading type={3}>{props.product.name}</Heading>
 
           <If condition={props.product.badge}>
-            <span
+            <div
               className={classNames(
-                `rounded-md py-1 px-2 text-xs font-medium`,
+                `rounded-md py-1 px-2 text-xs font-medium flex space-x-1`,
                 {
-                  ['bg-primary-700 text-primary-contrast']: recommended,
-                  ['bg-gray-50 text-gray-500 dark:bg-dark-700' +
-                  ' dark:text-gray-300']: !recommended,
+                  ['text-primary bg-primary-foreground']: recommended,
+                  ['bg-gray-50 text-gray-500 dark:text-gray-800']: !recommended,
                 },
               )}
             >
-              {props.product.badge}
-            </span>
+              <If condition={recommended}>
+                <SparklesIcon className={'h-4 w-4 mr-1'} />
+              </If>
+              <span>{props.product.badge}</span>
+            </div>
           </If>
         </div>
 
         <span
           className={classNames('text-sm font-medium', {
-            'text-primary-contrast': recommended,
+            'text-primary-foreground': recommended,
             'text-gray-400': !recommended,
           })}
         >
@@ -247,15 +249,14 @@ function PlansSwitcher(
         const className = classNames('focus:!ring-0 !outline-none', {
           'rounded-r-none': index === 0,
           'rounded-l-none': index === props.plans.length - 1,
-          'border-gray-100 dark:border-dark-800 hover:bg-gray-50 dark:hover:bg-dark-800':
-            !selected,
+          ['border-gray-100 dark:border-dark-800 hover:bg-gray-50' +
+          ' dark:hover:bg-background/80']: !selected,
         });
 
         return (
           <Button
-            round
             key={plan}
-            color={selected ? 'primary' : 'transparent'}
+            variant={selected ? 'default' : 'ghost'}
             className={className}
             onClick={() => props.setPlan(plan)}
           >
@@ -276,18 +277,19 @@ function DefaultCheckoutButton(
   const linkHref =
     props.plan.href ??
     `${configuration.paths.signUp}?utm_source=${props.plan.stripePriceId}`;
+
   const label = props.plan.label ?? 'common:getStarted';
 
   return (
     <div className={'bottom-0 left-0 w-full p-0'}>
       <Button
         className={classNames({
-          ['bg-primary-contrast hover:bg-primary-contrast/90' +
-          ' font-bold text-gray-900']: props.recommended,
+          'text-foreground bg-background dark:bg-white dark:text-gray-900':
+            props.recommended,
         })}
         block
         href={linkHref}
-        color={props.recommended ? 'custom' : 'secondary'}
+        variant={props.recommended ? 'custom' : 'secondary'}
       >
         <Trans i18nKey={label} defaults={label} />
       </Button>

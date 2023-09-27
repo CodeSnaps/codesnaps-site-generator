@@ -31,7 +31,7 @@ function SignUpPage() {
           </span>
 
           <Link
-            className={'text-primary-800 hover:underline dark:text-primary-500'}
+            className={'text-primary-800 hover:underline dark:text-primary'}
             href={SIGN_IN_PATH}
           >
             <Trans i18nKey={'auth:signIn'} />

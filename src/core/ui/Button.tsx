@@ -1,77 +1,111 @@
 'use client';
 
 import Link from 'next/link';
-import classNames from 'clsx';
-import { cva } from 'cva';
+import { cn as classNames } from '~/core/generic/shadcn-utils';
+import { cva, VariantProps } from 'cva';
+import { forwardRef } from 'react';
 
 import If from '~/core/ui/If';
 import Spinner from '~/core/ui/Spinner';
-import { forwardRef } from 'react';
 
-type Color = 'primary' | 'secondary' | 'transparent' | 'danger' | 'custom';
-type Size = 'normal' | 'small' | 'large' | 'custom';
-type Variant = `normal` | `outline` | `flat`;
+type Size = 'default' | 'small' | 'large' | 'custom' | 'sm' | 'lg';
 
-type Props = React.ButtonHTMLAttributes<unknown> &
-  React.PropsWithChildren<{
-    block?: boolean;
-    round?: boolean;
-    color?: Color;
-    size?: Size;
-    variant?: Variant;
-    loading?: boolean;
-    href?: Maybe<string>;
-  }>;
+const large = `[&>*]:py-2.5 [&>*]:px-6 h-14 text-lg`;
+const small = `[&>*]:py-2 [&>*]:px-3 text-xs`;
 
-const classNameBuilder = getClassNameBuilder();
-const defaultColor: Color = `primary`;
-const defaultSize: Size = `normal`;
-const defaultVariant = `normal`;
-
-const Button: React.FCC<Props> = forwardRef<React.ElementRef<'button'>, Props>(
-  function ButtonComponent(
-    { children, color, size, variant, block, loading, href, round, ...props },
-    ref,
-  ) {
-    const className = classNames(
-      classNameBuilder({
-        variant: variant ?? defaultVariant,
-        color: color ?? defaultColor,
-      }),
-      block ? `w-full` : ``,
-      loading ? `opacity-80` : ``,
-      round ? 'rounded-full' : 'rounded-md',
-      props.className,
-    );
-
-    const sizesClassName = getSizesClassName()[size ?? defaultSize];
-
-    return (
-      <button
-        {...props}
-        tabIndex={href ? -1 : 0}
-        ref={ref}
-        className={className}
-        disabled={loading || props.disabled}
-      >
-        <InnerButtonContainerElement href={href} disabled={props.disabled}>
-          <span
-            className={classNames(
-              `flex w-full flex-1 items-center justify-center`,
-              sizesClassName,
-            )}
-          >
-            <If condition={loading}>
-              <Animation />
-            </If>
-
-            {children}
-          </span>
-        </InnerButtonContainerElement>
-      </button>
-    );
+const buttonVariants = cva(
+  `inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors
+   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+    disabled:pointer-events-none disabled:opacity-50 active:[&>*]:translate-y-0.5`,
+  {
+    variants: {
+      variant: {
+        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+        destructive:
+          'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+        outline:
+          'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
+        outlinePrimary: `border-primary bg-background border-2 hover:border-primary/80`,
+        secondary:
+          'bg-secondary text-secondary-foreground hover:bg-secondary/90',
+        ghost: 'hover:bg-accent/50 hover:text-accent-foreground',
+        link: 'text-primary underline-offset-4 hover:underline',
+        transparent: 'hover:bg-accent hover:text-accent-foreground',
+        flat: 'bg-primary/5 text-primary hover:bg-primary/10',
+        custom: '',
+      },
+      size: {
+        default: `text-sm h-10 [&>*]:py-2 [&>*]:px-4`,
+        small,
+        sm: small,
+        large,
+        lg: large,
+        icon: 'h-10 w-10',
+        custom: ``,
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+      size: 'default',
+    },
   },
 );
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
+  block?: boolean;
+  round?: boolean;
+  loading?: boolean;
+  href?: Maybe<string>;
+}
+
+const defaultSize: Size = `default`;
+const defaultVariant = `default`;
+
+const Button: React.FCC<ButtonProps> = forwardRef<
+  React.ElementRef<'button'>,
+  ButtonProps
+>(function ButtonComponent(
+  { children, color, size, variant, block, loading, href, round, ...props },
+  ref,
+) {
+  const className = classNames(
+    buttonVariants({
+      variant: variant ?? defaultVariant,
+      size: size ?? defaultSize,
+    }),
+    block ? `w-full` : ``,
+    loading ? `opacity-80` : ``,
+    round ? 'rounded-full' : '',
+    props.className,
+  );
+
+  return (
+    <button
+      {...props}
+      tabIndex={href ? -1 : 0}
+      ref={ref}
+      className={className}
+      disabled={loading || props.disabled}
+    >
+      <InnerButtonContainerElement href={href} disabled={props.disabled}>
+        <span
+          className={classNames(
+            `flex w-full flex-1 items-center justify-center`,
+          )}
+        >
+          <If condition={loading}>
+            <Animation />
+          </If>
+
+          {children}
+        </span>
+      </InnerButtonContainerElement>
+    </button>
+  );
+});
 
 function Animation() {
   return (
@@ -89,7 +123,7 @@ function InnerButtonContainerElement({
   href: Maybe<string>;
   disabled?: boolean;
 }>) {
-  const className = `flex w-full items-center transition-transform duration-500 ease-out`;
+  const className = `flex w-full h-full items-center transition-transform duration-500 ease-out`;
 
   if (href && !disabled) {
     return (
@@ -100,82 +134,6 @@ function InnerButtonContainerElement({
   }
 
   return <span className={className}>{children}</span>;
-}
-
-function getClassNameBuilder() {
-  return cva(
-    [
-      `inline-flex items-center justify-center font-medium outline-none transition-colors focus:ring-2 ring-offset-1 dark:focus:ring-offset-transparent disabled:cursor-not-allowed disabled:opacity-50 active:[&>*]:translate-y-0.5`,
-    ],
-    {
-      variants: {
-        color: {
-          primary: `ring-primary-200`,
-          secondary: `ring-gray-200`,
-          danger: `ring-red-200`,
-          transparent: `text-gray-800 focus:ring-2 focus:ring-gray-50 dark:focus:ring-dark-700 ring-primary-50 hover:bg-gray-50 active:bg-gray-100 dark:text-gray-300 dark:ring-dark-800 dark:hover:bg-dark-800 dark:hover:text-white dark:active:bg-dark-700`,
-          custom: ``,
-        },
-        variant: {
-          normal: ``,
-          outline: ``,
-          flat: ``,
-        },
-      },
-      compoundVariants: [
-        {
-          color: 'primary',
-          variant: 'normal',
-          className: `bg-primary-500 dark:focus:ring-primary-500/70 text-primary-contrast hover:bg-primary-600 active:bg-primary-700 dark:text-primary-contrast`,
-        },
-        {
-          color: 'danger',
-          variant: 'normal',
-          className: `bg-red-400 dark:focus:ring-red-500/70 text-white hover:bg-red-500 active:bg-red-600`,
-        },
-        {
-          color: 'secondary',
-          variant: 'normal',
-          className: `bg-gray-100 dark:focus:ring-gray-200 hover:bg-gray-200 active:bg-gray-200 dark:bg-dark-800 dark:ring-dark-600 dark:hover:bg-dark-700 dark:active:bg-dark-600`,
-        },
-        {
-          color: 'primary',
-          variant: 'outline',
-          className: `border-2 border-primary-500 dark:focus:ring-primary-500/70 bg-transparent text-primary-700`,
-        },
-        {
-          color: 'danger',
-          variant: 'outline',
-          className: `border-2 border-red-400 dark:focus:ring-red-500/70 bg-transparent text-red-400`,
-        },
-        {
-          color: 'primary',
-          variant: 'flat',
-          className: `bg-primary-500/5 dark:focus:ring-primary-500/70 text-primary-500 hover:bg-primary-500/10 
-      active:bg-primary-500/20 dark:hover:bg-primary-500/20 dark:active:bg-primary-500/30`,
-        },
-        {
-          color: 'danger',
-          variant: 'flat',
-          className: `bg-red-500/5 text-red-500 dark:focus:ring-red-500/70
-    active:bg-red-500/20 hover:bg-red-500/10 dark:active:bg-red-500/30`,
-        },
-      ],
-      defaultVariants: {
-        color: 'primary',
-        variant: 'normal',
-      },
-    },
-  );
-}
-
-function getSizesClassName() {
-  return {
-    normal: `text-sm py-2 px-4 h-10`,
-    small: `py-2 px-3 text-xs`,
-    large: `py-2.5 px-6 h-12 text-lg h-12`,
-    custom: ``,
-  };
 }
 
 export default Button;

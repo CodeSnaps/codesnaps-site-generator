@@ -89,7 +89,7 @@ For more info: https://github.com/tailwindlabs/tailwindcss/issues/3258#issuecomm
 }
 
 .MDX blockquote {
-  @apply my-4 py-4 px-6 font-medium text-lg text-gray-600 border-l-4 border-primary-500;
+  @apply my-4 py-4 px-6 font-medium text-lg text-gray-600 border-l-4 border-primary;
 }
 
 :global(.dark) .MDX blockquote {

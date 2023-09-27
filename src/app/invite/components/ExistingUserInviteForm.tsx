@@ -73,8 +73,8 @@ function ExistingUserInviteForm(
               <Button
                 data-cy={'invite-sign-out-button'}
                 disabled={isSubmitting}
-                color={'transparent'}
-                size={'small'}
+                variant={'ghost'}
+                size={'sm'}
                 onClick={onSignOut}
                 type={'button'}
               >

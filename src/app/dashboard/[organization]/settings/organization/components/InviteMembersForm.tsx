@@ -156,8 +156,8 @@ const InviteMembersForm = () => {
           <Button
             data-cy={'append-new-invite-button'}
             type={'button'}
-            color={'transparent'}
-            size={'small'}
+            variant={'ghost'}
+            size={'sm'}
             onClick={() => append(memberFactory())}
           >
             <span className={'flex items-center space-x-2'}>
@@ -171,26 +171,20 @@ const InviteMembersForm = () => {
         </div>
       </div>
 
-      <div>
+      <div className={'flex justify-end'}>
         <Button
           className={'w-full lg:w-auto'}
           data-cy={'send-invites-button'}
           type={'submit'}
           loading={isSubmitting}
         >
-          <span className={'flex space-x-2 items-center'}>
-            <CheckIcon className={'h-4'} />
+          <If condition={!isSubmitting}>
+            <Trans i18nKey={'organization:inviteMembersSubmitLabel'} />
+          </If>
 
-            <span>
-              <If condition={!isSubmitting}>
-                <Trans i18nKey={'organization:inviteMembersSubmitLabel'} />
-              </If>
-
-              <If condition={isSubmitting}>
-                <Trans i18nKey={'organization:inviteMembersLoading'} />
-              </If>
-            </span>
-          </span>
+          <If condition={isSubmitting}>
+            <Trans i18nKey={'organization:inviteMembersLoading'} />
+          </If>
         </Button>
       </div>
     </form>

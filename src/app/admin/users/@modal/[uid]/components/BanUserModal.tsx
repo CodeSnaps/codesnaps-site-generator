@@ -58,12 +58,7 @@ function BanUserModal({
             Cancel
           </Modal.CancelButton>
 
-          <Button
-            loading={pending}
-            variant={'flat'}
-            color={'danger'}
-            onClick={onConfirm}
-          >
+          <Button loading={pending} variant={'destructive'} onClick={onConfirm}>
             Yes, ban user
           </Button>
         </div>

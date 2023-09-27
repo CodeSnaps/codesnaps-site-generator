@@ -30,9 +30,7 @@ function PasswordResetPage() {
             </span>
 
             <Link
-              className={
-                'text-primary-800 hover:underline dark:text-primary-500'
-              }
+              className={'text-primary-800 hover:underline dark:text-primary'}
               href={configuration.paths.signIn}
             >
               <Trans i18nKey={'auth:signIn'} />

@@ -24,9 +24,9 @@ export default function PageLoadingIndicator({
         'flex flex-col items-center justify-center space-y-6',
         className,
         {
-          [`fixed top-0 left-0 z-[100] h-screen w-screen bg-white dark:bg-dark-900`]:
+          [`fixed top-0 left-0 z-[100] h-screen w-screen bg-background`]:
             useFullPage,
-        }
+        },
       )}
     >
       <If condition={shouldDisplayLogo}>
@@ -35,7 +35,7 @@ export default function PageLoadingIndicator({
         </div>
       </If>
 
-      <div className={'text-primary-500'}>
+      <div className={'text-primary'}>
         <Spinner className={'h-12 w-12'} />
       </div>
 

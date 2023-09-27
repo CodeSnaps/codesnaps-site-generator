@@ -67,7 +67,6 @@ const CreateOrganizationModal: React.FC<{
 
             <Button
               data-cy={'confirm-create-organization-button'}
-              variant={'flat'}
               loading={isSubmitting}
             >
               <Trans i18nKey={'organization:createOrganizationSubmitLabel'} />

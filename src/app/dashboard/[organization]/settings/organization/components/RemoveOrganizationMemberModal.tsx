@@ -38,8 +38,7 @@ const RemoveOrganizationMemberModal: React.FCC<{
           <Button
             loading={isSubmitting}
             data-cy={'confirm-remove-member'}
-            variant={'flat'}
-            color={'danger'}
+            variant={'destructive'}
             onClick={onMemberRemoved}
           >
             <Trans i18nKey={'organization:removeMemberSubmitLabel'} />

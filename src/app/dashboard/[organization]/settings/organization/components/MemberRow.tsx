@@ -31,7 +31,7 @@ const MemberRow: React.FCC<{
       <div className={'w-1/12'}>
         <Button
           size={'small'}
-          color={'transparent'}
+          variant={'ghost'}
           onClick={() => memberRemoved(member)}
         >
           <MinusIcon className={'h-5'} />

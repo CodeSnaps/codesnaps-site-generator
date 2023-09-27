@@ -25,7 +25,7 @@ function getClassNameBuilder() {
   return cva([`flex space-x-2 items-center font-medium`], {
     variants: {
       color: {
-        normal: `text-gray-500 bg-gray-100 dark:text-gray-300 dark:bg-dark-700`,
+        normal: `text-gray-500 bg-gray-100 dark:text-gray-300 dark:bg-background/80`,
         success: `bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-600`,
         warn: `bg-yellow-50 dark:bg-yellow-100/10 text-yellow-800`,
         error: `bg-red-50 dark:bg-red-500/10 text-red-800 dark:text-red-600`,

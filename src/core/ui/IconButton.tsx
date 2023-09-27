@@ -16,9 +16,9 @@ type DivProps<TTag extends React.ElementType = 'div'> =
 
 type Props = React.PropsWithChildren<DefaultProps | DivProps>;
 
-const CLASSNAME = `rounded-full bg-transparent h-10 w-10
-  flex items-center justify-center dark:focus:ring-primary-500/70
-  ring-primary-200 transition-all outline-none
+const CLASSNAME = `rounded-full bg-transparent h-8 w-8
+  flex items-center justify-center dark:focus:ring-primary/70
+  ring-primary/70 transition-all outline-none
   focus:ring-2 hover:border dark:border-dark-700 border-gray-100
   disabled:cursor-not-allowed disabled:opacity-50
   active:bg-gray-100 dark:active:bg-dark-600
@@ -26,7 +26,7 @@ const CLASSNAME = `rounded-full bg-transparent h-10 w-10
 
 const IconButton = forwardRef(function IconButtonComponent(
   iconButtonProps: Props,
-  ref
+  ref,
 ) {
   const { className, loading, disabled, children, label, ...props } =
     iconButtonProps;

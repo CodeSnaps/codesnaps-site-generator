@@ -18,7 +18,7 @@ const DashboardDemo = loadDynamic(
           ' space-y-4'
         }
       >
-        <Spinner className={'text-primary-500'} />
+        <Spinner className={'text-primary'} />
 
         <div>Loading dashboard...</div>
       </div>
@@ -33,9 +33,7 @@ export const metadata = {
 function DashboardPage() {
   return (
     <>
-      <AppHeader
-        Icon={<Squares2X2Icon className={'h-6 dark:text-primary-500'} />}
-      >
+      <AppHeader Icon={<Squares2X2Icon className={'h-6 dark:text-primary'} />}>
         <Trans i18nKey={'common:dashboardTabLabel'} />
       </AppHeader>
 

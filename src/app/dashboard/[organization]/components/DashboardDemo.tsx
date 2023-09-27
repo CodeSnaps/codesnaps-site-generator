@@ -6,6 +6,14 @@ import { useMemo } from 'react';
 import Tile from '~/core/ui/Tile';
 import Heading from '~/core/ui/Heading';
 import useUserSession from '~/core/hooks/use-user-session';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '~/core/ui/Table';
 
 export default function DashboardDemo() {
   const mrr = useMemo(() => generateDemoData(), []);
@@ -191,7 +199,7 @@ function generateDemoData() {
 
     data.push({
       name: formatter.format(date) as string,
-      value: (Math.random() * 1000).toFixed(1),
+      value: (Math.random() * 10).toFixed(1),
     });
   }
 
@@ -199,14 +207,14 @@ function generateDemoData() {
 }
 
 function Chart(
-  props: React.PropsWithChildren<{ data: { value: string; name: string }[] }>
+  props: React.PropsWithChildren<{ data: { value: string; name: string }[] }>,
 ) {
   return (
     <div className={'h-36'}>
       <ResponsiveContainer width={'100%'} height={'100%'}>
         <LineChart width={400} height={100} data={props.data}>
           <Line
-            className={'text-primary-500'}
+            className={'text-primary'}
             type="monotone"
             dataKey="value"
             stroke="currentColor"
@@ -230,58 +238,58 @@ function Chart(
 
 function CustomersTable() {
   return (
-    <table className={'Table'}>
-      <thead>
-        <tr>
-          <th>Customer</th>
-          <th>Plan</th>
-          <th>MRR</th>
-          <th>Logins</th>
-          <th>Status</th>
-        </tr>
-      </thead>
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Customer</TableHead>
+          <TableHead>Plan</TableHead>
+          <TableHead>MRR</TableHead>
+          <TableHead>Logins</TableHead>
+          <TableHead>Status</TableHead>
+        </TableRow>
+      </TableHeader>
 
-      <tbody>
-        <tr>
-          <td>Pippin Oddo</td>
-          <td>Pro</td>
-          <td>$100.2</td>
-          <td>920</td>
-          <td>
+      <TableBody>
+        <TableRow>
+          <TableCell>Pippin Oddo</TableCell>
+          <TableCell>Pro</TableCell>
+          <TableCell>$100.2</TableCell>
+          <TableCell>920</TableCell>
+          <TableCell>
             <Tile.Badge trend={'up'}>Healthy</Tile.Badge>
-          </td>
-        </tr>
+          </TableCell>
+        </TableRow>
 
-        <tr>
-          <td>Väinö Pánfilo</td>
-          <td>Basic</td>
-          <td>$40.6</td>
-          <td>300</td>
-          <td>
+        <TableRow>
+          <TableCell>Väinö Pánfilo</TableCell>
+          <TableCell>Basic</TableCell>
+          <TableCell>$40.6</TableCell>
+          <TableCell>300</TableCell>
+          <TableCell>
             <Tile.Badge trend={'stale'}>Possible Churn</Tile.Badge>
-          </td>
-        </tr>
+          </TableCell>
+        </TableRow>
 
-        <tr>
-          <td>Giorgos Quinten</td>
-          <td>Pro</td>
-          <td>$2004.3</td>
-          <td>1000</td>
-          <td>
+        <TableRow>
+          <TableCell>Giorgos Quinten</TableCell>
+          <TableCell>Pro</TableCell>
+          <TableCell>$2004.3</TableCell>
+          <TableCell>1000</TableCell>
+          <TableCell>
             <Tile.Badge trend={'up'}>Healthy</Tile.Badge>
-          </td>
-        </tr>
+          </TableCell>
+        </TableRow>
 
-        <tr>
-          <td>Adhelm Otis</td>
-          <td>Basic</td>
-          <td>$0</td>
-          <td>10</td>
-          <td>
+        <TableRow>
+          <TableCell>Adhelm Otis</TableCell>
+          <TableCell>Basic</TableCell>
+          <TableCell>$0</TableCell>
+          <TableCell>10</TableCell>
+          <TableCell>
             <Tile.Badge trend={'down'}>Churned</Tile.Badge>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
   );
 }

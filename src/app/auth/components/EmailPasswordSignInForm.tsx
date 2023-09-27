@@ -62,7 +62,6 @@ const EmailPasswordSignInForm: React.FCC<{
         <div>
           <Button
             className={'w-full'}
-            color={'primary'}
             data-cy="auth-submit-button"
             type="submit"
             loading={loading}

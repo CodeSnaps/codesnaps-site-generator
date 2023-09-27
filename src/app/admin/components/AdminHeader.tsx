@@ -13,7 +13,7 @@ function AdminHeader({ children }: React.PropsWithChildren) {
             <Heading type={3}>{children}</Heading>
           </div>
 
-          <Button color={'transparent'} href={'/dashboard'}>
+          <Button variant={'ghost'} href={'/dashboard'}>
             <span className={'flex space-x-2.5 items-center'}>
               <ArrowLeftIcon className={'w-4 h-4'} />
 

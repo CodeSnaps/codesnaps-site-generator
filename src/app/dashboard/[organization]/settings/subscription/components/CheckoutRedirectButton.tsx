@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import ArrowRightIcon from '@heroicons/react/24/outline/ArrowRightIcon';
+import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import classNames from 'clsx';
 
 import Button from '~/core/ui/Button';
@@ -27,15 +27,16 @@ const CheckoutRedirectButton: React.FCC<{
       <Button
         block
         className={classNames({
-          'bg-primary-contrast text-gray-800': props.recommended,
+          'text-foreground bg-background dark:bg-white dark:text-gray-900':
+            props.recommended,
         })}
-        color={props.recommended ? 'custom' : 'secondary'}
+        variant={props.recommended ? 'custom' : 'secondary'}
         disabled={props.disabled}
       >
         <span className={'flex items-center space-x-2'}>
           <span>{children}</span>
 
-          <ArrowRightIcon className={'h-5'} />
+          <ChevronRightIcon className={'h-4'} />
         </span>
       </Button>
     </form>

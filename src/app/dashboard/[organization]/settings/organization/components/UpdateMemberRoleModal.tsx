@@ -41,7 +41,6 @@ const UpdateMemberRoleModal: React.FCC<{
 
           <Button
             data-cy={'confirm-update-member-role'}
-            variant={'flat'}
             loading={isSubmitting}
             onClick={onRoleUpdated}
           >

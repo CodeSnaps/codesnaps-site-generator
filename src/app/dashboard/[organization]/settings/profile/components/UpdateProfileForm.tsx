@@ -148,7 +148,7 @@ function UpdateProfileForm({
           <div>
             <Button
               type={'button'}
-              color={'transparent'}
+              variant={'ghost'}
               size={'small'}
               href={'../' + configuration.paths.settings.email}
             >

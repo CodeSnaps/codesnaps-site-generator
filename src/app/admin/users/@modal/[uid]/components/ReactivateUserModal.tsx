@@ -54,12 +54,7 @@ function ReactivateUserModal({
             Cancel
           </Modal.CancelButton>
 
-          <Button
-            loading={pending}
-            variant={'flat'}
-            color={'primary'}
-            onClick={onConfirm}
-          >
+          <Button loading={pending} onClick={onConfirm}>
             Yes, reactivate user
           </Button>
         </div>

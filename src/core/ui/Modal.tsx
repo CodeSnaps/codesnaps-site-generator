@@ -69,7 +69,7 @@ const Modal: React.FC<Props> & {
             &#8203;
           </span>
 
-          <div className="inline-block max-h-[90%] w-full max-w-xl transform overflow-auto rounded-md bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-dark-800">
+          <div className="inline-block max-h-[90%] w-full max-w-xl transform overflow-auto rounded-md bg-background border p-6 text-left align-middle shadow-xl transition-all">
             <div className={'flex flex-col space-y-4'}>
               <div className="flex items-center">
                 <DialogTitle className="flex w-full text-xl font-semibold text-current">
@@ -112,7 +112,7 @@ function CancelButton<Props extends React.ButtonHTMLAttributes<unknown>>(
     <Button
       type={'button'}
       data-cy={'close-modal-button'}
-      color={'transparent'}
+      variant={'ghost'}
       {...props}
     >
       <Trans i18nKey={'common:cancel'} />

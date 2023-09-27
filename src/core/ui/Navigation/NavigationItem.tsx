@@ -81,25 +81,25 @@ function getNavigationMenuItemClassBuilder() {
         {
           active: true,
           pill: true,
-          className: `bg-gray-50 text-gray-600 text-current dark:bg-dark-800 dark:text-white`,
+          className: `bg-gray-50 text-gray-600 dark:bg-dark-800/70`,
         },
         // not active - pill
         {
           active: false,
           pill: true,
-          className: `hover:bg-gray-50 active:bg-gray-100 text-gray-500 dark:text-gray-300 dark:hover:bg-dark-800 dark:active:bg-dark-700`,
+          className: `hover:bg-gray-50 active:bg-gray-100 text-gray-500 dark:text-gray-300 dark:hover:bg-background dark:active:bg-dark-900/90`,
         },
         // not active - bordered
         {
           active: false,
           bordered: true,
-          className: `hover:bg-gray-50 active:bg-gray-100 dark:active:bg-dark-700 dark:hover:bg-dark-800 transition-colors rounded-lg border-transparent`,
+          className: `hover:bg-gray-50 active:bg-gray-100 dark:active:bg-dark-800 dark:hover:bg-dark/90 transition-colors rounded-lg border-transparent`,
         },
         // active - bordered
         {
           active: true,
           bordered: true,
-          className: `top-[0.4rem] border-b-[0.25rem] rounded-none border-primary-500 bg-transparent pb-[0.8rem] text-current dark:text-white`,
+          className: `top-[0.4rem] border-b-[0.25rem] rounded-none border-primary bg-transparent pb-[0.8rem] text-current dark:text-white`,
         },
         // active - secondary
         {

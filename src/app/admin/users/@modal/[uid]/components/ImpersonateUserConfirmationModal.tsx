@@ -103,8 +103,7 @@ function ImpersonateUserConfirmationModal({
 
             <Button
               loading={pending}
-              variant={'flat'}
-              color={'danger'}
+              variant={'destructive'}
               onClick={onConfirm}
             >
               Yes, let&apos;s do it

@@ -33,7 +33,7 @@ export default withI18n(OrganizationMembersInvitePage);
 
 function GoBackToMembersButton() {
   return (
-    <Button size={'small'} color={'transparent'} href={'../members'}>
+    <Button size={'small'} variant={'ghost'} href={'../members'}>
       <span className={'flex items-center space-x-1'}>
         <ArrowLeftIcon className={'h-3'} />
 

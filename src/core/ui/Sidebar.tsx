@@ -56,10 +56,6 @@ export function SidebarItem({
 }>) {
   const { collapsed } = useContext(SidebarContext);
 
-  const iconClassName = getSidebarIconClassBuilder()({
-    collapsed,
-  });
-
   const currentPath = usePathname() ?? '';
   const active = isRouteActive(path, currentPath, end ? 1 : 3);
 
@@ -70,10 +66,10 @@ export function SidebarItem({
 
   return (
     <Link key={path} href={path} className={className}>
-      <If condition={collapsed} fallback={<Icon className={iconClassName} />}>
+      <If condition={collapsed} fallback={<Icon className={'h-6'} />}>
         <Tooltip>
           <TooltipTrigger>
-            <Icon className={iconClassName} />
+            <Icon className={'h-6'} />
           </TooltipTrigger>
 
           <TooltipContent side={'right'} sideOffset={20}>
@@ -176,7 +172,7 @@ export default Sidebar;
 function getClassNameBuilder() {
   return cva(
     [
-      'relative flex hidden h-screen flex-row justify-center border-r border-gray-100 py-4 dark:border-dark-700 dark:bg-dark-900 lg:flex',
+      'relative flex hidden h-screen flex-row justify-center border-r border-gray-100 py-4 dark:border-dark-700 lg:flex',
     ],
     {
       variants: {
@@ -192,7 +188,7 @@ function getClassNameBuilder() {
 function getSidebarItemClassBuilder() {
   return cva(
     [
-      `flex w-full items-center rounded-md border-transparent text-sm font-medium text-gray-600 transition-colors duration-300`,
+      `flex w-full items-center rounded-md border-transparent text-sm font-medium transition-colors duration-300`,
     ],
     {
       variants: {
@@ -201,38 +197,27 @@ function getSidebarItemClassBuilder() {
           false: `py-2 px-3 pr-12 space-x-2.5`,
         },
         active: {
-          true: `bg-primary-50 font-medium text-current dark:bg-primary-300/10 dark:text-primary-contrast`,
-          false: `text-gray-600 ring-transparent hover:bg-gray-50 active:bg-gray-200 dark:bg-dark-900 dark:text-gray-300 dark:hover:bg-dark-800 dark:hover:text-white dark:active:bg-dark-700 dark:active:bg-dark-700`,
+          true: `bg-primary/5 font-medium text-current dark:bg-primary-300/10 dark:text-white`,
+          false: `text-gray-600 ring-transparent hover:text-primary active:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:active:bg-dark-700 dark:active:bg-dark-700`,
         },
       },
       compoundVariants: [
         {
           collapsed: true,
           active: true,
-          className: `bg-primary-500/5 dark:bg-primary-500/10 !text-primary-500`,
+          className: `bg-primary/5 dark:bg-primary-500/20 text-primary-500`,
         },
         {
           collapsed: false,
           active: true,
-          className: `bg-primary-50 font-medium text-current dark:bg-primary-300/10 dark:text-primary-contrast [&>svg]:text-primary-500`,
+          className: `bg-primary/5 dark:bg-primary-300/10 dark:text-primary-foreground dark:[&>svg]:text-white`,
         },
         {
           collapsed: true,
           active: false,
-          className: `text-gray-600 dark:text-primary-contrast`,
+          className: `dark:text-gray-300`,
         },
       ],
     },
   );
-}
-
-function getSidebarIconClassBuilder() {
-  return cva([''], {
-    variants: {
-      collapsed: {
-        true: `h-7`,
-        false: `h-6`,
-      },
-    },
-  });
 }

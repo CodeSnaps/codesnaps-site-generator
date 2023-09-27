@@ -4,7 +4,6 @@ import React, { forwardRef } from 'react';
 import classNames from 'clsx';
 
 import Label from './Label';
-import If from '~/core/ui/If';
 
 type Props = React.InputHTMLAttributes<unknown>;
 
@@ -22,35 +21,14 @@ const Hint: React.FC<React.PropsWithChildren> = ({ children }) => {
 const Input = forwardRef<React.ElementRef<'input'>, Props>(
   function TextFieldInputComponent({ className, children, ...props }, ref) {
     return (
-      <div
+      <input
+        {...props}
         className={classNames(
-          `active-within:ring-2 relative flex h-10 w-full items-center
-        rounded-md border border-gray-200 bg-white font-medium text-gray-800
-        shadow-sm ring-primary-200 ring-offset-1 transition-colors focus-within:ring-2
-        hover:border-gray-300 hover:bg-gray-50 
-        dark:border-dark-600 dark:bg-dark-800
-        dark:text-gray-200 dark:focus-within:ring-primary-500/70 dark:focus-within:ring-offset-dark-900
-        dark:hover:border-dark-500 dark:focus:bg-dark-800 lg:text-sm`,
+          'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
           className,
-          {
-            [`cursor-not-allowed bg-gray-100 hover:bg-gray-100 dark:bg-dark-800`]:
-              props.disabled,
-          },
         )}
-      >
-        <If condition={children}>
-          <span className={'flex pl-2.5'}>{children}</span>
-        </If>
-
-        <input
-          {...props}
-          className={classNames(
-            `h-10 flex-1 rounded-md bg-transparent px-3 py-2 outline-none disabled:cursor-not-allowed disabled:opacity-30`,
-            className,
-          )}
-          ref={ref}
-        />
-      </div>
+        ref={ref}
+      />
     );
   },
 );

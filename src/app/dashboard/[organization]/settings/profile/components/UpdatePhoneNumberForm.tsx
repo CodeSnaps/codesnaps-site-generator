@@ -112,7 +112,7 @@ function RemovePhoneNumberButton({
     <>
       <Button
         type={'button'}
-        color={'transparent'}
+        variant={'ghost'}
         size={'small'}
         onClick={() => setIsModalOpen(true)}
       >
@@ -141,9 +141,8 @@ function RemovePhoneNumberButton({
             <Modal.CancelButton onClick={() => setIsModalOpen(false)} />
 
             <Button
-              variant={'flat'}
+              variant={'destructive'}
               loading={isMutating}
-              color={'danger'}
               onClick={onUnlinkPhoneNumber}
             >
               <Trans i18nKey={'profile:confirmRemovePhoneNumber'} />

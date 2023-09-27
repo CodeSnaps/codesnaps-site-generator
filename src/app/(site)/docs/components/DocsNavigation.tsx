@@ -155,9 +155,9 @@ function getNavLinkClassName(isCurrent: boolean, isFirstLevel: boolean) {
   return classNames(
     'group flex h-8 items-center justify-between space-x-2 whitespace-nowrap rounded-md px-3 text-sm leading-none transition-colors',
     {
-      [`bg-primary-50 text-primary-900 dark:bg-primary-500/20 dark:text-primary-50`]:
+      [`bg-primary/50 text-primary-900 dark:bg-primary/20 dark:text-primary/50`]:
         isCurrent,
-      [`hover:bg-gray-50 dark:hover:bg-primary-500/10`]: !isCurrent,
+      [`hover:bg-gray-50 dark:hover:bg-primary/10`]: !isCurrent,
       [`font-semibold`]: isFirstLevel,
       [`font-normal`]: !isFirstLevel && isCurrent,
       [`hover:text-gray-600 dark:hover:text-gray-200 dark:hover:bg-dark-800/30`]:
@@ -213,7 +213,7 @@ function FloatingDocumentationNavigation({
         <div
           className={
             'fixed left-0 top-0 z-10 h-screen w-full p-4' +
-            ' flex flex-col space-y-4 overflow-auto bg-white dark:bg-dark-900'
+            ' flex flex-col space-y-4 overflow-auto bg-white dark:bg-background'
           }
         >
           <Heading type={1}>Table of Contents</Heading>

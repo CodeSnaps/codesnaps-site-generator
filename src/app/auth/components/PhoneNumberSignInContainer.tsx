@@ -43,7 +43,7 @@ const PhoneNumberSignInContainer: React.FC<{
       setStep(Step.Otp);
       setPhone(phone);
     },
-    [mode, signInWithOtp]
+    [mode, signInWithOtp],
   );
 
   const onOTPSubmit: FormEventHandler = useCallback(
@@ -65,7 +65,7 @@ const PhoneNumberSignInContainer: React.FC<{
         onSuccess();
       }
     },
-    [onSuccess, verificationCode, phone, verifyOtp]
+    [onSuccess, verificationCode, phone, verifyOtp],
   );
 
   if (step === Step.Otp) {
@@ -90,7 +90,6 @@ const PhoneNumberSignInContainer: React.FC<{
           <Button
             disabled={!verificationCode}
             loading={verifyOtp.isMutating}
-            variant={'flat'}
             type={'submit'}
           >
             <Trans i18nKey={'auth:signIn'} />

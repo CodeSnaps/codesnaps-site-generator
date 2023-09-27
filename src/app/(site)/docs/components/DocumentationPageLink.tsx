@@ -15,7 +15,7 @@ function DocumentationPageLink({
   return (
     <Link
       className={classNames(
-        `flex w-full items-center space-x-8 rounded-xl p-6 font-medium text-current ring-2 dark:ring-dark-800 ring-gray-100 transition-all hover:bg-gray-50 dark:hover:bg-dark-800 hover:dark:ring-dark-700 active:dark:bg-dark-800`,
+        `flex w-full items-center space-x-8 rounded-xl p-6 font-medium text-current ring-2 dark:ring-dark-800 ring-gray-100 transition-all hover:bg-gray-50 dark:hover:bg-background/90 hover:dark:ring-dark-700 active:dark:bg-dark-800`,
         {
           'justify-start': before,
           'justify-end self-end': after,

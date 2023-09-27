@@ -80,8 +80,8 @@ function NewUserInviteForm(
 
             <Button
               block
-              color={'transparent'}
-              size={'small'}
+              variant={'ghost'}
+              size={'sm'}
               onClick={() => setMode(Mode.SignIn)}
             >
               <Trans i18nKey={'auth:alreadyHaveAccountStatement'} />
@@ -95,8 +95,8 @@ function NewUserInviteForm(
 
             <Button
               block
-              color={'transparent'}
-              size={'small'}
+              variant={'ghost'}
+              size={'sm'}
               onClick={() => setMode(Mode.SignUp)}
             >
               <Trans i18nKey={'auth:doNotHaveAccountStatement'} />

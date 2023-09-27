@@ -71,7 +71,7 @@ const ProfileDropdown: React.FCC<{
         className={'!min-w-[15rem]'}
         collisionPadding={{ right: 20 }}
       >
-        <DropdownMenuItem className={'!h-10 rounded-none'} clickable={false}>
+        <DropdownMenuItem className={'!h-10 rounded-none'}>
           <div
             className={'flex flex-col justify-start truncate text-left text-xs'}
           >

@@ -141,7 +141,6 @@ function MultiFactorAuthSetupForm({
               <Button
                 disabled={!verificationCode}
                 loading={state.loading}
-                variant={'flat'}
                 type={'submit'}
               >
                 {state.loading ? (
@@ -276,7 +275,7 @@ function FactorNameForm(
         <div className={'flex justify-end space-x-2'}>
           <Modal.CancelButton onClick={props.onCancel} />
 
-          <Button variant={'flat'} type={'submit'}>
+          <Button type={'submit'}>
             <Trans i18nKey={'profile:factorNameSubmitLabel'} />
           </Button>
         </div>

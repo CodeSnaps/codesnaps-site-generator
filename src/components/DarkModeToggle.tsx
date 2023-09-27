@@ -20,12 +20,15 @@ import IconButton from '~/core/ui/IconButton';
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
+  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from '~/core/ui/Select';
 
 import Trans from '~/core/ui/Trans';
+import Button from '~/core/ui/Button';
 
 const DarkModeToggle = () => {
   const defaultTheme = useMemo(getStoredTheme, []);
@@ -50,12 +53,14 @@ const DarkModeToggle = () => {
   return (
     <Select value={currentTheme} onValueChange={setCurrentTheme}>
       <SelectTrigger asChild>
-        <IconButton
+        <Button
+          variant={'ghost'}
+          size={'icon'}
           data-cy={'dark-mode-toggle'}
           className={
             'flex items-center !rounded-full border-transparent transition-shadow' +
             ' !bg-transparent hover:shadow-xl dark:border-transparent' +
-            ' dark:shadow-primary-500/50'
+            ' dark:shadow-primary/50'
           }
         >
           <span hidden>
@@ -63,45 +68,52 @@ const DarkModeToggle = () => {
           </span>
 
           {Icon}
-        </IconButton>
+        </Button>
       </SelectTrigger>
 
       <SelectContent position={'popper'} sideOffset={5}>
-        <SelectItem
-          data-cy={'light-theme-button'}
-          value={LIGHT_THEME_CLASSNAME}
-        >
-          <span className={'flex items-center space-x-2.5'}>
-            <SunIcon className={'h-4'} />
+        <SelectGroup>
+          <SelectLabel>Theme</SelectLabel>
 
-            <span>
-              <Trans i18nKey={'common:lightTheme'} />
+          <SelectItem
+            data-cy={'light-theme-button'}
+            value={LIGHT_THEME_CLASSNAME}
+          >
+            <span className={'flex items-center space-x-2.5'}>
+              <SunIcon className={'h-4'} />
+
+              <span>
+                <Trans i18nKey={'common:lightTheme'} />
+              </span>
             </span>
-          </span>
-        </SelectItem>
+          </SelectItem>
 
-        <SelectItem data-cy={'dark-theme-button'} value={DARK_THEME_CLASSNAME}>
-          <span className={'flex items-center space-x-2.5'}>
-            <MoonIcon className={'h-4'} />
+          <SelectItem
+            data-cy={'dark-theme-button'}
+            value={DARK_THEME_CLASSNAME}
+          >
+            <span className={'flex items-center space-x-2.5'}>
+              <MoonIcon className={'h-4'} />
 
-            <span>
-              <Trans i18nKey={'common:darkTheme'} />
+              <span>
+                <Trans i18nKey={'common:darkTheme'} />
+              </span>
             </span>
-          </span>
-        </SelectItem>
+          </SelectItem>
 
-        <SelectItem
-          data-cy={'system-theme-button'}
-          value={SYSTEM_THEME_CLASSNAME}
-        >
-          <span className={'flex items-center space-x-2.5'}>
-            <ComputerDesktopIcon className={'h-4'} />
+          <SelectItem
+            data-cy={'system-theme-button'}
+            value={SYSTEM_THEME_CLASSNAME}
+          >
+            <span className={'flex items-center space-x-2.5'}>
+              <ComputerDesktopIcon className={'h-4'} />
 
-            <span>
-              <Trans i18nKey={'common:systemTheme'} />
+              <span>
+                <Trans i18nKey={'common:systemTheme'} />
+              </span>
             </span>
-          </span>
-        </SelectItem>
+          </SelectItem>
+        </SelectGroup>
       </SelectContent>
     </Select>
   );

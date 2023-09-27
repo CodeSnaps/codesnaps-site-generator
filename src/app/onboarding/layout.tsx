@@ -15,7 +15,7 @@ async function OnboardingLayout({ children }: React.PropsWithChildren) {
   await initializeOnboardingRoute();
 
   return (
-    <div className={'flex flex-1 flex-col dark:bg-dark-900'}>
+    <div className={'flex flex-1 flex-col dark:bg-background'}>
       <div className={'flex divide-x divide-gray-100 dark:divide-dark-700'}>
         <div
           className={
