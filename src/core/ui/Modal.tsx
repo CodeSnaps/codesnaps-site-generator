@@ -61,42 +61,31 @@ const Modal: React.FC<Props> & {
       </If>
 
       <DialogContent>
-        <div className="h-full min-h-screen px-4 text-center">
-          <span
-            className="inline-block h-screen align-middle"
-            aria-hidden="true"
-          >
-            &#8203;
-          </span>
-
-          <div className="inline-block max-h-[90%] w-full max-w-xl transform overflow-auto rounded-md bg-background border p-6 text-left align-middle shadow-xl transition-all">
-            <div className={'flex flex-col space-y-4'}>
-              <div className="flex items-center">
-                <DialogTitle className="flex w-full text-xl font-semibold text-current">
-                  <span className={'max-w-[90%] truncate'}>{heading}</span>
-                </DialogTitle>
-              </div>
-
-              <div className="relative">{children}</div>
-
-              <If condition={useCloseButton}>
-                <DialogPrimitiveClose asChild>
-                  <IconButton
-                    className={'absolute top-0 right-4 flex items-center'}
-                    label={'Close Modal'}
-                    onClick={() => {
-                      if (isControlled) {
-                        props.setIsOpen(false);
-                      }
-                    }}
-                  >
-                    <XMarkIcon className={'h-6'} />
-                    <span className="sr-only">Close</span>
-                  </IconButton>
-                </DialogPrimitiveClose>
-              </If>
-            </div>
+        <div className={'flex flex-col space-y-4'}>
+          <div className="flex items-center">
+            <DialogTitle className="flex w-full text-xl font-semibold text-current">
+              <span className={'max-w-[90%] truncate'}>{heading}</span>
+            </DialogTitle>
           </div>
+
+          <div className="relative">{children}</div>
+
+          <If condition={useCloseButton}>
+            <DialogPrimitiveClose asChild>
+              <IconButton
+                className={'absolute top-0 right-4 flex items-center'}
+                label={'Close Modal'}
+                onClick={() => {
+                  if (isControlled) {
+                    props.setIsOpen(false);
+                  }
+                }}
+              >
+                <XMarkIcon className={'h-6'} />
+                <span className="sr-only">Close</span>
+              </IconButton>
+            </DialogPrimitiveClose>
+          </If>
         </div>
       </DialogContent>
     </DialogWrapper>
@@ -121,3 +110,5 @@ function CancelButton<Props extends React.ButtonHTMLAttributes<unknown>>(
 }
 
 Modal.CancelButton = CancelButton;
+
+export { CancelButton };

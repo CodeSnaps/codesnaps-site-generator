@@ -1,5 +1,4 @@
 'use client';
-
 import * as React from 'react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import classNames from 'clsx';
@@ -7,15 +6,8 @@ import classNames from 'clsx';
 const Dialog = DialogPrimitive.Root;
 const DialogTrigger = DialogPrimitive.Trigger;
 
-const DialogPortal = ({
-  children,
-  ...props
-}: DialogPrimitive.DialogPortalProps) => (
-  <DialogPrimitive.Portal {...props}>
-    <div className="fixed inset-0 z-50 flex items-start justify-center sm:items-center">
-      {children}
-    </div>
-  </DialogPrimitive.Portal>
+const DialogPortal = (props: DialogPrimitive.DialogPortalProps) => (
+  <DialogPrimitive.Portal {...props} />
 );
 
 DialogPortal.displayName = DialogPrimitive.Portal.displayName;
@@ -23,10 +15,10 @@ DialogPortal.displayName = DialogPrimitive.Portal.displayName;
 const DialogOverlay = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
->(({ className, ...props }, ref) => (
+>(({ className, children, ...props }, ref) => (
   <DialogPrimitive.Overlay
     className={classNames(
-      'fixed inset-0 z-50 bg-background/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
+      'fixed inset-0 z-50 bg-background/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
       className,
     )}
     {...props}
@@ -41,14 +33,13 @@ const DialogContent = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
 >(({ className, children, ...props }, ref) => (
   <DialogPortal>
-    <DialogOverlay className={'bg-background/60 dark:bg-white/20'} />
+    <DialogOverlay />
 
     <DialogPrimitive.Content
       ref={ref}
       className={classNames(
-        'animate-in fade-in-90 slide-in-from-bottom-10 sm:zoom-in-90' +
-          ' sm:slide-in-from-bottom-0 fixed z-50 grid w-full scale-100 gap-4' +
-          ' p-6 opacity-100 sm:max-w-lg sm:rounded-lg',
+        'fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg' +
+          ' translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg md:w-full dark:shadow-primary/30 dark:shadow-2xl',
         className,
       )}
       {...props}
@@ -110,8 +101,7 @@ const DialogDescription = React.forwardRef<
   <DialogPrimitive.Description
     ref={ref}
     className={classNames(
-      'text-sm text-primary',
-      'dark:text-primary/90',
+      'text-sm text-primary dark:text-primary/90',
       className,
     )}
     {...props}
