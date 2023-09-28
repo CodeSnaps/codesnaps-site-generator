@@ -11,6 +11,11 @@ import type UserData from '~/core/session/types/user-data';
 
 type Client = SupabaseClient<Database>;
 
+/**
+ * Query to fetch the organization data from the Database
+ * Returns the organization data and the subscription data
+ * {@link UserOrganizationData.organization}
+ */
 const FETCH_ORGANIZATION_QUERY = `
   id,
   uuid,
@@ -53,7 +58,14 @@ export type UserOrganizationData = {
 export function getOrganizationsByUserId(client: Client, userId: string) {
   return client
     .from(MEMBERSHIPS_TABLE)
-    .select<string, UserOrganizationData>(
+    .select<
+      string,
+      {
+        role: MembershipRole;
+        organization: UserOrganizationData['organization'];
+        userId: string;
+      }
+    >(
       `
         role,
         userId: user_id,
@@ -120,12 +132,9 @@ export function getOrganizationMembers(client: Client, organizationId: number) {
 export function getOrganizationByUid(client: Client, uid: string) {
   return client
     .from(ORGANIZATIONS_TABLE)
-    .select<
-      string,
-      Organization & {
-        subscription: OrganizationSubscription;
-      }
-    >(FETCH_ORGANIZATION_QUERY)
+    .select<string, UserOrganizationData['organization']>(
+      FETCH_ORGANIZATION_QUERY,
+    )
     .eq('uuid', uid)
     .throwOnError()
     .maybeSingle();
@@ -139,12 +148,9 @@ export function getOrganizationByUid(client: Client, uid: string) {
 export function getOrganizationById(client: Client, organizationId: number) {
   return client
     .from(ORGANIZATIONS_TABLE)
-    .select<
-      string,
-      Organization & {
-        subscription: OrganizationSubscription;
-      }
-    >(FETCH_ORGANIZATION_QUERY)
+    .select<string, UserOrganizationData['organization']>(
+      FETCH_ORGANIZATION_QUERY,
+    )
     .eq('id', organizationId)
     .throwOnError()
     .single();
