@@ -97,9 +97,8 @@ const ImageUploadInput = forwardRef<React.ElementRef<'input'>, Props>(
       <label
         id={'image-upload-input'}
         tabIndex={0}
-        className={`
-        relative flex h-10 cursor-pointer border-dashed py-2 px-3 outline-none ring-offset-1 transition-all focus:ring-2
-         border border-input bg-background rounded-md hover:border-border-input/80`}
+        className={`relative cursor-pointer border-dashed outline-none ring-offset-2 transition-all focus:ring-2 ring-primary ring-offset-background
+         flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
       >
         <input
           {...props}

@@ -89,7 +89,7 @@ function getClassNameBuilder() {
       variants: {
         type: {
           success: `dark:text-green-500 text-green-800 border-green-500/80`,
-          info: `dark:text-sky-500 text-sky-800 border-sky-800/20 dark:border-sky-500/50`,
+          info: `dark:text-sky-500 text-sky-800 border-sky-800/50 dark:border-sky-500/50`,
           error: `dark:text-red-500 text-red-500 border-red-500/80`,
           warn: `dark:text-yellow-500 text-yellow-800 border-yellow-500/80`,
         },
@@ -105,10 +105,10 @@ function getIconClassNameBuilder() {
   return cva([`rounded-full h-5 w-5`], {
     variants: {
       type: {
-        success: `text-green-500`,
+        success: `text-green-800 dark:text-green-500`,
         info: `text-sky-800 dark:text-sky-500`,
         error: `text-red-500`,
-        warn: `text-yellow-500`,
+        warn: `text-yellow-800 dark:text-yellow-500`,
       },
     },
     defaultVariants: {

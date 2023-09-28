@@ -81,7 +81,7 @@ function getNavigationMenuItemClassBuilder() {
         {
           active: true,
           pill: true,
-          className: `bg-gray-50 text-gray-600 dark:bg-dark-800/70`,
+          className: `bg-gray-50 text-gray-600 dark:bg-primary-300/10`,
         },
         // not active - pill
         {

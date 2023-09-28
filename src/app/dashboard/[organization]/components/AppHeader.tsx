@@ -21,7 +21,7 @@ const AppHeader: React.FCC<{
   const currentOrganization = useCurrentOrganization();
 
   return (
-    <div className="flex items-center justify-between border-b border-gray-50 dark:border-dark-700">
+    <div className="flex items-center justify-between border-b border-gray-50 dark:border-dark-800">
       <AppContainer>
         <div className={'flex w-full flex-1 justify-between'}>
           <div
