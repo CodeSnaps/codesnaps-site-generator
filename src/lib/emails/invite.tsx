@@ -1,14 +1,21 @@
-import { render } from '@react-email/render';
-import { Html } from '@react-email/html';
-import { Head } from '@react-email/head';
-import { Preview } from '@react-email/preview';
-import { Body } from '@react-email/body';
-import { Section } from '@react-email/section';
-import { Column } from '@react-email/column';
-import { Text } from '@react-email/text';
-
-import EmailNavbar from '~/components/emails/EmailNavbar';
-import CallToActionButton from '~/components/emails/CallToActionButton';
+import {
+  Body,
+  Button,
+  Container,
+  Column,
+  Head,
+  Heading,
+  Hr,
+  Html,
+  Img,
+  Link,
+  Preview,
+  Row,
+  Section,
+  Text,
+  Tailwind,
+  render,
+} from '@react-email/components';
 
 interface Props {
   organizationName: string;
@@ -20,46 +27,66 @@ interface Props {
 }
 
 export default function renderInviteEmail(props: Props) {
-  const title = `You have been invited to join ${props.organizationName}`;
+  const previewText = `Join ${props.invitedUserEmail} on ${props.productName}}`;
 
   return render(
     <Html>
-      <Head>
-        <title>{title}</title>
-      </Head>
-      <Preview>{title}</Preview>
-      <Body style={{ width: '500px', margin: '0 auto', font: 'helvetica' }}>
-        <EmailNavbar />
-        <Section style={{ width: '100%' }}>
-          <Column>
-            <Text>Hi,</Text>
+      <Head />
+      <Preview>{previewText}</Preview>
 
-            <Text>
-              {props.inviter} with {props.organizationName} has invited you to
-              use {props.productName} to collaborate with them.
+      <Tailwind>
+        <Body className="bg-gray-50 my-auto mx-auto font-sans">
+          <Container className="border border-solid border-[#eaeaea] rounded-lg my-[40px] mx-auto p-[20px] w-[465px] bg-white">
+            <Heading className="text-black text-[24px] font-normal text-center p-0 my-[30px] mx-0">
+              Join <strong>{props.organizationName}</strong> on{' '}
+              <strong>{props.productName}</strong>
+            </Heading>
+            <Text className="text-black text-[14px] leading-[24px]">
+              Hello {props.invitedUserEmail},
             </Text>
-
-            <Text>
-              Use the button below to set up your account and get started:
+            <Text className="text-black text-[14px] leading-[24px]">
+              <strong>{props.inviter}</strong> has invited you to the{' '}
+              <strong>{props.organizationName}</strong> team on{' '}
+              <strong>{props.productName}</strong>.
             </Text>
-          </Column>
-        </Section>
-
-        <Section>
-          <Column align="center">
-            <CallToActionButton href={props.link}>
-              Join {props.organizationName}
-            </CallToActionButton>
-          </Column>
-        </Section>
-
-        <Section>
-          <Column>
-            <Text>Welcome aboard,</Text>
-            <Text>The {props.productName} Team</Text>
-          </Column>
-        </Section>
-      </Body>
-    </Html>
+            {props.organizationLogo && (
+              <Section>
+                <Row>
+                  <Column align="center">
+                    <Img
+                      className="rounded-full"
+                      src={props.organizationLogo}
+                      width="64"
+                      height="64"
+                    />
+                  </Column>
+                </Row>
+              </Section>
+            )}
+            <Section className="text-center mt-[32px] mb-[32px]">
+              <Button
+                pX={20}
+                pY={12}
+                className="bg-[#000000] rounded text-white text-[12px] font-semibold no-underline text-center"
+                href={props.link}
+              >
+                Join {props.organizationName}
+              </Button>
+            </Section>
+            <Text className="text-black text-[14px] leading-[24px]">
+              or copy and paste this URL into your browser:{' '}
+              <Link href={props.link} className="text-blue-600 no-underline">
+                {props.link}
+              </Link>
+            </Text>
+            <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
+            <Text className="text-[#666666] text-[12px] leading-[24px]">
+              This invitation was intended for{' '}
+              <span className="text-black">{props.invitedUserEmail}</span>.
+            </Text>
+          </Container>
+        </Body>
+      </Tailwind>
+    </Html>,
   );
 }

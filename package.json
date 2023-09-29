@@ -1,6 +1,6 @@
 {
   "name": "next-supabase-saas-kit",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -45,6 +45,7 @@
     "@react-email/body": "^0.0.3",
     "@react-email/button": "^0.0.10",
     "@react-email/column": "^0.0.7",
+    "@react-email/components": "^0.0.7",
     "@react-email/head": "^0.0.5",
     "@react-email/html": "^0.0.4",
     "@react-email/preview": "^0.0.6",
