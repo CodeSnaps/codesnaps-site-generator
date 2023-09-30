@@ -9,6 +9,7 @@ const CSRF_TOKEN_HEADER = 'X-CSRF-Token';
 const CSRF_SECRET_COOKIE = 'csrfSecret';
 const CSRF_TOKEN_BODY_FIELD = 'csrfToken';
 const NEXT_ACTION_HEADER = 'next-action';
+const NEXT_ACTION_REDIRECT_HEADER = 'x-action-redirect';
 
 export const config = {
   matcher: [
@@ -91,12 +92,15 @@ async function withCsrfMiddleware(request: NextRequest) {
 
 /**
  * Check if the request is a Next action
+ * Also check if the request is not a redirect from a Next action
  * @param request
  */
 function isNextAction(request: NextRequest) {
   const headers = new Headers(request.headers);
 
-  return headers.has(NEXT_ACTION_HEADER);
+  return (
+    headers.has(NEXT_ACTION_HEADER) && !headers.has(NEXT_ACTION_REDIRECT_HEADER)
+  );
 }
 
 /**

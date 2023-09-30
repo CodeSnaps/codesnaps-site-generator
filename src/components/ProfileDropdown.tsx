@@ -41,11 +41,14 @@ import {
 
 import If from '~/core/ui/If';
 import GlobalRole from '~/core/session/types/global-role';
+import useUser from '~/core/hooks/use-user';
 
 const ProfileDropdown: React.FCC<{
   userSession: Maybe<UserSession>;
   signOutRequested: () => unknown;
 }> = ({ userSession, signOutRequested }) => {
+  const { data: user } = useUser();
+
   const signedInAsLabel = useMemo(() => {
     const displayName = userSession?.data?.displayName || undefined;
     const email = userSession?.auth?.user.email || undefined;
@@ -55,8 +58,8 @@ const ProfileDropdown: React.FCC<{
   }, [userSession]);
 
   const isSuperAdmin = useMemo(() => {
-    return userSession?.auth?.user.app_metadata.role === GlobalRole.SuperAdmin;
-  }, [userSession]);
+    return user?.app_metadata.role === GlobalRole.SuperAdmin;
+  }, [user]);
 
   return (
     <DropdownMenu>

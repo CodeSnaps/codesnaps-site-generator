@@ -7,23 +7,20 @@ import UserSessionContext from '~/core/session/contexts/user-session';
 import UserSession from '~/core/session/types/user-session';
 import AuthChangeListener from '~/components/AuthChangeListener';
 
-type Session = {
-  role: UserSession['role'];
-  auth: UserSession['auth'];
-  data: UserSession['data'];
-};
-
 function SiteHeaderSessionProvider(
   props: React.PropsWithChildren<{
-    data: Maybe<Session>;
-    accessToken: Maybe<string>;
+    data: Maybe<{
+      auth: UserSession['auth'];
+      data: UserSession['data'];
+      role: UserSession['role'];
+    }>;
   }>,
 ) {
   const [userSession, setUserSession] = useState(props.data);
 
   return (
     <UserSessionContext.Provider value={{ userSession, setUserSession }}>
-      <AuthChangeListener accessToken={props.accessToken}>
+      <AuthChangeListener accessToken={props.data?.auth?.accessToken}>
         <SiteHeader />
       </AuthChangeListener>
     </UserSessionContext.Provider>

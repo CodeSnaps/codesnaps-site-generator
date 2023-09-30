@@ -8,10 +8,7 @@ async function SiteLayout(props: React.PropsWithChildren) {
 
   return (
     <I18nProvider lang={data.language}>
-      <SiteHeaderSessionProvider
-        data={data.session}
-        accessToken={data.accessToken}
-      />
+      <SiteHeaderSessionProvider data={data.session} />
 
       {props.children}
 

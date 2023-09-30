@@ -56,16 +56,21 @@ const loadAppData = cache(async (organizationUid: string) => {
     }
 
     const csrfToken = getCsrfToken();
-    const accessToken = session.access_token;
 
     // we initialize the i18n server-side
     const { language } = await initializeServerI18n(getLanguageCookie());
 
     return {
-      accessToken,
       language,
       csrfToken,
-      session,
+      auth: {
+        accessToken: session.access_token,
+        user: {
+          id: session.user.id,
+          email: session.user.email,
+          phone: session.user.phone,
+        },
+      },
       user: userRecord,
       organization: organizationData?.organization,
       role: organizationData?.role,
@@ -86,7 +91,7 @@ const loadAppData = cache(async (organizationUid: string) => {
       {
         error: JSON.stringify(error),
       },
-      `Could not load application data`
+      `Could not load application data`,
     );
 
     // in case of any error, we redirect the user to the home page

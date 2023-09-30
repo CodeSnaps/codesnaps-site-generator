@@ -1,15 +1,12 @@
 'use client';
 
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Session } from '@supabase/supabase-js';
 
 import useCollapsible from '~/core/hooks/use-sidebar-state';
 import AppSidebar from '~/app/dashboard/[organization]/components/AppSidebar';
 import Toaster from '~/components/Toaster';
 import SentryBrowserWrapper from '~/components/SentryProvider';
 
-import MembershipRole from '~/lib/organizations/types/membership-role';
-import UserData from '~/core/session/types/user-data';
 import Organization from '~/lib/organizations/types/organization';
 import UserSession from '~/core/session/types/user-session';
 
@@ -21,27 +18,14 @@ import I18nProvider from '~/i18n/I18nProvider';
 
 import { setCookie } from '~/core/generic/cookies';
 import AuthChangeListener from '~/components/AuthChangeListener';
-
-interface Data {
-  accessToken: Maybe<string>;
-  language: string;
-  csrfToken: string | null;
-  session: Session;
-  user: UserData | null;
-  organization: Maybe<Organization>;
-  role: Maybe<MembershipRole>;
-  ui: {
-    sidebarState?: string;
-    theme?: string;
-  };
-}
+import type loadAppData from '~/lib/server/loaders/load-app-data';
 
 const RouteShell: React.FCC<{
-  data: Data;
+  data: Awaited<ReturnType<typeof loadAppData>>;
 }> = ({ data, children }) => {
   const userSessionContext: UserSession = useMemo(() => {
     return {
-      auth: data.session,
+      auth: data.auth,
       data: data.user ?? undefined,
       role: data.role,
     };
@@ -81,7 +65,7 @@ const RouteShell: React.FCC<{
           <CsrfTokenContext.Provider value={data.csrfToken}>
             <I18nProvider lang={data.language}>
               <AuthChangeListener
-                accessToken={data.accessToken}
+                accessToken={data.auth.accessToken}
                 whenSignedOut={'/'}
               >
                 <main>
