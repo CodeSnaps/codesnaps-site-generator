@@ -155,9 +155,10 @@ function getNavLinkClassName(isCurrent: boolean, isFirstLevel: boolean) {
   return classNames(
     'group flex h-8 items-center justify-between space-x-2 whitespace-nowrap rounded-md px-3 text-sm leading-none transition-colors',
     {
-      [`bg-primary/50 text-primary-900 dark:bg-primary/20 dark:text-primary/50`]:
+      [`bg-primary/5 text-primary dark:bg-primary/30 dark:text-primary-foreground`]:
         isCurrent,
-      [`hover:bg-gray-50 dark:hover:bg-primary/10`]: !isCurrent,
+      [`hover:bg-gray-50 dark:hover:bg-primary/10 dark:text-gray-300`]:
+        !isCurrent,
       [`font-semibold`]: isFirstLevel,
       [`font-normal`]: !isFirstLevel && isCurrent,
       [`hover:text-gray-600 dark:hover:text-gray-200 dark:hover:bg-dark-800/30`]:

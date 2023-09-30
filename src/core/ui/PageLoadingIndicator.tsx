@@ -7,17 +7,14 @@ import Spinner from '~/core/ui/Spinner';
 
 export default function PageLoadingIndicator({
   children,
-  fullPage,
-  displayLogo,
   className,
+  fullPage = true,
+  displayLogo = false,
 }: PropsWithChildren<{
   className?: string;
   fullPage?: boolean;
   displayLogo?: boolean;
 }>) {
-  const useFullPage = fullPage ?? true;
-  const shouldDisplayLogo = displayLogo ?? true;
-
   return (
     <div
       className={classNames(
@@ -25,11 +22,11 @@ export default function PageLoadingIndicator({
         className,
         {
           [`fixed top-0 left-0 z-[100] h-screen w-screen bg-background`]:
-            useFullPage,
+            fullPage,
         },
       )}
     >
-      <If condition={shouldDisplayLogo}>
+      <If condition={displayLogo}>
         <div className={'my-2'}>
           <LogoImage />
         </div>

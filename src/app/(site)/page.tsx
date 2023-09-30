@@ -15,6 +15,7 @@ import SubHeading from '~/core/ui/SubHeading';
 import Button from '~/core/ui/Button';
 import Divider from '~/core/ui/Divider';
 import Heading from '~/core/ui/Heading';
+import PricingTable from '~/components/PricingTable';
 
 export default function Home() {
   return (
@@ -89,38 +90,40 @@ export default function Home() {
         >
           <div
             className={
-              'flex max-w-3xl flex-col items-center space-y-6 text-center'
+              'flex max-w-3xl flex-col items-center space-y-8 text-center'
             }
           >
             <Pill>A modern, scalable, and secure SaaS Starter Kit</Pill>
 
-            <Heading type={1}>The best tool in the space</Heading>
+            <div className={'flex flex-col space-y-2.5'}>
+              <Heading type={1}>The best tool in the space</Heading>
 
-            <SubHeading>
-              Unbeatable Features and Benefits for Your SaaS Business
-            </SubHeading>
+              <SubHeading>
+                Unbeatable Features and Benefits for Your SaaS Business
+              </SubHeading>
+            </div>
           </div>
 
           <div>
             <div className={'grid gap-12 lg:grid-cols-3'}>
-              <div className={'flex flex-col space-y-3'}>
+              <div className={'flex flex-col space-y-2'}>
                 <FeatureIcon>
-                  <UserIcon className={'h-6'} />
+                  <UserIcon className={'h-5'} />
                 </FeatureIcon>
 
-                <Heading type={3}>Authentication</Heading>
+                <Heading type={4}>Authentication</Heading>
 
                 <div className={'text-gray-500 dark:text-gray-400 text-sm'}>
                   Secure and Easy-to-Use Authentication for Your SaaS Website
                 </div>
               </div>
 
-              <div className={'flex flex-col space-y-3'}>
+              <div className={'flex flex-col space-y-2'}>
                 <FeatureIcon>
-                  <BuildingLibraryIcon className={'h-6'} />
+                  <BuildingLibraryIcon className={'h-5'} />
                 </FeatureIcon>
 
-                <Heading type={3}>Multi-Tenancy</Heading>
+                <Heading type={4}>Multi-Tenancy</Heading>
 
                 <div className={'text-gray-500 dark:text-gray-400 text-sm'}>
                   Powerful Multi-Tenancy Features for Maximum Flexibility and
@@ -128,48 +131,48 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className={'flex flex-col space-y-3'}>
+              <div className={'flex flex-col space-y-2'}>
                 <FeatureIcon>
-                  <UserGroupIcon className={'h-6'} />
+                  <UserGroupIcon className={'h-5'} />
                 </FeatureIcon>
 
-                <Heading type={3}>Team-Management</Heading>
+                <Heading type={4}>Team-Management</Heading>
 
                 <div className={'text-gray-500 dark:text-gray-400 text-sm'}>
                   Effortlessly Manage and Organize Your Team Members
                 </div>
               </div>
 
-              <div className={'flex flex-col space-y-3'}>
+              <div className={'flex flex-col space-y-2'}>
                 <FeatureIcon>
-                  <PaintBrushIcon className={'h-6'} />
+                  <PaintBrushIcon className={'h-5'} />
                 </FeatureIcon>
 
-                <Heading type={3}>UI Themes</Heading>
+                <Heading type={4}>UI Themes</Heading>
 
                 <div className={'text-gray-500 dark:text-gray-400 text-sm'}>
                   Customizable UI Themes to Match Your Brand and Style
                 </div>
               </div>
 
-              <div className={'flex flex-col space-y-3'}>
+              <div className={'flex flex-col space-y-2'}>
                 <FeatureIcon>
-                  <CubeIcon className={'h-6'} />
+                  <CubeIcon className={'h-5'} />
                 </FeatureIcon>
 
-                <Heading type={3}>UI Components</Heading>
+                <Heading type={4}>UI Components</Heading>
 
                 <div className={'text-gray-500 dark:text-gray-400 text-sm'}>
                   Pre-built UI Components to Speed Up Your Development
                 </div>
               </div>
 
-              <div className={'flex flex-col space-y-3'}>
+              <div className={'flex flex-col space-y-2'}>
                 <FeatureIcon>
-                  <DocumentIcon className={'h-6'} />
+                  <DocumentIcon className={'h-5'} />
                 </FeatureIcon>
 
-                <Heading type={3}>Blog and Documentation</Heading>
+                <Heading type={4}>Blog and Documentation</Heading>
 
                 <div className={'text-gray-500 dark:text-gray-400 text-sm'}>
                   Pre-built Blog and Documentation Pages to Help Your Users
@@ -262,25 +265,33 @@ export default function Home() {
 
       <Divider />
 
-      <div
-        className={'flex flex-col items-center justify-center space-y-24 py-16'}
-      >
+      <Container>
         <div
           className={
-            'flex max-w-xl flex-col items-center space-y-6 text-center'
+            'flex flex-col items-center justify-center py-16 space-y-16'
           }
         >
-          <Heading type={1}>
-            Ready to take your SaaS business to the next level?
-          </Heading>
+          <div className={'flex flex-col items-center space-y-8 text-center'}>
+            <Pill>
+              Get started for free. No credit card required. Cancel anytime.
+            </Pill>
 
-          <SubHeading>
-            Get started on our free plan and upgrade when you are ready.
-          </SubHeading>
+            <div className={'flex flex-col space-y-2.5'}>
+              <Heading type={1}>
+                Ready to take your SaaS business to the next level?
+              </Heading>
 
-          <MainCallToActionButton />
+              <SubHeading>
+                Get started on our free plan and upgrade when you are ready.
+              </SubHeading>
+            </div>
+          </div>
+
+          <div className={'w-full'}>
+            <PricingTable />
+          </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 }
@@ -301,7 +312,7 @@ function HeroTitle({ children }: React.PropsWithChildren) {
 function FeatureIcon(props: React.PropsWithChildren) {
   return (
     <div className={'flex'}>
-      <div className={'rounded-xl bg-primary/10 p-4 dark:bg-primary/30'}>
+      <div className={'rounded-lg bg-primary/10 p-3 dark:bg-primary/30'}>
         {props.children}
       </div>
     </div>

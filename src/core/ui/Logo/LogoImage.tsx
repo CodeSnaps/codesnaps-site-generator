@@ -24,8 +24,7 @@ const LogoImage: React.FCC<{
           y2="63.6614"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#0E73CC" />
-          <stop offset="0.661458" stopColor="#8E79DE" />
+          <stop stopColor="hsl(263.4, 70%, 50.4%)" />
         </linearGradient>
       </defs>
     </svg>

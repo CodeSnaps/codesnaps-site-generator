@@ -11,7 +11,7 @@ const DocsCard: React.FC<
   return (
     <div className="flex flex-col">
       <div
-        className={`grow flex flex-col space-y-2.5 border border-gray-100 p-6 dark:border-dark-800 dark:bg-background 
+        className={`grow flex flex-col space-y-2.5 border border-gray-200 p-6 dark:border-dark-800 dark:bg-background 
         ${link ? 'rounded-t-2xl border-b-0' : 'rounded-2xl'}`}
       >
         <h3 className="mt-0 text-lg dark:text-white font-semibold">{label}</h3>
@@ -25,8 +25,8 @@ const DocsCard: React.FC<
       </div>
 
       {link && (
-        <div className="rounded-b-2xl border border-primary/60 bg-primary/5 p-6 py-4 dark:border-primary-900/50 dark:bg-primary-900/20">
-          <span className={'dark:text-primary/90 flex space-x-2 items-center'}>
+        <div className="rounded-b-2xl border border-primary/40 bg-primary/5 p-6 py-4 dark:border-primary-900/50 dark:bg-primary-900/20">
+          <span className={'text-primary flex space-x-2 items-center'}>
             <Link
               className={'font-semibold hover:underline'}
               href={`/docs/${link.url}`}

@@ -66,7 +66,7 @@ function PricingTable(
       <div
         className={
           'flex flex-col items-start space-y-6 lg:space-y-0' +
-          ' justify-center lg:flex-row lg:space-x-4 xl:space-x-6'
+          ' justify-center lg:flex-row lg:space-x-4'
         }
       >
         {STRIPE_PRODUCTS.map((product) => {
@@ -109,24 +109,27 @@ function PricingItem(
       data-cy={'subscription-plan'}
       className={classNames(
         `
-         relative flex w-full flex-col justify-between space-y-4 rounded-xl
-         p-6 lg:w-4/12 xl:p-8 2xl:w-3/12
+         relative flex w-full flex-col justify-between space-y-6 rounded-xl
+         p-6 lg:w-4/12 xl:p-8 2xl:w-3/12 xl:max-w-xs
       `,
         {
-          ['bg-primary text-primary-foreground']: recommended,
+          ['border-gray-100 dark:border-dark-900 border-2']: !recommended,
+          ['border-primary border-2']: recommended,
         },
       )}
     >
-      <div className={'flex flex-col space-y-1.5'}>
+      <div className={'flex flex-col space-y-2.5'}>
         <div className={'flex items-center space-x-6'}>
-          <Heading type={3}>{props.product.name}</Heading>
+          <Heading type={3}>
+            <b className={'font-semibold'}>{props.product.name}</b>
+          </Heading>
 
           <If condition={props.product.badge}>
             <div
               className={classNames(
                 `rounded-md py-1 px-2 text-xs font-medium flex space-x-1`,
                 {
-                  ['text-primary bg-primary-foreground']: recommended,
+                  ['text-primary-foreground bg-primary']: recommended,
                   ['bg-gray-50 text-gray-500 dark:text-gray-800']: !recommended,
                 },
               )}
@@ -139,12 +142,7 @@ function PricingItem(
           </If>
         </div>
 
-        <span
-          className={classNames('text-sm font-medium', {
-            'text-primary-foreground': recommended,
-            'text-gray-400': !recommended,
-          })}
-        >
+        <span className={'text-sm text-gray-500 dark:text-gray-400'}>
           {props.product.description}
         </span>
       </div>
@@ -154,10 +152,9 @@ function PricingItem(
 
         <If condition={props.plan.name}>
           <span
-            className={classNames(`text-lg lowercase`, {
-              'text-gray-100': recommended,
-              'text-gray-400 dark:text-gray-400': !recommended,
-            })}
+            className={classNames(
+              `text-lg lowercase text-gray-500 dark:text-gray-400`,
+            )}
           >
             <span>/</span>
             <span>{props.plan.name}</span>
@@ -197,7 +194,7 @@ function FeaturesList(
   }>,
 ) {
   return (
-    <ul className={'flex flex-col space-y-1.5'}>
+    <ul className={'flex flex-col space-y-2'}>
       {props.features.map((feature) => {
         return (
           <ListItem key={feature}>
@@ -213,8 +210,14 @@ function FeaturesList(
 }
 
 function Price({ children }: React.PropsWithChildren) {
+  // little trick to re-animate the price when switching plans
+  const key = Math.random();
+
   return (
-    <div>
+    <div
+      key={key}
+      className={`animate-in duration-500 slide-in-from-left-4 fade-in`}
+    >
       <span className={'text-2xl font-bold lg:text-3xl xl:text-4xl'}>
         {children}
       </span>
@@ -226,10 +229,12 @@ function ListItem({ children }: React.PropsWithChildren) {
   return (
     <li className={'flex items-center space-x-3 font-medium'}>
       <div>
-        <CheckCircleIcon className={'h-6'} />
+        <CheckCircleIcon className={'h-5'} />
       </div>
 
-      <span className={'text-sm'}>{children}</span>
+      <span className={'text-sm text-gray-600 dark:text-gray-300'}>
+        {children}
+      </span>
     </li>
   );
 }
@@ -256,11 +261,19 @@ function PlansSwitcher(
         return (
           <Button
             key={plan}
-            variant={selected ? 'default' : 'ghost'}
+            variant={selected ? 'outlinePrimary' : 'outline'}
             className={className}
             onClick={() => props.setPlan(plan)}
           >
-            <Trans i18nKey={`common:plans.${plan}`} defaults={plan} />
+            <span className={'flex space-x-2 items-center'}>
+              <If condition={selected}>
+                <CheckCircleIcon className={'h-4'} />
+              </If>
+
+              <span>
+                <Trans i18nKey={`common:plans.${plan}`} defaults={plan} />
+              </span>
+            </span>
           </Button>
         );
       })}
@@ -283,13 +296,9 @@ function DefaultCheckoutButton(
   return (
     <div className={'bottom-0 left-0 w-full p-0'}>
       <Button
-        className={classNames({
-          'text-foreground bg-background dark:bg-white dark:text-gray-900':
-            props.recommended,
-        })}
         block
         href={linkHref}
-        variant={props.recommended ? 'custom' : 'secondary'}
+        variant={props.recommended ? 'default' : 'outline'}
       >
         <Trans i18nKey={label} defaults={label} />
       </Button>

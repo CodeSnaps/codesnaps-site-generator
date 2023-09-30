@@ -10,10 +10,13 @@ export const metadata = {
 function PricingPage() {
   return (
     <Container>
-      <div className={'flex flex-col space-y-8 my-8'}>
+      <div className={'flex flex-col space-y-16 my-8'}>
         <div className={'flex flex-col items-center space-y-4'}>
           <Heading type={1}>Pricing</Heading>
-          <SubHeading>Fair pricing for your customers</SubHeading>
+          <SubHeading>
+            Our pricing is designed to scale with your business. Get started for
+            free, then grow with us.
+          </SubHeading>
         </div>
 
         <PricingTable />

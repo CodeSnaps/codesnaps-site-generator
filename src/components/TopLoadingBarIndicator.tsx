@@ -27,7 +27,7 @@ function TopLoadingBarIndicator() {
     <LoadingBar
       height={4}
       waitingTime={0}
-      shadow={false}
+      shadow
       className={'bg-primary'}
       color={''}
       ref={ref}
