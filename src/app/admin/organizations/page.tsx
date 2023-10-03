@@ -1,5 +1,4 @@
 import { use } from 'react';
-import { redirect } from 'next/navigation';
 
 import AppContainer from '~/app/dashboard/[organization]/components/AppContainer';
 import AdminHeader from '~/app/admin/components/AdminHeader';
@@ -39,7 +38,7 @@ function OrganizationsAdminPage({ searchParams }: OrganizationsAdminPageProps) {
 
       <AppContainer>
         <div className={'flex flex-col space-y-4'}>
-          <form action={handleSearchOrganization}>
+          <form method={'GET'}>
             <TextFieldInput
               name={'search'}
               defaultValue={search}
@@ -60,15 +59,3 @@ function OrganizationsAdminPage({ searchParams }: OrganizationsAdminPageProps) {
 }
 
 export default AdminGuard(OrganizationsAdminPage);
-
-async function handleSearchOrganization(data: FormData) {
-  'use server';
-
-  const search = data.get('search') as string;
-
-  if (!search) {
-    return redirect('/admin/organizations');
-  }
-
-  redirect(`/admin/organizations?search=${search}`);
-}
