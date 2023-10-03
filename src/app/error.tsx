@@ -5,12 +5,7 @@ import Heading from '~/core/ui/Heading';
 import Trans from '~/core/ui/Trans';
 
 import SiteHeader from '~/app/(site)/components/SiteHeader';
-import configuration from '~/configuration';
 import I18nProvider from '~/i18n/I18nProvider';
-
-export const metadata = {
-  title: `An error occurred - ${configuration.site.name}`,
-};
 
 const ErrorPage = () => {
   return (

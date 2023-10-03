@@ -24,6 +24,7 @@ import Trans from '~/core/ui/Trans';
 import { inviteMembersToOrganizationAction } from '~/lib/organizations/actions';
 import useCsrfToken from '~/core/hooks/use-csrf-token';
 import useCurrentOrganization from '~/lib/organizations/hooks/use-current-organization';
+import toaster from 'react-hot-toast';
 
 type InviteModel = ReturnType<typeof memberFactory>;
 
@@ -64,11 +65,23 @@ const InviteMembersForm = () => {
               return;
             }
 
-            await inviteMembersToOrganizationAction({
-              invites: data.members,
-              csrfToken,
-              organizationUid: organization.uuid,
-            });
+            const id = toaster.loading(t('organization:inviteMembersLoading'));
+
+            try {
+              await inviteMembersToOrganizationAction({
+                invites: data.members,
+                csrfToken,
+                organizationUid: organization.uuid,
+              });
+
+              toaster.success(t('organization:inviteMembersSuccess'), {
+                id,
+              });
+            } catch (e) {
+              toaster.error(t('organization:inviteMembersError'), {
+                id,
+              });
+            }
           });
         })(event);
       }}

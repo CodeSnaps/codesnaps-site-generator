@@ -150,6 +150,7 @@ export default async function inviteMembers(params: Params) {
           return Promise.reject(`Code not found on membership`);
         }
 
+        // update membership with new role
         try {
           const params = {
             id: membershipId,
@@ -157,8 +158,12 @@ export default async function inviteMembers(params: Params) {
           };
 
           await updateMembershipById(client, params);
+        } catch (error) {
+          return catchCallback(error, membershipId);
+        }
 
-          // send email
+        // send email
+        try {
           await sendEmailRequest(code);
         } catch (error) {
           return catchCallback(error, membershipId);
@@ -242,7 +247,7 @@ async function sendInviteEmail(props: {
   const productName = configuration.site.siteName;
 
   if (!sender) {
-    throw new Error(
+    return Promise.reject(
       `Missing email configuration. Please add the following environment variables:
       EMAIL_SENDER
       `,

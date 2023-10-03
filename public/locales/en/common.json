@@ -14,8 +14,10 @@
   "genericServerErrorHeading": "Sorry, something went wrong while processing your request. Please contact us if the issue persists.",
   "pageNotFound": "Ops. Page not Found.",
   "pageNotFoundSubHeading": "Apologies, the page you were looking for was not found",
-  "genericError": "Oooops. An error occurred",
+  "genericError": "Sorry, something went wrong.",
+  "genericErrorSubHeading": "Apologies, an error occurred while processing your request. Please contact us if the issue persists.",
   "anonymousUser": "Anonymous",
+  "tryAgain": "Try Again",
   "theme": "Theme",
   "lightTheme": "Light",
   "darkTheme": "Dark",
@@ -27,7 +29,6 @@
   "retry": "Retry",
   "contactUs": "Contact Us",
   "loading": "Loading",
-  "genericErrorSubHeading": "Apologies, an error occurred while processing your request. Please contact us if the issue persists.",
   "roles": {
     "owner": {
       "label": "Owner",
