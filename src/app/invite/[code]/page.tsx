@@ -1,11 +1,7 @@
 import { use } from 'react';
 import { notFound, redirect } from 'next/navigation';
-import { cookies, headers } from 'next/headers';
+import { headers } from 'next/headers';
 import { isNotFoundError } from 'next/dist/client/components/not-found';
-
-import invariant from 'tiny-invariant';
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-
 import If from '~/core/ui/If';
 import Heading from '~/core/ui/Heading';
 import Trans from '~/core/ui/Trans';
@@ -17,7 +13,6 @@ import { getMembershipByInviteCode } from '~/lib/memberships/queries';
 import ExistingUserInviteForm from '~/app/invite/components/ExistingUserInviteForm';
 import NewUserInviteForm from '~/app/invite/components/NewUserInviteForm';
 import InviteCsrfTokenProvider from '~/app/invite/components/InviteCsrfTokenProvider';
-import { Database } from '~/database.types';
 import { withI18n } from '~/i18n/with-i18n';
 
 interface Context {
@@ -115,7 +110,7 @@ async function loadInviteData(code: string) {
         {
           code,
         },
-        `User navigated to invite page, but it wasn't found. Redirecting to home page...`
+        `User navigated to invite page, but it wasn't found. Redirecting to home page...`,
       );
 
       return notFound();
@@ -138,26 +133,9 @@ async function loadInviteData(code: string) {
 
     logger.error(
       error,
-      `Error encountered while fetching invite. Redirecting to home page...`
+      `Error encountered while fetching invite. Redirecting to home page...`,
     );
 
     redirect('/');
   }
-}
-
-/**
- * @name getAdminClient
- */
-function getAdminClient() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-  invariant(url, `Supabase URL not provided`);
-  invariant(serviceRoleKey, `Supabase Service role key not provided`);
-
-  // we build a server client to be able to read the pending membership
-  // bypassing the session using empty headers and cookies
-  return createServerComponentClient<Database>({
-    cookies,
-  });
 }

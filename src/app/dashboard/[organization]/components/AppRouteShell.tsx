@@ -98,7 +98,7 @@ function RouteShellWithSidebar(
   const [collapsed, setCollapsed] = useCollapsible(props.collapsed);
 
   return (
-    <div className={'flex h-full flex-1 overflow-hidden'}>
+    <div className={'flex overflow-hidden'}>
       <SidebarContext.Provider value={{ collapsed, setCollapsed }}>
         <div className={'hidden lg:block'}>
           <AppSidebar organizationUid={props.organization} />
@@ -106,8 +106,7 @@ function RouteShellWithSidebar(
 
         <div
           className={
-            'relative mx-auto h-screen w-full overflow-y-auto' +
-            ' flex flex-col'
+            'relative mx-auto flex flex-col h-screen w-full overflow-y-auto'
           }
         >
           {props.children}

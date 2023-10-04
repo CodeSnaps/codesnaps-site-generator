@@ -15,10 +15,9 @@ import configuration from '~/configuration';
 const requireEmailConfirmation = configuration.auth.requireEmailConfirmation;
 
 const EmailPasswordSignUpContainer: React.FCC<{
-  onSignUp?: () => unknown;
-  onSubmit?: (userId?: string) => void;
+  onSignUp: (userId?: string) => unknown;
   onError?: (error?: unknown) => unknown;
-}> = ({ onSignUp, onSubmit, onError }) => {
+}> = ({ onSignUp, onError }) => {
   const signUpMutation = useSignUpWithEmailAndPasswordMutation();
   const redirecting = useRef(false);
   const loading = signUpMutation.isMutating || redirecting.current;
@@ -46,22 +45,16 @@ const EmailPasswordSignUpContainer: React.FCC<{
         // If the user is required to confirm their email, we display a message
         if (requireEmailConfirmation) {
           setShowVerifyEmailAlert(true);
-
-          if (onSubmit) {
-            const userId = data?.user?.id;
-            onSubmit(userId);
-          }
-        } else {
-          // Otherwise, we redirect the user to the onboarding page
-          onSignUp && onSignUp();
         }
+
+        onSignUp(data.user?.id);
       } catch (error) {
         if (onError) {
           onError(error);
         }
       }
     },
-    [loading, onError, onSignUp, onSubmit, signUpMutation]
+    [loading, onError, onSignUp, signUpMutation],
   );
 
   return (

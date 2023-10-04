@@ -83,15 +83,15 @@ Alert.Heading = AlertHeading;
 function getClassNameBuilder() {
   return cva(
     [
-      `p-4 animate-in fade-in relative flex items-center justify-between text-gray-700 rounded-lg text-sm border`,
+      `p-4 animate-in dark:bg-transparent fade-in relative flex items-center justify-between text-gray-700 rounded-lg text-sm border`,
     ],
     {
       variants: {
         type: {
-          success: `dark:text-green-500 text-green-800 border-green-500/80`,
-          info: `dark:text-sky-500 text-sky-800 border-sky-800/50 dark:border-sky-500/50`,
-          error: `dark:text-red-500 text-red-500 border-red-500/80`,
-          warn: `dark:text-yellow-500 text-yellow-800 border-yellow-500/80`,
+          success: `bg-green-500/5 dark:text-green-500 text-green-800 border-green-500/80`,
+          info: `bg-sky-500/5 dark:text-sky-500 text-sky-800 border-sky-800/50 dark:border-sky-500/50`,
+          error: `bg-red-500/5 dark:text-red-500 text-red-500 border-red-500/80`,
+          warn: `bg-yellow-500/5 dark:text-yellow-500 text-yellow-800 border-yellow-500/80`,
         },
       },
       defaultVariants: {

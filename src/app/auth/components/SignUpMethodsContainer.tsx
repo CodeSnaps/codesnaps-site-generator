@@ -17,6 +17,15 @@ function SignUpMethodsContainer() {
   const router = useRouter();
 
   const onSignUp = useCallback(() => {
+    const requireEmailConfirmation =
+      configuration.auth.requireEmailConfirmation;
+
+    // If the user is required to confirm their email, we show them a message
+    if (requireEmailConfirmation) {
+      return;
+    }
+
+    // Otherwise, we redirect them to the onboarding page
     router.push(configuration.paths.onboarding);
   }, [router]);
 

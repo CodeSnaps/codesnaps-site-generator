@@ -11,7 +11,6 @@ import EmailPasswordSignUpContainer from '~/app/auth/components/EmailPasswordSig
 import If from '~/core/ui/If';
 import Button from '~/core/ui/Button';
 import Trans from '~/core/ui/Trans';
-import Alert from '~/core/ui/Alert';
 
 import configuration from '~/configuration';
 import PageLoadingIndicator from '~/core/ui/PageLoadingIndicator';
@@ -31,7 +30,6 @@ function NewUserInviteForm(
 ) {
   const [mode, setMode] = useState<Mode>(Mode.SignUp);
   const [isSubmitting, startTransition] = useTransition();
-  const [verifyEmail, setVerifyEmail] = useState(false);
   const csrfToken = useCsrfToken();
 
   const oAuthReturnUrl = isBrowser() ? window.location.pathname : '';
@@ -39,29 +37,15 @@ function NewUserInviteForm(
   const onInviteAccepted = useCallback(
     async (userId?: string) => {
       startTransition(async () => {
-        const shouldVerifyEmail = await acceptInviteAction({
+        await acceptInviteAction({
           code: props.code,
           userId,
           csrfToken,
         });
-
-        setVerifyEmail(shouldVerifyEmail);
       });
     },
     [csrfToken, props.code],
   );
-
-  if (verifyEmail) {
-    return (
-      <Alert type={'success'}>
-        <Alert.Heading>
-          <Trans i18nKey={'auth:emailConfirmationAlertHeading'} />
-        </Alert.Heading>
-
-        <Trans i18nKey={'auth:emailConfirmationAlertBody'} />
-      </Alert>
-    );
-  }
 
   return (
     <>
@@ -76,7 +60,7 @@ function NewUserInviteForm(
       <If condition={configuration.auth.providers.emailPassword}>
         <If condition={mode === Mode.SignUp}>
           <div className={'flex w-full flex-col items-center space-y-4'}>
-            <EmailPasswordSignUpContainer onSubmit={onInviteAccepted} />
+            <EmailPasswordSignUpContainer onSignUp={onInviteAccepted} />
 
             <Button
               block
