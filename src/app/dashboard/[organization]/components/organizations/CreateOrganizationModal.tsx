@@ -13,9 +13,8 @@ const Heading = (
 );
 
 const CreateOrganizationModal: React.FC<{
-  isOpen: boolean;
-  setIsOpen: (isOpen: boolean) => unknown;
-}> = ({ isOpen, setIsOpen }) => {
+  Trigger: React.ReactNode;
+}> = ({ Trigger }) => {
   const [isSubmitting, startTransition] = useTransition();
   const csrfToken = useCsrfToken();
 
@@ -26,11 +25,9 @@ const CreateOrganizationModal: React.FC<{
           organization,
           csrfToken,
         });
-
-        setIsOpen(false);
       });
     },
-    [csrfToken, setIsOpen],
+    [csrfToken],
   );
 
   const onSubmit: FormEventHandler = useCallback(
@@ -45,7 +42,7 @@ const CreateOrganizationModal: React.FC<{
   );
 
   return (
-    <Modal isOpen={isOpen} setIsOpen={setIsOpen} heading={Heading}>
+    <Modal Trigger={Trigger} heading={Heading}>
       <form onSubmit={onSubmit}>
         <div className={'flex flex-col space-y-6'}>
           <TextField>
@@ -63,8 +60,6 @@ const CreateOrganizationModal: React.FC<{
           </TextField>
 
           <div className={'flex justify-end space-x-2'}>
-            <Modal.CancelButton onClick={() => setIsOpen(false)} />
-
             <Button
               data-cy={'confirm-create-organization-button'}
               loading={isSubmitting}

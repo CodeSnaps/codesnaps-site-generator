@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Toaster } from 'react-hot-toast';
+import { Toaster } from 'sonner';
 
 import SidebarContext from '~/lib/contexts/sidebar';
 import I18nProvider from '~/i18n/I18nProvider';

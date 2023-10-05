@@ -1,9 +1,13 @@
 'use client';
 
-import { Toaster as ReactHotToast } from 'react-hot-toast';
+import { Toaster as Sonner } from 'sonner';
 
-function Toaster() {
-  return <ReactHotToast />;
+function Toaster({
+  position = 'top-center',
+  richColors = true,
+  ...props
+}: React.ComponentProps<typeof Sonner> = {}) {
+  return <Sonner richColors position={position} {...props} />;
 }
 
 export default Toaster;

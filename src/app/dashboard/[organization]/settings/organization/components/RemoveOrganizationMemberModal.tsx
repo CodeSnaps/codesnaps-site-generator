@@ -36,6 +36,7 @@ const RemoveOrganizationMemberModal: React.FCC<{
           <Modal.CancelButton onClick={() => setIsOpen(false)} />
 
           <Button
+            type={'button'}
             loading={isSubmitting}
             data-cy={'confirm-remove-member'}
             variant={'destructive'}

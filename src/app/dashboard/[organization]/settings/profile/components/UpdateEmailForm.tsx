@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect } from 'react';
-import toast from 'react-hot-toast';
+import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import type { User } from '@supabase/gotrue-js';
@@ -38,7 +38,7 @@ const UpdateEmailForm: React.FC<{ user: User }> = ({ user }) => {
         },
       });
     },
-    [t, updateUserMutation]
+    [t, updateUserMutation],
   );
 
   const currentEmail = user?.email as string;
@@ -69,7 +69,7 @@ const UpdateEmailForm: React.FC<{ user: User }> = ({ user }) => {
       // otherwise, go ahead and update the email
       return await updateEmail(email);
     },
-    [currentEmail, updateEmail, t]
+    [currentEmail, updateEmail, t],
   );
 
   const emailControl = register('email', {

@@ -3,7 +3,7 @@
 import { useCallback, useEffect } from 'react';
 import type { User } from '@supabase/gotrue-js';
 
-import toast from 'react-hot-toast';
+import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 
@@ -75,7 +75,7 @@ const UpdatePasswordForm: React.FCC<{ user: User }> = ({ user }) => {
         loading: t(`profile:updatePasswordLoading`),
       });
     },
-    [updateUserMutation, t]
+    [updateUserMutation, t],
   );
 
   const updatePasswordCallback = useCallback(
@@ -94,7 +94,7 @@ const UpdatePasswordForm: React.FCC<{ user: User }> = ({ user }) => {
         return Promise.reject(e);
       }
     },
-    [updatePasswordFromCredential, t]
+    [updatePasswordFromCredential, t],
   );
 
   const onSubmit = useCallback(
@@ -103,7 +103,7 @@ const UpdatePasswordForm: React.FCC<{ user: User }> = ({ user }) => {
 
       return updatePasswordCallback(user, currentPassword, newPassword);
     },
-    [user, updatePasswordCallback]
+    [user, updatePasswordCallback],
   );
 
   // reset form on success

@@ -102,6 +102,7 @@ function ImpersonateUserConfirmationModal({
             </Modal.CancelButton>
 
             <Button
+              type={'button'}
               loading={pending}
               variant={'destructive'}
               onClick={onConfirm}

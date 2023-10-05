@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import toaster from 'react-hot-toast';
+import { toast } from 'sonner';
 
 import useSupabase from '~/core/hooks/use-supabase';
 import useMutation from 'swr/mutation';
@@ -28,7 +28,7 @@ function MultiFactorAuthSetupModal(
   const onEnrollSuccess = useCallback(() => {
     props.setIsOpen(false);
 
-    return toaster.success(t(`profile:multiFactorSetupSuccess`));
+    return toast.success(t(`profile:multiFactorSetupSuccess`));
   }, [props, t]);
 
   return (

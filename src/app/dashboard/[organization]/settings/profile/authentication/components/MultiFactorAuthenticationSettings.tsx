@@ -5,6 +5,8 @@ import useMutation from 'swr/mutation';
 import { Factor } from '@supabase/gotrue-js';
 import { useTranslation } from 'react-i18next';
 import { XMarkIcon } from '@heroicons/react/24/outline';
+import { toast } from 'sonner';
+
 import { Tooltip, TooltipContent, TooltipTrigger } from '~/core/ui/Tooltip';
 
 import useFetchAuthFactors from '~/core/hooks/use-fetch-factors';
@@ -12,7 +14,6 @@ import Spinner from '~/core/ui/Spinner';
 import Alert from '~/core/ui/Alert';
 import If from '~/core/ui/If';
 import Button from '~/core/ui/Button';
-import toaster from 'react-hot-toast';
 import Modal from '~/core/ui/Modal';
 import Badge from '~/core/ui/Badge';
 import IconButton from '~/core/ui/IconButton';
@@ -22,7 +23,15 @@ import useSupabase from '~/core/hooks/use-supabase';
 import useFactorsMutationKey from '~/core/hooks/use-user-factors-mutation-key';
 
 import SettingsTile from '~/app/dashboard/[organization]/settings/components/SettingsTile';
-import MultiFactorAuthSetupModal from '~/app/dashboard/[organization]/settings/profile/components/MultiFactorAuthSetupModal';
+import MultiFactorAuthSetupModal from '../../components/MultiFactorAuthSetupModal';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '~/core/ui/Table';
 
 const MAX_FACTOR_COUNT = 10;
 
@@ -147,15 +156,15 @@ function ConfirmUnenrollFactorModal(
     async (factorId: string) => {
       if (unEnroll.isMutating) return;
 
-      const promise = unEnroll.trigger(factorId);
+      const promise = unEnroll.trigger(factorId).then(() => {
+        props.setIsModalOpen(false);
+      });
 
-      await toaster.promise(promise, {
+      toast.promise(promise, {
         loading: t(`profile:unenrollingFactor`),
         success: t(`profile:unenrollFactorSuccess`),
         error: t(`profile:unenrollFactorError`),
       });
-
-      props.setIsModalOpen(false);
     },
     [props, t, unEnroll],
   );
@@ -178,6 +187,7 @@ function ConfirmUnenrollFactorModal(
           />
 
           <Button
+            type={'button'}
             loading={unEnroll.isMutating}
             variant={'destructive'}
             onClick={() => onUnenrollRequested(props.factorId)}
@@ -198,37 +208,37 @@ function FactorsTable({
   factors: Factor[];
 }>) {
   return (
-    <table className={'Table'}>
-      <thead>
-        <tr>
-          <th>
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead>
             <Trans i18nKey={'profile:factorName'} />
-          </th>
-          <th>
+          </TableHead>
+          <TableHead>
             <Trans i18nKey={'profile:factorType'} />
-          </th>
-          <th>
+          </TableHead>
+          <TableHead>
             <Trans i18nKey={'profile:factorStatus'} />
-          </th>
+          </TableHead>
 
-          <th />
-        </tr>
-      </thead>
+          <TableHead />
+        </TableRow>
+      </TableHeader>
 
-      <tbody>
+      <TableBody>
         {factors.map((factor) => (
-          <tr key={factor.id}>
-            <td>
+          <TableRow key={factor.id}>
+            <TableCell>
               <span className={'block truncate'}>{factor.friendly_name}</span>
-            </td>
+            </TableCell>
 
-            <td>
+            <TableCell>
               <Badge size={'small'} className={'inline-flex uppercase'}>
                 {factor.factor_type}
               </Badge>
-            </td>
+            </TableCell>
 
-            <td>
+            <TableCell>
               <Badge
                 size={'small'}
                 className={'inline-flex capitalize'}
@@ -236,9 +246,9 @@ function FactorsTable({
               >
                 {factor.status}
               </Badge>
-            </td>
+            </TableCell>
 
-            <td className={'flex justify-end'}>
+            <TableCell className={'flex justify-end'}>
               <Tooltip>
                 <TooltipTrigger asChild>
                   <IconButton onClick={() => setUnenrolling(factor.id)}>
@@ -250,11 +260,11 @@ function FactorsTable({
                   <Trans i18nKey={'profile:unenrollTooltip'} />
                 </TooltipContent>
               </Tooltip>
-            </td>
-          </tr>
+            </TableCell>
+          </TableRow>
         ))}
-      </tbody>
-    </table>
+      </TableBody>
+    </Table>
   );
 }
 

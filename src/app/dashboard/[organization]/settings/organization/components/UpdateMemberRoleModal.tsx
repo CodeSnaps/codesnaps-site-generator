@@ -40,6 +40,7 @@ const UpdateMemberRoleModal: React.FCC<{
           <Modal.CancelButton onClick={() => setIsOpen(false)} />
 
           <Button
+            type={'button'}
             data-cy={'confirm-update-member-role'}
             loading={isSubmitting}
             onClick={onRoleUpdated}

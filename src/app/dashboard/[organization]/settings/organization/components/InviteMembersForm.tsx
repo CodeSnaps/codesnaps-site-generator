@@ -3,12 +3,9 @@
 import { useTranslation } from 'react-i18next';
 import { Fragment, useTransition } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 
-import {
-  CheckIcon,
-  XMarkIcon,
-  PlusCircleIcon,
-} from '@heroicons/react/24/outline';
+import { XMarkIcon, PlusCircleIcon } from '@heroicons/react/24/outline';
 
 import MembershipRole from '~/lib/organizations/types/membership-role';
 
@@ -24,7 +21,6 @@ import Trans from '~/core/ui/Trans';
 import { inviteMembersToOrganizationAction } from '~/lib/organizations/actions';
 import useCsrfToken from '~/core/hooks/use-csrf-token';
 import useCurrentOrganization from '~/lib/organizations/hooks/use-current-organization';
-import toaster from 'react-hot-toast';
 
 type InviteModel = ReturnType<typeof memberFactory>;
 
@@ -65,7 +61,7 @@ const InviteMembersForm = () => {
               return;
             }
 
-            const id = toaster.loading(t('organization:inviteMembersLoading'));
+            const id = toast.loading(t('organization:inviteMembersLoading'));
 
             try {
               await inviteMembersToOrganizationAction({
@@ -74,11 +70,11 @@ const InviteMembersForm = () => {
                 organizationUid: organization.uuid,
               });
 
-              toaster.success(t('organization:inviteMembersSuccess'), {
+              toast.success(t('organization:inviteMembersSuccess'), {
                 id,
               });
             } catch (e) {
-              toaster.error(t('organization:inviteMembersError'), {
+              toast.error(t('organization:inviteMembersError'), {
                 id,
               });
             }

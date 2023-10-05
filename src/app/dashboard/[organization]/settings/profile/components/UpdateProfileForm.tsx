@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import toaster from 'react-hot-toast';
+import { toast } from 'sonner';
 import { useForm } from 'react-hook-form';
 
 import type { SupabaseClient } from '@supabase/supabase-js';
@@ -82,7 +82,7 @@ function UpdateProfileForm({
       onUpdateProfileData(info);
     });
 
-    return toaster.promise(promise, {
+    return toast.promise(promise, {
       success: t(`profile:updateProfileSuccess`),
       error: t(`profile:updateProfileError`),
       loading: t(`profile:updateProfileLoading`),

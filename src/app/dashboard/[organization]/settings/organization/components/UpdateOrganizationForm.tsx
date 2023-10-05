@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useContext, useEffect } from 'react';
-import toast from 'react-hot-toast';
+import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import type { SupabaseClient } from '@supabase/supabase-js';
@@ -98,7 +98,7 @@ const UpdateOrganizationForm = () => {
       updateOrganizationMutation,
       t,
       setOrganization,
-    ]
+    ],
   );
 
   useEffect(() => {
