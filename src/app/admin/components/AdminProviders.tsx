@@ -1,11 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { Toaster } from 'sonner';
 
 import SidebarContext from '~/lib/contexts/sidebar';
 import I18nProvider from '~/i18n/I18nProvider';
 import CsrfTokenContext from '~/lib/contexts/csrf';
+import Toaster from '~/components/Toaster';
 
 function AdminProviders(
   props: React.PropsWithChildren<{
