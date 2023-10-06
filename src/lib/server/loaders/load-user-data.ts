@@ -22,6 +22,7 @@ async function loadUserData() {
 
     const session = data.session;
     const userId = session.user.id;
+
     const userData = await getUserDataById(client, userId);
     const language = await getLanguage();
 

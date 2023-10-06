@@ -1,6 +1,5 @@
 import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { use } from 'react';
 
 import OnboardingContainer from './components/OnboardingContainer';
 import requireSession from '~/lib/user/require-session';
@@ -13,8 +12,8 @@ export const metadata = {
   title: 'Onboarding',
 };
 
-function OnboardingPage() {
-  const { csrfToken } = use(loadData());
+async function OnboardingPage() {
+  const { csrfToken } = await loadData();
 
   return <OnboardingContainer csrfToken={csrfToken} />;
 }
@@ -27,7 +26,7 @@ async function loadData() {
   const { user } = await requireSession(client);
 
   const userData = await getUserDataById(client, user.id.toString()).catch(
-    () => undefined
+    () => undefined,
   );
 
   if (userData && userData.onboarded) {

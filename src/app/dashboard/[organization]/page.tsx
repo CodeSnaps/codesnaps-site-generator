@@ -1,30 +1,27 @@
 import loadDynamic from 'next/dynamic';
-import Trans from '~/core/ui/Trans';
 import { Squares2X2Icon } from '@heroicons/react/24/outline';
 
-import AppHeader from '~/app/dashboard/[organization]/components/AppHeader';
-import AppContainer from '~/app/dashboard/[organization]/components/AppContainer';
+import AppHeader from './components/AppHeader';
+import AppContainer from './components/AppContainer';
 import { withI18n } from '~/i18n/with-i18n';
 import Spinner from '~/core/ui/Spinner';
+import Trans from '~/core/ui/Trans';
 
-const DashboardDemo = loadDynamic(
-  () => import('~/app/dashboard/[organization]/components/DashboardDemo'),
-  {
-    ssr: false,
-    loading: () => (
-      <div
-        className={
-          'flex flex-1 items-center min-h-full justify-center flex-col' +
-          ' space-y-4'
-        }
-      >
-        <Spinner className={'text-primary'} />
+const DashboardDemo = loadDynamic(() => import('./components/DashboardDemo'), {
+  ssr: false,
+  loading: () => (
+    <div
+      className={
+        'flex flex-1 items-center min-h-full justify-center flex-col' +
+        ' space-y-4'
+      }
+    >
+      <Spinner className={'text-primary'} />
 
-        <div>Loading dashboard...</div>
-      </div>
-    ),
-  },
-);
+      <div>Loading dashboard...</div>
+    </div>
+  ),
+});
 
 export const metadata = {
   title: 'Dashboard',

@@ -165,11 +165,11 @@ export const transferOrganizationOwnershipAction = withSession(
     );
 
     const appHome = configuration.paths.appHome;
-    const path = `/settings/organization/members`;
+    const path = `settings/organization/members`;
     const pathToRevalidate = [appHome, organizationUid, path].join('/');
 
     // revalidate the organization members page
-    revalidatePath(pathToRevalidate);
+    revalidatePath(pathToRevalidate, 'page');
 
     return {
       success: true,
@@ -225,10 +225,10 @@ export const inviteMembersToOrganizationAction = withSession(
     }
 
     const appHome = configuration.paths.appHome;
-    const path = `/settings/organization/members`;
+    const path = `settings/organization/members`;
     const redirectPath = [appHome, organizationUid, path].join('/');
 
-    revalidatePath(redirectPath);
+    revalidatePath(redirectPath, 'page');
 
     redirect(redirectPath);
   },

@@ -1,14 +1,14 @@
 import Footer from '~/app/(site)/components/Footer';
-import loadUserData from '~/lib/server/loaders/load-user-data';
 import I18nProvider from '~/i18n/I18nProvider';
 import SiteHeaderSessionProvider from '~/app/(site)/components/SiteHeaderSessionProvider';
+import loadUserData from '~/lib/server/loaders/load-user-data';
 
 async function SiteLayout(props: React.PropsWithChildren) {
-  const data = await loadUserData();
+  const { session, language } = await loadUserData();
 
   return (
-    <I18nProvider lang={data.language}>
-      <SiteHeaderSessionProvider data={data.session} />
+    <I18nProvider lang={language}>
+      <SiteHeaderSessionProvider data={session} />
 
       {props.children}
 

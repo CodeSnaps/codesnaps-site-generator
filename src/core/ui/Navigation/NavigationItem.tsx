@@ -14,11 +14,6 @@ import Trans from '~/core/ui/Trans';
 interface Link {
   path: string;
   label?: string;
-
-  /**
-   * @deprecated - Simply use {@link label}
-   */
-  i18n?: string;
 }
 
 const NavigationMenuItem: React.FCC<{
@@ -31,7 +26,7 @@ const NavigationMenuItem: React.FCC<{
   const pathName = usePathname() ?? '';
   const active = isRouteActive(link.path, pathName, depth ?? 3);
   const menuProps = useContext(NavigationMenuContext);
-  const label = link.label ?? link.i18n;
+  const label = link.label;
 
   const itemClassName = getNavigationMenuItemClassBuilder()({
     active,
@@ -62,7 +57,7 @@ export default NavigationMenuItem;
 function getNavigationMenuItemClassBuilder() {
   return cva(
     [
-      `p-1 lg:px-2.5 flex items-center justify-center font-semibold lg:justify-start rounded-md text-sm transition-colors active:[&>*]:translate-y-[2px]`,
+      `p-1 lg:px-2.5 flex items-center justify-center font-medium lg:justify-start rounded-md text-sm transition colors transform active:translate-y-[2px]`,
     ],
     {
       compoundVariants: [

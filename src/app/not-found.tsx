@@ -14,13 +14,13 @@ export const metadata = {
 };
 
 const NotFoundPage = async () => {
-  const [, data] = await loadData();
+  const { session } = await loadUserData();
 
   return (
     <main>
       <Fonts />
 
-      <SiteHeaderSessionProvider data={data.session} />
+      <SiteHeaderSessionProvider data={session} />
 
       <div
         className={

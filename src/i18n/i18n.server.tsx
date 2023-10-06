@@ -24,7 +24,7 @@ async function createLanguageBundles(namespaces: string[], language: string) {
   const bundles = await Promise.all(
     namespaces.map((namespace) => {
       return readTranslationFile(language, namespace);
-    })
+    }),
   );
 
   return namespaces.reduce((acc, namespace, index) => {
@@ -36,20 +36,17 @@ async function createLanguageBundles(namespaces: string[], language: string) {
 }
 
 async function readTranslationFile(language: string, fileName: string) {
-  const { readFile } = await import('fs/promises');
-
   try {
-    const prefix = `${process.cwd()}/public/locales`;
-
-    const file = await readFile(
-      `${prefix}/${language}/${fileName}.json`,
-      'utf8'
+    const { default: translations } = await import(
+      `../../public/locales/${language}/${fileName}.json`
     );
 
-    return JSON.parse(file);
+    return translations;
   } catch (e) {
+    console.error(e);
+
     console.error(
-      `Error: failed to read translation file: ${fileName}. Does it exist?`
+      `Error: failed to read translation file: ${fileName}. Does it exist?`,
     );
 
     return {};

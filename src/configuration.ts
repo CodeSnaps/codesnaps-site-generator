@@ -17,7 +17,6 @@ const configuration = {
     siteName: 'Awesomely',
     twitterHandle: '',
     githubHandle: '',
-    language: 'en',
     convertKitFormId: '',
     locale: process.env.NEXT_PUBLIC_DEFAULT_LOCALE,
   },
