@@ -8,70 +8,73 @@ import getLanguageCookie from '~/i18n/get-language-cookie';
 import SiteHeaderSessionProvider from '~/app/(site)/components/SiteHeaderSessionProvider';
 import loadUserData from '~/lib/server/loaders/load-user-data';
 import Fonts from '~/components/Fonts';
+import I18nProvider from '~/i18n/I18nProvider';
 
 export const metadata = {
   title: `Page not found - ${configuration.site.name}`,
 };
 
 const NotFoundPage = async () => {
-  const { session } = await loadUserData();
+  const [i18n, data] = await loadData();
 
   return (
-    <main>
-      <Fonts />
+    <I18nProvider lang={i18n.language}>
+      <main>
+        <Fonts />
 
-      <SiteHeaderSessionProvider data={session} />
+        <SiteHeaderSessionProvider data={data.session} />
 
-      <div
-        className={
-          'm-auto flex min-h-[50vh] w-full items-center justify-center'
-        }
-      >
-        <div className={'flex flex-col space-y-8'}>
-          <div
-            className={
-              'flex space-x-8 divide-x divide-gray-100' +
-              ' dark:divide-dark-800'
-            }
-          >
-            <div>
-              <Heading type={1}>
-                <span
-                  data-cy={'catch-route-status-code'}
-                  className={'text-primary'}
-                >
-                  404
-                </span>
-              </Heading>
-            </div>
-
-            <div className={'flex flex-col space-y-4 pl-8'}>
-              <div className={'flex flex-col space-y-2'}>
-                <div>
-                  <Heading type={1}>
-                    <Trans i18nKey={'common:pageNotFound'} />
-                  </Heading>
-                </div>
-
-                <p className={'text-gray-500 dark:text-gray-300'}>
-                  <Trans i18nKey={'common:pageNotFoundSubHeading'} />
-                </p>
+        <div
+          className={
+            'm-auto flex min-h-[50vh] w-full items-center justify-center'
+          }
+        >
+          <div className={'flex flex-col space-y-8'}>
+            <div
+              className={
+                'flex space-x-8 divide-x divide-gray-100' +
+                ' dark:divide-dark-800'
+              }
+            >
+              <div>
+                <Heading type={1}>
+                  <span
+                    data-cy={'catch-route-status-code'}
+                    className={'text-primary'}
+                  >
+                    404
+                  </span>
+                </Heading>
               </div>
 
-              <div className={'flex space-x-4'}>
-                <Button variant={'secondary'} href={'/'}>
-                  <Trans i18nKey={'common:contactUs'} />
-                </Button>
+              <div className={'flex flex-col space-y-4 pl-8'}>
+                <div className={'flex flex-col space-y-2'}>
+                  <div>
+                    <Heading type={1}>
+                      <Trans i18nKey={'common:pageNotFound'} />
+                    </Heading>
+                  </div>
 
-                <Button href={'/'}>
-                  <Trans i18nKey={'common:backToHomePage'} />
-                </Button>
+                  <p className={'text-gray-500 dark:text-gray-300'}>
+                    <Trans i18nKey={'common:pageNotFoundSubHeading'} />
+                  </p>
+                </div>
+
+                <div className={'flex space-x-4'}>
+                  <Button variant={'secondary'} href={'/'}>
+                    <Trans i18nKey={'common:contactUs'} />
+                  </Button>
+
+                  <Button href={'/'}>
+                    <Trans i18nKey={'common:backToHomePage'} />
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </I18nProvider>
   );
 };
 

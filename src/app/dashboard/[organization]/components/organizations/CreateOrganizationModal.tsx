@@ -52,7 +52,6 @@ const CreateOrganizationModal: React.FC<{
               <TextField.Input
                 data-cy={'create-organization-name-input'}
                 name={'name'}
-                minLength={3}
                 required
                 placeholder={'ex. IndieCorp'}
               />
