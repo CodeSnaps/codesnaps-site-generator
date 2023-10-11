@@ -36,15 +36,18 @@ async function createLanguageBundles(namespaces: string[], language: string) {
 }
 
 async function readTranslationFile(language: string, fileName: string) {
+  const { readFile } = await import('fs/promises');
+
   try {
-    const { default: translations } = await import(
-      `../../public/locales/${language}/${fileName}.json`
+    const prefix = `${process.cwd()}/public/locales`;
+
+    const file = await readFile(
+      `${prefix}/${language}/${fileName}.json`,
+      'utf8',
     );
 
-    return translations;
+    return JSON.parse(file);
   } catch (e) {
-    console.error(e);
-
     console.error(
       `Error: failed to read translation file: ${fileName}. Does it exist?`,
     );
