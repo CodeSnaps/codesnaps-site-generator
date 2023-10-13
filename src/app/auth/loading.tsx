@@ -1,13 +1,11 @@
-import PageLoadingIndicator from '~/core/ui/PageLoadingIndicator';
 import Trans from '~/core/ui/Trans';
+import GlobalLoadingIndicator from '~/components/GlobalLoadingIndicator';
 
 function Loading() {
   return (
-    <div className={'flex h-full items-center py-8'}>
-      <PageLoadingIndicator fullPage={false}>
-        <Trans i18nKey={'common:loading'} />
-      </PageLoadingIndicator>
-    </div>
+    <GlobalLoadingIndicator>
+      <Trans i18nKey={'common:loading'} />
+    </GlobalLoadingIndicator>
   );
 }
 

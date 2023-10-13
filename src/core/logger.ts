@@ -22,8 +22,6 @@ function getLogger() {
     },
   });
 
-  logger.info({ a: 3 }, 'info');
-
   return logger;
 }
 

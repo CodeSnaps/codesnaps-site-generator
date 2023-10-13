@@ -19,7 +19,7 @@ import Heading from '~/core/ui/Heading';
 import CardButton from '~/core/ui/CardButton';
 
 import configuration from '~/configuration';
-import NewOrganizationButtonContainer from '~/app/dashboard/components/NewOrganizationButtonContainer';
+import NewOrganizationButtonContainer from './components/NewOrganizationButtonContainer';
 import I18nProvider from '~/i18n/I18nProvider';
 import { getUserById } from '~/lib/user/database/queries';
 
@@ -63,7 +63,7 @@ async function OrganizationsPage() {
     const organization = organizations[0];
     const href = getAppHomeUrl(organization.uuid);
 
-    return redirect(href);
+    redirect(href);
   }
 
   return (

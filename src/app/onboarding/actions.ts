@@ -4,6 +4,7 @@ import { z } from 'zod';
 
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
+import { RedirectType } from 'next/dist/client/components/redirect';
 
 import getLogger from '~/core/logger';
 import requireSession from '~/lib/user/require-session';
@@ -72,7 +73,7 @@ export const handleOnboardingCompleteAction = withSession(
       '/',
     );
 
-    return redirect(redirectPath);
+    return redirect(redirectPath, RedirectType.replace);
   },
 );
 

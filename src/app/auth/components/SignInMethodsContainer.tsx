@@ -17,7 +17,7 @@ function SignInMethodsContainer() {
   const router = useRouter();
 
   const onSignIn = useCallback(() => {
-    router.push(configuration.paths.appHome);
+    router.replace(configuration.paths.appHome);
   }, [router]);
 
   return (
