@@ -11,6 +11,7 @@ describe(`Non-Admin user accessing the Super Admin`, () => {
       failOnStatusCode: false,
     });
 
-    cy.url().should('equal', 'http://localhost:3000/');
+    // verify that the user is redirected to the 404 page
+    cy.cyGet('catch-route-status-code').should('contain', '404');
   });
 });

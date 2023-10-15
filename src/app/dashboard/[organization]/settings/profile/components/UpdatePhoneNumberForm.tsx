@@ -39,7 +39,9 @@ function UpdatePhoneNumberForm({
         const formData = new FormData(form);
         const phoneNumber = formData.get('phoneNumber') as string;
 
-        const promise = trigger(phoneNumber);
+        const promise = trigger(phoneNumber).then(() => {
+          onUpdate(phoneNumber);
+        });
 
         return toast.promise(promise, {
           loading: t(`profile:updatePhoneNumberLoading`),

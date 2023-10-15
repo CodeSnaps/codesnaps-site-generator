@@ -8,15 +8,20 @@ let initialized = false;
  */
 async function initializeBrowserSentry() {
   const dsn = configuration.sentry.dsn;
+
+  if (!dsn) {
+    if (!configuration.production) {
+      warnSentryNotConfigured();
+    }
+
+    return;
+  }
+
   const Sentry = await import('@sentry/react');
   const { Integrations: SentryIntegrations } = await import('@sentry/tracing');
 
   if (!isBrowser() || initialized) {
     return;
-  }
-
-  if (!dsn) {
-    warnSentryNotConfigured();
   }
 
   Sentry.init({
@@ -31,7 +36,7 @@ async function initializeBrowserSentry() {
 
 function warnSentryNotConfigured() {
   console.warn(
-    `Sentry DSN was not provided. Please add a SENTRY_DSN environment variable to enable error tracking.`
+    `[Development] Sentry DSN was not provided. Please add a SENTRY_DSN environment variable to enable error tracking.`,
   );
 }
 

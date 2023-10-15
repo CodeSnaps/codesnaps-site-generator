@@ -1,7 +1,6 @@
 'use client';
 
 import { useCallback, useContext } from 'react';
-import type { User } from '@supabase/gotrue-js';
 
 import UserSessionContext from '~/core/session/contexts/user-session';
 import useUserSession from '~/core/hooks/use-user-session';
@@ -14,12 +13,14 @@ import SettingsTile from '../../components/SettingsTile';
 import If from '~/core/ui/If';
 import configuration from '~/configuration';
 
+import { refreshSessionAction } from '../actions';
+
 function UpdateProfileFormContainer() {
   const { userSession, setUserSession } = useContext(UserSessionContext);
   const session = useUserSession();
 
   const onUpdateProfileData = useCallback(
-    (data: Partial<UserData>) => {
+    async (data: Partial<UserData>) => {
       const userRecordData = userSession?.data;
 
       if (userRecordData) {
@@ -31,23 +32,8 @@ function UpdateProfileFormContainer() {
           },
         });
       }
-    },
-    [setUserSession, userSession],
-  );
 
-  const onUpdateAuthData = useCallback(
-    (data: Partial<User>) => {
-      const user = userSession?.auth;
-
-      if (user) {
-        setUserSession({
-          ...userSession,
-          auth: {
-            ...user,
-            ...data,
-          },
-        });
-      }
+      await refreshSessionAction();
     },
     [setUserSession, userSession],
   );
@@ -75,8 +61,8 @@ function UpdateProfileFormContainer() {
         >
           <UpdatePhoneNumberForm
             session={session}
-            onUpdate={(phone) => {
-              onUpdateAuthData({ phone });
+            onUpdate={async () => {
+              await refreshSessionAction();
             }}
           />
         </SettingsTile>

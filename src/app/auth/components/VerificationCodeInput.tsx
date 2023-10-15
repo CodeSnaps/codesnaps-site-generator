@@ -15,10 +15,10 @@ function VerificationCodeInput({
 }>) {
   const digitsArray = useMemo(
     () => Array.from({ length: DIGITS }, (_, i) => i),
-    []
+    [],
   );
 
-  const { control, register, watch, setFocus, formState } = useForm({
+  const { control, register, watch, setFocus, formState, setValue } = useForm({
     mode: 'onChange',
     reValidateMode: 'onChange',
     defaultValues: {
@@ -67,12 +67,43 @@ function VerificationCodeInput({
         setFocus(`values.${nextIndex}.value`);
       }
     },
-    [setFocus]
+    [setFocus],
+  );
+
+  const onPaste = useCallback(
+    (event: React.ClipboardEvent<HTMLFormElement>) => {
+      const pasted = event.clipboardData.getData('text/plain');
+
+      // check if value is numeric
+      if (isNumeric(pasted)) {
+        const digits = getDigits(pasted, digitsArray);
+
+        digits.forEach((value, index) => {
+          setValue(`values.${index}.value`, value);
+          setFocus(`values.${index + 1}.value`);
+        });
+      }
+    },
+    [digitsArray, setFocus, setValue],
+  );
+
+  const handleKeyDown = useCallback(
+    (event: React.KeyboardEvent<HTMLInputElement>) => {
+      if (event.key === 'Backspace') {
+        event.preventDefault();
+
+        const index = Number(event.currentTarget.dataset.inputIndex);
+
+        setValue(`values.${index}.value`, '');
+        setFocus(`values.${index - 1}.value`);
+      }
+    },
+    [setFocus, setValue],
   );
 
   return (
     <div className={'flex justify-center space-x-2'}>
-      {digitsArray.map((digit) => {
+      {digitsArray.map((digit, index) => {
         const control = { ...register(`values.${digit}.value`) };
 
         return (
@@ -85,6 +116,9 @@ function VerificationCodeInput({
             key={digit}
             maxLength={1}
             onInput={onInput}
+            onPaste={onPaste}
+            onKeyDown={handleKeyDown}
+            data-input-index={index}
             {...control}
           />
         );
@@ -94,3 +128,13 @@ function VerificationCodeInput({
 }
 
 export default VerificationCodeInput;
+
+function isNumeric(pasted: string) {
+  const isNumericRegExp = /^-?\d+$/;
+
+  return isNumericRegExp.test(pasted);
+}
+
+function getDigits(pasted: string, digitsArray: number[]) {
+  return pasted.split('').slice(0, digitsArray.length);
+}

@@ -66,9 +66,9 @@ const loadAppData = cache(async (organizationUid: string) => {
       auth: {
         accessToken: session.access_token,
         user: {
-          id: session.user.id,
-          email: session.user.email,
-          phone: session.user.phone,
+          id: user.id,
+          email: user.email,
+          phone: user.phone,
         },
       },
       user: userRecord,

@@ -1,4 +1,4 @@
-import { redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 
 import requireSession from '~/lib/user/require-session';
 import getSupabaseServerActionClient from '~/core/supabase/action-client';
@@ -30,7 +30,7 @@ export function withAdminSession<Args extends any[], Response>(
     const isAdmin = await isUserSuperAdmin();
 
     if (!isAdmin) {
-      redirect('/');
+      notFound();
     }
 
     return fn(...params);

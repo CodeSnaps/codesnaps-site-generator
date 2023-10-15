@@ -1,4 +1,4 @@
-import { redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import { cookies, headers } from 'next/headers';
 
 import isUserSuperAdmin from '~/app/admin/utils/is-user-super-admin';
@@ -11,7 +11,7 @@ async function AdminLayout({ children }: React.PropsWithChildren) {
   const language = getLanguageCookie();
 
   if (!isAdmin) {
-    redirect('/');
+    notFound();
   }
 
   const csrfToken = headers().get('X-CSRF-Token');

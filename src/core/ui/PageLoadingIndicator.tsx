@@ -18,7 +18,7 @@ export default function PageLoadingIndicator({
   return (
     <div
       className={classNames(
-        'flex flex-col items-center justify-center space-y-6',
+        'flex flex-col items-center justify-center space-y-4',
         className,
         {
           [`fixed top-0 left-0 z-[100] h-screen w-screen bg-background`]:
@@ -32,11 +32,9 @@ export default function PageLoadingIndicator({
         </div>
       </If>
 
-      <div className={'text-primary'}>
-        <Spinner className={'h-12 w-12'} />
-      </div>
+      <Spinner className={'h-12 w-12 text-primary'} />
 
-      <div className={'text-sm font-medium'}>{children}</div>
+      <div>{children}</div>
     </div>
   );
 }

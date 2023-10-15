@@ -27,10 +27,10 @@ const CheckoutRedirectButton: React.FCC<{
       <Button
         block
         className={classNames({
-          'text-foreground bg-background dark:bg-white dark:text-gray-900':
+          'text-primary-foreground bg-primary dark:bg-white dark:text-gray-900':
             props.recommended,
         })}
-        variant={props.recommended ? 'custom' : 'secondary'}
+        variant={props.recommended ? 'custom' : 'outline'}
         disabled={props.disabled}
       >
         <span className={'flex items-center space-x-2'}>

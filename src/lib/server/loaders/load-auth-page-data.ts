@@ -1,6 +1,6 @@
 import 'server-only';
 
-import { redirect } from 'next/navigation';
+import { permanentRedirect } from 'next/navigation';
 import configuration from '~/configuration';
 
 import getSupabaseServerClient from '~/core/supabase/server-client';
@@ -33,7 +33,7 @@ const loadAuthPageData = async () => {
       `User is logged in and does not require multi-factor authentication. Redirecting to home page.`,
     );
 
-    redirect(configuration.paths.appHome);
+    permanentRedirect(configuration.paths.appHome);
   }
 
   return {

@@ -28,7 +28,7 @@
   "getStarted": "Get Started",
   "retry": "Retry",
   "contactUs": "Contact Us",
-  "loading": "Loading",
+  "loading": "Loading. Please wait...",
   "roles": {
     "owner": {
       "label": "Owner",

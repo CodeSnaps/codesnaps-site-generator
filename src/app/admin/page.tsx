@@ -1,5 +1,3 @@
-import { use } from 'react';
-
 import AppContainer from '~/app/dashboard/[organization]/components/AppContainer';
 import AdminHeader from '~/app/admin/components/AdminHeader';
 import AdminGuard from '~/app/admin/components/AdminGuard';
@@ -12,8 +10,8 @@ export const metadata = {
   title: `Admin | ${configuration.site.siteName}`,
 };
 
-function AdminPage() {
-  const data = use(loadData());
+async function AdminPage() {
+  const data = await loadData();
 
   return (
     <div className={'flex flex-col flex-1'}>

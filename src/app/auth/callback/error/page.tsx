@@ -8,7 +8,6 @@ interface Params {
 
 function AuthCallbackErrorPage({ searchParams }: Params) {
   const error = searchParams.error;
-  console.error(error);
 
   // if there is no error, redirect the user to the sign-in page
   if (!error) {
