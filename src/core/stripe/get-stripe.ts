@@ -1,4 +1,4 @@
-const STRIPE_API_VERSION = '2023-08-16';
+const STRIPE_API_VERSION = '2023-10-16';
 
 /**
  * @description returns a Stripe instance

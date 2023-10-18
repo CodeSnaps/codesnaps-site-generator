@@ -1,6 +1,12 @@
 'use client';
 
-import React from 'react';
+// @ts-ignore
+import { experimental_useFormState as useFormState } from 'react-dom';
+// @ts-ignore
+import { experimental_useFormStatus as useFormStatus } from 'react-dom';
+
+import { useEffect } from 'react';
+
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import classNames from 'clsx';
 
@@ -15,35 +21,65 @@ const CheckoutRedirectButton: React.FCC<{
   recommended?: boolean;
   organizationUid: string;
   customerId: Maybe<string>;
-}> = ({ children, ...props }) => {
+  onCheckoutCreated?: (clientSecret: string) => void;
+}> = ({ children, onCheckoutCreated, ...props }) => {
+  const [state, formAction] = useFormState(createCheckoutAction, {
+    clientSecret: '',
+  });
+
+  useEffect(() => {
+    if (state.clientSecret && onCheckoutCreated) {
+      onCheckoutCreated(state.clientSecret);
+    }
+  }, [state.clientSecret, onCheckoutCreated]);
+
   return (
-    <form data-cy={'checkout-form'} action={createCheckoutAction}>
+    <form data-cy={'checkout-form'} action={formAction}>
       <CheckoutFormData
         customerId={props.customerId}
         organizationUid={props.organizationUid}
         priceId={props.stripePriceId}
       />
 
-      <Button
-        block
-        className={classNames({
-          'text-primary-foreground bg-primary dark:bg-white dark:text-gray-900':
-            props.recommended,
-        })}
-        variant={props.recommended ? 'custom' : 'outline'}
+      <SubmitCheckoutButton
         disabled={props.disabled}
+        recommended={props.recommended}
       >
-        <span className={'flex items-center space-x-2'}>
-          <span>{children}</span>
-
-          <ChevronRightIcon className={'h-4'} />
-        </span>
-      </Button>
+        {children}
+      </SubmitCheckoutButton>
     </form>
   );
 };
 
 export default CheckoutRedirectButton;
+
+function SubmitCheckoutButton(
+  props: React.PropsWithChildren<{
+    recommended?: boolean;
+    disabled?: boolean;
+  }>,
+) {
+  const { pending } = useFormStatus();
+
+  return (
+    <Button
+      block
+      className={classNames({
+        'text-primary-foreground bg-primary dark:bg-white dark:text-gray-900':
+          props.recommended,
+      })}
+      variant={props.recommended ? 'custom' : 'outline'}
+      disabled={props.disabled}
+      loading={pending}
+    >
+      <span className={'flex items-center space-x-2'}>
+        <span>{props.children}</span>
+
+        <ChevronRightIcon className={'h-4'} />
+      </span>
+    </Button>
+  );
+}
 
 function CheckoutFormData(
   props: React.PropsWithChildren<{

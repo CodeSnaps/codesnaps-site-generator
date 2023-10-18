@@ -1,7 +1,6 @@
 import { defineConfig } from 'cypress';
 import { execSync } from 'child_process';
 import { loadEnvConfig } from '@next/env';
-import configuration from '~/configuration';
 import { SupabaseClient } from '@supabase/supabase-js';
 
 // load environment variables from .env
@@ -56,6 +55,7 @@ export default defineConfig({
 });
 
 function getExcludeSpecPattern() {
+  const configuration = require('./src/configuration').default;
   const enableStripeTests = process.env.ENABLE_STRIPE_TESTING === 'true';
   const enableThemeTests = configuration.enableThemeSwitcher;
 

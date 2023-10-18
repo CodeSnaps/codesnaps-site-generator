@@ -26,105 +26,133 @@ import createBillingPortalSession from '~/lib/stripe/create-billing-portal-sessi
 import verifyCsrfToken from '~/core/verify-csrf-token';
 import { withSession } from '~/core/generic/actions-utils';
 
-export const createCheckoutAction = withSession(async (formData: FormData) => {
-  const logger = getLogger();
-  const body = Object.fromEntries(formData);
-  const bodyResult = await getCheckoutBodySchema().safeParseAsync(body);
+export const createCheckoutAction = withSession(
+  async (_, formData: FormData) => {
+    const logger = getLogger();
 
-  const redirectToErrorPage = (error?: string) => {
-    const referer = getApiRefererPath(headers());
-    const url = join(referer, `?error=true`);
-
-    logger.error({ error }, `Could not create Stripe Checkout session`);
-
-    return redirect(url);
-  };
-
-  // Validate the body schema
-  if (!bodyResult.success) {
-    return redirectToErrorPage(`Invalid request body`);
-  }
-
-  const { organizationUid, priceId, customerId, returnUrl, csrfToken } =
-    bodyResult.data;
-
-  // check CSRF token is valid
-  await verifyCsrfToken(csrfToken);
-
-  // create the Supabase client
-  const client = getSupabaseServerClient();
-
-  // require the user to be logged in
-  const sessionResult = await requireSession(client);
-  const userId = sessionResult.user.id;
-  const customerEmail = sessionResult.user.email;
-
-  const { error } = await getOrganizationByUid(client, organizationUid);
-
-  if (error) {
-    return redirectToErrorPage(`Organization not found`);
-  }
-
-  const plan = getPlanByPriceId(priceId);
-
-  // check if the plan exists in the configuration.
-  if (!plan) {
-    console.warn(
-      `Plan not found for price ID "${priceId}". Did you forget to add it to the configuration? If the Price ID is incorrect, the checkout will be rejected. Please check the Stripe dashboard`,
+    const bodyResult = await getCheckoutBodySchema().safeParseAsync(
+      Object.fromEntries(formData),
     );
-  }
 
-  // check the user's role has access to the checkout
-  const canChangeBilling = await getUserCanAccessCheckout(client, {
-    organizationUid,
-    userId,
-  });
+    const redirectToErrorPage = (error?: string) => {
+      const referer = getApiRefererPath(headers());
+      const url = join(referer, `?error=true`);
 
-  // disallow if the user doesn't have permissions to change
-  // billing settings based on its role. To change the logic, please update
-  // {@link canChangeBilling}
-  if (!canChangeBilling) {
-    logger.debug(
+      logger.error({ error }, `Could not create Stripe Checkout session`);
+
+      return redirect(url);
+    };
+
+    // Validate the body schema
+    if (!bodyResult.success) {
+      return redirectToErrorPage(`Invalid request body`);
+    }
+
+    const { organizationUid, priceId, customerId, returnUrl, csrfToken } =
+      bodyResult.data;
+
+    // check CSRF token is valid
+    await verifyCsrfToken(csrfToken);
+
+    // create the Supabase client
+    const client = getSupabaseServerClient();
+
+    // require the user to be logged in
+    const sessionResult = await requireSession(client);
+    const userId = sessionResult.user.id;
+    const customerEmail = sessionResult.user.email;
+
+    const { error } = await getOrganizationByUid(client, organizationUid);
+
+    if (error) {
+      return redirectToErrorPage(`Organization not found`);
+    }
+
+    const plan = getPlanByPriceId(priceId);
+
+    // check if the plan exists in the configuration.
+    if (!plan) {
+      console.warn(
+        `Plan not found for price ID "${priceId}". Did you forget to add it to the configuration? If the Price ID is incorrect, the checkout will be rejected. Please check the Stripe dashboard`,
+      );
+    }
+
+    // check the user's role has access to the checkout
+    const canChangeBilling = await getUserCanAccessCheckout(client, {
+      organizationUid,
+      userId,
+    });
+
+    // disallow if the user doesn't have permissions to change
+    // billing settings based on its role. To change the logic, please update
+    // {@link canChangeBilling}
+    if (!canChangeBilling) {
+      logger.debug(
+        {
+          userId,
+          organizationUid,
+        },
+        `User attempted to access checkout but lacked permissions`,
+      );
+
+      return redirectToErrorPage(
+        `You do not have permission to access this page`,
+      );
+    }
+
+    const trialPeriodDays =
+      plan && 'trialPeriodDays' in plan
+        ? (plan.trialPeriodDays as number)
+        : undefined;
+
+    const embedded = configuration.stripe.embedded;
+
+    // create the Stripe Checkout session
+    const session = await createStripeCheckout({
+      returnUrl,
+      organizationUid,
+      priceId,
+      customerId,
+      trialPeriodDays,
+      customerEmail,
+      embedded,
+    }).catch((e) => {
+      logger.error(e, `Stripe Checkout error`);
+    });
+
+    // if there was an error, redirect to the error page
+    if (!session) {
+      return redirectToErrorPage();
+    }
+
+    logger.info(
       {
-        userId,
+        id: session.id,
         organizationUid,
       },
-      `User attempted to access checkout but lacked permissions`,
+      `Created Stripe Checkout session`,
     );
 
-    return redirectToErrorPage(
-      `You do not have permission to access this page`,
-    );
-  }
+    // if the checkout is embedded, we need to render the checkout
+    // therefore, we send the clientSecret back to the client
+    if (embedded) {
+      logger.info(
+        { id: session.id },
+        `Using embedded checkout mode. Sending client secret back to client.`,
+      );
 
-  const trialPeriodDays =
-    plan && 'trialPeriodDays' in plan
-      ? (plan.trialPeriodDays as number)
-      : undefined;
+      return {
+        clientSecret: session.client_secret,
+      };
+    }
 
-  // create the Stripe Checkout session
-  const response = await createStripeCheckout({
-    returnUrl,
-    organizationUid,
-    priceId,
-    customerId,
-    trialPeriodDays,
-    customerEmail,
-  }).catch((e) => {
-    logger.error(e, `Stripe Checkout error`);
-  });
+    // retrieve the Checkout Portal URL
+    const portalUrl = getCheckoutPortalUrl(session.url, returnUrl);
 
-  // if there was an error, redirect to the error page
-  if (!response) {
-    return redirectToErrorPage();
-  }
-
-  // retrieve the Checkout Portal URL
-  const portalUrl = getCheckoutPortalUrl(response.url, returnUrl);
-
-  // redirect user back based on the response
-  return redirect(portalUrl, RedirectType.replace);
-});
+    // redirect user back based on the response
+    return redirect(portalUrl, RedirectType.replace);
+  },
+);
 
 /**
  * @name getUserCanAccessCheckout

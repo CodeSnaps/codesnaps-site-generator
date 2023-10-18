@@ -16,7 +16,10 @@
   "cancelAtPeriodEndDescription": "Your subscription is scheduled to be canceled on {{ endDate }}.",
   "renewAtPeriodEndDescription": "Your subscription is scheduled to be renewed on {{ endDate }}",
   "noPermissionsAlertHeading": "You don't have permissions to change the billing",
-  "noPermissionsAlertBody": "Please contact your organization owner to change the billing settings for\n      your organization.",
+  "noPermissionsAlertBody": "Please contact your organization owner to change the billing settings for your organization.",
+  "checkoutSuccessTitle": "Done! You're all set.",
+  "checkoutSuccessDescription": "Thank you for subscribing, we have successfully processed your subscription! A confirmation email will be sent to {{ customerEmail }}.",
+  "checkoutSuccessBackButton": "Proceed to App",
   "status": {
     "free": {
       "label": "Free Plan",
