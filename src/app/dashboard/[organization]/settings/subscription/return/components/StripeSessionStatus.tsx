@@ -37,13 +37,13 @@ function SuccessSessionStatus({
       className={
         'max-w-xl mx-auto rounded-xl p-16 fade-in xl:drop-shadow-sm border' +
         ' border-gray-100 dark:border-dark-800' +
-        ' bg-background animate-in slide-in-from-bottom-36 zoom-in-90' +
-        ' duration-1000 dark:shadow-primary/40 dark:shadow-2xl'
+        ' bg-background animate-in ease-out slide-in-from-bottom-8' +
+        ' zoom-in-50 duration-1000 dark:shadow-primary/40 dark:shadow-2xl'
       }
     >
       <div
         className={
-          'flex flex-col space-y-6 items-center justify-center text-center'
+          'flex flex-col space-y-4 items-center justify-center text-center'
         }
       >
         <CheckIcon

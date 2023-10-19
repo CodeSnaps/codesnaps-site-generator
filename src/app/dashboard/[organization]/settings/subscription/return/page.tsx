@@ -23,12 +23,21 @@ async function ReturnStripeSessionPage({ searchParams }: SessionPageProps) {
   }
 
   return (
-    <div className={'fixed left-0 top-48 w-full mx-auto z-50'}>
-      <StripeSessionStatus
-        status={status}
-        customerEmail={customerEmail ?? ''}
+    <>
+      <div className={'fixed left-0 top-48 w-full mx-auto z-50'}>
+        <StripeSessionStatus
+          status={status}
+          customerEmail={customerEmail ?? ''}
+        />
+      </div>
+
+      <div
+        className={
+          'bg-background/30 backdrop-blur-sm fixed top-0 left-0 w-full' +
+          ' h-full !m-0'
+        }
       />
-    </div>
+    </>
   );
 }
 
