@@ -1,5 +1,5 @@
 import { headers } from 'next/headers';
-import { redirect } from 'next/navigation';
+import { permanentRedirect } from 'next/navigation';
 import Image from 'next/image';
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
 
@@ -30,7 +30,7 @@ async function OrganizationsPage() {
   const { data: user } = await getUserById(client, userId);
 
   if (!user || !user.onboarded) {
-    redirect(configuration.paths.onboarding);
+    permanentRedirect(configuration.paths.onboarding);
   }
 
   const organizationUidCookie = await parseOrganizationIdCookie(userId);
@@ -44,7 +44,7 @@ async function OrganizationsPage() {
       .catch(() => null);
 
     if (currentOrganizationResponse) {
-      redirect(getAppHomeUrl(organizationUidCookie));
+      permanentRedirect(getAppHomeUrl(organizationUidCookie));
     }
   }
 
@@ -63,7 +63,7 @@ async function OrganizationsPage() {
     const organization = organizations[0];
     const href = getAppHomeUrl(organization.uuid);
 
-    redirect(href);
+    permanentRedirect(href);
   }
 
   return (
