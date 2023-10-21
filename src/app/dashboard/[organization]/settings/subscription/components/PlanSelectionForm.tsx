@@ -56,7 +56,6 @@ const PlanSelectionForm: React.FCC<{
                 >
                   <CheckoutRedirectButton
                     organizationUid={organization.uuid}
-                    customerId={customerId}
                     stripePriceId={props.stripePriceId}
                     recommended={props.recommended}
                     onCheckoutCreated={setClientSecret}

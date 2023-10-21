@@ -61,7 +61,7 @@ function getExcludeSpecPattern() {
 
   const excludePatterns = [];
 
-  if (!enableStripeTests) {
+  if (!enableStripeTests || !configuration.stripe.embedded) {
     excludePatterns.push('**/stripe/*');
   }
 

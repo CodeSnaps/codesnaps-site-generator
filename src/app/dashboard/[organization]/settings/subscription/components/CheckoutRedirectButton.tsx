@@ -20,7 +20,6 @@ const CheckoutRedirectButton: React.FCC<{
   stripePriceId?: string;
   recommended?: boolean;
   organizationUid: string;
-  customerId: Maybe<string>;
   onCheckoutCreated?: (clientSecret: string) => void;
 }> = ({ children, onCheckoutCreated, ...props }) => {
   const [state, formAction] = useFormState(createCheckoutAction, {
@@ -36,7 +35,6 @@ const CheckoutRedirectButton: React.FCC<{
   return (
     <form data-cy={'checkout-form'} action={formAction}>
       <CheckoutFormData
-        customerId={props.customerId}
         organizationUid={props.organizationUid}
         priceId={props.stripePriceId}
       />
@@ -85,7 +83,6 @@ function CheckoutFormData(
   props: React.PropsWithChildren<{
     organizationUid: Maybe<string>;
     priceId: Maybe<string>;
-    customerId: Maybe<string>;
   }>,
 ) {
   const csrfToken = useCsrfToken();
@@ -101,12 +98,6 @@ function CheckoutFormData(
       <input type="hidden" name={'csrfToken'} defaultValue={csrfToken} />
       <input type="hidden" name={'returnUrl'} defaultValue={getReturnUrl()} />
       <input type="hidden" name={'priceId'} defaultValue={props.priceId} />
-
-      <input
-        type="hidden"
-        name={'customerId'}
-        defaultValue={props.customerId}
-      />
     </>
   );
 }

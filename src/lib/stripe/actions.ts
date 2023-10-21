@@ -48,8 +48,7 @@ export const createCheckoutAction = withSession(
       return redirectToErrorPage(`Invalid request body`);
     }
 
-    const { organizationUid, priceId, customerId, returnUrl, csrfToken } =
-      bodyResult.data;
+    const { organizationUid, priceId, returnUrl, csrfToken } = bodyResult.data;
 
     // check CSRF token is valid
     await verifyCsrfToken(csrfToken);
@@ -62,10 +61,16 @@ export const createCheckoutAction = withSession(
     const userId = sessionResult.user.id;
     const customerEmail = sessionResult.user.email;
 
-    const { error } = await getOrganizationByUid(client, organizationUid);
+    const { error, data } = await getOrganizationByUid(client, organizationUid);
 
     if (error) {
       return redirectToErrorPage(`Organization not found`);
+    }
+
+    const customerId = data?.subscription?.customerId;
+
+    if (customerId) {
+      logger.info({ customerId }, `Customer ID found for organization`);
     }
 
     const plan = getPlanByPriceId(priceId);
@@ -147,10 +152,17 @@ export const createCheckoutAction = withSession(
     }
 
     // retrieve the Checkout Portal URL
-    const portalUrl = getCheckoutPortalUrl(session.url, returnUrl);
+    if (!session.url) {
+      logger.error(
+        { id: session.id },
+        `Could not retrieve Stripe Checkout URL`,
+      );
+
+      return redirectToErrorPage();
+    }
 
     // redirect user back based on the response
-    return redirect(portalUrl, RedirectType.replace);
+    return redirect(session.url, RedirectType.replace);
   },
 );
 
@@ -296,7 +308,6 @@ function getCheckoutBodySchema() {
     csrfToken: z.string().min(1),
     organizationUid: z.string().uuid(),
     priceId: z.string().min(1),
-    customerId: z.string().optional(),
     returnUrl: z.string().min(1),
   });
 }
@@ -313,32 +324,6 @@ function getPlanByPriceId(priceId: string) {
 
     return product.plans.find(({ stripePriceId }) => stripePriceId === priceId);
   }, undefined);
-}
-
-/**
- *
- * @param portalUrl
- * @param returnUrl
- * @description return the URL of the Checkout Portal
- * if running in emulator mode and the portal URL is undefined (as
- * stripe-mock does) then return the returnUrl (i.e. it redirects back to
- * the subscriptions page)
- */
-function getCheckoutPortalUrl(portalUrl: string | null, returnUrl: string) {
-  if (isTestingMode() && !portalUrl) {
-    return [returnUrl, 'success=true'].join('?');
-  }
-
-  return portalUrl as string;
-}
-
-/**
- * @description detect if Stripe is running in emulator mode
- */
-function isTestingMode() {
-  const enableStripeTesting = process.env.ENABLE_STRIPE_TESTING;
-
-  return enableStripeTesting === 'true';
 }
 
 function redirectToErrorPage(referrerPath: string) {

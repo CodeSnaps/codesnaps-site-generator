@@ -185,6 +185,49 @@ SUPABASE_SERVICE_ROLE_KEY=
 
 Retrieve the keys after starting the Supabase server and paste them in the `.env.test` file.
 
+#### Running E2E Stripe Tests
+
+To run the Stripe tests and enable Stripe in development mode, you need to:
+
+1. Enable the tests using the environment variable `ENABLE_STRIPE_TESTING` in
+   `.env.test`
+2. Have Docker installed and running in your local machine to run the Stripe
+   Emulator
+3. Generate a webhook key and set the environment variable
+   `STRIPE_WEBHOOK_SECRET` and the other required Stripe environment variables
+
+The first two steps are only required to run the Cypress E2E tests for
+Stripe. Generating a webhook key and running the Stripe CLI server is
+always required for developing your Stripe functionality locally.
+
+The variables should be added either in `.env.test` or as part of your CI 
+environment. 
+
+NB: The secret keys should not be added to the repository - even 
+though these are test keys. Instead - please add them to your CI 
+environment - such as Github Actions.
+
+The test API keys should be added as secrets - while the variable 
+ENABLE_STRIPE_TESTING should be added as a simple variable.
+
+To generate a webhook key, run the following command:
+
+```
+npm run stripe:listen
+```
+
+If it worked, it will print the webhook key. Then, paste it into
+your environment files as `STRIPE_WEBHOOK_SECRET`.
+
+This key is also needed to run Stripe during development to receive the
+Stripe webhooks to your local server.
+
+```
+ENABLE_STRIPE_TESTING=true
+```
+
+The Stripe tests work only using the Embedded Stripe Checkout.
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.

@@ -34,6 +34,7 @@ function SuccessSessionStatus({
 }>) {
   return (
     <section
+      data-cy={'payment-return-success'}
       className={
         'max-w-xl mx-auto rounded-xl p-16 fade-in xl:drop-shadow-sm border' +
         ' border-gray-100 dark:border-dark-800' +
@@ -71,7 +72,11 @@ function SuccessSessionStatus({
           </p>
         </div>
 
-        <Button href={configuration.paths.appHome} variant={'outline'}>
+        <Button
+          data-cy={'checkout-success-back-button'}
+          href={configuration.paths.appHome}
+          variant={'outline'}
+        >
           <span className={'flex space-x-2.5 items-center'}>
             <span>
               <Trans i18nKey={'subscription:checkoutSuccessBackButton'} />

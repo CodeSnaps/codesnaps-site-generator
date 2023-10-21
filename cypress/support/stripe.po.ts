@@ -1,59 +1,53 @@
-import * as StripeLib from 'stripe';
-import type StripeWebhooks from '~/core/stripe/stripe-webhooks.enum';
-
-const STRIPE_API_VERSION = '2023-10-16';
-
-const stripe = new StripeLib.Stripe(`sk_test_12345`, {
-  host: `localhost`,
-  port: 12111,
-  apiVersion: STRIPE_API_VERSION,
-  protocol: `http`,
-});
+import { Stripe } from 'stripe';
 
 const $get = cy.cyGet.bind(cy);
 
 const stripePo = {
-  $subscriptionName: () => $get('subscription-name'),
-  $awaitingPaymentAlert: () => $get('awaiting-payment-alert'),
-  createWebhookPayload,
-  sendWebhook(params: { type: StripeWebhooks; body: UnknownObject }) {
-    const body = this.createWebhookPayload(params.body, params.type);
-    const signature = stripePo.createSignature(body);
-
-    cy.request({
-      url: 'http://localhost:3000/api/stripe/webhook',
-      method: `POST`,
-      headers: {
-        'stripe-signature': signature,
-      },
-      body,
-    });
+  $plans: () => $get('subscription-plan'),
+  $getStripeCheckoutIframe: () => {
+    return cy.get('[name="embedded-checkout"]').its('0.contentDocument');
   },
-  createSignature(payload: unknown) {
-    return stripe.webhooks.generateTestHeaderString({
-      payload: JSON.stringify(payload),
-      secret: Cypress.env('STRIPE_WEBHOOK_SECRET'),
-    });
+  $fillForm() {
+    this.$billingName().type('Mr Makerkit');
+    this.$cardNumber().type('4242424242424242');
+    this.$expiry().type('1228');
+    this.$cvc().type('123');
+    this.$billingCountry().select('IT');
+  },
+  $cardNumber() {
+    return this.$getStripeCheckoutIframe().find('#cardNumber');
+  },
+  $cvc() {
+    return this.$getStripeCheckoutIframe().find('#cardCvc');
+  },
+  $expiry() {
+    return this.$getStripeCheckoutIframe().find('#cardExpiry');
+  },
+  $billingName() {
+    return this.$getStripeCheckoutIframe().find('#billingName');
+  },
+  $cardForm() {
+    return this.$getStripeCheckoutIframe().find('form');
+  },
+  $billingCountry() {
+    return this.$getStripeCheckoutIframe().find('#billingCountry');
+  },
+  selectPlan(number: number = 0) {
+    this.$plans().eq(number).find('button').click();
+  },
+  $manageBillingButton() {
+    return cy.cyGet('manage-billing-redirect-button');
+  },
+  $status() {
+    return cy.get('[data-cy-status]');
+  },
+  $assertStatus(status: Stripe.Subscription.Status) {
+    this.$status().should('have.attr', 'data-cy-status', status);
+  },
+  verifyCreateSubscriptionElements() {
+    cy.cyGet('subscription-card').should('exist');
+    cy.cyGet('subscription-name').should('contain.text', 'Basic');
   },
 };
-
-function createWebhookPayload(data: unknown, type: StripeWebhooks) {
-  return {
-    id: 'evt_1LK3nDI1i3VnbZTqgFqyzkWx',
-    object: 'event',
-    api_version: '2020-08-27',
-    created: 1657473579,
-    data: {
-      object: data,
-    },
-    livemode: false,
-    pending_webhooks: 0,
-    request: {
-      id: null,
-      idempotency_key: null,
-    },
-    type,
-  };
-}
 
 export default stripePo;

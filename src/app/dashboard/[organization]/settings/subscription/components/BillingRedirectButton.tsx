@@ -16,7 +16,11 @@ const BillingPortalRedirectButton: React.FCC<{
 
       <CsrfTokenInput />
 
-      <Button variant={'secondary'} className={className}>
+      <Button
+        data-cy={'manage-billing-redirect-button'}
+        variant={'secondary'}
+        className={className}
+      >
         <span className={'flex items-center space-x-2'}>
           <span>{children}</span>
 

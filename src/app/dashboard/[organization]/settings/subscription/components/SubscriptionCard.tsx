@@ -34,7 +34,11 @@ const SubscriptionCard: React.FC<{
   }
 
   return (
-    <div className={'flex flex-col space-y-6'} data-cy={'subscription-card'}>
+    <div
+      className={'flex flex-col space-y-6'}
+      data-cy={'subscription-card'}
+      data-cy-status={subscription.status}
+    >
       <div className={'flex flex-col space-y-2'}>
         <div className={'flex items-center space-x-4'}>
           <Heading type={3}>
@@ -80,7 +84,7 @@ function RenewStatusDescription(
       endDate: string;
       trialEndDate: string | null;
     };
-  }>
+  }>,
 ) {
   return (
     <span className={'flex items-center space-x-1.5 text-sm'}>
@@ -109,43 +113,8 @@ function RenewStatusDescription(
   );
 }
 
-function getProducts() {
-  if (!configuration.production) {
-    /**
-     * This is read-only, so we also include the testing plans
-     * so we can test them.
-     *
-     * In production, of course, they should never show up
-     */
-    return [...configuration.stripe.products, ...getTestingProducts()];
-  }
-
-  return configuration.stripe.products;
-}
-
-/**
- * @name getTestingProducts
- * @description These plans are added for testing-purposes only
- */
-function getTestingProducts() {
-  return [
-    {
-      name: 'Testing Plan',
-      description: 'Description of your Testing plan',
-      features: [],
-      plans: [
-        {
-          price: '$999/year',
-          name: 'Yearly',
-          stripePriceId: 'price_1LFibmKr5l4rxPx3wWcSO8UY',
-        },
-      ],
-    },
-  ];
-}
-
 function useSubscriptionDetails(priceId: string) {
-  const products = useMemo(() => getProducts(), []);
+  const products = configuration.stripe.products;
 
   return useMemo(() => {
     for (const product of products) {
