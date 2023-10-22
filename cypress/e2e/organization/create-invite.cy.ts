@@ -3,7 +3,10 @@ import MembershipRole from '~/lib/organizations/types/membership-role';
 import authPo from '../../support/auth.po';
 
 describe(`Create Invite`, () => {
-  const email = `invited-member@makerkit.dev`;
+  const email = `invited-member+${Math.round(
+    Math.random() * 1000,
+  )}@makerkit.dev`;
+
   const defaultEmailAddress = authPo.getDefaultUserEmail();
 
   function signIn() {
@@ -70,10 +73,8 @@ describe(`Create Invite`, () => {
       });
 
       it('should be found in InBucket', () => {
-        const emailTask = cy.task<UnknownObject>(
-          'getInviteEmail',
-          'invited-member',
-        );
+        const mailbox = email.split('@')[0];
+        const emailTask = cy.task<UnknownObject>('getInviteEmail', mailbox);
 
         emailTask.then((email) => {
           expect(email).to.exist;
