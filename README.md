@@ -13,7 +13,7 @@ please refer to the [documentation](https://makerkit.dev/docs/next-supabase/intr
 
 Ensure you have the following installed:
 
-- Node.js
+- Node.js (LTS, v20 may not work with some dependencies)
 - Git
 - Docker
 

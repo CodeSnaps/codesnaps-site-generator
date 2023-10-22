@@ -37,6 +37,9 @@ export default defineConfig({
         async confirmEmail(email: string) {
           return confirmUserEmail(email);
         },
+        async getInviteEmail(mailbox: string) {
+          return getInviteEmail(mailbox);
+        },
       });
 
       const env = getEnv();
@@ -143,4 +146,23 @@ async function confirmUserEmail(email: string) {
     .catch(console.error);
 
   return true;
+}
+
+async function getInviteEmail(mailbox: string) {
+  const url = `http://localhost:54324/api/v1/mailbox/${mailbox}`;
+  const fetch = require('node-fetch');
+
+  const response = await fetch(url);
+  const json = await response.json();
+
+  if (!json) {
+    return;
+  }
+
+  const messageId = json[0].id;
+  const messageUrl = `${url}/${messageId}`;
+
+  const messageResponse = await fetch(messageUrl);
+
+  return messageResponse.json();
 }

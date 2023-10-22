@@ -8,8 +8,9 @@ describe(`Create Invite`, () => {
 
   function signIn() {
     const organization = organizationPageObject.useDefaultOrganization();
+
     cy.signIn(
-      `/dashboard/${organization}/settings/organization/members/invite`
+      `/dashboard/${organization}/settings/organization/members/invite`,
     );
   }
 
@@ -66,6 +67,32 @@ describe(`Create Invite`, () => {
 
         organizationPageObject.inviteMember(email, MembershipRole.Member);
         organizationPageObject.$getInvitedMemberByEmail(email).should('exist');
+      });
+
+      it('should be found in InBucket', () => {
+        const emailTask = cy.task<UnknownObject>(
+          'getInviteEmail',
+          'invited-member',
+        );
+
+        emailTask.then((email) => {
+          expect(email).to.exist;
+          expect(email.subject).to.include(
+            `You have been invited to join an organization!`,
+          );
+
+          expect(email.from).to.include(`<info@makerkit.dev>`);
+
+          const html = (email.body as { html: string }).html;
+          const el = document.createElement('html');
+          el.innerHTML = html;
+
+          const linkHref = el.querySelector('a')?.getAttribute('href');
+
+          cy.visit(linkHref!);
+
+          cy.cyGet('auth-submit-button').should('exist');
+        });
       });
     });
 
