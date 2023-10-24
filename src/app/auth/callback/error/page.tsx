@@ -1,13 +1,19 @@
 import { redirect } from 'next/navigation';
+
 import { Alert, AlertHeading } from '~/core/ui/Alert';
 import Button from '~/core/ui/Button';
+import Trans from '~/core/ui/Trans';
+
+import ResendLinkForm from './ResendLinkForm';
 
 interface Params {
-  searchParams: StringObject;
+  searchParams: {
+    error: string;
+  };
 }
 
 function AuthCallbackErrorPage({ searchParams }: Params) {
-  const error = searchParams.error;
+  const { error } = searchParams;
 
   // if there is no error, redirect the user to the sign-in page
   if (!error) {
@@ -15,16 +21,26 @@ function AuthCallbackErrorPage({ searchParams }: Params) {
   }
 
   return (
-    <div className={'flex flex-col space-y-6 py-4'}>
-      <Alert type={'error'}>
-        <AlertHeading>Authentication Error</AlertHeading>
-        Unfortunately, there was an error authenticating your account. Please
-        try again.
-      </Alert>
+    <div className={'flex flex-col space-y-4 py-4'}>
+      <div>
+        <Alert type={'error'}>
+          <AlertHeading>
+            <Trans i18nKey={'auth:authenticationErrorAlertHeading'} />
+          </AlertHeading>
 
-      <Button>
-        <a href={'/auth/sign-in'}>Sign In</a>
-      </Button>
+          <Trans i18nKey={error} />
+        </Alert>
+      </div>
+
+      <ResendLinkForm />
+
+      <div className={'flex flex-col space-y-2'}>
+        <Button variant={'ghost'}>
+          <a href={'/auth/sign-in'}>
+            <Trans i18nKey={'auth:signIn'} />
+          </a>
+        </Button>
+      </div>
     </div>
   );
 }
