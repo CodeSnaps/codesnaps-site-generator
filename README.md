@@ -9,6 +9,21 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 This is a quick guide to get you started with the project. For more details, 
 please refer to the [documentation](https://makerkit.dev/docs/next-supabase/introduction).
 
+### Before you deploy to production
+
+Many users try to deploy to production without going through the steps below.
+The result is the application won't be working as expected.
+
+**Important**: deploying to production (Vercel or other) will require you to 
+fill the required environment variables. 
+
+[Please refer to the documentation](https://makerkit.dev/docs/next-supabase/going-to-production-overview) to 
+learn more.
+
+**Failure to do so will result in your application not working as expected 
+or not deploying at all**. Please ensure you have the required environment 
+variables and keys before deploying to production.
+
 ### Requirements
 
 Ensure you have the following installed:
