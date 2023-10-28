@@ -43,7 +43,7 @@ const EmailLinkAuth: React.FC<{
         },
       });
 
-      await toast.promise(promise, {
+      toast.promise(promise, {
         loading: t('auth:sendingEmailLink'),
         success: t(`auth:sendLinkSuccessToast`),
         error: t(`auth:errors.link`),

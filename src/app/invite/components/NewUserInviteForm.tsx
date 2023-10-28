@@ -17,6 +17,7 @@ import PageLoadingIndicator from '~/core/ui/PageLoadingIndicator';
 import isBrowser from '~/core/generic/is-browser';
 import useCsrfToken from '~/core/hooks/use-csrf-token';
 import { acceptInviteAction } from '~/lib/memberships/actions';
+import EmailOtpContainer from '~/app/auth/components/EmailOtpContainer';
 
 enum Mode {
   SignUp,
@@ -98,6 +99,13 @@ function NewUserInviteForm(
 
       <If condition={configuration.auth.providers.emailLink}>
         <EmailLinkAuth inviteCode={props.code} />
+      </If>
+
+      <If condition={configuration.auth.providers.emailOtp}>
+        <EmailOtpContainer
+          shouldCreateUser={true}
+          onSuccess={onInviteAccepted}
+        />
       </If>
     </>
   );

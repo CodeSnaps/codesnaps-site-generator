@@ -12,6 +12,7 @@ import EmailLinkAuth from '~/app/auth/components/EmailLinkAuth';
 import OAuthProviders from '~/app/auth/components/OAuthProviders';
 
 import configuration from '~/configuration';
+import EmailOtpContainer from '~/app/auth/components/EmailOtpContainer';
 
 function SignUpMethodsContainer() {
   const router = useRouter();
@@ -51,6 +52,10 @@ function SignUpMethodsContainer() {
 
       <If condition={configuration.auth.providers.emailLink}>
         <EmailLinkAuth />
+      </If>
+
+      <If condition={configuration.auth.providers.emailOtp}>
+        <EmailOtpContainer shouldCreateUser={true} />
       </If>
     </>
   );

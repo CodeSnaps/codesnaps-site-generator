@@ -17,23 +17,30 @@ function useSignInWithOtp() {
 
   return useMutation(
     key,
-    (_, { arg: credentials }: { arg: SignInWithPasswordlessCredentials }) => {
-      return client.auth.signInWithOtp(credentials).then((result) => {
-        if (result.error) {
-          if (shouldIgnoreError(result.error)) {
-            console.warn(
-              `Ignoring error during development: ${result.error.message}`
-            );
+    async (
+      _,
+      {
+        arg: credentials,
+      }: {
+        arg: SignInWithPasswordlessCredentials;
+      },
+    ) => {
+      const result = await client.auth.signInWithOtp(credentials);
 
-            return {};
-          }
+      if (result.error) {
+        if (shouldIgnoreError(result.error)) {
+          console.warn(
+            `Ignoring error during development: ${result.error.message}`,
+          );
 
-          throw result.error.message;
+          return {} as never;
         }
 
-        return result.data;
-      });
-    }
+        throw result.error.message;
+      }
+
+      return result.data;
+    },
   );
 }
 
