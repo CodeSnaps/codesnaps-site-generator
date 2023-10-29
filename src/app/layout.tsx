@@ -50,7 +50,6 @@ export const metadata = {
     siteName: configuration.site.siteName,
     description: configuration.site.description,
   },
-  themeColor: configuration.site.themeColor,
   twitter: {
     card: 'summary_large_image',
     title: configuration.site.name,

@@ -103,6 +103,7 @@ function NewUserInviteForm(
 
       <If condition={configuration.auth.providers.emailOtp}>
         <EmailOtpContainer
+          inviteCode={props.code}
           shouldCreateUser={true}
           onSuccess={onInviteAccepted}
         />

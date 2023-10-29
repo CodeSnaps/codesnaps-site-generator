@@ -1,15 +1,10 @@
-import { cookies } from 'next/headers';
 import type { NextRequest } from 'next/server';
 import { redirect } from 'next/navigation';
 
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
-
 import { acceptInviteToOrganization } from '~/lib/memberships/mutations';
-import getSupabaseServerActionClient from '~/core/supabase/action-client';
-
-import { Database } from '~/database.types';
 import getLogger from '~/core/logger';
 import configuration from '~/configuration';
+import getSupabaseServerClient from '~/core/supabase/server-client';
 
 export async function GET(request: NextRequest) {
   const requestUrl = new URL(request.url);
@@ -21,7 +16,7 @@ export async function GET(request: NextRequest) {
   let userId: Maybe<string> = undefined;
 
   if (authCode) {
-    const client = createRouteHandlerClient<Database>({ cookies });
+    const client = getSupabaseServerClient();
 
     try {
       const { error, data } =
@@ -96,7 +91,7 @@ async function acceptInviteFromEmailLink(params: {
 
   logger.info(params, `Found invite code. Accepting invite...`);
 
-  const adminClient = getSupabaseServerActionClient({ admin: true });
+  const adminClient = getSupabaseServerClient({ admin: true });
 
   await acceptInviteToOrganization(adminClient, {
     code: params.inviteCode,

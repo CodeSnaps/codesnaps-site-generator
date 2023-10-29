@@ -3,7 +3,7 @@ import csrf from 'edge-csrf';
 
 import HttpStatusCode from '~/core/generic/http-status-code.enum';
 import configuration from '~/configuration';
-import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs';
+import createMiddlewareClient from '~/core/supabase/middleware-client';
 
 const CSRF_TOKEN_HEADER = 'X-CSRF-Token';
 const CSRF_SECRET_COOKIE = 'csrfSecret';
@@ -31,7 +31,7 @@ export async function middleware(request: NextRequest) {
 }
 
 async function sessionMiddleware(req: NextRequest, res: NextResponse) {
-  const supabase = createMiddlewareClient({ req, res });
+  const supabase = createMiddlewareClient(req, res);
 
   await supabase.auth.getSession();
 

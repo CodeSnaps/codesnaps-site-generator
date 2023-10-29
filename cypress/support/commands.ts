@@ -41,7 +41,15 @@ export function registerCypressCommands() {
             `Signing in programmatically and redirecting to ${redirectPath} ...`,
           );
 
-          cy.wrap(authPo.signInProgrammatically(credentials));
+          return authPo.signInProgrammatically(credentials);
+        },
+        {
+          validate: () =>
+            authPo.validate().then((user) => {
+              if (!user) {
+                throw new Error('User is not authenticated');
+              }
+            }),
         },
       );
 

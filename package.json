@@ -1,6 +1,6 @@
 {
   "name": "next-supabase-saas-kit",
-  "version": "0.7.8",
+  "version": "0.7.9",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -48,7 +48,7 @@
     "@sentry/tracing": "^7.76.0",
     "@stripe/react-stripe-js": "^2.3.1",
     "@stripe/stripe-js": "^2.1.10",
-    "@supabase/auth-helpers-nextjs": "^0.8.2",
+    "@supabase/ssr": "^0.0.4",
     "@supabase/supabase-js": "^2.38.4",
     "@tanstack/react-table": "^8.10.7",
     "classnames": "^2.3.2",
@@ -60,7 +60,7 @@
     "heroicons": "^2.0.18",
     "i18next": "^23.6.0",
     "i18next-browser-languagedetector": "^7.1.0",
-    "i18next-http-backend": "^2.3.0",
+    "i18next-http-backend": "^2.3.1",
     "i18next-resources-to-backend": "^1.1.4",
     "nanoid": "^5.0.2",
     "next": "14.0.0",
