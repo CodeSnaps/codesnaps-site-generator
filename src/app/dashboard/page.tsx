@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
 
 import { getOrganizationsByUserId } from '~/lib/organizations/database/queries';
-import getSupabaseServerClient from '~/core/supabase/server-client';
+import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 import requireSession from '~/lib/user/require-session';
 import initializeServerI18n from '~/i18n/i18n.server';
 import getLanguageCookie from '~/i18n/get-language-cookie';
@@ -24,7 +24,7 @@ import I18nProvider from '~/i18n/I18nProvider';
 import { getUserById } from '~/lib/user/database/queries';
 
 async function OrganizationsPage() {
-  const client = getSupabaseServerClient();
+  const client = getSupabaseServerComponentClient();
   const session = await requireSession(client);
   const userId = session.user.id;
   const { data: user } = await getUserById(client, userId);

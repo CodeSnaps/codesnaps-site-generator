@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation';
 
 import OnboardingContainer from './components/OnboardingContainer';
 import requireSession from '~/lib/user/require-session';
-import getSupabaseServerClient from '~/core/supabase/server-client';
+import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 import { getUserDataById } from '~/lib/server/queries';
 import { withI18n } from '~/i18n/with-i18n';
 import configuration from '~/configuration';
@@ -21,7 +21,7 @@ async function OnboardingPage() {
 export default withI18n(OnboardingPage);
 
 async function loadData() {
-  const client = getSupabaseServerClient();
+  const client = getSupabaseServerComponentClient();
   const session = await requireSession(client);
   const user = session.user;
 

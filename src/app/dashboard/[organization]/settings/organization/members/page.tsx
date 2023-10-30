@@ -12,7 +12,7 @@ import {
 } from '~/lib/organizations/database/queries';
 
 import configuration from '~/configuration';
-import getSupabaseServerClient from '~/core/supabase/server-client';
+import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 import type MembershipRole from '~/lib/organizations/types/membership-role';
 import type UserData from '~/core/session/types/user-data';
 
@@ -141,9 +141,9 @@ async function fetchOrganizationMembers({
 }
 
 async function loadMembers(organizationUid: string) {
-  const client = getSupabaseServerClient();
+  const client = getSupabaseServerComponentClient();
 
-  const adminClient = getSupabaseServerClient({
+  const adminClient = getSupabaseServerComponentClient({
     admin: true,
   });
 

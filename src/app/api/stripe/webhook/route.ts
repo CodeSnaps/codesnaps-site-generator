@@ -19,7 +19,7 @@ import {
   updateSubscriptionById,
 } from '~/lib/subscriptions/mutations';
 
-import getSupabaseServerClient from '~/core/supabase/server-client';
+import getSupabaseRouteHandlerClient from '~/core/supabase/route-handler-client';
 import { setOrganizationSubscriptionData } from '~/lib/organizations/database/mutations';
 
 const STRIPE_SIGNATURE_HEADER = 'stripe-signature';
@@ -37,7 +37,7 @@ export async function POST(request: Request) {
 
   if (!webhookSecretKey) {
     return throwInternalServerErrorException(
-      `The variable STRIPE_WEBHOOK_SECRET is unset. Please add the STRIPE_WEBHOOK_SECRET environment variable`
+      `The variable STRIPE_WEBHOOK_SECRET is unset. Please add the STRIPE_WEBHOOK_SECRET environment variable`,
     );
   }
 
@@ -50,7 +50,7 @@ export async function POST(request: Request) {
   const stripe = await getStripeInstance();
 
   // create an Admin client to write to the subscriptions table
-  const client = getSupabaseServerClient({
+  const client = getSupabaseRouteHandlerClient({
     admin: true,
   });
 
@@ -59,14 +59,14 @@ export async function POST(request: Request) {
     const event = stripe.webhooks.constructEvent(
       rawBody,
       signature,
-      webhookSecretKey
+      webhookSecretKey,
     );
 
     logger.info(
       {
         type: event.type,
       },
-      `[Stripe] Processing Stripe Webhook...`
+      `[Stripe] Processing Stripe Webhook...`,
     );
 
     switch (event.type) {
@@ -74,9 +74,8 @@ export async function POST(request: Request) {
         const session = event.data.object as Stripe.Checkout.Session;
         const subscriptionId = session.subscription as string;
 
-        const subscription = await stripe.subscriptions.retrieve(
-          subscriptionId
-        );
+        const subscription =
+          await stripe.subscriptions.retrieve(subscriptionId);
 
         await onCheckoutCompleted(client, session, subscription);
 
@@ -106,7 +105,7 @@ export async function POST(request: Request) {
       {
         error,
       },
-      `[Stripe] Webhook handling failed`
+      `[Stripe] Webhook handling failed`,
     );
 
     return throwInternalServerErrorException();
@@ -121,7 +120,7 @@ export async function POST(request: Request) {
 async function onCheckoutCompleted(
   client: SupabaseClient,
   session: Stripe.Checkout.Session,
-  subscription: Stripe.Subscription
+  subscription: Stripe.Subscription,
 ) {
   const organizationUid = getOrganizationUidFromClientReference(session);
   const customerId = session.customer as string;
@@ -135,7 +134,7 @@ async function onCheckoutCompleted(
 
   if (error) {
     return Promise.reject(
-      `Failed to add subscription to the database: ${error}`
+      `Failed to add subscription to the database: ${error}`,
     );
   }
 
@@ -152,7 +151,7 @@ async function onCheckoutCompleted(
  * @param session
  */
 function getOrganizationUidFromClientReference(
-  session: Stripe.Checkout.Session
+  session: Stripe.Checkout.Session,
 ) {
   return session.client_reference_id as string;
 }

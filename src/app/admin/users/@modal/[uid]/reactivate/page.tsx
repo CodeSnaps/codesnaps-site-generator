@@ -1,7 +1,7 @@
 import { use } from 'react';
 
 import { redirect } from 'next/navigation';
-import getSupabaseServerClient from '~/core/supabase/server-client';
+import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 import AdminGuard from '~/app/admin/components/AdminGuard';
 
 import ReactivateUserModal from '~/app/admin/users/@modal/[uid]/components/ReactivateUserModal';
@@ -13,7 +13,7 @@ interface Params {
 }
 
 function ReactivateUserModalPage({ params }: Params) {
-  const client = getSupabaseServerClient({ admin: true });
+  const client = getSupabaseServerComponentClient({ admin: true });
   const { data, error } = use(client.auth.admin.getUserById(params.uid));
 
   if (!data || error) {

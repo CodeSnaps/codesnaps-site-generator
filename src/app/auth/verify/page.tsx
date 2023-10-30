@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation';
 
 import verifyRequiresMfa from '~/core/session/utils/check-requires-mfa';
-import getSupabaseServerClient from '~/core/supabase/server-client';
+import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 import VerifyFormContainer from './components/VerifyFormContainer';
 
 import getLanguageCookie from '~/i18n/get-language-cookie';
@@ -16,7 +16,7 @@ export const metadata = {
 };
 
 async function VerifyPage() {
-  const client = getSupabaseServerClient();
+  const client = getSupabaseServerComponentClient();
   const needsMfa = await verifyRequiresMfa(client);
 
   if (!needsMfa) {

@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 import { acceptInviteToOrganization } from '~/lib/memberships/mutations';
 import getLogger from '~/core/logger';
 import configuration from '~/configuration';
-import getSupabaseServerClient from '~/core/supabase/server-client';
+import getSupabaseRouteHandlerClient from '~/core/supabase/route-handler-client';
 
 export async function GET(request: NextRequest) {
   const requestUrl = new URL(request.url);
@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
   let userId: Maybe<string> = undefined;
 
   if (authCode) {
-    const client = getSupabaseServerClient();
+    const client = getSupabaseRouteHandlerClient();
 
     try {
       const { error, data } =
@@ -91,7 +91,7 @@ async function acceptInviteFromEmailLink(params: {
 
   logger.info(params, `Found invite code. Accepting invite...`);
 
-  const adminClient = getSupabaseServerClient({ admin: true });
+  const adminClient = getSupabaseRouteHandlerClient({ admin: true });
 
   await acceptInviteToOrganization(adminClient, {
     code: params.inviteCode,

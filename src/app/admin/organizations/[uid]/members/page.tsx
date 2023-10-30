@@ -5,7 +5,7 @@ import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import AppContainer from '~/app/dashboard/[organization]/components/AppContainer';
 import AdminHeader from '~/app/admin/components/AdminHeader';
 import { getMembershipsByOrganizationUid } from '~/app/admin/organizations/queries';
-import getSupabaseServerClient from '~/core/supabase/server-client';
+import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 import OrganizationsMembersTable from '~/app/admin/organizations/[uid]/members/components/OrganizationsMembersTable';
 import getPageFromQueryParams from '~/app/admin/utils/get-page-from-query-param';
 
@@ -26,7 +26,7 @@ export const metadata = {
 };
 
 function AdminMembersPage(params: AdminMembersPageParams) {
-  const adminClient = getSupabaseServerClient({ admin: true });
+  const adminClient = getSupabaseServerComponentClient({ admin: true });
   const uid = params.params.uid;
   const perPage = 20;
   const page = getPageFromQueryParams(params.searchParams.page);

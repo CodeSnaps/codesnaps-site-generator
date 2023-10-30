@@ -8,6 +8,7 @@ import AdminProviders from '~/app/admin/components/AdminProviders';
 
 async function AdminLayout({ children }: React.PropsWithChildren) {
   const isAdmin = await isUserSuperAdmin();
+
   const language = getLanguageCookie();
 
   if (!isAdmin) {

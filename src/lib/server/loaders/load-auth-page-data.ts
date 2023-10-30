@@ -3,7 +3,7 @@ import 'server-only';
 import { permanentRedirect } from 'next/navigation';
 import configuration from '~/configuration';
 
-import getSupabaseServerClient from '~/core/supabase/server-client';
+import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 import initializeServerI18n from '~/i18n/i18n.server';
 import getLanguageCookie from '~/i18n/get-language-cookie';
 import verifyRequiresMfa from '~/core/session/utils/check-requires-mfa';
@@ -18,7 +18,7 @@ import verifyRequiresMfa from '~/core/session/utils/check-requires-mfa';
  */
 const loadAuthPageData = async () => {
   const { language } = await initializeServerI18n(getLanguageCookie());
-  const client = getSupabaseServerClient();
+  const client = getSupabaseServerComponentClient();
 
   const {
     data: { session },

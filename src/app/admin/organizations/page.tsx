@@ -8,7 +8,7 @@ import { getOrganizations } from '~/app/admin/organizations/queries';
 import getPageFromQueryParams from '~/app/admin/utils/get-page-from-query-param';
 
 import { TextFieldInput } from '~/core/ui/TextField';
-import getSupabaseServerClient from '~/core/supabase/server-client';
+import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 
 import configuration from '~/configuration';
 
@@ -25,7 +25,7 @@ export const metadata = {
 
 function OrganizationsAdminPage({ searchParams }: OrganizationsAdminPageProps) {
   const page = getPageFromQueryParams(searchParams.page);
-  const client = getSupabaseServerClient({ admin: true });
+  const client = getSupabaseServerComponentClient({ admin: true });
   const perPage = 20;
   const search = searchParams.search || '';
 

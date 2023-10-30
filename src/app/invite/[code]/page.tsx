@@ -7,7 +7,7 @@ import Heading from '~/core/ui/Heading';
 import Trans from '~/core/ui/Trans';
 
 import getLogger from '~/core/logger';
-import getSupabaseServerClient from '~/core/supabase/server-client';
+import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 
 import { getMembershipByInviteCode } from '~/lib/memberships/queries';
 import ExistingUserInviteForm from '~/app/invite/components/ExistingUserInviteForm';
@@ -78,11 +78,11 @@ export default withI18n(InvitePage);
 
 async function loadInviteData(code: string) {
   const logger = getLogger();
-  const client = getSupabaseServerClient();
+  const client = getSupabaseServerComponentClient();
 
   // we use an admin client to be able to read the pending membership
   // without having to be logged in
-  const adminClient = getSupabaseServerClient({ admin: true });
+  const adminClient = getSupabaseServerComponentClient({ admin: true });
 
   try {
     const { data: membership, error } = await getMembershipByInviteCode<{

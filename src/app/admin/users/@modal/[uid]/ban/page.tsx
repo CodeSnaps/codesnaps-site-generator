@@ -1,7 +1,7 @@
 import { use } from 'react';
 
 import BanUserModal from '../components/BanUserModal';
-import getSupabaseServerClient from '~/core/supabase/server-client';
+import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 import AdminGuard from '~/app/admin/components/AdminGuard';
 
 interface Params {
@@ -11,7 +11,7 @@ interface Params {
 }
 
 function BanUserModalPage({ params }: Params) {
-  const client = getSupabaseServerClient({ admin: true });
+  const client = getSupabaseServerComponentClient({ admin: true });
   const { data, error } = use(client.auth.admin.getUserById(params.uid));
 
   if (!data || error) {

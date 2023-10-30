@@ -1,7 +1,8 @@
 import { cache } from 'react';
 import type { SupabaseClient } from '@supabase/supabase-js';
-import getSupabaseServerClient from '~/core/supabase/server-client';
 import GlobalRole from '~/core/session/types/global-role';
+import { Database } from '~/database.types';
+import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 
 /**
  * @name ENFORCE_MFA
@@ -18,12 +19,16 @@ const ENFORCE_MFA = false;
 const isUserSuperAdmin = cache(
   async (
     params: {
+      client: SupabaseClient<Database>;
       enforceMfa?: boolean;
     } = {
+      client: getSupabaseServerComponentClient(),
       enforceMfa: ENFORCE_MFA,
     },
   ) => {
-    const client = getSupabaseServerClient();
+    const client = params.client ?? getSupabaseServerComponentClient();
+    const enforceMfa = params.enforceMfa ?? ENFORCE_MFA;
+
     const { data, error } = await client.auth.getUser();
 
     if (error) {
@@ -31,7 +36,7 @@ const isUserSuperAdmin = cache(
     }
 
     // If we enforce MFA, we need to check that the user is MFA authenticated.
-    if (params.enforceMfa) {
+    if (enforceMfa) {
       const isMfaAuthenticated = await verifyIsMultiFactorAuthenticated(client);
 
       if (!isMfaAuthenticated) {

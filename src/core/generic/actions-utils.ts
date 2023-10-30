@@ -27,7 +27,9 @@ export function withAdminSession<Args extends any[], Response>(
   fn: (...params: Args) => Response,
 ) {
   return async (...params: Args) => {
-    const isAdmin = await isUserSuperAdmin();
+    const isAdmin = await isUserSuperAdmin({
+      client: getSupabaseServerActionClient(),
+    });
 
     if (!isAdmin) {
       notFound();

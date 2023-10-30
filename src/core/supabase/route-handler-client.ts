@@ -1,15 +1,15 @@
 import { cache } from 'react';
-import { createServerClient } from '@supabase/ssr';
+import { CookieOptions, createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
 
 import getSupabaseClientKeys from '~/core/supabase/get-supabase-client-keys';
 
 /**
- * @name getSupabaseServerClient
- * @description Get a Supabase client for use in the Server Routes
+ * @name getSupabaseRouteHandlerClient
+ * @description Get a Supabase client for use in the Route Handler Routes
  * @param params
  */
-const getSupabaseServerClient = cache(
+const getSupabaseRouteHandlerClient = cache(
   (
     params = {
       admin: false,
@@ -38,9 +38,15 @@ const getSupabaseServerClient = cache(
         get(name: string) {
           return cookieStore.get(name)?.value;
         },
+        set(name: string, value: string, options: CookieOptions) {
+          cookieStore.set({ name, value, ...options });
+        },
+        remove(name: string, options: CookieOptions) {
+          cookieStore.set({ name, value: '', ...options });
+        },
       },
     });
   },
 );
 
-export default getSupabaseServerClient;
+export default getSupabaseRouteHandlerClient;

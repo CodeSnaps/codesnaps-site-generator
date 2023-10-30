@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
 
-import getSupabaseServerClient from '~/core/supabase/server-client';
+import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 import AdminHeader from '~/app/admin/components/AdminHeader';
 import AdminGuard from '~/app/admin/components/AdminGuard';
 import AppContainer from '~/app/dashboard/[organization]/components/AppContainer';
@@ -152,7 +152,7 @@ function AdminUserPage({ params }: Params) {
 export default AdminGuard(AdminUserPage);
 
 async function loadData(uid: string) {
-  const client = getSupabaseServerClient({ admin: true });
+  const client = getSupabaseServerComponentClient({ admin: true });
   const authUser = client.auth.admin.getUserById(uid);
 
   const userData = client

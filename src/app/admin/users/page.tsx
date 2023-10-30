@@ -2,7 +2,7 @@ import { use } from 'react';
 
 import AppContainer from '~/app/dashboard/[organization]/components/AppContainer';
 import AdminHeader from '~/app/admin/components/AdminHeader';
-import getSupabaseServerClient from '~/core/supabase/server-client';
+import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 import AdminGuard from '~/app/admin/components/AdminGuard';
 import UsersTable from '~/app/admin/users/components/UsersTable';
 import { getUsers } from '~/app/admin/users/queries';
@@ -45,7 +45,7 @@ function UsersAdminPage({ searchParams }: UsersAdminPageProps) {
 export default AdminGuard(UsersAdminPage);
 
 async function loadAuthUsers(page = 1, perPage = 20) {
-  const client = getSupabaseServerClient({ admin: true });
+  const client = getSupabaseServerComponentClient({ admin: true });
 
   const response = await client.auth.admin.listUsers({
     page,

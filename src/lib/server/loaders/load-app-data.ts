@@ -14,7 +14,7 @@ import getCurrentOrganization from '~/lib/server/organizations/get-current-organ
 import getUIStateCookies from '~/lib/server/loaders/utils/get-ui-state-cookies';
 import { getUserDataById } from '../queries';
 
-import getSupabaseServerClient from '~/core/supabase/server-client';
+import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 import requireSession from '~/lib/user/require-session';
 import getLogger from '~/core/logger';
 
@@ -30,7 +30,7 @@ import getLanguageCookie from '~/i18n/get-language-cookie';
  */
 const loadAppData = cache(async (organizationUid: string) => {
   try {
-    const client = getSupabaseServerClient();
+    const client = getSupabaseServerComponentClient();
     const session = await requireSession(client);
 
     const user = session.user;
