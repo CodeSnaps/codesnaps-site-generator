@@ -2,19 +2,18 @@ import { cache } from 'react';
 import { cookies } from 'next/headers';
 
 import { createServerClient } from '@supabase/ssr';
-
-import getSupabaseClientKeys from '~/core/supabase/get-supabase-client-keys';
 import type { Database } from '~/database.types';
 
+import getSupabaseClientKeys from './get-supabase-client-keys';
+import getSupabaseCookieAdapter from './supabase-cookie-adapter';
+
 const createServerSupabaseClient = cache(() => {
-  const cookieStore = cookies();
   const keys = getSupabaseClientKeys();
+  const { get } = getCookiesStrategy();
 
   return createServerClient<Database>(keys.url, keys.anonKey, {
     cookies: {
-      get(name: string) {
-        return cookieStore.get(name)?.value;
-      },
+      get,
     },
   });
 });
@@ -45,5 +44,21 @@ const getSupabaseServerActionClient = cache(
     return createServerSupabaseClient();
   },
 );
+
+function getCookiesStrategy() {
+  const cookieStore = cookies();
+
+  return getSupabaseCookieAdapter({
+    set: (name: string, value: string, options) => {
+      cookieStore.set({ name, value, ...options });
+    },
+    get: (name: string) => {
+      return cookieStore.get(name)?.value;
+    },
+    remove: (name: string) => {
+      cookieStore.delete(name);
+    },
+  });
+}
 
 export default getSupabaseServerActionClient;

@@ -1,5 +1,4 @@
-import type { NextRequest } from 'next/server';
-import { redirect } from 'next/navigation';
+import { NextRequest, NextResponse } from 'next/server';
 
 import { acceptInviteToOrganization } from '~/lib/memberships/mutations';
 import getLogger from '~/core/logger';
@@ -9,9 +8,11 @@ import getSupabaseRouteHandlerClient from '~/core/supabase/route-handler-client'
 export async function GET(request: NextRequest) {
   const requestUrl = new URL(request.url);
   const logger = getLogger();
+  const searchParams = requestUrl.searchParams;
 
-  const authCode = requestUrl.searchParams.get('code');
-  const inviteCode = requestUrl.searchParams.get('inviteCode');
+  const authCode = searchParams.get('code');
+  const inviteCode = searchParams.get('inviteCode');
+  const nextUrl = searchParams.get('next') ?? configuration.paths.appHome;
 
   let userId: Maybe<string> = undefined;
 
@@ -26,6 +27,7 @@ export async function GET(request: NextRequest) {
       if (error) {
         return onError({
           error: error.message,
+          origin: request.url,
         });
       }
 
@@ -42,6 +44,7 @@ export async function GET(request: NextRequest) {
 
       return onError({
         error: message as string,
+        origin: request.url,
       });
     }
 
@@ -61,14 +64,15 @@ export async function GET(request: NextRequest) {
 
         const message = error instanceof Error ? error.message : error;
 
-        onError({
+        return onError({
           error: message as string,
+          origin: request.url,
         });
       }
     }
   }
 
-  return redirect(configuration.paths.appHome);
+  return NextResponse.redirect(new URL(`/${nextUrl.slice(1)}`, request.url));
 }
 
 /**
@@ -101,7 +105,7 @@ async function acceptInviteFromEmailLink(params: {
   logger.info(params, `Invite successfully accepted`);
 }
 
-function onError({ error }: { error: string }) {
+function onError({ error, origin }: { error: string; origin: string }) {
   const errorMessage = getAuthErrorMessage(error);
 
   getLogger().error(
@@ -111,7 +115,12 @@ function onError({ error }: { error: string }) {
     `An error occurred while signing user in`,
   );
 
-  redirect(`/auth/callback/error?error=${errorMessage}`);
+  const redirectUrl = new URL(
+    `/auth/callback/error?error=${errorMessage}`,
+    origin,
+  );
+
+  return NextResponse.redirect(redirectUrl);
 }
 
 /**

@@ -1,8 +1,10 @@
-import { cache } from 'react';
 import { createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
+import { cache } from 'react';
 
 import getSupabaseClientKeys from '~/core/supabase/get-supabase-client-keys';
+import { Database } from '~/database.types';
+import getSupabaseCookieAdapter from '~/core/supabase/supabase-cookie-adapter';
 
 /**
  * @name getSupabaseServerComponentClient
@@ -15,7 +17,6 @@ const getSupabaseServerComponentClient = cache(
       admin: false,
     },
   ) => {
-    const cookieStore = cookies();
     const keys = getSupabaseClientKeys();
 
     if (params.admin) {
@@ -25,7 +26,7 @@ const getSupabaseServerComponentClient = cache(
         throw new Error('Supabase Service Role Key not provided');
       }
 
-      return createServerClient(keys.url, serviceRoleKey, {
+      return createServerClient<Database>(keys.url, serviceRoleKey, {
         auth: {
           persistSession: false,
         },
@@ -33,14 +34,28 @@ const getSupabaseServerComponentClient = cache(
       });
     }
 
-    return createServerClient(keys.url, keys.anonKey, {
-      cookies: {
-        get(name: string) {
-          return cookieStore.get(name)?.value;
-        },
-      },
+    const { get } = getCookiesStrategy();
+
+    return createServerClient<Database>(keys.url, keys.anonKey, {
+      cookies: { get },
     });
   },
 );
 
 export default getSupabaseServerComponentClient;
+
+function getCookiesStrategy() {
+  const cookieStore = cookies();
+
+  return getSupabaseCookieAdapter({
+    set: (name: string, value: string, options) => {
+      cookieStore.set({ name, value, ...options });
+    },
+    get: (name: string) => {
+      return cookieStore.get(name)?.value;
+    },
+    remove: (name: string) => {
+      cookieStore.delete(name);
+    },
+  });
+}

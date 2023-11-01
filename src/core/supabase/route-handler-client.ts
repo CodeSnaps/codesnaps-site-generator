@@ -1,8 +1,10 @@
-import { cache } from 'react';
 import { CookieOptions, createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
+import { cache } from 'react';
 
-import getSupabaseClientKeys from '~/core/supabase/get-supabase-client-keys';
+import { Database } from '~/database.types';
+import getSupabaseCookieAdapter from './supabase-cookie-adapter';
+import getSupabaseClientKeys from './get-supabase-client-keys';
 
 /**
  * @name getSupabaseRouteHandlerClient
@@ -15,7 +17,6 @@ const getSupabaseRouteHandlerClient = cache(
       admin: false,
     },
   ) => {
-    const cookieStore = cookies();
     const keys = getSupabaseClientKeys();
 
     if (params.admin) {
@@ -25,7 +26,7 @@ const getSupabaseRouteHandlerClient = cache(
         throw new Error('Supabase Service Role Key not provided');
       }
 
-      return createServerClient(keys.url, serviceRoleKey, {
+      return createServerClient<Database>(keys.url, serviceRoleKey, {
         auth: {
           persistSession: false,
         },
@@ -33,20 +34,26 @@ const getSupabaseRouteHandlerClient = cache(
       });
     }
 
-    return createServerClient(keys.url, keys.anonKey, {
-      cookies: {
-        get(name: string) {
-          return cookieStore.get(name)?.value;
-        },
-        set(name: string, value: string, options: CookieOptions) {
-          cookieStore.set({ name, value, ...options });
-        },
-        remove(name: string, options: CookieOptions) {
-          cookieStore.set({ name, value: '', ...options });
-        },
-      },
+    return createServerClient<Database>(keys.url, keys.anonKey, {
+      cookies: getCookiesStrategy(),
     });
   },
 );
 
 export default getSupabaseRouteHandlerClient;
+
+function getCookiesStrategy() {
+  const cookieStore = cookies();
+
+  return getSupabaseCookieAdapter({
+    set: (name: string, value: string, options: CookieOptions) => {
+      return cookieStore.set({ name, value, ...options });
+    },
+    get: (name: string) => {
+      return cookieStore.get(name)?.value;
+    },
+    remove: (name: string, options: CookieOptions) => {
+      return cookieStore.set({ name, value: '', ...options });
+    },
+  });
+}
