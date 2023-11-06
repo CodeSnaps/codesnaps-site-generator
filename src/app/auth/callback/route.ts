@@ -12,6 +12,7 @@ export async function GET(request: NextRequest) {
 
   const authCode = searchParams.get('code');
   const inviteCode = searchParams.get('inviteCode');
+  const error = searchParams.get('error');
   const nextUrl = searchParams.get('next') ?? configuration.paths.appHome;
 
   let userId: Maybe<string> = undefined;
@@ -50,6 +51,14 @@ export async function GET(request: NextRequest) {
 
     if (inviteCode && userId) {
       try {
+        logger.info(
+          {
+            userId,
+            inviteCode,
+          },
+          `Attempting to accept user invite...`,
+        );
+
         // if we have an invite code, we accept the invite
         await acceptInviteFromEmailLink({ inviteCode, userId });
       } catch (error) {
@@ -72,7 +81,17 @@ export async function GET(request: NextRequest) {
     }
   }
 
-  return NextResponse.redirect(new URL(`/${nextUrl.slice(1)}`, request.url));
+  if (error) {
+    return onError({
+      error,
+      origin: request.url,
+    });
+  }
+
+  const redirectParams = nextUrl.slice(1);
+  const redirectUrl = new URL(`/${redirectParams}`, request.url);
+
+  return NextResponse.redirect(redirectUrl);
 }
 
 /**

@@ -29,6 +29,7 @@
   "retry": "Retry",
   "contactUs": "Contact Us",
   "loading": "Loading. Please wait...",
+  "yourOrganizations": "Your Organizations",
   "roles": {
     "owner": {
       "label": "Owner",

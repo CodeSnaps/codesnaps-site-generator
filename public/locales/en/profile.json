@@ -116,5 +116,12 @@
   "authFactorName": "Factor Name (optional)",
   "authFactorNameHint": "Assign a name that helps you remember the phone number used",
   "loadingUser": "Loading user details. Please wait...",
-  "linkPhoneNumber": "Link Phone Number"
+  "linkPhoneNumber": "Link Phone Number",
+  "dangerZone": "Danger Zone",
+  "dangerZoneSubheading": "Some actions cannot be undone. Please be careful.",
+  "deleteAccount": "Delete your Account",
+  "deleteAccountConfirmationHint": "You will be asked to confirm this action in the next step.",
+  "deleteAccountDescription": "This will delete your account and the organizations you own. Furthermore, we will immediately cancel any active subscriptions. This action cannot be undone.",
+  "deleteProfileConfirmationInputLabel": "Type DELETE to confirm",
+  "deleteAccountErrorHeading": "Sorry, we couldn't delete your account"
 }

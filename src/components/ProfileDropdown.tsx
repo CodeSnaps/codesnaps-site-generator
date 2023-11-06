@@ -64,6 +64,7 @@ const ProfileDropdown: React.FCC<{
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
+        data-cy={'profile-dropdown-trigger'}
         className={
           'flex cursor-pointer items-center space-x-2 focus:outline-none'
         }
@@ -102,7 +103,7 @@ const ProfileDropdown: React.FCC<{
           </Link>
         </DropdownMenuItem>
 
-        <If condition={configuration.enableThemeSwitcher}>
+        <If condition={configuration.features.enableThemeSwitcher}>
           <ThemeSelectorSubMenu />
         </If>
 

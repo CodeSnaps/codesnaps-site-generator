@@ -37,8 +37,18 @@ const configuration = {
   },
   production,
   environment: process.env.NEXT_PUBLIC_ENVIRONMENT,
-  enableThemeSwitcher: true,
   theme: Themes.Light,
+  features: {
+    enableThemeSwitcher: true,
+    enableAccountDeletion: getBoolean(
+      process.env.NEXT_PUBLIC_ENABLE_ACCOUNT_DELETION,
+      false,
+    ),
+    enableOrganizationDeletion: getBoolean(
+      process.env.NEXT_PUBLIC_ENABLE_ORGANIZATION_DELETION,
+      false,
+    ),
+  },
   paths: {
     signIn: '/auth/sign-in',
     signUp: '/auth/sign-up',
@@ -145,4 +155,12 @@ if (
   throw new Error(
     'The key NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY is not defined. Please add it to your environment variables.',
   );
+}
+
+function getBoolean(value: unknown, defaultValue: boolean) {
+  if (typeof value === 'string') {
+    return value === 'true';
+  }
+
+  return defaultValue;
 }

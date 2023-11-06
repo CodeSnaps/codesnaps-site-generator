@@ -3,7 +3,6 @@ import { cookies } from 'next/headers';
 import { cache } from 'react';
 
 import { Database } from '~/database.types';
-import getSupabaseCookieAdapter from './supabase-cookie-adapter';
 import getSupabaseClientKeys from './get-supabase-client-keys';
 
 /**
@@ -45,15 +44,15 @@ export default getSupabaseRouteHandlerClient;
 function getCookiesStrategy() {
   const cookieStore = cookies();
 
-  return getSupabaseCookieAdapter({
+  return {
     set: (name: string, value: string, options: CookieOptions) => {
-      return cookieStore.set({ name, value, ...options });
+      cookieStore.set({ name, value, ...options });
     },
     get: (name: string) => {
       return cookieStore.get(name)?.value;
     },
     remove: (name: string, options: CookieOptions) => {
-      return cookieStore.set({ name, value: '', ...options });
+      cookieStore.set({ name, value: '', ...options });
     },
-  });
+  };
 }

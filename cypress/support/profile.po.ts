@@ -5,24 +5,33 @@ export const profilePo = {
   $getUpdatePasswordForm: () => cy.cyGet('update-password-form'),
   $getNewEmailInput: () => cy.cyGet(`profile-new-email-input`),
   $getRepeatEmailInput: () => cy.cyGet(`profile-repeat-email-input`),
-  $getUpdateEmailPasswordInput: () => cy.cyGet(`profile-password-input`),
   $getUpdateEmailErrorAlert: () => cy.cyGet(`update-email-error-alert`),
-  $getUpdatePasswordErrorAlert: () => cy.cyGet(`update-password-error-alert`),
-  $getCurrentPasswordInput: () => cy.cyGet(`current-password`),
   $getNewPasswordInput: () => cy.cyGet(`new-password`),
   $getRepeatNewPasswordInput: () => cy.cyGet(`repeat-new-password`),
-  $getLinkProviderButton(providerId: string) {
-    return cy.get(
-      `[data-cy="auth-provider-button"][data-provider="${providerId}"]`
-    );
-  },
-  $getUnlinkProviderButton(providerId: string) {
-    return cy.get(
-      `[data-cy="unlink-provider-button"][data-provider="${providerId}"]`
-    );
-  },
-  $confirmUnlinkButton() {
-    return cy.cyGet(`confirm-unlink-provider-button`);
+  $confirmDeleteAccountButton: () => cy.cyGet(`confirm-delete-account-button`),
+  $confirmDeleteAccountConfirmationInput: () =>
+    cy.cyGet(`delete-account-input-field`),
+  $getDeleteAccountButton: () => cy.cyGet(`delete-account-button`),
+  deleteAccount: () => {
+    cy.intercept(
+      {
+        method: 'POST',
+        pathname: '/dashboard/*/settings/profile',
+      },
+      (req) => {
+        req.continue((res) => {
+          expect(res.statusCode).to.equal(200);
+        });
+      },
+    ).as('deleteAccount');
+
+    cy.wait(500);
+
+    profilePo.$getDeleteAccountButton().click();
+    profilePo.$confirmDeleteAccountConfirmationInput().type('DELETE');
+    profilePo.$confirmDeleteAccountButton().click();
+
+    cy.wait('@deleteAccount');
   },
 };
 

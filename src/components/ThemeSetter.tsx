@@ -5,9 +5,11 @@ import isBrowser from '~/core/generic/is-browser';
 import { loadSelectedTheme } from '~/core/theming';
 import configuration from '~/configuration';
 
+const enableThemeSwitcher = configuration.features.enableThemeSwitcher;
+
 function ThemeSetter() {
   useEffect(() => {
-    if (isBrowser() && configuration.enableThemeSwitcher) {
+    if (isBrowser() && enableThemeSwitcher) {
       loadSelectedTheme();
     }
   }, []);

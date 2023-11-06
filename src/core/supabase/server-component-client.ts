@@ -4,7 +4,6 @@ import { cache } from 'react';
 
 import getSupabaseClientKeys from '~/core/supabase/get-supabase-client-keys';
 import { Database } from '~/database.types';
-import getSupabaseCookieAdapter from '~/core/supabase/supabase-cookie-adapter';
 
 /**
  * @name getSupabaseServerComponentClient
@@ -34,10 +33,8 @@ const getSupabaseServerComponentClient = cache(
       });
     }
 
-    const { get } = getCookiesStrategy();
-
     return createServerClient<Database>(keys.url, keys.anonKey, {
-      cookies: { get },
+      cookies: getCookiesStrategy(),
     });
   },
 );
@@ -47,15 +44,9 @@ export default getSupabaseServerComponentClient;
 function getCookiesStrategy() {
   const cookieStore = cookies();
 
-  return getSupabaseCookieAdapter({
-    set: (name: string, value: string, options) => {
-      cookieStore.set({ name, value, ...options });
-    },
+  return {
     get: (name: string) => {
       return cookieStore.get(name)?.value;
     },
-    remove: (name: string) => {
-      cookieStore.delete(name);
-    },
-  });
+  };
 }

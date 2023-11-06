@@ -34,12 +34,17 @@ declare global {
 
       signIn(
         redirectPath?: string,
-        credentials?: { email: string; password: string }
+        credentials?: { email: string; password: string },
       ): void;
 
-      clearStorage(): void;
+      signUp(
+        redirectPath: string,
+        credentials: { email: string; password: string },
+      ): void;
 
-      signOutSession(): void;
+      visitSignUpEmailFromInBucket(email: string): void;
+
+      clearStorage(): void;
 
       resetDatabase(): void;
     }

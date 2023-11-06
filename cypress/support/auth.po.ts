@@ -1,4 +1,4 @@
-import { createBrowserClient, createServerClient } from '@supabase/ssr';
+import { createBrowserClient } from '@supabase/ssr';
 
 // we use a namespace not to pollute the IDE with methods from the tests
 const authPageObject = {
@@ -16,9 +16,17 @@ const authPageObject = {
   $getSubmitButton: () => cy.cyGet(`auth-submit-button`),
   $getErrorMessage: () => cy.cyGet(`auth-error-message`),
   $getAcceptInviteSubmitButton: () => cy.cyGet(`accept-invite-submit-button`),
-  signInWithEmailAndPassword(email: string, password: string) {
-    cy.wait(100);
+  interceptSignUp(callback: () => void) {
+    cy.intercept({
+      method: 'POST',
+      pathname: '/auth/v1/signup',
+    }).as('signUp');
 
+    callback();
+
+    cy.wait('@signUp');
+  },
+  signInWithEmailAndPassword(email: string, password: string) {
     this.$getEmailInput().clear().type(email);
     this.$getPasswordInput().clear().type(password);
     this.$getSubmitButton().click();

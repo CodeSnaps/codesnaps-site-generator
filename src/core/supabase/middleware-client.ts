@@ -1,7 +1,6 @@
 import { createServerClient, type CookieOptions } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 import { Database } from '~/database.types';
-import getSupabaseCookieAdapter from './supabase-cookie-adapter';
 import getSupabaseClientKeys from './get-supabase-client-keys';
 
 export default function createMiddlewareClient(
@@ -16,7 +15,7 @@ export default function createMiddlewareClient(
 }
 
 function getCookieStrategy(request: NextRequest, response: NextResponse) {
-  return getSupabaseCookieAdapter({
+  return {
     set: (name: string, value: string, options: CookieOptions) => {
       request.cookies.set({ name, value, ...options });
 
@@ -54,5 +53,5 @@ function getCookieStrategy(request: NextRequest, response: NextResponse) {
         ...options,
       });
     },
-  });
+  };
 }

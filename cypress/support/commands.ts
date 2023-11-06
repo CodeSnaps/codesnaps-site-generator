@@ -61,6 +61,28 @@ export function registerCypressCommands() {
     },
   );
 
+  Cypress.Commands.add(
+    'signUp',
+    (
+      redirectPath: string = '/',
+      credentials = authPo.getDefaultUserCredentials(),
+    ) => {
+      cy.session([redirectPath, credentials.email, Math.random()], () => {
+        cy.log(`Signing Up and redirecting to ${redirectPath} ...`);
+
+        cy.visit(`/auth/sign-up`);
+
+        authPo.$getEmailInput().type(credentials.email);
+        authPo.$getPasswordInput().type(credentials.password);
+        authPo.$getRepeatPasswordInput().type(credentials.password);
+        authPo.$getSubmitButton().click();
+      });
+
+      cy.visit(redirectPath);
+      cy.wait(500);
+    },
+  );
+
   Cypress.Commands.add(`clearStorage`, () => {
     cy.clearCookies();
     localStorage.clear();
@@ -71,8 +93,19 @@ export function registerCypressCommands() {
     cy.task(`resetDatabase`);
   });
 
-  Cypress.Commands.add(`signOutSession`, () => {
-    cy.request(`POST`, `/auth/sign-out`);
+  Cypress.Commands.add(`visitSignUpEmailFromInBucket`, (email: string) => {
+    const mailbox = email.split('@')[0];
+    const emailTask = cy.task<UnknownObject>('getInviteEmail', mailbox);
+
+    emailTask.then((json) => {
+      const html = (json.body as { html: string }).html;
+      const el = document.createElement('html');
+      el.innerHTML = html;
+
+      const linkHref = el.querySelector('a')?.getAttribute('href');
+
+      cy.visit(linkHref!, { failOnStatusCode: false });
+    });
   });
 
   Cypress.on('uncaught:exception', (err, runnable) => {

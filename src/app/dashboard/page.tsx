@@ -17,6 +17,7 @@ import Container from '~/core/ui/Container';
 import If from '~/core/ui/If';
 import Heading from '~/core/ui/Heading';
 import CardButton from '~/core/ui/CardButton';
+import Trans from '~/core/ui/Trans';
 
 import configuration from '~/configuration';
 import NewOrganizationButtonContainer from './components/NewOrganizationButtonContainer';
@@ -27,6 +28,7 @@ async function OrganizationsPage() {
   const client = getSupabaseServerComponentClient();
   const session = await requireSession(client);
   const userId = session.user.id;
+
   const { data: user } = await getUserById(client, userId);
 
   if (!user || !user.onboarded) {
@@ -85,6 +87,7 @@ async function OrganizationsPage() {
 
                 return (
                   <CardButton
+                    data-cy={'organization-card-button'}
                     className={'relative'}
                     href={href}
                     key={organization.id}
@@ -149,7 +152,7 @@ function OrganizationsPageHeader() {
                     'lg:text-initial text-base font-medium dark:text-white'
                   }
                 >
-                  Your Organizations
+                  <Trans i18nKey={'common:yourOrganizations'} />
                 </span>
               </span>
             </Heading>

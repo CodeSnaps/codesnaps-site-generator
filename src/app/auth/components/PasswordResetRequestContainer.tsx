@@ -2,7 +2,7 @@
 
 import { FormEvent, useCallback } from 'react';
 
-import useResetPassword from '~/core/hooks/use-reset-password';
+import useRequestResetPassword from '~/core/hooks/use-request-reset-password';
 import AuthErrorMessage from '~/app/auth/components/AuthErrorMessage';
 
 import If from '~/core/ui/If';
@@ -10,11 +10,10 @@ import Alert from '~/core/ui/Alert';
 import TextField from '~/core/ui/TextField';
 import Button from '~/core/ui/Button';
 import Trans from '~/core/ui/Trans';
-
 import configuration from '~/configuration';
 
-function PasswordResetContainer() {
-  const resetPasswordMutation = useResetPassword();
+function PasswordResetRequestContainer() {
+  const resetPasswordMutation = useRequestResetPassword();
   const error = resetPasswordMutation.error;
   const success = resetPasswordMutation.data;
 
@@ -44,10 +43,7 @@ function PasswordResetContainer() {
 
       <If condition={!resetPasswordMutation.data}>
         <>
-          <form
-            onSubmit={(e) => void onSubmit(e)}
-            className={'container mx-auto flex justify-center'}
-          >
+          <form onSubmit={(e) => void onSubmit(e)} className={'w-full'}>
             <div className={'flex-col space-y-4'}>
               <div>
                 <p className={'text-sm text-gray-700 dark:text-gray-400'}>
@@ -85,7 +81,7 @@ function PasswordResetContainer() {
   );
 }
 
-export default PasswordResetContainer;
+export default PasswordResetRequestContainer;
 
 /**
  * @description
@@ -95,6 +91,7 @@ export default PasswordResetContainer;
 function getReturnUrl() {
   const host = window.location.origin;
   const callback = configuration.paths.authCallback;
+  const callbackUrl = `${host}${callback}`;
 
-  return `${host}${callback}`;
+  return callbackUrl + '?next=/password-reset';
 }

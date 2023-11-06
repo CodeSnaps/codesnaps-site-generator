@@ -23,13 +23,15 @@ export const metadata = {
   title: `Organizations | ${configuration.site.siteName}`,
 };
 
-function OrganizationsAdminPage({ searchParams }: OrganizationsAdminPageProps) {
+async function OrganizationsAdminPage({
+  searchParams,
+}: OrganizationsAdminPageProps) {
   const page = getPageFromQueryParams(searchParams.page);
   const client = getSupabaseServerComponentClient({ admin: true });
   const perPage = 20;
   const search = searchParams.search || '';
 
-  const { organizations, count } = use(getOrganizations(client, search, page));
+  const { organizations, count } = await getOrganizations(client, search, page);
   const pageCount = count ? Math.ceil(count / perPage) : 0;
 
   return (

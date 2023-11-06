@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import type { User } from '@supabase/gotrue-js';
 
 import { toast } from 'sonner';
@@ -14,9 +14,10 @@ import TextField from '~/core/ui/TextField';
 import Alert from '~/core/ui/Alert';
 import If from '~/core/ui/If';
 import Trans from '~/core/ui/Trans';
+
 import configuration from '~/configuration';
 
-const UpdatePasswordForm: React.FCC<{ user: User }> = ({ user }) => {
+const UpdatePasswordForm = ({ user }: { user: User }) => {
   const { t } = useTranslation();
   const updateUserMutation = useUpdateUserMutation();
 
@@ -61,25 +62,29 @@ const UpdatePasswordForm: React.FCC<{ user: User }> = ({ user }) => {
   });
 
   const updatePasswordFromCredential = useCallback(
-    async (password: string) => {
+    (password: string) => {
       const redirectTo = [
         window.location.origin,
         configuration.paths.authCallback,
       ].join('');
 
-      const promise = updateUserMutation.trigger({ password, redirectTo });
+      const promise = updateUserMutation
+        .trigger({ password, redirectTo })
+        .then(() => {
+          reset();
+        });
 
-      return await toast.promise(promise, {
+      toast.promise(promise, {
         success: t(`profile:updatePasswordSuccess`),
         error: t(`profile:updatePasswordError`),
         loading: t(`profile:updatePasswordLoading`),
       });
     },
-    [updateUserMutation, t],
+    [updateUserMutation, t, reset],
   );
 
   const updatePasswordCallback = useCallback(
-    async (user: User, currentPassword: string, newPassword: string) => {
+    async ({ newPassword }: { newPassword: string }) => {
       const email = user.email;
 
       // if the user does not have an email assigned, it's possible they
@@ -88,35 +93,18 @@ const UpdatePasswordForm: React.FCC<{ user: User }> = ({ user }) => {
         return Promise.reject(t(`profile:cannotUpdatePassword`));
       }
 
-      try {
-        return await updatePasswordFromCredential(newPassword);
-      } catch (e) {
-        return Promise.reject(e);
-      }
+      updatePasswordFromCredential(newPassword);
     },
-    [updatePasswordFromCredential, t],
+    [user.email, updatePasswordFromCredential, t],
   );
-
-  const onSubmit = useCallback(
-    async (params: { currentPassword: string; newPassword: string }) => {
-      const { newPassword, currentPassword } = params;
-
-      return updatePasswordCallback(user, currentPassword, newPassword);
-    },
-    [user, updatePasswordCallback],
-  );
-
-  // reset form on success
-  useEffect(() => {
-    if (updateUserMutation.data) {
-      reset();
-    }
-  }, [reset, updateUserMutation]);
 
   const { isMutating, data } = updateUserMutation;
 
   return (
-    <form data-cy={'update-password-form'} onSubmit={handleSubmit(onSubmit)}>
+    <form
+      data-cy={'update-password-form'}
+      onSubmit={handleSubmit(updatePasswordCallback)}
+    >
       <div className={'flex flex-col space-y-4'}>
         <If condition={data}>
           <Alert type={'success'}>

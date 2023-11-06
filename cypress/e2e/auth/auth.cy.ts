@@ -25,11 +25,11 @@ describe(`Authentication`, () => {
 
       describe(`when the request is successful`, () => {
         it('should display the email confirmation alert', () => {
-          auth.signUpWithEmailAndPassword(email, password);
+          auth.interceptSignUp(() => {
+            auth.signUpWithEmailAndPassword(email, password);
+          });
 
           cy.cyGet('email-confirmation-alert').should('exist');
-
-          cy.wait(100);
           cy.task('confirmEmail', email);
         });
       });
@@ -49,7 +49,7 @@ describe(`Authentication`, () => {
 
   describe(`Sign In`, () => {
     beforeEach(() => {
-      cy.visit(`/auth/sign-in`);
+      cy.visit(`/auth/sign-in`).wait(1000);
     });
 
     describe(`given the user signs in with email/password`, () => {
@@ -65,7 +65,10 @@ describe(`Authentication`, () => {
 
       describe(`when the request is successful`, () => {
         it('should take the user to the app home page', () => {
-          auth.signInWithEmailAndPassword(email, password);
+          auth.signInWithEmailAndPassword(
+            auth.getDefaultUserEmail(),
+            auth.getDefaultUserPassword(),
+          );
 
           cy.url().should('contain', configuration.paths.appHome);
         });

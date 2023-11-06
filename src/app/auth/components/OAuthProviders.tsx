@@ -16,6 +16,7 @@ const OAUTH_PROVIDERS = configuration.auth.providers.oAuth;
 
 const OAuthProviders: React.FCC<{
   returnUrl?: string;
+  inviteCode?: string;
 }> = (props) => {
   const signInWithProviderMutation = useSignInWithProvider();
 
@@ -34,7 +35,7 @@ const OAuthProviders: React.FCC<{
         throw error;
       }
     },
-    []
+    [],
   );
 
   if (!OAUTH_PROVIDERS || !OAUTH_PROVIDERS.length) {
@@ -58,11 +59,20 @@ const OAuthProviders: React.FCC<{
                   const origin = window.location.origin;
                   const callback = configuration.paths.authCallback;
 
-                  const returnUrlParams = props.returnUrl
-                    ? `?returnUrl=${props.returnUrl}`
-                    : '';
+                  const queryParams = new URLSearchParams();
 
-                  const returnUrl = [callback, returnUrlParams].join('');
+                  if (props.returnUrl) {
+                    queryParams.set('returnUrl', props.returnUrl);
+                  }
+
+                  if (props.inviteCode) {
+                    queryParams.set('inviteCode', props.inviteCode);
+                  }
+
+                  const returnUrl = [callback, queryParams.toString()].join(
+                    '?',
+                  );
+
                   const redirectTo = [origin, returnUrl].join('');
 
                   const credentials = {
@@ -73,7 +83,7 @@ const OAuthProviders: React.FCC<{
                   };
 
                   return onSignInWithProvider(() =>
-                    signInWithProviderMutation.trigger(credentials)
+                    signInWithProviderMutation.trigger(credentials),
                   );
                 }}
               >

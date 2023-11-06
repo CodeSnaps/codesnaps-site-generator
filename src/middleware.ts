@@ -136,7 +136,7 @@ async function parsePayload(request: NextRequest) {
   const clone = request.clone();
 
   try {
-    const type = 'json';
+    const type = 'json' as const;
     const data = await clone.json();
 
     return {
@@ -144,6 +144,7 @@ async function parsePayload(request: NextRequest) {
       data,
     };
   } catch (e) {
+    // we cannot parse the body
     return {
       type: undefined,
       data: null,

@@ -65,5 +65,19 @@
   "loadingInvitedMembers": "Loading invited members...",
   "invitedBadge": "Invited",
   "duplicateInviteEmailError": "You have already entered this email address",
-  "invitingOwnAccountError": "Hey, that's your email!"
+  "invitingOwnAccountError": "Hey, that's your email!",
+  "dangerZone": "Danger Zone",
+  "dangerZoneSubheading": "Delete or leave your organization",
+  "deleteOrganization": "Delete Organization",
+  "deleteOrganizationDescription": "This action cannot be undone. All data associated with this organization will be deleted.",
+  "deletingOrganization": "Deleting organization",
+  "deleteOrganizationModalHeading": "Deleting Organization",
+  "deleteOrganizationInputField": "Type the name of the organization to confirm",
+  "leaveOrganization": "Leave Organization",
+  "leavingOrganizationModalHeading": "Leaving Organization",
+  "leaveOrganizationDescription": "You will no longer have access to this organization.",
+  "deleteOrganizationDisclaimer": "You are deleting the organization {{ organizationName }}. This action cannot be undone.",
+  "leaveOrganizationDisclaimer": "You are leaving the organization {{ organizationName }}. You will no longer have access to it.",
+  "deleteOrganizationErrorHeading": "Sorry, we couldn't delete your organization.",
+  "leaveOrganizationErrorHeading": "Sorry, we couldn't leave your organization."
 }

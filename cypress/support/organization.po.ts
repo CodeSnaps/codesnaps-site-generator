@@ -76,10 +76,6 @@ const organizationPageObject = {
 
     return this;
   },
-  assertOrganizationExists(name: string) {
-    organizationPageObject.openOrganizationsDropdown();
-    organizationPageObject.getOrganizationDropdownItem(name).should(`exist`);
-  },
   openMemberActionsDropdown() {
     this.$getMemberActionsDropdown().wait(250).click();
 
@@ -136,6 +132,14 @@ const organizationPageObject = {
   assertCurrentOrganization(name: string) {
     this.$currentOrganization(name).should('be.visible');
   },
+  $getLeaveOrganizationButton: () => $get(`leave-organization-button`),
+  $getConfirmLeaveOrganizationButton: () =>
+    $get(`confirm-leave-organization-button`),
+  $getDeleteOrganizationButton: () => $get(`delete-organization-button`),
+  $getConfirmDeleteOrganizationButton: () =>
+    $get(`confirm-delete-organization-button`),
+  $getDeleteOrganizationConfirmationInput: () =>
+    $get(`delete-organization-input-field`),
 };
 
 export default organizationPageObject;

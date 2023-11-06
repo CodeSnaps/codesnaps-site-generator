@@ -31,15 +31,9 @@ export default defineConfig({
       };
 
       on('task', {
-        resetDatabase() {
-          return resetDb();
-        },
-        async confirmEmail(email: string) {
-          return confirmUserEmail(email);
-        },
-        async getInviteEmail(mailbox: string) {
-          return getInviteEmail(mailbox);
-        },
+        resetDatabase,
+        confirmEmail,
+        getInviteEmail,
       });
 
       const env = getEnv();
@@ -60,7 +54,7 @@ export default defineConfig({
 function getExcludeSpecPattern() {
   const configuration = require('./src/configuration').default;
   const enableStripeTests = process.env.ENABLE_STRIPE_TESTING === 'true';
-  const enableThemeTests = configuration.enableThemeSwitcher;
+  const enableThemeTests = configuration.features.enableThemeSwitcher;
 
   const excludePatterns = [];
 
@@ -75,7 +69,7 @@ function getExcludeSpecPattern() {
   return excludePatterns;
 }
 
-function resetDb() {
+function resetDatabase() {
   console.log(`Resetting database...`);
 
   try {
@@ -110,7 +104,7 @@ function getEnv() {
   };
 }
 
-async function confirmUserEmail(email: string) {
+async function confirmEmail(email: string) {
   const apiUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const apiKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
@@ -148,7 +142,12 @@ async function confirmUserEmail(email: string) {
   return true;
 }
 
-async function getInviteEmail(mailbox: string) {
+async function getInviteEmail(
+  mailbox: string,
+  params = {
+    deleteAfter: true,
+  },
+) {
   const url = `http://localhost:54324/api/v1/mailbox/${mailbox}`;
   const fetch = require('node-fetch');
 
@@ -163,6 +162,13 @@ async function getInviteEmail(mailbox: string) {
   const messageUrl = `${url}/${messageId}`;
 
   const messageResponse = await fetch(messageUrl);
+
+  // delete message
+  if (params.deleteAfter) {
+    await fetch(messageUrl, {
+      method: 'DELETE',
+    });
+  }
 
   return messageResponse.json();
 }

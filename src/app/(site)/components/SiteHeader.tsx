@@ -15,9 +15,10 @@ import ProfileDropdown from '~/components/ProfileDropdown';
 
 import configuration from '~/configuration';
 
-const SiteHeader: React.FCC = () => {
+const SiteHeader = () => {
   const signOut = useSignOut();
   const userSession = useUserSession();
+  const canSwitchTheme = configuration.features.enableThemeSwitcher;
 
   return (
     <Container>
@@ -32,7 +33,7 @@ const SiteHeader: React.FCC = () => {
 
         <div className={'flex flex-1 items-center justify-end space-x-4'}>
           <div className={'items-center flex'}>
-            <If condition={configuration.enableThemeSwitcher}>
+            <If condition={canSwitchTheme}>
               <DarkModeToggle />
             </If>
           </div>

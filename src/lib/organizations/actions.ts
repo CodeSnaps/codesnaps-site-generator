@@ -1,7 +1,7 @@
 'use server';
 
 import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
+import { redirect, RedirectType } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
 import { z } from 'zod';
 
@@ -18,6 +18,9 @@ import MembershipRole from '~/lib/organizations/types/membership-role';
 import { getOrganizationByUid } from '~/lib/organizations/database/queries';
 
 import configuration from '~/configuration';
+import verifyCsrfToken from '~/core/verify-csrf-token';
+import removeMembership from '~/lib/server/organizations/remove-membership';
+import deleteOrganization from '~/lib/server/organizations/delete-organization';
 
 export const createNewOrganizationAction = withSession(
   async (params: { organization: string; csrfToken: string }) => {
@@ -233,6 +236,54 @@ export const inviteMembersToOrganizationAction = withSession(
     redirect(redirectPath);
   },
 );
+
+export async function leaveOrganizationAction(data: FormData) {
+  const logger = getLogger();
+  const client = getSupabaseServerActionClient();
+  const { user } = await requireSession(client);
+
+  const id = z.coerce.number().parse(data.get('id'));
+  const csrfToken = z.string().parse(data.get('csrfToken'));
+
+  // validate the csrf token
+  await verifyCsrfToken(csrfToken);
+
+  // remove the user from the organization
+  const params = {
+    organizationId: id,
+    userId: user.id,
+  };
+
+  await removeMembership(params);
+
+  logger.info(params, `User successfully left organization`);
+
+  // redirect to the app home page
+  const redirectPath = configuration.paths.appHome;
+
+  return redirect(redirectPath, RedirectType.replace);
+}
+
+export async function deleteOrganizationAction(data: FormData) {
+  const client = getSupabaseServerActionClient();
+  const { user } = await requireSession(client);
+
+  // validate the form data
+  const id = z.coerce.number().parse(data.get('id'));
+  const csrfToken = z.string().parse(data.get('csrfToken'));
+
+  // validate the csrf token
+  await verifyCsrfToken(csrfToken);
+
+  // delete the organization and all its data
+  await deleteOrganization(client, {
+    organizationId: id,
+    userId: user.id,
+  });
+
+  // redirect to the app home page
+  return redirect(configuration.paths.appHome, RedirectType.replace);
+}
 
 function getInviteMembersBodySchema() {
   return z.object({

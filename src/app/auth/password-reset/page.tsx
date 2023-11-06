@@ -4,11 +4,11 @@ import configuration from '~/configuration';
 import Heading from '~/core/ui/Heading';
 import Trans from '~/core/ui/Trans';
 
-import PasswordResetContainer from '~/app/auth/components/PasswordResetContainer';
+import PasswordResetRequestContainer from '~/app/auth/components/PasswordResetRequestContainer';
 import { withI18n } from '~/i18n/with-i18n';
 
 export const metadata = {
-  title: 'Password Reset',
+  title: 'Password Reset Request',
 };
 
 function PasswordResetPage() {
@@ -21,7 +21,7 @@ function PasswordResetPage() {
       </div>
 
       <div className={'flex flex-col space-y-4'}>
-        <PasswordResetContainer />
+        <PasswordResetRequestContainer />
 
         <div className={'flex justify-center text-xs'}>
           <p className={'flex space-x-1'}>

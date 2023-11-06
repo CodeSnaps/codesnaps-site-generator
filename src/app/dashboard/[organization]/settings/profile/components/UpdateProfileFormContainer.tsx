@@ -5,15 +5,20 @@ import { useCallback, useContext } from 'react';
 import UserSessionContext from '~/core/session/contexts/user-session';
 import useUserSession from '~/core/hooks/use-user-session';
 import UserData from '~/core/session/types/user-data';
-import UpdateProfileForm from '../components/UpdateProfileForm';
 import Trans from '~/core/ui/Trans';
+import If from '~/core/ui/If';
 
 import UpdatePhoneNumberForm from '../components/UpdatePhoneNumberForm';
 import SettingsTile from '../../components/SettingsTile';
-import If from '~/core/ui/If';
-import configuration from '~/configuration';
+import UpdateProfileForm from '../components/UpdateProfileForm';
+import ProfileDangerZone from '../components/ProfileDangerZone';
 
 import { refreshSessionAction } from '../actions';
+
+import configuration from '~/configuration';
+
+const allowAccountDeletion = configuration.features.enableAccountDeletion;
+const allowPhoneNumberUpdate = configuration.auth.providers.phoneNumber;
 
 function UpdateProfileFormContainer() {
   const { userSession, setUserSession } = useContext(UserSessionContext);
@@ -54,7 +59,7 @@ function UpdateProfileFormContainer() {
         />
       </SettingsTile>
 
-      <If condition={configuration.auth.providers.phoneNumber}>
+      <If condition={allowPhoneNumberUpdate}>
         <SettingsTile
           heading={<Trans i18nKey={'profile:updatePhoneNumber'} />}
           subHeading={<Trans i18nKey={'profile:updatePhoneNumberSubheading'} />}
@@ -65,6 +70,15 @@ function UpdateProfileFormContainer() {
               await refreshSessionAction();
             }}
           />
+        </SettingsTile>
+      </If>
+
+      <If condition={allowAccountDeletion}>
+        <SettingsTile
+          heading={<Trans i18nKey={'profile:dangerZone'} />}
+          subHeading={<Trans i18nKey={'profile:dangerZoneSubheading'} />}
+        >
+          <ProfileDangerZone />
         </SettingsTile>
       </If>
     </div>

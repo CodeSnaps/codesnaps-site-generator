@@ -49,6 +49,7 @@ const OrganizationInfoStep: React.FCC<{
           <TextField.Label>
             Your organization&apos;s name
             <TextField.Input
+              data-cy={'organization-name-input'}
               required
               name={'organization'}
               placeholder={'Organization Name'}

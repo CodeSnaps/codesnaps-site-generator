@@ -56,7 +56,7 @@ function NewUserInviteForm(
         </PageLoadingIndicator>
       </If>
 
-      <OAuthProviders returnUrl={oAuthReturnUrl} />
+      <OAuthProviders inviteCode={props.code} returnUrl={oAuthReturnUrl} />
 
       <If condition={configuration.auth.providers.emailPassword}>
         <If condition={mode === Mode.SignUp}>

@@ -17,10 +17,7 @@ function useSignUpWithEmailAndPassword() {
   return useSWRMutation(
     key,
     (_, { arg: credentials }: { arg: Credentials }) => {
-      const emailRedirectTo = [
-        window.location.origin,
-        configuration.paths.authCallback,
-      ].join('');
+      const emailRedirectTo = getRedirectUrl();
 
       return client.auth
         .signUp({
@@ -49,3 +46,11 @@ function useSignUpWithEmailAndPassword() {
 }
 
 export default useSignUpWithEmailAndPassword;
+
+function getRedirectUrl() {
+  const nextPath = configuration.paths.onboarding;
+  const callbackPath = configuration.paths.authCallback;
+  const fullPath = `${callbackPath}?next=${nextPath}`;
+
+  return [window.location.origin, fullPath].join('');
+}
