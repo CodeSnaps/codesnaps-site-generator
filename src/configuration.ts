@@ -10,9 +10,9 @@ enum Themes {
 
 const configuration = {
   site: {
-    name: 'The Fastest Way to Design And Build React Apps | CodeSnaps',
+    name: 'Build faster, design better in React and Tailwind CSS | CodeSnaps',
     description:
-      'Build better websites in hours, not days, with CodeSnaps, your library of sleek and clean React Tailwind CSS components',
+      'Access a library of React and Tailwind CSS components. Design and build better websites in minutes. No package installation required.',
     themeColor: '#ffffff',
     themeColorDark: '#0a0a0a',
     siteUrl: process.env.NEXT_PUBLIC_SITE_URL,
