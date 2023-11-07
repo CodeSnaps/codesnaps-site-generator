@@ -13,7 +13,7 @@ function FaqItem({
   return (
     <details
       className={
-        'group border-b border-gray-100 px-2 py-4 dark:border-dark-800'
+        'group border-b border-neutral-100 px-2 py-4 dark:border-dark-800'
       }
     >
       <summary
@@ -21,8 +21,8 @@ function FaqItem({
       >
         <h2
           className={
-            'font-sans text-lg font-medium text-gray-700' +
-            ' hover:underline-none cursor-pointer dark:text-gray-300' +
+            'font-sans text-lg font-medium text-neutral-700' +
+            ' hover:underline-none cursor-pointer dark:text-neutral-300' +
             ' dark:hover:text-white'
           }
         >
@@ -38,7 +38,7 @@ function FaqItem({
 
       <div
         className={
-          'flex flex-col space-y-2 py-1 text-gray-500 dark:text-gray-400'
+          'flex flex-col space-y-2 py-1 text-neutral-500 dark:text-neutral-400'
         }
         dangerouslySetInnerHTML={{ __html: item.answer }}
       />

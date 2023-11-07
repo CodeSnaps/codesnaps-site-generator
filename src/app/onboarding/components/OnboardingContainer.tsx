@@ -18,7 +18,7 @@ interface Data {
 function OnboardingContainer(
   props: React.PropsWithChildren<{
     csrfToken: string | null;
-  }>
+  }>,
 ) {
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState<Data>();
@@ -31,7 +31,7 @@ function OnboardingContainer(
 
       setCurrentStep(1);
     },
-    []
+    [],
   );
 
   return (

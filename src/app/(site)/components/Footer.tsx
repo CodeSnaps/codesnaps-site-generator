@@ -25,12 +25,16 @@ function Footer() {
               </div>
 
               <div>
-                <p className={'text-sm text-gray-500 dark:text-gray-400'}>
-                  Add a short tagline about your product
+                <p className={'text-sm text-neutral-500 dark:text-neutral-400'}>
+                  Build faster, design better in React and Tailwind CSS
                 </p>
               </div>
 
-              <div className={'flex text-xs text-gray-500 dark:text-gray-400'}>
+              <div
+                className={
+                  'flex text-xs text-neutral-500 dark:text-neutral-400'
+                }
+              >
                 <p>
                   © Copyright {YEAR} {configuration.site.siteName}. All Rights
                   Reserved.
@@ -48,38 +52,33 @@ function Footer() {
           >
             <div>
               <div className={'flex flex-col space-y-4'}>
-                <Heading type={6}>About</Heading>
+                <Heading type={6}>Company</Heading>
 
                 <FooterSectionList>
                   <FooterLink>
-                    <Link href={'#'}>Who we are</Link>
+                    <Link href={'/browse'}>Components</Link>
                   </FooterLink>
                   <FooterLink>
-                    <Link href={'/blog'}>Blog</Link>
+                    <Link href={'/faq'}>FAQ</Link>
                   </FooterLink>
                   <FooterLink>
-                    <Link href={'/contact'}>Contact</Link>
+                    <Link href={'/pricing'}>Pricing</Link>
                   </FooterLink>
                 </FooterSectionList>
               </div>
             </div>
 
-            <div>
-              <div className={'flex flex-col space-y-4'}>
-                <Heading type={6}>Product</Heading>
+            <div className={'flex flex-col space-y-4'}>
+              <Heading type={6}>Auth</Heading>
 
-                <FooterSectionList>
-                  <FooterLink>
-                    <Link href={'/docs'}>Documentation</Link>
-                  </FooterLink>
-                  <FooterLink>
-                    <Link href={'#'}>Help Center</Link>
-                  </FooterLink>
-                  <FooterLink>
-                    <Link href={'#'}>Changelog</Link>
-                  </FooterLink>
-                </FooterSectionList>
-              </div>
+              <FooterSectionList>
+                <FooterLink>
+                  <Link href={'/auth/sign-in'}>Sign In</Link>
+                </FooterLink>
+                <FooterLink>
+                  <Link href={'/auth/sign-up'}>Register</Link>
+                </FooterLink>
+              </FooterSectionList>
             </div>
 
             <div>
@@ -88,19 +87,17 @@ function Footer() {
 
                 <FooterSectionList>
                   <FooterLink>
-                    <Link href={'#'}>Terms of Service</Link>
+                    <Link href={'/legal'}>Company</Link>
                   </FooterLink>
                   <FooterLink>
-                    <Link href={'#'}>Privacy Policy</Link>
+                    <Link href={'/legal/privacy'}>Privacy Policy</Link>
                   </FooterLink>
                   <FooterLink>
-                    <Link href={'#'}>Cookie Policy</Link>
+                    <Link href={'/legal/terms'}>Terms of Service</Link>
                   </FooterLink>
                 </FooterSectionList>
               </div>
             </div>
-
-            <NewsletterSignup />
           </div>
         </div>
       </Container>
@@ -110,7 +107,11 @@ function Footer() {
 
 function FooterSectionList(props: React.PropsWithChildren) {
   return (
-    <ul className={'flex flex-col space-y-4 text-gray-500 dark:text-gray-400'}>
+    <ul
+      className={
+        'flex flex-col space-y-4 text-neutral-500 dark:text-neutral-400'
+      }
+    >
       {props.children}
     </ul>
   );
@@ -120,7 +121,7 @@ function FooterLink(props: React.PropsWithChildren) {
   return (
     <li
       className={
-        'text-sm [&>a]:transition-colors [&>a]:hover:text-gray-800' +
+        'text-sm [&>a]:transition-colors [&>a]:hover:text-neutral-800' +
         ' dark:[&>a]:hover:text-white'
       }
     >

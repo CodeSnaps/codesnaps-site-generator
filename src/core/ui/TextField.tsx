@@ -11,7 +11,7 @@ const Hint: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <span
       className={`block pl-1 text-xs
-        font-normal leading-tight text-gray-500 dark:text-gray-400`}
+        font-normal leading-tight text-neutral-500 dark:text-neutral-400`}
     >
       {children}
     </span>
@@ -24,7 +24,7 @@ const Input = forwardRef<React.ElementRef<'input'>, Props>(
       <input
         {...props}
         className={classNames(
-          'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+          'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-neutral-800 dark:text-neutral-100',
           className,
         )}
         ref={ref}

@@ -83,7 +83,7 @@ Alert.Heading = AlertHeading;
 function getClassNameBuilder() {
   return cva(
     [
-      `p-4 animate-in dark:bg-transparent fade-in relative flex items-center justify-between text-gray-700 rounded-lg text-sm border`,
+      `p-4 animate-in dark:bg-transparent fade-in relative flex items-center justify-between text-neutral-700 rounded-lg text-sm border`,
     ],
     {
       variants: {

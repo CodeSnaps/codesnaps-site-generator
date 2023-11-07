@@ -19,9 +19,9 @@ type Props = React.PropsWithChildren<DefaultProps | DivProps>;
 const CLASSNAME = `rounded-full bg-transparent h-8 w-8
   flex items-center justify-center dark:focus:ring-primary/70
   ring-primary/70 transition-all outline-none
-  focus:ring-2 hover:border dark:border-dark-700 border-gray-100
+  focus:ring-2 hover:border dark:border-dark-700 border-neutral-100
   disabled:cursor-not-allowed disabled:opacity-50
-  active:bg-gray-50 dark:active:bg-dark-800
+  active:bg-neutral-50 dark:active:bg-dark-800
  `;
 
 const IconButton = forwardRef(function IconButtonComponent(

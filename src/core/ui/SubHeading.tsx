@@ -11,8 +11,8 @@ const SubHeading = ({
       <span
         className={classNames(
           'flex flex-col space-y-1 bg-gradient-to-br text-xl' +
-            ' lg:text-2xl dark:from-white dark:via-gray-300' +
-            ' dark:to-gray-400 bg-clip-text text-gray-500' +
+            ' lg:text-2xl dark:from-white dark:via-neutral-300' +
+            ' dark:to-neutral-400 bg-clip-text text-neutral-500' +
             ' font-normal dark:text-transparent',
           className,
         )}

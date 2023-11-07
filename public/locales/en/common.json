@@ -4,6 +4,7 @@
   "settingsTabLabel": "Settings",
   "profileSettingsTabLabel": "Profile",
   "subscriptionSettingsTabLabel": "Subscription",
+  "savedComponentsTabLabel": "Saved",
   "emailAddress": "Email Address",
   "password": "Password",
   "modalConfirmationQuestion": "Are you sure you want to continue?",

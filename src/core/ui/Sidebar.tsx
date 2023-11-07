@@ -110,7 +110,7 @@ function AppSidebarFooterMenu(
     >
       <div
         className={
-          'flex items-center space-x-2 text-sm text-gray-500 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white'
+          'flex items-center space-x-2 text-sm text-neutral-500 hover:text-neutral-800 dark:text-neutral-300 dark:hover:text-white'
         }
       >
         <CollapsibleButton
@@ -172,7 +172,7 @@ export default Sidebar;
 function getClassNameBuilder() {
   return cva(
     [
-      'relative flex hidden h-screen flex-row justify-center border-r border-gray-100 py-4 dark:border-dark-800 lg:flex',
+      'relative flex hidden h-screen flex-row justify-center border-r border-neutral-200 py-4 dark:border-dark-800 lg:flex',
     ],
     {
       variants: {
@@ -198,7 +198,7 @@ function getSidebarItemClassBuilder() {
         },
         active: {
           true: `bg-primary/5 dark:bg-primary-300/10 dark:text-white`,
-          false: `ring-transparent hover:bg-gray-50 dark:hover:bg-primary-300/10 active:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:active:bg-dark-700`,
+          false: `ring-transparent hover:bg-neutral-50 dark:hover:bg-primary-300/10 active:bg-neutral-100 dark:text-neutral-300 dark:hover:text-white dark:active:bg-dark-700`,
         },
       },
       compoundVariants: [
@@ -215,7 +215,7 @@ function getSidebarItemClassBuilder() {
         {
           collapsed: true,
           active: false,
-          className: `dark:text-gray-300`,
+          className: `dark:text-neutral-300`,
         },
       ],
     },

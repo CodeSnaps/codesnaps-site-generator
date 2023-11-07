@@ -115,7 +115,7 @@ const ImageUploadInput = forwardRef<React.ElementRef<'input'>, Props>(
           <div className={'flex'}>
             <If condition={!state.image}>
               <CloudArrowUpIcon
-                className={'h-5 text-gray-500 dark:text-dark-500'}
+                className={'h-5 text-neutral-500 dark:text-dark-500'}
               />
             </If>
 

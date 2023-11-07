@@ -111,7 +111,7 @@ function Tree({
     <div
       className={classNames(
         'space-y-2.5 pl-3 w-full',
-        level > 0 ? 'border-l border-gray-100 dark:border-dark-800' : '',
+        level > 0 ? 'border-l border-neutral-100 dark:border-dark-800' : '',
       )}
     >
       {tree.map((treeNode, index) => (
@@ -139,7 +139,7 @@ export default function DocsNavigation({
         style={{
           height: `calc(100vh - 64px)`,
         }}
-        className="w-80 hidden lg:flex sticky top-2 shrink-0 border-r border-gray-50 dark:border-dark-800 p-4"
+        className="w-80 hidden lg:flex sticky top-2 shrink-0 border-r border-neutral-50 dark:border-dark-800 p-4"
       >
         <Tree tree={tree} level={0} activePath={activePath} />
       </aside>
@@ -157,11 +157,11 @@ function getNavLinkClassName(isCurrent: boolean, isFirstLevel: boolean) {
     {
       [`bg-primary/5 text-primary dark:bg-primary/30 dark:text-primary-foreground`]:
         isCurrent,
-      [`hover:bg-gray-50 dark:hover:bg-primary/10 dark:text-gray-300`]:
+      [`hover:bg-neutral-50 dark:hover:bg-primary/10 dark:text-neutral-300`]:
         !isCurrent,
       [`font-semibold`]: isFirstLevel,
       [`font-normal`]: !isFirstLevel && isCurrent,
-      [`hover:text-gray-600 dark:hover:text-gray-200 dark:hover:bg-dark-800/30`]:
+      [`hover:text-neutral-600 dark:hover:text-neutral-200 dark:hover:bg-dark-800/30`]:
         !isFirstLevel && !isCurrent,
     },
   );

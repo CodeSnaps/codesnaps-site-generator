@@ -20,7 +20,7 @@ function useUpdateOrganizationMutation() {
         data: organization,
         id: organization.id,
       });
-    }
+    },
   );
 }
 

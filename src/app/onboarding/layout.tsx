@@ -3,7 +3,7 @@ import Logo from '~/core/ui/Logo';
 async function OnboardingLayout({ children }: React.PropsWithChildren) {
   return (
     <div className={'flex flex-1 flex-col dark:bg-background'}>
-      <div className={'flex divide-x divide-gray-100 dark:divide-dark-700'}>
+      <div className={'flex divide-x divide-neutral-100 dark:divide-dark-700'}>
         <div
           className={
             'flex h-screen w-full flex-1 flex-col items-center' +

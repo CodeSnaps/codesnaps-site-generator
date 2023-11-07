@@ -135,7 +135,7 @@ export default OrganizationsPage;
 
 function OrganizationsPageHeader() {
   return (
-    <div className="flex flex-1 items-center justify-between border-b border-gray-50 p-4 dark:border-dark-700">
+    <div className="flex flex-1 items-center justify-between border-b border-neutral-50 p-4 dark:border-dark-700">
       <div className={'flex w-full flex-1 justify-between'}>
         <div
           className={'flex items-center justify-between space-x-4 lg:space-x-0'}

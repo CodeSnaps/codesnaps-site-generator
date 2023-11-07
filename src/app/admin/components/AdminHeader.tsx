@@ -6,7 +6,7 @@ import Heading from '~/core/ui/Heading';
 
 function AdminHeader({ children }: React.PropsWithChildren) {
   return (
-    <div className="flex items-center justify-between border-b border-gray-50 dark:border-dark-700">
+    <div className="flex items-center justify-between border-b border-neutral-50 dark:border-dark-700">
       <AppContainer>
         <div className={'flex w-full justify-between items-center'}>
           <div>

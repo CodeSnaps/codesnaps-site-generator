@@ -11,7 +11,7 @@ import { URL } from 'url';
  * @param defaultPath
  */
 export default function getApiRefererPath<
-  ReadonlyHeaders extends Omit<Headers, 'append' | 'delete' | 'set'>
+  ReadonlyHeaders extends Omit<Headers, 'append' | 'delete' | 'set'>,
 >(headers: ReadonlyHeaders, defaultPath = '/') {
   const fullPath = headers.get('referer') || headers.get('origin');
 

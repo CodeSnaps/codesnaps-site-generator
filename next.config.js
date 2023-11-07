@@ -24,7 +24,16 @@ module.exports = withAnalyzer({
 
 function getRemotePatterns() {
   // add here the remote patterns for your images
-  const remotePatterns = [];
+  const remotePatterns = [
+    {
+      protocol: 'https',
+      hostname: 'dummyimage.com',
+    },
+    {
+      protocol: 'https',
+      hostname: 'img.logoipsum.com',
+    },
+  ];
 
   if (SUPABASE_URL) {
     const hostname = new URL(SUPABASE_URL).hostname;
@@ -40,6 +49,18 @@ function getRemotePatterns() {
         {
           protocol: 'http',
           hostname: '127.0.0.1',
+        },
+        {
+          protocol: 'http',
+          hostname: 'localhost',
+        },
+        {
+          protocol: 'https',
+          hostname: 'dummyimage.com',
+        },
+        {
+          protocol: 'https',
+          hostname: 'img.logoipsum.com',
         },
       ];
 }

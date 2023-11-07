@@ -26,9 +26,9 @@ const TooltipContent = React.forwardRef<
          data-[side=top]:slide-in-from-bottom-1
          data-[side=left]:slide-in-from-right-1
          data-[side=right]:slide-in-from-left-1 z-50 overflow-hidden
-         rounded-md bg-dark-900/80 px-3 py-1.5 text-xs text-gray-100
+         rounded-md bg-dark-900/80 px-3 py-1.5 text-xs text-neutral-100
          shadow-md dark:bg-dark-700/90`,
-      className
+      className,
     )}
     {...props}
   >

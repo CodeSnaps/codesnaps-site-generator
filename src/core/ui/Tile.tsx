@@ -32,7 +32,7 @@ function TileHeader(props: React.PropsWithChildren) {
 function TileHeading(props: React.PropsWithChildren) {
   return (
     <Heading type={5}>
-      <span className={'font-medium text-gray-600 dark:text-gray-400'}>
+      <span className={'font-medium text-neutral-600 dark:text-neutral-400'}>
         {props.children}
       </span>
     </Heading>

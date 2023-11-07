@@ -1,6 +1,6 @@
 function AppContainer(props: React.PropsWithChildren) {
   return (
-    <div className={'w-full p-3 flex flex-col flex-1'}>{props.children}</div>
+    <div className={'flex w-full flex-1 flex-col p-3'}>{props.children}</div>
   );
 }
 

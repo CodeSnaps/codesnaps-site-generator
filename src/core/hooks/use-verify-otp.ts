@@ -19,7 +19,7 @@ function useVerifyOtp() {
       }
 
       return data;
-    }
+    },
   );
 }
 

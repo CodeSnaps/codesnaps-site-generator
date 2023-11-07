@@ -1,4 +1,8 @@
-import { Cog8ToothIcon, Squares2X2Icon } from '@heroicons/react/24/outline';
+import {
+  BookmarkIcon,
+  Cog8ToothIcon,
+  Squares2X2Icon,
+} from '@heroicons/react/24/outline';
 import configuration from '~/configuration';
 
 const NAVIGATION_CONFIG = (organization: string) => ({
@@ -10,6 +14,13 @@ const NAVIGATION_CONFIG = (organization: string) => ({
         return <Squares2X2Icon className={className} />;
       },
       end: true,
+    },
+    {
+      label: 'common:savedComponentsTabLabel',
+      path: getPath(organization, 'ui-kit/saved'),
+      Icon: ({ className }: { className: string }) => {
+        return <BookmarkIcon className={className} />;
+      },
     },
     {
       label: 'common:settingsTabLabel',

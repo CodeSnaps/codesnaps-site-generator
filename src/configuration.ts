@@ -10,14 +10,15 @@ enum Themes {
 
 const configuration = {
   site: {
-    name: 'Awesomely - Your SaaS Title',
-    description: 'Your SaaS Description',
+    name: 'The Fastest Way to Design And Build React Apps | CodeSnaps',
+    description:
+      'Build better websites in hours, not days, with CodeSnaps, your library of sleek and clean React Tailwind CSS components',
     themeColor: '#ffffff',
     themeColorDark: '#0a0a0a',
     siteUrl: process.env.NEXT_PUBLIC_SITE_URL,
-    siteName: 'Awesomely',
+    siteName: 'CodeSnaps',
     twitterHandle: '',
-    githubHandle: '',
+    githubHandle: 'CodeSnaps',
     convertKitFormId: '',
     locale: process.env.NEXT_PUBLIC_DEFAULT_LOCALE,
   },
@@ -72,25 +73,20 @@ const configuration = {
     displayMode: StripeCheckoutDisplayMode.Popup,
     products: [
       {
-        name: 'Basic',
-        description: 'Description of your Basic plan',
-        badge: `Up to 20 users`,
-        features: [
-          'Basic Reporting',
-          'Up to 20 users',
-          '1GB for each user',
-          'Chat Support',
-        ],
+        name: 'Free',
+        description: 'To get started with CodeSnaps and dip your toes in.',
+        badge: `30 Components`,
+        features: ['Built in dark mode components', 'Access to 30 components'],
         plans: [
           {
             name: 'Monthly',
-            price: '$9',
-            stripePriceId: 'price_1NNwYHI1i3VnbZTqI2UzaHIe',
+            price: '$0',
+            stripePriceId: null,
           },
           {
             name: 'Yearly',
-            price: '$90',
-            stripePriceId: 'basic-plan-yr',
+            price: '$0',
+            stripePriceId: null,
           },
         ],
       },
@@ -98,43 +94,22 @@ const configuration = {
         name: 'Pro',
         badge: `Most Popular`,
         recommended: true,
-        description: 'Description of your Pro plan',
+        description: 'To access all components and new components every week.',
         features: [
-          'Advanced Reporting',
-          'Up to 50 users',
-          '5GB for each user',
-          'Chat and Phone Support',
+          'Built in dark mode components',
+          'Access to all components',
+          'New components every week',
         ],
         plans: [
           {
             name: 'Monthly',
-            price: '$29',
-            stripePriceId: 'pro-plan-mth',
+            price: '$9.99',
+            stripePriceId: 'price_1O8ijiCjllA7kCqF1fRAVw2K',
           },
           {
             name: 'Yearly',
-            price: '$200',
-            stripePriceId: 'pro-plan-yr',
-          },
-        ],
-      },
-      {
-        name: 'Premium',
-        description: 'Description of your Premium plan',
-        badge: ``,
-        features: [
-          'Advanced Reporting',
-          'Unlimited users',
-          '50GB for each user',
-          'Account Manager',
-        ],
-        plans: [
-          {
-            name: '',
-            price: 'Contact us',
-            stripePriceId: '',
-            label: `Contact us`,
-            href: `/contact`,
+            price: '$99.99',
+            stripePriceId: 'price_1O8ijiCjllA7kCqFcg8x7tqD',
           },
         ],
       },

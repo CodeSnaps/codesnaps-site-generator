@@ -1,0 +1,142 @@
+---
+title: Set up the Supabase database with SQL
+label: SQL database setup and RLS
+description: 'How to set up the Supabase database with SQL and enable RLS'
+---
+
+### Create the components table
+
+```sql
+CREATE TABLE components (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    created_at TIMESTAMPTZ NULL DEFAULT NOW(),
+    name TEXT NOT NULL UNIQUE,
+    description TEXT,
+    is_published BOOLEAN NOT NULL DEFAULT FALSE,
+    is_free BOOLEAN NOT NULL DEFAULT FALSE,
+    type TEXT,
+    category TEXT,
+    preview_url TEXT,
+    image_src TEXT,
+    image_alt TEXT,
+    image_position TEXT,
+    is_interactive BOOLEAN NOT NULL DEFAULT FALSE,
+    layout_properties TEXT[],
+    elements TEXT[],
+    code_tailwindcss_react TEXT DEFAULT '',
+    code_tailwindcss_nextjs TEXT DEFAULT '',
+    code_animation_component TEXT DEFAULT ''
+);
+```
+
+### Set up RLS
+
+```sql
+CREATE POLICY "Anon users can see free and published components" ON "public"."components"
+AS PERMISSIVE FOR SELECT
+TO anon
+USING (is_published = true AND is_free = true)
+```
+
+```sql
+CREATE POLICY "Auth users can see all components" ON "public"."components"
+AS PERMISSIVE FOR SELECT
+TO authenticated
+USING (true)
+```
+
+```sql
+CREATE POLICY "Enable insert for only authenticated users only" ON "public"."components"
+AS PERMISSIVE FOR INSERT
+TO authenticated
+WITH CHECK (true);
+```
+
+```sql
+CREATE POLICY "Enable update for only authenticated users only" ON "public"."components"
+AS PERMISSIVE FOR UPDATE
+TO authenticated
+USING (true)
+WITH CHECK (true);
+```
+
+### Components bucket RLS
+
+#### Select operation
+
+```sql
+CREATE POLICY "Give anon users access to images" ON storage.objects FOR SELECT TO anon USING (bucket_id = 'components' AND storage."extension"(name) = 'jpg' OR storage."extension"(name) = 'png' OR storage."extension"(name) = 'webp' OR storage."extension"(name) = 'gif' AND LOWER((storage.foldername(name))[1]) = 'public' AND auth.role() = 'anon');
+```
+
+Use Supabase editor to create the auth policies.
+
+## Types
+
+```js
+interface Component {
+  id: string;
+  created_at: Date;
+  name: string;
+  description: string;
+  is_published: boolean;
+  is_free: boolean;
+  type: string;
+  category: string;
+  preview_url: string;
+  image_src: string;
+  image_alt: string;
+  image_position: string;
+  layout_properties: [string];
+  is_interactive: boolean;
+  elements: [string];
+  code_tailwindcss_react: string;
+  code_tailwindcss_nextjs: string;
+  code_animation_component: string;
+}
+
+export default Component;
+```
+
+### Saved components
+
+```sql
+CREATE TABLE saved_components (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    created_at TIMESTAMPTZ NULL DEFAULT NOW(),
+    name TEXT NOT NULL UNIQUE,
+    type TEXT,
+    is_free BOOLEAN NOT NULL DEFAULT FALSE,
+    category TEXT,
+    preview_url TEXT,
+    image_src TEXT,
+    image_alt TEXT,
+    image_position TEXT,
+    organization_id UUID REFERENCES organizations(uuid),
+    component_id UUID REFERENCES components(id),
+);
+
+```
+
+#### RSL
+
+```sql
+CREATE POLICY "Auth users can see the components" ON "public"."saved_components"
+AS PERMISSIVE FOR SELECT
+TO authenticated
+USING (true)
+```
+
+```sql
+CREATE POLICY "Enable insert for authenticated users only" ON "public"."saved_components"
+AS PERMISSIVE FOR INSERT
+TO authenticated
+
+WITH CHECK (true)
+```
+
+```sql
+CREATE POLICY "Enable delete for auth users" ON "public"."saved_components"
+AS PERMISSIVE FOR DELETE
+TO authenticated
+USING (true)
+```

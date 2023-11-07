@@ -59,7 +59,7 @@ function SubmitCheckoutButton(
     <Button
       block
       className={classNames({
-        'text-primary-foreground bg-primary dark:bg-white dark:text-gray-900':
+        'text-primary-foreground bg-primary dark:bg-white dark:text-neutral-900':
           props.recommended,
       })}
       variant={props.recommended ? 'custom' : 'outline'}

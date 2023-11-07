@@ -38,7 +38,7 @@ function MultiFactorChallengeContainer({
 
       onSuccess();
     },
-    [factorId, mutation, onSuccess, verifyCode]
+    [factorId, mutation, onSuccess, verifyCode],
   );
 
   if (!factorId) {
@@ -95,7 +95,7 @@ function useVerifyMFAChallenge() {
           factorId: string;
           verifyCode: string;
         };
-      }
+      },
     ) => {
       const { factorId, verifyCode: code } = arg;
 
@@ -109,7 +109,7 @@ function useVerifyMFAChallenge() {
       }
 
       return response.data;
-    }
+    },
   );
 }
 
@@ -184,7 +184,7 @@ function FactorsListContainer({
           <Button
             block
             variant={'outline'}
-            className={'border-gray-50'}
+            className={'border-neutral-50'}
             onClick={() => onSelect(factor.id)}
           >
             {factor.friendly_name}

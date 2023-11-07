@@ -23,9 +23,7 @@ export function createOrganizationIdCookie(params: {
  * @description Parse the organization UUID cookie from the request
  */
 export async function parseOrganizationIdCookie(userId: string) {
-  const cookie = cookies().get(
-    buildOrganizationIdCookieName(userId)
-  );
+  const cookie = cookies().get(buildOrganizationIdCookieName(userId));
 
   return cookie?.value;
 }

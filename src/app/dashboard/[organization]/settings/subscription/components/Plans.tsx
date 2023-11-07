@@ -39,7 +39,7 @@ const Plans: React.FC = () => {
               <Trans i18nKey={'subscription:manageBilling'} />
             </BillingPortalRedirectButton>
 
-            <span className={'text-xs text-gray-500 dark:text-gray-400'}>
+            <span className={'text-xs text-neutral-500 dark:text-neutral-400'}>
               <Trans i18nKey={'subscription:manageBillingDescription'} />
             </span>
           </div>

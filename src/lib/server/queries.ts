@@ -13,7 +13,7 @@ export async function getUserDataById(client: SupabaseClient, userId: string) {
       displayName: display_name,
       photoUrl: photo_url,
       onboarded
-    `
+    `,
     )
     .eq('id', userId)
     .maybeSingle();

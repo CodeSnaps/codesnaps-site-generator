@@ -9,7 +9,7 @@ const ASSURANCE_LEVEL_2 = 'aal2';
  * @param client
  */
 async function checkSessionRequiresMultiFactorAuthentication(
-  client: SupabaseClient
+  client: SupabaseClient,
 ) {
   const assuranceLevel = await client.auth.mfa.getAuthenticatorAssuranceLevel();
 

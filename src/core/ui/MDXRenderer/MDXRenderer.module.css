@@ -37,11 +37,11 @@ For more info: https://github.com/tailwindlabs/tailwindcss/issues/3258#issuecomm
 }
 
 .MDX p {
-  @apply text-base dark:text-gray-300 mt-2 mb-4 leading-7;
+  @apply text-base dark:text-neutral-300 mt-2 mb-4 leading-7;
 }
 
 .MDX li {
-  @apply text-base my-1.5 leading-7 dark:text-gray-300 relative;
+  @apply text-base my-1.5 leading-7 dark:text-neutral-300 relative;
 }
 
 .MDX ul > li:before {
@@ -53,8 +53,8 @@ For more info: https://github.com/tailwindlabs/tailwindcss/issues/3258#issuecomm
 .MDX ol > li:before {
   @apply font-medium inline-flex;
 
-  content: counters(counts,".") ". ";
-  font-feature-settings: "tnum";
+  content: counters(counts, '.') '. ';
+  font-feature-settings: 'tnum';
 }
 
 .MDX b,
@@ -84,12 +84,12 @@ For more info: https://github.com/tailwindlabs/tailwindcss/issues/3258#issuecomm
 .MDX ol > li:before {
   @apply font-semibold mr-2 inline-flex;
 
-  content: counters(counts,".") ". ";
-  font-feature-settings: "tnum";
+  content: counters(counts, '.') '. ';
+  font-feature-settings: 'tnum';
 }
 
 .MDX blockquote {
-  @apply my-4 py-4 px-6 font-medium text-lg text-gray-600 border-l-4 border-primary bg-primary/5;
+  @apply my-4 py-4 px-6 font-medium text-lg text-neutral-600 border-l-4 border-primary bg-primary/5;
 }
 
 :global(.dark) .MDX blockquote {
@@ -127,13 +127,13 @@ For more info: https://github.com/tailwindlabs/tailwindcss/issues/3258#issuecomm
 }
 
 .MDX code {
-  @apply rounded-md bg-gray-100;
+  @apply rounded-md bg-neutral-200;
 
   word-break: break-word;
 }
 
 .MDX pre > code {
-  @apply p-3 md:p-6 text-xs md:text-sm font-medium font-monospace block bg-gray-100 dark:bg-dark-900;
+  @apply p-3 md:p-6 text-xs md:text-sm font-medium font-monospace block bg-neutral-200 dark:bg-dark-900;
 
   white-space: pre-wrap;
 }
@@ -144,7 +144,7 @@ For more info: https://github.com/tailwindlabs/tailwindcss/issues/3258#issuecomm
 
 .MDX p > code,
 .MDX li > code {
-  @apply px-1 py-0.5 border border-gray-200 rounded mx-0.5 font-semibold text-sm;
+  @apply px-1 py-0.5 border border-neutral-200 rounded mx-0.5 font-semibold text-sm;
 }
 
 :global(.dark) .MDX p > code,

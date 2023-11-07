@@ -32,7 +32,7 @@ const NotFoundPage = async () => {
           <div className={'flex flex-col space-y-8'}>
             <div
               className={
-                'flex space-x-8 divide-x divide-gray-100' +
+                'flex space-x-8 divide-x divide-neutral-100' +
                 ' dark:divide-dark-800'
               }
             >
@@ -55,7 +55,7 @@ const NotFoundPage = async () => {
                     </Heading>
                   </div>
 
-                  <p className={'text-gray-500 dark:text-gray-300'}>
+                  <p className={'text-neutral-500 dark:text-neutral-300'}>
                     <Trans i18nKey={'common:pageNotFoundSubHeading'} />
                   </p>
                 </div>

@@ -23,7 +23,7 @@ const EmailPasswordSignInContainer: React.FCC<{
         // wrong credentials, do nothing
       }
     },
-    [onSignIn, signInMutation]
+    [onSignIn, signInMutation],
   );
 
   return (

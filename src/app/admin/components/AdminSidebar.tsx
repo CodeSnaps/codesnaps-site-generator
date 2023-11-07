@@ -1,6 +1,11 @@
 'use client';
 
-import { HomeIcon, UserGroupIcon, UserIcon } from '@heroicons/react/24/outline';
+import {
+  HomeIcon,
+  UserGroupIcon,
+  UserIcon,
+  RectangleGroupIcon,
+} from '@heroicons/react/24/outline';
 import Sidebar, { SidebarItem } from '~/core/ui/Sidebar';
 
 function AdminSidebar() {
@@ -26,6 +31,13 @@ function AdminSidebar() {
         Icon={() => <UserGroupIcon className={'h-6'} />}
       >
         Organizations
+      </SidebarItem>
+
+      <SidebarItem
+        path={'/admin/ui-kit'}
+        Icon={() => <RectangleGroupIcon className={'h-6'} />}
+      >
+        Components
       </SidebarItem>
     </Sidebar>
   );

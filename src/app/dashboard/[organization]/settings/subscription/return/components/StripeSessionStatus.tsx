@@ -37,7 +37,7 @@ function SuccessSessionStatus({
       data-cy={'payment-return-success'}
       className={
         'max-w-xl mx-auto rounded-xl p-16 fade-in xl:drop-shadow-sm border' +
-        ' border-gray-100 dark:border-dark-800' +
+        ' border-neutral-100 dark:border-dark-800' +
         ' bg-background animate-in ease-out slide-in-from-bottom-8' +
         ' zoom-in-50 duration-1000 dark:shadow-primary/40 dark:shadow-2xl'
       }
@@ -62,7 +62,9 @@ function SuccessSessionStatus({
         </Heading>
 
         <div
-          className={'flex flex-col space-y-4 text-gray-500 dark:text-gray-400'}
+          className={
+            'flex flex-col space-y-4 text-neutral-500 dark:text-neutral-400'
+          }
         >
           <p>
             <Trans

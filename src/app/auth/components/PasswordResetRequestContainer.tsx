@@ -46,7 +46,7 @@ function PasswordResetRequestContainer() {
           <form onSubmit={(e) => void onSubmit(e)} className={'w-full'}>
             <div className={'flex-col space-y-4'}>
               <div>
-                <p className={'text-sm text-gray-700 dark:text-gray-400'}>
+                <p className={'text-sm text-neutral-700 dark:text-neutral-400'}>
                   <Trans i18nKey={'auth:passwordResetSubheading'} />
                 </p>
               </div>

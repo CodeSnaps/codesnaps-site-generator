@@ -14,7 +14,7 @@ describe(`Change Organization`, () => {
 
       organizationPageObject.switchToOrganization(originalOrganizationName);
       organizationPageObject.assertCurrentOrganization(
-        originalOrganizationName
+        originalOrganizationName,
       );
     });
   });

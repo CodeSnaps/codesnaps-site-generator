@@ -65,7 +65,7 @@ function EmbeddedCheckoutPopup({
   const isOverlay = displayMode === StripeCheckoutDisplayMode.Overlay;
 
   const className = classNames({
-    [`bg-white p-4 max-h-[98vh] overflow-y-auto shadow-transparent border border-gray-200 dark:border-dark-700`]:
+    [`bg-white p-4 max-h-[98vh] overflow-y-auto shadow-transparent border border-neutral-200 dark:border-dark-700`]:
       isPopup,
     [`bg-background !flex flex-col flex-1 fixed top-0 !max-h-full !max-w-full left-0 w-screen h-screen border-transparent shadow-transparent py-4 px-8`]:
       isOverlay,
@@ -115,7 +115,7 @@ function EmbeddedCheckoutPopup({
               label={'Close Checkout'}
               onClick={close}
             >
-              <XMarkIcon className={'h-6 text-gray-900'} />
+              <XMarkIcon className={'h-6 text-neutral-900'} />
               <span className="sr-only">
                 <Trans i18nKey={'common:cancel'} />
               </span>

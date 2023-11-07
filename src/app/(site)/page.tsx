@@ -1,14 +1,6 @@
 import Image from 'next/image';
 
-import {
-  BuildingLibraryIcon,
-  CubeIcon,
-  DocumentIcon,
-  PaintBrushIcon,
-  UserGroupIcon,
-  UserIcon,
-  ChevronRightIcon,
-} from '@heroicons/react/24/outline';
+import { ChevronRightIcon } from '@heroicons/react/24/outline';
 
 import Container from '~/core/ui/Container';
 import SubHeading from '~/core/ui/SubHeading';
@@ -16,198 +8,116 @@ import Button from '~/core/ui/Button';
 import Divider from '~/core/ui/Divider';
 import Heading from '~/core/ui/Heading';
 import PricingTable from '~/components/PricingTable';
+import ThumbnailGrid from '~/app/(site)/components/ThumbnailGrid';
+import FaqComponent from '~/app/(site)/components/FaqComponent';
 
 export default function Home() {
   return (
-    <div className={'flex flex-col space-y-16'}>
+    <div className="flex flex-col space-y-16">
       <Container>
-        <div
-          className={
-            'my-12 flex flex-col items-center md:flex-row lg:my-16' +
-            ' mx-auto flex-1 justify-center animate-in fade-in ' +
-            ' duration-1000 slide-in-from-top-12'
-          }
-        >
-          <div className={'flex w-full flex-1 flex-col items-center space-y-8'}>
+        <div className="my-12 flex flex-col items-center md:flex-row lg:my-16 mx-auto flex-1 justify-center animate-in fade-in duration-1000 slide-in-from-top-12">
+          <div className="flex w-full flex-1 flex-col items-center space-y-8">
             <Pill>
-              <span>The leading SaaS Starter Kit for ambitious developers</span>
+              <span>React and Tailwind CSS UI Library</span>
             </Pill>
 
             <HeroTitle>
-              <span>The SaaS Solution for</span>
-              <span
-                className={
-                  'bg-gradient-to-br bg-clip-text text-transparent' +
-                  ' from-primary-400 to-primary-700 leading-[1.2]'
-                }
-              >
-                developers and founders
+              <span>Build faster, design better </span>
+              <span className="bg-gradient-to-br bg-clip-text text-transparent from-primary-400 to-primary-700 leading-[1.2]">
+                in React and Tailwind CSS
               </span>
             </HeroTitle>
 
-            <SubHeading className={'text-center'}>
-              <span>Here you can write a short description of your SaaS</span>
-              <span>This subheading is usually laid out on multiple lines</span>
-              <span>Impress your customers, straight to the point.</span>
+            <SubHeading className="text-center">
+              <span>
+                Access a library of React and Tailwind CSS components.
+              </span>
+              <span>Design and build better websites in minutes.</span>
+              <span>No package installation required.</span>
             </SubHeading>
 
-            <div className={'flex flex-col items-center space-y-4'}>
+            <div className="flex flex-col items-center space-y-4">
               <MainCallToActionButton />
 
-              <span className={'text-xs text-gray-500 dark:text-gray-400'}>
+              <span className="text-xs text-neutral-500 dark:text-neutral-400">
                 Free plan. No credit card required.
               </span>
             </div>
           </div>
         </div>
 
-        <div
-          className={
-            'flex justify-center py-12 max-w-5xl mx-auto animate-in fade-in ' +
-            ' duration-1000 slide-in-from-top-16 fill-mode-both delay-300'
-          }
-        >
+        <div className="flex justify-center py-12 max-w-5xl mx-auto animate-in fade-in duration-1000 slide-in-from-top-16 fill-mode-both delay-300">
           <Image
             priority
-            className={
-              'shadow-[0_0_1000px_0] rounded-2xl' +
-              ' shadow-primary/40 animate-in fade-in' +
-              ' zoom-in-50 delay-300 duration-1000 ease-out fill-mode-both'
-            }
+            className="shadow-[0_0_1000px_0] rounded-2xl shadow-primary/40 animate-in fade-in zoom-in-50 delay-300 duration-1000 ease-out fill-mode-both"
             width={2688}
             height={1824}
-            src={`/assets/images/dashboard-dark.webp`}
-            alt={`App Image`}
+            src="/assets/images/dashboard-dark.webp"
+            alt="App Image"
           />
         </div>
       </Container>
 
       <Container>
-        <div
-          className={
-            'flex flex-col items-center justify-center space-y-24 py-16'
-          }
-        >
-          <div
-            className={
-              'flex max-w-3xl flex-col items-center space-y-8 text-center'
-            }
-          >
-            <Pill>A modern, scalable, and secure SaaS Starter Kit</Pill>
+        <div className="mb-10 mt-14 flex flex-col items-center space-y-20 xl:mt-20">
+          <div className="flex flex-col items-center space-y-8">
+            <Pill>Production-ready components. Simply copy and paste.</Pill>
 
-            <div className={'flex flex-col space-y-2.5'}>
-              <Heading type={1}>The best tool in the space</Heading>
+            <div className="flex flex-col space-y-2.5 text-center justify-center">
+              <h2 className="font-heading scroll-m-20 text-4xl font-semibold tracking-tight dark:text-white max-w-sm md:max-w-none">
+                Components created with ❤️ by CodeSnaps
+              </h2>
 
               <SubHeading>
-                Unbeatable Features and Benefits for Your SaaS Business
+                <span>Build websites as quickly as with no-code tools.</span>
+                <span>Each week, we add several new components.</span>
               </SubHeading>
             </div>
           </div>
 
-          <div>
-            <div className={'grid gap-12 lg:grid-cols-3'}>
-              <div className={'flex flex-col space-y-2'}>
-                <FeatureIcon>
-                  <UserIcon className={'h-5'} />
-                </FeatureIcon>
+          <div className="flex flex-col space-y-8">
+            <ThumbnailGrid />
 
-                <Heading type={4}>Authentication</Heading>
-
-                <div className={'text-gray-500 dark:text-gray-400 text-sm'}>
-                  Secure and Easy-to-Use Authentication for Your SaaS Website
-                </div>
-              </div>
-
-              <div className={'flex flex-col space-y-2'}>
-                <FeatureIcon>
-                  <BuildingLibraryIcon className={'h-5'} />
-                </FeatureIcon>
-
-                <Heading type={4}>Multi-Tenancy</Heading>
-
-                <div className={'text-gray-500 dark:text-gray-400 text-sm'}>
-                  Powerful Multi-Tenancy Features for Maximum Flexibility and
-                  Efficiency
-                </div>
-              </div>
-
-              <div className={'flex flex-col space-y-2'}>
-                <FeatureIcon>
-                  <UserGroupIcon className={'h-5'} />
-                </FeatureIcon>
-
-                <Heading type={4}>Team-Management</Heading>
-
-                <div className={'text-gray-500 dark:text-gray-400 text-sm'}>
-                  Effortlessly Manage and Organize Your Team Members
-                </div>
-              </div>
-
-              <div className={'flex flex-col space-y-2'}>
-                <FeatureIcon>
-                  <PaintBrushIcon className={'h-5'} />
-                </FeatureIcon>
-
-                <Heading type={4}>UI Themes</Heading>
-
-                <div className={'text-gray-500 dark:text-gray-400 text-sm'}>
-                  Customizable UI Themes to Match Your Brand and Style
-                </div>
-              </div>
-
-              <div className={'flex flex-col space-y-2'}>
-                <FeatureIcon>
-                  <CubeIcon className={'h-5'} />
-                </FeatureIcon>
-
-                <Heading type={4}>UI Components</Heading>
-
-                <div className={'text-gray-500 dark:text-gray-400 text-sm'}>
-                  Pre-built UI Components to Speed Up Your Development
-                </div>
-              </div>
-
-              <div className={'flex flex-col space-y-2'}>
-                <FeatureIcon>
-                  <DocumentIcon className={'h-5'} />
-                </FeatureIcon>
-
-                <Heading type={4}>Blog and Documentation</Heading>
-
-                <div className={'text-gray-500 dark:text-gray-400 text-sm'}>
-                  Pre-built Blog and Documentation Pages to Help Your Users
-                </div>
-              </div>
-            </div>
+            <Button round href="/browse" className="mx-auto px-4">
+              <span className="flex space-x-2 items-center">
+                <span>Browse Components</span>
+                <ChevronRightIcon className={'h-3'} />
+              </span>
+            </Button>
           </div>
         </div>
       </Container>
 
       <Container>
-        <div className={'flex flex-col space-y-4'}>
+        <div className="flex flex-col space-y-4">
           <FeatureShowcaseContainer>
             <LeftFeatureContainer>
-              <div className={'flex flex-col space-y-4'}>
-                <Heading type={1}>Authentication</Heading>
+              <div className="flex flex-col space-y-4">
+                <h2 className="font-heading scroll-m-20 text-4xl font-semibold tracking-tight text-primary-600 dark:text-primary-500">
+                  Code Snippets
+                </h2>
 
                 <SubHeading>
-                  Secure and Easy-to-Use Authentication for Your SaaS Website
-                  and API
+                  Detailed React and next.js Code Snippets Ready to Use in Your
+                  Projects
                 </SubHeading>
               </div>
 
               <div>
-                Our authentication system is built on top of the
-                industry-leading PaaS such as Supabase and Firebase. It is
-                secure, easy-to-use, and fully customizable. It supports
-                email/password, social logins, and more.
+                Our code snippets can be easily copied with a simple click of a
+                button. Each component can be saved and previewed.
               </div>
 
               <div>
-                <Button round variant={'outline'} href={'/auth/sign-up'}>
-                  <span className={'flex space-x-2 items-center'}>
-                    <span>Get Started</span>
-                    <ChevronRightIcon className={'h-3'} />
+                <Button
+                  round
+                  variant="outline"
+                  href="/auth/sign-up"
+                  className="mb-14 lg:mb-0"
+                >
+                  <span className="flex space-x-2 items-center">
+                    <span>Sign Up</span>
+                    <ChevronRightIcon className="h-3" />
                   </span>
                 </Button>
               </div>
@@ -215,11 +125,11 @@ export default function Home() {
 
             <RightFeatureContainer>
               <Image
-                className="rounded-2xl"
-                src={'/assets/images/sign-in.webp'}
-                width={'626'}
-                height={'683'}
-                alt={'Sign In'}
+                className="rounded-2xl dark:border-2 dark:border-neutral-700"
+                src="/assets/images/code-snippet.webp"
+                width={626}
+                height={683}
+                alt="Code Snippet"
               />
             </RightFeatureContainer>
           </FeatureShowcaseContainer>
@@ -227,32 +137,35 @@ export default function Home() {
           <FeatureShowcaseContainer>
             <LeftFeatureContainer>
               <Image
-                className="rounded-2xl"
-                src={'/assets/images/dashboard.webp'}
-                width={'887'}
-                height={'743'}
-                alt={'Dashboard'}
+                className="rounded-2xl dark:border-2 dark:border-neutral-700 my-10 lg:my-0"
+                src="/assets/images/filtering.webp"
+                width={626}
+                height={683}
+                alt="Component Filtering"
               />
             </LeftFeatureContainer>
 
             <RightFeatureContainer>
               <div className={'flex flex-col space-y-4'}>
-                <Heading type={1}>Dashboard</Heading>
+                <h2 className="font-heading scroll-m-20 text-4xl font-semibold tracking-tight text-primary-600 dark:text-primary-500">
+                  Advanced Filtering
+                </h2>
 
                 <SubHeading>
-                  A fantastic dashboard to manage your SaaS business
+                  Real-Time and Extensive Filtering to Find the Right Components
+                  in Seconds
                 </SubHeading>
 
                 <div>
-                  Our dashboard offers an overview of your SaaS business. It
-                  shows at a glance all you need to know about your business. It
-                  is fully customizable and extendable.
+                  Explore filters for search, category, text alignment, layout,
+                  columns, and elements. Mix and match these filters to find the
+                  perfect components in seconds.
                 </div>
 
                 <div>
-                  <Button round variant={'outline'} href={'/auth/sign-up'}>
+                  <Button round variant="outline" href="/auth/sign-up">
                     <span className={'flex space-x-2 items-center'}>
-                      <span>Get Started</span>
+                      <span>Sign Up</span>
                       <ChevronRightIcon className={'h-3'} />
                     </span>
                   </Button>
@@ -263,23 +176,21 @@ export default function Home() {
         </div>
       </Container>
 
+      <Container>
+        <FaqComponent />
+      </Container>
+
       <Divider />
 
       <Container>
-        <div
-          className={
-            'flex flex-col items-center justify-center py-16 space-y-16'
-          }
-        >
-          <div className={'flex flex-col items-center space-y-8 text-center'}>
+        <div className="flex flex-col items-center justify-center py-16 space-y-16">
+          <div className="flex flex-col items-center space-y-8 text-center">
             <Pill>
               Get started for free. No credit card required. Cancel anytime.
             </Pill>
 
             <div className={'flex flex-col space-y-2.5'}>
-              <Heading type={1}>
-                Ready to take your SaaS business to the next level?
-              </Heading>
+              <Heading type={1}>Start building with CodeSnaps today.</Heading>
 
               <SubHeading>
                 Get started on our free plan and upgrade when you are ready.
@@ -292,6 +203,68 @@ export default function Home() {
           </div>
         </div>
       </Container>
+
+      <Divider />
+
+      <Container>
+        <div
+          className="mx-auto max-w-xl bg-neutral-200/50 dark:bg-neutral-900 rounded-xl shadow-sm px-10 py-12 mb-10 lg:px-14 lg:py-16"
+          id="who-we-are"
+        >
+          <div className="flex flex-col space-y-4">
+            <p className="font-semibold">
+              I've always been envious of how many no-code tools designers have
+              to create beautiful websites quickly.
+            </p>
+
+            <p className="text-neutral-600 dark:text-neutral-400">
+              But developers don't have that luxury, and there aren't many great
+              libraries and resources to help us work smarter, not harder.
+            </p>
+
+            <p className="text-neutral-600 dark:text-neutral-400">
+              So most of us end up in one of two boats: either we build things
+              from scratch (which can be a real time sink), or we settle for
+              no-code tools that have their limitations.
+            </p>
+
+            <p className="text-neutral-600 dark:text-neutral-400">
+              <span className="font-semibold dark:text-white">
+                That's why I created CodeSnaps{' '}
+              </span>
+              - to help developers build websites and MVPs faster, using the
+              tech stacks they love.
+            </p>
+
+            <p className="text-neutral-600 dark:text-neutral-400">
+              Every single component in CodeSnaps has a clean and minimalist
+              design. Use it to wireframe, design, or build your projects. Give
+              it a try!
+            </p>
+          </div>
+
+          <div className="mt-6 flex items-center max-w-xl">
+            <div className="mr-4 flex-shrink-0 self-center">
+              <Image
+                priority
+                src="/assets/images/kaumon.webp"
+                alt="Kaumon, Founder of CodeSnaps"
+                width={60}
+                height={60}
+                className="rounded-full shadow-md border"
+              />
+            </div>
+            <div>
+              <h4 className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                Kaumon A.
+              </h4>
+              <p className="mt-1 text-sm text-neutral-500">
+                Creator of CodeSnaps
+              </p>
+            </div>
+          </div>
+        </div>
+      </Container>
     </div>
   );
 }
@@ -300,7 +273,7 @@ function HeroTitle({ children }: React.PropsWithChildren) {
   return (
     <h1
       className={
-        'text-center text-4xl text-gray-600 dark:text-white md:text-5xl' +
+        'text-center text-4xl text-neutral-600 dark:text-white md:text-5xl' +
         ' flex flex-col font-heading font-medium xl:text-7xl 2xl:text-[5.2rem]'
       }
     >
@@ -309,24 +282,14 @@ function HeroTitle({ children }: React.PropsWithChildren) {
   );
 }
 
-function FeatureIcon(props: React.PropsWithChildren) {
-  return (
-    <div className={'flex'}>
-      <div className={'rounded-lg bg-primary/10 p-3 dark:bg-primary/30'}>
-        {props.children}
-      </div>
-    </div>
-  );
-}
-
 function Pill(props: React.PropsWithChildren) {
   return (
     <h2
       className={
         'inline-flex w-auto items-center space-x-2' +
-        ' rounded-full bg-gradient-to-br dark:from-gray-200 dark:via-gray-400' +
-        ' dark:to-gray-700 bg-clip-text px-4 py-2 text-center text-sm' +
-        ' font-normal text-gray-500 dark:text-transparent shadow' +
+        ' rounded-full bg-gradient-to-br dark:from-neutral-200 dark:via-neutral-400' +
+        ' dark:to-neutral-600 bg-clip-text px-4 py-2 text-center text-sm' +
+        ' font-normal text-neutral-500 dark:text-transparent shadow' +
         ' dark:shadow-dark-700'
       }
     >
@@ -366,15 +329,15 @@ function MainCallToActionButton() {
       className={
         'bg-transparent bg-gradient-to-r shadow-2xl' +
         ' hover:shadow-primary/60 from-primary' +
-        ' to-primary-600 hover:to-indigo-600 text-white'
+        ' to-primary-600 hover:to-primary-600 text-white'
       }
       variant={'custom'}
       size={'lg'}
       round
-      href={'/auth/sign-up'}
+      href={'/browse'}
     >
       <span className={'flex items-center space-x-2'}>
-        <span>Get Started</span>
+        <span>Browse Components</span>
         <ChevronRightIcon
           className={
             'h-4 animate-in fade-in slide-in-from-left-8' +

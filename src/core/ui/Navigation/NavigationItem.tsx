@@ -64,31 +64,31 @@ function getNavigationMenuItemClassBuilder() {
         // not active - shared
         {
           active: false,
-          className: `active:text-current text-gray-600 dark:text-gray-300
+          className: `active:text-current text-neutral-600 dark:text-neutral-300
         hover:text-current dark:hover:text-white`,
         },
         // active - shared
         {
           active: true,
-          className: `text-gray-800 dark:text-white`,
+          className: `text-neutral-800 dark:text-white`,
         },
         // active - pill
         {
           active: true,
           pill: true,
-          className: `bg-gray-50 text-gray-600 dark:bg-primary-300/10`,
+          className: `bg-neutral-50 text-neutral-600 dark:bg-primary-300/10`,
         },
         // not active - pill
         {
           active: false,
           pill: true,
-          className: `hover:bg-gray-50 active:bg-gray-100 text-gray-500 dark:text-gray-300 dark:hover:bg-background dark:active:bg-dark-900/90`,
+          className: `hover:bg-neutral-50 active:bg-neutral-100 text-neutral-500 dark:text-neutral-300 dark:hover:bg-background dark:active:bg-dark-900/90`,
         },
         // not active - bordered
         {
           active: false,
           bordered: true,
-          className: `hover:bg-gray-50 active:bg-gray-100 dark:active:bg-dark-800 dark:hover:bg-dark/90 transition-colors rounded-lg border-transparent`,
+          className: `hover:bg-neutral-50 active:bg-neutral-100 dark:active:bg-dark-800 dark:hover:bg-dark/90 transition-colors rounded-lg border-transparent`,
         },
         // active - bordered
         {

@@ -5,7 +5,7 @@ import { use } from 'react';
 type LayoutOrPageComponent<Params> = React.ComponentType<Params>;
 
 export function withI18n<Params extends object>(
-  Component: LayoutOrPageComponent<Params>
+  Component: LayoutOrPageComponent<Params>,
 ) {
   return function I18nServerComponentWrapper(params: Params) {
     use(initializeServerI18n(getLanguageCookie()));

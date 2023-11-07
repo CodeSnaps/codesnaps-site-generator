@@ -25,7 +25,7 @@ const PhoneNumberCredentialForm: React.FC<{
 
         onSubmit(phoneNumber);
       },
-      [onSubmit]
+      [onSubmit],
     );
 
   return (

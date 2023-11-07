@@ -10,7 +10,7 @@ type SubscriptionRow = Database['public']['Tables']['subscriptions']['Row'];
 
 export async function addSubscription(
   client: Client,
-  subscription: Stripe.Subscription
+  subscription: Stripe.Subscription,
 ) {
   const data = subscriptionMapper(subscription);
 
@@ -31,7 +31,7 @@ export async function addSubscription(
  */
 export async function deleteSubscription(
   client: Client,
-  subscriptionId: string
+  subscriptionId: string,
 ) {
   return getSubscriptionsTable(client)
     .delete()
@@ -46,7 +46,7 @@ export async function deleteSubscription(
  */
 export async function updateSubscriptionById(
   client: Client,
-  subscription: Stripe.Subscription
+  subscription: Stripe.Subscription,
 ) {
   return getSubscriptionsTable(client)
     .update(subscriptionMapper(subscription))
@@ -57,7 +57,7 @@ export async function updateSubscriptionById(
 }
 
 function subscriptionMapper(
-  subscription: Stripe.Subscription
+  subscription: Stripe.Subscription,
 ): SubscriptionRow {
   const lineItem = subscription.items.data[0];
   const price = lineItem.price;

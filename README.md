@@ -6,7 +6,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-This is a quick guide to get you started with the project. For more details, 
+This is a quick guide to get you started with the project. For more details,
 please refer to the [documentation](https://makerkit.dev/docs/next-supabase/introduction).
 
 ### Before you deploy to production
@@ -14,14 +14,14 @@ please refer to the [documentation](https://makerkit.dev/docs/next-supabase/intr
 Many users try to deploy to production without going through the steps below.
 The result is the application won't be working as expected.
 
-**Important**: deploying to production (Vercel or other) will require you to 
-fill the required environment variables. 
+**Important**: deploying to production (Vercel or other) will require you to
+fill the required environment variables.
 
-[Please refer to the documentation](https://makerkit.dev/docs/next-supabase/going-to-production-overview) to 
+[Please refer to the documentation](https://makerkit.dev/docs/next-supabase/going-to-production-overview) to
 learn more.
 
-**Failure to do so will result in your application not working as expected 
-or not deploying at all**. Please ensure you have the required environment 
+**Failure to do so will result in your application not working as expected
+or not deploying at all**. Please ensure you have the required environment
 variables and keys before deploying to production.
 
 ### Requirements
@@ -100,10 +100,10 @@ If you are planning to deploy Supabase to production right away, [please ensure 
 
 #### Adding the Supabase Keys to the Environment Variables
 
-If this is the first time you run this command, we will need to get the 
-Supabase keys and add them to our local environment variables configuration 
-file `.env.local`. The file does not exist because it's not supposed to be 
-pushed to the repository: please create it and add the environment variables 
+If this is the first time you run this command, we will need to get the
+Supabase keys and add them to our local environment variables configuration
+file `.env.local`. The file does not exist because it's not supposed to be
+pushed to the repository: please create it and add the environment variables
 below.
 
 When running the command, we will see a message like this:
@@ -124,7 +124,7 @@ Started supabase local development setup.
 service_role key: ****************************************************
 ```
 
-Now, we need to copy the `anon key` and `service_role key` values and add 
+Now, we need to copy the `anon key` and `service_role key` values and add
 them to the `.env.local` file:
 
 ```
@@ -215,14 +215,14 @@ The first two steps are only required to run the Cypress E2E tests for
 Stripe. Generating a webhook key and running the Stripe CLI server is
 always required for developing your Stripe functionality locally.
 
-The variables should be added either in `.env.test` or as part of your CI 
-environment. 
+The variables should be added either in `.env.test` or as part of your CI
+environment.
 
-NB: The secret keys should not be added to the repository - even 
-though these are test keys. Instead - please add them to your CI 
+NB: The secret keys should not be added to the repository - even
+though these are test keys. Instead - please add them to your CI
 environment - such as Github Actions.
 
-The test API keys should be added as secrets - while the variable 
+The test API keys should be added as secrets - while the variable
 ENABLE_STRIPE_TESTING should be added as a simple variable.
 
 To generate a webhook key, run the following command:

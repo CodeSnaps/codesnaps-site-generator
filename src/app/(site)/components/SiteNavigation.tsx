@@ -16,22 +16,22 @@ const links = {
     label: 'Sign In',
     path: '/auth/sign-in',
   },
-  Blog: {
-    label: 'Blog',
-    path: '/blog',
-  },
-  Docs: {
-    label: 'Documentation',
-    path: '/docs',
-  },
-  Pricing: {
-    label: 'Pricing',
-    path: '/pricing',
+  Components: {
+    label: 'Components',
+    path: '/browse',
   },
   FAQ: {
     label: 'FAQ',
     path: '/faq',
   },
+  Pricing: {
+    label: 'Pricing',
+    path: '/pricing',
+  },
+  //   Blog: {
+  //     label: 'Blog',
+  //     path: '/blog',
+  //   },
 };
 
 const SiteNavigation = () => {
@@ -46,10 +46,10 @@ const SiteNavigation = () => {
             link={links.SignIn}
           />
 
-          <NavigationMenuItem className={className} link={links.Blog} />
-          <NavigationMenuItem className={className} link={links.Docs} />
-          <NavigationMenuItem className={className} link={links.Pricing} />
+          <NavigationMenuItem className={className} link={links.Components} />
           <NavigationMenuItem className={className} link={links.FAQ} />
+          <NavigationMenuItem className={className} link={links.Pricing} />
+          {/* <NavigationMenuItem className={className} link={links.Blog} /> */}
         </NavigationMenu>
       </div>
 

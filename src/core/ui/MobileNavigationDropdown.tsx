@@ -45,7 +45,7 @@ const MobileNavigationDropdown: React.FC<{
       </DropdownMenuTrigger>
 
       <DropdownMenuContent
-        className={'divide-y divide-gray-100 dark:divide-dark-700'}
+        className={'divide-y divide-neutral-100 dark:divide-dark-700'}
       >
         {Object.values(links).map((link) => {
           return (

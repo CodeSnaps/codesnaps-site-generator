@@ -11,13 +11,13 @@ const DocsCard: React.FC<
   return (
     <div className="flex flex-col">
       <div
-        className={`grow flex flex-col space-y-2.5 border border-gray-200 p-6 dark:border-dark-800 dark:bg-background 
+        className={`grow flex flex-col space-y-2.5 border border-neutral-200 p-6 dark:border-dark-800 dark:bg-background 
         ${link ? 'rounded-t-2xl border-b-0' : 'rounded-2xl'}`}
       >
         <h3 className="mt-0 text-lg dark:text-white font-semibold">{label}</h3>
 
         {subtitle && (
-          <div className="text-sm text-gray-500 dark:text-gray-400">
+          <div className="text-sm text-neutral-500 dark:text-neutral-400">
             <p>{subtitle}</p>
           </div>
         )}

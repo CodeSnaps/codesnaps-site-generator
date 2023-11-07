@@ -55,7 +55,7 @@ function useQueue(params?: Partial<QueueParams>) {
 
   const subscribe = (
     key: string,
-    callback: (item: QueueItem, task: Task) => void
+    callback: (item: QueueItem, task: Task) => void,
   ) => {
     callbacks.set(key, callback);
   };
@@ -110,7 +110,7 @@ function useQueue(params?: Partial<QueueParams>) {
         next();
       }
     },
-    [delayTime]
+    [delayTime],
   );
 
   const enqueue = useCallback(
@@ -138,7 +138,7 @@ function useQueue(params?: Partial<QueueParams>) {
         return dequeue(key);
       });
     },
-    [dequeue]
+    [dequeue],
   );
 
   const clear = useCallback((key?: string) => {

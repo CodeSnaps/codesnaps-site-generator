@@ -14,7 +14,7 @@ function suspensify<T>(promise: Promise<T>) {
     (e) => {
       status = 'error';
       result = e;
-    }
+    },
   );
 
   return {

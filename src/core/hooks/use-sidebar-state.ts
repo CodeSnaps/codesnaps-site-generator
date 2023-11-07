@@ -17,7 +17,7 @@ function useCollapsible(initialValue?: boolean) {
 function storeCollapsibleState(collapsed: boolean) {
   setCookie(
     SIDEBAR_COLLAPSED_STORAGE_KEY,
-    collapsed ? 'collapsed' : 'expanded'
+    collapsed ? 'collapsed' : 'expanded',
   );
 }
 

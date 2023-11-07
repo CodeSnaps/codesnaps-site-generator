@@ -81,7 +81,7 @@ const ProfileDropdown: React.FCC<{
           <div
             className={'flex flex-col justify-start truncate text-left text-xs'}
           >
-            <div className={'text-gray-500'}>Signed in as</div>
+            <div className={'text-neutral-500'}>Signed in as</div>
 
             <div>
               <span className={'block truncate'}>{signedInAsLabel}</span>

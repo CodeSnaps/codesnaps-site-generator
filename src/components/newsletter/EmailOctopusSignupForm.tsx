@@ -36,7 +36,7 @@ const EmailOctopusSignupForm: React.FC<
       setValue('');
       setSuccess(true);
     },
-    [action]
+    [action],
   );
 
   if (success) {

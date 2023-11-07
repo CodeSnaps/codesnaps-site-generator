@@ -8,7 +8,7 @@ function NewsletterSignup() {
       <div>
         <Heading type={6}>Subscribe to our Newsletter</Heading>
 
-        <div className={'text-sm text-gray-500 dark:text-gray-400'}>
+        <div className={'text-sm text-neutral-500 dark:text-neutral-400'}>
           Get the latest updates from our team.
         </div>
       </div>

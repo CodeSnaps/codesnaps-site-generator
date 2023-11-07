@@ -113,7 +113,7 @@ function PricingItem(
          p-6 lg:w-4/12 xl:p-8 2xl:w-3/12 xl:max-w-xs
       `,
         {
-          ['border-gray-100 dark:border-dark-900 border-2']: !recommended,
+          ['border-neutral-200 dark:border-dark-900 border-2']: !recommended,
           ['border-primary border-2']: recommended,
         },
       )}
@@ -130,7 +130,8 @@ function PricingItem(
                 `rounded-md py-1 px-2 text-xs font-medium flex space-x-1`,
                 {
                   ['text-primary-foreground bg-primary']: recommended,
-                  ['bg-gray-50 text-gray-500 dark:text-gray-800']: !recommended,
+                  ['bg-neutral-50 text-neutral-500 dark:text-neutral-800']:
+                    !recommended,
                 },
               )}
             >
@@ -142,7 +143,7 @@ function PricingItem(
           </If>
         </div>
 
-        <span className={'text-sm text-gray-500 dark:text-gray-400'}>
+        <span className={'text-sm text-neutral-500 dark:text-neutral-400'}>
           {props.product.description}
         </span>
       </div>
@@ -153,7 +154,7 @@ function PricingItem(
         <If condition={props.plan.name}>
           <span
             className={classNames(
-              `text-lg lowercase text-gray-500 dark:text-gray-400`,
+              `text-lg lowercase text-neutral-500 dark:text-neutral-400`,
             )}
           >
             <span>/</span>
@@ -232,7 +233,7 @@ function ListItem({ children }: React.PropsWithChildren) {
         <CheckCircleIcon className={'h-5'} />
       </div>
 
-      <span className={'text-sm text-gray-600 dark:text-gray-300'}>
+      <span className={'text-sm text-neutral-600 dark:text-neutral-300'}>
         {children}
       </span>
     </li>
@@ -254,7 +255,7 @@ function PlansSwitcher(
         const className = classNames('focus:!ring-0 !outline-none', {
           'rounded-r-none': index === 0,
           'rounded-l-none': index === props.plans.length - 1,
-          ['border-gray-100 dark:border-dark-800 hover:bg-gray-50' +
+          ['border-neutral-100 dark:border-dark-800 hover:bg-neutral-50' +
           ' dark:hover:bg-background/80']: !selected,
         });
 

@@ -8,7 +8,7 @@ type Props = React.InputHTMLAttributes<unknown>;
 const InputRange = forwardRef<React.ElementRef<'input'>, Props>(
   function InputRangeComponent(
     { className, children, defaultValue, onInput, ...props },
-    ref
+    ref,
   ) {
     const value = (props.value || defaultValue || 0) as number;
 
@@ -17,7 +17,7 @@ const InputRange = forwardRef<React.ElementRef<'input'>, Props>(
         value,
         min: Number(props.min),
         max: Number(props.max),
-      })
+      }),
     );
 
     const onInputHandler = useCallback(
@@ -34,7 +34,7 @@ const InputRange = forwardRef<React.ElementRef<'input'>, Props>(
 
         setBubbleProps(bubbleProps);
       },
-      [onInput, props.max, props.min]
+      [onInput, props.max, props.min],
     );
 
     return (
@@ -62,7 +62,7 @@ const InputRange = forwardRef<React.ElementRef<'input'>, Props>(
         </span>
       </div>
     );
-  }
+  },
 );
 
 export default InputRange;

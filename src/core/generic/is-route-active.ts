@@ -11,7 +11,7 @@ const ROOT_PATH = '/';
 export default function isRouteActive(
   targetLink: string,
   currentRoute: string,
-  depth: number
+  depth: number,
 ) {
   // we remove any eventual query param from the route's URL
   const currentRoutePath = currentRoute.split('?')[0];
@@ -40,7 +40,7 @@ function splitIntoSegments(href: string) {
 function hasMatchingSegments(
   targetLink: string,
   currentRoute: string,
-  depth: number
+  depth: number,
 ) {
   const segments = splitIntoSegments(targetLink);
   const matchingSegments = numberOfMatchingSegments(currentRoute, segments);

@@ -11,7 +11,7 @@ function AuthPageShell({
     <div
       className={
         'flex h-screen flex-col items-center justify-center space-y-4' +
-        ' md:space-y-8 lg:space-y-16 lg:bg-gray-50 dark:lg:bg-background' +
+        ' md:space-y-8 lg:space-y-16 lg:bg-neutral-50 dark:lg:bg-background' +
         ' animate-in fade-in slide-in-from-top-8 duration-1000'
       }
     >

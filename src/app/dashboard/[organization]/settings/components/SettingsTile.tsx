@@ -22,7 +22,7 @@ const SettingsTile: React.FCC<{
               </Heading>
 
               <If condition={subHeading}>
-                <p className={'text-gray-500 dark:text-gray-400'}>
+                <p className={'text-neutral-500 dark:text-neutral-400'}>
                   {subHeading}
                 </p>
               </If>
@@ -35,7 +35,7 @@ const SettingsTile: React.FCC<{
 
       <div
         className={
-          'rounded-lg border border-gray-50 p-2.5 dark:border-dark-800 lg:p-6 shadow-sm'
+          'rounded-lg border border-neutral-50 p-2.5 dark:border-dark-800 lg:p-6 shadow-sm'
         }
       >
         {children}

@@ -23,7 +23,7 @@ function PostPreview({
   const height = imageHeight ?? DEFAULT_IMAGE_HEIGHT;
 
   return (
-    <div className="rounded-xl transition-shadow duration-500 dark:text-gray-800">
+    <div className="rounded-xl transition-shadow duration-500 dark:text-neutral-800">
       <If condition={image}>
         {(imageUrl) => (
           <div className="relative mb-2 w-full" style={{ height }}>
@@ -48,18 +48,18 @@ function PostPreview({
         </div>
 
         <div className="mb-2 flex flex-row items-center space-x-2 px-1 text-sm">
-          <div className="text-gray-600 dark:text-gray-300">
+          <div className="text-neutral-600 dark:text-neutral-300">
             <DateFormatter dateString={date} />
           </div>
 
-          <span className="text-gray-600 dark:text-gray-300">·</span>
+          <span className="text-neutral-600 dark:text-neutral-300">·</span>
 
-          <span className="text-gray-600 dark:text-gray-300">
+          <span className="text-neutral-600 dark:text-neutral-300">
             {readingTime} mins reading
           </span>
         </div>
 
-        <p className="mb-4 px-1 text-sm leading-relaxed dark:text-gray-300">
+        <p className="mb-4 px-1 text-sm leading-relaxed dark:text-neutral-300">
           {description}
         </p>
       </div>

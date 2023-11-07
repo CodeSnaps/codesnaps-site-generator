@@ -27,7 +27,7 @@ function SignInMethodsContainer() {
         <OAuthProviders />
 
         <div>
-          <span className={'text-xs text-gray-400'}>
+          <span className={'text-xs text-neutral-400'}>
             <Trans i18nKey={'auth:orContinueWithEmail'} />
           </span>
         </div>

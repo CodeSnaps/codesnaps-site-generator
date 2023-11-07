@@ -13,6 +13,10 @@ module.exports = {
       },
     },
     extend: {
+      screens: {
+        '3xl': '1800px',
+        '4xl': '2000px',
+      },
       fontFamily: {
         heading: [
           'var(--font-family-heading)',
@@ -37,7 +41,7 @@ module.exports = {
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
-          ...colors.violet,
+          ...colors.amber,
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
@@ -85,5 +89,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate'), require('@tailwindcss/forms')],
 };

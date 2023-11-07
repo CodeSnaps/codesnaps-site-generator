@@ -6,8 +6,8 @@ const NavigationContainer: React.FCC<{
   return (
     <div
       className={classNames(
-        `border-b border-gray-50 dark:border-dark-800 dark:border-dark-800`,
-        className
+        `border-b border-neutral-50 dark:border-dark-800`,
+        className,
       )}
     >
       {children}

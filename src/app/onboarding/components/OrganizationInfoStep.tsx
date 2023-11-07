@@ -44,7 +44,7 @@ const OrganizationInfoStep: React.FCC<{
         <SubHeading>Let&apos;s create your organization.</SubHeading>
       </div>
 
-      <div className={'flex flex-1 flex-col space-y-2'}>
+      <div className={'flex flex-1 flex-col space-y-8'}>
         <TextField>
           <TextField.Label>
             Your organization&apos;s name

@@ -15,7 +15,7 @@ function UpdatePasswordFormContainer() {
   }
 
   const canUpdatePassword = user.identities?.some(
-    (item) => item.provider === `email`
+    (item) => item.provider === `email`,
   );
 
   return (

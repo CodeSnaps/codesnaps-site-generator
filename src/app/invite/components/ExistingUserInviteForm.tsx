@@ -62,7 +62,7 @@ function ExistingUserInviteForm(
             <p className={'text-center'}>
               <span
                 className={
-                  'text-center text-sm text-gray-700 dark:text-gray-300'
+                  'text-center text-sm text-neutral-700 dark:text-neutral-300'
                 }
               >
                 <Trans i18nKey={'auth:acceptInviteWithDifferentAccount'} />

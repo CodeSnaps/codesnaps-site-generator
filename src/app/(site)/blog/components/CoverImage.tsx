@@ -21,7 +21,7 @@ const CoverImage: React.FC<Props> = ({
           ' transition-all hover:opacity-90',
         {
           className,
-        }
+        },
       )}
       src={src}
       priority={preloadImage}

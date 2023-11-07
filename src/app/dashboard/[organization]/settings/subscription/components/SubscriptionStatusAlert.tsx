@@ -10,7 +10,7 @@ function SubscriptionStatusAlert(
       endDate: string;
       trialEndDate: string | null;
     };
-  }>
+  }>,
 ) {
   const status = props.subscription.status;
 
