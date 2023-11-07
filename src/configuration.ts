@@ -81,12 +81,12 @@ const configuration = {
           {
             name: 'Monthly',
             price: '$0',
-            stripePriceId: null,
+            stripePriceId: '',
           },
           {
             name: 'Yearly',
             price: '$0',
-            stripePriceId: null,
+            stripePriceId: '',
           },
         ],
       },
