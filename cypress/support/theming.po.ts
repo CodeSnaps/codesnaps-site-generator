@@ -34,7 +34,7 @@ export namespace themingPo {
   export function assertIsCorrectSystemTheme() {
     cy.get('html').should(
       isSystemThemeDark() ? 'have.class' : 'not.have.class',
-      'dark'
+      'dark',
     );
   }
 }

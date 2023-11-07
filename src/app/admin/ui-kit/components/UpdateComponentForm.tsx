@@ -160,27 +160,7 @@ const UpdateComponentForm = ({ component }: Props) => {
         error: 'Error updating component',
       });
     },
-    [
-      client,
-      id,
-      is_published,
-      name,
-      description,
-      is_free,
-      type,
-      category,
-      preview_url,
-      currentImgSrc,
-      image_alt,
-      image_position,
-      layout_properties,
-      is_interactive,
-      elements,
-      code_tailwindcss_react,
-      code_tailwindcss_nextjs,
-      code_animation_component,
-      updateComponentMutation,
-    ],
+    [client, id, name, currentImgSrc, updateComponentMutation],
   );
 
   const changeTab = (tabValue: string) => {

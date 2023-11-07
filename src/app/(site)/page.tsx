@@ -213,13 +213,14 @@ export default function Home() {
         >
           <div className="flex flex-col space-y-4">
             <p className="font-semibold">
-              I've always been envious of how many no-code tools designers have
-              to create beautiful websites quickly.
+              I&apos;ve always been envious of how many no-code tools designers
+              have to create beautiful websites quickly.
             </p>
 
             <p className="text-neutral-600 dark:text-neutral-400">
-              But developers don't have that luxury, and there aren't many great
-              libraries and resources to help us work smarter, not harder.
+              But developers don&apos;t have that luxury, and there aren&apos;t
+              many great libraries and resources to help us work smarter, not
+              harder.
             </p>
 
             <p className="text-neutral-600 dark:text-neutral-400">
@@ -230,7 +231,7 @@ export default function Home() {
 
             <p className="text-neutral-600 dark:text-neutral-400">
               <span className="font-semibold dark:text-white">
-                That's why I created CodeSnaps{' '}
+                That&apos;s why I created CodeSnaps{' '}
               </span>
               - to help developers build websites and MVPs faster, using the
               tech stacks they love.
