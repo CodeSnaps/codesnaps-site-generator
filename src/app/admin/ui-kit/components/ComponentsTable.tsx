@@ -79,11 +79,13 @@ const columns: Array<ColumnDef<Components[0]>> = [
     header: 'URL',
     accessorKey: 'preview_url',
     id: 'preview_url',
+    size: 300,
   },
   {
     header: 'Image Source',
     accessorKey: 'image_src',
     id: 'image_src',
+    size: 300,
   },
   {
     header: 'Image Alt',

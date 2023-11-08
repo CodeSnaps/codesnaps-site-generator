@@ -24,7 +24,7 @@ CREATE TABLE components (
     elements TEXT[],
     code_tailwindcss_react TEXT DEFAULT '',
     code_tailwindcss_nextjs TEXT DEFAULT '',
-    code_animation_react TEXT DEFAULT ''
+    code_animation_react TEXT DEFAULT '',
     code_animation_nextjs TEXT DEFAULT ''
 );
 ```
@@ -155,4 +155,10 @@ CREATE POLICY "Enable delete for auth users" ON "public"."saved_components"
 AS PERMISSIVE FOR DELETE
 TO authenticated
 USING (true)
+```
+
+## Super Admin
+
+```sql
+UPDATE auth.users SET raw_app_meta_data = '{"role": "super-admin"}' WHERE id='<user_id>';
 ```

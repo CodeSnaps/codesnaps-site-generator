@@ -61,20 +61,22 @@ function CodeTabs({
                 </span>
               </button>
 
-              <button
-                className={clsx(
-                  activeCode === code_animation_react
-                    ? 'bg-neutral-950'
-                    : 'bg-transparent hover:bg-neutral-800 dark:hover:bg-neutral-900',
-                  'flex items-center space-x-2 px-2.5 py-2 rounded-md font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400',
-                )}
-                onClick={() => setActiveCode(code_animation_react)}
-              >
-                <ReactIcon className="w-5 h-5" />
-                <span className="text-sm font-medium text-white">
-                  Animation.jsx
-                </span>
-              </button>
+              {code_animation_react && (
+                <button
+                  className={clsx(
+                    activeCode === code_animation_react
+                      ? 'bg-neutral-950'
+                      : 'bg-transparent hover:bg-neutral-800 dark:hover:bg-neutral-900',
+                    'flex items-center space-x-2 px-2.5 py-2 rounded-md font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400',
+                  )}
+                  onClick={() => setActiveCode(code_animation_react)}
+                >
+                  <ReactIcon className="w-5 h-5" />
+                  <span className="text-sm font-medium text-white">
+                    Animation.jsx
+                  </span>
+                </button>
+              )}
             </>
           ) : (
             <>
@@ -91,20 +93,22 @@ function CodeTabs({
                 <span className="text-sm font-medium text-white">page.jsx</span>
               </button>
 
-              <button
-                className={clsx(
-                  activeCode === code_animation_nextjs
-                    ? 'bg-neutral-950'
-                    : 'bg-transparent hover:bg-neutral-800 dark:hover:bg-neutral-900',
-                  'flex items-center space-x-2 px-2.5 py-2 rounded-md font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400',
-                )}
-                onClick={() => setActiveCode(code_animation_nextjs)}
-              >
-                <ReactIcon className="w-5 h-5" />
-                <span className="text-sm font-medium text-white">
-                  Animation.jsx
-                </span>
-              </button>
+              {code_animation_nextjs && (
+                <button
+                  className={clsx(
+                    activeCode === code_animation_nextjs
+                      ? 'bg-neutral-950'
+                      : 'bg-transparent hover:bg-neutral-800 dark:hover:bg-neutral-900',
+                    'flex items-center space-x-2 px-2.5 py-2 rounded-md font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400',
+                  )}
+                  onClick={() => setActiveCode(code_animation_nextjs)}
+                >
+                  <ReactIcon className="w-5 h-5" />
+                  <span className="text-sm font-medium text-white">
+                    Animation.jsx
+                  </span>
+                </button>
+              )}
             </>
           )}
         </div>
