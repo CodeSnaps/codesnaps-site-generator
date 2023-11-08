@@ -2,7 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { use } from 'react';
-import { getSingleComponent } from '~/lib/components/database/queries';
+import {
+  getSingleComponent,
+  checkIfComponentIsSaved,
+} from '~/lib/components/database/queries';
 import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 
 import ComponentAppHeader from '~/app/dashboard/[organization]/components/ui-kit/ComponentAppHeader';
@@ -31,6 +34,7 @@ export async function generateMetadata({
 function ComponentDetailPage({ params }: ComponentDetailPageProps) {
   const client = getSupabaseServerComponentClient();
   const component = use(getSingleComponent(client, params.uuid));
+  const isSaved = use(checkIfComponentIsSaved(client, params.uuid));
 
   const {
     name,
@@ -72,6 +76,7 @@ function ComponentDetailPage({ params }: ComponentDetailPageProps) {
                 uuid: params.uuid,
                 organization: params.organization,
                 component: component,
+                isSaved: isSaved,
               }}
             />
           </div>
@@ -182,25 +187,6 @@ function PreviewLinkIcon(props: React.SVGProps<SVGSVGElement>) {
         strokeLinecap="round"
         strokeLinejoin="round"
         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-      />
-    </svg>
-  );
-}
-
-function SaveIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      {...props}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"
       />
     </svg>
   );

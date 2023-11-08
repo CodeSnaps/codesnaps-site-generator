@@ -2,7 +2,10 @@ import { use } from 'react';
 
 import ComponentsFilter from '~/app/dashboard/[organization]/components/ui-kit/ComponentsFilter';
 import ComponentGrid from '~/app/dashboard/[organization]/components/ui-kit/ComponentGrid';
-import { getAllComponents } from '~/lib/components/database/queries';
+import {
+  getAllComponents,
+  getAllSavedComponentsIds,
+} from '~/lib/components/database/queries';
 
 import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 import getPageFromQueryParams from '~/app/dashboard/[organization]/utils/get-page-from-query-param';
@@ -26,6 +29,7 @@ export default function ComponentsDashboard({
 }: DasbboardPageParams) {
   const pageIndex = getPageFromQueryParams(searchParams.page);
   const perPage = 30;
+  const client = getSupabaseServerComponentClient();
 
   const { components, count } = use(
     fetchComponents({
@@ -37,6 +41,10 @@ export default function ComponentsDashboard({
 
   const pageCount = count ? Math.ceil(count / perPage) : 0;
 
+  const savedComponentsIds = use(
+    getAllSavedComponentsIds(client, organization),
+  );
+
   return (
     <div className={'my-10'}>
       <ComponentsFilter pageIndex={pageIndex} />
@@ -45,6 +53,7 @@ export default function ComponentsDashboard({
         pageIndex={pageIndex}
         pageCount={pageCount}
         components={components}
+        savedComponentsIds={savedComponentsIds}
         organization={organization}
       />
     </div>

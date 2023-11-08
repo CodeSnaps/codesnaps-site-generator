@@ -1,6 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { Database } from '~/database.types';
-import { COMPONENTS_TABLE } from '~/lib/db-tables';
+import { COMPONENTS_TABLE, SAVED_COMPONENTS_TABLE } from '~/lib/db-tables';
 import Component from '~/lib/components/types/component';
 import SavedComponent from '~/lib/components/types/saved-component';
 
@@ -127,8 +127,44 @@ export async function getSavedComponents(
   const endOffset = startOffset + perPage - 1;
 
   return await client
-    .from('saved_components')
+    .from(SAVED_COMPONENTS_TABLE)
     .select<string, SavedComponent>('*', { count: 'exact' })
     .eq('organization_id', orgId)
     .range(startOffset, endOffset);
+}
+
+export async function getAllSavedComponentsIds(client: Client, orgId: string) {
+  const { data: components, error } = await client
+    .from(SAVED_COMPONENTS_TABLE)
+    .select('component_id')
+    .eq('organization_id', orgId);
+
+  if (error) {
+    console.error('Error getting saved components', error);
+    throw error;
+  }
+
+  return components;
+}
+
+export async function checkIfComponentIsSaved(
+  client: Client,
+  componentId: string,
+) {
+  const { data, error } = await client
+    .from(SAVED_COMPONENTS_TABLE)
+    .select('component_id')
+    .eq('component_id', componentId)
+    .single();
+
+  if (error) {
+    console.error('Error checking if component is saved', error);
+    return false;
+  }
+
+  if (!data) {
+    return false;
+  }
+
+  return true;
 }

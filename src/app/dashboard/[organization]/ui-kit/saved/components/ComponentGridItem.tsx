@@ -34,6 +34,7 @@ export default function ComponentGridItem(
   const client = useSupabase();
   const pathname = usePathname();
   const router = useRouter();
+  const updatedPathname = pathname.replace('/saved', '');
 
   const handleRemoveComponent = async () => {
     const { success, error } = await removeFavoriteComponent(
@@ -76,9 +77,9 @@ export default function ComponentGridItem(
         <div className="mt-4 flex items-center space-x-2">
           <div className="group flex-1">
             <Link
-              href={`${pathname}/ui-kit/${
+              href={`${updatedPathname}/${
                 is_free ? 'free-components' : ''
-              }/${id}`}
+              }/${component_id}`}
             >
               <div className="flex items-center justify-center gap-2 rounded-md bg-transparent py-3.5 text-center text-base font-semibold text-neutral-600 shadow-sm ring-1 ring-inset ring-neutral-300 hover:bg-neutral-50 group-hover:text-neutral-800 group-hover:ring-neutral-800 dark:text-neutral-400 dark:ring-neutral-400 dark:hover:bg-neutral-800 dark:hover:ring-neutral-100 dark:group-hover:text-white">
                 <CodeIcon className="h-6 w-6" />

@@ -9,15 +9,21 @@ import { useSearchParams } from 'next/navigation';
 import Component from '~/lib/components/types/component';
 import ComponentGridItem from '~/app/dashboard/[organization]/components/ui-kit/ComponentGridItem';
 
+interface savedComponentsIds {
+  component_id: string;
+}
+
 export default function ComponentGrid(
   props: React.PropsWithChildren<{
     pageIndex: number;
     pageCount: number;
     components: Component[];
+    savedComponentsIds: Array<savedComponentsIds>;
     organization: string;
   }>,
 ) {
-  const { pageIndex, pageCount, components, organization } = props;
+  const { pageIndex, pageCount, components, savedComponentsIds, organization } =
+    props;
 
   return (
     <>
@@ -28,6 +34,9 @@ export default function ComponentGrid(
               key={component.id}
               component={component}
               organization={organization}
+              isSaved={savedComponentsIds.some(
+                (saved) => saved.component_id === component.id,
+              )}
             />
           ))}
         </div>
