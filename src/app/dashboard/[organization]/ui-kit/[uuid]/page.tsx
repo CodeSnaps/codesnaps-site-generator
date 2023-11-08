@@ -51,10 +51,10 @@ function ComponentDetailPage({ params }: ComponentDetailPageProps) {
     preview_url,
     image_src,
     image_alt,
-    image_position,
     code_tailwindcss_react,
     code_tailwindcss_nextjs,
-    code_animation_component,
+    code_animation_react,
+    code_animation_nextjs,
   } = component;
 
   return (
@@ -89,7 +89,7 @@ function ComponentDetailPage({ params }: ComponentDetailPageProps) {
         <div className="mt-10 rounded-2xl bg-neutral-300 dark:bg-neutral-700">
           <div className="flex items-center justify-center px-10">
             <div
-              className={`flex w-full justify-center bg-neutral-200 items-${image_position} py-20 dark:bg-neutral-500`}
+              className={`flex w-full justify-center bg-neutral-200 py-20 dark:bg-neutral-500`}
             >
               <Image
                 priority
@@ -161,7 +161,8 @@ function ComponentDetailPage({ params }: ComponentDetailPageProps) {
           <CodeTabs
             code_tailwindcss_react={code_tailwindcss_react}
             code_tailwindcss_nextjs={code_tailwindcss_nextjs}
-            code_animation_component={code_animation_component}
+            code_animation_react={code_animation_react}
+            code_animation_nextjs={code_animation_nextjs}
           />
         </div>
       </div>

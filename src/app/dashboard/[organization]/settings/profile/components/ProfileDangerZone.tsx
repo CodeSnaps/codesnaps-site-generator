@@ -74,6 +74,9 @@ function DeleteProfileForm() {
         <div>
           <Trans i18nKey={'profile:deleteAccountDescription'} />
         </div>
+        <div>
+          <Trans i18nKey={'profile:deleteAccountDisclaimer'} />
+        </div>
 
         <TextFieldLabel>
           <Trans i18nKey={'profile:deleteProfileConfirmationInputLabel'} />

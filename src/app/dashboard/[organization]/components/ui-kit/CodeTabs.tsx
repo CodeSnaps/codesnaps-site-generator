@@ -20,13 +20,15 @@ import {
 interface CodeTabsProps {
   code_tailwindcss_react: string;
   code_tailwindcss_nextjs: string;
-  code_animation_component: string;
+  code_animation_react: string;
+  code_animation_nextjs: string;
 }
 
 function CodeTabs({
   code_tailwindcss_react,
   code_tailwindcss_nextjs,
-  code_animation_component,
+  code_animation_react,
+  code_animation_nextjs,
 }: CodeTabsProps) {
   const [activeTab, setActiveTab] = useState('react');
   const [activeCode, setActiveCode] = useState(code_tailwindcss_react);
@@ -43,48 +45,67 @@ function CodeTabs({
       <div className="bg-neutral-700 dark:bg-neutral-800 border rounded-t-lg flex flex-col gap-4 sm:flex-row sm:gap-0 justify-between py-2 px-3">
         <div className="flex items-center space-x-2">
           {activeTab === 'react' ? (
-            <button
-              className={clsx(
-                activeCode === code_tailwindcss_react
-                  ? 'bg-neutral-950'
-                  : 'bg-transparent hover:bg-neutral-800 dark:hover:bg-neutral-900',
-                'flex items-center space-x-2 px-2.5 py-2 rounded-md font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400',
-              )}
-              onClick={() => setActiveCode(code_tailwindcss_react)}
-            >
-              <ReactIcon className="w-5 h-5" />
-              <span className="text-sm font-medium text-white">index.jsx</span>
-            </button>
-          ) : (
-            <button
-              className={clsx(
-                activeCode === code_tailwindcss_nextjs
-                  ? 'bg-neutral-950'
-                  : 'bg-transparent hover:bg-neutral-800 dark:hover:bg-neutral-900',
-                'flex items-center space-x-2 px-2.5 py-2 rounded-md font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400',
-              )}
-              onClick={() => setActiveCode(code_tailwindcss_nextjs)}
-            >
-              <ReactIcon className="w-5 h-5" />
-              <span className="text-sm font-medium text-white">page.jsx</span>
-            </button>
-          )}
+            <>
+              <button
+                className={clsx(
+                  activeCode === code_tailwindcss_react
+                    ? 'bg-neutral-950'
+                    : 'bg-transparent hover:bg-neutral-800 dark:hover:bg-neutral-900',
+                  'flex items-center space-x-2 px-2.5 py-2 rounded-md font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400',
+                )}
+                onClick={() => setActiveCode(code_tailwindcss_react)}
+              >
+                <ReactIcon className="w-5 h-5" />
+                <span className="text-sm font-medium text-white">
+                  index.jsx
+                </span>
+              </button>
 
-          {code_animation_component && (
-            <button
-              className={clsx(
-                activeCode === code_animation_component
-                  ? 'bg-neutral-950'
-                  : 'bg-transparent hover:bg-neutral-800 dark:hover:bg-neutral-900',
-                'flex items-center space-x-2 px-2.5 py-2 rounded-md font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400',
-              )}
-              onClick={() => setActiveCode(code_animation_component)}
-            >
-              <ReactIcon className="w-5 h-5" />
-              <span className="text-sm font-medium text-white">
-                Animation.jsx
-              </span>
-            </button>
+              <button
+                className={clsx(
+                  activeCode === code_animation_react
+                    ? 'bg-neutral-950'
+                    : 'bg-transparent hover:bg-neutral-800 dark:hover:bg-neutral-900',
+                  'flex items-center space-x-2 px-2.5 py-2 rounded-md font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400',
+                )}
+                onClick={() => setActiveCode(code_animation_react)}
+              >
+                <ReactIcon className="w-5 h-5" />
+                <span className="text-sm font-medium text-white">
+                  Animation.jsx
+                </span>
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                className={clsx(
+                  activeCode === code_tailwindcss_nextjs
+                    ? 'bg-neutral-950'
+                    : 'bg-transparent hover:bg-neutral-800 dark:hover:bg-neutral-900',
+                  'flex items-center space-x-2 px-2.5 py-2 rounded-md font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400',
+                )}
+                onClick={() => setActiveCode(code_tailwindcss_nextjs)}
+              >
+                <ReactIcon className="w-5 h-5" />
+                <span className="text-sm font-medium text-white">page.jsx</span>
+              </button>
+
+              <button
+                className={clsx(
+                  activeCode === code_animation_nextjs
+                    ? 'bg-neutral-950'
+                    : 'bg-transparent hover:bg-neutral-800 dark:hover:bg-neutral-900',
+                  'flex items-center space-x-2 px-2.5 py-2 rounded-md font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400',
+                )}
+                onClick={() => setActiveCode(code_animation_nextjs)}
+              >
+                <ReactIcon className="w-5 h-5" />
+                <span className="text-sm font-medium text-white">
+                  Animation.jsx
+                </span>
+              </button>
+            </>
           )}
         </div>
 

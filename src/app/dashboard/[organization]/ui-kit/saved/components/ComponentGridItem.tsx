@@ -28,16 +28,8 @@ export default function ComponentGridItem(
     organization: string;
   }>,
 ) {
-  const {
-    id,
-    name,
-    is_free,
-    image_src,
-    image_alt,
-    image_position,
-    preview_url,
-    component_id,
-  } = props.component;
+  const { id, name, is_free, image_src, image_alt, preview_url, component_id } =
+    props.component;
 
   const client = useSupabase();
   const pathname = usePathname();
@@ -65,7 +57,7 @@ export default function ComponentGridItem(
       <div className="m-2.5 rounded-2xl bg-neutral-300 dark:bg-neutral-700 lg:mx-3 lg:my-3.5">
         <div className="flex items-center justify-center px-10">
           <div
-            className={`flex w-full justify-center bg-neutral-200 items-${image_position} dark:bg-neutral-500 py-10`}
+            className={`flex w-full justify-center bg-neutral-200 dark:bg-neutral-500 py-10`}
           >
             <Image
               src={image_src}

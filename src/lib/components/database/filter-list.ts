@@ -42,6 +42,7 @@ const columnLayout: Array<FilterList> = [
 
 const elementsProps: Array<FilterList> = [
   { name: 'Accordion', value: 'accordion' },
+  { name: 'Animation', value: 'animation' },
   { name: 'Background Image', value: 'background-image' },
   { name: 'Background Video', value: 'background-video' },
   { name: 'Banner', value: 'banner' },
@@ -92,7 +93,8 @@ const layoutProperties: Array<FilterList> = [
 const tabs: Array<FilterList> = [
   { name: 'Next.js', value: 'nextjs' },
   { name: 'React', value: 'react' },
-  { name: 'Animation', value: 'animation' },
+  { name: 'Animation React', value: 'animationReact' },
+  { name: 'Animation Next.js', value: 'animationNextjs' },
 ];
 
 const allProperties: Array<FilterList> = [

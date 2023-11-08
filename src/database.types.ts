@@ -221,13 +221,13 @@ export interface Database {
           preview_url: string;
           image_src: string;
           image_alt: string;
-          image_position: string;
           layout_properties: string[];
           is_interactive: boolean;
           elements: string[];
           code_tailwindcss_react: string;
           code_tailwindcss_nextjs: string;
-          code_animation_component: string;
+          code_animation_react: string;
+          code_animation_nextjs: string;
         };
         Insert: {
           id?: never;
@@ -241,13 +241,13 @@ export interface Database {
           preview_url: string;
           image_src: string;
           image_alt: string;
-          image_position: string;
           layout_properties: string[];
           is_interactive: boolean;
           elements: string[];
           code_tailwindcss_react: string;
           code_tailwindcss_nextjs: string;
-          code_animation_component: string;
+          code_animation_react: string;
+          code_animation_nextjs: string;
         };
         Update: {
           id?: never;
@@ -260,13 +260,13 @@ export interface Database {
           preview_url?: string;
           image_src?: string;
           image_alt?: string;
-          image_position?: string;
           layout_properties?: string[];
           is_interactive?: boolean;
           elements?: string[];
           code_tailwindcss_react?: string;
           code_tailwindcss_nextjs?: string;
-          code_animation_component?: string;
+          code_animation_react?: string;
+          code_animation_nextjs?: string;
           created_at?: string;
         };
         Relationships: [];
@@ -275,8 +275,8 @@ export interface Database {
         Row: {
           id: string;
           created_at: string;
-          organization_id: string;
           component_id: string;
+          organization_id: string;
           name: string;
           type: string;
           is_free: boolean;
@@ -284,13 +284,12 @@ export interface Database {
           preview_url: string;
           image_src: string;
           image_alt: string;
-          image_position: string;
         };
         Insert: {
           id?: never;
           created_at?: never;
-          organization_id: string;
           component_id: string;
+          organization_id: string;
           name: string;
           type: string;
           is_free: boolean;
@@ -298,13 +297,12 @@ export interface Database {
           preview_url: string;
           image_src: string;
           image_alt: string;
-          image_position: string;
         };
         Update: {
           id?: never;
           created_at?: never;
-          organization_id?: string;
-          component_id?: string;
+          component_id?: never;
+          organization_id?: never;
           name?: string;
           type?: string;
           is_free?: boolean;
@@ -312,7 +310,6 @@ export interface Database {
           preview_url?: string;
           image_src?: string;
           image_alt?: string;
-          image_position?: string;
         };
         Relationships: [
           {
@@ -330,7 +327,6 @@ export interface Database {
         ];
         Delete: {
           id?: string;
-          organization_id: string;
           component_id: string;
         };
       };

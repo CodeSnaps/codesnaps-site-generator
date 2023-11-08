@@ -30,8 +30,7 @@ export function getFreeComponents(client: Client) {
     category,
     preview_url,
     image_src,
-    image_alt,
-    image_position
+    image_alt
     `,
       { count: 'exact' },
     )
@@ -68,8 +67,7 @@ export async function getAllComponents(
     is_free,
     preview_url,
     image_src,
-    image_alt,
-    image_position
+    image_alt
     `,
       { count: 'exact' },
     )

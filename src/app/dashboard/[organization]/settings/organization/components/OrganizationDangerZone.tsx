@@ -105,6 +105,9 @@ function DeleteOrganizationForm({ name, id }: { name: string; id: number }) {
               }}
             />
           </div>
+          <div>
+            <Trans i18nKey={'organization:deleteOrganizationDisclaimerNote'} />
+          </div>
 
           <input type="hidden" value={id} name={'id'} />
           <input type="hidden" value={csrfToken} name={'csrfToken'} />

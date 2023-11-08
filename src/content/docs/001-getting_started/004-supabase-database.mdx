@@ -19,23 +19,23 @@ CREATE TABLE components (
     preview_url TEXT,
     image_src TEXT,
     image_alt TEXT,
-    image_position TEXT,
     is_interactive BOOLEAN NOT NULL DEFAULT FALSE,
     layout_properties TEXT[],
     elements TEXT[],
     code_tailwindcss_react TEXT DEFAULT '',
     code_tailwindcss_nextjs TEXT DEFAULT '',
-    code_animation_component TEXT DEFAULT ''
+    code_animation_react TEXT DEFAULT ''
+    code_animation_nextjs TEXT DEFAULT ''
 );
 ```
 
 ### Set up RLS
 
 ```sql
-CREATE POLICY "Anon users can see free and published components" ON "public"."components"
+CREATE POLICY "Anon users can select published components" ON "public"."components"
 AS PERMISSIVE FOR SELECT
 TO anon
-USING (is_published = true AND is_free = true)
+USING (is_published = true)
 ```
 
 ```sql
@@ -53,7 +53,7 @@ WITH CHECK (true);
 ```
 
 ```sql
-CREATE POLICY "Enable update for only authenticated users only" ON "public"."components"
+CREATE POLICY "Enable delete for only authenticated users only" ON "public"."components"
 AS PERMISSIVE FOR UPDATE
 TO authenticated
 USING (true)
@@ -85,19 +85,37 @@ interface Component {
   preview_url: string;
   image_src: string;
   image_alt: string;
-  image_position: string;
   layout_properties: [string];
   is_interactive: boolean;
   elements: [string];
   code_tailwindcss_react: string;
   code_tailwindcss_nextjs: string;
-  code_animation_component: string;
+  code_animation_nextjs: string;
+  code_animation_react: string;
 }
 
 export default Component;
 ```
 
 ### Saved components
+
+```js
+interface SavedComponent {
+  id: string;
+  created_at: Date;
+  name: string;
+  is_free: boolean;
+  type: string;
+  category: string;
+  preview_url: string;
+  image_src: string;
+  image_alt: string;
+  component_id: string;
+  organization_id: string;
+}
+
+export default SavedComponent;
+```
 
 ```sql
 CREATE TABLE saved_components (
@@ -110,17 +128,15 @@ CREATE TABLE saved_components (
     preview_url TEXT,
     image_src TEXT,
     image_alt TEXT,
-    image_position TEXT,
-    organization_id UUID REFERENCES organizations(uuid),
     component_id UUID REFERENCES components(id),
+    organization_id UUID REFERENCES organizations(uuid)
 );
-
 ```
 
 #### RSL
 
 ```sql
-CREATE POLICY "Auth users can see the components" ON "public"."saved_components"
+CREATE POLICY "Auth users can select the components" ON "public"."saved_components"
 AS PERMISSIVE FOR SELECT
 TO authenticated
 USING (true)

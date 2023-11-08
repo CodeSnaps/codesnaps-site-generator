@@ -6,8 +6,6 @@ import type Component from '~/lib/components/types/component';
 import type { Database } from '~/database.types';
 
 type ComponentRow = Database['public']['Tables']['components']['Row'];
-type SavedComponentRow =
-  Database['public']['Tables']['saved_components']['Row'];
 
 type Client = SupabaseClient<Database>;
 
@@ -33,13 +31,13 @@ export async function updateComponent(
     preview_url: params.data.preview_url,
     image_src: params.data.image_src,
     image_alt: params.data.image_alt,
-    image_position: params.data.image_position,
     layout_properties: params.data.layout_properties,
     is_interactive: params.data.is_interactive,
     elements: params.data.elements,
     code_tailwindcss_react: params.data.code_tailwindcss_react,
     code_tailwindcss_nextjs: params.data.code_tailwindcss_nextjs,
-    code_animation_component: params.data.code_animation_component,
+    code_animation_react: params.data.code_animation_react,
+    code_animation_nextjs: params.data.code_animation_nextjs,
   };
 
   const { data, error } = await client
@@ -100,9 +98,8 @@ export async function favoriteComponent(
     preview_url: propData.preview_url,
     image_src: propData.image_src,
     image_alt: propData.image_alt,
-    image_position: propData.image_position,
-    organization_id: organization_id,
     component_id: component_id,
+    organization_id: organization_id,
   };
 
   const { error, status } = await client
@@ -134,7 +131,6 @@ export async function removeFavoriteComponent(
     .from(SAVED_COMPONENTS_TABLE)
     .delete()
     .eq('component_id', component_id)
-    .eq('organization_id', organization_id)
     .single();
 
   if (error) {

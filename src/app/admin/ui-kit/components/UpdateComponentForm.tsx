@@ -51,13 +51,13 @@ type UpdateComponentFormProps = {
   previewURL: string;
   imageSrc: string;
   imageAlt: string;
-  imagePosition: string;
   layoutProperties: string[];
   isInteractive: boolean;
   elements: string[];
   codeTailwindcssReact: string;
   codeTailwindcssNextjs: string;
-  codeAnimation: string;
+  codeAnimationReact: string;
+  codeAnimationNextjs: string;
 };
 
 type Props = {
@@ -80,13 +80,13 @@ const UpdateComponentForm = ({ component }: Props) => {
     preview_url,
     image_src: currentImgSrc,
     image_alt,
-    image_position,
     layout_properties,
     is_interactive,
     elements,
     code_tailwindcss_react,
     code_tailwindcss_nextjs,
-    code_animation_component,
+    code_animation_react,
+    code_animation_nextjs,
   } = component;
 
   const { control, register, handleSubmit, setValue } = useForm({
@@ -100,13 +100,13 @@ const UpdateComponentForm = ({ component }: Props) => {
       previewURL: preview_url,
       imageSrc: currentImgSrc,
       imageAlt: image_alt,
-      imagePosition: image_position,
       layoutProperties: layout_properties.map((property) => property),
       isInteractive: is_interactive,
       elements: elements.map((element) => element),
       codeTailwindcssReact: code_tailwindcss_react,
       codeTailwindcssNextjs: code_tailwindcss_nextjs,
-      codeAnimation: code_animation_component,
+      codeAnimationReact: code_animation_react,
+      codeAnimationNextjs: code_animation_nextjs,
     },
   });
 
@@ -143,13 +143,13 @@ const UpdateComponentForm = ({ component }: Props) => {
         preview_url: value.previewURL,
         image_src: newPublicURL ?? currentImgSrc,
         image_alt: value.imageAlt,
-        image_position: value.imagePosition,
         layout_properties: value.layoutProperties as [string],
         is_interactive: value.isInteractive,
         elements: value.elements as [string],
         code_tailwindcss_react: value.codeTailwindcssReact,
         code_tailwindcss_nextjs: value.codeTailwindcssNextjs,
-        code_animation_component: value.codeAnimation,
+        code_animation_react: value.codeAnimationReact,
+        code_animation_nextjs: value.codeAnimationNextjs,
       };
 
       const promise = updateComponentMutation.trigger(componentData);
@@ -360,26 +360,6 @@ const UpdateComponentForm = ({ component }: Props) => {
           </TextField.Label>
         </TextField>
 
-        {/* IMAGE POSITION */}
-        <div className="flex flex-col space-y-2">
-          <Label>Image Position</Label>
-          <Select
-            onValueChange={(value) => {
-              setValue('imagePosition', value);
-            }}
-          >
-            <SelectTrigger>
-              <SelectValue placeholder={image_position} />
-            </SelectTrigger>
-
-            <SelectContent position={'popper'}>
-              <SelectItem value={'start'}>start</SelectItem>
-              <SelectItem value={'center'}>center</SelectItem>
-              <SelectItem value={'end'}>end</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-
         {/* LAYOUT PROPERTIES */}
         <div>
           <Label>Layout Properties</Label>
@@ -522,7 +502,7 @@ const UpdateComponentForm = ({ component }: Props) => {
               />
             )}
 
-            {activeTab === 'animation' && (
+            {activeTab === 'animationReact' && (
               <Controller
                 render={({ field }) => (
                   <CodeMirror
@@ -533,8 +513,26 @@ const UpdateComponentForm = ({ component }: Props) => {
                     height="600px"
                   />
                 )}
-                name="codeAnimation"
+                name="codeAnimationReact"
                 control={control}
+                rules={{ required: false }}
+              />
+            )}
+
+            {activeTab === 'animationNextjs' && (
+              <Controller
+                render={({ field }) => (
+                  <CodeMirror
+                    value={field.value}
+                    onChange={field.onChange}
+                    theme={githubDark}
+                    extensions={[javascript({ jsx: true })]}
+                    height="600px"
+                  />
+                )}
+                name="codeAnimationNextjs"
+                control={control}
+                rules={{ required: false }}
               />
             )}
           </div>

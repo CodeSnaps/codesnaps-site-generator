@@ -104,12 +104,12 @@ const configuration = {
           {
             name: 'Monthly',
             price: '$9.99',
-            stripePriceId: 'price_1O8ijiCjllA7kCqF1fRAVw2K',
+            stripePriceId: 'price_1OAAlbCjllA7kCqFrT3uU0p5',
           },
           {
             name: 'Yearly',
             price: '$99.99',
-            stripePriceId: 'price_1O8ijiCjllA7kCqFcg8x7tqD',
+            stripePriceId: 'price_1OAAlbCjllA7kCqFXYX2pTOp',
           },
         ],
       },

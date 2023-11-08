@@ -23,7 +23,6 @@ function SaveComponentButton({ params }: Props) {
       category: params.component.category,
       image_src: params.component.image_src,
       image_alt: params.component.image_alt,
-      image_position: params.component.image_position,
       preview_url: params.component.preview_url,
     };
 

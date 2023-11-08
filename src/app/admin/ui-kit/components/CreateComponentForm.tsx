@@ -52,7 +52,6 @@ type CreateComponentFormProps = {
   previewURL: string;
   imageSrc: string;
   imageAlt: string;
-  imagePosition: string;
   textLayout: string[];
   visualLayout: string[];
   columnLayout: string[];
@@ -60,7 +59,8 @@ type CreateComponentFormProps = {
   elements: string[];
   codeTailwindcssReact: string;
   codeTailwindcssNextjs: string;
-  codeAnimation: string;
+  codeAnimationReact: string;
+  codeAnimationNextjs: string;
 };
 
 const CreateComponentForm = () => {
@@ -104,13 +104,13 @@ const CreateComponentForm = () => {
         preview_url: value.previewURL,
         image_src: newPublicURL ?? value.imageSrc,
         image_alt: value.imageAlt,
-        image_position: value.imagePosition,
         layout_properties: layoutProperties,
         is_interactive: value.isInteractive,
         elements: value.elements,
         code_tailwindcss_react: value.codeTailwindcssReact,
         code_tailwindcss_nextjs: value.codeTailwindcssNextjs,
-        code_animation: value.codeAnimation,
+        code_animation_react: value.codeAnimationReact,
+        code_animation_nextjs: value.codeAnimationNextjs,
       },
     });
 
@@ -320,27 +320,6 @@ const CreateComponentForm = () => {
           </TextField.Label>
         </TextField>
 
-        {/* IMAGE POSITION */}
-        <div className="flex flex-col space-y-2">
-          <Label>Image Position</Label>
-          <Select
-            onValueChange={(value) => {
-              setValue('imagePosition', value);
-            }}
-            defaultValue="center"
-          >
-            <SelectTrigger>
-              <SelectValue placeholder={'Select position'} />
-            </SelectTrigger>
-
-            <SelectContent position={'popper'}>
-              <SelectItem value={'start'}>start</SelectItem>
-              <SelectItem value={'center'}>center</SelectItem>
-              <SelectItem value={'end'}>end</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-
         {/* LAYOUT PROPERTIES */}
         <div>
           {/* TEXT */}
@@ -491,7 +470,7 @@ const CreateComponentForm = () => {
             </nav>
           </div>
 
-          <div className="mt-4">
+          <div className="mt-4 min-h-[600px]">
             {activeTab === 'nextjs' && (
               <Controller
                 render={({ field }) => (
@@ -526,7 +505,7 @@ const CreateComponentForm = () => {
               />
             )}
 
-            {activeTab === 'animation' && (
+            {activeTab === 'animationReact' && (
               <Controller
                 render={({ field }) => (
                   <CodeMirror
@@ -537,9 +516,26 @@ const CreateComponentForm = () => {
                     height="600px"
                   />
                 )}
-                name="codeAnimation"
+                name="codeAnimationReact"
                 control={control}
-                rules={{ required: true }}
+                rules={{ required: false }}
+              />
+            )}
+
+            {activeTab === 'animationNextjs' && (
+              <Controller
+                render={({ field }) => (
+                  <CodeMirror
+                    value={field.value}
+                    onChange={field.onChange}
+                    theme={githubDark}
+                    extensions={[javascript({ jsx: true })]}
+                    height="600px"
+                  />
+                )}
+                name="codeAnimationNextjs"
+                control={control}
+                rules={{ required: false }}
               />
             )}
           </div>

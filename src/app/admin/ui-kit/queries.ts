@@ -27,7 +27,6 @@ export async function getComponents(
         preview_url,
         image_src,
         image_alt,
-        image_position,
         layout_properties,
         is_interactive,
         elements
