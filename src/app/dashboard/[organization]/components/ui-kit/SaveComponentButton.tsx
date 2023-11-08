@@ -14,7 +14,7 @@ interface Props {
   };
 }
 
-async function SaveComponentButton({ params }: Props) {
+function SaveComponentButton({ params }: Props) {
   const client = useSupabase();
   const router = useRouter();
 
