@@ -13,8 +13,7 @@ export async function GET() {
   const urls = getSiteUrls();
   const posts = getPostsSitemap();
 
-  // TODO: Add posts to urls
-  return getServerSideSitemap([...urls]);
+  return getServerSideSitemap([...urls, ...posts]);
 }
 
 function getSiteUrls() {
