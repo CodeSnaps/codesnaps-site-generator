@@ -62,4 +62,3 @@ from
   finish ();
 
 rollback;
-

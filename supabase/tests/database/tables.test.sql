@@ -32,4 +32,3 @@ from
   finish ();
 
 rollback;
-

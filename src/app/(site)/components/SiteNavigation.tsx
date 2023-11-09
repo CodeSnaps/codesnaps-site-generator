@@ -20,6 +20,10 @@ const links = {
     label: 'Components',
     path: '/browse',
   },
+  Blog: {
+    label: 'Blog',
+    path: '/blog',
+  },
   FAQ: {
     label: 'FAQ',
     path: '/faq',
@@ -27,10 +31,6 @@ const links = {
   Pricing: {
     label: 'Pricing',
     path: '/pricing',
-  },
-  Blog: {
-    label: 'Blog',
-    path: '/blog',
   },
 };
 
@@ -47,9 +47,9 @@ const SiteNavigation = () => {
           />
 
           <NavigationMenuItem className={className} link={links.Components} />
+          <NavigationMenuItem className={className} link={links.Blog} />
           <NavigationMenuItem className={className} link={links.FAQ} />
           <NavigationMenuItem className={className} link={links.Pricing} />
-          <NavigationMenuItem className={className} link={links.Blog} />
         </NavigationMenu>
       </div>
 

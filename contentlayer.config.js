@@ -164,11 +164,6 @@ export const DocumentationPage = defineDocumentType(() => ({
   },
 }));
 
-const rehypePrettyCodeOptions = {
-  theme: 'github-dark-dimmed',
-  grid: true,
-};
-
 export default makeSource({
   contentDirPath: 'src/content',
   documentTypes: [Post, DocumentationPage],
@@ -184,7 +179,13 @@ export default makeSource({
           },
         },
       ],
-      [rehypePrettyCode, rehypePrettyCodeOptions],
+      [
+        rehypePrettyCode,
+        {
+          theme: 'github-dark-dimmed',
+          grid: true,
+        },
+      ],
     ],
   },
 });

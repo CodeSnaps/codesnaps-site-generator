@@ -50,4 +50,3 @@ from
   finish ();
 
 rollback;
-
