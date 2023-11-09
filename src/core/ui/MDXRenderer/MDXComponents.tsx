@@ -77,11 +77,20 @@ const Video: React.FCC<{
   );
 };
 
+export const InlineCode: React.FC<{ code: string }> = ({ code }) => {
+  return (
+    <code className="py-0.5 px-1 bg-neutral-200 dark:bg-neutral-700 text-black dark:text-white rounded-sm text-sm">
+      {code}
+    </code>
+  );
+};
+
 const Components = {
   img: NextImage,
   a: ExternalLink,
   Video,
   Image: NextImage,
+  InlineCode,
 };
 
 export default Components;

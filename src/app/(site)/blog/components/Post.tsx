@@ -2,6 +2,7 @@ import React from 'react';
 import { Post } from 'contentlayer/generated';
 
 import PostHeader from './PostHeader';
+import PostCTA from './PostCTA';
 import MDXRenderer from '~/core/ui/MDXRenderer/MDXRenderer';
 
 const Post: React.FCC<{
@@ -15,6 +16,8 @@ const Post: React.FCC<{
       <article className={'mx-auto flex justify-center'}>
         <MDXRenderer code={content} />
       </article>
+
+      <PostCTA />
     </div>
   );
 };

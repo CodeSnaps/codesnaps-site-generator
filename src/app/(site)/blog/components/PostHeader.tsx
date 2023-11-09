@@ -1,11 +1,9 @@
 import type { Post } from 'contentlayer/generated';
 
 import If from '~/core/ui/If';
-import SubHeading from '~/core/ui/SubHeading';
 
 import DateFormatter from './DateFormatter';
 import CoverImage from './CoverImage';
-import Heading from '~/core/ui/Heading';
 
 const PostHeader: React.FC<{
   post: Post;
@@ -17,11 +15,15 @@ const PostHeader: React.FC<{
   const preloadImage = true;
 
   return (
-    <div className={'flex flex-col space-y-4'}>
+    <div className={'flex flex-col space-y-4 mb-8'}>
       <div className={'flex flex-col space-y-4'}>
-        <Heading type={1}>{title}</Heading>
+        <h1 className="font-heading scroll-m-20 text-4xl font-bold tracking-tight dark:text-white">
+          {title}
+        </h1>
 
-        <SubHeading>{description}</SubHeading>
+        <h2 className="flex flex-col space-y-1 bg-gradient-to-br text-xl dark:from-white dark:via-neutral-300 dark:to-neutral-400 bg-clip-text text-neutral-500 font-normal dark:text-transparent">
+          {description}
+        </h2>
       </div>
 
       <div className="flex">

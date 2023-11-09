@@ -28,10 +28,10 @@ const links = {
     label: 'Pricing',
     path: '/pricing',
   },
-  //   Blog: {
-  //     label: 'Blog',
-  //     path: '/blog',
-  //   },
+  Blog: {
+    label: 'Blog',
+    path: '/blog',
+  },
 };
 
 const SiteNavigation = () => {
@@ -49,7 +49,7 @@ const SiteNavigation = () => {
           <NavigationMenuItem className={className} link={links.Components} />
           <NavigationMenuItem className={className} link={links.FAQ} />
           <NavigationMenuItem className={className} link={links.Pricing} />
-          {/* <NavigationMenuItem className={className} link={links.Blog} /> */}
+          <NavigationMenuItem className={className} link={links.Blog} />
         </NavigationMenu>
       </div>
 

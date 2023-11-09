@@ -1,0 +1,219 @@
+---
+title: Centering Divs with Tailwind CSS
+date: 2023-11-09
+live: false
+description: Centering divs has become a common meme among web developers. With Tailwind CSS, it's easy. Use flexbox, grid layout, or absolute positioning.
+image: /assets/images/posts/centering-divs-with-tailwind-css.webp
+---
+
+It seems that centering a div horizontally and vertically is as old of a problem as the web itself.
+
+There are many ways to do it, and with Tailwind CSS, it's very easy.
+
+With Tailwind CSS, you'll never have to touch your CSS files unless you want to.
+
+With a few helper classes, you can easily center your divs horizontally and vertically, and here are three ways to do it.
+
+We'll go through each method and explain what each class does. If you just want to see the code, feel free to skip to the code section.
+
+## Method #1: Flexbox
+
+The first technique we will explore is the use of flexbox.
+
+Flexbox is a powerful CSS layout module that provides a flexible way to allocate space between elements in a container.
+
+### Just Tailwind CSS
+
+Here's how to center a div using flexbox with Tailwind CSS:
+
+```jsx title="Method #1: Flexbox"
+<div class="flex min-h-screen justify-center items-center">I'm centered</div>
+```
+
+- <InlineCode code="flex" /> sets the display property to flex. This allows us to
+  use flexbox.
+- <InlineCode code="min-h-screen" /> sets the min-height property to 100vh. This
+  ensures that the div takes up the full height of the screen. Without it, we would
+  not be able to see the effect of centering the div vertically.
+- <InlineCode code="justify-center" /> and <InlineCode code="items-center" /> actually
+  center the div horizontally and vertically.
+
+### Tailwind CSS Classes to Vanilla CSS
+
+To get a better understanding, here's what the vanilla CSS of the Tailwind CSS classes would look like.
+
+```css title="Tailwind CSS to Vanilla CSS"
+.flex {
+  display: flex;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+```
+
+### Vanilla HTML and CSS
+
+And here's how you'd do this completely with vanilla HTML and CSS.
+
+```html title="HTML"
+<div class="container">
+  <div>I'm centered</div>
+</div>
+```
+
+```css title="CSS"
+.container {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+```
+
+## Method #2: Grid Layout
+
+The second technique we will explore is the use of Grid.
+
+Grid is another powerful CSS layout module that allows you to create complex grid-based layouts with ease.
+
+With Tailwind CSS, centering a div using grid is easy.
+
+### Just Tailwind CSS
+
+```jsx title="Method #2: Grid"
+<div class="grid place-items-center min-h-screen">I'm centered</div>
+```
+
+- <InlineCode code="grid" /> sets the display property to grid.
+- <InlineCode code="place-items-center" /> sets the align-items and justify-items
+  properties to center. This allows us to center the div both horizontally and vertically.
+- <InlineCode code="min-h-screen" /> sets the min-height property to 100vh. Similar
+  to the flexbox example, this ensures that the div takes up the full height of the
+  screen.
+
+### Tailwind CSS Classes to Vanilla CSS
+
+To get a better understanding, here's what the vanilla CSS of the Tailwind CSS classes would look like.
+
+```css title="Tailwind CSS to Vanilla CSS"
+.grid {
+  display: grid;
+}
+
+.place-items-center {
+  place-items: center;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+```
+
+### Vanilla HTML and CSS
+
+And here's how you'd do this completely with vanilla HTML and CSS.
+
+```html title="HTML"
+<div class="container">I'm centered</div>
+```
+
+```css title="CSS"
+.container {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+```
+
+## Method #3: Absolute Positioning
+
+The last technique uses absolute positioning. We position elements relative to their parent container or the document itself.
+
+This method is not my go-to method, but it's still worth mentioning.
+
+### Just Tailwind CSS
+
+```jsx title="Method #3: Absolute Positioning"
+<div class="min-h-screen">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+    I'm centered
+  </div>
+</div>
+```
+
+- <InlineCode code="absolute" /> sets the position property to absolute. This positioning
+  makes the div independent of the document flow, so it can be placed precisely.
+- <InlineCode code="min-h-screen" /> sets the min-height property to 100vh. This
+  ensures that the div takes up the full height of the screen.
+- <InlineCode code="top-1/2" /> and <InlineCode code="left-1/2" /> - These classes
+  position the div at the center of its parent container.
+- <InlineCode code="-translate-x-1/2" /> and <InlineCode code="-translate-y-1/2" /> shift
+  the div back by half of its width and height, respectively, ensuring perfect centering.
+
+### Tailwind CSS Classes to Vanilla CSS
+
+To get a better understanding, here's what the vanilla CSS of the Tailwind CSS classes would look like.
+
+```css title="Tailwind CSS to Vanilla CSS"
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.top-1/2 {
+  top: 50%;
+}
+
+.left-1/2 {
+  left: 50%;
+}
+
+.-translate-x-1/2 {
+  transform: translateX(-50%);
+}
+
+.-translate-y-1/2 {
+  transform: translateY(-50%);
+}
+```
+
+### Vanilla HTML and CSS
+
+And here's how you'd do this completely with vanilla HTML and CSS.
+
+```html title="HTML"
+<div class="wrapper">
+  <div class="container">I'm centered</div>
+</div>
+```
+
+```css title="CSS"
+.wrapper {
+  min-height: 100vh;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+```
+
+## Conclusion
+
+That's three different ways to center divs with Tailwind CSS. Whether you choose to use flexbox, grid, or absolute positioning, Tailwind CSS provides powerful utility classes that make centering divs a breeze.
+
+However, it never hurts to understand the underlying CSS, as knowing CSS makes using Tailwind CSS much easier. Learn CSS and you will know how to use Tailwind CSS much better.

@@ -2,6 +2,7 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypePrettyCode from 'rehype-pretty-code';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
@@ -163,6 +164,11 @@ export const DocumentationPage = defineDocumentType(() => ({
   },
 }));
 
+const rehypePrettyCodeOptions = {
+  theme: 'github-dark-dimmed',
+  grid: true,
+};
+
 export default makeSource({
   contentDirPath: 'src/content',
   documentTypes: [Post, DocumentationPage],
@@ -178,6 +184,7 @@ export default makeSource({
           },
         },
       ],
+      [rehypePrettyCode, rehypePrettyCodeOptions],
     ],
   },
 });
