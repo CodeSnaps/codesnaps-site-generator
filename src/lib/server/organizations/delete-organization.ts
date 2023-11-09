@@ -2,12 +2,10 @@ import { Database } from '~/database.types';
 import { SupabaseClient } from '@supabase/supabase-js';
 
 import {
-  MEMBERSHIPS_TABLE,
   ORGANIZATIONS_SUBSCRIPTIONS_TABLE,
   ORGANIZATIONS_TABLE,
 } from '~/lib/db-tables';
 
-import MembershipRole from '~/lib/organizations/types/membership-role';
 import getSupabaseServerActionClient from '~/core/supabase/action-client';
 import getLogger from '~/core/logger';
 import getStripeInstance from '~/core/stripe/get-stripe';
@@ -15,10 +13,12 @@ import getStripeInstance from '~/core/stripe/get-stripe';
 /**
  * Deletes an organization.
  *
+ * Validation must be done before calling this function.
+ *
  * @param {SupabaseClient<Database>} client - The Supabase client instance.
  * @param {Object} params - The parameters for deleting the organization.
  * @param {number} params.organizationId - The ID of the organization to delete.
- * @param {string} params.userId - The ID of the user performing the deletion.
+ *
  *
  * @throws {Error} If there was an error deleting the organization.
  **/
@@ -26,49 +26,18 @@ export default async function deleteOrganization(
   client: SupabaseClient<Database>,
   params: {
     organizationId: number;
-    userId: string;
   },
 ) {
   const logger = getLogger();
-  const { organizationId, userId } = params;
-
-  logger.info(params, `User deleting organization...`);
-
-  const membershipResponse = await client
-    .from(MEMBERSHIPS_TABLE)
-    .select('id, role')
-    .eq('organization_id', organizationId)
-    .eq('user_id', userId)
-    .single();
-
-  if (membershipResponse.error) {
-    logger.info(
-      { ...params, error: membershipResponse.error },
-      `Error deleting organization. The user is not a member of the organization`,
-    );
-
-    throw new Error(`Error deleting organization`);
-  }
-
-  const role = membershipResponse.data.role;
-  const isOwner = role === MembershipRole.Owner;
-
-  if (!isOwner) {
-    logger.info(
-      params,
-      `Error deleting organization. The user is not the owner of the organization`,
-    );
-
-    throw new Error(`Error deleting organization`);
-  }
+  const { organizationId } = params;
 
   const subscriptionResponse = await client
     .from(ORGANIZATIONS_SUBSCRIPTIONS_TABLE)
     .select(
       `
-    subscriptionId: subscription_id,
-    organizationId: organization_id
-  `,
+      subscriptionId: subscription_id,
+      organizationId: organization_id
+    `,
     )
     .eq('organization_id', organizationId)
     .maybeSingle();

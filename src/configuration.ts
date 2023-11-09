@@ -1,4 +1,4 @@
-import type { Provider } from '@supabase/gotrue-js/src/lib/types';
+import type { Provider } from '@supabase/gotrue-js';
 import { StripeCheckoutDisplayMode } from '~/lib/stripe/types';
 
 const production = process.env.NODE_ENV === 'production';

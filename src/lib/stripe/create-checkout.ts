@@ -46,6 +46,9 @@ export default async function createStripeCheckout(
   const subscriptionData: Stripe.Checkout.SessionCreateParams.SubscriptionData =
     {
       trial_period_days: params.trialPeriodDays,
+      metadata: {
+        organizationUid: params.organizationUid,
+      },
     };
 
   const urls = getUrls({

@@ -102,8 +102,10 @@ const columns: Array<ColumnDef<Organizations[0]>> = [
     header: 'Members',
     id: 'members',
     cell: ({ row }) => {
-      const memberships = row.original.memberships.length;
+      const memberships = row.original.memberships.filter((item) => !item.code);
+      const invites = row.original.memberships.length - memberships.length;
       const uid = row.original.uuid;
+      const length = memberships.length;
 
       return (
         <Link
@@ -111,7 +113,8 @@ const columns: Array<ColumnDef<Organizations[0]>> = [
           href={`organizations/${uid}/members`}
           className={'hover:underline cursor-pointer'}
         >
-          {memberships} member{memberships === 1 ? '' : 's'}
+          {length} member{length === 1 ? '' : 's'}{' '}
+          {invites ? `(${invites} invites)` : ''}
         </Link>
       );
     },
@@ -144,6 +147,15 @@ const columns: Array<ColumnDef<Organizations[0]>> = [
               <DropdownMenuItem asChild>
                 <Link href={`/admin/organizations/${uid}/members`}>
                   View Members
+                </Link>
+              </DropdownMenuItem>
+
+              <DropdownMenuItem asChild>
+                <Link
+                  className={'text-red-500'}
+                  href={`/admin/organizations/${uid}/delete`}
+                >
+                  Delete
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>

@@ -2,9 +2,10 @@ import i18next, { i18n } from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 import LanguageDetector from 'i18next-browser-languagedetector';
-import Backend from 'i18next-http-backend';
+import Backend from 'i18next-resources-to-backend';
 
 import getI18nSettings, { I18N_COOKIE_NAME } from './i18n.settings';
+import resourcesToBackend from 'i18next-resources-to-backend';
 
 let promise: Promise<i18n>;
 
@@ -18,21 +19,22 @@ function initializeI18nClient(lng?: Maybe<string>, ns?: string[]) {
   promise = new Promise<i18n>((resolve, reject) => {
     return i18next
       .use(initReactI18next)
-      .use(Backend)
+      .use(
+        resourcesToBackend((language: string, namespace: string) => {
+          return import(`../../public/locales/${language}/${namespace}.json`);
+        }),
+      )
       .use(LanguageDetector)
       .init(
         {
           ...settings,
-          backend: {
-            loadPath: '/locales/{{lng}}/{{ns}}.json',
-          },
           detection: {
-            order: ['htmlTag'],
+            order: ['htmlTag', 'cookie', 'navigator'],
             caches: ['cookie'],
             lookupCookie: I18N_COOKIE_NAME,
           },
-          react: {
-            useSuspense: true,
+          interpolation: {
+            escapeValue: false,
           },
         },
         (err) => {

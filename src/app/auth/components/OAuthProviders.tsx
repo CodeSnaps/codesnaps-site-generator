@@ -58,22 +58,21 @@ const OAuthProviders: React.FCC<{
                 onClick={() => {
                   const origin = window.location.origin;
                   const callback = configuration.paths.authCallback;
-
                   const queryParams = new URLSearchParams();
 
                   if (props.returnUrl) {
-                    queryParams.set('returnUrl', props.returnUrl);
+                    queryParams.set('next', props.returnUrl);
                   }
 
                   if (props.inviteCode) {
                     queryParams.set('inviteCode', props.inviteCode);
                   }
 
-                  const returnUrl = [callback, queryParams.toString()].join(
+                  const redirectPath = [callback, queryParams.toString()].join(
                     '?',
                   );
 
-                  const redirectTo = [origin, returnUrl].join('');
+                  const redirectTo = [origin, redirectPath].join('');
 
                   const credentials = {
                     provider,

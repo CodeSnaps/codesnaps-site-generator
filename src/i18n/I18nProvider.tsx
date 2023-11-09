@@ -6,17 +6,7 @@ import { getCookie } from '~/core/generic/cookies';
 
 let client: i18n;
 
-function I18nProvider(
-  props: React.PropsWithChildren<{
-    lang?: string;
-  }>,
-) {
-  return <I18nInitializer lang={props.lang}>{props.children}</I18nInitializer>;
-}
-
-export default I18nProvider;
-
-function I18nInitializer({
+function I18nProvider({
   lang,
   children,
 }: React.PropsWithChildren<{
@@ -29,6 +19,8 @@ function I18nInitializer({
   return children;
 }
 
+export default I18nProvider;
+
 async function withI18nClient(lang?: string) {
   if (isBrowser()) {
     client = await loadClientI18n(lang);
@@ -40,12 +32,8 @@ async function withI18nClient(lang?: string) {
 }
 
 async function loadClientI18n(lang: Maybe<string>) {
-  const language = lang ?? getLanguageFromCookie();
+  const language = lang ?? getCookie('lang');
   const { default: initialize18n } = await import('~/i18n/i18n.client');
 
-  return await initialize18n(language);
-}
-
-function getLanguageFromCookie() {
-  return getCookie('lang');
+  return initialize18n(language);
 }

@@ -12,7 +12,7 @@ function useUserOrganizationsQuery(userId: string) {
 
   return useSWR(key, async () => {
     return getOrganizationsByUserId(client, userId).then(
-      (result) => result.data,
+      (result) => result.data
     );
   });
 }

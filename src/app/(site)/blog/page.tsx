@@ -15,6 +15,11 @@ export const metadata: Metadata = {
 };
 
 async function BlogPage() {
+  const livePosts = allPosts.filter((post) => {
+    const isProduction = configuration.production;
+    return isProduction ? true : post.live;
+  });
+
   return (
     <Container>
       <div className={'flex flex-col space-y-16 my-8'}>
@@ -25,7 +30,7 @@ async function BlogPage() {
         </div>
 
         <GridList>
-          {allPosts.map((post, idx) => {
+          {livePosts.map((post, idx) => {
             return <PostPreview key={idx} post={post} />;
           })}
         </GridList>

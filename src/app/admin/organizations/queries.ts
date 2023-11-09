@@ -22,6 +22,7 @@ export async function getOrganizations(
       memberships: Array<{
         userId: string;
         role: MembershipRole;
+        code: string;
       }>;
     }
   >(
@@ -32,7 +33,8 @@ export async function getOrganizations(
       logoURL: logo_url,
       memberships (
         userId: user_id,
-        role
+        role,
+        code
       ),
       subscription: organizations_subscriptions (
         customerId: customer_id,
@@ -118,6 +120,7 @@ export async function getMembershipsByOrganizationUid(
       },
     )
     .eq('organization.uuid', params.uid)
+    .is('code', null)
     .range(startOffset, endOffset);
 
   if (error) {

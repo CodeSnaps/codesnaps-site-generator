@@ -36,8 +36,8 @@ type DeleteUserParams = Params & SendEmailParams;
 export async function deleteUser(params: DeleteUserParams) {
   const { client, userId } = params;
   const logger = getLogger();
-  const adminClient = getSupabaseServerActionClient({ admin: true });
 
+  const adminClient = getSupabaseServerActionClient({ admin: true });
   const organizations = await getUserOwnedOrganizations(client, userId);
 
   logger.info(
@@ -47,7 +47,7 @@ export async function deleteUser(params: DeleteUserParams) {
 
   // we delete all the organizations the user is an owner of
   const requests = organizations.map((organizationId) => {
-    return deleteOrganization(client, { organizationId, userId });
+    return deleteOrganization(client, { organizationId });
   });
 
   await Promise.all(requests);
@@ -127,7 +127,9 @@ async function getUserOwnedOrganizations(
     throw error;
   }
 
-  return organizations.map(({ organization_id }) => organization_id);
+  return organizations
+    .filter(({ role }) => role === MembershipRole.Owner)
+    .map(({ organization_id }) => organization_id);
 }
 
 /**

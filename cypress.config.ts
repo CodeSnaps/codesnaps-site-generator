@@ -2,6 +2,7 @@ import { defineConfig } from 'cypress';
 import { execSync } from 'child_process';
 import { loadEnvConfig } from '@next/env';
 import { SupabaseClient } from '@supabase/supabase-js';
+import configuration from '~/configuration';
 
 // load environment variables from .env
 loadEnvConfig(process.cwd());
@@ -52,7 +53,6 @@ export default defineConfig({
 });
 
 function getExcludeSpecPattern() {
-  const configuration = require('./src/configuration').default;
   const enableStripeTests = process.env.ENABLE_STRIPE_TESTING === 'true';
   const enableThemeTests = configuration.features.enableThemeSwitcher;
 
@@ -149,10 +149,11 @@ async function getInviteEmail(
   },
 ) {
   const url = `http://localhost:54324/api/v1/mailbox/${mailbox}`;
-  const fetch = require('node-fetch');
+  /* @ts-ignore */
+  const { default: fetch } = await import('node-fetch');
 
   const response = await fetch(url);
-  const json = await response.json();
+  const json = (await response.json()) as Maybe<Array<{ id: string }>>;
 
   if (!json) {
     return;

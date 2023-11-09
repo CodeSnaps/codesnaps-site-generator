@@ -21,6 +21,7 @@ import configuration from '~/configuration';
 import verifyCsrfToken from '~/core/verify-csrf-token';
 import removeMembership from '~/lib/server/organizations/remove-membership';
 import deleteOrganization from '~/lib/server/organizations/delete-organization';
+import { MEMBERSHIPS_TABLE } from '~/lib/db-tables';
 
 export const createNewOrganizationAction = withSession(
   async (params: { organization: string; csrfToken: string }) => {
@@ -267,6 +268,7 @@ export async function leaveOrganizationAction(data: FormData) {
 export async function deleteOrganizationAction(data: FormData) {
   const client = getSupabaseServerActionClient();
   const { user } = await requireSession(client);
+  const logger = getLogger();
 
   // validate the form data
   const id = z.coerce.number().parse(data.get('id'));
@@ -275,10 +277,42 @@ export async function deleteOrganizationAction(data: FormData) {
   // validate the csrf token
   await verifyCsrfToken(csrfToken);
 
+  const userId = user.id;
+  const params = { organizationId: id, userId };
+
+  logger.info(params, `User deleting organization...`);
+
+  const membershipResponse = await client
+    .from(MEMBERSHIPS_TABLE)
+    .select('id, role')
+    .eq('organization_id', id)
+    .eq('user_id', userId)
+    .single();
+
+  if (membershipResponse.error) {
+    logger.info(
+      { ...params, error: membershipResponse.error },
+      `Error deleting organization. The user is not a member of the organization`,
+    );
+
+    throw new Error(`Error deleting organization`);
+  }
+
+  const role = membershipResponse.data.role;
+  const isOwner = role === MembershipRole.Owner;
+
+  if (!isOwner) {
+    logger.info(
+      params,
+      `Error deleting organization. The user is not the owner of the organization`,
+    );
+
+    throw new Error(`Error deleting organization`);
+  }
+
   // delete the organization and all its data
   await deleteOrganization(client, {
     organizationId: id,
-    userId: user.id,
   });
 
   // redirect to the app home page

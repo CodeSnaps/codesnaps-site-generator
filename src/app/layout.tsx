@@ -45,7 +45,7 @@ function getLanguageCookie() {
 export const metadata = {
   title: configuration.site.name,
   description: configuration.site.description,
-  metadataBase: new URL('https://codesnaps.io'),
+ metadataBase: new URL(configuration.site.siteUrl!),
   openGraph: {
     url: configuration.site.siteUrl,
     siteName: configuration.site.siteName,

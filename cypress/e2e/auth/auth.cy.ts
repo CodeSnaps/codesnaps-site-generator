@@ -73,17 +73,6 @@ describe(`Authentication`, () => {
           cy.url().should('contain', configuration.paths.appHome);
         });
       });
-
-      describe(`When the user logs in with a "redirectUrl" query parameter`, () => {
-        const returnUrl = `/settings/organization/members`;
-
-        it('should redirect to the route provided', () => {
-          cy.visit(`/auth/sign-in?returnUrl=${returnUrl}`);
-
-          auth.signInWithEmailAndPassword(email, password);
-          cy.url().should('contain', returnUrl);
-        });
-      });
     });
   });
 });
