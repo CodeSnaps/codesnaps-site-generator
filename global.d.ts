@@ -42,6 +42,8 @@ declare global {
         credentials: { email: string; password: string },
       ): void;
 
+      completeOnboarding(email: string, password: string): void;
+
       visitSignUpEmailFromInBucket(email: string): void;
 
       clearStorage(): void;

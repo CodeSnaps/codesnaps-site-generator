@@ -1,10 +1,10 @@
 import ArrowLeftIcon from '@heroicons/react/24/outline/ArrowLeftIcon';
 
 import SettingsTile from '~/app/dashboard/[organization]/settings/components/SettingsTile';
-import InviteMembersForm from '~/app/dashboard/[organization]/settings/organization/components/InviteMembersForm';
 import Trans from '~/core/ui/Trans';
 import Button from '~/core/ui/Button';
 import { withI18n } from '~/i18n/with-i18n';
+import InviteMembersFormContainer from '../../components/InviteMembersFormContainer';
 
 export const metadata = {
   title: 'Invite Members',
@@ -19,7 +19,7 @@ const OrganizationMembersInvitePage = () => {
           <Trans i18nKey={'organization:inviteMembersPageSubheading'} />
         }
       >
-        <InviteMembersForm />
+        <InviteMembersFormContainer />
       </SettingsTile>
 
       <div className={'mt-4'}>

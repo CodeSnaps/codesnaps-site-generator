@@ -1,4 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
+import { join } from 'path';
 
 import type MembershipRole from '~/lib/organizations/types/membership-role';
 import { canInviteUser } from '~/lib/organizations/permissions';
@@ -281,15 +282,13 @@ async function sendInviteEmail(props: {
  * @param code
  */
 function getInvitePageFullUrl(code: string) {
-  let siteUrl = configuration.site.siteUrl;
-
-  if (!configuration.production) {
-    siteUrl = getLocalEnvironmentHost();
-  }
+  const siteUrl = configuration.site.siteUrl;
 
   assertSiteUrl(siteUrl);
 
-  return [siteUrl, 'invite', code].join('/');
+  const path = join('/invite', code);
+
+  return new URL(path, siteUrl).href;
 }
 
 function assertSiteUrl(siteUrl: Maybe<string>): asserts siteUrl is string {
@@ -298,11 +297,4 @@ function assertSiteUrl(siteUrl: Maybe<string>): asserts siteUrl is string {
       `Please configure the "siteUrl" property in the configuration file ~/configuration.ts`,
     );
   }
-}
-
-function getLocalEnvironmentHost() {
-  const host = `http://localhost`;
-  const port = 3000;
-
-  return [host, port].join(':');
 }

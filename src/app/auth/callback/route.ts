@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
+import { redirect } from 'next/navigation';
 
 import { acceptInviteToOrganization } from '~/lib/memberships/mutations';
 import getLogger from '~/core/logger';
@@ -26,10 +27,7 @@ export async function GET(request: NextRequest) {
 
       // if we have an error, we redirect to the error page
       if (error) {
-        return onError({
-          error: error.message,
-          origin: request.url,
-        });
+        return onError({ error: error.message });
       }
 
       userId = data.user.id;
@@ -43,10 +41,7 @@ export async function GET(request: NextRequest) {
 
       const message = error instanceof Error ? error.message : error;
 
-      return onError({
-        error: message as string,
-        origin: request.url,
-      });
+      return onError({ error: message as string });
     }
 
     if (inviteCode && userId) {
@@ -73,25 +68,16 @@ export async function GET(request: NextRequest) {
 
         const message = error instanceof Error ? error.message : error;
 
-        return onError({
-          error: message as string,
-          origin: request.url,
-        });
+        return onError({ error: message as string });
       }
     }
   }
 
   if (error) {
-    return onError({
-      error,
-      origin: request.url,
-    });
+    return onError({ error });
   }
 
-  const redirectParams = nextUrl.slice(1);
-  const redirectUrl = new URL(`/${redirectParams}`, request.url);
-
-  return NextResponse.redirect(redirectUrl);
+  return redirect(nextUrl);
 }
 
 /**
@@ -124,7 +110,7 @@ async function acceptInviteFromEmailLink(params: {
   logger.info(params, `Invite successfully accepted`);
 }
 
-function onError({ error, origin }: { error: string; origin: string }) {
+function onError({ error }: { error: string }) {
   const errorMessage = getAuthErrorMessage(error);
 
   getLogger().error(
@@ -134,12 +120,9 @@ function onError({ error, origin }: { error: string; origin: string }) {
     `An error occurred while signing user in`,
   );
 
-  const redirectUrl = new URL(
-    `/auth/callback/error?error=${errorMessage}`,
-    origin,
-  );
+  const redirectUrl = `/auth/callback/error?error=${errorMessage}`;
 
-  return NextResponse.redirect(redirectUrl);
+  return redirect(redirectUrl);
 }
 
 /**

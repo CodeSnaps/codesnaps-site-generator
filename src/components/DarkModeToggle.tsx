@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useMemo, useState } from 'react';
 
 import {
@@ -14,8 +16,6 @@ import {
   LIGHT_THEME_CLASSNAME,
   SYSTEM_THEME_CLASSNAME,
 } from '~/core/theming';
-
-import IconButton from '~/core/ui/IconButton';
 
 import {
   Select,

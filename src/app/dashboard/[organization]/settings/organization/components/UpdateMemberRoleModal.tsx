@@ -5,9 +5,10 @@ import Button from '~/core/ui/Button';
 import Modal from '~/core/ui/Modal';
 
 import type MembershipRole from '~/lib/organizations/types/membership-role';
-import MembershipRoleSelector from '~/app/dashboard/[organization]/settings/organization/components/MembershipRoleSelector';
 import { updateMemberAction } from '~/lib/memberships/actions';
 import useCsrfToken from '~/core/hooks/use-csrf-token';
+import MembershipRoleSelector from './MembershipRoleSelector';
+import useCurrentUserRole from '~/lib/organizations/hooks/use-current-user-role';
 
 const Heading = <Trans i18nKey={'organization:updateMemberRoleModalHeading'} />;
 
@@ -20,6 +21,7 @@ const UpdateMemberRoleModal: React.FCC<{
   const [role, setRole] = useState<MembershipRole>(memberRole);
   const [isSubmitting, startTransition] = useTransition();
   const csrfToken = useCsrfToken();
+  const currentUserRole = useCurrentUserRole();
 
   const onRoleUpdated = useCallback(async () => {
     if (role !== undefined) {
@@ -34,7 +36,11 @@ const UpdateMemberRoleModal: React.FCC<{
   return (
     <Modal heading={Heading} isOpen={isOpen} setIsOpen={setIsOpen}>
       <div className={'flex flex-col space-y-6'}>
-        <MembershipRoleSelector value={role} onChange={setRole} />
+        <MembershipRoleSelector
+          currentUserRole={currentUserRole}
+          value={role}
+          onChange={setRole}
+        />
 
         <div className={'flex justify-end space-x-2'}>
           <Modal.CancelButton onClick={() => setIsOpen(false)} />

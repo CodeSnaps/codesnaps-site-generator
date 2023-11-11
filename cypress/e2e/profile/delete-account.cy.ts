@@ -16,9 +16,7 @@ describe(`Delete Account`, () => {
     cy.wait(500);
     cy.task('confirmEmail', email);
 
-    cy.signIn(`/onboarding`, { email, password });
-    cy.cyGet('organization-name-input').type('Delete Account Organization');
-    cy.get('button[type="submit"]').click();
+    cy.completeOnboarding(email, password);
   }
 
   describe(`When the user deletes their account`, () => {

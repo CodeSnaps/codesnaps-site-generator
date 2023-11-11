@@ -16,9 +16,7 @@ describe(`Reset Password`, () => {
       });
 
       cy.visitSignUpEmailFromInBucket(email);
-      cy.signIn('/onboarding', { email, password });
-      cy.cyGet('organization-name-input').type('test');
-      cy.get('button[type="submit"]').click();
+      cy.completeOnboarding(email, password);
 
       // sign out
       cy.clearCookies();

@@ -31,6 +31,8 @@
   "contactUs": "Contact Us",
   "loading": "Loading. Please wait...",
   "yourOrganizations": "Your Organizations",
+  "continue": "Continue",
+  "skip": "Skip",
   "roles": {
     "owner": {
       "label": "Owner",

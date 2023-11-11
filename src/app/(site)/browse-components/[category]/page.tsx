@@ -1,28 +1,42 @@
-import BrowseDashboard from '~/app/(site)/browse/components/BrowseDashboard';
+import CategoryDashboard from '~/app/(site)/browse-components/components/CategoryDashboard';
 import Container from '~/core/ui/Container';
 import Heading from '~/core/ui/Heading';
 import SubHeading from '~/core/ui/SubHeading';
 
-export const metadata = {
-  title: 'Free Tailwind CSS UI Components | CodeSnaps',
-};
+import { Metadata } from 'next';
 
 interface DasbboardPageParams {
   searchParams: {
     page?: string;
     free?: string;
     search?: string;
-    category?: string;
     interactive?: string;
     layout?: string;
     elements?: string;
   };
   params: {
     organization: string;
+    category: string;
   };
 }
 
-function BrowseDashboardPage({ searchParams, params }: DasbboardPageParams) {
+export async function generateMetadata({
+  params,
+}: DasbboardPageParams): Promise<Metadata> {
+  let title =
+    params.category.charAt(0).toUpperCase() + params.category.slice(1);
+
+  if (params.category === 'cta' || params.category === 'faq') {
+    title = title.toUpperCase();
+  }
+
+  return {
+    title: `${title} Sections – Tailwind CSS UI Components | CodeSnaps`,
+    description: `${title} sections. Free library of React and Tailwind CSS components. Design and build better websites in minutes. No package installations.`,
+  };
+}
+
+function CategoryBrowsePage({ searchParams, params }: DasbboardPageParams) {
   return (
     <Container>
       <div className="3xl:max-w-none w-full xl:max-w-[calc(100%-18rem)]">
@@ -38,12 +52,13 @@ function BrowseDashboardPage({ searchParams, params }: DasbboardPageParams) {
         </div>
       </div>
 
-      <BrowseDashboard
+      <CategoryDashboard
         searchParams={searchParams}
         organization={params.organization}
+        category={params.category}
       />
     </Container>
   );
 }
 
-export default BrowseDashboardPage;
+export default CategoryBrowsePage;

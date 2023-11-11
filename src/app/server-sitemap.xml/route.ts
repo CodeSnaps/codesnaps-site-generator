@@ -20,7 +20,7 @@ export async function GET() {
 }
 
 function getSiteUrls() {
-  const urls = ['', 'faq', 'pricing', 'browse'];
+  const urls = ['', 'faq', 'pricing', 'browse-components'];
 
   return urls.map((url) => {
     return {

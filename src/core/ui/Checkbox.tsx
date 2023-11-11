@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
-import { Check } from 'lucide-react';
+import { CheckIcon } from '@heroicons/react/24/outline';
 
 import { cn } from '~/core/generic/shadcn-utils';
 
@@ -19,12 +19,16 @@ const Checkbox = React.forwardRef<
     {...props}
   >
     <CheckboxPrimitive.Indicator
-      className={cn('flex items-center justify-center text-current')}
+      className={cn(
+        'flex items-center justify-center text-primary-foreground fade-in' +
+          ' animate-in zoom-in duration-200',
+      )}
     >
-      <Check className="h-4 w-4" />
+      <CheckIcon className="h-3.5 w-3.5" />
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
 ));
+
 Checkbox.displayName = CheckboxPrimitive.Root.displayName;
 
 export { Checkbox };

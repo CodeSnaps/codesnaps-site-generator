@@ -1,36 +1,35 @@
 'use client';
 
 import { useTranslation } from 'react-i18next';
-import { Fragment, useTransition } from 'react';
+import { Fragment } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
-import { toast } from 'sonner';
 
 import { XMarkIcon, PlusCircleIcon } from '@heroicons/react/24/outline';
 
 import MembershipRole from '~/lib/organizations/types/membership-role';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '~/core/ui/Tooltip';
-import If from '~/core/ui/If';
 import TextField from '~/core/ui/TextField';
 import Button from '~/core/ui/Button';
 import IconButton from '~/core/ui/IconButton';
+import Trans from '~/core/ui/Trans';
 
 import MembershipRoleSelector from './MembershipRoleSelector';
-import useUserSession from '~/core/hooks/use-user-session';
-import Trans from '~/core/ui/Trans';
-import { inviteMembersToOrganizationAction } from '~/lib/organizations/actions';
-import useCsrfToken from '~/core/hooks/use-csrf-token';
-import useCurrentOrganization from '~/lib/organizations/hooks/use-current-organization';
 
 type InviteModel = ReturnType<typeof memberFactory>;
 
-const InviteMembersForm = () => {
+const InviteMembersForm = ({
+  onSubmit,
+  currentUserEmail,
+  currentUserRole,
+  SubmitButton,
+}: {
+  onSubmit: (data: InviteModel[]) => void;
+  currentUserEmail: Maybe<string>;
+  currentUserRole: Maybe<MembershipRole>;
+  SubmitButton: React.ReactNode;
+}) => {
   const { t } = useTranslation('organization');
-  const user = useUserSession();
-  const organization = useCurrentOrganization();
-
-  const [isSubmitting, startTransition] = useTransition();
-  const csrfToken = useCsrfToken();
 
   const { register, handleSubmit, setValue, control, clearErrors, watch } =
     useInviteMembersForm();
@@ -52,33 +51,11 @@ const InviteMembersForm = () => {
 
   return (
     <form
-      className={'flex flex-col space-y-4'}
+      className={'flex flex-col space-y-8'}
       data-cy={'invite-members-form'}
       onSubmit={(event) => {
         handleSubmit((data) => {
-          startTransition(async () => {
-            if (!organization) {
-              return;
-            }
-
-            const id = toast.loading(t('organization:inviteMembersLoading'));
-
-            try {
-              await inviteMembersToOrganizationAction({
-                invites: data.members,
-                csrfToken,
-                organizationUid: organization.uuid,
-              });
-
-              toast.success(t('organization:inviteMembersSuccess'), {
-                id,
-              });
-            } catch (e) {
-              toast.error(t('organization:inviteMembersError'), {
-                id,
-              });
-            }
-          });
+          onSubmit(data.members);
         })(event);
       }}
     >
@@ -97,7 +74,7 @@ const InviteMembersForm = () => {
                 return t(`duplicateInviteEmailError`);
               }
 
-              const isSameAsCurrentUserEmail = user?.auth?.user.email === value;
+              const isSameAsCurrentUserEmail = currentUserEmail === value;
 
               if (isSameAsCurrentUserEmail) {
                 return t(`invitingOwnAccountError`);
@@ -127,6 +104,7 @@ const InviteMembersForm = () => {
 
                 <div className={'w-4/12'}>
                   <MembershipRoleSelector
+                    currentUserRole={currentUserRole}
                     value={field.role}
                     onChange={(role) => {
                       setValue(roleInputName, role);
@@ -180,22 +158,7 @@ const InviteMembersForm = () => {
         </div>
       </div>
 
-      <div className={'flex justify-end'}>
-        <Button
-          className={'w-full lg:w-auto'}
-          data-cy={'send-invites-button'}
-          type={'submit'}
-          loading={isSubmitting}
-        >
-          <If condition={!isSubmitting}>
-            <Trans i18nKey={'organization:inviteMembersSubmitLabel'} />
-          </If>
-
-          <If condition={isSubmitting}>
-            <Trans i18nKey={'organization:inviteMembersLoading'} />
-          </If>
-        </Button>
-      </div>
+      {SubmitButton}
     </form>
   );
 };

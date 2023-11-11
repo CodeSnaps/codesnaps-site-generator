@@ -14,6 +14,8 @@ import OAuthProviders from '~/app/auth/components/OAuthProviders';
 import configuration from '~/configuration';
 import EmailOtpContainer from '~/app/auth/components/EmailOtpContainer';
 
+const providers = configuration.auth.providers;
+
 function SignUpMethodsContainer() {
   const router = useRouter();
 
@@ -27,34 +29,36 @@ function SignUpMethodsContainer() {
     }
 
     // Otherwise, we redirect them to the onboarding page
-    router.push(configuration.paths.onboarding);
+    router.replace(configuration.paths.onboarding);
   }, [router]);
 
   return (
     <>
-      <If condition={configuration.auth.providers.oAuth.length}>
+      <If condition={providers.oAuth.length}>
         <OAuthProviders />
 
-        <div>
-          <span className={'text-xs text-neutral-400'}>
-            <Trans i18nKey={'auth:orContinueWithEmail'} />
-          </span>
-        </div>
+        <If condition={providers.emailPassword}>
+          <div>
+            <span className={'text-xs text-gray-400'}>
+              <Trans i18nKey={'auth:orContinueWithEmail'} />
+            </span>
+          </div>
+        </If>
       </If>
 
-      <If condition={configuration.auth.providers.emailPassword}>
+      <If condition={providers.emailPassword}>
         <EmailPasswordSignUpContainer onSignUp={onSignUp} />
       </If>
 
-      <If condition={configuration.auth.providers.phoneNumber}>
+      <If condition={providers.phoneNumber}>
         <PhoneNumberSignInContainer onSuccess={onSignUp} mode={'signUp'} />
       </If>
 
-      <If condition={configuration.auth.providers.emailLink}>
+      <If condition={providers.emailLink}>
         <EmailLinkAuth />
       </If>
 
-      <If condition={configuration.auth.providers.emailOtp}>
+      <If condition={providers.emailOtp}>
         <EmailOtpContainer shouldCreateUser={true} />
       </If>
     </>

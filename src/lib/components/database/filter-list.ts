@@ -9,23 +9,27 @@ interface CategoryList {
   href: string;
 }
 
-// href only for browse page
+// href only for browse-components page
 const categories: Array<CategoryList> = [
-  { name: 'All', value: 'all', href: '/browse' },
-  { name: 'Blog', value: 'blog', href: '/browse/blog' },
-  { name: 'Contact', value: 'contact', href: '/browse/contact' },
-  { name: 'CTA', value: 'cta', href: '/browse/cta' },
-  { name: 'FAQ', value: 'faq', href: '/browse/faq' },
-  { name: 'Feature', value: 'feature', href: '/browse/feature' },
-  { name: 'Footer', value: 'footer', href: '/browse/footer' },
-  { name: 'Gallery', value: 'gallery', href: '/browse/gallery' },
-  { name: 'Header', value: 'header', href: '/browse/header' },
-  { name: 'Hero', value: 'hero', href: '/browse/hero' },
-  { name: 'Logos', value: 'logos', href: '/browse/logos' },
-  { name: 'Navbar', value: 'navbar', href: '/browse/navbar' },
-  { name: 'Pricing', value: 'pricing', href: '/browse/pricing' },
-  { name: 'Team', value: 'team', href: '/browse/team' },
-  { name: 'Testimonial', value: 'testimonial', href: '/browse/testimonial' },
+  { name: 'All', value: 'all', href: '/browse-components' },
+  { name: 'Blog', value: 'blog', href: '/browse-components/blog' },
+  { name: 'Contact', value: 'contact', href: '/browse-components/contact' },
+  { name: 'CTA', value: 'cta', href: '/browse-components/cta' },
+  { name: 'FAQ', value: 'faq', href: '/browse-components/faq' },
+  { name: 'Feature', value: 'feature', href: '/browse-components/feature' },
+  { name: 'Footer', value: 'footer', href: '/browse-components/footer' },
+  { name: 'Gallery', value: 'gallery', href: '/browse-components/gallery' },
+  { name: 'Header', value: 'header', href: '/browse-components/header' },
+  { name: 'Hero', value: 'hero', href: '/browse-components/hero' },
+  { name: 'Logos', value: 'logos', href: '/browse-components/logos' },
+  { name: 'Navbar', value: 'navbar', href: '/browse-components/navbar' },
+  { name: 'Pricing', value: 'pricing', href: '/browse-components/pricing' },
+  { name: 'Team', value: 'team', href: '/browse-components/team' },
+  {
+    name: 'Testimonial',
+    value: 'testimonial',
+    href: '/browse-components/testimonial',
+  },
 ];
 
 const textLayout: Array<FilterList> = [

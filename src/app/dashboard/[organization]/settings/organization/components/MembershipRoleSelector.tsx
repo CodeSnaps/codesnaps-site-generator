@@ -11,13 +11,21 @@ import {
 import type MembershipRole from '~/lib/organizations/types/membership-role';
 import roles from '~/lib/organizations/roles';
 import { canInviteUser } from '~/lib/organizations/permissions';
-import IfHasPermissions from '~/components/IfHasPermissions';
 
 const MembershipRoleSelector: React.FCC<{
   value?: MembershipRole;
   onChange?: (role: MembershipRole) => unknown;
-}> = ({ value: currentRole, onChange }) => {
-  const selectedRole = getSelectedRoleModel(currentRole);
+  currentUserRole: Maybe<MembershipRole>;
+}> = ({ value, onChange, currentUserRole }) => {
+  const selectedRole = getSelectedRoleModel(value);
+
+  const allowedRoles = roles.filter((role) => {
+    if (currentUserRole === undefined) {
+      return false;
+    }
+
+    return canInviteUser(currentUserRole, role.value);
+  });
 
   return (
     <Select
@@ -31,23 +39,17 @@ const MembershipRoleSelector: React.FCC<{
       </SelectTrigger>
 
       <SelectContent>
-        {roles.map((role) => {
+        {allowedRoles.map((role) => {
           return (
-            <IfHasPermissions
+            <SelectItem
               key={role.value}
-              condition={(currentUserRole) =>
-                canInviteUser(currentUserRole, role.value)
-              }
+              data-cy={`role-item-${role.value}`}
+              value={role.value.toString()}
             >
-              <SelectItem
-                data-cy={`role-item-${role.value}`}
-                value={role.value.toString()}
-              >
-                <span className={'text-sm'}>
-                  <Trans i18nKey={role.label} />
-                </span>
-              </SelectItem>
-            </IfHasPermissions>
+              <span className={'text-sm'}>
+                <Trans i18nKey={role.label} />
+              </span>
+            </SelectItem>
           );
         })}
       </SelectContent>

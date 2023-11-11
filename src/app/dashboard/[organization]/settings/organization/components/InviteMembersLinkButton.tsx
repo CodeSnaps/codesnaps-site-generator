@@ -9,7 +9,7 @@ import Trans from '~/core/ui/Trans';
 function InviteMembersLinkButton(
   props: React.PropsWithChildren<{
     href: string;
-  }>,
+  }>
 ) {
   const canInviteUsers = useUserCanInviteUsers();
 

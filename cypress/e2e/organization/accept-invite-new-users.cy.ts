@@ -12,7 +12,7 @@ describe(`Accept Invite - New User`, () => {
       // and then, sign user up
       authPo.signUpWithEmailAndPassword(
         nonExistingUserEmail,
-        authPo.getDefaultUserPassword(),
+        authPo.getDefaultUserPassword()
       );
 
       cy.cyGet('email-confirmation-alert').should('exist');

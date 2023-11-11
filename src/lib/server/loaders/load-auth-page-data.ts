@@ -20,25 +20,27 @@ const loadAuthPageData = async () => {
   const { language } = await initializeServerI18n(getLanguageCookie());
   const client = getSupabaseServerComponentClient();
 
-  const {
-    data: { session },
-  } = await client.auth.getSession();
+  try {
+    const {
+      data: { user },
+    } = await client.auth.getUser();
 
-  const requiresMultiFactorAuthentication = await verifyRequiresMfa(client);
+    const requiresMultiFactorAuthentication = await verifyRequiresMfa(client);
 
-  // If the user is logged in and does not require multi-factor authentication,
-  // redirect them to the home page.
-  if (session && !requiresMultiFactorAuthentication) {
-    console.log(
-      `User is logged in and does not require multi-factor authentication. Redirecting to home page.`,
-    );
+    // If the user is logged in and does not require multi-factor authentication,
+    // redirect them to the home page.
+    if (user && !requiresMultiFactorAuthentication) {
+      permanentRedirect(configuration.paths.appHome);
+    }
 
-    permanentRedirect(configuration.paths.appHome);
+    return {
+      language,
+    };
+  } catch (error) {
+    return {
+      language,
+    };
   }
-
-  return {
-    language,
-  };
 };
 
 export default loadAuthPageData;

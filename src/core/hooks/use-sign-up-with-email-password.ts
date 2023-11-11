@@ -52,5 +52,5 @@ function getRedirectUrl() {
   const callbackPath = configuration.paths.authCallback;
   const fullPath = `${callbackPath}?next=${nextPath}`;
 
-  return [window.location.origin, fullPath].join('');
+  return new URL(fullPath, window.location.origin).href;
 }

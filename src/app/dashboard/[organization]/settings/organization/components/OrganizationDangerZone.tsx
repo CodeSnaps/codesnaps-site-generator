@@ -55,7 +55,7 @@ function DeleteOrganizationContainer() {
           <Trans i18nKey={'organization:deleteOrganization'} />
         </Heading>
 
-        <p className={'text-gray-500'}>
+        <p className={'text-neutral-500'}>
           <Trans
             i18nKey={'organization:deleteOrganizationDescription'}
             values={{
@@ -104,9 +104,6 @@ function DeleteOrganizationForm({ name, id }: { name: string; id: number }) {
                 organizationName: name,
               }}
             />
-          </div>
-          <div>
-            <Trans i18nKey={'organization:deleteOrganizationDisclaimerNote'} />
           </div>
 
           <input type="hidden" value={id} name={'id'} />

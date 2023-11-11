@@ -5,8 +5,8 @@ import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 
 import Button from '~/core/ui/Button';
-import BrowseFilterSheet from '~/app/(site)/browse/components/BrowseFilterSheet';
-import BrowseFilterSidebar from '~/app/(site)/browse/components/BrowseFilterSidebar';
+import BrowseFilterSheet from '~/app/(site)/browse-components/components/BrowseFilterSheet';
+import BrowseFilterSidebar from '~/app/(site)/browse-components/components/BrowseFilterSidebar';
 
 import { allProperties } from '~/lib/components/database/filter-list';
 

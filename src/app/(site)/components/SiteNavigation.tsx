@@ -18,7 +18,7 @@ const links = {
   },
   Components: {
     label: 'Components',
-    path: '/browse',
+    path: '/browse-components',
   },
   Blog: {
     label: 'Blog',

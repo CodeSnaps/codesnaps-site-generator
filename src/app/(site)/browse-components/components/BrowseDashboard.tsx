@@ -1,8 +1,8 @@
 import { use } from 'react';
 
-import BrowseFilter from '~/app/(site)/browse/components/BrowseFilter';
-import BrowseGrid from '~/app/(site)/browse/components/BrowseGrid';
-import { getAllComponentsByCategory } from '~/lib/components/database/queries';
+import BrowseFilter from '~/app/(site)/browse-components/components/BrowseFilter';
+import BrowseGrid from '~/app/(site)/browse-components/components/BrowseGrid';
+import { getAllComponents } from '~/lib/components/database/queries';
 
 import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 import getPageFromQueryParams from '~/app/dashboard/[organization]/utils/get-page-from-query-param';
@@ -12,18 +12,17 @@ interface DasbboardPageParams {
     page?: string;
     free?: string;
     search?: string;
+    category?: string;
     interactive?: string;
     layout?: string;
     elements?: string;
   };
   organization: string;
-  category: string;
 }
 
-export default function CategoryDashboard({
+export default function ComponentsDashboard({
   searchParams,
   organization,
-  category,
 }: DasbboardPageParams) {
   const pageIndex = getPageFromQueryParams(searchParams.page);
   const perPage = 30;
@@ -32,7 +31,6 @@ export default function CategoryDashboard({
     fetchComponents({
       pageIndex,
       perPage,
-      category,
       ...searchParams,
     }),
   );
@@ -56,9 +54,9 @@ export default function CategoryDashboard({
 async function fetchComponents(params: {
   pageIndex: number;
   perPage: number;
-  category: string;
   free?: string;
   search?: string;
+  category?: string;
   interactive?: string;
   layout?: string;
   elements?: string;
@@ -81,6 +79,7 @@ async function fetchComponents(params: {
     perPage,
     free,
     search,
+    category,
     interactive,
     layout,
     elements,
@@ -90,7 +89,7 @@ async function fetchComponents(params: {
     data: components,
     error,
     count,
-  } = await getAllComponentsByCategory(client, category, searchParams);
+  } = await getAllComponents(client, searchParams);
 
   if (error) {
     console.error(error);

@@ -14,6 +14,8 @@ import EmailLinkAuth from '~/app/auth/components/EmailLinkAuth';
 import configuration from '~/configuration';
 import EmailOtpContainer from '~/app/auth/components/EmailOtpContainer';
 
+const providers = configuration.auth.providers;
+
 function SignInMethodsContainer() {
   const router = useRouter();
 
@@ -23,29 +25,31 @@ function SignInMethodsContainer() {
 
   return (
     <>
-      <If condition={configuration.auth.providers.oAuth.length}>
+      <If condition={providers.oAuth.length}>
         <OAuthProviders />
 
-        <div>
-          <span className={'text-xs text-neutral-400'}>
-            <Trans i18nKey={'auth:orContinueWithEmail'} />
-          </span>
-        </div>
+        <If condition={providers.emailPassword}>
+          <div>
+            <span className={'text-xs text-gray-400'}>
+              <Trans i18nKey={'auth:orContinueWithEmail'} />
+            </span>
+          </div>
+        </If>
       </If>
 
-      <If condition={configuration.auth.providers.emailPassword}>
+      <If condition={providers.emailPassword}>
         <EmailPasswordSignInContainer onSignIn={onSignIn} />
       </If>
 
-      <If condition={configuration.auth.providers.phoneNumber}>
+      <If condition={providers.phoneNumber}>
         <PhoneNumberSignInContainer onSuccess={onSignIn} mode={'signIn'} />
       </If>
 
-      <If condition={configuration.auth.providers.emailLink}>
+      <If condition={providers.emailLink}>
         <EmailLinkAuth />
       </If>
 
-      <If condition={configuration.auth.providers.emailOtp}>
+      <If condition={providers.emailOtp}>
         <EmailOtpContainer shouldCreateUser={false} />
       </If>
     </>
