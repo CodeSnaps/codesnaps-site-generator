@@ -35,7 +35,8 @@ export function getFreeComponents(client: Client) {
       { count: 'exact' },
     )
     .eq('is_free', true)
-    .eq('is_published', true);
+    .eq('is_published', true)
+    .order('name', { ascending: true });
 }
 
 export async function getAllComponents(
@@ -99,7 +100,7 @@ export async function getAllComponents(
     query = query.contains('elements', elementsProperties);
   }
 
-  return query.range(startOffset, endOffset);
+  return query.range(startOffset, endOffset).order('name', { ascending: true });
 }
 
 export async function getAllComponentsByCategory(
@@ -160,7 +161,7 @@ export async function getAllComponentsByCategory(
     query = query.contains('elements', elementsProperties);
   }
 
-  return query.range(startOffset, endOffset);
+  return query.range(startOffset, endOffset).order('name', { ascending: true });
 }
 
 export async function getSingleComponent(client: Client, uuid: string) {
