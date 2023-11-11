@@ -63,6 +63,7 @@ const columns: Array<ColumnDef<Components[0]>> = [
     header: 'Description',
     accessorKey: 'description',
     id: 'description',
+    size: 300,
   },
   {
     header: 'Type',
@@ -73,19 +74,24 @@ const columns: Array<ColumnDef<Components[0]>> = [
     header: 'Category',
     accessorKey: 'category',
     id: 'category',
-    size: 300,
   },
   {
-    header: 'URL',
+    header: 'Preview URL',
     accessorKey: 'preview_url',
     id: 'preview_url',
-    size: 300,
+    cell: ({ row }) => {
+      const imgUrl = row.original?.preview_url;
+      return imgUrl?.slice(40);
+    },
   },
   {
     header: 'Image Source',
     accessorKey: 'image_src',
     id: 'image_src',
-    size: 300,
+    cell: ({ row }) => {
+      const imgUrl = row.original?.image_src;
+      return imgUrl?.slice(76);
+    },
   },
   {
     header: 'Image Alt',

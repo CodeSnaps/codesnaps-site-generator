@@ -102,6 +102,67 @@ export async function getAllComponents(
   return query.range(startOffset, endOffset);
 }
 
+export async function getAllComponentsByCategory(
+  client: Client,
+  category: string,
+  searchParams: SearchParams,
+) {
+  const {
+    pageIndex = 1,
+    perPage = COMPONENTS_PAGE_SIZE,
+    free,
+    search,
+    interactive,
+    layout,
+    elements,
+  } = searchParams;
+
+  const startOffset = (pageIndex - 1) * perPage;
+  const endOffset = startOffset + perPage - 1;
+
+  let query = client
+    .from(COMPONENTS_TABLE)
+    .select<string, Component>(
+      `
+    id,
+    name,
+    type,
+    category,
+    is_free,
+    preview_url,
+    image_src,
+    image_alt
+    `,
+      { count: 'exact' },
+    )
+    .eq('is_published', true)
+    .eq('category', category);
+
+  if (search) {
+    return query.ilike('name', `%${search}%`).range(startOffset, endOffset);
+  }
+
+  if (free) {
+    query = query.eq('is_free', true);
+  }
+
+  if (interactive) {
+    query = query.eq('is_interactive', true);
+  }
+
+  if (layout) {
+    const layoutProperties = layout.split('|');
+    query = query.contains('layout_properties', layoutProperties);
+  }
+
+  if (elements) {
+    const elementsProperties = elements.split('|');
+    query = query.contains('elements', elementsProperties);
+  }
+
+  return query.range(startOffset, endOffset);
+}
+
 export async function getSingleComponent(client: Client, uuid: string) {
   const { data: component, error } = await client
     .from(COMPONENTS_TABLE)

@@ -3,22 +3,29 @@ interface FilterList {
   value: string;
 }
 
-const categories: Array<FilterList> = [
-  { name: 'All', value: 'all' },
-  { name: 'Blog', value: 'blog' },
-  { name: 'Contact', value: 'contact' },
-  { name: 'CTA', value: 'cta' },
-  { name: 'FAQ', value: 'faq' },
-  { name: 'Feature', value: 'feature' },
-  { name: 'Footer', value: 'footer' },
-  { name: 'Gallery', value: 'gallery' },
-  { name: 'Header', value: 'header' },
-  { name: 'Hero', value: 'hero' },
-  { name: 'Logos', value: 'logos' },
-  { name: 'Navbar', value: 'navbar' },
-  { name: 'Pricing', value: 'pricing' },
-  { name: 'Team', value: 'team' },
-  { name: 'Testimonial', value: 'testimonial' },
+interface CategoryList {
+  name: string;
+  value: string;
+  href: string;
+}
+
+// href only for browse page
+const categories: Array<CategoryList> = [
+  { name: 'All', value: 'all', href: '/browse' },
+  { name: 'Blog', value: 'blog', href: '/browse/blog' },
+  { name: 'Contact', value: 'contact', href: '/browse/contact' },
+  { name: 'CTA', value: 'cta', href: '/browse/cta' },
+  { name: 'FAQ', value: 'faq', href: '/browse/faq' },
+  { name: 'Feature', value: 'feature', href: '/browse/feature' },
+  { name: 'Footer', value: 'footer', href: '/browse/footer' },
+  { name: 'Gallery', value: 'gallery', href: '/browse/gallery' },
+  { name: 'Header', value: 'header', href: '/browse/header' },
+  { name: 'Hero', value: 'hero', href: '/browse/hero' },
+  { name: 'Logos', value: 'logos', href: '/browse/logos' },
+  { name: 'Navbar', value: 'navbar', href: '/browse/navbar' },
+  { name: 'Pricing', value: 'pricing', href: '/browse/pricing' },
+  { name: 'Team', value: 'team', href: '/browse/team' },
+  { name: 'Testimonial', value: 'testimonial', href: '/browse/testimonial' },
 ];
 
 const textLayout: Array<FilterList> = [

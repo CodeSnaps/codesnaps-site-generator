@@ -74,6 +74,7 @@ export default function ComponentGridItem(
             className={`flex w-full justify-center bg-neutral-200 dark:bg-neutral-500 py-10`}
           >
             <Image
+              priority
               src={image_src}
               alt={image_alt}
               width={400}

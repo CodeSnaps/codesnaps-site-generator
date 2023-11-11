@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Link from 'next/link';
 
 import {
   categories,
@@ -16,8 +17,6 @@ interface FilterProps {
   search: string;
   setSearch: (search: string) => void;
   setIsFree: (isFree: boolean) => void;
-  category: string | null;
-  setCategory: (category: string | null) => void;
   isInteractive: boolean;
   setInteraction: (isInteractive: boolean) => void;
   layout: string[];
@@ -31,8 +30,6 @@ function BrowseFilterSidebar({
   setIsFree,
   search,
   setSearch,
-  category: categoryState,
-  setCategory,
   isInteractive,
   setInteraction,
   layout,
@@ -79,19 +76,13 @@ function BrowseFilterSidebar({
           </h4>
 
           {categories.map((category) => (
-            <button
-              type="button"
+            <Link
+              href={category.href}
               key={category.value}
-              onClick={() => setCategory(category.value)}
-              className={clsx(
-                category.value === categoryState
-                  ? 'text-primary-600 dark:text-primary-400'
-                  : 'text-neutral-900 dark:text-neutral-100 hover:text-primary-600 dark:hover:text-primary-400',
-                'underline text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-left',
-              )}
+              className="underline text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-left text-neutral-900 dark:text-neutral-100 hover:text-primary-600 dark:hover:text-primary-400"
             >
               {category.name}
-            </button>
+            </Link>
           ))}
         </div>
 

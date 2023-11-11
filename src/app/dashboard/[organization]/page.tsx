@@ -1,13 +1,13 @@
 import { Squares2X2Icon } from '@heroicons/react/24/outline';
 
-import AppHeader from './components/AppHeader';
+import AppHeader from '~/app/dashboard/[organization]/components/AppHeader';
 import { withI18n } from '~/i18n/with-i18n';
 import Trans from '~/core/ui/Trans';
 
 import ComponentsDashboard from '~/app/dashboard/[organization]/components/ui-kit/ComponentsDashboard';
 
 export const metadata = {
-  title: 'Components',
+  title: 'Tailwind CSS UI Components | CodeSnaps',
 };
 
 interface DasbboardPageParams {

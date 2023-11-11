@@ -10,13 +10,18 @@ import FilterSidebar from '~/app/dashboard/[organization]/components/ui-kit/Filt
 
 import { allProperties } from '~/lib/components/database/filter-list';
 
-function ComponentsFilter({ pageIndex }: { pageIndex: number }) {
+function ComponentsFilter({
+  pageIndex,
+  organization,
+}: {
+  pageIndex: number;
+  organization: string;
+}) {
   const router = useRouter();
   const pathname = usePathname();
 
   const [isFree, setIsFree] = useState<boolean>(false);
   const [search, setSearch] = useState<string>('');
-  const [category, setCategory] = useState<string | null>(null);
   const [isInteractive, setIsInteractive] = useState<boolean>(false);
   const [layoutOptions, setLayoutOptions] = useState<string[]>([]);
   const [elementsOptions, setElementsOptions] = useState<string[]>([]);
@@ -24,20 +29,13 @@ function ComponentsFilter({ pageIndex }: { pageIndex: number }) {
   useEffect(() => {
     const isFreeQuery = isFree ? 'free=true' : '';
     const searchQuery = search ? `search=${search}` : '';
-    const categoryQuery =
-      category && category !== 'all' ? `category=${category}` : '';
     const isInteractiveQuery = isInteractive ? 'interactive=true' : '';
     const layoutQuery = generateQuery(layoutOptions, 'layout');
     const elementsQuery = generateQuery(elementsOptions, 'elements');
 
-    if (category && category !== 'all') {
-      return router.push(`${pathname}?page=1&category=${category}`);
-    }
-
     const combinedQuery = [
       isFreeQuery,
       searchQuery,
-      categoryQuery,
       isInteractiveQuery,
       layoutQuery,
       elementsQuery,
@@ -55,7 +53,6 @@ function ComponentsFilter({ pageIndex }: { pageIndex: number }) {
     router,
     isFree,
     search,
-    category,
     isInteractive,
     layoutOptions,
     elementsOptions,
@@ -70,11 +67,11 @@ function ComponentsFilter({ pageIndex }: { pageIndex: number }) {
         </p>
 
         <FilterSheet
+          organization={organization}
           isFree={isFree}
           search={search}
           setSearch={setSearch}
           setIsFree={setIsFree}
-          setCategory={setCategory}
           layout={layoutOptions}
           setLayout={setLayoutOptions}
           elements={elementsOptions}
@@ -86,12 +83,11 @@ function ComponentsFilter({ pageIndex }: { pageIndex: number }) {
 
       {/* Secondary column (hidden on smaller screens) */}
       <FilterSidebar
+        organization={organization}
         isFree={isFree}
         search={search}
         setSearch={setSearch}
         setIsFree={setIsFree}
-        category={category}
-        setCategory={setCategory}
         layout={layoutOptions}
         setLayout={setLayoutOptions}
         elements={elementsOptions}
@@ -102,23 +98,6 @@ function ComponentsFilter({ pageIndex }: { pageIndex: number }) {
 
       <div className="mt-10 min-h-[40px] w-full lg:mt-0 xl:max-w-[calc(100%-18rem)]">
         <div className="mx-auto flex max-w-[1400px] flex-wrap items-center gap-4 px-4">
-          {category && category !== 'all' && (
-            <Button
-              variant="outline"
-              onClick={() => {
-                setCategory(null);
-              }}
-              className="flex items-center space-x-2"
-            >
-              <span className={'flex space-x-2 items-center'}>
-                <span>
-                  {category.charAt(0).toUpperCase() + category.slice(1)}
-                </span>
-                <XMarkIcon className="h-5 w-5" />
-              </span>
-            </Button>
-          )}
-
           {layoutOptions && layoutOptions.length > 0 && (
             <>
               {layoutOptions.map((layout) => {

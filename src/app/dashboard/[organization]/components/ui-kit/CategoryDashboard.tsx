@@ -3,7 +3,7 @@ import { use } from 'react';
 import ComponentsFilter from '~/app/dashboard/[organization]/components/ui-kit/ComponentsFilter';
 import ComponentGrid from '~/app/dashboard/[organization]/components/ui-kit/ComponentGrid';
 import {
-  getAllComponents,
+  getAllComponentsByCategory,
   getAllSavedComponentsIds,
 } from '~/lib/components/database/queries';
 
@@ -15,17 +15,18 @@ interface DasbboardPageParams {
     page?: string;
     free?: string;
     search?: string;
-    category?: string;
     interactive?: string;
     layout?: string;
     elements?: string;
   };
   organization: string;
+  category: string;
 }
 
-export default function ComponentsDashboard({
+export default function CategoryDashboard({
   searchParams,
   organization,
+  category,
 }: DasbboardPageParams) {
   const pageIndex = getPageFromQueryParams(searchParams.page);
   const perPage = 30;
@@ -35,6 +36,7 @@ export default function ComponentsDashboard({
     fetchComponents({
       pageIndex,
       perPage,
+      category,
       ...searchParams,
     }),
   );
@@ -47,7 +49,7 @@ export default function ComponentsDashboard({
 
   return (
     <div className={'my-10'}>
-      <ComponentsFilter organization={organization} pageIndex={pageIndex} />
+      <ComponentsFilter pageIndex={pageIndex} organization={organization} />
 
       <ComponentGrid
         pageIndex={pageIndex}
@@ -63,9 +65,9 @@ export default function ComponentsDashboard({
 async function fetchComponents(params: {
   pageIndex: number;
   perPage: number;
+  category: string;
   free?: string;
   search?: string;
-  category?: string;
   interactive?: string;
   layout?: string;
   elements?: string;
@@ -88,7 +90,6 @@ async function fetchComponents(params: {
     perPage,
     free,
     search,
-    category,
     interactive,
     layout,
     elements,
@@ -98,7 +99,7 @@ async function fetchComponents(params: {
     data: components,
     error,
     count,
-  } = await getAllComponents(client, searchParams);
+  } = await getAllComponentsByCategory(client, category, searchParams);
 
   if (error) {
     console.error(error);

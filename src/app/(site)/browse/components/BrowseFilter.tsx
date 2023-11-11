@@ -5,8 +5,8 @@ import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 
 import Button from '~/core/ui/Button';
-import FilterSheet from '~/app/dashboard/[organization]/components/ui-kit/FilterSheet';
-import FilterSidebar from '~/app/(site)/browse/components/BrowseFilterSidebar';
+import BrowseFilterSheet from '~/app/(site)/browse/components/BrowseFilterSheet';
+import BrowseFilterSidebar from '~/app/(site)/browse/components/BrowseFilterSidebar';
 
 import { allProperties } from '~/lib/components/database/filter-list';
 
@@ -16,7 +16,6 @@ function BrowseFilter({ pageIndex }: { pageIndex: number }) {
 
   const [isFree, setIsFree] = useState<boolean>(false);
   const [search, setSearch] = useState<string>('');
-  const [category, setCategory] = useState<string | null>(null);
   const [isInteractive, setIsInteractive] = useState<boolean>(false);
   const [layoutOptions, setLayoutOptions] = useState<string[]>([]);
   const [elementsOptions, setElementsOptions] = useState<string[]>([]);
@@ -24,20 +23,13 @@ function BrowseFilter({ pageIndex }: { pageIndex: number }) {
   useEffect(() => {
     const isFreeQuery = isFree ? 'free=true' : '';
     const searchQuery = search ? `search=${search}` : '';
-    const categoryQuery =
-      category && category !== 'all' ? `category=${category}` : '';
     const isInteractiveQuery = isInteractive ? 'interactive=true' : '';
     const layoutQuery = generateQuery(layoutOptions, 'layout');
     const elementsQuery = generateQuery(elementsOptions, 'elements');
 
-    if (category && category !== 'all') {
-      return router.push(`${pathname}?page=1&category=${category}`);
-    }
-
     const combinedQuery = [
       isFreeQuery,
       searchQuery,
-      categoryQuery,
       isInteractiveQuery,
       layoutQuery,
       elementsQuery,
@@ -55,7 +47,6 @@ function BrowseFilter({ pageIndex }: { pageIndex: number }) {
     router,
     isFree,
     search,
-    category,
     isInteractive,
     layoutOptions,
     elementsOptions,
@@ -69,12 +60,11 @@ function BrowseFilter({ pageIndex }: { pageIndex: number }) {
           Filter
         </p>
 
-        <FilterSheet
+        <BrowseFilterSheet
           isFree={isFree}
           search={search}
           setSearch={setSearch}
           setIsFree={setIsFree}
-          setCategory={setCategory}
           layout={layoutOptions}
           setLayout={setLayoutOptions}
           elements={elementsOptions}
@@ -85,13 +75,11 @@ function BrowseFilter({ pageIndex }: { pageIndex: number }) {
       </div>
 
       {/* Secondary column (hidden on smaller screens) */}
-      <FilterSidebar
+      <BrowseFilterSidebar
         isFree={isFree}
         search={search}
         setSearch={setSearch}
         setIsFree={setIsFree}
-        category={category}
-        setCategory={setCategory}
         layout={layoutOptions}
         setLayout={setLayoutOptions}
         elements={elementsOptions}
@@ -102,23 +90,6 @@ function BrowseFilter({ pageIndex }: { pageIndex: number }) {
 
       <div className="mt-10 min-h-[40px] w-full lg:mt-0 xl:max-w-[calc(100%-18rem)]">
         <div className="mx-auto flex max-w-[1400px] flex-wrap items-center gap-4 px-4">
-          {category && category !== 'all' && (
-            <Button
-              variant="outline"
-              onClick={() => {
-                setCategory(null);
-              }}
-              className="flex items-center space-x-2"
-            >
-              <span className={'flex space-x-2 items-center'}>
-                <span>
-                  {category.charAt(0).toUpperCase() + category.slice(1)}
-                </span>
-                <XMarkIcon className="h-5 w-5" />
-              </span>
-            </Button>
-          )}
-
           {layoutOptions && layoutOptions.length > 0 && (
             <>
               {layoutOptions.map((layout) => {

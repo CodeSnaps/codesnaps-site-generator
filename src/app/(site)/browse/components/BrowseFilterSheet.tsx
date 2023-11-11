@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import Link from 'next/link';
 
 import {
@@ -22,7 +21,6 @@ import {
 } from '~/core/ui/Sheet';
 
 interface FilterProps {
-  organization: string;
   isFree: boolean;
   search: string;
   setSearch: (search: string) => void;
@@ -35,8 +33,7 @@ interface FilterProps {
   setElements: (elements: string[]) => void;
 }
 
-function FilterSheet({
-  organization,
+function BrowseFilterSheet({
   isFree,
   setIsFree,
   search,
@@ -100,11 +97,7 @@ function FilterSheet({
 
             {categories.map((category) => (
               <Link
-                href={clsx(
-                  category.value === 'all'
-                    ? `/dashboard/${organization}`
-                    : `/dashboard/${organization}/${category.value}`,
-                )}
+                href={category.href}
                 key={category.value}
                 className="underline text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-left text-neutral-900 dark:text-neutral-100 hover:text-primary-600 dark:hover:text-primary-400"
               >
@@ -320,4 +313,4 @@ function AdjustmentsHorizontalIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default FilterSheet;
+export default BrowseFilterSheet;

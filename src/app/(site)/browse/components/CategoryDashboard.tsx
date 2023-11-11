@@ -1,11 +1,8 @@
 import { use } from 'react';
 
-import ComponentsFilter from '~/app/dashboard/[organization]/components/ui-kit/ComponentsFilter';
-import ComponentGrid from '~/app/dashboard/[organization]/components/ui-kit/ComponentGrid';
-import {
-  getAllComponents,
-  getAllSavedComponentsIds,
-} from '~/lib/components/database/queries';
+import BrowseFilter from '~/app/(site)/browse/components/BrowseFilter';
+import BrowseGrid from '~/app/(site)/browse/components/BrowseGrid';
+import { getAllComponentsByCategory } from '~/lib/components/database/queries';
 
 import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 import getPageFromQueryParams from '~/app/dashboard/[organization]/utils/get-page-from-query-param';
@@ -15,45 +12,41 @@ interface DasbboardPageParams {
     page?: string;
     free?: string;
     search?: string;
-    category?: string;
     interactive?: string;
     layout?: string;
     elements?: string;
   };
   organization: string;
+  category: string;
 }
 
-export default function ComponentsDashboard({
+export default function CategoryDashboard({
   searchParams,
   organization,
+  category,
 }: DasbboardPageParams) {
   const pageIndex = getPageFromQueryParams(searchParams.page);
   const perPage = 30;
-  const client = getSupabaseServerComponentClient();
 
   const { components, count } = use(
     fetchComponents({
       pageIndex,
       perPage,
+      category,
       ...searchParams,
     }),
   );
 
   const pageCount = count ? Math.ceil(count / perPage) : 0;
 
-  const savedComponentsIds = use(
-    getAllSavedComponentsIds(client, organization),
-  );
-
   return (
-    <div className={'my-10'}>
-      <ComponentsFilter organization={organization} pageIndex={pageIndex} />
+    <div className={'mb-10'}>
+      <BrowseFilter pageIndex={pageIndex} />
 
-      <ComponentGrid
+      <BrowseGrid
         pageIndex={pageIndex}
         pageCount={pageCount}
         components={components}
-        savedComponentsIds={savedComponentsIds}
         organization={organization}
       />
     </div>
@@ -63,9 +56,9 @@ export default function ComponentsDashboard({
 async function fetchComponents(params: {
   pageIndex: number;
   perPage: number;
+  category: string;
   free?: string;
   search?: string;
-  category?: string;
   interactive?: string;
   layout?: string;
   elements?: string;
@@ -88,7 +81,6 @@ async function fetchComponents(params: {
     perPage,
     free,
     search,
-    category,
     interactive,
     layout,
     elements,
@@ -98,7 +90,7 @@ async function fetchComponents(params: {
     data: components,
     error,
     count,
-  } = await getAllComponents(client, searchParams);
+  } = await getAllComponentsByCategory(client, category, searchParams);
 
   if (error) {
     console.error(error);

@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Link from 'next/link';
 
 import {
   categories,
@@ -12,12 +13,11 @@ import { Checkbox } from '~/core/ui/Checkbox';
 import { Switch } from '~/core/ui/Switch';
 
 interface FilterProps {
+  organization: string;
   isFree: boolean;
   search: string;
   setSearch: (search: string) => void;
   setIsFree: (isFree: boolean) => void;
-  category: string | null;
-  setCategory: (category: string | null) => void;
   isInteractive: boolean;
   setInteraction: (isInteractive: boolean) => void;
   layout: string[];
@@ -27,12 +27,11 @@ interface FilterProps {
 }
 
 function FilterSheet({
+  organization,
   isFree,
   setIsFree,
   search,
   setSearch,
-  category: categoryState,
-  setCategory,
   isInteractive,
   setInteraction,
   layout,
@@ -79,19 +78,17 @@ function FilterSheet({
           </h4>
 
           {categories.map((category) => (
-            <button
-              type="button"
-              key={category.value}
-              onClick={() => setCategory(category.value)}
-              className={clsx(
-                category.value === categoryState
-                  ? 'text-primary-600 dark:text-primary-400'
-                  : 'text-neutral-900 dark:text-neutral-100 hover:text-primary-600 dark:hover:text-primary-400',
-                'underline text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-left',
+            <Link
+              href={clsx(
+                category.value === 'all'
+                  ? `/dashboard/${organization}`
+                  : `/dashboard/${organization}/${category.value}`,
               )}
+              key={category.value}
+              className="underline text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-left text-neutral-900 dark:text-neutral-100 hover:text-primary-600 dark:hover:text-primary-400"
             >
               {category.name}
-            </button>
+            </Link>
           ))}
         </div>
 

@@ -59,5 +59,9 @@ function getRemotePatterns() {
           protocol: 'https',
           hostname: 'img.logoipsum.com',
         },
+        {
+          protocol: 'https',
+          hostname: 'ablcaocvmgtcodafwvoe.supabase.co',
+        },
       ];
 }
