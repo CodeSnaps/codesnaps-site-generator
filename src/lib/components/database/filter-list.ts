@@ -80,6 +80,7 @@ const elementsProps: Array<FilterList> = [
   { name: 'Side Panel', value: 'side-panel' },
   { name: 'Sidebar', value: 'sidebar' },
   { name: 'Slider', value: 'slider' },
+  { name: 'Table', value: 'table' },
   { name: 'Table of Contents', value: 'table-of-contents' },
   { name: 'Tabs', value: 'tabs' },
   { name: 'Tags', value: 'tags' },

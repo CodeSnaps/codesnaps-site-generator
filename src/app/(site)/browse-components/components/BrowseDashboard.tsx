@@ -25,7 +25,7 @@ export default function ComponentsDashboard({
   organization,
 }: DasbboardPageParams) {
   const pageIndex = getPageFromQueryParams(searchParams.page);
-  const perPage = 30;
+  const perPage = 21;
 
   const { components, count } = use(
     fetchComponents({
