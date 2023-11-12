@@ -6,7 +6,6 @@ import Link from 'next/link';
 
 import { toast } from 'sonner';
 import useSupabase from '~/core/hooks/use-supabase';
-import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { favoriteComponent } from '~/lib/components/database/mutations';
 
@@ -29,7 +28,6 @@ export default function ComponentGridItem(
   } = props.component;
 
   const client = useSupabase();
-  const pathname = usePathname();
   const router = useRouter();
 
   const saveComponent = async () => {
@@ -91,7 +89,7 @@ export default function ComponentGridItem(
         <div className="mt-4 flex items-center space-x-2">
           <div className="group flex-1">
             <Link
-              href={`${pathname}/ui-kit/${
+              href={`/dashboard/${props.organization}/ui-kit/${
                 is_free ? 'free-components' : ''
               }/${id}`}
             >
