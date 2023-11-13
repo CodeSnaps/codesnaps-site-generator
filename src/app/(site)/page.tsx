@@ -78,7 +78,7 @@ export default function Home() {
           <div className="flex flex-col space-y-8">
             <ThumbnailGrid />
 
-            <Button round href="/browse" className="mx-auto px-4">
+            <Button round href="/browse-components" className="mx-auto px-4">
               <span className="flex space-x-2 items-center">
                 <span>Browse Components</span>
                 <ChevronRightIcon className={'h-3'} />
@@ -112,11 +112,11 @@ export default function Home() {
                 <Button
                   round
                   variant="outline"
-                  href="/auth/sign-up"
+                  href="/browse-components"
                   className="mb-14 lg:mb-0"
                 >
                   <span className="flex space-x-2 items-center">
-                    <span>Sign Up</span>
+                    <span>Browse Components</span>
                     <ChevronRightIcon className="h-3" />
                   </span>
                 </Button>
@@ -163,9 +163,9 @@ export default function Home() {
                 </div>
 
                 <div>
-                  <Button round variant="outline" href="/auth/sign-up">
+                  <Button round variant="outline" href="/browse-components">
                     <span className={'flex space-x-2 items-center'}>
-                      <span>Sign Up</span>
+                      <span>Browse Components</span>
                       <ChevronRightIcon className={'h-3'} />
                     </span>
                   </Button>
@@ -335,7 +335,7 @@ function MainCallToActionButton() {
       variant={'custom'}
       size={'lg'}
       round
-      href={'/browse'}
+      href={'/browse-components'}
     >
       <span className={'flex items-center space-x-2'}>
         <span>Browse Components</span>
