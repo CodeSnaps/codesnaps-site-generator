@@ -37,7 +37,10 @@ export async function generateMetadata({
 function ComponentDetailPage({ params }: ComponentDetailPageProps) {
   const canAccessPage = use(canUserAccessPage(params.organization));
 
-  if (!canAccessPage) {
+  if (
+    !canAccessPage &&
+    params.organization !== process.env.ADMIN_ORGANIZATION_ID
+  ) {
     redirect(`/dashboard/${params.organization}/settings/subscription`);
   }
 
