@@ -60,12 +60,12 @@ const elementsProps: Array<FilterList> = [
   { name: 'Buttons', value: 'buttons' },
   { name: 'Cards', value: 'cards' },
   { name: 'Checkboxes', value: 'checkboxes' },
+  { name: 'Content Focus', value: 'content-focus' },
   { name: 'Dropdown', value: 'dropdown' },
   { name: 'Filters', value: 'filters' },
   { name: 'Forms', value: 'forms' },
   { name: 'Icons', value: 'icons' },
   { name: 'Image', value: 'image' },
-  { name: 'Image Focus', value: 'image-focus' },
   { name: 'List', value: 'list' },
   { name: 'Loading Animation', value: 'loading-animation' },
   { name: 'Logos', value: 'logos' },
@@ -81,12 +81,11 @@ const elementsProps: Array<FilterList> = [
   { name: 'Sidebar', value: 'sidebar' },
   { name: 'Slider', value: 'slider' },
   { name: 'Table', value: 'table' },
-  { name: 'Table of Contents', value: 'table-of-contents' },
   { name: 'Tabs', value: 'tabs' },
   { name: 'Tags', value: 'tags' },
   { name: 'Text Only', value: 'text-only' },
   { name: 'Toggles', value: 'toggles' },
-  { name: 'Video Focus', value: 'video-focus' },
+  { name: 'Video', value: 'video' },
 ];
 
 const layoutProperties: Array<FilterList> = [
