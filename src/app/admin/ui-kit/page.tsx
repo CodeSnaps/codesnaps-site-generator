@@ -53,6 +53,7 @@ function ComponentsAdminPage({ searchParams }: ComponentsAdminPageProps) {
             page={page}
             pageCount={pageCount}
             components={components}
+            search={search}
           />
         </div>
       </AppContainer>

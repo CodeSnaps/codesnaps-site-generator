@@ -146,11 +146,13 @@ function ComponentsTable({
   pageCount,
   perPage,
   page,
+  search,
 }: React.PropsWithChildren<{
   components: Components;
   pageCount: number;
   perPage: number;
   page: number;
+  search: string;
 }>) {
   const router = useRouter();
   const pathname = usePathname();
@@ -158,6 +160,11 @@ function ComponentsTable({
   return (
     <DataTable
       onPaginationChange={({ pageIndex }) => {
+        if (search) {
+          router.push(`${pathname}?page=${pageIndex + 1}&search=${search}`);
+          return;
+        }
+
         router.push(`${pathname}?page=${pageIndex + 1}`);
       }}
       pageSize={perPage}
