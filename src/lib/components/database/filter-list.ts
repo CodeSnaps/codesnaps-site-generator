@@ -60,7 +60,6 @@ const elementsProps: Array<FilterList> = [
   { name: 'Buttons', value: 'buttons' },
   { name: 'Cards', value: 'cards' },
   { name: 'Checkboxes', value: 'checkboxes' },
-  { name: 'Content Focus', value: 'content-focus' },
   { name: 'Dropdown', value: 'dropdown' },
   { name: 'Filters', value: 'filters' },
   { name: 'Forms', value: 'forms' },
