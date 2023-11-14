@@ -76,7 +76,14 @@ const configuration = {
         name: 'Free',
         description: 'To get started with CodeSnaps and dip your toes in.',
         badge: `30 Components`,
-        features: ['Built in dark mode components', 'Access to 30 components'],
+        features: [
+          'Built in dark mode',
+          'Copy and paste code snippets',
+          'Filter and search',
+          'Save favorite components',
+          'Invite team members',
+          'Access to 30 components',
+        ],
         plans: [
           {
             name: 'Monthly',
@@ -96,7 +103,11 @@ const configuration = {
         recommended: true,
         description: 'To access all components and new components every week.',
         features: [
-          'Built in dark mode components',
+          'Built in dark mode',
+          'Copy and paste code snippets',
+          'Filter and search',
+          'Save favorite components',
+          'Invite team members',
           'Access to all components',
           'New components every week',
         ],
