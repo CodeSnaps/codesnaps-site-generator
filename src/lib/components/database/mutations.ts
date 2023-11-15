@@ -131,6 +131,7 @@ export async function removeFavoriteComponent(
     .from(SAVED_COMPONENTS_TABLE)
     .delete()
     .eq('component_id', component_id)
+    .eq('organization_id', organization_id)
     .single();
 
   if (error) {

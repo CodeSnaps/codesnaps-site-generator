@@ -28,7 +28,7 @@ export default function ComponentGridItem(
     organization: string;
   }>,
 ) {
-  const { id, name, is_free, image_src, image_alt, preview_url, component_id } =
+  const { name, is_free, image_src, image_alt, preview_url, component_id } =
     props.component;
 
   const client = useSupabase();
