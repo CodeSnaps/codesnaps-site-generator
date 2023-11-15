@@ -35,13 +35,14 @@ export async function generateMetadata({
 }
 
 function ComponentDetailPage({ params }: ComponentDetailPageProps) {
-  const canAccessPage = use(canUserAccessPage(params.organization));
+  const { organization } = params;
+  const adminOrg = process.env.ADMIN_ORGANIZATION_ID;
+  const demoOrg = process.env.DEMO_ORGANIZATION_ID;
 
-  if (
-    !canAccessPage &&
-    params.organization !== process.env.ADMIN_ORGANIZATION_ID
-  ) {
-    redirect(`/dashboard/${params.organization}/settings/subscription`);
+  const canAccessPage = use(canUserAccessPage(organization));
+
+  if (!canAccessPage && organization !== adminOrg && organization !== demoOrg) {
+    redirect(`/dashboard/${organization}/settings/subscription`);
   }
 
   const client = getSupabaseServerComponentClient();
