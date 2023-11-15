@@ -67,7 +67,10 @@ function ComponentDetailPage({ params }: ComponentDetailPageProps) {
 
   return (
     <>
-      <ComponentAppHeader>{name}</ComponentAppHeader>
+      <ComponentAppHeader
+        title={`Component ${name}`}
+        description="Code snippets to copy and paste from the component"
+      />
 
       <div className="mx-auto my-14 w-full max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">

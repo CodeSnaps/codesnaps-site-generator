@@ -1,5 +1,5 @@
 import loadAppData from '~/lib/server/loaders/load-app-data';
-import AppRouteShell from '~/app/dashboard/[organization]/components/AppRouteShell';
+import AppRouteShell from '~/app/dashboard/[organization]/components/OrganizationScopeLayout';
 
 async function AppLayout({
   children,

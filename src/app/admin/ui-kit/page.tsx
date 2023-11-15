@@ -1,6 +1,6 @@
 import { use } from 'react';
 
-import AppContainer from '~/app/dashboard/[organization]/components/AppContainer';
+import { PageBody } from '~/core/ui/Page';
 import ComponentsHeader from '~/app/admin/ui-kit/components/ComponentsHeader';
 import AdminGuard from '~/app/admin/components/AdminGuard';
 import ComponentsTable from '~/app/admin/ui-kit/components/ComponentsTable';
@@ -38,7 +38,7 @@ function ComponentsAdminPage({ searchParams }: ComponentsAdminPageProps) {
     <div className={'flex flex-1 flex-col'}>
       <ComponentsHeader>Manage Components</ComponentsHeader>
 
-      <AppContainer>
+      <PageBody>
         <div className={'flex flex-col space-y-4'}>
           <form method={'GET'}>
             <TextFieldInput
@@ -56,7 +56,7 @@ function ComponentsAdminPage({ searchParams }: ComponentsAdminPageProps) {
             search={search}
           />
         </div>
-      </AppContainer>
+      </PageBody>
     </div>
   );
 }

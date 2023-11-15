@@ -8,7 +8,6 @@ import getSupabaseServerComponentClient from '~/core/supabase/server-component-c
 import requireSession from '~/lib/user/require-session';
 import initializeServerI18n from '~/i18n/i18n.server';
 import getLanguageCookie from '~/i18n/get-language-cookie';
-import AppContainer from '~/app/dashboard/[organization]/components/AppContainer';
 import getCurrentOrganization from '~/lib/server/organizations/get-current-organization';
 import { parseOrganizationIdCookie } from '~/lib/server/cookies/organization.cookie';
 
@@ -18,6 +17,7 @@ import If from '~/core/ui/If';
 import Heading from '~/core/ui/Heading';
 import CardButton from '~/core/ui/CardButton';
 import Trans from '~/core/ui/Trans';
+import { PageBody } from '~/core/ui/Page';
 
 import configuration from '~/configuration';
 import NewOrganizationButtonContainer from './components/NewOrganizationButtonContainer';
@@ -73,7 +73,7 @@ async function OrganizationsPage() {
       <div className={'flex flex-col space-y-8'}>
         <OrganizationsPageHeader />
 
-        <AppContainer>
+        <PageBody>
           <Container>
             <div
               className={
@@ -125,7 +125,7 @@ async function OrganizationsPage() {
               })}
             </div>
           </Container>
-        </AppContainer>
+        </PageBody>
       </div>
     </I18nProvider>
   );

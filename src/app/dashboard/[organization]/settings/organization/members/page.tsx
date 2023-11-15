@@ -17,10 +17,9 @@ import type MembershipRole from '~/lib/organizations/types/membership-role';
 import type UserData from '~/core/session/types/user-data';
 
 import requireSession from '~/lib/user/require-session';
-import SettingsTile from '~/app/dashboard/[organization]/settings/components/SettingsTile';
-import OrganizationMembersList from '~/app/dashboard/[organization]/settings/organization/components/OrganizationMembersList';
-import OrganizationInvitedMembersList from '~/app/dashboard/[organization]/settings/organization/components/OrganizationInvitedMembersList';
-import InviteMembersLinkButton from '~/app/dashboard/[organization]/settings/organization/components/InviteMembersLinkButton';
+import SettingsTile from '../../components/SettingsTile';
+import OrganizationMembersList from '../components/OrganizationMembersList';
+import OrganizationInvitedMembersList from '../components/OrganizationInvitedMembersList';
 import getCurrentOrganization from '~/lib/server/organizations/get-current-organization';
 import { withI18n } from '~/i18n/with-i18n';
 
@@ -41,7 +40,6 @@ const OrganizationMembersPage: React.FC<{
         <SettingsTile
           heading={<Trans i18nKey={'organization:membersTabLabel'} />}
           subHeading={<Trans i18nKey={'organization:membersTabSubheading'} />}
-          actions={<InviteMembersLinkButton href={'members/invite'} />}
         >
           <OrganizationMembersList members={data.members} />
         </SettingsTile>

@@ -36,7 +36,7 @@ const ProfileSettingsTabs: React.FC<{
   const canEditPassword = useCanUpdatePassword();
   const links = useMemo(
     () => profileTabLinks(organizationId),
-    [organizationId],
+    [organizationId]
   );
 
   return (

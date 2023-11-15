@@ -1,11 +1,11 @@
 'use client';
 
 import Alert from '~/core/ui/Alert';
-import AppContainer from '~/app/dashboard/[organization]/components/AppContainer';
+import { PageBody } from '~/core/ui/Page';
 
 function OrganizationsAdminPageError() {
   return (
-    <AppContainer>
+    <PageBody>
       <Alert type={'error'}>
         <Alert.Heading>Could not load organizations</Alert.Heading>
         <p>
@@ -13,7 +13,7 @@ function OrganizationsAdminPageError() {
           console errors.
         </p>
       </Alert>
-    </AppContainer>
+    </PageBody>
   );
 }
 

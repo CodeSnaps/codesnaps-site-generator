@@ -57,7 +57,7 @@ const InviteMembersFormContainer = () => {
   );
 
   const SubmitButton = (
-    <div className={'flex justify-end'}>
+    <div>
       <Button
         className={'w-full lg:w-auto'}
         data-cy={'send-invites-button'}

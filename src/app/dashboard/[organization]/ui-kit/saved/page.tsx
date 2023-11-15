@@ -1,7 +1,7 @@
 import { use } from 'react';
 
 import AppHeader from '~/app/dashboard/[organization]/components/AppHeader';
-import AppContainer from '~/app/dashboard/[organization]/components/AppContainer';
+import { PageBody } from '~/core/ui/Page';
 import ComponentGrid from '~/app/dashboard/[organization]/ui-kit/saved/components/ComponentGrid';
 
 import { getSavedComponents } from '~/lib/components/database/queries';
@@ -32,22 +32,19 @@ function SavedComponentsPage({ params }: SavedComponentsPageParams) {
 
   return (
     <>
-      <AppHeader>Saved Components</AppHeader>
+      <AppHeader
+        title="Saved Components"
+        description="Your saved components. It is empty if you have not saved any components."
+      />
 
-      <AppContainer>
+      <PageBody>
         <ComponentGrid
           pageIndex={pageIndex}
           pageCount={pageCount}
           components={components}
           organization={organization}
         />
-
-        {components.length === 0 && (
-          <>
-            <p>You haven&apos;t saved any components yet.</p>
-          </>
-        )}
-      </AppContainer>
+      </PageBody>
     </>
   );
 }

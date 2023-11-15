@@ -1,8 +1,5 @@
-import { Squares2X2Icon } from '@heroicons/react/24/outline';
-
 import AppHeader from '~/app/dashboard/[organization]/components/AppHeader';
 import { withI18n } from '~/i18n/with-i18n';
-import Trans from '~/core/ui/Trans';
 
 import ComponentsDashboard from '~/app/dashboard/[organization]/components/ui-kit/ComponentsDashboard';
 
@@ -28,9 +25,10 @@ interface DasbboardPageParams {
 function DashboardPage({ searchParams, params }: DasbboardPageParams) {
   return (
     <>
-      <AppHeader Icon={<Squares2X2Icon className={'h-6 dark:text-primary'} />}>
-        <Trans i18nKey={'common:dashboardTabLabel'} />
-      </AppHeader>
+      <AppHeader
+        title="Components Dashboard"
+        description="Browse, search & filter components here"
+      />
 
       <div>
         <ComponentsDashboard

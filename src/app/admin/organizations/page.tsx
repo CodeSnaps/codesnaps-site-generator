@@ -1,5 +1,5 @@
-import AppContainer from '~/app/dashboard/[organization]/components/AppContainer';
 import AdminHeader from '~/app/admin/components/AdminHeader';
+import { PageBody } from '~/core/ui/Page';
 import AdminGuard from '~/app/admin/components/AdminGuard';
 import OrganizationsTable from '~/app/admin/organizations/components/OrganizationsTable';
 import { getOrganizations } from '~/app/admin/organizations/queries';
@@ -36,7 +36,7 @@ async function OrganizationsAdminPage({
     <div className={'flex flex-1 flex-col'}>
       <AdminHeader>Manage Organizations</AdminHeader>
 
-      <AppContainer>
+      <PageBody>
         <div className={'flex flex-col space-y-4'}>
           <form method={'GET'}>
             <TextFieldInput
@@ -53,7 +53,7 @@ async function OrganizationsAdminPage({
             organizations={organizations}
           />
         </div>
-      </AppContainer>
+      </PageBody>
     </div>
   );
 }

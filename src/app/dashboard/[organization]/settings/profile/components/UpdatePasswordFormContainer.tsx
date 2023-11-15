@@ -5,7 +5,7 @@ import If from '~/core/ui/If';
 import Trans from '~/core/ui/Trans';
 import useUser from '~/core/hooks/use-user';
 
-import UpdatePasswordForm from '~/app/dashboard/[organization]/settings/profile/components/UpdatePasswordForm';
+import UpdatePasswordForm from '../components/UpdatePasswordForm';
 
 function UpdatePasswordFormContainer() {
   const { data: user } = useUser();

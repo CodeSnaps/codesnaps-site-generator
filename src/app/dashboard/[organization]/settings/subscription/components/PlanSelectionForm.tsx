@@ -42,7 +42,7 @@ const PlanSelectionForm: React.FCC<{
           <EmbeddedStripeCheckout clientSecret={clientSecret as string} />
         </If>
 
-        <div className={'flex w-full flex-col space-y-8'}>
+        <div className={'flex w-full flex-col space-y-8 justify-center'}>
           <PricingTable
             CheckoutButton={(props) => {
               return (

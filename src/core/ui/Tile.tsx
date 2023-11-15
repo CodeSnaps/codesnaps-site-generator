@@ -18,7 +18,10 @@ const Tile: React.FCC & {
 } = ({ children }) => {
   return (
     <div
-      className={'flex flex-col space-y-3 rounded-2xl border bg-background p-5'}
+      className={
+        'flex flex-col space-y-3 rounded-lg border border-neutral-200' +
+        ' dark:border-dark-900 bg-background p-5'
+      }
     >
       {children}
     </div>
@@ -31,8 +34,8 @@ function TileHeader(props: React.PropsWithChildren) {
 
 function TileHeading(props: React.PropsWithChildren) {
   return (
-    <Heading type={5}>
-      <span className={'font-medium text-neutral-600 dark:text-neutral-400'}>
+    <Heading type={6}>
+      <span className={'font-normal text-neutral-500 dark:text-neutral-400'}>
         {props.children}
       </span>
     </Heading>
@@ -78,7 +81,7 @@ function TileBadge(
     trend: 'up' | 'down' | 'stale';
   }>,
 ) {
-  const className = `inline-flex items-center rounded-3xl py-1 px-2.5 text-sm font-semibold justify-center`;
+  const className = `inline-flex items-center rounded-lg py-1 px-2.5 text-sm font-semibold justify-center`;
 
   if (props.trend === `up`) {
     return (

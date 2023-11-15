@@ -1,11 +1,11 @@
 'use client';
 
 import Alert from '~/core/ui/Alert';
-import AppContainer from '~/app/dashboard/[organization]/components/AppContainer';
+import { PageBody } from '~/core/ui/Page';
 
 function UsersAdminPageError() {
   return (
-    <AppContainer>
+    <PageBody>
       <Alert type={'error'}>
         <Alert.Heading>Could not load users</Alert.Heading>
         <p>
@@ -13,7 +13,7 @@ function UsersAdminPageError() {
           errors.
         </p>
       </Alert>
-    </AppContainer>
+    </PageBody>
   );
 }
 

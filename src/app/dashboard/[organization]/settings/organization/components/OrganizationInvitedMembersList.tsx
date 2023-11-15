@@ -29,10 +29,10 @@ const OrganizationInvitedMembersList: React.FCC<{
             data-cy={'invited-member'}
             data-id={id}
             className={
-              'flex flex-col py-2 lg:flex-row lg:items-center lg:space-x-2'
+              'flex flex-col py-2 lg:flex-row lg:items-center lg:space-x-2 justify-between'
             }
           >
-            <div className={'flex flex-auto items-center space-x-4'}>
+            <div className={'flex items-center space-x-4'}>
               <ProfileAvatar text={invitedEmail} />
 
               <div className={'block truncate text-sm'}>{invitedEmail}</div>

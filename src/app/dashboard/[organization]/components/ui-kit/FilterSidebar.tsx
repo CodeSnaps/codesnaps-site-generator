@@ -40,7 +40,7 @@ function FilterSheet({
   setElements,
 }: FilterProps) {
   return (
-    <aside className="border-neutral-200 dark:border-slate-800 fixed inset-y-0 right-0 top-[60px] hidden h-full w-72 overflow-y-auto border-l px-4 py-6 sm:px-6 lg:px-8 xl:block">
+    <aside className="border-neutral-300 dark:border-slate-800 fixed inset-y-0 right-0 hidden h-full w-72 overflow-y-auto border-l px-4 py-6 sm:px-6 lg:px-8 xl:block">
       <form
         method={'GET'}
         className="flex flex-col divide-y divide-neutral-300 dark:divide-neutral-800 space-y-8"

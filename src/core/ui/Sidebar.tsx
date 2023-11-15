@@ -3,43 +3,39 @@
 import React, { useContext } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import { cn } from '~/core/generic/shadcn-utils';
 
-import Trans from '~/core/ui/Trans';
-import classNames from 'clsx';
 import { cva } from 'cva';
-
-import {
-  ArrowRightCircleIcon,
-  ArrowLeftCircleIcon,
-} from '@heroicons/react/24/outline';
-
 import If from '~/core/ui/If';
-import Logo from '~/core/ui/Logo';
-import LogoMini from '~/core/ui/Logo/LogoMini';
-import IconButton from '~/core/ui/IconButton';
 import { TooltipContent, Tooltip, TooltipTrigger } from '~/core/ui/Tooltip';
-
-import configuration from '~/configuration';
 import SidebarContext from '~/lib/contexts/sidebar';
 
 import isRouteActive from '~/core/generic/is-route-active';
 
-export function Sidebar({ children }: React.PropsWithChildren) {
-  const { collapsed, setCollapsed } = useContext(SidebarContext);
-
+export function Sidebar({
+  children,
+  collapsed = false,
+}: React.PropsWithChildren<{
+  collapsed?: boolean;
+}>) {
   const className = getClassNameBuilder()({
     collapsed,
   });
 
+  return <div className={className}>{children}</div>;
+}
+
+export function SidebarContent({
+  children,
+  className,
+}: React.PropsWithChildren<{
+  className?: string;
+}>) {
   return (
-    <div className={className}>
-      <div className={'flex w-full flex-col space-y-7 px-4'}>
-        <AppSidebarHeader collapsed={collapsed} />
-
-        <div className={'flex flex-col space-y-1'}>{children}</div>
-      </div>
-
-      <AppSidebarFooterMenu collapsed={collapsed} setCollapsed={setCollapsed} />
+    <div
+      className={cn('flex w-full flex-col space-y-1 px-container', className)}
+    >
+      {children}
     </div>
   );
 }
@@ -83,96 +79,13 @@ export function SidebarItem({
   );
 }
 
-function AppSidebarHeader({
-  collapsed,
-}: React.PropsWithChildren<{ collapsed: boolean }>) {
-  const logoHref = configuration.paths.appHome;
-
-  return (
-    <div className={'flex px-2.5 py-1'}>
-      {collapsed ? <LogoMini href={logoHref} /> : <Logo href={logoHref} />}
-    </div>
-  );
-}
-
-function AppSidebarFooterMenu(
-  props: React.PropsWithChildren<{
-    collapsed: boolean;
-    setCollapsed: (collapsed: boolean) => void;
-  }>,
-) {
-  return (
-    <div
-      className={classNames(`absolute bottom-8 w-full`, {
-        'px-6': !props.collapsed,
-        'flex justify-center px-2': props.collapsed,
-      })}
-    >
-      <div
-        className={
-          'flex items-center space-x-2 text-sm text-neutral-500 hover:text-neutral-800 dark:text-neutral-300 dark:hover:text-white'
-        }
-      >
-        <CollapsibleButton
-          collapsed={props.collapsed}
-          onClick={props.setCollapsed}
-        />
-      </div>
-    </div>
-  );
-}
-
-function CollapsibleButton(
-  props: React.PropsWithChildren<{
-    collapsed: boolean;
-    onClick: (collapsed: boolean) => void;
-  }>,
-) {
-  if (props.collapsed) {
-    return (
-      <Tooltip>
-        <TooltipTrigger>
-          <IconButton
-            as={'div'}
-            onClick={() => props.onClick(!props.collapsed)}
-          >
-            <ArrowRightCircleIcon className={'h-6'} />
-          </IconButton>
-        </TooltipTrigger>
-
-        <TooltipContent>
-          <Trans i18nKey={'common:expandSidebar'} />
-        </TooltipContent>
-      </Tooltip>
-    );
-  }
-
-  const className = classNames({
-    '[&>span]:hidden justify-center': props.collapsed,
-  });
-
-  return (
-    <div className={className}>
-      <button
-        className={'flex items-center space-x-2 bg-transparent'}
-        onClick={() => props.onClick(!props.collapsed)}
-      >
-        <ArrowLeftCircleIcon className={'h-6'} />
-
-        <span>
-          <Trans i18nKey={'common:collapseSidebar'} />
-        </span>
-      </button>
-    </div>
-  );
-}
-
 export default Sidebar;
 
 function getClassNameBuilder() {
   return cva(
     [
-      'relative flex hidden h-screen flex-row justify-center border-r border-neutral-200 py-4 dark:border-dark-800 lg:flex',
+      'relative flex hidden h-screen flex-col border-r ' +
+        ' border-neutral-200 dark:border-dark-800 lg:flex space-y-4',
     ],
     {
       variants: {
@@ -188,7 +101,7 @@ function getClassNameBuilder() {
 function getSidebarItemClassBuilder() {
   return cva(
     [
-      `flex w-full items-center rounded-md border-transparent text-sm font-semibold transition-colors duration-300`,
+      `flex w-full items-center rounded-md border-transparent text-sm font-base transition-colors duration-300`,
     ],
     {
       variants: {
@@ -197,20 +110,20 @@ function getSidebarItemClassBuilder() {
           false: `py-2 px-3 pr-12 space-x-2.5`,
         },
         active: {
-          true: `bg-primary/5 dark:bg-primary-300/10 dark:text-white`,
-          false: `ring-transparent hover:bg-neutral-50 dark:hover:bg-primary-300/10 active:bg-neutral-100 dark:text-neutral-300 dark:hover:text-white dark:active:bg-dark-700`,
+          true: `bg-primary/5 dark:bg-primary-300/10 font-medium`,
+          false: `ring-transparent hover:bg-neutral-50 dark:hover:bg-dark-800/40 active:bg-neutral-100 dark:text-neutral-300 dark:hover:text-white dark:active:bg-dark-700`,
         },
       },
       compoundVariants: [
         {
           collapsed: true,
           active: true,
-          className: `bg-primary/5 dark:bg-dark-800 text-primary`,
+          className: `bg-primary/5 dark:bg-dark-800 text-primary dark:text-white`,
         },
         {
           collapsed: false,
           active: true,
-          className: `dark:bg-dark-800 text-primary dark:text-primary-foreground`,
+          className: `dark:bg-dark-800 text-primary-700 dark:text-white`,
         },
         {
           collapsed: true,

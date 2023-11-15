@@ -23,16 +23,18 @@ function DeleteProfileContainer() {
   return (
     <div className={'flex flex-col space-y-4'}>
       <div className={'flex flex-col space-y-1'}>
-        <Heading type={5}>
+        <Heading type={6}>
           <Trans i18nKey={'profile:deleteAccount'} />
         </Heading>
 
-        <p className={'text-gray-500'}>
+        <p className={'text-neutral-500 text-sm'}>
           <Trans i18nKey={'profile:deleteAccountDescription'} />
         </p>
       </div>
 
-      <DeleteProfileModal />
+      <div>
+        <DeleteProfileModal />
+      </div>
     </div>
   );
 }
@@ -42,17 +44,9 @@ function DeleteProfileModal() {
     <Modal
       heading={<Trans i18nKey={'profile:deleteAccount'} />}
       Trigger={
-        <div className={'flex flex-col space-y-2'}>
-          <div>
-            <Button data-cy={'delete-account-button'} variant={'destructive'}>
-              <Trans i18nKey={'profile:deleteAccount'} />
-            </Button>
-          </div>
-
-          <p className={'text-sm text-gray-500 dark:text-gray-400'}>
-            <Trans i18nKey={'profile:deleteAccountConfirmationHint'} />
-          </p>
-        </div>
+        <Button data-cy={'delete-account-button'} variant={'destructive'}>
+          <Trans i18nKey={'profile:deleteAccount'} />
+        </Button>
       }
     >
       <ErrorBoundary fallback={<DeleteProfileErrorAlert />}>
@@ -73,9 +67,6 @@ function DeleteProfileForm() {
       <div className={'flex flex-col space-y-6'}>
         <div>
           <Trans i18nKey={'profile:deleteAccountDescription'} />
-        </div>
-        <div>
-          <Trans i18nKey={'profile:deleteAccountDisclaimer'} />
         </div>
 
         <TextFieldLabel>

@@ -14,7 +14,7 @@ const ProfileAvatar: React.FCC<ProfileAvatarProps> = (props) => {
     const photoUrl = props.user.data?.photoUrl;
 
     return (
-      <Avatar>
+      <Avatar className={'mx-auto w-9 h-9'}>
         {photoUrl ? <AvatarImage src={photoUrl} /> : null}
 
         <AvatarFallback>{getUserInitials(props.user)}</AvatarFallback>
@@ -24,7 +24,7 @@ const ProfileAvatar: React.FCC<ProfileAvatarProps> = (props) => {
 
   if ('text' in props && props.text) {
     return (
-      <Avatar>
+      <Avatar className={'mx-auto'}>
         <AvatarFallback>{props.text[0]}</AvatarFallback>
       </Avatar>
     );

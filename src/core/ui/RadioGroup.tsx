@@ -51,10 +51,10 @@ const RadioGroupItemLabel = (
     <label
       className={cn(
         'rounded-md flex cursor-pointer ' +
-          ' items-center space-x-4 border border-input hover:bg-gray-50' +
-          ' active:bg-gray-100 dark:active:bg-primary/20' +
-          ' dark:hover:bg-primary/10 p-4 text-sm text-gray-600' +
-          ' dark:text-gray-400 transition-colors',
+          ' items-center space-x-4 border border-input hover:bg-neutral-50' +
+          ' active:bg-neutral-100 dark:active:bg-primary/20' +
+          ' dark:hover:bg-primary/10 p-4 text-sm text-neutral-600' +
+          ' dark:text-neutral-400 transition-colors',
         props.className,
       )}
     >

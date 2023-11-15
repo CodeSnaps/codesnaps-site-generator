@@ -22,12 +22,18 @@ export function getStoredTheme() {
 export function setTheme(theme: string | null) {
   const root = getHtml();
 
+  const setThemeCookie = (value: string) => {
+    setCookie(THEME_KEY, value, {
+      path: '/',
+    });
+  };
+
   root.classList.remove(DARK_THEME_CLASSNAME);
   root.classList.remove(LIGHT_THEME_CLASSNAME);
 
   switch (theme) {
     case SYSTEM_THEME_CLASSNAME:
-      setCookie(THEME_KEY, SYSTEM_THEME_CLASSNAME);
+      setThemeCookie(SYSTEM_THEME_CLASSNAME);
 
       if (isDarkSystemTheme()) {
         root.classList.add(DARK_THEME_CLASSNAME);
@@ -39,13 +45,13 @@ export function setTheme(theme: string | null) {
       root.classList.add(DARK_THEME_CLASSNAME);
 
       setMetaTag(DARK_THEME_META_COLOR);
-      setCookie(THEME_KEY, DARK_THEME_CLASSNAME);
+      setThemeCookie(DARK_THEME_CLASSNAME);
 
       return;
 
     case LIGHT_THEME_CLASSNAME:
       setMetaTag(LIGHT_THEME_META_COLOR);
-      setCookie(THEME_KEY, LIGHT_THEME_CLASSNAME);
+      setThemeCookie(LIGHT_THEME_CLASSNAME);
 
       return;
   }

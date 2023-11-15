@@ -1,74 +1,18 @@
-'use client';
-
-import useSignOut from '~/core/hooks/use-sign-out';
-import useUserSession from '~/core/hooks/use-user-session';
-import ProfileDropdown from '~/components/ProfileDropdown';
-import MobileNavigation from '~/components/MobileNavigation';
-
-import Heading from '~/core/ui/Heading';
-import AppContainer from './AppContainer';
-
-import OrganizationsSelector from '~/app/dashboard/[organization]/components/organizations/OrganizationsSelector';
-import HeaderSubscriptionStatusBadge from '~/app/dashboard/[organization]/components/organizations/HeaderSubscriptionStatusBadge';
-import useCurrentOrganization from '~/lib/organizations/hooks/use-current-organization';
-import If from '~/core/ui/If';
+import MobileAppNavigation from '~/components/MobileAppNavigation';
+import { PageHeader } from '~/core/ui/Page';
 
 const AppHeader: React.FCC<{
-  Icon?: React.ReactNode;
-}> = ({ children, Icon }) => {
-  const userSession = useUserSession();
-  const signOut = useSignOut();
-  const currentOrganization = useCurrentOrganization();
-
+  title: string | React.ReactNode;
+  description?: string | React.ReactNode;
+}> = ({ children, title, description }) => {
   return (
-    <div className="flex items-center justify-between border-b border-neutral-200 dark:border-dark-800 sticky top-0 bg-neutral-50 dark:bg-black">
-      <AppContainer>
-        <div className={'flex w-full flex-1 justify-between'}>
-          <div
-            className={
-              'flex items-center justify-between space-x-2.5 lg:space-x-0'
-            }
-          >
-            <div className={'flex items-center lg:hidden'}>
-              <If condition={currentOrganization?.uuid}>
-                {(uid) => <MobileNavigation organizationUid={uid} />}
-              </If>
-            </div>
-
-            <div className={'flex items-center space-x-2 lg:space-x-4'}>
-              <div>
-                <OrganizationsSelector />
-              </div>
-
-              <Heading type={5}>
-                <span className={'flex items-center space-x-0.5 lg:space-x-2'}>
-                  {Icon}
-
-                  <span
-                    className={
-                      'lg:text-initial text-base font-medium dark:text-white'
-                    }
-                  >
-                    {children}
-                  </span>
-                </span>
-              </Heading>
-            </div>
-          </div>
-
-          <div className={'flex items-center space-x-4'}>
-            <div className={'hidden items-center md:flex'}>
-              <HeaderSubscriptionStatusBadge />
-            </div>
-
-            <ProfileDropdown
-              userSession={userSession}
-              signOutRequested={signOut}
-            />
-          </div>
-        </div>
-      </AppContainer>
-    </div>
+    <PageHeader
+      title={title}
+      description={description}
+      mobileNavigation={<MobileAppNavigation />}
+    >
+      {children}
+    </PageHeader>
   );
 };
 

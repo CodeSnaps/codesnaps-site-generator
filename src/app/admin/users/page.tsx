@@ -1,6 +1,6 @@
 import { use } from 'react';
 
-import AppContainer from '~/app/dashboard/[organization]/components/AppContainer';
+import { PageBody } from '~/core/ui/Page';
 import AdminHeader from '~/app/admin/components/AdminHeader';
 import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 import AdminGuard from '~/app/admin/components/AdminGuard';
@@ -30,14 +30,14 @@ function UsersAdminPage({ searchParams }: UsersAdminPageProps) {
     <div className={'flex flex-1 flex-col'}>
       <AdminHeader>Users</AdminHeader>
 
-      <AppContainer>
+      <PageBody>
         <UsersTable
           users={users}
           page={page}
           pageCount={pageCount}
           perPage={perPage}
         />
-      </AppContainer>
+      </PageBody>
     </div>
   );
 }

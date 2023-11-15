@@ -5,6 +5,8 @@
   "profileSettingsTabLabel": "Profile",
   "subscriptionSettingsTabLabel": "Subscription",
   "savedComponentsTabLabel": "Saved",
+  "dashboardTabDescription": "An overview of your organization's activity and performance across all your projects.",
+  "settingsTabDescription": "Manage your settings and preferences.",
   "emailAddress": "Email Address",
   "password": "Password",
   "modalConfirmationQuestion": "Are you sure you want to continue?",

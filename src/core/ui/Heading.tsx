@@ -12,7 +12,7 @@ const Heading: React.FCC<{ type?: HeadingType; className?: string }> = ({
       return (
         <h1
           className={classNames(
-            `font-heading scroll-m-20 text-4xl font-semibold tracking-tight dark:text-white`,
+            `font-heading scroll-m-20 text-4xl font-bold tracking-tight dark:text-white`,
             className,
           )}
         >
@@ -22,8 +22,10 @@ const Heading: React.FCC<{ type?: HeadingType; className?: string }> = ({
     case 2:
       return (
         <h2
-          className={classNames(`font-heading scroll-m-20 pb-2 text-3xl font-medium' +
-            ' tracking-tight transition-colors first:mt-0'`)}
+          className={classNames(
+            `font-heading scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0`,
+            className,
+          )}
         >
           {children}
         </h2>
@@ -31,9 +33,11 @@ const Heading: React.FCC<{ type?: HeadingType; className?: string }> = ({
     case 3:
       return (
         <h3
-          className={
-            'font-heading scroll-m-20 text-2xl font-medium tracking-tight'
-          }
+          className={classNames(
+            'font-heading scroll-m-20' +
+              ' text-2xl font-semibold tracking-tight',
+            className,
+          )}
         >
           {children}
         </h3>
@@ -41,22 +45,33 @@ const Heading: React.FCC<{ type?: HeadingType; className?: string }> = ({
     case 4:
       return (
         <h4
-          className={
-            'font-heading scroll-m-20 text-xl font-medium tracking-tight'
-          }
+          className={classNames(
+            'font-heading scroll-m-20 text-xl font-semibold tracking-tight',
+            className,
+          )}
         >
           {children}
         </h4>
       );
     case 5:
       return (
-        <h5 className={'scroll-m-20 font-heading text-lg font-medium'}>
+        <h5
+          className={classNames(
+            'scroll-m-20 font-heading text-lg font-medium',
+            className,
+          )}
+        >
           {children}
         </h5>
       );
     case 6:
       return (
-        <h6 className={'scroll-m-20 font-heading text-base font-medium'}>
+        <h6
+          className={classNames(
+            'scroll-m-20 font-heading text-base' + ' font-medium',
+            className,
+          )}
+        >
           {children}
         </h6>
       );

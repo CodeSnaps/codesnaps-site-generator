@@ -57,14 +57,15 @@ export default NavigationMenuItem;
 function getNavigationMenuItemClassBuilder() {
   return cva(
     [
-      `p-1 lg:px-2.5 flex items-center justify-center font-medium lg:justify-start rounded-md text-sm transition colors transform active:translate-y-[2px]`,
+      `flex items-center justify-center font-medium lg:justify-start rounded-md text-sm transition colors transform active:translate-y-[2px]`,
+      '[&>*]:p-1 [&>*]:lg:px-2.5 [&>*]:w-full [&>*]:h-full [&>*]:flex [&>*]:items-center',
     ],
     {
       compoundVariants: [
         // not active - shared
         {
           active: false,
-          className: `active:text-current text-neutral-600 dark:text-neutral-300
+          className: `active:text-current text-neutral-500 dark:text-neutral-300
         hover:text-current dark:hover:text-white`,
         },
         // active - shared
@@ -76,7 +77,7 @@ function getNavigationMenuItemClassBuilder() {
         {
           active: true,
           pill: true,
-          className: `bg-neutral-50 text-neutral-600 dark:bg-primary-300/10`,
+          className: `bg-neutral-50 text-neutral-800 dark:bg-primary-300/10`,
         },
         // not active - pill
         {
@@ -94,7 +95,7 @@ function getNavigationMenuItemClassBuilder() {
         {
           active: true,
           bordered: true,
-          className: `top-[0.4rem] border-b-[0.25rem] rounded-none border-primary bg-transparent pb-[0.8rem] text-current dark:text-white`,
+          className: `top-[0.4rem] border-b-[0.25rem] rounded-none border-primary bg-transparent pb-[0.8rem] text-primary-700 dark:text-white`,
         },
         // active - secondary
         {
@@ -108,7 +109,7 @@ function getNavigationMenuItemClassBuilder() {
           true: ``,
         },
         pill: {
-          true: `py-2`,
+          true: `[&>*]:py-2`,
         },
         bordered: {
           true: `relative h-10`,

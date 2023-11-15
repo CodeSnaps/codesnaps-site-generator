@@ -22,8 +22,9 @@ import Trans from '~/core/ui/Trans';
 import useSupabase from '~/core/hooks/use-supabase';
 import useFactorsMutationKey from '~/core/hooks/use-user-factors-mutation-key';
 
-import SettingsTile from '~/app/dashboard/[organization]/settings/components/SettingsTile';
+import SettingsTile from '../../../components/SettingsTile';
 import MultiFactorAuthSetupModal from '../../components/MultiFactorAuthSetupModal';
+
 import {
   Table,
   TableBody,

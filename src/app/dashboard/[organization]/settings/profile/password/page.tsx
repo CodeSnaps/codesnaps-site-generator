@@ -1,7 +1,7 @@
-import UpdatePasswordFormContainer from '~/app/dashboard/[organization]/settings/profile/components/UpdatePasswordFormContainer';
-import SettingsTile from '~/app/dashboard/[organization]/settings/components/SettingsTile';
-import Trans from '~/core/ui/Trans';
 import { withI18n } from '~/i18n/with-i18n';
+import { Section, SectionBody, SectionHeader } from '~/core/ui/Section';
+import Trans from '~/core/ui/Trans';
+import UpdatePasswordFormContainer from '../components/UpdatePasswordFormContainer';
 
 export const metadata = {
   title: 'Update Password',
@@ -9,12 +9,15 @@ export const metadata = {
 
 const ProfilePasswordSettingsPage = () => {
   return (
-    <SettingsTile
-      heading={<Trans i18nKey={'profile:passwordTab'} />}
-      subHeading={<Trans i18nKey={'profile:passwordTabSubheading'} />}
-    >
-      <UpdatePasswordFormContainer />
-    </SettingsTile>
+    <Section>
+      <SectionHeader
+        title={<Trans i18nKey={'profile:passwordTab'} />}
+        description={<Trans i18nKey={'profile:passwordTabSubheading'} />}
+      />
+      <SectionBody>
+        <UpdatePasswordFormContainer />
+      </SectionBody>
+    </Section>
   );
 };
 

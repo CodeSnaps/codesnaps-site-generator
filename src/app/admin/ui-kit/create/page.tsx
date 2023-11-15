@@ -1,4 +1,4 @@
-import AppContainer from '~/app/dashboard/[organization]/components/AppContainer';
+import { PageBody } from '~/core/ui/Page';
 import CreateComponentHeader from '~/app/admin/ui-kit/components/CreateComponentHeader';
 import AdminGuard from '~/app/admin/components/AdminGuard';
 
@@ -15,11 +15,11 @@ function CreateComponentPage() {
     <div className={'flex flex-1 flex-col'}>
       <CreateComponentHeader>Create Component</CreateComponentHeader>
 
-      <AppContainer>
+      <PageBody>
         <div className={'max-w-4xl my-10 lg:px-10 lg:my-14'}>
           <CreateComponentForm />
         </div>
-      </AppContainer>
+      </PageBody>
     </div>
   );
 }

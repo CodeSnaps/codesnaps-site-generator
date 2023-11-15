@@ -6,7 +6,7 @@ import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 import AdminHeader from '~/app/admin/components/AdminHeader';
 import AdminGuard from '~/app/admin/components/AdminGuard';
-import AppContainer from '~/app/dashboard/[organization]/components/AppContainer';
+import { PageBody } from '~/core/ui/Page';
 import { TextFieldInput, TextFieldLabel } from '~/core/ui/TextField';
 import Heading from '~/core/ui/Heading';
 
@@ -55,7 +55,7 @@ function AdminUserPage({ params }: Params) {
     <div className={'flex flex-col flex-1'}>
       <AdminHeader>Manage User</AdminHeader>
 
-      <AppContainer>
+      <PageBody>
         <div className={'flex flex-col space-y-6'}>
           <div className={'flex justify-between'}>
             <Breadcrumbs displayName={displayName ?? email ?? ''} />
@@ -144,7 +144,7 @@ function AdminUserPage({ params }: Params) {
             </Table>
           </Tile>
         </div>
-      </AppContainer>
+      </PageBody>
     </div>
   );
 }

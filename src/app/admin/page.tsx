@@ -1,5 +1,5 @@
-import AppContainer from '~/app/dashboard/[organization]/components/AppContainer';
 import AdminHeader from '~/app/admin/components/AdminHeader';
+import { PageBody } from '~/core/ui/Page';
 import AdminGuard from '~/app/admin/components/AdminGuard';
 import AdminDashboard from '~/app/admin/components/AdminDashboard';
 import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
@@ -17,9 +17,9 @@ async function AdminPage() {
     <div className={'flex flex-col flex-1'}>
       <AdminHeader>Admin</AdminHeader>
 
-      <AppContainer>
+      <PageBody>
         <AdminDashboard data={data} />
-      </AppContainer>
+      </PageBody>
     </div>
   );
 }

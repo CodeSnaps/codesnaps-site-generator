@@ -109,11 +109,11 @@ function PricingItem(
       data-cy={'subscription-plan'}
       className={classNames(
         `
-         relative flex w-full flex-col justify-between space-y-6 rounded-xl
+         relative flex w-full flex-col justify-between space-y-6 rounded-lg
          p-6 lg:w-4/12 xl:p-8 2xl:w-3/12 xl:max-w-xs
       `,
         {
-          ['border-neutral-200 dark:border-dark-900 border-2']: !recommended,
+          ['border-neutral-300 dark:border-dark-800 border']: !recommended,
           ['border-primary border-2']: recommended,
         },
       )}
@@ -253,20 +253,21 @@ function PlansSwitcher(
         const selected = plan === props.plan;
 
         const className = classNames('focus:!ring-0 !outline-none', {
-          'rounded-r-none': index === 0,
+          'rounded-r-none border-r-transparent': index === 0,
           'rounded-l-none': index === props.plans.length - 1,
-          ['border-neutral-100 dark:border-dark-800 hover:bg-neutral-50' +
-          ' dark:hover:bg-background/80']: !selected,
+          ['hover:bg-neutral-50 dark:hover:bg-background/80']: !selected,
+          ['text-primary-700 dark:text-primary-600 font-semibold' +
+          ' hover:bg-background hover:text-initial']: selected,
         });
 
         return (
           <Button
             key={plan}
-            variant={selected ? 'outlinePrimary' : 'outline'}
+            variant={'outline'}
             className={className}
             onClick={() => props.setPlan(plan)}
           >
-            <span className={'flex space-x-2 items-center'}>
+            <span className={'flex space-x-1 items-center'}>
               <If condition={selected}>
                 <CheckCircleIcon className={'h-4'} />
               </If>

@@ -120,8 +120,7 @@
   "dangerZone": "Danger Zone",
   "dangerZoneSubheading": "Some actions cannot be undone. Please be careful.",
   "deleteAccount": "Delete your Account",
-  "deleteAccountConfirmationHint": "You will be asked to confirm this action in the next step.",
-  "deleteAccountDescription": "This will delete your account and the organizations you own. Furthermore, we will immediately cancel any active subscriptions. This action cannot be undone.",
+  "deleteAccountDescription": "This will delete your account and the organizations you own. Furthermore, we will immediately cancel any active subscriptions. This action cannot be undone. You will be asked to confirm this action in the next step.",
   "deleteAccountDisclaimer": "Important: Before deleting your account, remove all saved components.",
   "deleteProfileConfirmationInputLabel": "Type DELETE to confirm",
   "deleteAccountErrorHeading": "Sorry, we couldn't delete your account"

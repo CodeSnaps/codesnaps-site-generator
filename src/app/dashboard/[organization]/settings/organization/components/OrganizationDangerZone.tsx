@@ -51,11 +51,11 @@ function DeleteOrganizationContainer() {
   return (
     <div className={'flex flex-col space-y-4'}>
       <div className={'flex flex-col space-y-1'}>
-        <Heading type={5}>
+        <Heading type={6}>
           <Trans i18nKey={'organization:deleteOrganization'} />
         </Heading>
 
-        <p className={'text-neutral-500'}>
+        <p className={'text-neutral-500 text-sm'}>
           <Trans
             i18nKey={'organization:deleteOrganizationDescription'}
             values={{
@@ -65,10 +65,10 @@ function DeleteOrganizationContainer() {
         </p>
       </div>
 
-      <Modal
-        heading={<Trans i18nKey={'organization:deletingOrganization'} />}
-        Trigger={
-          <div>
+      <div>
+        <Modal
+          heading={<Trans i18nKey={'organization:deletingOrganization'} />}
+          Trigger={
             <Button
               data-cy={'delete-organization-button'}
               type={'button'}
@@ -76,13 +76,13 @@ function DeleteOrganizationContainer() {
             >
               <Trans i18nKey={'organization:deleteOrganization'} />
             </Button>
-          </div>
-        }
-      >
-        <If condition={organization}>
-          {({ name, id }) => <DeleteOrganizationForm name={name} id={id} />}
-        </If>
-      </Modal>
+          }
+        >
+          <If condition={organization}>
+            {({ name, id }) => <DeleteOrganizationForm name={name} id={id} />}
+          </If>
+        </Modal>
+      </div>
     </div>
   );
 }
