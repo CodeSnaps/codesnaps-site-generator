@@ -5,7 +5,8 @@ import configuration from '~/configuration';
 
 import { categories } from '~/lib/components/database/filter-list';
 
-const siteUrl = configuration.site.siteUrl as string;
+// const siteUrl = configuration.site.siteUrl as string;
+const siteUrl = 'https://www.codesnaps.io';
 
 if (!siteUrl) {
   throw new Error(`Invalid "siteUrl", please fix in configuration.ts`);
