@@ -1,4 +1,3 @@
-import { join } from 'path';
 import { getServerSideSitemap } from 'next-sitemap';
 import { allPosts } from 'contentlayer/generated';
 import configuration from '~/configuration';
@@ -16,6 +15,10 @@ export async function GET() {
   const posts = getPostsSitemap();
   const components = getAllComponents();
 
+  console.log('urls', urls);
+  console.log('posts', posts);
+  console.log('components', components);
+
   return getServerSideSitemap([...urls, ...posts, ...components]);
 }
 
@@ -23,8 +26,11 @@ function getSiteUrls() {
   const urls = ['', 'faq', 'pricing', 'browse-components'];
 
   return urls.map((url) => {
+    const fullUrl = new URL(siteUrl);
+    fullUrl.pathname = url;
+
     return {
-      loc: join(siteUrl, url),
+      loc: fullUrl.toString(),
       lastmod: new Date().toISOString(),
     };
   });
@@ -32,8 +38,11 @@ function getSiteUrls() {
 
 function getPostsSitemap() {
   return allPosts.map((post) => {
+    const fullUrl = new URL(siteUrl);
+    fullUrl.pathname = post.url;
+
     return {
-      loc: join(siteUrl, post.url),
+      loc: fullUrl.toString(),
       lastmod: new Date().toISOString(),
     };
   });
@@ -43,8 +52,11 @@ function getAllComponents() {
   const remainingCategories = categories.slice(1);
 
   return remainingCategories.map((category) => {
+    const fullUrl = new URL(siteUrl);
+    fullUrl.pathname = category.href;
+
     return {
-      loc: join(siteUrl, category.href),
+      loc: fullUrl.toString(),
       lastmod: new Date().toISOString(),
     };
   });
