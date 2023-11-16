@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import { useSearchParams } from 'next/navigation';
 
+import Alert from '~/core/ui/Alert';
 import Component from '~/lib/components/types/component';
 import ComponentGridItem from '~/app/dashboard/[organization]/components/ui-kit/ComponentGridItem';
 
@@ -43,6 +44,7 @@ export default function ComponentGrid(
 
         <div className="max-w-[1400px] mx-auto">
           <PaginationControl pageIndex={pageIndex} pageCount={pageCount} />
+          {!components.length && <ResetPageNumber pageIndex={pageIndex} />}
         </div>
       </div>
     </>
@@ -131,6 +133,44 @@ function PaginationControl({
         </div>
       )}
     </>
+  );
+}
+
+function ResetPageNumber({ pageIndex }: { pageIndex: number }) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const entries = Array.from(searchParams.entries());
+
+  return (
+    <div className="max-w-lg mx-auto">
+      <Alert type="warn" className="mb-4">
+        <Alert.Heading>No components on page {pageIndex}</Alert.Heading>
+        <p>Go back to the first page or try to adjust the filters!</p>
+      </Alert>
+
+      <div className="flex justify-center mt-10">
+        <nav
+          className="relative z-0 inline-flex rounded-md shadow-sm -space-x-1 items-center"
+          aria-label="Pagination"
+        >
+          <button
+            onClick={() =>
+              router.push(`${pathname}?page=1${formatKeyValuesArray(entries)}`)
+            }
+            className="relative inline-flex gap-2 items-center px-2.5 py-2 rounded-lg bg-white dark:bg-black border border-neutral-300 dark:border-neutral-600 text-sm font-medium text-neutral-500 hover:bg-neutral-50 dark:hover:bg-neutral-800 dark:text-neutral-100"
+            disabled={pageIndex === 0}
+          >
+            <span className="sr-only">Previous</span>
+            To Page 1
+            <ChevronRightIcon
+              className="h-5 w-5 stroke-neutral-600 dark:stroke-neutral-100"
+              aria-hidden="true"
+            />
+          </button>
+        </nav>
+      </div>
+    </div>
   );
 }
 

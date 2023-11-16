@@ -49,10 +49,10 @@ export default function Home() {
         <div className="flex justify-center py-12 max-w-5xl mx-auto animate-in fade-in duration-1000 slide-in-from-top-16 fill-mode-both delay-300">
           <Image
             priority
-            className="shadow-[0_0_1000px_0] rounded-2xl shadow-primary/40 animate-in fade-in zoom-in-50 delay-300 duration-1000 ease-out fill-mode-both"
+            className="rounded-2xl animate-in fade-in zoom-in-50 delay-300 duration-1000 ease-out fill-mode-both"
             width={2688}
             height={1824}
-            src="/assets/images/dashboard-dark.webp"
+            src="/assets/images/Dashboard.webp"
             alt="App Image"
           />
         </div>
@@ -126,7 +126,7 @@ export default function Home() {
             <RightFeatureContainer>
               <Image
                 className="rounded-2xl dark:border-2 dark:border-neutral-700"
-                src="/assets/images/code-snippet.webp"
+                src="/assets/images/CodeSnippet.webp"
                 width={626}
                 height={683}
                 alt="Code Snippet"
@@ -138,7 +138,7 @@ export default function Home() {
             <LeftFeatureContainer>
               <Image
                 className="rounded-2xl dark:border-2 dark:border-neutral-700 my-10 lg:my-0"
-                src="/assets/images/filtering.webp"
+                src="/assets/images/Filtering.webp"
                 width={626}
                 height={683}
                 alt="Component Filtering"
