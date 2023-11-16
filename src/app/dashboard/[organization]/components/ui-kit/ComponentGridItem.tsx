@@ -41,20 +41,16 @@ export default function ComponentGridItem(
       preview_url,
     };
 
-    const { error, success } = await favoriteComponent(
-      client,
-      props.organization,
-      id,
-      data,
-    );
-
-    if (error?.code === '23505') {
-      toast.error('Component already saved');
-      return;
-    }
+    const { error, errorMessage, isDuplicate, success } =
+      await favoriteComponent(client, props.organization, id, data);
 
     if (error) {
       toast.error("Couldn't save component");
+      return;
+    }
+
+    if (isDuplicate) {
+      toast.error(errorMessage);
       return;
     }
 

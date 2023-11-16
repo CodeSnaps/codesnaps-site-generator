@@ -29,20 +29,16 @@ function SaveComponentButton({ params }: Props) {
       preview_url: params.component.preview_url,
     };
 
-    const { error, success } = await favoriteComponent(
-      client,
-      params.organization,
-      params.uuid,
-      data,
-    );
-
-    if (error?.code === '23505') {
-      toast.error('Component already saved');
-      return;
-    }
+    const { error, errorMessage, isDuplicate, success } =
+      await favoriteComponent(client, params.organization, params.uuid, data);
 
     if (error) {
       toast.error("Couldn't save component");
+      return;
+    }
+
+    if (isDuplicate) {
+      toast.error(errorMessage);
       return;
     }
 

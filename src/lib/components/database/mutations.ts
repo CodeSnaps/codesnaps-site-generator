@@ -90,6 +90,27 @@ export async function favoriteComponent(
   component_id: string,
   propData: any,
 ) {
+  // Check if component is already saved
+  const savedComponent = await client
+    .from(SAVED_COMPONENTS_TABLE)
+    .select('*')
+    .eq('component_id', component_id)
+    .eq('organization_id', organization_id)
+    .single();
+
+  if (savedComponent.error) {
+    console.error('Error creating component:', savedComponent.error);
+  }
+
+  if (savedComponent.data) {
+    return {
+      success: false,
+      isDuplicate: true,
+      error: savedComponent.error,
+      errorMessage: 'Component already saved',
+    };
+  }
+
   const payload = {
     name: propData.name,
     is_free: propData.is_free,
@@ -109,11 +130,19 @@ export async function favoriteComponent(
 
   if (error) {
     console.error('Error creating component:', error);
+    return {
+      success: false,
+      isDuplicate: false,
+      error,
+      errorMessage: 'Error saving component',
+    };
   }
 
   return {
     success: status === 201,
-    error,
+    isDuplicate: false,
+    error: null,
+    errorMessage: '',
   };
 }
 
