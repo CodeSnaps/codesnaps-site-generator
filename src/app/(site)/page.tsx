@@ -138,7 +138,7 @@ export default function Home() {
             <LeftFeatureContainer>
               <Image
                 className="rounded-2xl dark:border-2 dark:border-neutral-700 my-10 lg:my-0"
-                src="/assets/images/Filtering.webp"
+                src="/assets/images/ComponentFiltering.webp"
                 width={626}
                 height={683}
                 alt="Component Filtering"
