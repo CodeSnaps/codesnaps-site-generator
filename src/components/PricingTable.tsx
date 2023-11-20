@@ -131,7 +131,7 @@ function PricingItem(
                 `rounded-md py-1 px-2 text-xs font-medium flex space-x-1`,
                 {
                   ['text-primary-foreground bg-primary']: recommended,
-                  ['bg-neutral-50 text-neutral-500 dark:text-neutral-800']:
+                  ['bg-neutral-200 dark:bg-neutral-50 text-neutral-800']:
                     !recommended,
                 },
               )}
