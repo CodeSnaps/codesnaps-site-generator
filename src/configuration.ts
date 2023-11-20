@@ -100,6 +100,31 @@ const configuration = {
         ],
       },
       {
+        name: 'Lifetime',
+        badge: `Limited Time`,
+        recommended: true,
+        description:
+          'This is a one time payment for lifetime access. Only available for a limited time.',
+        features: [
+          'Built in dark mode',
+          'Copy and paste code snippets',
+          'Filter and search',
+          'Save favorite components',
+          'Invite team members',
+          'Access to all components',
+          'New components every week',
+          'Lifetime access',
+        ],
+        plans: [
+          {
+            name: '',
+            price: '$99',
+            stripePriceId: 'price_1OEWjZCjllA7kCqF9LzgpE12',
+            mode: 'payment',
+          },
+        ],
+      },
+      {
         name: 'Pro',
         badge: `Full Access`,
         description: 'To access all components and new components every week.',
@@ -124,31 +149,6 @@ const configuration = {
             price: '$99.99',
             stripePriceId: 'price_1OAAlbCjllA7kCqFXYX2pTOp',
             mode: 'subscription',
-          },
-        ],
-      },
-      {
-        name: 'Lifetime',
-        badge: `Limited Time`,
-        recommended: true,
-        description:
-          'This is a one time payment for lifetime access. Only available for a limited time.',
-        features: [
-          'Built in dark mode',
-          'Copy and paste code snippets',
-          'Filter and search',
-          'Save favorite components',
-          'Invite team members',
-          'Access to all components',
-          'New components every week',
-          'Lifetime access',
-        ],
-        plans: [
-          {
-            name: '',
-            price: '$99',
-            stripePriceId: 'price_1OEWjZCjllA7kCqF9LzgpE12',
-            mode: 'payment',
           },
         ],
       },
