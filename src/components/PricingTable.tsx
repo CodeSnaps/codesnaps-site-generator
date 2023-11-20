@@ -31,6 +31,7 @@ interface PricingItemProps {
     price: string;
     label?: string;
     href?: string;
+    mode?: string;
   };
 }
 
@@ -150,6 +151,17 @@ function PricingItem(
 
       <div className={'flex items-end space-x-1'}>
         <Price>{props.plan.price}</Price>
+
+        <If condition={props.plan.mode === 'payment'}>
+          <span
+            className={classNames(
+              `text-lg lowercase text-neutral-500 dark:text-neutral-400`,
+            )}
+          >
+            <span>/</span>
+            <span>one-time</span>
+          </span>
+        </If>
 
         <If condition={props.plan.name}>
           <span

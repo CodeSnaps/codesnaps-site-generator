@@ -1,4 +1,5 @@
 import type { Stripe } from 'stripe';
+import configuration from '~/configuration';
 import getStripeInstance from '~/core/stripe/get-stripe';
 
 interface CreateCheckoutParams {
@@ -33,7 +34,31 @@ export default async function createStripeCheckout(
   // if it's a one-time payment
   // you should change this to "payment"
   // docs: https://stripe.com/docs/billing/subscriptions/build-subscription
-  const mode: Stripe.Checkout.SessionCreateParams.Mode = 'subscription';
+  // const mode: Stripe.Checkout.SessionCreateParams.Mode = 'subscription';
+
+  let foundPrice = null;
+
+  for (const product of configuration.stripe.products) {
+    const plan = product.plans.find(
+      (plan) => plan.stripePriceId === params.priceId,
+    );
+
+    if (plan) {
+      foundPrice = plan;
+      break;
+    }
+  }
+
+  if (!foundPrice) {
+    throw new Error(`Price with ID ${params.priceId} not found in config`);
+  }
+
+  console.log('foundPrice', foundPrice);
+
+  const mode: Stripe.Checkout.SessionCreateParams.Mode =
+    foundPrice.mode as Stripe.Checkout.SessionCreateParams.Mode;
+
+  console.log('mode', mode);
 
   // get stripe instance
   const stripe = await getStripeInstance();
@@ -64,9 +89,9 @@ export default async function createStripeCheckout(
     customer,
     line_items: [lineItem],
     client_reference_id: clientReferenceId.toString(),
-    subscription_data: subscriptionData,
     customer_email: params.customerEmail,
     allow_promotion_codes: true,
+    ...(mode === 'subscription' ? { subscription_data: subscriptionData } : {}),
     ...urls,
   });
 }
