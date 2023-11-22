@@ -8,6 +8,7 @@ import { I18N_COOKIE_NAME } from '~/i18n/i18n.settings';
 
 import ThemeSetter from '~/components/ThemeSetter';
 import Fonts from '~/components/Fonts';
+import PlausibleProvider from 'next-plausible';
 
 import configuration from '~/configuration';
 
@@ -20,6 +21,10 @@ export default async function RootLayout({
 
   return (
     <html lang={i18n.language} className={getClassName()}>
+      <head>
+        <PlausibleProvider domain="codesnaps.io" />
+      </head>
+
       <Fonts />
       <ThemeSetter />
 
@@ -45,7 +50,7 @@ function getLanguageCookie() {
 export const metadata = {
   title: configuration.site.name,
   description: configuration.site.description,
- metadataBase: new URL(configuration.site.siteUrl!),
+  metadataBase: new URL(configuration.site.siteUrl!),
   openGraph: {
     url: configuration.site.siteUrl,
     siteName: configuration.site.siteName,
