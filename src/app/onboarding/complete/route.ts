@@ -85,6 +85,47 @@ export const POST = async (req: NextRequest) => {
 
   const returnUrl = [configuration.paths.appHome, organizationUid].join('/');
 
+  // Add user to email service provider
+  try {
+    const options = {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${process.env.LOOPS_ONBOARDING_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: session.user.email,
+        subscribed: true,
+        userId: userId,
+      }),
+    };
+
+    const response = await fetch(
+      'https://app.loops.so/api/v1/contacts/create',
+      options,
+    );
+    const responseData = await response.json();
+
+    logger.info(
+      {
+        userId,
+        organizationUid,
+        emailServiceProviderResponse: responseData,
+      },
+      `User successfully added to email service provider`,
+    );
+  } catch (error) {
+    logger.error(
+      {
+        error,
+        userId,
+      },
+      `Error adding user to email service provider`,
+    );
+
+    return throwInternalServerErrorException();
+  }
+
   return NextResponse.json({
     success: true,
     returnUrl,
