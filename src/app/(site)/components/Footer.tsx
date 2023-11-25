@@ -56,7 +56,7 @@ function Footer() {
 
                 <FooterSectionList>
                   <FooterLink>
-                    <Link href={'/browse'}>Components</Link>
+                    <Link href={'/browse-components'}>Components</Link>
                   </FooterLink>
                   <FooterLink>
                     <Link href={'/faq'}>FAQ</Link>
