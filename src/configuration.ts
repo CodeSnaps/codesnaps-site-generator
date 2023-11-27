@@ -70,7 +70,7 @@ const configuration = {
   },
   stripe: {
     embedded: true,
-    displayMode: StripeCheckoutDisplayMode.Popup,
+    displayMode: StripeCheckoutDisplayMode.Overlay,
     products: [
       {
         name: 'Free',

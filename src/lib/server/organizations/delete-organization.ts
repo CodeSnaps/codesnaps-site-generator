@@ -4,6 +4,8 @@ import { SupabaseClient } from '@supabase/supabase-js';
 import {
   ORGANIZATIONS_SUBSCRIPTIONS_TABLE,
   ORGANIZATIONS_TABLE,
+  LIFETIME_SUBSCRIPTIONS_TABLE,
+  SAVED_COMPONENTS_TABLE,
 } from '~/lib/db-tables';
 
 import getSupabaseServerActionClient from '~/core/supabase/action-client';
@@ -48,6 +50,85 @@ export default async function deleteOrganization(
     // cancel the Stripe subscription if it exists
     if (id) {
       await cancelStripeSubscription(id);
+    }
+  }
+
+  // get the organization UUID
+  const organizationUUIDResponse = await client
+    .from(ORGANIZATIONS_TABLE)
+    .select('uuid')
+    .eq('id', organizationId)
+    .single();
+
+  if (organizationUUIDResponse.error) {
+    logger.info(
+      { ...params, error: organizationUUIDResponse.error },
+      `Error fetching organization UUID`,
+    );
+
+    throw new Error(`Error fetching organization UUID`);
+  }
+
+  const organizationUUID = organizationUUIDResponse.data.uuid;
+
+  // delete the lifetime subscription if it exists
+  const lifetimeSubscriptionResponse = await client
+    .from(LIFETIME_SUBSCRIPTIONS_TABLE)
+    .select()
+    .eq('organization_uid', organizationUUID)
+    .single();
+
+  if (lifetimeSubscriptionResponse.data) {
+    const id = lifetimeSubscriptionResponse.data.id;
+
+    // delete the lifetime subscription if it exists
+    if (id) {
+      const response = await client
+        .from(LIFETIME_SUBSCRIPTIONS_TABLE)
+        .delete()
+        .eq('id', id);
+
+      if (response.error) {
+        logger.info(
+          { ...params, error: response.error },
+          `Error deleting lifetime subscription`,
+        );
+
+        throw new Error(`Error deleting lifetime subscription`);
+      }
+    }
+  }
+
+  // delete all saved components
+  const savedComponentsResponse = await client
+    .from(SAVED_COMPONENTS_TABLE)
+    .select('id')
+    .eq('organization_id', organizationUUID);
+
+  if (savedComponentsResponse.error) {
+    logger.info(
+      { ...params, error: savedComponentsResponse.error },
+      `Error fetching saved components`,
+    );
+
+    throw new Error(`Error fetching saved components`);
+  }
+
+  const savedComponents = savedComponentsResponse.data;
+
+  if (savedComponents) {
+    const response = await client
+      .from(SAVED_COMPONENTS_TABLE)
+      .delete()
+      .eq('organization_id', organizationUUID);
+
+    if (response.error) {
+      logger.info(
+        { ...params, error: response.error },
+        `Error deleting saved components`,
+      );
+
+      throw new Error(`Error deleting saved components`);
     }
   }
 
