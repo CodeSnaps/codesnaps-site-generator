@@ -29,3 +29,25 @@ begin
 end;
 $function$
 ;
+
+
+create type payment_status as ENUM (
+    'requires_payment_method',
+    'requires_confirmation',
+    'requires_action',
+    'processing',
+    'requires_capture',
+    'canceled',
+    'succeeded',
+    'complete',
+    'incomplete'
+);
+
+create table lifetime_subscriptions (
+  id text not null primary key,
+  organization_uid uuid not null references public.organizations (uuid),
+  amount int not null,
+  currency text,
+  status payment_status not null
+);
+

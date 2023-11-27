@@ -12,7 +12,7 @@ import PlanSelectionForm from '~/app/dashboard/[organization]/settings/subscript
 import IfHasPermissions from '~/components/IfHasPermissions';
 import BillingPortalRedirectButton from '~/app/dashboard/[organization]/settings/subscription/components/BillingRedirectButton';
 
-const Plans: React.FC = () => {
+const Plans = ({ isLifetime }: { isLifetime: boolean }) => {
   const organization = useCurrentOrganization();
 
   if (!organization) {
@@ -21,6 +21,24 @@ const Plans: React.FC = () => {
 
   const customerId = organization.subscription?.customerId;
   const subscription = organization.subscription?.data;
+
+  if (isLifetime) {
+    return (
+      <div className="py-10">
+        <div className={'flex flex-col space-y-2'}>
+          <h4 className="font-heading scroll-m-20 text-xl font-semibold tracking-tight">
+            You're on a lifetime plan
+          </h4>
+          <p className="text-neutral-500 dark:text-neutral-400">
+            You don't need to worry about billing. Thank you for your support!
+          </p>
+          <p className="text-neutral-500 dark:text-neutral-400">
+            If you have any questions, please contact us at info@codesnaps.io
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   if (!subscription) {
     return (

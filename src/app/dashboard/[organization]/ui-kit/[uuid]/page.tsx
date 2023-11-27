@@ -8,6 +8,7 @@ import {
 } from '~/lib/components/database/queries';
 import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 import loadAppData from '~/lib/server/loaders/load-app-data';
+import loadLifetimeSubscription from '~/lib/server/loaders/load-lifetime-data';
 import { redirect } from 'next/navigation';
 import { Stripe } from 'stripe';
 
@@ -185,10 +186,13 @@ function ComponentDetailPage({ params }: ComponentDetailPageProps) {
 export default ComponentDetailPage;
 
 async function canUserAccessPage(organizationUid: string) {
-  const data = await loadAppData(organizationUid);
-  const subscription = data.organization?.subscription?.data;
+  const lifetime = await loadLifetimeSubscription(organizationUid);
+  const appData = await loadAppData(organizationUid);
+  const subscription = appData.organization?.subscription?.data;
 
-  return subscription && isSubscriptionActive(subscription.status);
+  return (
+    (subscription && isSubscriptionActive(subscription.status)) || lifetime
+  );
 }
 
 function isSubscriptionActive(status: Stripe.Subscription.Status) {

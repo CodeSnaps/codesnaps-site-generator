@@ -952,7 +952,7 @@ export default function Footer() {
         <div className="xl:grid xl:grid-cols-2 xl:gap-8">
           <div className="space-y-8">
             <Logo
-              className="h-7 fill-neutral-950 dark:fill-white"
+              className="h-7 w-auto fill-neutral-950 dark:fill-white"
               alt="Company name"
             />
             <p className="text-sm leading-6 text-neutral-600 dark:text-neutral-400">
@@ -1179,7 +1179,7 @@ export default function Footer() {
         <div className="xl:grid xl:grid-cols-2 xl:gap-8">
           <div className="space-y-8">
             <Logo
-              className="h-7 fill-neutral-950 dark:fill-white"
+              className="h-7 w-auto fill-neutral-950 dark:fill-white"
               alt="Company name"
             />
             <p className="text-sm leading-6 text-neutral-600 dark:text-neutral-400">
@@ -1407,7 +1407,7 @@ export default function Footer() {
         <div className="xl:grid xl:grid-cols-2 xl:gap-8">
           <div className="space-y-8">
             <Logo
-              className="h-7 fill-neutral-950 dark:fill-white"
+              className="h-7 w-auto fill-neutral-950 dark:fill-white"
               alt="Company name"
             />
 
@@ -1623,7 +1623,7 @@ export default function Footer() {
         <div className="xl:grid xl:grid-cols-2 xl:gap-8">
           <div className="space-y-8">
             <Logo
-              className="h-7 fill-neutral-950 dark:fill-white"
+              className="h-7 w-auto fill-neutral-950 dark:fill-white"
               alt="Company name"
             />
 
@@ -1742,6 +1742,561 @@ function Logo(props) {
         d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
       ></path>
       <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}', '', ''),
+	('36309e1c-3bc9-44ce-987a-39b38df401a5', '2023-11-08 18:55:17.85525+00', 'Team 2', NULL, true, true, 'marketing', 'team', 'https://library.codesnaps.io/api/content/team/team-2', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/team_2-1699789696636.webp', 'Team Component', false, '{text-align-left,video-image-center,3-columns}', '{icons,multiple-images}', 'import React from ''react'';
+
+const team = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 5,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 6,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+];
+
+export default function Team() {
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="flex max-w-xl flex-col space-y-7">
+        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
+          Tagline
+        </h3>
+
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Our Team
+        </h2>
+
+        <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed.
+        </p>
+      </div>
+
+      <div className="mt-14 grid grid-cols-1 gap-x-10 gap-y-14 sm:grid-cols-2 lg:mt-24 lg:grid-cols-3">
+        {team.map((member) => (
+          <div key={member.id} className="flex flex-col space-y-6">
+            <div className="max-w-md">
+              <img
+                src={member.imageSrc}
+                alt={member.name}
+                width={150}
+                height={150}
+                className="mx-auto h-full w-full rounded-sm"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold leading-tight text-neutral-900 dark:text-neutral-100">
+                {member.name}
+              </h3>
+              <p className="mt-2 text-base font-medium text-neutral-600 dark:text-neutral-400">
+                {member.title}
+              </p>
+            </div>
+
+            <p className="mx-auto mt-2 max-w-md text-base text-neutral-500">
+              {member.description}
+            </p>
+
+            <div className="flex space-x-4">
+              {member.socials.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  className="text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
+                >
+                  <span className="sr-only">{social.name}</span>
+                  <social.icon className="h-5 w-5" aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mx-auto mt-14 text-center lg:mt-24">
+        <h3 className="text-2xl font-semibold leading-tight text-neutral-800 dark:text-neutral-200">
+          We are hiring!
+        </h3>
+
+        <p className="mx-auto mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed.
+        </p>
+
+        <div className="mt-8">
+          <a
+            href="#"
+            className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+          >
+            Apply Now
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function LinkedInIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"
+      ></path>
+    </svg>
+  );
+}
+
+function GitHubIcon(props) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+function XIcon(props) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 300 271" {...props}>
+      <path d="M236 0h46L181 115l118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123L-1.1 0h94.9l65.5 86.6L236 0zm-16.1 244h25.5L80.4 26H53l166.9 218z"></path>
+    </svg>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import Image from ''next/image'';
+import Link from ''next/link'';
+
+const team = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 5,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 6,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+];
+
+export default function Team() {
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="flex max-w-xl flex-col space-y-7">
+        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
+          Tagline
+        </h3>
+
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Our Team
+        </h2>
+
+        <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed.
+        </p>
+      </div>
+
+      <div className="mt-14 grid grid-cols-1 gap-x-10 gap-y-14 sm:grid-cols-2 lg:mt-24 lg:grid-cols-3">
+        {team.map((member) => (
+          <div key={member.id} className="flex flex-col space-y-6">
+            <div className="max-w-md">
+              <Image
+                src={member.imageSrc}
+                alt={member.name}
+                width={150}
+                height={150}
+                className="mx-auto h-full w-full rounded-sm"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold leading-tight text-neutral-900 dark:text-neutral-100">
+                {member.name}
+              </h3>
+              <p className="mt-2 text-base font-medium text-neutral-600 dark:text-neutral-400">
+                {member.title}
+              </p>
+            </div>
+
+            <p className="mx-auto mt-2 max-w-md text-base text-neutral-500">
+              {member.description}
+            </p>
+
+            <div className="flex space-x-4">
+              {member.socials.map((social) => (
+                <Link
+                  key={social.name}
+                  href={social.url}
+                  className="text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
+                >
+                  <span className="sr-only">{social.name}</span>
+                  <social.icon className="h-5 w-5" aria-hidden="true" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mx-auto mt-14 text-center lg:mt-24">
+        <h3 className="text-2xl font-semibold leading-tight text-neutral-800 dark:text-neutral-200">
+          We are hiring!
+        </h3>
+
+        <p className="mx-auto mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed.
+        </p>
+
+        <div className="mt-8">
+          <Link
+            href="#"
+            className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+          >
+            Apply Now
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function LinkedInIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"
+      ></path>
+    </svg>
+  );
+}
+
+function GitHubIcon(props) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+function XIcon(props) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 300 271" {...props}>
+      <path d="M236 0h46L181 115l118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123L-1.1 0h94.9l65.5 86.6L236 0zm-16.1 244h25.5L80.4 26H53l166.9 218z"></path>
     </svg>
   );
 }', '', ''),
@@ -2052,27 +2607,30 @@ export default function Logo() {
     </div>
   );
 }', '', ''),
-	('95fc95d9-1da3-4818-ab2c-8f862579381c', '2023-11-08 18:55:17.85525+00', 'Navbar 1', NULL, true, true, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-1', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_1-1699474885052.webp', 'Navbar Component', true, '{text-align-left,2-columns}', '{buttons,navbar,dropdown}', 'import { useState } from ''react'';
+	('95fc95d9-1da3-4818-ab2c-8f862579381c', '2023-11-08 18:55:17.85525+00', 'Navbar 1', 'You need to install the following package: npm install @headlessui/react@latest', true, true, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-1', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_1-1700253191223.webp', 'Navbar Component', true, '{text-align-left,video-image-left,2-columns}', '{buttons,dropdown,icons,navbar}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+import { useState } from ''react'';
 import { Dialog, Menu } from ''@headlessui/react'';
 
 const navigation = [
   { name: ''Link One'', href: ''#'', dropdown: false },
   { name: ''Link Two'', href: ''#'', dropdown: false },
   {
-    name: ''Link Three'',
-    href: ''#'',
+    name: ''Dropdown Three'',
     dropdown: true,
     dropdownItems: [
       {
-        name: ''Dropdown Item #1'',
+        name: ''Item #1'',
         href: ''#'',
       },
       {
-        name: ''Dropdown Item #2'',
+        name: ''Item #2'',
         href: ''#'',
       },
       {
-        name: ''Dropdown Item #3'',
+        name: ''Item #3'',
         href: ''#'',
       },
     ],
@@ -2116,7 +2674,7 @@ export default function Navbar() {
               {item.dropdown ? (
                 <Menu as="div" className="relative">
                   <Menu.Button className="flex items-center text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100">
-                    More
+                    {item.name}
                     <ChevronDownIcon className="ml-2 h-5 w-5 stroke-neutral-700 dark:stroke-neutral-300" />
                   </Menu.Button>
 
@@ -2197,32 +2755,28 @@ export default function Navbar() {
 
           {/* MOBILE NAVIGATION ITEMS */}
           <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-neutral-500/10">
+            <div className="-my-6 divide-y divide-neutral-500/30 dark:divide-white/30">
               <div className="space-y-2 py-6">
                 {navigation.map((item) => (
                   <div key={item.name}>
                     {item.dropdown ? (
-                      <>
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
-                        >
+                      <div>
+                        <span className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 dark:text-neutral-100">
                           {item.name}
-                        </a>
+                        </span>
 
                         <div className="ml-4 mt-1">
                           {item.dropdownItems.map((item) => (
                             <a
                               key={item.name}
                               href={item.href}
-                              className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                              className="-mx-3 block rounded-lg px-3 py-2 text-sm font-medium leading-7 text-neutral-600 hover:bg-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-900"
                             >
                               {item.name}
                             </a>
                           ))}
                         </div>
-                      </>
+                      </div>
                     ) : (
                       <a
                         key={item.name}
@@ -2311,7 +2865,11 @@ function ChevronDownIcon(props) {
       />
     </svg>
   );
-}', '''use client'';
+}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+''use client'';
 
 import Link from ''next/link'';
 
@@ -2322,20 +2880,19 @@ const navigation = [
   { name: ''Link One'', href: ''#'', dropdown: false },
   { name: ''Link Two'', href: ''#'', dropdown: false },
   {
-    name: ''Link Three'',
-    href: ''#'',
+    name: ''Dropdown Three'',
     dropdown: true,
     dropdownItems: [
       {
-        name: ''Dropdown Item #1'',
+        name: ''Item #1'',
         href: ''#'',
       },
       {
-        name: ''Dropdown Item #2'',
+        name: ''Item #2'',
         href: ''#'',
       },
       {
-        name: ''Dropdown Item #3'',
+        name: ''Item #3'',
         href: ''#'',
       },
     ],
@@ -2379,7 +2936,7 @@ export default function Navbar() {
               {item.dropdown ? (
                 <Menu as="div" className="relative">
                   <Menu.Button className="flex items-center text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100">
-                    More
+                    {item.name}
                     <ChevronDownIcon className="ml-2 h-5 w-5 stroke-neutral-700 dark:stroke-neutral-300" />
                   </Menu.Button>
 
@@ -2460,32 +3017,28 @@ export default function Navbar() {
 
           {/* MOBILE NAVIGATION ITEMS */}
           <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-neutral-500/10">
+            <div className="-my-6 divide-y divide-neutral-500/30 dark:divide-white/30">
               <div className="space-y-2 py-6">
                 {navigation.map((item) => (
                   <div key={item.name}>
                     {item.dropdown ? (
-                      <>
-                        <Link
-                          key={item.name}
-                          href={item.href}
-                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
-                        >
+                      <div>
+                        <span className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 dark:text-neutral-100">
                           {item.name}
-                        </Link>
+                        </span>
 
                         <div className="ml-4 mt-1">
                           {item.dropdownItems.map((item) => (
                             <Link
                               key={item.name}
                               href={item.href}
-                              className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                              className="-mx-3 block rounded-lg px-3 py-2 text-sm font-medium leading-7 text-neutral-600 hover:bg-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-900"
                             >
                               {item.name}
                             </Link>
                           ))}
                         </div>
-                      </>
+                      </div>
                     ) : (
                       <Link
                         key={item.name}
@@ -2575,322 +3128,9 @@ function ChevronDownIcon(props) {
     </svg>
   );
 }', '', ''),
-	('3225c75e-9d31-47c1-ba65-4ed68648df0b', '2023-11-08 18:55:17.85525+00', 'Navbar 2', NULL, true, true, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-2', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_2-1699474914969.webp', 'Navbar Component', false, '{text-align-center,3-columns}', '{buttons,navbar}', 'import React from ''react'';
-
-import { useState } from ''react'';
-import { Dialog } from ''@headlessui/react'';
-
-const navigation = [
-  { name: ''Link One'', href: ''#'' },
-  { name: ''Link Two'', href: ''#'' },
-  { name: ''Link Three'', href: ''#'' },
-];
-
-export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  return (
-    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
-      <nav
-        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
-        aria-label="Global"
-      >
-        <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
-          </a>
-        </div>
-
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <HamburgerIcon
-              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
-              aria-hidden="true"
-            />
-          </button>
-        </div>
-
-        {/* NAVIGATION ITEMS */}
-        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
-          {navigation.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
-            >
-              {item.name}
-            </a>
-          ))}
-        </div>
-
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
-          <a
-            href="#"
-            className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-          >
-            Button
-          </a>
-        </div>
-      </nav>
-
-      {/* MOBILE NAVIGATION */}
-      <Dialog
-        as="div"
-        className="lg:hidden"
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-      >
-        <div className="fixed inset-0 z-50" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
-          <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
-            </a>
-            <button
-              type="button"
-              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon
-                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
-                aria-hidden="true"
-              />
-            </button>
-          </div>
-
-          {/* MOBILE NAVIGATION ITEMS */}
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-neutral-500/10">
-              <div className="space-y-2 py-6">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
-                  >
-                    {item.name}
-                  </a>
-                ))}
-              </div>
-
-              <div className="py-6">
-                <a
-                  href="#"
-                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-                >
-                  Button
-                </a>
-              </div>
-            </div>
-          </div>
-        </Dialog.Panel>
-      </Dialog>
-    </header>
-  );
-}
-
-function Logo(props) {
-  return (
-    <svg viewBox="0 0 167 41" {...props}>
-      <path
-        fillRule="nonzero"
-        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
-      ></path>
-      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
-    </svg>
-  );
-}
-
-function HamburgerIcon(props) {
-  return (
-    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-      />
-    </svg>
-  );
-}
-
-function XMarkIcon(props) {
-  return (
-    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M6 18L18 6M6 6l12 12"
-      />
-    </svg>
-  );
-}', '''use client'';
-
-import Link from ''next/link'';
-
-import { useState } from ''react'';
-import { Dialog } from ''@headlessui/react'';
-
-const navigation = [
-  { name: ''Link One'', href: ''#'' },
-  { name: ''Link Two'', href: ''#'' },
-  { name: ''Link Three'', href: ''#'' },
-];
-
-export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  return (
-    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
-      <nav
-        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
-        aria-label="Global"
-      >
-        <div className="flex lg:flex-1">
-          <Link href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
-          </Link>
-        </div>
-
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <HamburgerIcon
-              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
-              aria-hidden="true"
-            />
-          </button>
-        </div>
-
-        {/* NAVIGATION ITEMS */}
-        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </div>
-
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
-          <Link
-            href="#"
-            className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-          >
-            Button
-          </Link>
-        </div>
-      </nav>
-
-      {/* MOBILE NAVIGATION */}
-      <Dialog
-        as="div"
-        className="lg:hidden"
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-      >
-        <div className="fixed inset-0 z-50" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
-          <div className="flex items-center justify-between">
-            <Link href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
-            </Link>
-            <button
-              type="button"
-              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon
-                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
-                aria-hidden="true"
-              />
-            </button>
-          </div>
-
-          {/* MOBILE NAVIGATION ITEMS */}
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-neutral-500/10">
-              <div className="space-y-2 py-6">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-
-              <div className="py-6">
-                <Link
-                  href="#"
-                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-                >
-                  Button
-                </Link>
-              </div>
-            </div>
-          </div>
-        </Dialog.Panel>
-      </Dialog>
-    </header>
-  );
-}
-
-function Logo(props) {
-  return (
-    <svg viewBox="0 0 167 41" {...props}>
-      <path
-        fillRule="nonzero"
-        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
-      ></path>
-      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
-    </svg>
-  );
-}
-
-function HamburgerIcon(props) {
-  return (
-    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-      />
-    </svg>
-  );
-}
-
-function XMarkIcon(props) {
-  return (
-    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M6 18L18 6M6 6l12 12"
-      />
-    </svg>
-  );
-}', '', ''),
-	('0687c21d-23d7-4e9f-b4e2-cf2bc4982e8e', '2023-11-08 18:55:17.85525+00', 'Navbar 3', NULL, true, true, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-3', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_3-1699474947122.webp', 'Navbar Component', false, '{text-align-center,3-columns}', '{buttons,navbar}', 'import React from ''react'';
+	('0687c21d-23d7-4e9f-b4e2-cf2bc4982e8e', '2023-11-08 18:55:17.85525+00', 'Navbar 3', 'You need to install the following package: npm install @headlessui/react@latest', true, true, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-3', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_3-1699474947122.webp', 'Navbar Component', false, '{text-align-center,video-image-center,3-columns}', '{buttons,icons,navbar}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
 
 import { useState } from ''react'';
 import { Dialog } from ''@headlessui/react'';
@@ -3048,687 +3288,414 @@ function XMarkIcon(props) {
         strokeLinejoin="round"
         d="M6 18L18 6M6 6l12 12"
       />
-    </svg>
-  );
-}', '''use client'';
-
-import Link from ''next/link'';
-
-import { useState } from ''react'';
-import { Dialog } from ''@headlessui/react'';
-
-const navigation = [
-  { name: ''Link One'', href: ''#'' },
-  { name: ''Link Two'', href: ''#'' },
-  { name: ''Link Three'', href: ''#'' },
-];
-
-export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  return (
-    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 dark:border-neutral-700">
-      <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
-        aria-label="Global"
-      >
-        {/* NAVIGATION ITEMS */}
-        <div className="hidden w-[400px] lg:flex lg:items-center lg:gap-x-12">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </div>
-
-        {/* LOGO */}
-        <div className="flex">
-          <Link href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
-          </Link>
-        </div>
-
-        {/* MOBILE MENU BUTTON - HIDDEN */}
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <HamburgerIcon
-              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
-              aria-hidden="true"
-            />
-          </button>
-        </div>
-
-        {/* CTA */}
-        <div className="hidden w-[400px] lg:flex lg:justify-end lg:space-x-4">
-          <Link
-            href="#"
-            className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-          >
-            Button
-          </Link>
-        </div>
-      </nav>
-
-      {/* MOBILE NAVIGATION PANEL */}
-      <Dialog
-        as="div"
-        className="lg:hidden"
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-      >
-        <div className="fixed inset-0 z-50" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
-          <div className="flex items-center justify-between">
-            <Link href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
-            </Link>
-            <button
-              type="button"
-              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon
-                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
-                aria-hidden="true"
-              />
-            </button>
-          </div>
-
-          {/* MOBILE NAVIGATION ITEMS */}
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-neutral-500/10">
-              <div className="space-y-2 py-6">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-
-              {/* MOBILE NAVIGATION CTA */}
-              <div className="py-6">
-                <Link
-                  href="#"
-                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-                >
-                  Button
-                </Link>
-              </div>
-            </div>
-          </div>
-        </Dialog.Panel>
-      </Dialog>
-    </header>
-  );
-}
-
-function Logo(props) {
-  return (
-    <svg viewBox="0 0 167 41" {...props}>
-      <path
-        fillRule="nonzero"
-        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
-      ></path>
-      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
-    </svg>
-  );
-}
-
-function HamburgerIcon(props) {
-  return (
-    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-      />
-    </svg>
-  );
-}
-
-function XMarkIcon(props) {
-  return (
-    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M6 18L18 6M6 6l12 12"
-      />
-    </svg>
-  );
-}', '', ''),
-	('36309e1c-3bc9-44ce-987a-39b38df401a5', '2023-11-08 18:55:17.85525+00', 'Team 2', NULL, true, true, 'marketing', 'team', 'https://library.codesnaps.io/api/content/team/team-2', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/team_2-1699789696636.webp', 'Team Component', false, '{text-align-left,video-image-center,3-columns}', '{icons,multiple-images}', 'import React from ''react'';
-
-const team = [
-  {
-    id: 1,
-    name: ''Full Name'',
-    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    title: ''Job Title'',
-    description:
-      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
-    socials: [
-      {
-        name: ''LinkedIn'',
-        url: ''#'',
-        icon: LinkedInIcon,
-      },
-      {
-        name: ''GitHub'',
-        url: ''#'',
-        icon: GitHubIcon,
-      },
-      {
-        name: ''X'',
-        url: ''#'',
-        icon: XIcon,
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: ''Full Name'',
-    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    title: ''Job Title'',
-    description:
-      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
-    socials: [
-      {
-        name: ''LinkedIn'',
-        url: ''#'',
-        icon: LinkedInIcon,
-      },
-      {
-        name: ''GitHub'',
-        url: ''#'',
-        icon: GitHubIcon,
-      },
-      {
-        name: ''X'',
-        url: ''#'',
-        icon: XIcon,
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: ''Full Name'',
-    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    title: ''Job Title'',
-    description:
-      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
-    socials: [
-      {
-        name: ''LinkedIn'',
-        url: ''#'',
-        icon: LinkedInIcon,
-      },
-      {
-        name: ''GitHub'',
-        url: ''#'',
-        icon: GitHubIcon,
-      },
-      {
-        name: ''X'',
-        url: ''#'',
-        icon: XIcon,
-      },
-    ],
-  },
-  {
-    id: 4,
-    name: ''Full Name'',
-    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    title: ''Job Title'',
-    description:
-      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
-    socials: [
-      {
-        name: ''LinkedIn'',
-        url: ''#'',
-        icon: LinkedInIcon,
-      },
-      {
-        name: ''GitHub'',
-        url: ''#'',
-        icon: GitHubIcon,
-      },
-      {
-        name: ''X'',
-        url: ''#'',
-        icon: XIcon,
-      },
-    ],
-  },
-  {
-    id: 5,
-    name: ''Full Name'',
-    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    title: ''Job Title'',
-    description:
-      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
-    socials: [
-      {
-        name: ''LinkedIn'',
-        url: ''#'',
-        icon: LinkedInIcon,
-      },
-      {
-        name: ''GitHub'',
-        url: ''#'',
-        icon: GitHubIcon,
-      },
-      {
-        name: ''X'',
-        url: ''#'',
-        icon: XIcon,
-      },
-    ],
-  },
-  {
-    id: 6,
-    name: ''Full Name'',
-    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    title: ''Job Title'',
-    description:
-      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
-    socials: [
-      {
-        name: ''LinkedIn'',
-        url: ''#'',
-        icon: LinkedInIcon,
-      },
-      {
-        name: ''GitHub'',
-        url: ''#'',
-        icon: GitHubIcon,
-      },
-      {
-        name: ''X'',
-        url: ''#'',
-        icon: XIcon,
-      },
-    ],
-  },
-];
-export default function Team() {
-  return (
-    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
-      <div className="flex max-w-xl flex-col space-y-7">
-        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
-          Tagline
-        </h3>
-
-        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-          Our Team
-        </h2>
-
-        <p className="text-lg text-neutral-600 dark:text-neutral-400">
-          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
-          nunc in eros scelerisque sed.
-        </p>
-      </div>
-
-      <div className="mt-14 grid grid-cols-1 gap-x-10 gap-y-14 sm:grid-cols-2 lg:mt-24 lg:grid-cols-3">
-        {team.map((member) => (
-          <div key={member.id} className="flex flex-col space-y-6">
-            <div className="max-w-md">
-              <img
-                src={member.imageSrc}
-                alt={member.name}
-                width={150}
-                height={150}
-                className="mx-auto h-full w-full rounded-sm"
-              />
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold leading-tight text-neutral-900 dark:text-neutral-100">
-                {member.name}
-              </h3>
-              <p className="mt-2 text-base font-medium text-neutral-600 dark:text-neutral-400">
-                {member.title}
-              </p>
-            </div>
-
-            <p className="mx-auto mt-2 max-w-md text-base text-neutral-500">
-              {member.description}
-            </p>
-
-            <div className="flex space-x-4">
-              {member.socials.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  className="text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
-                >
-                  <span className="sr-only">{social.name}</span>
-                  <social.icon className="h-5 w-5" aria-hidden="true" />
-                </a>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="mx-auto mt-14 text-center lg:mt-24">
-        <h3 className="text-2xl font-semibold leading-tight text-neutral-800 dark:text-neutral-200">
-          We are hiring!
-        </h3>
-
-        <p className="mx-auto mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
-          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
-          nunc in eros scelerisque sed.
-        </p>
-
-        <div className="mt-8">
-          <a
-            href="#"
-            className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-          >
-            Apply Now
-          </a>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function LinkedInIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path
-        fillRule="nonzero"
-        d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"
-      ></path>
-    </svg>
-  );
-}
-
-function GitHubIcon(props) {
-  return (
-    <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-      <path
-        fillRule="evenodd"
-        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-        clipRule="evenodd"
-      />
-    </svg>
-  );
-}
-
-function XIcon(props) {
-  return (
-    <svg fill="currentColor" viewBox="0 0 300 271" {...props}>
-      <path d="M236 0h46L181 115l118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123L-1.1 0h94.9l65.5 86.6L236 0zm-16.1 244h25.5L80.4 26H53l166.9 218z"></path>
     </svg>
   );
 }', '/*
-You need to configure remotePatterns in next.config.js to use dummyimage.com
-  
-// next.config.js
-const nextConfig = {
-// ... other configs
-  images: {
-    // ... other configs
-    remotePatterns: [
-      {
-        protocol: ''https'',
-        hostname: ''dummyimage.com'',
-      },
-    // ... other configs
-    ],
-  },
-};
+You need to install the following package npm install @headlessui/react@latest
 */
 
-import Image from ''next/image'';
+''use client'';
+
 import Link from ''next/link'';
 
-const team = [
+import { useState } from ''react'';
+import { Dialog } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'' },
+  { name: ''Link Two'', href: ''#'' },
+  { name: ''Link Three'', href: ''#'' },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 dark:border-neutral-700">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        aria-label="Global"
+      >
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden w-[400px] lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+
+        {/* LOGO */}
+        <div className="flex">
+          <Link href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Your Company</span>
+            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+          </Link>
+        </div>
+
+        {/* MOBILE MENU BUTTON - HIDDEN */}
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <HamburgerIcon
+              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+
+        {/* CTA */}
+        <div className="hidden w-[400px] lg:flex lg:justify-end lg:space-x-4">
+          <Link
+            href="#"
+            className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+          >
+            Button
+          </Link>
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION PANEL */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <Link href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </Link>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-neutral-500/10">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+
+              {/* MOBILE NAVIGATION CTA */}
+              <div className="py-6">
+                <Link
+                  href="#"
+                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  Button
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}', '', ''),
+	('bb409799-ee05-4423-91fc-fdab73a72417', '2023-11-08 18:55:17.85525+00', 'FAQ 1', 'You need to install the following package: npm install @headlessui/react', true, true, 'marketing', 'faq', 'https://library.codesnaps.io/api/content/faq/faq-1', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/faq_1-1699473259987.webp', 'FAQ Component', true, '{text-align-left,text-align-center,1-column}', '{accordion,buttons,text-only}', '/*
+You need to install the following package: npm install @headlessui/react
+*/
+
+import { Disclosure } from ''@headlessui/react'';
+
+const faqs = [
   {
     id: 1,
-    name: ''Full Name'',
-    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    title: ''Job Title'',
-    description:
-      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
-    socials: [
-      {
-        name: ''LinkedIn'',
-        url: ''#'',
-        icon: LinkedInIcon,
-      },
-      {
-        name: ''GitHub'',
-        url: ''#'',
-        icon: GitHubIcon,
-      },
-      {
-        name: ''X'',
-        url: ''#'',
-        icon: XIcon,
-      },
-    ],
+    question: ''#1 Your question should go in here?'',
+    answer:
+      ''Aenean diam lectus, ullamcorper ac ipsum a, convallis maximus odio. In hac habitasse platea dictumst. Donec elementum nisi ac magna gravida, at consectetur dolor tristique.'',
   },
   {
     id: 2,
-    name: ''Full Name'',
-    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    title: ''Job Title'',
-    description:
-      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
-    socials: [
-      {
-        name: ''LinkedIn'',
-        url: ''#'',
-        icon: LinkedInIcon,
-      },
-      {
-        name: ''GitHub'',
-        url: ''#'',
-        icon: GitHubIcon,
-      },
-      {
-        name: ''X'',
-        url: ''#'',
-        icon: XIcon,
-      },
-    ],
+    question: ''#2 Your question should go in here?'',
+    answer:
+      ''Aenean diam lectus, ullamcorper ac ipsum a, convallis maximus odio. In hac habitasse platea dictumst. Donec elementum nisi ac magna gravida, at consectetur dolor tristique.'',
   },
   {
     id: 3,
-    name: ''Full Name'',
-    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    title: ''Job Title'',
-    description:
-      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
-    socials: [
-      {
-        name: ''LinkedIn'',
-        url: ''#'',
-        icon: LinkedInIcon,
-      },
-      {
-        name: ''GitHub'',
-        url: ''#'',
-        icon: GitHubIcon,
-      },
-      {
-        name: ''X'',
-        url: ''#'',
-        icon: XIcon,
-      },
-    ],
+    question: ''#3 Your question should go in here?'',
+    answer:
+      ''Aenean diam lectus, ullamcorper ac ipsum a, convallis maximus odio. In hac habitasse platea dictumst. Donec elementum nisi ac magna gravida, at consectetur dolor tristique.'',
   },
   {
     id: 4,
-    name: ''Full Name'',
-    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    title: ''Job Title'',
-    description:
-      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
-    socials: [
-      {
-        name: ''LinkedIn'',
-        url: ''#'',
-        icon: LinkedInIcon,
-      },
-      {
-        name: ''GitHub'',
-        url: ''#'',
-        icon: GitHubIcon,
-      },
-      {
-        name: ''X'',
-        url: ''#'',
-        icon: XIcon,
-      },
-    ],
+    question: ''#4 Your question should go in here?'',
+    answer:
+      ''Aenean diam lectus, ullamcorper ac ipsum a, convallis maximus odio. In hac habitasse platea dictumst. Donec elementum nisi ac magna gravida, at consectetur dolor tristique.'',
   },
   {
     id: 5,
-    name: ''Full Name'',
-    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    title: ''Job Title'',
-    description:
-      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
-    socials: [
-      {
-        name: ''LinkedIn'',
-        url: ''#'',
-        icon: LinkedInIcon,
-      },
-      {
-        name: ''GitHub'',
-        url: ''#'',
-        icon: GitHubIcon,
-      },
-      {
-        name: ''X'',
-        url: ''#'',
-        icon: XIcon,
-      },
-    ],
-  },
-  {
-    id: 6,
-    name: ''Full Name'',
-    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    title: ''Job Title'',
-    description:
-      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
-    socials: [
-      {
-        name: ''LinkedIn'',
-        url: ''#'',
-        icon: LinkedInIcon,
-      },
-      {
-        name: ''GitHub'',
-        url: ''#'',
-        icon: GitHubIcon,
-      },
-      {
-        name: ''X'',
-        url: ''#'',
-        icon: XIcon,
-      },
-    ],
+    question: ''#5 Your question should go in here?'',
+    answer:
+      ''Aenean diam lectus, ullamcorper ac ipsum a, convallis maximus odio. In hac habitasse platea dictumst. Donec elementum nisi ac magna gravida, at consectetur dolor tristique.'',
   },
 ];
-export default function Team() {
+
+export default function FAQ() {
   return (
-    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
-      <div className="flex max-w-xl flex-col space-y-7">
-        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
-          Tagline
-        </h3>
-
-        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-          Our Team
-        </h2>
-
-        <p className="text-lg text-neutral-600 dark:text-neutral-400">
-          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
-          nunc in eros scelerisque sed.
-        </p>
-      </div>
-
-      <div className="mt-14 grid grid-cols-1 gap-x-10 gap-y-14 sm:grid-cols-2 lg:mt-24 lg:grid-cols-3">
-        {team.map((member) => (
-          <div key={member.id} className="flex flex-col space-y-6">
-            <div className="max-w-md">
-              <Image
-                src={member.imageSrc}
-                alt={member.name}
-                width={150}
-                height={150}
-                className="mx-auto h-full w-full rounded-sm"
-              />
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold leading-tight text-neutral-900 dark:text-neutral-100">
-                {member.name}
-              </h3>
-              <p className="mt-2 text-base font-medium text-neutral-600 dark:text-neutral-400">
-                {member.title}
-              </p>
-            </div>
-
-            <p className="mx-auto mt-2 max-w-md text-base text-neutral-500">
-              {member.description}
+    <div>
+      <div className="mx-auto max-w-7xl px-6 pt-24 sm:pt-32 lg:px-8 lg:pt-40">
+        <div className="mx-auto max-w-4xl divide-y divide-neutral-900/10 dark:divide-white/30">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+              FAQs
+            </h2>
+            <p className="mt-6 text-lg text-neutral-600 dark:text-neutral-400">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+              vestibulum id augue vitae tincidunt. Donec vel orci pretium,
+              congue arcu non, semper dui. Praesent eget tempor lacus. Integer
+              eu iaculis leo. Praesent ullamcorper ex sit amet lacus pharetra,
+              vitae imperdiet magna bibendum.
             </p>
-
-            <div className="flex space-x-4">
-              {member.socials.map((social) => (
-                <Link
-                  key={social.name}
-                  href={social.url}
-                  className="text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
-                >
-                  <span className="sr-only">{social.name}</span>
-                  <social.icon className="h-5 w-5" aria-hidden="true" />
-                </Link>
-              ))}
-            </div>
           </div>
-        ))}
+
+          <dl className="mt-24 space-y-6 divide-y divide-neutral-900/10 dark:divide-white/30">
+            {faqs.map((faq) => (
+              <Disclosure as="div" key={faq.id} className="pt-6">
+                {({ open }) => (
+                  <>
+                    <dt>
+                      <Disclosure.Button className="flex w-full items-start justify-between text-left text-neutral-900 dark:text-neutral-200">
+                        <span className="text-base font-semibold leading-7">
+                          {faq.question}
+                        </span>
+                        <span className="ml-6 flex h-7 items-center">
+                          {open ? (
+                            <MinusIcon className="h-6 w-6" aria-hidden="true" />
+                          ) : (
+                            <PlusIcon className="h-6 w-6" aria-hidden="true" />
+                          )}
+                        </span>
+                      </Disclosure.Button>
+                    </dt>
+                    <Disclosure.Panel as="dd" className="mt-2 pr-12">
+                      <p className="text-base leading-7 text-neutral-600 dark:text-neutral-400">
+                        {faq.answer}
+                      </p>
+                    </Disclosure.Panel>
+                  </>
+                )}
+              </Disclosure>
+            ))}
+          </dl>
+        </div>
       </div>
 
-      <div className="mx-auto mt-14 text-center lg:mt-24">
-        <h3 className="text-2xl font-semibold leading-tight text-neutral-800 dark:text-neutral-200">
-          We are hiring!
+      <div className="mt-16 px-6 text-center sm:mt-24 lg:px-8">
+        <h3 className="text-2xl font-semibold leading-tight lg:text-3xl">
+          Still have questions?
         </h3>
 
-        <p className="mx-auto mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
-          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
-          nunc in eros scelerisque sed.
+        <p className="mx-auto mt-6 max-w-2xl text-base text-neutral-600 dark:text-neutral-400 md:text-lg">
+          Maecenas diam purus, aliquam et gravida ut, fermentum ut est.
+          Pellentesque habitant morbi tristique senectus et netus et malesuada.
         </p>
 
-        <div className="mt-8">
+        <div className="mt-10">
+          <a
+            href="#"
+            className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+          >
+            Contact
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PlusIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 4.5v15m7.5-7.5h-15"
+      />
+    </svg>
+  );
+}
+
+function MinusIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15" />
+    </svg>
+  );
+}', '/*
+You need to install the following package: npm install @headlessui/react
+*/
+
+''use client'';
+
+import Link from ''next/link'';
+
+import { Disclosure } from ''@headlessui/react'';
+
+const faqs = [
+  {
+    id: 1,
+    question: ''#1 Your question should go in here?'',
+    answer:
+      ''Aenean diam lectus, ullamcorper ac ipsum a, convallis maximus odio. In hac habitasse platea dictumst. Donec elementum nisi ac magna gravida, at consectetur dolor tristique.'',
+  },
+  {
+    id: 2,
+    question: ''#2 Your question should go in here?'',
+    answer:
+      ''Aenean diam lectus, ullamcorper ac ipsum a, convallis maximus odio. In hac habitasse platea dictumst. Donec elementum nisi ac magna gravida, at consectetur dolor tristique.'',
+  },
+  {
+    id: 3,
+    question: ''#3 Your question should go in here?'',
+    answer:
+      ''Aenean diam lectus, ullamcorper ac ipsum a, convallis maximus odio. In hac habitasse platea dictumst. Donec elementum nisi ac magna gravida, at consectetur dolor tristique.'',
+  },
+  {
+    id: 4,
+    question: ''#4 Your question should go in here?'',
+    answer:
+      ''Aenean diam lectus, ullamcorper ac ipsum a, convallis maximus odio. In hac habitasse platea dictumst. Donec elementum nisi ac magna gravida, at consectetur dolor tristique.'',
+  },
+  {
+    id: 5,
+    question: ''#5 Your question should go in here?'',
+    answer:
+      ''Aenean diam lectus, ullamcorper ac ipsum a, convallis maximus odio. In hac habitasse platea dictumst. Donec elementum nisi ac magna gravida, at consectetur dolor tristique.'',
+  },
+];
+
+export default function FAQ() {
+  return (
+    <div>
+      <div className="mx-auto max-w-7xl px-6 pt-24 sm:pt-32 lg:px-8 lg:pt-40">
+        <div className="mx-auto max-w-4xl divide-y divide-neutral-900/10 dark:divide-white/30">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+              FAQs
+            </h2>
+            <p className="mt-6 text-lg text-neutral-600 dark:text-neutral-400">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+              vestibulum id augue vitae tincidunt. Donec vel orci pretium,
+              congue arcu non, semper dui. Praesent eget tempor lacus. Integer
+              eu iaculis leo. Praesent ullamcorper ex sit amet lacus pharetra,
+              vitae imperdiet magna bibendum.
+            </p>
+          </div>
+
+          <dl className="mt-24 space-y-6 divide-y divide-neutral-900/10 dark:divide-white/30">
+            {faqs.map((faq) => (
+              <Disclosure as="div" key={faq.id} className="pt-6">
+                {({ open }) => (
+                  <>
+                    <dt>
+                      <Disclosure.Button className="flex w-full items-start justify-between text-left text-neutral-900 dark:text-neutral-200">
+                        <span className="text-base font-semibold leading-7">
+                          {faq.question}
+                        </span>
+                        <span className="ml-6 flex h-7 items-center">
+                          {open ? (
+                            <MinusIcon className="h-6 w-6" aria-hidden="true" />
+                          ) : (
+                            <PlusIcon className="h-6 w-6" aria-hidden="true" />
+                          )}
+                        </span>
+                      </Disclosure.Button>
+                    </dt>
+                    <Disclosure.Panel as="dd" className="mt-2 pr-12">
+                      <p className="text-base leading-7 text-neutral-600 dark:text-neutral-400">
+                        {faq.answer}
+                      </p>
+                    </Disclosure.Panel>
+                  </>
+                )}
+              </Disclosure>
+            ))}
+          </dl>
+        </div>
+      </div>
+
+      <div className="mt-16 px-6 text-center sm:mt-24 lg:px-8">
+        <h3 className="text-2xl font-semibold leading-tight lg:text-3xl">
+          Still have questions?
+        </h3>
+
+        <p className="mx-auto mt-6 max-w-2xl text-base text-neutral-600 dark:text-neutral-400 md:text-lg">
+          Maecenas diam purus, aliquam et gravida ut, fermentum ut est.
+          Pellentesque habitant morbi tristique senectus et netus et malesuada.
+        </p>
+
+        <div className="mt-10">
           <Link
             href="#"
             className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
           >
-            Apply Now
+            Contact
           </Link>
         </div>
       </div>
@@ -3736,33 +3703,343 @@ export default function Team() {
   );
 }
 
-function LinkedInIcon(props) {
+function PlusIcon(props) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <svg viewBox="0 0 24 24" stroke="currentColor" {...props}>
       <path
-        fillRule="nonzero"
-        d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"
-      ></path>
-    </svg>
-  );
-}
-
-function GitHubIcon(props) {
-  return (
-    <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-      <path
-        fillRule="evenodd"
-        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-        clipRule="evenodd"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 4.5v15m7.5-7.5h-15"
       />
     </svg>
   );
 }
 
-function XIcon(props) {
+function MinusIcon(props) {
   return (
-    <svg fill="currentColor" viewBox="0 0 300 271" {...props}>
-      <path d="M236 0h46L181 115l118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123L-1.1 0h94.9l65.5 86.6L236 0zm-16.1 244h25.5L80.4 26H53l166.9 218z"></path>
+    <svg viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15" />
+    </svg>
+  );
+}', '', ''),
+	('3225c75e-9d31-47c1-ba65-4ed68648df0b', '2023-11-08 18:55:17.85525+00', 'Navbar 2', 'You need to install the following package: npm install @headlessui/react@latest', true, true, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-2', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_2-1699474914969.webp', 'Navbar Component', false, '{text-align-center,video-image-left,3-columns}', '{buttons,icons,navbar}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+import { useState } from ''react'';
+import { Dialog } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'' },
+  { name: ''Link Two'', href: ''#'' },
+  { name: ''Link Three'', href: ''#'' },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
+        aria-label="Global"
+      >
+        <div className="flex lg:flex-1">
+          <a href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Your Company</span>
+            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+          </a>
+        </div>
+
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <HamburgerIcon
+              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
+          <a
+            href="#"
+            className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+          >
+            Button
+          </a>
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <a href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </a>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-neutral-500/10">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+
+              <div className="py-6">
+                <a
+                  href="#"
+                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  Button
+                </a>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+''use client'';
+
+import Link from ''next/link'';
+
+import { useState } from ''react'';
+import { Dialog } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'' },
+  { name: ''Link Two'', href: ''#'' },
+  { name: ''Link Three'', href: ''#'' },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
+        aria-label="Global"
+      >
+        <div className="flex lg:flex-1">
+          <Link href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Your Company</span>
+            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+          </Link>
+        </div>
+
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <HamburgerIcon
+              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
+          <Link
+            href="#"
+            className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+          >
+            Button
+          </Link>
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <Link href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </Link>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-neutral-500/10">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+
+              <div className="py-6">
+                <Link
+                  href="#"
+                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  Button
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
     </svg>
   );
 }', '', ''),
@@ -4172,271 +4449,6 @@ function CheckIcon(props) {
     </svg>
   );
 }', '', ''),
-	('bb409799-ee05-4423-91fc-fdab73a72417', '2023-11-08 18:55:17.85525+00', 'FAQ 1', NULL, true, true, 'marketing', 'faq', 'https://library.codesnaps.io/api/content/faq/faq-1', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/faq_1-1699473259987.webp', 'FAQ Component', true, '{text-align-left,text-align-center,1-column}', '{accordion,buttons,text-only}', '/*
-You need to install the following package: npm install @headlessui/react
-*/
-
-import { Disclosure } from ''@headlessui/react'';
-
-const faqs = [
-  {
-    id: 1,
-    question: ''#1 Your question should go in here?'',
-    answer:
-      ''Aenean diam lectus, ullamcorper ac ipsum a, convallis maximus odio. In hac habitasse platea dictumst. Donec elementum nisi ac magna gravida, at consectetur dolor tristique.'',
-  },
-  {
-    id: 2,
-    question: ''#2 Your question should go in here?'',
-    answer:
-      ''Aenean diam lectus, ullamcorper ac ipsum a, convallis maximus odio. In hac habitasse platea dictumst. Donec elementum nisi ac magna gravida, at consectetur dolor tristique.'',
-  },
-  {
-    id: 3,
-    question: ''#3 Your question should go in here?'',
-    answer:
-      ''Aenean diam lectus, ullamcorper ac ipsum a, convallis maximus odio. In hac habitasse platea dictumst. Donec elementum nisi ac magna gravida, at consectetur dolor tristique.'',
-  },
-  {
-    id: 4,
-    question: ''#4 Your question should go in here?'',
-    answer:
-      ''Aenean diam lectus, ullamcorper ac ipsum a, convallis maximus odio. In hac habitasse platea dictumst. Donec elementum nisi ac magna gravida, at consectetur dolor tristique.'',
-  },
-  {
-    id: 5,
-    question: ''#5 Your question should go in here?'',
-    answer:
-      ''Aenean diam lectus, ullamcorper ac ipsum a, convallis maximus odio. In hac habitasse platea dictumst. Donec elementum nisi ac magna gravida, at consectetur dolor tristique.'',
-  },
-];
-
-export default function FAQ() {
-  return (
-    <div>
-      <div className="mx-auto max-w-7xl px-6 pt-24 sm:pt-32 lg:px-8 lg:pt-40">
-        <div className="mx-auto max-w-4xl divide-y divide-neutral-900/10 dark:divide-white/30">
-          <div className="text-center">
-            <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-              FAQs
-            </h2>
-            <p className="mt-6 text-lg text-neutral-600 dark:text-neutral-400">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-              vestibulum id augue vitae tincidunt. Donec vel orci pretium,
-              congue arcu non, semper dui. Praesent eget tempor lacus. Integer
-              eu iaculis leo. Praesent ullamcorper ex sit amet lacus pharetra,
-              vitae imperdiet magna bibendum.
-            </p>
-          </div>
-
-          <dl className="mt-24 space-y-6 divide-y divide-neutral-900/10 dark:divide-white/30">
-            {faqs.map((faq) => (
-              <Disclosure as="div" key={faq.id} className="pt-6">
-                {({ open }) => (
-                  <>
-                    <dt>
-                      <Disclosure.Button className="flex w-full items-start justify-between text-left text-neutral-900 dark:text-neutral-200">
-                        <span className="text-base font-semibold leading-7">
-                          {faq.question}
-                        </span>
-                        <span className="ml-6 flex h-7 items-center">
-                          {open ? (
-                            <MinusIcon className="h-6 w-6" aria-hidden="true" />
-                          ) : (
-                            <PlusIcon className="h-6 w-6" aria-hidden="true" />
-                          )}
-                        </span>
-                      </Disclosure.Button>
-                    </dt>
-                    <Disclosure.Panel as="dd" className="mt-2 pr-12">
-                      <p className="text-base leading-7 text-neutral-600 dark:text-neutral-400">
-                        {faq.answer}
-                      </p>
-                    </Disclosure.Panel>
-                  </>
-                )}
-              </Disclosure>
-            ))}
-          </dl>
-        </div>
-      </div>
-
-      <div className="mt-16 px-6 text-center sm:mt-24 lg:px-8">
-        <h3 className="text-2xl font-semibold leading-tight lg:text-3xl">
-          Still have questions?
-        </h3>
-
-        <p className="mx-auto mt-6 max-w-2xl text-base text-neutral-600 dark:text-neutral-400 md:text-lg">
-          Maecenas diam purus, aliquam et gravida ut, fermentum ut est.
-          Pellentesque habitant morbi tristique senectus et netus et malesuada.
-        </p>
-
-        <div className="mt-10">
-          <a
-            href="#"
-            className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-          >
-            Contact
-          </a>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function PlusIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" stroke="currentColor" {...props}>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M12 4.5v15m7.5-7.5h-15"
-      />
-    </svg>
-  );
-}
-
-function MinusIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" stroke="currentColor" {...props}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15" />
-    </svg>
-  );
-}', '/*
-You need to install the following package: npm install @headlessui/react
-*/
-
-''use client'';
-
-import Link from ''next/link'';
-
-import { Disclosure } from ''@headlessui/react'';
-
-const faqs = [
-  {
-    id: 1,
-    question: ''#1 Your question should go in here?'',
-    answer:
-      ''Aenean diam lectus, ullamcorper ac ipsum a, convallis maximus odio. In hac habitasse platea dictumst. Donec elementum nisi ac magna gravida, at consectetur dolor tristique.'',
-  },
-  {
-    id: 2,
-    question: ''#2 Your question should go in here?'',
-    answer:
-      ''Aenean diam lectus, ullamcorper ac ipsum a, convallis maximus odio. In hac habitasse platea dictumst. Donec elementum nisi ac magna gravida, at consectetur dolor tristique.'',
-  },
-  {
-    id: 3,
-    question: ''#3 Your question should go in here?'',
-    answer:
-      ''Aenean diam lectus, ullamcorper ac ipsum a, convallis maximus odio. In hac habitasse platea dictumst. Donec elementum nisi ac magna gravida, at consectetur dolor tristique.'',
-  },
-  {
-    id: 4,
-    question: ''#4 Your question should go in here?'',
-    answer:
-      ''Aenean diam lectus, ullamcorper ac ipsum a, convallis maximus odio. In hac habitasse platea dictumst. Donec elementum nisi ac magna gravida, at consectetur dolor tristique.'',
-  },
-  {
-    id: 5,
-    question: ''#5 Your question should go in here?'',
-    answer:
-      ''Aenean diam lectus, ullamcorper ac ipsum a, convallis maximus odio. In hac habitasse platea dictumst. Donec elementum nisi ac magna gravida, at consectetur dolor tristique.'',
-  },
-];
-
-export default function FAQ() {
-  return (
-    <div>
-      <div className="mx-auto max-w-7xl px-6 pt-24 sm:pt-32 lg:px-8 lg:pt-40">
-        <div className="mx-auto max-w-4xl divide-y divide-neutral-900/10 dark:divide-white/30">
-          <div className="text-center">
-            <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-              FAQs
-            </h2>
-            <p className="mt-6 text-lg text-neutral-600 dark:text-neutral-400">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-              vestibulum id augue vitae tincidunt. Donec vel orci pretium,
-              congue arcu non, semper dui. Praesent eget tempor lacus. Integer
-              eu iaculis leo. Praesent ullamcorper ex sit amet lacus pharetra,
-              vitae imperdiet magna bibendum.
-            </p>
-          </div>
-
-          <dl className="mt-24 space-y-6 divide-y divide-neutral-900/10 dark:divide-white/30">
-            {faqs.map((faq) => (
-              <Disclosure as="div" key={faq.id} className="pt-6">
-                {({ open }) => (
-                  <>
-                    <dt>
-                      <Disclosure.Button className="flex w-full items-start justify-between text-left text-neutral-900 dark:text-neutral-200">
-                        <span className="text-base font-semibold leading-7">
-                          {faq.question}
-                        </span>
-                        <span className="ml-6 flex h-7 items-center">
-                          {open ? (
-                            <MinusIcon className="h-6 w-6" aria-hidden="true" />
-                          ) : (
-                            <PlusIcon className="h-6 w-6" aria-hidden="true" />
-                          )}
-                        </span>
-                      </Disclosure.Button>
-                    </dt>
-                    <Disclosure.Panel as="dd" className="mt-2 pr-12">
-                      <p className="text-base leading-7 text-neutral-600 dark:text-neutral-400">
-                        {faq.answer}
-                      </p>
-                    </Disclosure.Panel>
-                  </>
-                )}
-              </Disclosure>
-            ))}
-          </dl>
-        </div>
-      </div>
-
-      <div className="mt-16 px-6 text-center sm:mt-24 lg:px-8">
-        <h3 className="text-2xl font-semibold leading-tight lg:text-3xl">
-          Still have questions?
-        </h3>
-
-        <p className="mx-auto mt-6 max-w-2xl text-base text-neutral-600 dark:text-neutral-400 md:text-lg">
-          Maecenas diam purus, aliquam et gravida ut, fermentum ut est.
-          Pellentesque habitant morbi tristique senectus et netus et malesuada.
-        </p>
-
-        <div className="mt-10">
-          <Link
-            href="#"
-            className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-          >
-            Contact
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function PlusIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" stroke="currentColor" {...props}>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M12 4.5v15m7.5-7.5h-15"
-      />
-    </svg>
-  );
-}
-
-function MinusIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" stroke="currentColor" {...props}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15" />
-    </svg>
-  );
-}', '', ''),
 	('e7caebc1-aeaa-4f3b-a86a-e1679913845c', '2023-11-08 18:55:17.85525+00', 'Blog 1', NULL, true, true, 'marketing', 'blog', 'https://library.codesnaps.io/api/content/blog/blog-1', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/blog_1-1699470138430.webp', 'Blog Component', false, '{text-align-left,text-align-center,video-image-center,3-columns}', '{buttons,multiple-images}', 'import React from ''react'';
 
 const posts = [
@@ -4738,7 +4750,9 @@ export default function Blog() {
     </div>
   );
 }', '', ''),
-	('d1a763bb-8fd7-43f3-8829-6ffbc344ec01', '2023-11-08 18:55:17.85525+00', 'Feature 1', NULL, true, true, 'marketing', 'feature', 'https://library.codesnaps.io/api/content/feature/feature-1', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/feature_1-1699473452739.webp', 'Feature Component', false, '{text-align-left,video-image-right,2-columns}', '{buttons,image}', 'export default function Feature() {
+	('d1a763bb-8fd7-43f3-8829-6ffbc344ec01', '2023-11-08 18:55:17.85525+00', 'Feature 1', NULL, true, true, 'marketing', 'feature', 'https://library.codesnaps.io/api/content/feature/feature-1', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/feature_1-1699473452739.webp', 'Feature Component', false, '{text-align-left,video-image-right,2-columns}', '{buttons,image}', 'import React from ''react'';
+
+export default function Feature() {
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="mt-24 grid grid-cols-1 items-center gap-14 sm:mt-32 lg:mt-40 lg:grid-cols-2">
@@ -4859,124 +4873,6 @@ export default function Feature() {
     </div>
   );
 }', '', ''),
-	('e8d7628c-e74e-4ea0-b961-0b056d18c2ce', '2023-11-08 18:55:17.85525+00', 'Hero 2', NULL, true, true, 'marketing', 'hero', 'https://library.codesnaps.io/api/content/hero/hero-2', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/hero_2-1699474691473.webp', 'Hero Component', false, '{text-align-center,video-image-center,1-column}', '{buttons,image}', 'import React from ''react'';
-
-export default function Hero() {
-  return (
-    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-36 lg:px-8">
-      <div className="flex flex-col space-y-7 text-center">
-        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
-          Tagline
-        </h3>
-
-        <h1 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-          Medium length hero section titles goes in here
-        </h1>
-
-        <p className="mx-auto max-w-4xl text-lg text-neutral-600 dark:text-neutral-400">
-          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
-          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
-          Non, amet, aliquet scelerisque nullam.
-        </p>
-
-        <div className="flex justify-center space-x-8">
-          <a
-            href="#"
-            className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-          >
-            Button
-          </a>
-
-          <a
-            href="#"
-            className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
-          >
-            Button
-          </a>
-        </div>
-      </div>
-
-      <div className="mx-auto mt-14 lg:mt-24">
-        <img
-          src="https://dummyimage.com/1920x1200/d4d4d4/171717"
-          alt="Image"
-          width={1920}
-          height={1200}
-          className="rounded-xl"
-        />
-      </div>
-    </div>
-  );
-}', '/*
-You need to configure remotePatterns in next.config.js to use dummyimage.com
-  
-// next.config.js
-const nextConfig = {
-// ... other configs
-  images: {
-    // ... other configs
-    remotePatterns: [
-      {
-        protocol: ''https'',
-        hostname: ''dummyimage.com'',
-      },
-    // ... other configs
-    ],
-  },
-};
-*/
-
-import Image from ''next/image'';
-import Link from ''next/link'';
-
-export default function Hero() {
-  return (
-    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-36 lg:px-8">
-      <div className="flex flex-col space-y-7 text-center">
-        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
-          Tagline
-        </h3>
-
-        <h1 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-          Medium length hero section titles goes in here
-        </h1>
-
-        <p className="mx-auto max-w-4xl text-lg text-neutral-600 dark:text-neutral-400">
-          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
-          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
-          Non, amet, aliquet scelerisque nullam.
-        </p>
-
-        <div className="flex justify-center space-x-8">
-          <Link
-            href="#"
-            className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-          >
-            Button
-          </Link>
-
-          <Link
-            href="#"
-            className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
-          >
-            Button
-          </Link>
-        </div>
-      </div>
-
-      <div className="mx-auto mt-14 lg:mt-24">
-        <Image
-          priority
-          src="https://dummyimage.com/1920x1200/d4d4d4/171717"
-          alt="Image"
-          width={1920}
-          height={1200}
-          className="rounded-xl"
-        />
-      </div>
-    </div>
-  );
-}', '', ''),
 	('07114576-617a-4df9-a57c-d24552173f31', '2023-11-08 18:55:17.85525+00', 'Header 2', NULL, true, true, 'marketing', 'header', 'https://library.codesnaps.io/api/content/header/header-2', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/header_2-1699474545772.webp', 'Header Component', false, '{text-align-left,1-column}', '{buttons,text-only}', 'import React from ''react'';
 
 export default function Header() {
@@ -5062,7 +4958,7 @@ export default function Testimonial() {
       <img
         width={200}
         height={40}
-        className="mx-auto h-10"
+        className="mx-auto h-10 w-full"
         src="https://img.logoipsum.com/297.svg"
         alt="Logo"
       />
@@ -5138,7 +5034,7 @@ export default function Testimonial() {
       <Image
         width={200}
         height={40}
-        className="mx-auto h-10"
+        className="mx-auto h-10 w-full"
         src="https://img.logoipsum.com/297.svg"
         alt="Logo"
       />
@@ -5182,6 +5078,746 @@ export default function Testimonial() {
         </figcaption>
       </figure>
     </div>
+  );
+}', '', ''),
+	('8b6882dc-f8ef-452d-a246-5141369e046c', '2023-11-17 20:46:33.566283+00', 'Navbar 6', 'You need to install the following package: npm install @headlessui/react@latest', true, false, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-6', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_6-1700253992183.webp', 'Navbar Component', true, '{text-align-left,video-image-left,2-columns}', '{buttons,dropdown,icons,navbar}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+import { useState } from ''react'';
+import { Dialog, Menu } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'', dropdown: false },
+  { name: ''Link Two'', href: ''#'', dropdown: false },
+  {
+    name: ''Dropdown Three'',
+    dropdown: true,
+    group: [
+      {
+        name: ''Group Column One'',
+        items: [
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #1'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''/'',
+          },
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #2'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+          ,
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #3'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #4'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+        ],
+      },
+      {
+        name: ''Group Column Two'',
+        items: [
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #1'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #2'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+          ,
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #3'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #4'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+        ],
+      },
+    ],
+  },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
+        aria-label="Global"
+      >
+        <div className="flex lg:flex-1">
+          <a href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Your Company</span>
+            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+          </a>
+        </div>
+
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <HamburgerIcon
+              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <div key={item.name}>
+              {item.dropdown ? (
+                <Menu as="div" className="relative">
+                  <Menu.Button className="flex items-center text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100">
+                    {item.name}
+                    <ChevronDownIcon className="ml-2 h-5 w-5 stroke-neutral-700 dark:stroke-neutral-300" />
+                  </Menu.Button>
+
+                  {/* DROPDOWN ITEMS */}
+                  <Menu.Items className="absolute -right-20 mt-2 min-w-[600px] origin-top-right rounded-md bg-white py-4 shadow-lg ring-1 ring-black/5 focus:outline-none dark:bg-neutral-900">
+                    <div className="grid w-full grid-cols-2 gap-6 px-4">
+                      {item.group.map((group) => (
+                        <div key={group.name}>
+                          <p className="mb-6 block px-3.5 text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                            {group.name}
+                          </p>
+
+                          <div className="flex flex-col gap-6">
+                            {group.items.map((groupItem) => (
+                              <Menu.Item
+                                as="div"
+                                key={groupItem.name}
+                                className="flex gap-3 rounded-md px-3.5 py-2.5 hover:bg-neutral-200 dark:hover:bg-neutral-800"
+                              >
+                                <a href={groupItem.href} className="flex gap-4">
+                                  <div>
+                                    <groupItem.icon
+                                      className="h-5 w-5 fill-neutral-700 dark:fill-neutral-300"
+                                      aria-hidden="true"
+                                    />
+                                  </div>
+                                  <div>
+                                    <span className="block text-base font-medium text-neutral-900 dark:text-neutral-100">
+                                      {groupItem.name}
+                                    </span>
+                                    <span className="text-sm leading-none text-neutral-600 dark:text-neutral-400">
+                                      {groupItem.description}
+                                    </span>
+                                  </div>
+                                </a>
+                              </Menu.Item>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </Menu.Items>
+                </Menu>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+                >
+                  {item.name}
+                </a>
+              )}
+            </div>
+          ))}
+
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
+            <a
+              href="#"
+              className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Learn more
+            </a>
+
+            <a
+              href="#"
+              className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <a href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </a>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-neutral-500/30 dark:divide-white/30">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <div key={item.name}>
+                    {item.dropdown ? (
+                      <div>
+                        <span className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 dark:text-neutral-100">
+                          {item.name}
+                        </span>
+
+                        <div>
+                          {item.group.map((group) => (
+                            <div key={group.name} className="mt-6">
+                              <p className="mb-2 block text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                                {group.name}
+                              </p>
+
+                              <div className="flex flex-col gap-2">
+                                {group.items.map((groupItem) => (
+                                  <div
+                                    key={groupItem.name}
+                                    className="flex gap-3 rounded-md px-2 py-2.5 hover:bg-neutral-200 dark:hover:bg-neutral-800"
+                                  >
+                                    <a
+                                      href={groupItem.href}
+                                      className="flex items-start gap-3"
+                                    >
+                                      <div>
+                                        <groupItem.icon
+                                          className="h-5 w-5 fill-neutral-700 dark:fill-neutral-300"
+                                          aria-hidden="true"
+                                        />
+                                      </div>
+                                      <div>
+                                        <span className="block text-base font-medium text-neutral-900 dark:text-neutral-100">
+                                          {groupItem.name}
+                                        </span>
+                                        <span className="text-sm leading-none text-neutral-600 dark:text-neutral-400">
+                                          {groupItem.description}
+                                        </span>
+                                      </div>
+                                    </a>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                      >
+                        {item.name}
+                      </a>
+                    )}{'' ''}
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col space-y-4 py-6">
+                <a
+                  href="#"
+                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  Learn more <span aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a
+                  href="#"
+                  className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}
+
+function ChevronDownIcon(props) {
+  return (
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+  );
+}
+
+function GroupLinkIcon(props) {
+  return (
+    <svg viewBox="0 0 28 28" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M26.009 8.191a13.253 13.253 0 00-2-3.22 13.53 13.53 0 10-18.68 19.32 13.08 13.08 0 003.2 1.83c1.609.66 3.331.999 5.07 1a13.56 13.56 0 0013.53-13.55 13.392 13.392 0 00-1.12-5.38zm-12.42-5.43c1.562 0 3.104.341 4.52 1a4.364 4.364 0 01-1.08.31 5.731 5.731 0 00-4.85 4.85 2.998 2.998 0 01-2.71 2.65 5.731 5.731 0 00-4.85 4.85 2.905 2.905 0 01-.79 1.74 10.801 10.801 0 019.77-15.42l-.01.02zm-8.27 17.81c.12-.11.24-.21.36-.33a5.474 5.474 0 001.62-3.23 2.916 2.916 0 01.87-1.82 2.827 2.827 0 011.81-.86 5.731 5.731 0 004.85-4.85 2.919 2.919 0 01.87-1.91 2.87 2.87 0 011.83-.83 5.474 5.474 0 003-1.43 10.51 10.51 0 012.36 2.78.907.907 0 01-.13.14 2.868 2.868 0 01-1.81.88 5.704 5.704 0 00-3.234 1.616 5.704 5.704 0 00-1.616 3.234 3.001 3.001 0 01-2.69 2.68 5.76 5.76 0 00-4.88 4.85 3.145 3.145 0 01-.49 1.37 10.89 10.89 0 01-2.72-2.29zm8.27 3.86a10.83 10.83 0 01-3-.42c.334-.622.551-1.3.64-2a3.003 3.003 0 012.68-2.68 5.731 5.731 0 004.86-4.85 3.003 3.003 0 012.68-2.68 5.708 5.708 0 002.56-1 10.82 10.82 0 01-10.42 13.58v.05z"
+      ></path>
+    </svg>
+  );
+}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+''use client'';
+
+import Link from ''next/link'';
+
+import { useState } from ''react'';
+import { Dialog, Menu } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'', dropdown: false },
+  { name: ''Link Two'', href: ''#'', dropdown: false },
+  {
+    name: ''Dropdown Three'',
+    dropdown: true,
+    group: [
+      {
+        name: ''Group Column One'',
+        items: [
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #1'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''/'',
+          },
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #2'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+          ,
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #3'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #4'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+        ],
+      },
+      {
+        name: ''Group Column Two'',
+        items: [
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #1'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #2'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+          ,
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #3'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #4'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+        ],
+      },
+    ],
+  },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
+        aria-label="Global"
+      >
+        <div className="flex lg:flex-1">
+          <Link href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Your Company</span>
+            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+          </Link>
+        </div>
+
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <HamburgerIcon
+              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <div key={item.name}>
+              {item.dropdown ? (
+                <Menu as="div" className="relative">
+                  <Menu.Button className="flex items-center text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100">
+                    {item.name}
+                    <ChevronDownIcon className="ml-2 h-5 w-5 stroke-neutral-700 dark:stroke-neutral-300" />
+                  </Menu.Button>
+
+                  {/* DROPDOWN ITEMS */}
+                  <Menu.Items className="absolute -right-20 mt-2 min-w-[600px] origin-top-right rounded-md bg-white py-4 shadow-lg ring-1 ring-black/5 focus:outline-none dark:bg-neutral-900">
+                    <div className="grid w-full grid-cols-2 gap-6 px-4">
+                      {item.group.map((group) => (
+                        <div key={group.name}>
+                          <p className="mb-6 block px-3.5 text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                            {group.name}
+                          </p>
+
+                          <div className="flex flex-col gap-6">
+                            {group.items.map((groupItem) => (
+                              <Menu.Item
+                                as="div"
+                                key={groupItem.name}
+                                className="flex gap-3 rounded-md px-3.5 py-2.5 hover:bg-neutral-200 dark:hover:bg-neutral-800"
+                              >
+                                <Link
+                                  href={groupItem.href}
+                                  className="flex gap-4"
+                                >
+                                  <div>
+                                    <groupItem.icon
+                                      className="h-5 w-5 fill-neutral-700 dark:fill-neutral-300"
+                                      aria-hidden="true"
+                                    />
+                                  </div>
+                                  <div>
+                                    <span className="block text-base font-medium text-neutral-900 dark:text-neutral-100">
+                                      {groupItem.name}
+                                    </span>
+                                    <span className="text-sm leading-none text-neutral-600 dark:text-neutral-400">
+                                      {groupItem.description}
+                                    </span>
+                                  </div>
+                                </Link>
+                              </Menu.Item>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </Menu.Items>
+                </Menu>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+                >
+                  {item.name}
+                </Link>
+              )}
+            </div>
+          ))}
+
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
+            <Link
+              href="#"
+              className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Learn more
+            </Link>
+
+            <Link
+              href="#"
+              className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Contact
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <Link href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </Link>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-neutral-500/30 dark:divide-white/30">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <div key={item.name}>
+                    {item.dropdown ? (
+                      <div>
+                        <span className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 dark:text-neutral-100">
+                          {item.name}
+                        </span>
+
+                        <div>
+                          {item.group.map((group) => (
+                            <div key={group.name} className="mt-6">
+                              <p className="mb-2 block text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                                {group.name}
+                              </p>
+
+                              <div className="flex flex-col gap-2">
+                                {group.items.map((groupItem) => (
+                                  <div
+                                    key={groupItem.name}
+                                    className="flex gap-3 rounded-md px-2 py-2.5 hover:bg-neutral-200 dark:hover:bg-neutral-800"
+                                  >
+                                    <Link
+                                      href={groupItem.href}
+                                      className="flex items-start gap-3"
+                                    >
+                                      <div>
+                                        <groupItem.icon
+                                          className="h-5 w-5 fill-neutral-700 dark:fill-neutral-300"
+                                          aria-hidden="true"
+                                        />
+                                      </div>
+                                      <div>
+                                        <span className="block text-base font-medium text-neutral-900 dark:text-neutral-100">
+                                          {groupItem.name}
+                                        </span>
+                                        <span className="text-sm leading-none text-neutral-600 dark:text-neutral-400">
+                                          {groupItem.description}
+                                        </span>
+                                      </div>
+                                    </Link>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                      >
+                        {item.name}
+                      </Link>
+                    )}{'' ''}
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col space-y-4 py-6">
+                <Link
+                  href="#"
+                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  Learn more <span aria-hidden="true">&rarr;</span>
+                </Link>
+
+                <Link
+                  href="#"
+                  className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+                >
+                  Contact
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}
+
+function ChevronDownIcon(props) {
+  return (
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+  );
+}
+
+function GroupLinkIcon(props) {
+  return (
+    <svg viewBox="0 0 28 28" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M26.009 8.191a13.253 13.253 0 00-2-3.22 13.53 13.53 0 10-18.68 19.32 13.08 13.08 0 003.2 1.83c1.609.66 3.331.999 5.07 1a13.56 13.56 0 0013.53-13.55 13.392 13.392 0 00-1.12-5.38zm-12.42-5.43c1.562 0 3.104.341 4.52 1a4.364 4.364 0 01-1.08.31 5.731 5.731 0 00-4.85 4.85 2.998 2.998 0 01-2.71 2.65 5.731 5.731 0 00-4.85 4.85 2.905 2.905 0 01-.79 1.74 10.801 10.801 0 019.77-15.42l-.01.02zm-8.27 17.81c.12-.11.24-.21.36-.33a5.474 5.474 0 001.62-3.23 2.916 2.916 0 01.87-1.82 2.827 2.827 0 011.81-.86 5.731 5.731 0 004.85-4.85 2.919 2.919 0 01.87-1.91 2.87 2.87 0 011.83-.83 5.474 5.474 0 003-1.43 10.51 10.51 0 012.36 2.78.907.907 0 01-.13.14 2.868 2.868 0 01-1.81.88 5.704 5.704 0 00-3.234 1.616 5.704 5.704 0 00-1.616 3.234 3.001 3.001 0 01-2.69 2.68 5.76 5.76 0 00-4.88 4.85 3.145 3.145 0 01-.49 1.37 10.89 10.89 0 01-2.72-2.29zm8.27 3.86a10.83 10.83 0 01-3-.42c.334-.622.551-1.3.64-2a3.003 3.003 0 012.68-2.68 5.731 5.731 0 004.86-4.85 3.003 3.003 0 012.68-2.68 5.708 5.708 0 002.56-1 10.82 10.82 0 01-10.42 13.58v.05z"
+      ></path>
+    </svg>
   );
 }', '', ''),
 	('50d8e0bc-c7c3-4537-a558-fb0941c93b29', '2023-11-12 12:22:28.847967+00', 'Blog 3', '', true, false, 'marketing', 'blog', 'https://library.codesnaps.io/api/content/blog/blog-3', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/blog_3-1699791747165.webp', 'Blog Component', false, '{text-align-left,text-align-center,video-image-center,2-columns}', '{multiple-images}', '/*
@@ -5607,7 +6243,130 @@ export default function CTA() {
     </div>
   );
 }', '', ''),
-	('45c1c7a9-20ac-4999-86db-c87b7497fc58', '2023-11-08 18:55:17.85525+00', 'Header 3', NULL, true, false, 'marketing', 'header', 'https://library.codesnaps.io/api/content/header/header-3', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/header_3-1699474601017.webp', 'Header Component', false, '{text-align-center,1-column}', '{animation,buttons,text-only}', '/*
+	('ab3a3324-3ea3-488b-8a18-04c14e9b6f38', '2023-11-08 18:55:17.85525+00', 'Feature 2', NULL, true, true, 'marketing', 'feature', 'https://library.codesnaps.io/api/content/feature/feature-2', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/feature_2-1699473479589.webp', 'Feature Component', false, '{text-align-left,video-image-left,2-columns}', '{buttons,image}', 'import React from ''react'';
+
+export default function Feature() {
+  return (
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mt-24 grid grid-cols-1 items-center gap-14 sm:mt-32 lg:mt-40 lg:grid-cols-2">
+        <div className="mx-auto flex max-w-3xl flex-col gap-8">
+          <span className="text-lg font-medium text-neutral-800 dark:text-neutral-200">
+            Tagline
+          </span>
+
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+            Medium length section heading goes here
+          </h2>
+
+          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique. Duis cursus, mi quis
+            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+            vitae erat.
+          </p>
+
+          <div className="flex space-x-8">
+            <a
+              href="#"
+              className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </a>
+
+            <a
+              href="#"
+              className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </a>
+          </div>
+        </div>
+
+        <div className="order-last mx-auto max-w-lg lg:order-first">
+          <img
+            src="https://dummyimage.com/1000x1000/d4d4d4/171717"
+            alt="Image"
+            width={1000}
+            height={1000}
+            className="rounded-xl object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import Image from ''next/image'';
+import Link from ''next/link'';
+
+export default function Feature() {
+  return (
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mt-24 grid grid-cols-1 items-center gap-14 sm:mt-32 lg:mt-40 lg:grid-cols-2">
+        <div className="mx-auto flex max-w-3xl flex-col gap-8">
+          <span className="text-lg font-medium text-neutral-800 dark:text-neutral-200">
+            Tagline
+          </span>
+
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+            Medium length section heading goes here
+          </h2>
+
+          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique. Duis cursus, mi quis
+            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+            vitae erat.
+          </p>
+
+          <div className="flex space-x-8">
+            <Link
+              href="#"
+              className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </Link>
+
+            <Link
+              href="#"
+              className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </Link>
+          </div>
+        </div>
+
+        <div className="order-last mx-auto max-w-lg lg:order-first">
+          <Image
+            src="https://dummyimage.com/1000x1000/d4d4d4/171717"
+            alt="Image"
+            width={1000}
+            height={1000}
+            className="rounded-xl object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}', '', ''),
+	('45c1c7a9-20ac-4999-86db-c87b7497fc58', '2023-11-08 18:55:17.85525+00', 'Header 3', NULL, true, false, 'marketing', 'header', 'https://library.codesnaps.io/api/content/header/header-3', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/header_3-1700068993038.webp', 'Header Component', false, '{text-align-center,1-column}', '{animation,buttons,text-only}', '/*
 The following package is required: npm install framer-motion
 
 Works only in combination with Animation.jsx
@@ -5622,7 +6381,7 @@ export default function Header() {
     <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
       <FadeInAnimation className="mx-auto flex max-w-4xl flex-col space-y-7 text-center">
         <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-          Medium length hero heading goes her
+          Medium length hero heading goes here
         </h2>
 
         <p className="text-lg text-neutral-600 dark:text-neutral-400">
@@ -5664,7 +6423,7 @@ export default function Header() {
     <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
       <FadeInAnimation className="mx-auto flex max-w-4xl flex-col space-y-7 text-center">
         <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-          Medium length hero heading goes her
+          Medium length hero heading goes here
         </h2>
 
         <p className="text-lg text-neutral-600 dark:text-neutral-400">
@@ -5746,7 +6505,7 @@ export function FadeInAnimation(props) {
     />
   );
 }'),
-	('b1659f6c-d0dd-4e71-ad95-74293886257d', '2023-11-08 18:55:17.85525+00', 'FAQ 2', NULL, true, true, 'marketing', 'faq', 'https://library.codesnaps.io/api/content/faq/faq-2', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/faq_2-1699473325672.webp', 'FAQ Component', true, '{text-align-left,2-columns}', '{accordion,buttons,text-only}', '/*
+	('b1659f6c-d0dd-4e71-ad95-74293886257d', '2023-11-08 18:55:17.85525+00', 'FAQ 2', 'You need to install the following package: npm install @headlessui/react', true, true, 'marketing', 'faq', 'https://library.codesnaps.io/api/content/faq/faq-2', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/faq_2-1699473325672.webp', 'FAQ Component', true, '{text-align-left,2-columns}', '{accordion,buttons,text-only}', '/*
 You need to install the following package: npm install @headlessui/react
 */
 
@@ -5995,57 +6754,113 @@ function MinusIcon(props) {
     </svg>
   );
 }', '', ''),
-	('ab3a3324-3ea3-488b-8a18-04c14e9b6f38', '2023-11-08 18:55:17.85525+00', 'Feature 2', NULL, true, true, 'marketing', 'feature', 'https://library.codesnaps.io/api/content/feature/feature-2', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/feature_2-1699473479589.webp', 'Feature Component', false, '{text-align-left,video-image-left,2-columns}', '{buttons,image}', 'export default function Feature() {
+	('38fbf5f1-a758-4ef0-952f-754f5a619abd', '2023-11-08 18:55:17.85525+00', 'Gallery 2', 'The following package is required: npm install swiper', true, true, 'marketing', 'gallery', 'https://library.codesnaps.io/api/content/gallery/gallery-2', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/gallery_2-1699474163590.webp', 'Gallery Component', true, '{text-align-left,video-image-left,video-image-center,video-image-right,1-column}', '{multiple-images,slider}', '/*
+The following package is required: npm install swiper
+*/
+
+import React from ''react'';
+
+import ''swiper/css'';
+import ''swiper/css/pagination'';
+
+import { Swiper, SwiperSlide } from ''swiper/react'';
+import { Pagination } from ''swiper/modules'';
+
+const images = [
+  {
+    id: 1,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+  {
+    id: 2,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+  {
+    id: 3,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+  {
+    id: 4,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+  {
+    id: 5,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+  {
+    id: 6,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+  {
+    id: 7,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+];
+
+export default function Gallery() {
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div className="mt-24 grid grid-cols-1 items-center gap-14 sm:mt-32 lg:mt-40 lg:grid-cols-2">
-        <div className="mx-auto flex max-w-3xl flex-col gap-8">
-          <span className="text-lg font-medium text-neutral-800 dark:text-neutral-200">
-            Tagline
-          </span>
+    <div className="mt-24 px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col space-y-4">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Image Gallery
+        </h2>
 
-          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-            Medium length section heading goes here
-          </h2>
+        <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          Nam posuere, dolor a condimentum rhoncus, leo nisi varius enim, eu
+          scelerisque neque ex quis sem.
+        </p>
+      </div>
 
-          <p className="text-lg text-neutral-600 dark:text-neutral-400">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            varius enim in eros elementum tristique. Duis cursus, mi quis
-            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
-            vitae erat.
-          </p>
-
-          <div className="flex space-x-8">
-            <a
-              href="#"
-              className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-            >
-              Button
-            </a>
-
-            <a
-              href="#"
-              className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
-            >
-              Button
-            </a>
-          </div>
-        </div>
-
-        <div className="order-last mx-auto max-w-lg lg:order-first">
-          <img
-            src="https://dummyimage.com/1000x1000/d4d4d4/171717"
-            alt="Image"
-            width={1000}
-            height={1000}
-            className="rounded-xl object-cover"
-          />
-        </div>
+      <div className="mt-16 sm:mt-20 lg:mt-24">
+        <Swiper
+          slidesPerView={''auto''}
+          centeredSlides={true}
+          spaceBetween={30}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+        >
+          {images.map((image) => (
+            <SwiperSlide key={image.id} className="max-w-xl">
+              <img
+                src={image.src}
+                alt={image.alt}
+                width={image.width}
+                height={image.height}
+                className="rounded-xl object-cover"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );
 }', '/*
-You need to configure remotePatterns in next.config.js to use dummyimage.com
+The following package is required: npm install swiper
+
+You also need to configure remotePatterns in next.config.js to use dummyimage.com
   
 // next.config.js
 const nextConfig = {
@@ -6055,7 +6870,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: ''https'',
-        hostname: ''dummyimage.com'',
+        hostname: ''dummyimage.com**'',
       },
     // ... other configs
     ],
@@ -6063,55 +6878,104 @@ const nextConfig = {
 };
 */
 
+''use client'';
+
+import ''swiper/css'';
+import ''swiper/css/pagination'';
+
 import Image from ''next/image'';
-import Link from ''next/link'';
 
-export default function Feature() {
+import { Swiper, SwiperSlide } from ''swiper/react'';
+import { Pagination } from ''swiper/modules'';
+
+const images = [
+  {
+    id: 1,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+  {
+    id: 2,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+  {
+    id: 3,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+  {
+    id: 4,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+  {
+    id: 5,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+  {
+    id: 6,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+  {
+    id: 7,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+];
+
+export default function Gallery() {
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div className="mt-24 grid grid-cols-1 items-center gap-14 sm:mt-32 lg:mt-40 lg:grid-cols-2">
-        <div className="mx-auto flex max-w-3xl flex-col gap-8">
-          <span className="text-lg font-medium text-neutral-800 dark:text-neutral-200">
-            Tagline
-          </span>
+    <div className="mt-24 px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col space-y-4">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Image Gallery
+        </h2>
 
-          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-            Medium length section heading goes here
-          </h2>
+        <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          Nam posuere, dolor a condimentum rhoncus, leo nisi varius enim, eu
+          scelerisque neque ex quis sem.
+        </p>
+      </div>
 
-          <p className="text-lg text-neutral-600 dark:text-neutral-400">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            varius enim in eros elementum tristique. Duis cursus, mi quis
-            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
-            vitae erat.
-          </p>
-
-          <div className="flex space-x-8">
-            <Link
-              href="#"
-              className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-            >
-              Button
-            </Link>
-
-            <Link
-              href="#"
-              className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
-            >
-              Button
-            </Link>
-          </div>
-        </div>
-
-        <div className="order-last mx-auto max-w-lg lg:order-first">
-          <Image
-            src="https://dummyimage.com/1000x1000/d4d4d4/171717"
-            alt="Image"
-            width={1000}
-            height={1000}
-            className="rounded-xl object-cover"
-          />
-        </div>
+      <div className="mt-16 sm:mt-20 lg:mt-24">
+        <Swiper
+          slidesPerView={''auto''}
+          centeredSlides={true}
+          spaceBetween={30}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+        >
+          {images.map((image) => (
+            <SwiperSlide key={image.id} className="max-w-xl">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={image.width}
+                height={image.height}
+                className="rounded-xl object-cover"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );
@@ -7610,280 +8474,101 @@ export default function Feature() {
     </div>
   );
 }', '', ''),
-	('38fbf5f1-a758-4ef0-952f-754f5a619abd', '2023-11-08 18:55:17.85525+00', 'Gallery 2', NULL, true, true, 'marketing', 'gallery', 'https://library.codesnaps.io/api/content/gallery/gallery-2', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/gallery_2-1699474163590.webp', 'Gallery Component', true, '{text-align-left,video-image-left,video-image-center,video-image-right,1-column}', '{multiple-images,slider}', '/*
-The following package is required: npm install swiper
-*/
+	('b973e85e-c1fd-48dd-8181-8781b1a7b035', '2023-11-19 22:17:34.043675+00', 'Hero 14', '', true, false, 'marketing', 'hero', 'https://library.codesnaps.io/api/content/hero/hero-14', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/hero_14-1700432252890.webp', 'Hero Component', false, '{text-align-left,video-image-center,3-columns}', '{background-image,buttons,cards,icons}', 'import React from ''react'';
 
-import React from ''react'';
-
-import ''swiper/css'';
-import ''swiper/css/pagination'';
-
-import { Swiper, SwiperSlide } from ''swiper/react'';
-import { Pagination } from ''swiper/modules'';
-
-const images = [
+const items = [
   {
     id: 1,
-    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    alt: ''Image'',
-    width: 1000,
-    height: 1000,
+    name: ''Short heading here'',
+    description: ''Lorem ipsum dolor sit amet, consectetur adipiscing elit.'',
+    icon: Icon,
   },
   {
     id: 2,
-    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    alt: ''Image'',
-    width: 1000,
-    height: 1000,
+    name: ''Short heading here'',
+    description: ''Lorem ipsum dolor sit amet, consectetur adipiscing elit.'',
+    icon: Icon,
   },
   {
     id: 3,
-    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    alt: ''Image'',
-    width: 1000,
-    height: 1000,
-  },
-  {
-    id: 4,
-    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    alt: ''Image'',
-    width: 1000,
-    height: 1000,
-  },
-  {
-    id: 5,
-    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    alt: ''Image'',
-    width: 1000,
-    height: 1000,
-  },
-  {
-    id: 6,
-    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    alt: ''Image'',
-    width: 1000,
-    height: 1000,
-  },
-  {
-    id: 7,
-    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    alt: ''Image'',
-    width: 1000,
-    height: 1000,
+    name: ''Short heading here'',
+    description: ''Lorem ipsum dolor sit amet, consectetur adipiscing elit.'',
+    icon: Icon,
   },
 ];
 
-export default function Gallery() {
+export default function Hero() {
   return (
-    <div className="mt-24 px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
-      <div className="mx-auto flex max-w-7xl flex-col space-y-4">
-        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-          Image Gallery
-        </h2>
+    <div className="relative h-full w-full">
+      <img
+        loading="lazy"
+        src="https://dummyimage.com/1920x1200/f5f5f5/171717"
+        fill={true}
+        alt="hero image"
+        className="absolute -z-10 h-full max-h-[90vh] w-full object-cover brightness-[0.3]"
+        aria-hidden="true"
+      />
 
-        <p className="text-lg text-neutral-600 dark:text-neutral-400">
-          Nam posuere, dolor a condimentum rhoncus, leo nisi varius enim, eu
-          scelerisque neque ex quis sem.
-        </p>
-      </div>
-
-      <div className="mt-16 sm:mt-20 lg:mt-24">
-        <Swiper
-          slidesPerView={''auto''}
-          centeredSlides={true}
-          spaceBetween={30}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Pagination]}
-        >
-          {images.map((image) => (
-            <SwiperSlide key={image.id} className="max-w-xl">
-              <img
-                src={image.src}
-                alt={image.alt}
-                width={image.width}
-                height={image.height}
-                className="rounded-xl object-cover"
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </div>
-  );
-}', '/*
-The following package is required: npm install swiper
-
-You also need to configure remotePatterns in next.config.js to use dummyimage.com
-  
-// next.config.js
-const nextConfig = {
-// ... other configs
-  images: {
-    // ... other configs
-    remotePatterns: [
-      {
-        protocol: ''https'',
-        hostname: ''dummyimage.com**'',
-      },
-    // ... other configs
-    ],
-  },
-};
-*/
-
-''use client'';
-
-import ''swiper/css'';
-import ''swiper/css/pagination'';
-
-import Image from ''next/image'';
-
-import { Swiper, SwiperSlide } from ''swiper/react'';
-import { Pagination } from ''swiper/modules'';
-
-const images = [
-  {
-    id: 1,
-    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    alt: ''Image'',
-    width: 1000,
-    height: 1000,
-  },
-  {
-    id: 2,
-    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    alt: ''Image'',
-    width: 1000,
-    height: 1000,
-  },
-  {
-    id: 3,
-    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    alt: ''Image'',
-    width: 1000,
-    height: 1000,
-  },
-  {
-    id: 4,
-    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    alt: ''Image'',
-    width: 1000,
-    height: 1000,
-  },
-  {
-    id: 5,
-    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    alt: ''Image'',
-    width: 1000,
-    height: 1000,
-  },
-  {
-    id: 6,
-    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    alt: ''Image'',
-    width: 1000,
-    height: 1000,
-  },
-  {
-    id: 7,
-    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
-    alt: ''Image'',
-    width: 1000,
-    height: 1000,
-  },
-];
-
-export default function Gallery() {
-  return (
-    <div className="mt-24 px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
-      <div className="mx-auto flex max-w-7xl flex-col space-y-4">
-        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-          Image Gallery
-        </h2>
-
-        <p className="text-lg text-neutral-600 dark:text-neutral-400">
-          Nam posuere, dolor a condimentum rhoncus, leo nisi varius enim, eu
-          scelerisque neque ex quis sem.
-        </p>
-      </div>
-
-      <div className="mt-16 sm:mt-20 lg:mt-24">
-        <Swiper
-          slidesPerView={''auto''}
-          centeredSlides={true}
-          spaceBetween={30}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Pagination]}
-        >
-          {images.map((image) => (
-            <SwiperSlide key={image.id} className="max-w-xl">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={image.width}
-                height={image.height}
-                className="rounded-xl object-cover"
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </div>
-  );
-}', '', ''),
-	('dc8507f6-e871-47ce-8dac-46cfb249e487', '2023-11-08 18:55:17.85525+00', 'Hero 1', NULL, true, true, 'marketing', 'hero', 'https://library.codesnaps.io/api/content/hero/hero-1', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/hero_1-1699474655423.webp', 'Hero Component', false, '{text-align-left,video-image-right,2-columns}', '{buttons,image}', 'export default function Hero() {
-  return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div className="mt-24 grid grid-cols-1 items-center gap-14 sm:mt-32 lg:mt-40 lg:grid-cols-2">
-        <div className="mx-auto flex max-w-3xl flex-col gap-8">
-          <span className="text-lg font-medium text-neutral-800 dark:text-neutral-200">
+      <div className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="max-w-3xl pt-32 sm:pt-48 lg:pt-56">
+          <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-200">
             Tagline
-          </span>
+          </h3>
 
-          <h1 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-            Medium length section heading goes here
-          </h1>
+          <div className="mt-6">
+            <h1 className="text-5xl font-bold leading-tight tracking-wide text-white xl:text-6xl">
+              Medium length heading goes in here
+            </h1>
 
-          <p className="text-lg text-neutral-600 dark:text-neutral-400">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            varius enim in eros elementum tristique. Duis cursus, mi quis
-            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
-            vitae erat.
-          </p>
+            <p className="mt-6 text-lg text-neutral-300">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse varius enim in eros elementum tristique. Duis cursus,
+              mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam
+              libero vitae erat.
+            </p>
 
-          <div className="flex space-x-8">
-            <a
-              href="#"
-              className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-            >
-              Button
-            </a>
-
-            <a
-              href="#"
-              className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
-            >
-              Button
-            </a>
+            <div className="mt-10">
+              <a
+                href="#"
+                className="rounded-md bg-neutral-50 px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm hover:bg-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400"
+              >
+                Button
+              </a>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div className="order-last mx-auto max-w-2xl">
-          <img
-            src="https://dummyimage.com/1000x1000/d4d4d4/171717"
-            alt="Image"
-            width={1000}
-            height={1000}
-            className="rounded-xl"
-          />
-        </div>
+      <div className="mx-auto grid max-w-7xl translate-y-2/4 gap-2 px-4 sm:grid-cols-3 sm:px-6 lg:gap-10 lg:px-8">
+        {items.map((item) => (
+          <div
+            key={item.id}
+            className="mx-auto max-w-sm rounded-xl bg-white px-10 py-8 shadow-md dark:bg-neutral-800"
+          >
+            <item.icon className="h-8 w-8 fill-neutral-600 dark:fill-neutral-200" />
+
+            <h3 className="mt-4 text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+              {item.name}
+            </h3>
+
+            <p className="mt-4 text-sm text-neutral-600 dark:text-neutral-400">
+              {item.description}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
+  );
+}
+
+function Icon(props) {
+  return (
+    <svg viewBox="0 0 28 28" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M26.009 8.191a13.253 13.253 0 00-2-3.22 13.53 13.53 0 10-18.68 19.32 13.08 13.08 0 003.2 1.83c1.609.66 3.331.999 5.07 1a13.56 13.56 0 0013.53-13.55 13.392 13.392 0 00-1.12-5.38zm-12.42-5.43c1.562 0 3.104.341 4.52 1a4.364 4.364 0 01-1.08.31 5.731 5.731 0 00-4.85 4.85 2.998 2.998 0 01-2.71 2.65 5.731 5.731 0 00-4.85 4.85 2.905 2.905 0 01-.79 1.74 10.801 10.801 0 019.77-15.42l-.01.02zm-8.27 17.81c.12-.11.24-.21.36-.33a5.474 5.474 0 001.62-3.23 2.916 2.916 0 01.87-1.82 2.827 2.827 0 011.81-.86 5.731 5.731 0 004.85-4.85 2.919 2.919 0 01.87-1.91 2.87 2.87 0 011.83-.83 5.474 5.474 0 003-1.43 10.51 10.51 0 012.36 2.78.907.907 0 01-.13.14 2.868 2.868 0 01-1.81.88 5.704 5.704 0 00-3.234 1.616 5.704 5.704 0 00-1.616 3.234 3.001 3.001 0 01-2.69 2.68 5.76 5.76 0 00-4.88 4.85 3.145 3.145 0 01-.49 1.37 10.89 10.89 0 01-2.72-2.29zm8.27 3.86a10.83 10.83 0 01-3-.42c.334-.622.551-1.3.64-2a3.003 3.003 0 012.68-2.68 5.731 5.731 0 004.86-4.85 3.003 3.003 0 012.68-2.68 5.708 5.708 0 002.56-1 10.82 10.82 0 01-10.42 13.58v.05z"
+      ></path>
+    </svg>
   );
 }', '/*
 You need to configure remotePatterns in next.config.js to use dummyimage.com
@@ -7907,55 +8592,99 @@ const nextConfig = {
 import Image from ''next/image'';
 import Link from ''next/link'';
 
+const items = [
+  {
+    id: 1,
+    name: ''Short heading here'',
+    description: ''Lorem ipsum dolor sit amet, consectetur adipiscing elit.'',
+    icon: Icon,
+  },
+  {
+    id: 2,
+    name: ''Short heading here'',
+    description: ''Lorem ipsum dolor sit amet, consectetur adipiscing elit.'',
+    icon: Icon,
+  },
+  {
+    id: 3,
+    name: ''Short heading here'',
+    description: ''Lorem ipsum dolor sit amet, consectetur adipiscing elit.'',
+    icon: Icon,
+  },
+];
+
 export default function Hero() {
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div className="mt-24 grid grid-cols-1 items-center gap-14 sm:mt-32 lg:mt-40 lg:grid-cols-2">
-        <div className="mx-auto flex max-w-3xl flex-col gap-8">
-          <span className="text-lg font-medium text-neutral-800 dark:text-neutral-200">
+    <div className="relative h-full w-full">
+      <Image
+        priority
+        src="https://dummyimage.com/1920x1200/f5f5f5/171717"
+        fill={true}
+        alt="hero image"
+        className="absolute -z-10 h-full max-h-[90vh] w-full object-cover brightness-[0.3]"
+        aria-hidden="true"
+      />
+
+      <div className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="max-w-3xl pt-32 sm:pt-48 lg:pt-56">
+          <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-200">
             Tagline
-          </span>
+          </h3>
 
-          <h1 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-            Medium length section heading goes here
-          </h1>
+          <div className="mt-6">
+            <h1 className="text-5xl font-bold leading-tight tracking-wide text-white xl:text-6xl">
+              Medium length heading goes in here
+            </h1>
 
-          <p className="text-lg text-neutral-600 dark:text-neutral-400">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            varius enim in eros elementum tristique. Duis cursus, mi quis
-            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
-            vitae erat.
-          </p>
+            <p className="mt-6 text-lg text-neutral-300">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse varius enim in eros elementum tristique. Duis cursus,
+              mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam
+              libero vitae erat.
+            </p>
 
-          <div className="flex space-x-8">
-            <Link
-              href="#"
-              className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-            >
-              Button
-            </Link>
-
-            <Link
-              href="#"
-              className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
-            >
-              Button
-            </Link>
+            <div className="mt-10">
+              <Link
+                href="#"
+                className="rounded-md bg-neutral-50 px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm hover:bg-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400"
+              >
+                Button
+              </Link>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div className="order-last mx-auto max-w-2xl">
-          <Image
-            priority
-            src="https://dummyimage.com/1000x1000/d4d4d4/171717"
-            alt="Image"
-            width={1000}
-            height={1000}
-            className="rounded-xl"
-          />
-        </div>
+      <div className="mx-auto grid max-w-7xl translate-y-2/4 gap-2 px-4 sm:grid-cols-3 sm:px-6 lg:gap-10 lg:px-8">
+        {items.map((item) => (
+          <div
+            key={item.id}
+            className="mx-auto max-w-sm rounded-xl bg-white px-10 py-8 shadow-md dark:bg-neutral-800"
+          >
+            <item.icon className="h-8 w-8 fill-neutral-600 dark:fill-neutral-200" />
+
+            <h3 className="mt-4 text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+              {item.name}
+            </h3>
+
+            <p className="mt-4 text-sm text-neutral-600 dark:text-neutral-400">
+              {item.description}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
+  );
+}
+
+function Icon(props) {
+  return (
+    <svg viewBox="0 0 28 28" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M26.009 8.191a13.253 13.253 0 00-2-3.22 13.53 13.53 0 10-18.68 19.32 13.08 13.08 0 003.2 1.83c1.609.66 3.331.999 5.07 1a13.56 13.56 0 0013.53-13.55 13.392 13.392 0 00-1.12-5.38zm-12.42-5.43c1.562 0 3.104.341 4.52 1a4.364 4.364 0 01-1.08.31 5.731 5.731 0 00-4.85 4.85 2.998 2.998 0 01-2.71 2.65 5.731 5.731 0 00-4.85 4.85 2.905 2.905 0 01-.79 1.74 10.801 10.801 0 019.77-15.42l-.01.02zm-8.27 17.81c.12-.11.24-.21.36-.33a5.474 5.474 0 001.62-3.23 2.916 2.916 0 01.87-1.82 2.827 2.827 0 011.81-.86 5.731 5.731 0 004.85-4.85 2.919 2.919 0 01.87-1.91 2.87 2.87 0 011.83-.83 5.474 5.474 0 003-1.43 10.51 10.51 0 012.36 2.78.907.907 0 01-.13.14 2.868 2.868 0 01-1.81.88 5.704 5.704 0 00-3.234 1.616 5.704 5.704 0 00-1.616 3.234 3.001 3.001 0 01-2.69 2.68 5.76 5.76 0 00-4.88 4.85 3.145 3.145 0 01-.49 1.37 10.89 10.89 0 01-2.72-2.29zm8.27 3.86a10.83 10.83 0 01-3-.42c.334-.622.551-1.3.64-2a3.003 3.003 0 012.68-2.68 5.731 5.731 0 004.86-4.85 3.003 3.003 0 012.68-2.68 5.708 5.708 0 002.56-1 10.82 10.82 0 01-10.42 13.58v.05z"
+      ></path>
+    </svg>
   );
 }', '', ''),
 	('c299185b-c409-4e20-aba0-21910c9843de', '2023-11-08 18:55:17.85525+00', 'Hero 4', NULL, true, false, 'marketing', 'hero', 'https://library.codesnaps.io/api/content/hero/hero-4', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/hero_4-1699474753156.webp', 'Hero Component', false, '{text-align-center,video-image-center,1-column}', '{buttons,image,slider}', 'import React from ''react'';
@@ -8162,262 +8891,6 @@ export default function Hero() {
         </div>
       </div>
     </div>
-  );
-}', '', ''),
-	('aa5c4612-48c2-425b-ae68-e7a3a9ea69e2', '2023-11-08 18:55:17.85525+00', 'Testimonial 2', NULL, true, true, 'marketing', 'testimonial', 'https://library.codesnaps.io/api/content/testimonail/testimonial-2', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/testimonial_2-1699475129787.webp', 'Testimonial Component', false, '{text-align-left,text-align-center,video-image-left,3-columns}', '{cards,icons}', 'import React from ''react'';
-
-const testimonials = [
-  {
-    id: 1,
-    name: ''Full Name'',
-    position: ''Position'',
-    company: ''Company Name'',
-    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
-    content:
-      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
-  },
-  {
-    id: 2,
-    name: ''Full Name'',
-    position: ''Position'',
-    company: ''Company Name'',
-    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
-    content:
-      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
-  },
-  {
-    id: 3,
-    name: ''Full Name'',
-    position: ''Position'',
-    company: ''Company Name'',
-    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
-    content:
-      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
-  },
-];
-
-export default function Testimonial() {
-  return (
-    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
-      <div className="mx-auto max-w-4xl text-center">
-        <h2 className="text-4xl font-semibold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-          Customer Testimonials
-        </h2>
-
-        <p className="mx-auto mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
-          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
-          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
-        </p>
-      </div>
-
-      <div className="mx-auto mt-10 max-w-md sm:mt-14 md:max-w-2xl lg:mt-20 lg:max-w-none">
-        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <figure
-              key={testimonial.id}
-              className="flex flex-col rounded-xl border border-neutral-200 px-4 py-8 shadow-md dark:border-neutral-800 lg:px-6 lg:py-10"
-            >
-              <div className="x-space-4 flex">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <StarIcon
-                    key={i}
-                    className="h-5 w-5 fill-neutral-900 dark:fill-neutral-100"
-                    aria-hidden="true"
-                  />
-                ))}
-              </div>
-
-              <blockquote className="mt-4 text-base font-semibold leading-relaxed text-neutral-900 dark:text-neutral-200">
-                <p>
-                  “Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-                  expedita voluptas culpa sapiente alias molestiae. Numquam
-                  corrupti in laborum sed rerum et corporis.”
-                </p>
-              </blockquote>
-
-              <figcaption className="mt-6 flex items-center">
-                <div className="mr-4 flex-shrink-0 self-center">
-                  <img
-                    width={48}
-                    height={48}
-                    className="mx-auto h-12 w-12 rounded-full"
-                    src="https://dummyimage.com/100x100/d4d4d4/171717"
-                    alt={testimonial.name}
-                  />
-                </div>
-                <div>
-                  <h4 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
-                    {testimonial.name}
-                  </h4>
-                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium text-neutral-600 dark:text-neutral-400">
-                    <span>{testimonial.position}</span>{'' ''}
-                    <svg
-                      viewBox="0 0 2 2"
-                      width={3}
-                      height={3}
-                      aria-hidden="true"
-                      className="fill-neutral-600 dark:fill-neutral-400"
-                    >
-                      <circle cx={1} cy={1} r={1} />
-                    </svg>
-                    <span>{testimonial.company}</span>
-                  </p>
-                </div>
-              </figcaption>
-            </figure>
-          ))}
-        </dl>
-      </div>
-    </div>
-  );
-}
-
-function StarIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path
-        fillRule="evenodd"
-        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-        clipRule="evenodd"
-      />
-    </svg>
-  );
-}', '/*
-You need to configure remotePatterns in next.config.js to use dummyimage.com
-  
-// next.config.js
-const nextConfig = {
-// ... other configs
-  images: {
-    // ... other configs
-    remotePatterns: [
-      {
-        protocol: ''https'',
-        hostname: ''dummyimage.com'',
-      },
-    // ... other configs
-    ],
-  },
-};
-*/
-
-import Image from ''next/image'';
-
-const testimonials = [
-  {
-    id: 1,
-    name: ''Full Name'',
-    position: ''Position'',
-    company: ''Company Name'',
-    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
-    content:
-      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
-  },
-  {
-    id: 2,
-    name: ''Full Name'',
-    position: ''Position'',
-    company: ''Company Name'',
-    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
-    content:
-      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
-  },
-  {
-    id: 3,
-    name: ''Full Name'',
-    position: ''Position'',
-    company: ''Company Name'',
-    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
-    content:
-      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
-  },
-];
-
-export default function Testimonial() {
-  return (
-    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
-      <div className="mx-auto max-w-4xl text-center">
-        <h2 className="text-4xl font-semibold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-          Customer Testimonials
-        </h2>
-
-        <p className="mx-auto mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
-          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
-          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
-        </p>
-      </div>
-
-      <div className="mx-auto mt-10 max-w-md sm:mt-14 md:max-w-2xl lg:mt-20 lg:max-w-none">
-        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <figure
-              key={testimonial.id}
-              className="flex flex-col rounded-xl border border-neutral-200 px-4 py-8 shadow-md dark:border-neutral-800 lg:px-6 lg:py-10"
-            >
-              <div className="x-space-4 flex">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <StarIcon
-                    key={i}
-                    className="h-5 w-5 fill-neutral-900 dark:fill-neutral-100"
-                    aria-hidden="true"
-                  />
-                ))}
-              </div>
-
-              <blockquote className="mt-4 text-base font-semibold leading-relaxed text-neutral-900 dark:text-neutral-200">
-                <p>
-                  “Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-                  expedita voluptas culpa sapiente alias molestiae. Numquam
-                  corrupti in laborum sed rerum et corporis.”
-                </p>
-              </blockquote>
-
-              <figcaption className="mt-6 flex items-center">
-                <div className="mr-4 flex-shrink-0 self-center">
-                  <Image
-                    width={48}
-                    height={48}
-                    className="mx-auto h-12 w-12 rounded-full"
-                    src="https://dummyimage.com/100x100/d4d4d4/171717"
-                    alt={testimonial.name}
-                  />
-                </div>
-                <div>
-                  <h4 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
-                    {testimonial.name}
-                  </h4>
-                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium text-neutral-600 dark:text-neutral-400">
-                    <span>{testimonial.position}</span>{'' ''}
-                    <svg
-                      viewBox="0 0 2 2"
-                      width={3}
-                      height={3}
-                      aria-hidden="true"
-                      className="fill-neutral-600 dark:fill-neutral-400"
-                    >
-                      <circle cx={1} cy={1} r={1} />
-                    </svg>
-                    <span>{testimonial.company}</span>
-                  </p>
-                </div>
-              </figcaption>
-            </figure>
-          ))}
-        </dl>
-      </div>
-    </div>
-  );
-}
-
-function StarIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path
-        fillRule="evenodd"
-        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-        clipRule="evenodd"
-      />
-    </svg>
   );
 }', '', ''),
 	('7269cc30-5792-4997-ba09-3158cb5c46b8', '2023-11-10 20:05:30.056929+00', 'Pricing 2', '', true, false, 'marketing', 'pricing', 'https://library.codesnaps.io/api/content/pricing/pricing-2', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/pricing_2-1699646728798.webp', 'Pricing Component', false, '{text-align-left,text-align-center,1-column}', '{buttons,cards,icons,list,text-only}', 'import React from ''react'';
@@ -9020,7 +9493,7 @@ export default function Blog() {
                 />
               </div>
 
-              <div className="xl:col-span-2">
+              <div>
                 <dt className="flex flex-col items-start gap-y-3">
                   <span className="text-xs font-medium uppercase text-neutral-600 dark:text-neutral-400">
                     {post.category}
@@ -9201,7 +9674,7 @@ export default function Blog() {
                 />
               </Link>
 
-              <div className="xl:col-span-2">
+              <div>
                 <dt className="flex flex-col items-start gap-y-3">
                   <span className="text-xs font-medium uppercase text-neutral-600 dark:text-neutral-400">
                     {post.category}
@@ -9244,6 +9717,378 @@ export default function Blog() {
             </div>
           ))}
         </dl>
+      </div>
+    </div>
+  );
+}', '', ''),
+	('aa5c4612-48c2-425b-ae68-e7a3a9ea69e2', '2023-11-08 18:55:17.85525+00', 'Testimonial 2', NULL, true, true, 'marketing', 'testimonial', 'https://library.codesnaps.io/api/content/testimonail/testimonial-2', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/testimonial_2-1699475129787.webp', 'Testimonial Component', false, '{text-align-left,text-align-center,video-image-left,3-columns}', '{cards,icons}', 'import React from ''react'';
+
+const testimonials = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 3,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+];
+
+export default function Testimonial() {
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="mx-auto max-w-4xl text-center">
+        <h2 className="text-4xl font-semibold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Customer Testimonials
+        </h2>
+
+        <p className="mx-auto mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-10 max-w-md sm:mt-14 md:max-w-2xl lg:mt-20 lg:max-w-none">
+        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
+          {testimonials.map((testimonial) => (
+            <figure
+              key={testimonial.id}
+              className="flex flex-col rounded-xl border border-neutral-200 px-4 py-8 shadow-md dark:border-neutral-800 lg:px-6 lg:py-10"
+            >
+              <div className="x-space-4 flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    className="h-5 w-5 fill-neutral-900 dark:fill-neutral-100"
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <blockquote className="mt-4 text-base font-semibold leading-relaxed text-neutral-900 dark:text-neutral-200">
+                 <p>“{testimonial.content}”</p>
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center">
+                <div className="mr-4 flex-shrink-0 self-center">
+                  <img
+                    width={48}
+                    height={48}
+                    className="mx-auto h-12 w-12 rounded-full"
+                    src={testimonial.imgSrc}
+                    alt={testimonial.name}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
+                    {testimonial.name}
+                  </h4>
+                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                    <span>{testimonial.position}</span>{'' ''}
+                    <svg
+                      viewBox="0 0 2 2"
+                      width={3}
+                      height={3}
+                      aria-hidden="true"
+                      className="fill-neutral-600 dark:fill-neutral-400"
+                    >
+                      <circle cx={1} cy={1} r={1} />
+                    </svg>
+                    <span>{testimonial.company}</span>
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </dl>
+      </div>
+    </div>
+  );
+}
+
+function StarIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import Image from ''next/image'';
+
+const testimonials = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 3,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+];
+
+export default function Testimonial() {
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="mx-auto max-w-4xl text-center">
+        <h2 className="text-4xl font-semibold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Customer Testimonials
+        </h2>
+
+        <p className="mx-auto mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-10 max-w-md sm:mt-14 md:max-w-2xl lg:mt-20 lg:max-w-none">
+        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
+          {testimonials.map((testimonial) => (
+            <figure
+              key={testimonial.id}
+              className="flex flex-col rounded-xl border border-neutral-200 px-4 py-8 shadow-md dark:border-neutral-800 lg:px-6 lg:py-10"
+            >
+              <div className="x-space-4 flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    className="h-5 w-5 fill-neutral-900 dark:fill-neutral-100"
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <blockquote className="mt-4 text-base font-semibold leading-relaxed text-neutral-900 dark:text-neutral-200">
+                <p>“{testimonial.content}”</p>
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center">
+                <div className="mr-4 flex-shrink-0 self-center">
+                  <Image
+                    width={48}
+                    height={48}
+                    className="mx-auto h-12 w-12 rounded-full"
+                    src={testimonial.imgSrc}
+                    alt={testimonial.name}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
+                    {testimonial.name}
+                  </h4>
+                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                    <span>{testimonial.position}</span>{'' ''}
+                    <svg
+                      viewBox="0 0 2 2"
+                      width={3}
+                      height={3}
+                      aria-hidden="true"
+                      className="fill-neutral-600 dark:fill-neutral-400"
+                    >
+                      <circle cx={1} cy={1} r={1} />
+                    </svg>
+                    <span>{testimonial.company}</span>
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </dl>
+      </div>
+    </div>
+  );
+}
+
+function StarIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}', '', ''),
+	('dc8507f6-e871-47ce-8dac-46cfb249e487', '2023-11-08 18:55:17.85525+00', 'Hero 1', NULL, true, true, 'marketing', 'hero', 'https://library.codesnaps.io/api/content/hero/hero-1', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/hero_1-1699474655423.webp', 'Hero Component', false, '{text-align-left,video-image-right,2-columns}', '{buttons,image}', 'import React from ''react'';
+
+export default function Hero() {
+  return (
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mt-24 grid grid-cols-1 items-center gap-14 sm:mt-32 lg:mt-40 lg:grid-cols-2">
+        <div className="mx-auto flex max-w-3xl flex-col gap-8">
+          <span className="text-lg font-medium text-neutral-800 dark:text-neutral-200">
+            Tagline
+          </span>
+
+          <h1 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+            Medium length section heading goes here
+          </h1>
+
+          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique. Duis cursus, mi quis
+            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+            vitae erat.
+          </p>
+
+          <div className="flex space-x-8">
+            <a
+              href="#"
+              className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </a>
+
+            <a
+              href="#"
+              className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </a>
+          </div>
+        </div>
+
+        <div className="order-last mx-auto max-w-2xl">
+          <img
+            src="https://dummyimage.com/1000x1000/d4d4d4/171717"
+            alt="Image"
+            width={1000}
+            height={1000}
+            className="rounded-xl"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import Image from ''next/image'';
+import Link from ''next/link'';
+
+export default function Hero() {
+  return (
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mt-24 grid grid-cols-1 items-center gap-14 sm:mt-32 lg:mt-40 lg:grid-cols-2">
+        <div className="mx-auto flex max-w-3xl flex-col gap-8">
+          <span className="text-lg font-medium text-neutral-800 dark:text-neutral-200">
+            Tagline
+          </span>
+
+          <h1 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+            Medium length section heading goes here
+          </h1>
+
+          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique. Duis cursus, mi quis
+            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+            vitae erat.
+          </p>
+
+          <div className="flex space-x-8">
+            <Link
+              href="#"
+              className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </Link>
+
+            <Link
+              href="#"
+              className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </Link>
+          </div>
+        </div>
+
+        <div className="order-last mx-auto max-w-2xl">
+          <Image
+            priority
+            src="https://dummyimage.com/1000x1000/d4d4d4/171717"
+            alt="Image"
+            width={1000}
+            height={1000}
+            className="rounded-xl"
+          />
+        </div>
       </div>
     </div>
   );
@@ -9811,278 +10656,6 @@ function ChevronIcon(props) {
     </svg>
   );
 }', '', ''),
-	('c19f89dd-31b3-4dfb-8604-cd43f2a1c0c2', '2023-11-12 12:37:09.823495+00', 'Logo 6', '', true, false, 'marketing', 'logos', 'https://library.codesnaps.io/api/content/logo/logo-6', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/logo_6-1699792628850.webp', 'Logo Component', false, '{text-align-center,video-image-center,1-column}', '{animation,logos,multiple-images}', '/*
-You need to configure tailwind.config.js to create the animation
-
-// tailwind.config.js
-module.exports = {
-  theme: {
-    extend: {
-      animation: {
-        ''infinite-scroll-horizontal'': ''horizontal-scroll 20s linear infinite'',
-      },
-      keyframes: {
-        ''horizontal-scroll'': {
-          from: { transform: ''translateX(0)'' },
-          to: { transform: ''translateX(-100%)'' },
-        },
-      },
-    },
-  },
-};
-*/
-
-import React from ''react'';
-
-const logos = [
-  {
-    id: 1,
-    name: ''Logo Name'',
-    height: 35,
-    width: 130,
-    src: ''https://img.logoipsum.com/221.svg'',
-  },
-  {
-    id: 2,
-    name: ''Logo Name'',
-    height: 35,
-    width: 130,
-    src: ''https://img.logoipsum.com/220.svg'',
-  },
-  {
-    id: 3,
-    name: ''Logo Name'',
-    height: 35,
-    width: 130,
-    src: ''https://img.logoipsum.com/219.svg'',
-  },
-  {
-    id: 4,
-    name: ''Logo Name'',
-    height: 35,
-    width: 130,
-    src: ''https://img.logoipsum.com/218.svg'',
-  },
-  {
-    id: 5,
-    name: ''Logo Name'',
-    height: 35,
-    width: 130,
-    src: ''https://img.logoipsum.com/217.svg'',
-  },
-  {
-    id: 6,
-    name: ''Logo Name'',
-    height: 35,
-    width: 130,
-    src: ''https://img.logoipsum.com/216.svg'',
-  },
-];
-
-export default function Logo() {
-  return (
-    <div className="mx-auto mt-24 px-4 sm:mt-32 sm:px-6 lg:mt-36 lg:px-8">
-      <h2 className="text-center text-lg font-semibold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50">
-        Trusted by the world’s most unkown companies
-      </h2>
-
-      <div className="mt-14 inline-flex w-full flex-nowrap">
-        <ul className="animate-infinite-scroll-horizontal flex items-center justify-center md:justify-start">
-          {logos.map((logo) => (
-            <li key={logo.id} className="mx-8">
-              <img
-                className="col-span-1 max-w-none object-contain"
-                src={logo.src}
-                alt={logo.name}
-                width={logo.width}
-                height={logo.height}
-              />
-            </li>
-          ))}
-        </ul>
-
-        <ul
-          className="animate-infinite-scroll-horizontal flex items-center justify-center md:justify-start"
-          aria-hidden="true"
-        >
-          {logos.map((logo) => (
-            <li key={logo.id} className="mx-8">
-              <img
-                className="col-span-1 max-w-none object-contain"
-                src={logo.src}
-                alt={logo.name}
-                width={logo.width}
-                height={logo.height}
-              />
-            </li>
-          ))}
-        </ul>
-
-        <ul
-          className="animate-infinite-scroll-horizontal flex items-center justify-center md:justify-start"
-          aria-hidden="true"
-        >
-          {logos.map((logo) => (
-            <li key={logo.id} className="mx-8">
-              <Image
-                priority
-                className="col-span-1 max-w-none object-contain"
-                src={logo.src}
-                alt={logo.name}
-                width={logo.width}
-                height={logo.height}
-              />
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-}', '/*
-You need to configure remotePatterns in next.config.js to use logoipsum.com
-  
-// next.config.js
-const nextConfig = {
-// ... other configs
-  images: {
-    // ... other configs
-    remotePatterns: [
-      {
-        protocol: ''https'',
-        hostname: ''img.logoipsum.com'',
-      },
-    // ... other configs
-    ],
-  },
-};
-
-You also need to configure tailwind.config.js to create the animation
-
-// tailwind.config.js
-module.exports = {
-  theme: {
-    extend: {
-      animation: {
-        ''infinite-scroll-horizontal'': ''horizontal-scroll 20s linear infinite'',
-      },
-      keyframes: {
-        ''horizontal-scroll'': {
-          from: { transform: ''translateX(0)'' },
-          to: { transform: ''translateX(-100%)'' },
-        },
-      },
-    },
-  },
-};
-*/
-
-import Image from ''next/image'';
-
-const logos = [
-  {
-    id: 1,
-    name: ''Logo Name'',
-    height: 35,
-    width: 130,
-    src: ''https://img.logoipsum.com/221.svg'',
-  },
-  {
-    id: 2,
-    name: ''Logo Name'',
-    height: 35,
-    width: 130,
-    src: ''https://img.logoipsum.com/220.svg'',
-  },
-  {
-    id: 3,
-    name: ''Logo Name'',
-    height: 35,
-    width: 130,
-    src: ''https://img.logoipsum.com/219.svg'',
-  },
-  {
-    id: 4,
-    name: ''Logo Name'',
-    height: 35,
-    width: 130,
-    src: ''https://img.logoipsum.com/218.svg'',
-  },
-  {
-    id: 5,
-    name: ''Logo Name'',
-    height: 35,
-    width: 130,
-    src: ''https://img.logoipsum.com/217.svg'',
-  },
-  {
-    id: 6,
-    name: ''Logo Name'',
-    height: 35,
-    width: 130,
-    src: ''https://img.logoipsum.com/216.svg'',
-  },
-];
-
-export default function Logo() {
-  return (
-    <div className="mx-auto mt-24 px-4 sm:mt-32 sm:px-6 lg:mt-36 lg:px-8">
-      <h2 className="text-center text-lg font-semibold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50">
-        Trusted by the world’s most unkown companies
-      </h2>
-
-      <div className="mt-14 inline-flex w-full flex-nowrap">
-        <ul className="animate-infinite-scroll-horizontal flex items-center justify-center md:justify-start">
-          {logos.map((logo) => (
-            <li key={logo.id} className="mx-8">
-              <Image
-                className="col-span-1 max-w-none object-contain"
-                src={logo.src}
-                alt={logo.name}
-                width={logo.width}
-                height={logo.height}
-              />
-            </li>
-          ))}
-        </ul>
-
-        <ul
-          className="animate-infinite-scroll-horizontal flex items-center justify-center md:justify-start"
-          aria-hidden="true"
-        >
-          {logos.map((logo) => (
-            <li key={logo.id} className="mx-8">
-              <Image
-                className="col-span-1 max-w-none object-contain"
-                src={logo.src}
-                alt={logo.name}
-                width={logo.width}
-                height={logo.height}
-              />
-            </li>
-          ))}
-        </ul>
-
-        <ul
-          className="animate-infinite-scroll-horizontal flex items-center justify-center md:justify-start"
-          aria-hidden="true"
-        >
-          {logos.map((logo) => (
-            <li key={logo.id} className="mx-8">
-              <Image
-                priority
-                className="col-span-1 max-w-none object-contain"
-                src={logo.src}
-                alt={logo.name}
-                width={logo.width}
-                height={logo.height}
-              />
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-}', '', ''),
 	('d5394449-8bb3-4258-ba2d-40e71a91a084', '2023-11-12 12:33:45.366102+00', 'Logo 3', '', true, false, 'marketing', 'logos', 'https://library.codesnaps.io/api/content/logo/logo-3', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/logo_3-1699792424185.webp', 'Logo Component', false, '{text-align-left,video-image-center,5-or-more-columns}', '{logos,multiple-images}', 'import React from ''react'';
 
 const logos = [
@@ -10257,281 +10830,7 @@ export default function Logo() {
     </div>
   );
 }', '', ''),
-	('e26b86da-b4d3-4083-a580-764a186aadab', '2023-11-12 12:46:19.538783+00', 'Pricing 4', '', true, false, 'marketing', 'pricing', 'https://library.codesnaps.io/api/content/pricing/pricing-4', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/pricing_4-1699793178202.webp', 'Pricing Component', true, '{text-align-center,1-column}', '{buttons,cards,list,text-only}', '/*
-The following package is required: npm install clsx
-*/
-
-''use client'';
-
-import clsx from ''clsx'';
-
-import { useState } from ''react'';
-
-const tier = {
-  name: ''Premium'',
-  id: ''premium'',
-  href: ''#'',
-  price: { monthly: ''$9.99'', annually: ''$99.99'' },
-  features: [
-    ''1# Feature text goes here'',
-    ''2# Feature text goes here'',
-    ''3# Feature text goes here'',
-    ''4# Feature text goes here'',
-  ],
-  cta: ''Get Started'',
-};
-
-export default function Pricing() {
-  const [isMonthly, setIsMonthly] = useState(false);
-
-  return (
-    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
-      <div className="mx-auto flex max-w-4xl flex-col space-y-7 text-center">
-        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
-          Tagline
-        </h3>
-
-        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-          Short heading goes in here
-        </h2>
-
-        <p className="text-lg text-neutral-600 dark:text-neutral-400">
-          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
-          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
-          Non, amet, aliquet scelerisque nullam sagittis, pulvinar.
-        </p>
-      </div>
-
-      <div className="mt-14 flex justify-center lg:mt-24">
-        <button
-          className={clsx(
-            isMonthly
-              ? ''bg-neutral-900 text-white ring-neutral-900 hover:bg-neutral-800 dark:bg-neutral-50 dark:text-neutral-900 dark:ring-white dark:hover:bg-neutral-300''
-              : ''bg-transparent text-neutral-900 ring-neutral-200 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-50'',
-            ''rounded-l-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:focus-visible:outline-neutral-400'',
-          )}
-          onClick={() => setIsMonthly(true)}
-        >
-          Monthly
-        </button>
-        <button
-          className={clsx(
-            isMonthly
-              ? ''bg-transparent text-neutral-900 ring-neutral-200 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-50''
-              : ''bg-neutral-900 text-white ring-neutral-900 hover:bg-neutral-800 dark:bg-neutral-50 dark:text-neutral-900 dark:ring-white dark:hover:bg-neutral-300'',
-            ''rounded-r-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:focus-visible:outline-neutral-400'',
-          )}
-          onClick={() => setIsMonthly(false)}
-        >
-          Annual
-        </button>
-      </div>
-
-      <div className="mt-10 flex justify-center lg:mx-0 lg:mt-14">
-        <div className="flex w-full max-w-md flex-col justify-between space-y-10 rounded-xl bg-white p-8 text-center ring-1 ring-neutral-200 dark:bg-neutral-950 dark:ring-neutral-800 lg:px-10 lg:py-14">
-          <div>
-            <h3
-              id={tier.id}
-              className="text-lg font-semibold leading-8 text-neutral-900 dark:text-neutral-200"
-            >
-              {tier.name}
-            </h3>
-
-            <div className="mt-2">
-              <p className="mt-4 flex items-baseline justify-center gap-x-1">
-                <span className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-white">
-                  {isMonthly ? tier.price.monthly : tier.price.annually}
-                </span>
-                <span className="text-neutral-600 dark:text-neutral-500">
-                  {isMonthly ? ''/month'' : ''/year''}
-                </span>
-              </p>
-            </div>
-
-            <ul
-              role="list"
-              className="mt-8 space-y-3 text-sm leading-6 text-neutral-600 dark:text-neutral-300"
-            >
-              {tier.features.map((feature) => (
-                <li key={feature} className="flex gap-x-3">
-                  <CheckIcon
-                    className="h-6 w-5 flex-none text-neutral-600 dark:text-neutral-400"
-                    aria-hidden="true"
-                  />
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <a
-            href={tier.href}
-            aria-describedby={tier.id}
-            className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-          >
-            {tier.cta}
-          </a>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function CheckIcon(props) {
-  return (
-    <svg
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2.5}
-      {...props}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M4.5 12.75l6 6 9-13.5"
-      />
-    </svg>
-  );
-}', '/*
-The following package is required: npm install clsx
-*/
-
-''use client'';
-
-import clsx from ''clsx'';
-import Link from ''next/link'';
-
-import { useState } from ''react'';
-
-const tier = {
-  name: ''Premium'',
-  id: ''premium'',
-  href: ''#'',
-  price: { monthly: ''$9.99'', annually: ''$99.99'' },
-  features: [
-    ''1# Feature text goes here'',
-    ''2# Feature text goes here'',
-    ''3# Feature text goes here'',
-    ''4# Feature text goes here'',
-  ],
-  cta: ''Get Started'',
-};
-
-export default function Pricing() {
-  const [isMonthly, setIsMonthly] = useState(false);
-
-  return (
-    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
-      <div className="mx-auto flex max-w-4xl flex-col space-y-7 text-center">
-        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
-          Tagline
-        </h3>
-
-        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-          Short heading goes in here
-        </h2>
-
-        <p className="text-lg text-neutral-600 dark:text-neutral-400">
-          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
-          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
-          Non, amet, aliquet scelerisque nullam sagittis, pulvinar.
-        </p>
-      </div>
-
-      <div className="mt-14 flex justify-center lg:mt-24">
-        <button
-          className={clsx(
-            isMonthly
-              ? ''bg-neutral-900 text-white ring-neutral-900 hover:bg-neutral-800 dark:bg-neutral-50 dark:text-neutral-900 dark:ring-white dark:hover:bg-neutral-300''
-              : ''bg-transparent text-neutral-900 ring-neutral-200 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-50'',
-            ''rounded-l-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:focus-visible:outline-neutral-400'',
-          )}
-          onClick={() => setIsMonthly(true)}
-        >
-          Monthly
-        </button>
-        <button
-          className={clsx(
-            isMonthly
-              ? ''bg-transparent text-neutral-900 ring-neutral-200 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-50''
-              : ''bg-neutral-900 text-white ring-neutral-900 hover:bg-neutral-800 dark:bg-neutral-50 dark:text-neutral-900 dark:ring-white dark:hover:bg-neutral-300'',
-            ''rounded-r-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:focus-visible:outline-neutral-400'',
-          )}
-          onClick={() => setIsMonthly(false)}
-        >
-          Annual
-        </button>
-      </div>
-
-      <div className="mt-10 flex justify-center lg:mx-0 lg:mt-14">
-        <div className="flex w-full max-w-md flex-col justify-between space-y-10 rounded-xl bg-white p-8 text-center ring-1 ring-neutral-200 dark:bg-neutral-950 dark:ring-neutral-800 lg:px-10 lg:py-14">
-          <div>
-            <h3
-              id={tier.id}
-              className="text-lg font-semibold leading-8 text-neutral-900 dark:text-neutral-200"
-            >
-              {tier.name}
-            </h3>
-
-            <div className="mt-2">
-              <p className="mt-4 flex items-baseline justify-center gap-x-1">
-                <span className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-white">
-                  {isMonthly ? tier.price.monthly : tier.price.annually}
-                </span>
-                <span className="text-neutral-600 dark:text-neutral-500">
-                  {isMonthly ? ''/month'' : ''/year''}
-                </span>
-              </p>
-            </div>
-
-            <ul
-              role="list"
-              className="mt-8 space-y-3 text-sm leading-6 text-neutral-600 dark:text-neutral-300"
-            >
-              {tier.features.map((feature) => (
-                <li key={feature} className="flex gap-x-3">
-                  <CheckIcon
-                    className="h-6 w-5 flex-none text-neutral-600 dark:text-neutral-400"
-                    aria-hidden="true"
-                  />
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <Link
-            href={tier.href}
-            aria-describedby={tier.id}
-            className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-          >
-            {tier.cta}
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function CheckIcon(props) {
-  return (
-    <svg
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2.5}
-      {...props}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M4.5 12.75l6 6 9-13.5"
-      />
-    </svg>
-  );
-}', '', ''),
-	('90bd8841-8799-410d-91b6-6d46f78fb080', '2023-11-12 13:06:20.934268+00', 'Pricing 5', '', true, false, 'marketing', 'pricing', 'https://library.codesnaps.io/api/content/pricing/pricing-5', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/pricing_5-1699794379624.webp', 'Pricing Component', true, '{text-align-center,3-columns}', '{buttons,cards,list,text-only}', '/*
+	('90bd8841-8799-410d-91b6-6d46f78fb080', '2023-11-12 13:06:20.934268+00', 'Pricing 5', 'The following package is required: npm install clsx', true, false, 'marketing', 'pricing', 'https://library.codesnaps.io/api/content/pricing/pricing-5', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/pricing_5-1699794379624.webp', 'Pricing Component', true, '{text-align-center,3-columns}', '{buttons,cards,list,text-only}', '/*
 The following package is required: npm install clsx
 */
 
@@ -10880,6 +11179,944 @@ function CheckIcon(props) {
         strokeLinejoin="round"
         d="M4.5 12.75l6 6 9-13.5"
       />
+    </svg>
+  );
+}', '', ''),
+	('72f5f9b6-b7fb-4d45-9c21-edd21622020e', '2023-11-12 15:00:01.565417+00', 'Pricing 7', 'The following package is required: npm install clsx', true, false, 'marketing', 'pricing', 'https://library.codesnaps.io/api/content/pricing/pricing-7', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/pricing_7-1699801200776.webp', 'Pricing Component', true, '{text-align-left,text-align-center,3-columns,4-columns}', '{buttons,table,text-only}', '/*
+The following package is required: npm install clsx
+*/
+
+import { Fragment, useState } from ''react'';
+
+import clsx from ''clsx'';
+
+const tiers = [
+  {
+    name: ''Basic'',
+    id: ''basic'',
+    href: ''#'',
+    price: { monthly: ''$9'', yearly: ''$99'' },
+    description: ''Commodo in viverra nunc, ullamcorper ut.'',
+    cta: ''Get Started'',
+  },
+  {
+    name: ''Premium'',
+    id: ''premium'',
+    href: ''#'',
+    price: { monthly: ''$25'', yearly: ''$249'' },
+    description: ''Commodo in viverra nunc, ullamcorper ut.'',
+    cta: ''Get Started'',
+  },
+  {
+    name: ''Enterprise'',
+    id: ''enterprise'',
+    href: ''#'',
+    price: { monthly: ''$59'', yearly: ''$599'' },
+    description: ''Commodo in viverra nunc, ullamcorper ut.'',
+    cta: ''Get Started'',
+  },
+];
+
+const sections = [
+  {
+    category: ''Category 1'',
+    features: [
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: ''25'',
+          premium: ''100'',
+          enterprise: ''Unlimited'',
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: true,
+          premium: true,
+          enterprise: true,
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: false,
+          premium: true,
+          enterprise: true,
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: ''5GB'',
+          premium: ''10GB'',
+          enterprise: ''Custom'',
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: false,
+          premium: false,
+          enterprise: true,
+        },
+      },
+    ],
+  },
+  {
+    category: ''Category 2'',
+    features: [
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: ''25'',
+          premium: ''100'',
+          enterprise: ''Unlimited'',
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: true,
+          premium: true,
+          enterprise: true,
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: false,
+          premium: true,
+          enterprise: true,
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: ''5GB'',
+          premium: ''10GB'',
+          enterprise: ''Custom'',
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: false,
+          premium: false,
+          enterprise: true,
+        },
+      },
+    ],
+  },
+  {
+    category: ''Category 3'',
+    features: [
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: ''25'',
+          premium: ''100'',
+          enterprise: ''Unlimited'',
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: true,
+          premium: true,
+          enterprise: true,
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: false,
+          premium: true,
+          enterprise: true,
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: ''5GB'',
+          premium: ''10GB'',
+          enterprise: ''Custom'',
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: false,
+          premium: false,
+          enterprise: true,
+        },
+      },
+    ],
+  },
+];
+
+export default function Pricing() {
+  const [isMonthly, setIsMonthly] = useState(true);
+
+  return (
+    <div className="mx-auto my-24 max-w-7xl px-4 sm:my-32 sm:px-6 lg:my-40 lg:px-8">
+      <div className="mx-auto flex max-w-4xl flex-col space-y-7 text-center">
+        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
+          Tagline
+        </h3>
+
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Pricing Plans
+        </h2>
+
+        <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          Commodo in viverra nunc, ullamcorper ut.
+          <br />
+          Non, amet, aliquet scelerisque falseam sagittis, pulvinar.
+        </p>
+      </div>
+
+      <div className="mt-14 flex justify-center lg:mt-24">
+        <button
+          className={clsx(
+            isMonthly
+              ? ''bg-neutral-900 text-white ring-neutral-900 hover:bg-neutral-800 dark:bg-neutral-50 dark:text-neutral-900 dark:ring-white dark:hover:bg-neutral-300''
+              : ''bg-transparent text-neutral-900 ring-neutral-200 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-50'',
+            ''rounded-l-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:focus-visible:outline-neutral-400'',
+          )}
+          onClick={() => setIsMonthly(true)}
+        >
+          Monthly
+        </button>
+        <button
+          className={clsx(
+            isMonthly
+              ? ''bg-transparent text-neutral-900 ring-neutral-200 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-50''
+              : ''bg-neutral-900 text-white ring-neutral-900 hover:bg-neutral-800 dark:bg-neutral-50 dark:text-neutral-900 dark:ring-white dark:hover:bg-neutral-300'',
+            ''rounded-r-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:focus-visible:outline-neutral-400'',
+          )}
+          onClick={() => setIsMonthly(false)}
+        >
+          Annual
+        </button>
+      </div>
+
+      {/* MOBILE */}
+      <div className="mt-6 xl:hidden">
+        {/* MOBILE TIER PLANS */}
+        <div className="flex w-full justify-center">
+          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-3 xl:ml-auto xl:mr-0">
+            {tiers.map((tier) => (
+              <div
+                key={tier.id}
+                className="flex max-w-xs flex-col justify-between space-y-6 p-6 text-center"
+              >
+                <div>
+                  <h3
+                    id={tier.id}
+                    className="text-lg font-semibold leading-8 text-neutral-900 dark:text-neutral-200"
+                  >
+                    {tier.name}
+                  </h3>
+
+                  <div className="mt-2 flex flex-col space-y-4">
+                    <p className="flex items-baseline justify-center gap-x-1">
+                      <span className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-white">
+                        {isMonthly ? tier.price.monthly : tier.price.yearly}
+                      </span>
+                      <span className="text-neutral-600 dark:text-neutral-600">
+                        {isMonthly ? ''/mo'' : ''/yr''}
+                      </span>
+                    </p>
+
+                    <p className="text-neutral-600 dark:text-neutral-400">
+                      {tier.description}
+                    </p>
+                  </div>
+                </div>
+
+                <a
+                  href={tier.href}
+                  aria-describedby={tier.id}
+                  className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  {tier.cta}
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* MOBILE SECTIONS */}
+        <div className="mt-14 flex flex-col space-y-14">
+          {tiers.map((tier) => (
+            <div key={tier.id} className="flex flex-col space-y-8">
+              <h2 className="text-2xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50">
+                {tier.name}
+              </h2>
+
+              {sections.map((section) => (
+                <ul key={section.category}>
+                  <h3 className="mb-2 text-base font-semibold text-neutral-900 dark:text-neutral-200">
+                    {section.category}
+                  </h3>
+                  <div className="inset-x-8 mx-auto h-px bg-neutral-400 dark:bg-neutral-500 " />
+
+                  {section.features.map((feature, index) => (
+                    <li
+                      key={index}
+                      className="flex w-full items-center justify-between p-4"
+                    >
+                      <p className="text-sm text-neutral-800 dark:text-neutral-200">
+                        {feature.name}
+                        <div className="absolute inset-x-8 mx-auto mt-4 h-px bg-neutral-200 dark:bg-neutral-800" />
+                      </p>
+                      {typeof feature.tiers[tier.id] === ''string'' ? (
+                        <p className="text-sm text-neutral-800 dark:text-neutral-400">
+                          {feature.tiers[tier.id]}
+                        </p>
+                      ) : feature.tiers[tier.id] ? (
+                        <CheckIcon className="h-5 w-5 text-neutral-800 dark:text-neutral-400" />
+                      ) : (
+                        <MinusIcon className="h-5 w-5 text-neutral-800 dark:text-neutral-400" />
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* DESKTOP */}
+      <div className="mt-14 hidden w-full xl:block">
+        <table className="w-full table-fixed text-left">
+          <caption className="sr-only">Pricing plan comparison</caption>
+          <colgroup>
+            <col className="w-1/4" />
+            <col className="w-1/4" />
+            <col className="w-1/4" />
+            <col className="w-1/4" />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <td />
+              {tiers.map((tier) => (
+                <th key={tier.id} scope="col" className="pb-4">
+                  <div
+                    id={tier.id}
+                    className="text-center text-lg font-semibold leading-8 text-neutral-900 dark:text-neutral-200"
+                  >
+                    {tier.name}
+                  </div>
+                </th>
+              ))}
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th scope="row">
+                <span className="sr-only">Price</span>
+              </th>
+              {tiers.map((tier) => (
+                <td key={tier.id} className="px-4 text-center">
+                  <div className="mt-2 flex flex-col space-y-4">
+                    <p className="flex items-baseline justify-center gap-x-1">
+                      <span className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-white">
+                        {isMonthly ? tier.price.monthly : tier.price.yearly}
+                      </span>
+                      <span className="text-neutral-600 dark:text-neutral-500">
+                        {isMonthly ? ''/mo'' : ''/yr''}
+                      </span>
+                    </p>
+
+                    <p className="text-center font-normal text-neutral-600 dark:text-neutral-400">
+                      {tier.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-6">
+                    <a
+                      href={tier.href}
+                      aria-describedby={tier.id}
+                      className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                    >
+                      {tier.cta}
+                    </a>
+                  </div>
+                </td>
+              ))}
+            </tr>
+
+            {sections.map((section, sectionIndex) => (
+              <Fragment key={section.category}>
+                <tr>
+                  <th
+                    scope="colgroup"
+                    colSpan={4}
+                    className={clsx(
+                      sectionIndex === 0 ? ''pt-14'' : ''pt-20'',
+                      ''pb-6 text-lg font-semibold leading-6 text-neutral-900 dark:text-neutral-200'',
+                    )}
+                  >
+                    {section.category}
+                    <div className="absolute inset-x-8 mx-auto mt-4 h-px max-w-7xl bg-neutral-400 dark:bg-neutral-500" />
+                  </th>
+                </tr>
+
+                {section.features.map((feature, index) => (
+                  <tr key={index}>
+                    <th
+                      scope="row"
+                      className="p-4 text-sm font-normal leading-6 text-neutral-800 dark:text-neutral-200"
+                    >
+                      {feature.name}
+                      <div className="absolute inset-x-8 mx-auto mt-4 h-px max-w-7xl bg-neutral-200 dark:bg-neutral-800" />
+                    </th>
+
+                    {tiers.map((tier) => (
+                      <td key={tier.id} className="px-6 py-4 xl:px-8">
+                        {typeof feature.tiers[tier.id] === ''string'' ? (
+                          <p className="text-center text-sm text-neutral-800 dark:text-neutral-400">
+                            {feature.tiers[tier.id]}
+                          </p>
+                        ) : feature.tiers[tier.id] ? (
+                          <CheckIcon className="mx-auto h-5 w-5 text-neutral-800 dark:text-neutral-400" />
+                        ) : (
+                          <MinusIcon className="mx-auto h-5 w-5 text-neutral-800 dark:text-neutral-400" />
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </Fragment>
+            ))}
+
+            <tr>
+              <th scope="row">
+                <span className="sr-only">Price</span>
+              </th>
+              {tiers.map((tier) => (
+                <td key={tier.id} className="py-10 text-center">
+                  <a
+                    href={tier.href}
+                    aria-describedby={tier.id}
+                    className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                  >
+                    {tier.cta}
+                  </a>
+                </td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function CheckIcon(props) {
+  return (
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2.5}
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M4.5 12.75l6 6 9-13.5"
+      />
+    </svg>
+  );
+}
+
+function MinusIcon(props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
+    </svg>
+  );
+}', '/*
+The following package is required: npm install clsx
+*/
+
+''use client'';
+
+import { Fragment, useState } from ''react'';
+
+import clsx from ''clsx'';
+import Link from ''next/link'';
+
+const tiers = [
+  {
+    name: ''Basic'',
+    id: ''basic'',
+    href: ''#'',
+    price: { monthly: ''$9'', yearly: ''$99'' },
+    description: ''Commodo in viverra nunc, ullamcorper ut.'',
+    cta: ''Get Started'',
+  },
+  {
+    name: ''Premium'',
+    id: ''premium'',
+    href: ''#'',
+    price: { monthly: ''$25'', yearly: ''$249'' },
+    description: ''Commodo in viverra nunc, ullamcorper ut.'',
+    cta: ''Get Started'',
+  },
+  {
+    name: ''Enterprise'',
+    id: ''enterprise'',
+    href: ''#'',
+    price: { monthly: ''$59'', yearly: ''$599'' },
+    description: ''Commodo in viverra nunc, ullamcorper ut.'',
+    cta: ''Get Started'',
+  },
+];
+
+const sections = [
+  {
+    category: ''Category 1'',
+    features: [
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: ''25'',
+          premium: ''100'',
+          enterprise: ''Unlimited'',
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: true,
+          premium: true,
+          enterprise: true,
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: false,
+          premium: true,
+          enterprise: true,
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: ''5GB'',
+          premium: ''10GB'',
+          enterprise: ''Custom'',
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: false,
+          premium: false,
+          enterprise: true,
+        },
+      },
+    ],
+  },
+  {
+    category: ''Category 2'',
+    features: [
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: ''25'',
+          premium: ''100'',
+          enterprise: ''Unlimited'',
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: true,
+          premium: true,
+          enterprise: true,
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: false,
+          premium: true,
+          enterprise: true,
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: ''5GB'',
+          premium: ''10GB'',
+          enterprise: ''Custom'',
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: false,
+          premium: false,
+          enterprise: true,
+        },
+      },
+    ],
+  },
+  {
+    category: ''Category 3'',
+    features: [
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: ''25'',
+          premium: ''100'',
+          enterprise: ''Unlimited'',
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: true,
+          premium: true,
+          enterprise: true,
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: false,
+          premium: true,
+          enterprise: true,
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: ''5GB'',
+          premium: ''10GB'',
+          enterprise: ''Custom'',
+        },
+      },
+      {
+        name: ''Feature description'',
+        tiers: {
+          basic: false,
+          premium: false,
+          enterprise: true,
+        },
+      },
+    ],
+  },
+];
+
+export default function Pricing() {
+  const [isMonthly, setIsMonthly] = useState(true);
+
+  return (
+    <div className="mx-auto my-24 max-w-7xl px-4 sm:my-32 sm:px-6 lg:my-40 lg:px-8">
+      <div className="mx-auto flex max-w-4xl flex-col space-y-7 text-center">
+        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
+          Tagline
+        </h3>
+
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Pricing Plans
+        </h2>
+
+        <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          Commodo in viverra nunc, ullamcorper ut.
+          <br />
+          Non, amet, aliquet scelerisque falseam sagittis, pulvinar.
+        </p>
+      </div>
+
+      <div className="mt-14 flex justify-center lg:mt-24">
+        <button
+          className={clsx(
+            isMonthly
+              ? ''bg-neutral-900 text-white ring-neutral-900 hover:bg-neutral-800 dark:bg-neutral-50 dark:text-neutral-900 dark:ring-white dark:hover:bg-neutral-300''
+              : ''bg-transparent text-neutral-900 ring-neutral-200 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-50'',
+            ''rounded-l-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:focus-visible:outline-neutral-400'',
+          )}
+          onClick={() => setIsMonthly(true)}
+        >
+          Monthly
+        </button>
+        <button
+          className={clsx(
+            isMonthly
+              ? ''bg-transparent text-neutral-900 ring-neutral-200 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-50''
+              : ''bg-neutral-900 text-white ring-neutral-900 hover:bg-neutral-800 dark:bg-neutral-50 dark:text-neutral-900 dark:ring-white dark:hover:bg-neutral-300'',
+            ''rounded-r-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:focus-visible:outline-neutral-400'',
+          )}
+          onClick={() => setIsMonthly(false)}
+        >
+          Annual
+        </button>
+      </div>
+
+      {/* MOBILE */}
+      <div className="mt-6 xl:hidden">
+        {/* MOBILE TIER PLANS */}
+        <div className="flex w-full justify-center">
+          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-3 xl:ml-auto xl:mr-0">
+            {tiers.map((tier) => (
+              <div
+                key={tier.id}
+                className="flex max-w-xs flex-col justify-between space-y-6 p-6 text-center"
+              >
+                <div>
+                  <h3
+                    id={tier.id}
+                    className="text-lg font-semibold leading-8 text-neutral-900 dark:text-neutral-200"
+                  >
+                    {tier.name}
+                  </h3>
+
+                  <div className="mt-2 flex flex-col space-y-4">
+                    <p className="flex items-baseline justify-center gap-x-1">
+                      <span className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-white">
+                        {isMonthly ? tier.price.monthly : tier.price.yearly}
+                      </span>
+                      <span className="text-neutral-600 dark:text-neutral-600">
+                        {isMonthly ? ''/mo'' : ''/yr''}
+                      </span>
+                    </p>
+
+                    <p className="text-neutral-600 dark:text-neutral-400">
+                      {tier.description}
+                    </p>
+                  </div>
+                </div>
+
+                <Link
+                  href={tier.href}
+                  aria-describedby={tier.id}
+                  className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  {tier.cta}
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* MOBILE SECTIONS */}
+        <div className="mt-14 flex flex-col space-y-14">
+          {tiers.map((tier) => (
+            <div key={tier.id} className="flex flex-col space-y-8">
+              <h2 className="text-2xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50">
+                {tier.name}
+              </h2>
+
+              {sections.map((section) => (
+                <ul key={section.category}>
+                  <h3 className="mb-2 text-base font-semibold text-neutral-900 dark:text-neutral-200">
+                    {section.category}
+                  </h3>
+                  <div className="inset-x-8 mx-auto h-px bg-neutral-400 dark:bg-neutral-500 " />
+
+                  {section.features.map((feature, index) => (
+                    <li
+                      key={index}
+                      className="flex w-full items-center justify-between p-4"
+                    >
+                      <p className="text-sm text-neutral-800 dark:text-neutral-200">
+                        {feature.name}
+                        <div className="absolute inset-x-8 mx-auto mt-4 h-px bg-neutral-200 dark:bg-neutral-800" />
+                      </p>
+                      {typeof feature.tiers[tier.id] === ''string'' ? (
+                        <p className="text-sm text-neutral-800 dark:text-neutral-400">
+                          {feature.tiers[tier.id]}
+                        </p>
+                      ) : feature.tiers[tier.id] ? (
+                        <CheckIcon className="h-5 w-5 text-neutral-800 dark:text-neutral-400" />
+                      ) : (
+                        <MinusIcon className="h-5 w-5 text-neutral-800 dark:text-neutral-400" />
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* DESKTOP */}
+      <div className="mt-14 hidden w-full xl:block">
+        <table className="w-full table-fixed text-left">
+          <caption className="sr-only">Pricing plan comparison</caption>
+          <colgroup>
+            <col className="w-1/4" />
+            <col className="w-1/4" />
+            <col className="w-1/4" />
+            <col className="w-1/4" />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <td />
+              {tiers.map((tier) => (
+                <th key={tier.id} scope="col" className="pb-4">
+                  <div
+                    id={tier.id}
+                    className="text-center text-lg font-semibold leading-8 text-neutral-900 dark:text-neutral-200"
+                  >
+                    {tier.name}
+                  </div>
+                </th>
+              ))}
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th scope="row">
+                <span className="sr-only">Price</span>
+              </th>
+              {tiers.map((tier) => (
+                <td key={tier.id} className="px-4 text-center">
+                  <div className="mt-2 flex flex-col space-y-4">
+                    <p className="flex items-baseline justify-center gap-x-1">
+                      <span className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-white">
+                        {isMonthly ? tier.price.monthly : tier.price.yearly}
+                      </span>
+                      <span className="text-neutral-600 dark:text-neutral-500">
+                        {isMonthly ? ''/mo'' : ''/yr''}
+                      </span>
+                    </p>
+
+                    <p className="text-center font-normal text-neutral-600 dark:text-neutral-400">
+                      {tier.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-6">
+                    <Link
+                      href={tier.href}
+                      aria-describedby={tier.id}
+                      className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                    >
+                      {tier.cta}
+                    </Link>
+                  </div>
+                </td>
+              ))}
+            </tr>
+
+            {sections.map((section, sectionIndex) => (
+              <Fragment key={section.category}>
+                <tr>
+                  <th
+                    scope="colgroup"
+                    colSpan={4}
+                    className={clsx(
+                      sectionIndex === 0 ? ''pt-14'' : ''pt-20'',
+                      ''pb-6 text-lg font-semibold leading-6 text-neutral-900 dark:text-neutral-200'',
+                    )}
+                  >
+                    {section.category}
+                    <div className="absolute inset-x-8 mx-auto mt-4 h-px max-w-7xl bg-neutral-400 dark:bg-neutral-500" />
+                  </th>
+                </tr>
+
+                {section.features.map((feature, index) => (
+                  <tr key={index}>
+                    <th
+                      scope="row"
+                      className="p-4 text-sm font-normal leading-6 text-neutral-800 dark:text-neutral-200"
+                    >
+                      {feature.name}
+                      <div className="absolute inset-x-8 mx-auto mt-4 h-px max-w-7xl bg-neutral-200 dark:bg-neutral-800" />
+                    </th>
+
+                    {tiers.map((tier) => (
+                      <td key={tier.id} className="px-6 py-4 xl:px-8">
+                        {typeof feature.tiers[tier.id] === ''string'' ? (
+                          <p className="text-center text-sm text-neutral-800 dark:text-neutral-400">
+                            {feature.tiers[tier.id]}
+                          </p>
+                        ) : feature.tiers[tier.id] ? (
+                          <CheckIcon className="mx-auto h-5 w-5 text-neutral-800 dark:text-neutral-400" />
+                        ) : (
+                          <MinusIcon className="mx-auto h-5 w-5 text-neutral-800 dark:text-neutral-400" />
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </Fragment>
+            ))}
+
+            <tr>
+              <th scope="row">
+                <span className="sr-only">Price</span>
+              </th>
+              {tiers.map((tier) => (
+                <td key={tier.id} className="py-10 text-center">
+                  <Link
+                    href={tier.href}
+                    aria-describedby={tier.id}
+                    className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                  >
+                    {tier.cta}
+                  </Link>
+                </td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function CheckIcon(props) {
+  return (
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2.5}
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M4.5 12.75l6 6 9-13.5"
+      />
+    </svg>
+  );
+}
+
+function MinusIcon(props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
     </svg>
   );
 }', '', ''),
@@ -11765,7 +13002,7 @@ function MinusIcon(props) {
     </svg>
   );
 }', '', ''),
-	('72f5f9b6-b7fb-4d45-9c21-edd21622020e', '2023-11-12 15:00:01.565417+00', 'Pricing 7', '', true, false, 'marketing', 'pricing', 'https://library.codesnaps.io/api/content/pricing/pricing-7', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/pricing_7-1699801200776.webp', 'Pricing Component', true, '{text-align-left,text-align-center,3-columns,4-columns}', '{buttons,table,text-only}', '/*
+	('350a1853-a0c3-47bd-a608-bc85264bd8f9', '2023-11-12 15:02:48.505483+00', 'Pricing 9', 'The following package is required: npm install clsx', true, false, 'marketing', 'pricing', 'https://library.codesnaps.io/api/content/pricing/pricing-9', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/pricing_9-1699801367444.webp', 'Pricing Component', true, '{text-align-left,text-align-center,3-columns,4-columns}', '{buttons,table,text-only}', '/*
 The following package is required: npm install clsx
 */
 
@@ -11778,7 +13015,7 @@ const tiers = [
     name: ''Basic'',
     id: ''basic'',
     href: ''#'',
-    price: { monthly: ''$9'', yearly: ''$99'' },
+    price: { monthly: ''$14'', yearly: ''$140'' },
     description: ''Commodo in viverra nunc, ullamcorper ut.'',
     cta: ''Get Started'',
   },
@@ -11786,7 +13023,7 @@ const tiers = [
     name: ''Premium'',
     id: ''premium'',
     href: ''#'',
-    price: { monthly: ''$25'', yearly: ''$249'' },
+    price: { monthly: ''$29'', yearly: ''$290'' },
     description: ''Commodo in viverra nunc, ullamcorper ut.'',
     cta: ''Get Started'',
   },
@@ -11794,7 +13031,7 @@ const tiers = [
     name: ''Enterprise'',
     id: ''enterprise'',
     href: ''#'',
-    price: { monthly: ''$59'', yearly: ''$599'' },
+    price: { monthly: ''$59'', yearly: ''$590'' },
     description: ''Commodo in viverra nunc, ullamcorper ut.'',
     cta: ''Get Started'',
   },
@@ -12040,19 +13277,22 @@ export default function Pricing() {
 
               {sections.map((section) => (
                 <ul key={section.category}>
-                  <h3 className="mb-2 text-base font-semibold text-neutral-900 dark:text-neutral-200">
+                  <h3 className="mb-4 text-base font-semibold text-neutral-900 dark:text-neutral-200">
                     {section.category}
                   </h3>
-                  <div className="inset-x-8 mx-auto h-px bg-neutral-400 dark:bg-neutral-500 " />
 
                   {section.features.map((feature, index) => (
                     <li
                       key={index}
-                      className="flex w-full items-center justify-between p-4"
+                      className={clsx(
+                        index % 2 !== 0
+                          ? ''bg-neutral-50 dark:bg-neutral-800''
+                          : ''bg-neutral-200 dark:bg-neutral-900'',
+                        ''flex w-full items-center justify-between p-4'',
+                      )}
                     >
                       <p className="text-sm text-neutral-800 dark:text-neutral-200">
                         {feature.name}
-                        <div className="absolute inset-x-8 mx-auto mt-4 h-px bg-neutral-200 dark:bg-neutral-800" />
                       </p>
                       {typeof feature.tiers[tier.id] === ''string'' ? (
                         <p className="text-sm text-neutral-800 dark:text-neutral-400">
@@ -12146,18 +13386,23 @@ export default function Pricing() {
                     )}
                   >
                     {section.category}
-                    <div className="absolute inset-x-8 mx-auto mt-4 h-px max-w-7xl bg-neutral-400 dark:bg-neutral-500" />
                   </th>
                 </tr>
 
                 {section.features.map((feature, index) => (
-                  <tr key={index}>
+                  <tr
+                    key={index}
+                    className={clsx(
+                      index % 2 !== 0
+                        ? ''bg-neutral-50 dark:bg-neutral-800''
+                        : ''bg-neutral-200 dark:bg-neutral-900'',
+                    )}
+                  >
                     <th
                       scope="row"
                       className="p-4 text-sm font-normal leading-6 text-neutral-800 dark:text-neutral-200"
                     >
                       {feature.name}
-                      <div className="absolute inset-x-8 mx-auto mt-4 h-px max-w-7xl bg-neutral-200 dark:bg-neutral-800" />
                     </th>
 
                     {tiers.map((tier) => (
@@ -12248,7 +13493,7 @@ const tiers = [
     name: ''Basic'',
     id: ''basic'',
     href: ''#'',
-    price: { monthly: ''$9'', yearly: ''$99'' },
+    price: { monthly: ''$14'', yearly: ''$140'' },
     description: ''Commodo in viverra nunc, ullamcorper ut.'',
     cta: ''Get Started'',
   },
@@ -12256,7 +13501,7 @@ const tiers = [
     name: ''Premium'',
     id: ''premium'',
     href: ''#'',
-    price: { monthly: ''$25'', yearly: ''$249'' },
+    price: { monthly: ''$29'', yearly: ''$290'' },
     description: ''Commodo in viverra nunc, ullamcorper ut.'',
     cta: ''Get Started'',
   },
@@ -12264,7 +13509,7 @@ const tiers = [
     name: ''Enterprise'',
     id: ''enterprise'',
     href: ''#'',
-    price: { monthly: ''$59'', yearly: ''$599'' },
+    price: { monthly: ''$59'', yearly: ''$590'' },
     description: ''Commodo in viverra nunc, ullamcorper ut.'',
     cta: ''Get Started'',
   },
@@ -12510,19 +13755,22 @@ export default function Pricing() {
 
               {sections.map((section) => (
                 <ul key={section.category}>
-                  <h3 className="mb-2 text-base font-semibold text-neutral-900 dark:text-neutral-200">
+                  <h3 className="mb-4 text-base font-semibold text-neutral-900 dark:text-neutral-200">
                     {section.category}
                   </h3>
-                  <div className="inset-x-8 mx-auto h-px bg-neutral-400 dark:bg-neutral-500 " />
 
                   {section.features.map((feature, index) => (
                     <li
                       key={index}
-                      className="flex w-full items-center justify-between p-4"
+                      className={clsx(
+                        index % 2 !== 0
+                          ? ''bg-neutral-50 dark:bg-neutral-800''
+                          : ''bg-neutral-200 dark:bg-neutral-900'',
+                        ''flex w-full items-center justify-between p-4'',
+                      )}
                     >
                       <p className="text-sm text-neutral-800 dark:text-neutral-200">
                         {feature.name}
-                        <div className="absolute inset-x-8 mx-auto mt-4 h-px bg-neutral-200 dark:bg-neutral-800" />
                       </p>
                       {typeof feature.tiers[tier.id] === ''string'' ? (
                         <p className="text-sm text-neutral-800 dark:text-neutral-400">
@@ -12616,18 +13864,23 @@ export default function Pricing() {
                     )}
                   >
                     {section.category}
-                    <div className="absolute inset-x-8 mx-auto mt-4 h-px max-w-7xl bg-neutral-400 dark:bg-neutral-500" />
                   </th>
                 </tr>
 
                 {section.features.map((feature, index) => (
-                  <tr key={index}>
+                  <tr
+                    key={index}
+                    className={clsx(
+                      index % 2 !== 0
+                        ? ''bg-neutral-50 dark:bg-neutral-800''
+                        : ''bg-neutral-200 dark:bg-neutral-900'',
+                    )}
+                  >
                     <th
                       scope="row"
                       className="p-4 text-sm font-normal leading-6 text-neutral-800 dark:text-neutral-200"
                     >
                       {feature.name}
-                      <div className="absolute inset-x-8 mx-auto mt-4 h-px max-w-7xl bg-neutral-200 dark:bg-neutral-800" />
                     </th>
 
                     {tiers.map((tier) => (
@@ -13591,960 +14844,6 @@ function MinusIcon(props) {
     </svg>
   );
 }', '', ''),
-	('350a1853-a0c3-47bd-a608-bc85264bd8f9', '2023-11-12 15:02:48.505483+00', 'Pricing 9', '', true, false, 'marketing', 'pricing', 'https://library.codesnaps.io/api/content/pricing/pricing-9', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/pricing_9-1699801367444.webp', 'Pricing Component', true, '{text-align-left,text-align-center,3-columns,4-columns}', '{buttons,table,text-only}', '/*
-The following package is required: npm install clsx
-*/
-
-import { Fragment, useState } from ''react'';
-
-import clsx from ''clsx'';
-
-const tiers = [
-  {
-    name: ''Basic'',
-    id: ''basic'',
-    href: ''#'',
-    price: { monthly: ''$14'', yearly: ''$140'' },
-    description: ''Commodo in viverra nunc, ullamcorper ut.'',
-    cta: ''Get Started'',
-  },
-  {
-    name: ''Premium'',
-    id: ''premium'',
-    href: ''#'',
-    price: { monthly: ''$29'', yearly: ''$290'' },
-    description: ''Commodo in viverra nunc, ullamcorper ut.'',
-    cta: ''Get Started'',
-  },
-  {
-    name: ''Enterprise'',
-    id: ''enterprise'',
-    href: ''#'',
-    price: { monthly: ''$59'', yearly: ''$590'' },
-    description: ''Commodo in viverra nunc, ullamcorper ut.'',
-    cta: ''Get Started'',
-  },
-];
-
-const sections = [
-  {
-    category: ''Category 1'',
-    features: [
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: ''25'',
-          premium: ''100'',
-          enterprise: ''Unlimited'',
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: true,
-          premium: true,
-          enterprise: true,
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: false,
-          premium: true,
-          enterprise: true,
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: ''5GB'',
-          premium: ''10GB'',
-          enterprise: ''Custom'',
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: false,
-          premium: false,
-          enterprise: true,
-        },
-      },
-    ],
-  },
-  {
-    category: ''Category 2'',
-    features: [
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: ''25'',
-          premium: ''100'',
-          enterprise: ''Unlimited'',
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: true,
-          premium: true,
-          enterprise: true,
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: false,
-          premium: true,
-          enterprise: true,
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: ''5GB'',
-          premium: ''10GB'',
-          enterprise: ''Custom'',
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: false,
-          premium: false,
-          enterprise: true,
-        },
-      },
-    ],
-  },
-  {
-    category: ''Category 3'',
-    features: [
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: ''25'',
-          premium: ''100'',
-          enterprise: ''Unlimited'',
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: true,
-          premium: true,
-          enterprise: true,
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: false,
-          premium: true,
-          enterprise: true,
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: ''5GB'',
-          premium: ''10GB'',
-          enterprise: ''Custom'',
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: false,
-          premium: false,
-          enterprise: true,
-        },
-      },
-    ],
-  },
-];
-
-export default function Pricing() {
-  const [isMonthly, setIsMonthly] = useState(true);
-
-  return (
-    <div className="mx-auto my-24 max-w-7xl px-4 sm:my-32 sm:px-6 lg:my-40 lg:px-8">
-      <div className="mx-auto flex max-w-4xl flex-col space-y-7 text-center">
-        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
-          Tagline
-        </h3>
-
-        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-          Pricing Plans
-        </h2>
-
-        <p className="text-lg text-neutral-600 dark:text-neutral-400">
-          Commodo in viverra nunc, ullamcorper ut.
-          <br />
-          Non, amet, aliquet scelerisque falseam sagittis, pulvinar.
-        </p>
-      </div>
-
-      <div className="mt-14 flex justify-center lg:mt-24">
-        <button
-          className={clsx(
-            isMonthly
-              ? ''bg-neutral-900 text-white ring-neutral-900 hover:bg-neutral-800 dark:bg-neutral-50 dark:text-neutral-900 dark:ring-white dark:hover:bg-neutral-300''
-              : ''bg-transparent text-neutral-900 ring-neutral-200 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-50'',
-            ''rounded-l-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:focus-visible:outline-neutral-400'',
-          )}
-          onClick={() => setIsMonthly(true)}
-        >
-          Monthly
-        </button>
-        <button
-          className={clsx(
-            isMonthly
-              ? ''bg-transparent text-neutral-900 ring-neutral-200 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-50''
-              : ''bg-neutral-900 text-white ring-neutral-900 hover:bg-neutral-800 dark:bg-neutral-50 dark:text-neutral-900 dark:ring-white dark:hover:bg-neutral-300'',
-            ''rounded-r-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:focus-visible:outline-neutral-400'',
-          )}
-          onClick={() => setIsMonthly(false)}
-        >
-          Annual
-        </button>
-      </div>
-
-      {/* MOBILE */}
-      <div className="mt-6 xl:hidden">
-        {/* MOBILE TIER PLANS */}
-        <div className="flex w-full justify-center">
-          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-3 xl:ml-auto xl:mr-0">
-            {tiers.map((tier) => (
-              <div
-                key={tier.id}
-                className="flex max-w-xs flex-col justify-between space-y-6 p-6 text-center"
-              >
-                <div>
-                  <h3
-                    id={tier.id}
-                    className="text-lg font-semibold leading-8 text-neutral-900 dark:text-neutral-200"
-                  >
-                    {tier.name}
-                  </h3>
-
-                  <div className="mt-2 flex flex-col space-y-4">
-                    <p className="flex items-baseline justify-center gap-x-1">
-                      <span className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-white">
-                        {isMonthly ? tier.price.monthly : tier.price.yearly}
-                      </span>
-                      <span className="text-neutral-600 dark:text-neutral-600">
-                        {isMonthly ? ''/mo'' : ''/yr''}
-                      </span>
-                    </p>
-
-                    <p className="text-neutral-600 dark:text-neutral-400">
-                      {tier.description}
-                    </p>
-                  </div>
-                </div>
-
-                <a
-                  href={tier.href}
-                  aria-describedby={tier.id}
-                  className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-                >
-                  {tier.cta}
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* MOBILE SECTIONS */}
-        <div className="mt-14 flex flex-col space-y-14">
-          {tiers.map((tier) => (
-            <div key={tier.id} className="flex flex-col space-y-8">
-              <h2 className="text-2xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50">
-                {tier.name}
-              </h2>
-
-              {sections.map((section) => (
-                <ul key={section.category}>
-                  <h3 className="mb-4 text-base font-semibold text-neutral-900 dark:text-neutral-200">
-                    {section.category}
-                  </h3>
-
-                  {section.features.map((feature, index) => (
-                    <li
-                      key={index}
-                      className={clsx(
-                        index % 2 !== 0
-                          ? ''bg-neutral-50 dark:bg-neutral-800''
-                          : ''bg-neutral-200 dark:bg-neutral-900'',
-                        ''flex w-full items-center justify-between p-4'',
-                      )}
-                    >
-                      <p className="text-sm text-neutral-800 dark:text-neutral-200">
-                        {feature.name}
-                      </p>
-                      {typeof feature.tiers[tier.id] === ''string'' ? (
-                        <p className="text-sm text-neutral-800 dark:text-neutral-400">
-                          {feature.tiers[tier.id]}
-                        </p>
-                      ) : feature.tiers[tier.id] ? (
-                        <CheckIcon className="h-5 w-5 text-neutral-800 dark:text-neutral-400" />
-                      ) : (
-                        <MinusIcon className="h-5 w-5 text-neutral-800 dark:text-neutral-400" />
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* DESKTOP */}
-      <div className="mt-14 hidden w-full xl:block">
-        <table className="w-full table-fixed text-left">
-          <caption className="sr-only">Pricing plan comparison</caption>
-          <colgroup>
-            <col className="w-1/4" />
-            <col className="w-1/4" />
-            <col className="w-1/4" />
-            <col className="w-1/4" />
-          </colgroup>
-
-          <thead>
-            <tr>
-              <td />
-              {tiers.map((tier) => (
-                <th key={tier.id} scope="col" className="pb-4">
-                  <div
-                    id={tier.id}
-                    className="text-center text-lg font-semibold leading-8 text-neutral-900 dark:text-neutral-200"
-                  >
-                    {tier.name}
-                  </div>
-                </th>
-              ))}
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <th scope="row">
-                <span className="sr-only">Price</span>
-              </th>
-              {tiers.map((tier) => (
-                <td key={tier.id} className="px-4 text-center">
-                  <div className="mt-2 flex flex-col space-y-4">
-                    <p className="flex items-baseline justify-center gap-x-1">
-                      <span className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-white">
-                        {isMonthly ? tier.price.monthly : tier.price.yearly}
-                      </span>
-                      <span className="text-neutral-600 dark:text-neutral-500">
-                        {isMonthly ? ''/mo'' : ''/yr''}
-                      </span>
-                    </p>
-
-                    <p className="text-center font-normal text-neutral-600 dark:text-neutral-400">
-                      {tier.description}
-                    </p>
-                  </div>
-
-                  <div className="mt-6">
-                    <a
-                      href={tier.href}
-                      aria-describedby={tier.id}
-                      className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-                    >
-                      {tier.cta}
-                    </a>
-                  </div>
-                </td>
-              ))}
-            </tr>
-
-            {sections.map((section, sectionIndex) => (
-              <Fragment key={section.category}>
-                <tr>
-                  <th
-                    scope="colgroup"
-                    colSpan={4}
-                    className={clsx(
-                      sectionIndex === 0 ? ''pt-14'' : ''pt-20'',
-                      ''pb-6 text-lg font-semibold leading-6 text-neutral-900 dark:text-neutral-200'',
-                    )}
-                  >
-                    {section.category}
-                  </th>
-                </tr>
-
-                {section.features.map((feature, index) => (
-                  <tr
-                    key={index}
-                    className={clsx(
-                      index % 2 !== 0
-                        ? ''bg-neutral-50 dark:bg-neutral-800''
-                        : ''bg-neutral-200 dark:bg-neutral-900'',
-                    )}
-                  >
-                    <th
-                      scope="row"
-                      className="p-4 text-sm font-normal leading-6 text-neutral-800 dark:text-neutral-200"
-                    >
-                      {feature.name}
-                    </th>
-
-                    {tiers.map((tier) => (
-                      <td key={tier.id} className="px-6 py-4 xl:px-8">
-                        {typeof feature.tiers[tier.id] === ''string'' ? (
-                          <p className="text-center text-sm text-neutral-800 dark:text-neutral-400">
-                            {feature.tiers[tier.id]}
-                          </p>
-                        ) : feature.tiers[tier.id] ? (
-                          <CheckIcon className="mx-auto h-5 w-5 text-neutral-800 dark:text-neutral-400" />
-                        ) : (
-                          <MinusIcon className="mx-auto h-5 w-5 text-neutral-800 dark:text-neutral-400" />
-                        )}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </Fragment>
-            ))}
-
-            <tr>
-              <th scope="row">
-                <span className="sr-only">Price</span>
-              </th>
-              {tiers.map((tier) => (
-                <td key={tier.id} className="py-10 text-center">
-                  <a
-                    href={tier.href}
-                    aria-describedby={tier.id}
-                    className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-                  >
-                    {tier.cta}
-                  </a>
-                </td>
-              ))}
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
-}
-
-function CheckIcon(props) {
-  return (
-    <svg
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2.5}
-      {...props}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M4.5 12.75l6 6 9-13.5"
-      />
-    </svg>
-  );
-}
-
-function MinusIcon(props) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      {...props}
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
-    </svg>
-  );
-}', '/*
-The following package is required: npm install clsx
-*/
-
-''use client'';
-
-import { Fragment, useState } from ''react'';
-
-import clsx from ''clsx'';
-import Link from ''next/link'';
-
-const tiers = [
-  {
-    name: ''Basic'',
-    id: ''basic'',
-    href: ''#'',
-    price: { monthly: ''$14'', yearly: ''$140'' },
-    description: ''Commodo in viverra nunc, ullamcorper ut.'',
-    cta: ''Get Started'',
-  },
-  {
-    name: ''Premium'',
-    id: ''premium'',
-    href: ''#'',
-    price: { monthly: ''$29'', yearly: ''$290'' },
-    description: ''Commodo in viverra nunc, ullamcorper ut.'',
-    cta: ''Get Started'',
-  },
-  {
-    name: ''Enterprise'',
-    id: ''enterprise'',
-    href: ''#'',
-    price: { monthly: ''$59'', yearly: ''$590'' },
-    description: ''Commodo in viverra nunc, ullamcorper ut.'',
-    cta: ''Get Started'',
-  },
-];
-
-const sections = [
-  {
-    category: ''Category 1'',
-    features: [
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: ''25'',
-          premium: ''100'',
-          enterprise: ''Unlimited'',
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: true,
-          premium: true,
-          enterprise: true,
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: false,
-          premium: true,
-          enterprise: true,
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: ''5GB'',
-          premium: ''10GB'',
-          enterprise: ''Custom'',
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: false,
-          premium: false,
-          enterprise: true,
-        },
-      },
-    ],
-  },
-  {
-    category: ''Category 2'',
-    features: [
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: ''25'',
-          premium: ''100'',
-          enterprise: ''Unlimited'',
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: true,
-          premium: true,
-          enterprise: true,
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: false,
-          premium: true,
-          enterprise: true,
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: ''5GB'',
-          premium: ''10GB'',
-          enterprise: ''Custom'',
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: false,
-          premium: false,
-          enterprise: true,
-        },
-      },
-    ],
-  },
-  {
-    category: ''Category 3'',
-    features: [
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: ''25'',
-          premium: ''100'',
-          enterprise: ''Unlimited'',
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: true,
-          premium: true,
-          enterprise: true,
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: false,
-          premium: true,
-          enterprise: true,
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: ''5GB'',
-          premium: ''10GB'',
-          enterprise: ''Custom'',
-        },
-      },
-      {
-        name: ''Feature description'',
-        tiers: {
-          basic: false,
-          premium: false,
-          enterprise: true,
-        },
-      },
-    ],
-  },
-];
-
-export default function Pricing() {
-  const [isMonthly, setIsMonthly] = useState(true);
-
-  return (
-    <div className="mx-auto my-24 max-w-7xl px-4 sm:my-32 sm:px-6 lg:my-40 lg:px-8">
-      <div className="mx-auto flex max-w-4xl flex-col space-y-7 text-center">
-        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
-          Tagline
-        </h3>
-
-        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-          Pricing Plans
-        </h2>
-
-        <p className="text-lg text-neutral-600 dark:text-neutral-400">
-          Commodo in viverra nunc, ullamcorper ut.
-          <br />
-          Non, amet, aliquet scelerisque falseam sagittis, pulvinar.
-        </p>
-      </div>
-
-      <div className="mt-14 flex justify-center lg:mt-24">
-        <button
-          className={clsx(
-            isMonthly
-              ? ''bg-neutral-900 text-white ring-neutral-900 hover:bg-neutral-800 dark:bg-neutral-50 dark:text-neutral-900 dark:ring-white dark:hover:bg-neutral-300''
-              : ''bg-transparent text-neutral-900 ring-neutral-200 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-50'',
-            ''rounded-l-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:focus-visible:outline-neutral-400'',
-          )}
-          onClick={() => setIsMonthly(true)}
-        >
-          Monthly
-        </button>
-        <button
-          className={clsx(
-            isMonthly
-              ? ''bg-transparent text-neutral-900 ring-neutral-200 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-50''
-              : ''bg-neutral-900 text-white ring-neutral-900 hover:bg-neutral-800 dark:bg-neutral-50 dark:text-neutral-900 dark:ring-white dark:hover:bg-neutral-300'',
-            ''rounded-r-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:focus-visible:outline-neutral-400'',
-          )}
-          onClick={() => setIsMonthly(false)}
-        >
-          Annual
-        </button>
-      </div>
-
-      {/* MOBILE */}
-      <div className="mt-6 xl:hidden">
-        {/* MOBILE TIER PLANS */}
-        <div className="flex w-full justify-center">
-          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-3 xl:ml-auto xl:mr-0">
-            {tiers.map((tier) => (
-              <div
-                key={tier.id}
-                className="flex max-w-xs flex-col justify-between space-y-6 p-6 text-center"
-              >
-                <div>
-                  <h3
-                    id={tier.id}
-                    className="text-lg font-semibold leading-8 text-neutral-900 dark:text-neutral-200"
-                  >
-                    {tier.name}
-                  </h3>
-
-                  <div className="mt-2 flex flex-col space-y-4">
-                    <p className="flex items-baseline justify-center gap-x-1">
-                      <span className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-white">
-                        {isMonthly ? tier.price.monthly : tier.price.yearly}
-                      </span>
-                      <span className="text-neutral-600 dark:text-neutral-600">
-                        {isMonthly ? ''/mo'' : ''/yr''}
-                      </span>
-                    </p>
-
-                    <p className="text-neutral-600 dark:text-neutral-400">
-                      {tier.description}
-                    </p>
-                  </div>
-                </div>
-
-                <Link
-                  href={tier.href}
-                  aria-describedby={tier.id}
-                  className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-                >
-                  {tier.cta}
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* MOBILE SECTIONS */}
-        <div className="mt-14 flex flex-col space-y-14">
-          {tiers.map((tier) => (
-            <div key={tier.id} className="flex flex-col space-y-8">
-              <h2 className="text-2xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50">
-                {tier.name}
-              </h2>
-
-              {sections.map((section) => (
-                <ul key={section.category}>
-                  <h3 className="mb-4 text-base font-semibold text-neutral-900 dark:text-neutral-200">
-                    {section.category}
-                  </h3>
-
-                  {section.features.map((feature, index) => (
-                    <li
-                      key={index}
-                      className={clsx(
-                        index % 2 !== 0
-                          ? ''bg-neutral-50 dark:bg-neutral-800''
-                          : ''bg-neutral-200 dark:bg-neutral-900'',
-                        ''flex w-full items-center justify-between p-4'',
-                      )}
-                    >
-                      <p className="text-sm text-neutral-800 dark:text-neutral-200">
-                        {feature.name}
-                      </p>
-                      {typeof feature.tiers[tier.id] === ''string'' ? (
-                        <p className="text-sm text-neutral-800 dark:text-neutral-400">
-                          {feature.tiers[tier.id]}
-                        </p>
-                      ) : feature.tiers[tier.id] ? (
-                        <CheckIcon className="h-5 w-5 text-neutral-800 dark:text-neutral-400" />
-                      ) : (
-                        <MinusIcon className="h-5 w-5 text-neutral-800 dark:text-neutral-400" />
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* DESKTOP */}
-      <div className="mt-14 hidden w-full xl:block">
-        <table className="w-full table-fixed text-left">
-          <caption className="sr-only">Pricing plan comparison</caption>
-          <colgroup>
-            <col className="w-1/4" />
-            <col className="w-1/4" />
-            <col className="w-1/4" />
-            <col className="w-1/4" />
-          </colgroup>
-
-          <thead>
-            <tr>
-              <td />
-              {tiers.map((tier) => (
-                <th key={tier.id} scope="col" className="pb-4">
-                  <div
-                    id={tier.id}
-                    className="text-center text-lg font-semibold leading-8 text-neutral-900 dark:text-neutral-200"
-                  >
-                    {tier.name}
-                  </div>
-                </th>
-              ))}
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <th scope="row">
-                <span className="sr-only">Price</span>
-              </th>
-              {tiers.map((tier) => (
-                <td key={tier.id} className="px-4 text-center">
-                  <div className="mt-2 flex flex-col space-y-4">
-                    <p className="flex items-baseline justify-center gap-x-1">
-                      <span className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-white">
-                        {isMonthly ? tier.price.monthly : tier.price.yearly}
-                      </span>
-                      <span className="text-neutral-600 dark:text-neutral-500">
-                        {isMonthly ? ''/mo'' : ''/yr''}
-                      </span>
-                    </p>
-
-                    <p className="text-center font-normal text-neutral-600 dark:text-neutral-400">
-                      {tier.description}
-                    </p>
-                  </div>
-
-                  <div className="mt-6">
-                    <Link
-                      href={tier.href}
-                      aria-describedby={tier.id}
-                      className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-                    >
-                      {tier.cta}
-                    </Link>
-                  </div>
-                </td>
-              ))}
-            </tr>
-
-            {sections.map((section, sectionIndex) => (
-              <Fragment key={section.category}>
-                <tr>
-                  <th
-                    scope="colgroup"
-                    colSpan={4}
-                    className={clsx(
-                      sectionIndex === 0 ? ''pt-14'' : ''pt-20'',
-                      ''pb-6 text-lg font-semibold leading-6 text-neutral-900 dark:text-neutral-200'',
-                    )}
-                  >
-                    {section.category}
-                  </th>
-                </tr>
-
-                {section.features.map((feature, index) => (
-                  <tr
-                    key={index}
-                    className={clsx(
-                      index % 2 !== 0
-                        ? ''bg-neutral-50 dark:bg-neutral-800''
-                        : ''bg-neutral-200 dark:bg-neutral-900'',
-                    )}
-                  >
-                    <th
-                      scope="row"
-                      className="p-4 text-sm font-normal leading-6 text-neutral-800 dark:text-neutral-200"
-                    >
-                      {feature.name}
-                    </th>
-
-                    {tiers.map((tier) => (
-                      <td key={tier.id} className="px-6 py-4 xl:px-8">
-                        {typeof feature.tiers[tier.id] === ''string'' ? (
-                          <p className="text-center text-sm text-neutral-800 dark:text-neutral-400">
-                            {feature.tiers[tier.id]}
-                          </p>
-                        ) : feature.tiers[tier.id] ? (
-                          <CheckIcon className="mx-auto h-5 w-5 text-neutral-800 dark:text-neutral-400" />
-                        ) : (
-                          <MinusIcon className="mx-auto h-5 w-5 text-neutral-800 dark:text-neutral-400" />
-                        )}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </Fragment>
-            ))}
-
-            <tr>
-              <th scope="row">
-                <span className="sr-only">Price</span>
-              </th>
-              {tiers.map((tier) => (
-                <td key={tier.id} className="py-10 text-center">
-                  <Link
-                    href={tier.href}
-                    aria-describedby={tier.id}
-                    className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-                  >
-                    {tier.cta}
-                  </Link>
-                </td>
-              ))}
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
-}
-
-function CheckIcon(props) {
-  return (
-    <svg
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2.5}
-      {...props}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M4.5 12.75l6 6 9-13.5"
-      />
-    </svg>
-  );
-}
-
-function MinusIcon(props) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      {...props}
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
-    </svg>
-  );
-}', '', ''),
 	('4322a170-b277-4dc9-9b64-6e35c92a1aec', '2023-11-08 18:55:17.85525+00', 'CTA 2', NULL, true, true, 'marketing', 'cta', 'https://library.codesnaps.io/api/content/cta/cta-2', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/cta_2-1699473186986.webp', 'CTA Component', false, '{text-align-left,2-columns}', '{banner,buttons,forms,text-only}', 'import React from ''react'';
 
 export default function CTA() {
@@ -14882,6 +15181,280 @@ export default function Feature() {
         />
       </div>
     </div>
+  );
+}', '', ''),
+	('e26b86da-b4d3-4083-a580-764a186aadab', '2023-11-12 12:46:19.538783+00', 'Pricing 4', 'The following package is required: npm install clsx', true, false, 'marketing', 'pricing', 'https://library.codesnaps.io/api/content/pricing/pricing-4', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/pricing_4-1699793178202.webp', 'Pricing Component', true, '{text-align-center,1-column}', '{buttons,cards,list,text-only}', '/*
+The following package is required: npm install clsx
+*/
+
+''use client'';
+
+import clsx from ''clsx'';
+
+import { useState } from ''react'';
+
+const tier = {
+  name: ''Premium'',
+  id: ''premium'',
+  href: ''#'',
+  price: { monthly: ''$9.99'', annually: ''$99.99'' },
+  features: [
+    ''1# Feature text goes here'',
+    ''2# Feature text goes here'',
+    ''3# Feature text goes here'',
+    ''4# Feature text goes here'',
+  ],
+  cta: ''Get Started'',
+};
+
+export default function Pricing() {
+  const [isMonthly, setIsMonthly] = useState(false);
+
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="mx-auto flex max-w-4xl flex-col space-y-7 text-center">
+        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
+          Tagline
+        </h3>
+
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Short heading goes in here
+        </h2>
+
+        <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
+          Non, amet, aliquet scelerisque nullam sagittis, pulvinar.
+        </p>
+      </div>
+
+      <div className="mt-14 flex justify-center lg:mt-24">
+        <button
+          className={clsx(
+            isMonthly
+              ? ''bg-neutral-900 text-white ring-neutral-900 hover:bg-neutral-800 dark:bg-neutral-50 dark:text-neutral-900 dark:ring-white dark:hover:bg-neutral-300''
+              : ''bg-transparent text-neutral-900 ring-neutral-200 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-50'',
+            ''rounded-l-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:focus-visible:outline-neutral-400'',
+          )}
+          onClick={() => setIsMonthly(true)}
+        >
+          Monthly
+        </button>
+        <button
+          className={clsx(
+            isMonthly
+              ? ''bg-transparent text-neutral-900 ring-neutral-200 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-50''
+              : ''bg-neutral-900 text-white ring-neutral-900 hover:bg-neutral-800 dark:bg-neutral-50 dark:text-neutral-900 dark:ring-white dark:hover:bg-neutral-300'',
+            ''rounded-r-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:focus-visible:outline-neutral-400'',
+          )}
+          onClick={() => setIsMonthly(false)}
+        >
+          Annual
+        </button>
+      </div>
+
+      <div className="mt-10 flex justify-center lg:mx-0 lg:mt-14">
+        <div className="flex w-full max-w-md flex-col justify-between space-y-10 rounded-xl bg-white p-8 text-center ring-1 ring-neutral-200 dark:bg-neutral-950 dark:ring-neutral-800 lg:px-10 lg:py-14">
+          <div>
+            <h3
+              id={tier.id}
+              className="text-lg font-semibold leading-8 text-neutral-900 dark:text-neutral-200"
+            >
+              {tier.name}
+            </h3>
+
+            <div className="mt-2">
+              <p className="mt-4 flex items-baseline justify-center gap-x-1">
+                <span className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-white">
+                  {isMonthly ? tier.price.monthly : tier.price.annually}
+                </span>
+                <span className="text-neutral-600 dark:text-neutral-500">
+                  {isMonthly ? ''/month'' : ''/year''}
+                </span>
+              </p>
+            </div>
+
+            <ul
+              role="list"
+              className="mt-8 space-y-3 text-sm leading-6 text-neutral-600 dark:text-neutral-300"
+            >
+              {tier.features.map((feature) => (
+                <li key={feature} className="flex gap-x-3">
+                  <CheckIcon
+                    className="h-6 w-5 flex-none text-neutral-600 dark:text-neutral-400"
+                    aria-hidden="true"
+                  />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <a
+            href={tier.href}
+            aria-describedby={tier.id}
+            className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+          >
+            {tier.cta}
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CheckIcon(props) {
+  return (
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2.5}
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M4.5 12.75l6 6 9-13.5"
+      />
+    </svg>
+  );
+}', '/*
+The following package is required: npm install clsx
+*/
+
+''use client'';
+
+import clsx from ''clsx'';
+import Link from ''next/link'';
+
+import { useState } from ''react'';
+
+const tier = {
+  name: ''Premium'',
+  id: ''premium'',
+  href: ''#'',
+  price: { monthly: ''$9.99'', annually: ''$99.99'' },
+  features: [
+    ''1# Feature text goes here'',
+    ''2# Feature text goes here'',
+    ''3# Feature text goes here'',
+    ''4# Feature text goes here'',
+  ],
+  cta: ''Get Started'',
+};
+
+export default function Pricing() {
+  const [isMonthly, setIsMonthly] = useState(false);
+
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="mx-auto flex max-w-4xl flex-col space-y-7 text-center">
+        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
+          Tagline
+        </h3>
+
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Short heading goes in here
+        </h2>
+
+        <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
+          Non, amet, aliquet scelerisque nullam sagittis, pulvinar.
+        </p>
+      </div>
+
+      <div className="mt-14 flex justify-center lg:mt-24">
+        <button
+          className={clsx(
+            isMonthly
+              ? ''bg-neutral-900 text-white ring-neutral-900 hover:bg-neutral-800 dark:bg-neutral-50 dark:text-neutral-900 dark:ring-white dark:hover:bg-neutral-300''
+              : ''bg-transparent text-neutral-900 ring-neutral-200 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-50'',
+            ''rounded-l-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:focus-visible:outline-neutral-400'',
+          )}
+          onClick={() => setIsMonthly(true)}
+        >
+          Monthly
+        </button>
+        <button
+          className={clsx(
+            isMonthly
+              ? ''bg-transparent text-neutral-900 ring-neutral-200 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-50''
+              : ''bg-neutral-900 text-white ring-neutral-900 hover:bg-neutral-800 dark:bg-neutral-50 dark:text-neutral-900 dark:ring-white dark:hover:bg-neutral-300'',
+            ''rounded-r-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:focus-visible:outline-neutral-400'',
+          )}
+          onClick={() => setIsMonthly(false)}
+        >
+          Annual
+        </button>
+      </div>
+
+      <div className="mt-10 flex justify-center lg:mx-0 lg:mt-14">
+        <div className="flex w-full max-w-md flex-col justify-between space-y-10 rounded-xl bg-white p-8 text-center ring-1 ring-neutral-200 dark:bg-neutral-950 dark:ring-neutral-800 lg:px-10 lg:py-14">
+          <div>
+            <h3
+              id={tier.id}
+              className="text-lg font-semibold leading-8 text-neutral-900 dark:text-neutral-200"
+            >
+              {tier.name}
+            </h3>
+
+            <div className="mt-2">
+              <p className="mt-4 flex items-baseline justify-center gap-x-1">
+                <span className="text-5xl font-bold tracking-tight text-neutral-900 dark:text-white">
+                  {isMonthly ? tier.price.monthly : tier.price.annually}
+                </span>
+                <span className="text-neutral-600 dark:text-neutral-500">
+                  {isMonthly ? ''/month'' : ''/year''}
+                </span>
+              </p>
+            </div>
+
+            <ul
+              role="list"
+              className="mt-8 space-y-3 text-sm leading-6 text-neutral-600 dark:text-neutral-300"
+            >
+              {tier.features.map((feature) => (
+                <li key={feature} className="flex gap-x-3">
+                  <CheckIcon
+                    className="h-6 w-5 flex-none text-neutral-600 dark:text-neutral-400"
+                    aria-hidden="true"
+                  />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <Link
+            href={tier.href}
+            aria-describedby={tier.id}
+            className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+          >
+            {tier.cta}
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CheckIcon(props) {
+  return (
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2.5}
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M4.5 12.75l6 6 9-13.5"
+      />
+    </svg>
   );
 }', '', ''),
 	('8de320e8-9ea8-47ad-b9f6-107889e22741', '2023-11-13 23:00:40.743939+00', 'Contact 3', '', true, false, 'marketing', 'contact', 'https://library.codesnaps.io/api/content/contact/contact-3', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/contact_3-1699916439682.webp', 'Contact Component', false, '{text-align-left,2-columns}', '{buttons,forms,image,radio-buttons}', '/*
@@ -18293,6 +18866,533 @@ export default function FAQ() {
     </div>
   );
 }', '', ''),
+	('e63a4b94-4f7b-4944-8782-cd2ed2cf6c87', '2023-11-17 20:37:33.501315+00', 'Navbar 4', 'You need to install the following package: npm install @headlessui/react@latest', true, false, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-4', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_4-1700253452156.webp', 'Navbar Component', true, '{text-align-left,video-image-left,3-columns}', '{buttons,dropdown,icons,navbar}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+import { useState } from ''react'';
+import { Dialog, Menu } from ''@headlessui/react'';
+
+const navigation = [
+  {
+    name: ''Dropdown One'',
+    dropdownItems: [
+      {
+        name: ''Item #1'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #2'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #3'',
+        href: ''#'',
+      },
+    ],
+  },
+  {
+    name: ''Dropdown Two'',
+    dropdownItems: [
+      {
+        name: ''Item #1'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #2'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #3'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #4'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #5'',
+        href: ''#'',
+      },
+    ],
+  },
+  {
+    name: ''Dropdown Three'',
+    dropdownItems: [
+      {
+        name: ''Item #1'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #2'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #3'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #4'',
+        href: ''#'',
+      },
+    ],
+  },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
+      <nav
+        className="mx-auto flex max-w-[1800px] items-center justify-between lg:px-8"
+        aria-label="Global"
+      >
+        <div className="flex lg:flex-1">
+          <a href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Your Company</span>
+            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+          </a>
+        </div>
+
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <HamburgerIcon
+              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <Menu as="div" className="relative" key={item.name}>
+              <Menu.Button className="flex items-center text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100">
+                {item.name}
+                <ChevronDownIcon className="ml-2 h-5 w-5 stroke-neutral-700 dark:stroke-neutral-300" />
+              </Menu.Button>
+
+              {/* DROPDOWN ITEMS */}
+              <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white py-4 shadow-lg ring-1 ring-black/5 focus:outline-none dark:bg-neutral-900">
+                {item.dropdownItems.map((item) => (
+                  <Menu.Item key={item.name}>
+                    {({ active }) => (
+                      <a
+                        href={item.href}
+                        className={`${
+                          active && ''bg-neutral-100 dark:bg-neutral-800''
+                        } block px-4 py-2`}
+                      >
+                        {item.name}
+                      </a>
+                    )}
+                  </Menu.Item>
+                ))}
+              </Menu.Items>
+            </Menu>
+          ))}
+        </div>
+
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
+          <a
+            href="#"
+            className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+          >
+            Button
+          </a>
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <a href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </a>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6">
+              <div className="flex flex-col space-y-8 divide-y divide-neutral-300 py-6 dark:divide-neutral-700">
+                {navigation.map((item) => (
+                  <div key={item.name}>
+                    <span className="-mx-3 mt-4 block px-3 py-2 text-base font-semibold leading-7 text-neutral-900 dark:border-neutral-600 dark:text-neutral-100">
+                      {item.name}
+                    </span>
+
+                    {item.dropdownItems.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="-mx-3 block rounded-lg px-3 py-2 text-sm font-medium leading-7 text-neutral-600 hover:bg-neutral-200 dark:text-neutral-300 dark:hover:bg-neutral-900"
+                      >
+                        {item.name}
+                      </a>
+                    ))}
+                  </div>
+                ))}
+              </div>
+
+              <div className="py-6">
+                <a
+                  href="#"
+                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  Button
+                </a>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}
+
+function ChevronDownIcon(props) {
+  return (
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+  );
+}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+''use client'';
+
+import Link from ''next/link'';
+
+import { useState } from ''react'';
+import { Dialog, Menu } from ''@headlessui/react'';
+
+const navigation = [
+  {
+    name: ''Dropdown One'',
+    dropdownItems: [
+      {
+        name: ''Item #1'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #2'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #3'',
+        href: ''#'',
+      },
+    ],
+  },
+  {
+    name: ''Dropdown Two'',
+    dropdownItems: [
+      {
+        name: ''Item #1'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #2'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #3'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #4'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #5'',
+        href: ''#'',
+      },
+    ],
+  },
+  {
+    name: ''Dropdown Three'',
+    dropdownItems: [
+      {
+        name: ''Item #1'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #2'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #3'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #4'',
+        href: ''#'',
+      },
+    ],
+  },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
+      <nav
+        className="mx-auto flex max-w-[1800px] items-center justify-between lg:px-8"
+        aria-label="Global"
+      >
+        <div className="flex lg:flex-1">
+          <Link href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Your Company</span>
+            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+          </Link>
+        </div>
+
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <HamburgerIcon
+              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <Menu as="div" className="relative" key={item.name}>
+              <Menu.Button className="flex items-center text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100">
+                {item.name}
+                <ChevronDownIcon className="ml-2 h-5 w-5 stroke-neutral-700 dark:stroke-neutral-300" />
+              </Menu.Button>
+
+              {/* DROPDOWN ITEMS */}
+              <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white py-4 shadow-lg ring-1 ring-black/5 focus:outline-none dark:bg-neutral-900">
+                {item.dropdownItems.map((item) => (
+                  <Menu.Item key={item.name}>
+                    {({ active }) => (
+                      <Link
+                        href={item.href}
+                        className={`${
+                          active && ''bg-neutral-100 dark:bg-neutral-800''
+                        } block px-4 py-2`}
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+                  </Menu.Item>
+                ))}
+              </Menu.Items>
+            </Menu>
+          ))}
+        </div>
+
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
+          <Link
+            href="#"
+            className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+          >
+            Button
+          </Link>
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <Link href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </Link>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6">
+              <div className="flex flex-col space-y-8 divide-y divide-neutral-300 py-6 dark:divide-neutral-700">
+                {navigation.map((item) => (
+                  <div key={item.name}>
+                    <span className="-mx-3 mt-4 block px-3 py-2 text-base font-semibold leading-7 text-neutral-900 dark:border-neutral-600 dark:text-neutral-100">
+                      {item.name}
+                    </span>
+
+                    {item.dropdownItems.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="-mx-3 block rounded-lg px-3 py-2 text-sm font-medium leading-7 text-neutral-600 hover:bg-neutral-200 dark:text-neutral-300 dark:hover:bg-neutral-900"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                ))}
+              </div>
+
+              <div className="py-6">
+                <Link
+                  href="#"
+                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  Button
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}
+
+function ChevronDownIcon(props) {
+  return (
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+  );
+}', '', ''),
 	('84f9e126-a057-4ded-ae16-c7ea0f3c2626', '2023-11-14 14:19:50.979489+00', 'Feature 7', '', true, false, 'marketing', 'feature', 'https://library.codesnaps.io/api/content/feature/feature-7', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/feature_7-1699971589851.webp', 'Feature Component', false, '{text-align-left,video-image-right,2-columns}', '{buttons,video}', '/*
 You need to configure remotePatterns in next.config.js to use dummyimage.com
   
@@ -20536,6 +21636,8609 @@ export default function Feature() {
           height={1200}
           className="rounded-xl object-cover"
         />
+      </div>
+    </div>
+  );
+}', '', ''),
+	('df86d3ef-a320-463b-ba83-55e5727c77b1', '2023-11-15 17:37:18.586344+00', 'Footer 3', '', true, false, 'marketing', 'footer', 'https://library.codesnaps.io/api/content/footer/footer-3', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/footer_3-1700069837318.webp', 'Footer Component', false, '{text-align-left,5-or-more-columns}', '{buttons,forms,icons}', 'import React from ''react'';
+
+const navigation = {
+  company: [
+    { name: ''About'', href: ''#'' },
+    { name: ''Blog'', href: ''#'' },
+    { name: ''Jobs'', href: ''#'' },
+    { name: ''Press'', href: ''#'' },
+  ],
+  support: [
+    { name: ''Pricing'', href: ''#'' },
+    { name: ''Documentation'', href: ''#'' },
+    { name: ''Guides'', href: ''#'' },
+    { name: ''API Status'', href: ''#'' },
+  ],
+  product: [
+    { name: ''Features'', href: ''#'' },
+    { name: ''Integrations'', href: ''#'' },
+    { name: ''Pricing'', href: ''#'' },
+    { name: ''Examples'', href: ''#'' },
+  ],
+  legal: [
+    { name: ''Privacy Policy'', href: ''#'' },
+    { name: ''Terms of Service'', href: ''#'' },
+    { name: ''Cookies'', href: ''#'' },
+  ],
+  social: [
+    {
+      name: ''Facebook'',
+      href: ''#'',
+      icon: (props) => (
+        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+          <path
+            fillRule="evenodd"
+            d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+            clipRule="evenodd"
+          />
+        </svg>
+      ),
+    },
+    {
+      name: ''Instagram'',
+      href: ''#'',
+      icon: (props) => (
+        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+          <path
+            fillRule="evenodd"
+            d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+            clipRule="evenodd"
+          />
+        </svg>
+      ),
+    },
+    {
+      name: ''X'',
+      href: ''#'',
+      icon: (props) => (
+        <svg fill="currentColor" viewBox="0 0 300 271" {...props}>
+          <path d="M236 0h46L181 115l118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123L-1.1 0h94.9l65.5 86.6L236 0zm-16.1 244h25.5L80.4 26H53l166.9 218z"></path>
+        </svg>
+      ),
+    },
+    {
+      name: ''LinkedIn'',
+      href: ''#'',
+      icon: (props) => (
+        <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+          <path
+            fillRule="nonzero"
+            d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"
+          ></path>
+        </svg>
+      ),
+    },
+    {
+      name: ''YouTube'',
+      href: ''#'',
+      icon: (props) => (
+        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+          <path
+            fillRule="evenodd"
+            d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
+            clipRule="evenodd"
+          />
+        </svg>
+      ),
+    },
+  ],
+};
+
+export default function Footer() {
+  return (
+    <footer aria-labelledby="footer-heading">
+      <h2 id="footer-heading" className="sr-only">
+        Footer
+      </h2>
+
+      <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+        <div className="flex flex-col justify-between gap-10 md:gap-14 xl:flex-row">
+          <div className="sm:grid sm:grid-cols-4 sm:gap-10 xl:gap-20">
+            <div>
+              <Logo
+                className="h-7 w-auto fill-neutral-950 dark:fill-white"
+                alt="Company name"
+              />
+            </div>
+
+            <div className="mt-10 sm:mt-0">
+              <h3 className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
+                Company
+              </h3>
+              <ul role="list" className="mt-2 space-y-4 lg:mt-6">
+                {navigation.company.map((item) => (
+                  <li key={item.name}>
+                    <a
+                      href={item.href}
+                      className="text-sm leading-6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-10 sm:mt-0">
+              <h3 className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
+                Support
+              </h3>
+              <ul role="list" className="mt-2 space-y-4 lg:mt-6">
+                {navigation.support.map((item) => (
+                  <li key={item.name}>
+                    <a
+                      href={item.href}
+                      className="text-sm leading-6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-10 sm:mt-0">
+              <h3 className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
+                Product
+              </h3>
+              <ul role="list" className="mt-2 space-y-4 lg:mt-6">
+                {navigation.product.map((item) => (
+                  <li key={item.name}>
+                    <a
+                      href={item.href}
+                      className="text-sm leading-6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="flex max-w-xs flex-col gap-4 sm:max-w-lg">
+            <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-200">
+              Newsletter
+            </h3>
+
+            <p className="text-sm text-neutral-600 dark:text-neutral-400">
+              Join our newsletter to stay up to date on features and releases.
+            </p>
+
+            <div className="flex items-start gap-x-4">
+              <label htmlFor="email-address" className="sr-only">
+                Email address
+              </label>
+
+              <input
+                id="email-address"
+                name="email"
+                type="email"
+                autoComplete="email"
+                required
+                className="min-w-0 flex-auto rounded-md border-0 bg-white px-3.5 py-2 text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-200 focus:ring-2 focus:ring-inset focus:ring-neutral-500 dark:bg-white/5 dark:text-white sm:text-sm sm:leading-6"
+                placeholder="Enter your email"
+              />
+
+              <button
+                type="submit"
+                className="flex-none rounded-md bg-neutral-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+              >
+                Subscribe
+              </button>
+            </div>
+
+            <div className="max-w-md text-xs text-neutral-500">
+              By subscribing you agree to with our{'' ''}
+              <a href="#" className="text-xs underline">
+                Privacy Policy
+              </a>{'' ''}
+              and provide consent to receive updates from our company.
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-16 flex flex-col justify-between space-y-6 border-t border-neutral-900/10 pt-4 dark:border-white/20 sm:mt-20 md:flex-row md:items-end lg:mt-24">
+          <div className="flex space-x-6">
+            <p className="text-xs leading-5 text-neutral-500 dark:text-neutral-400">
+              &copy; 2020 Your Company, Inc. All rights reserved.
+            </p>
+
+            {navigation.legal.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-xs leading-5 text-neutral-500 underline hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+
+          <ul role="list" className="mt-2 flex gap-4 lg:mt-6">
+            {navigation.social.map((item) => (
+              <li key={item.name}>
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="group flex items-center text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+                >
+                  <span className="sr-only">{item.name}</span>
+                  <item.icon className="h-6 w-6" aria-hidden="true" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}', 'import Link from ''next/link'';
+
+const navigation = {
+  company: [
+    { name: ''About'', href: ''#'' },
+    { name: ''Blog'', href: ''#'' },
+    { name: ''Jobs'', href: ''#'' },
+    { name: ''Press'', href: ''#'' },
+  ],
+  support: [
+    { name: ''Pricing'', href: ''#'' },
+    { name: ''Documentation'', href: ''#'' },
+    { name: ''Guides'', href: ''#'' },
+    { name: ''API Status'', href: ''#'' },
+  ],
+  product: [
+    { name: ''Features'', href: ''#'' },
+    { name: ''Integrations'', href: ''#'' },
+    { name: ''Pricing'', href: ''#'' },
+    { name: ''Examples'', href: ''#'' },
+  ],
+  legal: [
+    { name: ''Privacy Policy'', href: ''#'' },
+    { name: ''Terms of Service'', href: ''#'' },
+    { name: ''Cookies'', href: ''#'' },
+  ],
+  social: [
+    {
+      name: ''Facebook'',
+      href: ''#'',
+      icon: (props) => (
+        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+          <path
+            fillRule="evenodd"
+            d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+            clipRule="evenodd"
+          />
+        </svg>
+      ),
+    },
+    {
+      name: ''Instagram'',
+      href: ''#'',
+      icon: (props) => (
+        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+          <path
+            fillRule="evenodd"
+            d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+            clipRule="evenodd"
+          />
+        </svg>
+      ),
+    },
+    {
+      name: ''X'',
+      href: ''#'',
+      icon: (props) => (
+        <svg fill="currentColor" viewBox="0 0 300 271" {...props}>
+          <path d="M236 0h46L181 115l118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123L-1.1 0h94.9l65.5 86.6L236 0zm-16.1 244h25.5L80.4 26H53l166.9 218z"></path>
+        </svg>
+      ),
+    },
+    {
+      name: ''LinkedIn'',
+      href: ''#'',
+      icon: (props) => (
+        <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+          <path
+            fillRule="nonzero"
+            d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"
+          ></path>
+        </svg>
+      ),
+    },
+    {
+      name: ''YouTube'',
+      href: ''#'',
+      icon: (props) => (
+        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+          <path
+            fillRule="evenodd"
+            d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
+            clipRule="evenodd"
+          />
+        </svg>
+      ),
+    },
+  ],
+};
+
+export default function Footer() {
+  return (
+    <footer aria-labelledby="footer-heading">
+      <h2 id="footer-heading" className="sr-only">
+        Footer
+      </h2>
+
+      <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+        <div className="flex flex-col justify-between gap-10 md:gap-14 xl:flex-row">
+          <div className="sm:grid sm:grid-cols-4 sm:gap-10 xl:gap-20">
+            <div>
+              <Logo
+                className="h-7 w-auto fill-neutral-950 dark:fill-white"
+                alt="Company name"
+              />
+            </div>
+
+            <div className="mt-10 sm:mt-0">
+              <h3 className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
+                Company
+              </h3>
+              <ul role="list" className="mt-2 space-y-4 lg:mt-6">
+                {navigation.company.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-sm leading-6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-10 sm:mt-0">
+              <h3 className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
+                Support
+              </h3>
+              <ul role="list" className="mt-2 space-y-4 lg:mt-6">
+                {navigation.support.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-sm leading-6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-10 sm:mt-0">
+              <h3 className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
+                Product
+              </h3>
+              <ul role="list" className="mt-2 space-y-4 lg:mt-6">
+                {navigation.product.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-sm leading-6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="flex max-w-xs flex-col gap-4 sm:max-w-lg">
+            <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-200">
+              Newsletter
+            </h3>
+
+            <p className="text-sm text-neutral-600 dark:text-neutral-400">
+              Join our newsletter to stay up to date on features and releases.
+            </p>
+
+            <div className="flex items-start gap-x-4">
+              <label htmlFor="email-address" className="sr-only">
+                Email address
+              </label>
+
+              <input
+                id="email-address"
+                name="email"
+                type="email"
+                autoComplete="email"
+                required
+                className="min-w-0 flex-auto rounded-md border-0 bg-white px-3.5 py-2 text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-200 focus:ring-2 focus:ring-inset focus:ring-neutral-500 dark:bg-white/5 dark:text-white sm:text-sm sm:leading-6"
+                placeholder="Enter your email"
+              />
+
+              <button
+                type="submit"
+                className="flex-none rounded-md bg-neutral-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+              >
+                Subscribe
+              </button>
+            </div>
+
+            <div className="max-w-md text-xs text-neutral-500">
+              By subscribing you agree to with our{'' ''}
+              <Link href="#" className="text-xs underline">
+                Privacy Policy
+              </Link>{'' ''}
+              and provide consent to receive updates from our company.
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-16 flex flex-col justify-between space-y-6 border-t border-neutral-900/10 pt-4 dark:border-white/20 sm:mt-20 md:flex-row md:items-end lg:mt-24">
+          <div className="flex space-x-6">
+            <p className="text-xs leading-5 text-neutral-500 dark:text-neutral-400">
+              &copy; 2020 Your Company, Inc. All rights reserved.
+            </p>
+
+            {navigation.legal.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-xs leading-5 text-neutral-500 underline hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+
+          <ul role="list" className="mt-2 flex gap-4 lg:mt-6">
+            {navigation.social.map((item) => (
+              <li key={item.name}>
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="group flex items-center text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+                >
+                  <span className="sr-only">{item.name}</span>
+                  <item.icon className="h-6 w-6" aria-hidden="true" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}', '', ''),
+	('36421524-62c3-4770-92ca-aea50fe038bd', '2023-11-15 17:41:43.786593+00', 'Footer 5', '', true, false, 'marketing', 'footer', 'https://library.codesnaps.io/api/content/footer/footer-5', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/footer_5-1700070102798.webp', 'Footer Component', false, '{text-align-left,text-align-center,1-column}', '{icons,text-only}', 'import React from ''react'';
+
+const navigation = {
+  company: [
+    { name: ''About'', href: ''#'' },
+    { name: ''Blog'', href: ''#'' },
+    { name: ''Jobs'', href: ''#'' },
+    { name: ''API Documentation'', href: ''#'' },
+    { name: ''Press'', href: ''#'' },
+  ],
+  legal: [
+    { name: ''Privacy Policy'', href: ''#'' },
+    { name: ''Terms of Service'', href: ''#'' },
+    { name: ''Cookies'', href: ''#'' },
+  ],
+};
+
+export default function Footer() {
+  return (
+    <footer aria-labelledby="footer-heading">
+      <h2 id="footer-heading" className="sr-only">
+        Footer
+      </h2>
+
+      <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+        <div className="flex flex-col gap-10">
+          <Logo
+            className="h-8 w-auto fill-neutral-950 dark:fill-white"
+            alt="Company name"
+          />
+
+          <div className="flex flex-col flex-wrap justify-center gap-10 sm:flex-row">
+            {navigation.company.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-center text-sm leading-5 text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-10 flex flex-col justify-between gap-6 border-t border-neutral-900/10 pt-8 dark:border-white/20 sm:flex-row md:mt-14 md:items-end">
+          <p className="text-xs leading-5 text-neutral-500 dark:text-neutral-400">
+            &copy; 2020 Your Company, Inc. All rights reserved.
+          </p>
+
+          <div className="flex space-x-6">
+            {navigation.legal.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-xs leading-5 text-neutral-500 underline hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}', 'import Link from ''next/link'';
+
+const navigation = {
+  company: [
+    { name: ''About'', href: ''#'' },
+    { name: ''Blog'', href: ''#'' },
+    { name: ''Jobs'', href: ''#'' },
+    { name: ''API Documentation'', href: ''#'' },
+    { name: ''Press'', href: ''#'' },
+  ],
+  legal: [
+    { name: ''Privacy Policy'', href: ''#'' },
+    { name: ''Terms of Service'', href: ''#'' },
+    { name: ''Cookies'', href: ''#'' },
+  ],
+};
+
+export default function Footer() {
+  return (
+    <footer aria-labelledby="footer-heading">
+      <h2 id="footer-heading" className="sr-only">
+        Footer
+      </h2>
+
+      <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+        <div className="flex flex-col gap-10">
+          <Logo
+            className="h-8 w-auto fill-neutral-950 dark:fill-white"
+            alt="Company name"
+          />
+
+          <div className="flex flex-col flex-wrap justify-center gap-10 sm:flex-row">
+            {navigation.company.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-center text-sm leading-5 text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-10 flex flex-col justify-between gap-6 border-t border-neutral-900/10 pt-8 dark:border-white/20 sm:flex-row md:mt-14 md:items-end">
+          <p className="text-xs leading-5 text-neutral-500 dark:text-neutral-400">
+            &copy; 2020 Your Company, Inc. All rights reserved.
+          </p>
+
+          <div className="flex space-x-6">
+            {navigation.legal.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-xs leading-5 text-neutral-500 underline hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}', '', ''),
+	('774daa9c-08e3-4729-b723-40bfcddbc746', '2023-11-15 17:44:22.137855+00', 'Gallery 3', '', true, false, 'marketing', 'gallery', 'https://library.codesnaps.io/api/content/gallery/gallery-3', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/gallery_3-1700070260616.webp', 'Gallery Component', false, '{text-align-center,video-image-center,3-columns}', '{multiple-images}', 'import React from ''react'';
+
+const images = [
+  {
+    id: 1,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+  },
+  {
+    id: 2,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+  },
+  {
+    id: 3,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+  },
+  {
+    id: 4,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+  },
+  {
+    id: 5,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+  },
+  {
+    id: 6,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+  },
+];
+
+export default function Gallery() {
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="flex flex-col space-y-4 text-center">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Image Gallery
+        </h2>
+
+        <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          Nam posuere, dolor a condimentum rhoncus, leo nisi varius enim, eu
+          scelerisque neque ex quis sem.
+        </p>
+      </div>
+
+      <div className="mt-16 grid gap-6 sm:mt-20 md:grid-cols-3 lg:mt-24">
+        {images.map((image) => (
+          <div key={image.id} className="col-span-1">
+            <img
+              loading="lazy"
+              src={image.src}
+              alt={image.alt}
+              width={1000}
+              height={1000}
+              className="h-full w-full rounded-md object-cover"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import Image from ''next/image'';
+
+const images = [
+  {
+    id: 1,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+  },
+  {
+    id: 2,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+  },
+  {
+    id: 3,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+  },
+  {
+    id: 4,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+  },
+  {
+    id: 5,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+  },
+  {
+    id: 6,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+  },
+];
+
+export default function Gallery() {
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="flex flex-col space-y-4 text-center">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Image Gallery
+        </h2>
+
+        <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          Nam posuere, dolor a condimentum rhoncus, leo nisi varius enim, eu
+          scelerisque neque ex quis sem.
+        </p>
+      </div>
+
+      <div className="mt-16 grid gap-6 sm:mt-20 md:grid-cols-3 lg:mt-24">
+        {images.map((image) => (
+          <div key={image.id} className="col-span-1">
+            <Image
+              priority
+              src={image.src}
+              alt={image.alt}
+              width={1000}
+              height={1000}
+              className="h-full w-full rounded-md object-cover"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}', '', ''),
+	('4f493b10-9cd8-4432-b5a8-510ec1a036b5', '2023-11-15 17:50:07.688449+00', 'Gallery 4', '', true, false, 'marketing', 'gallery', 'https://library.codesnaps.io/api/content/gallery/gallery-4', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/gallery_4-1700070606401.webp', 'Gallery Component', false, '{text-align-center,video-image-center,3-columns}', '{multiple-images}', 'import React from ''react'';
+
+const firstColumn = [
+  {
+    id: 1,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+  {
+    id: 2,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+];
+
+const secondColumn = [
+  {
+    id: 1,
+    src: ''https://dummyimage.com/1000x600/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 600,
+  },
+  {
+    id: 2,
+    src: ''https://dummyimage.com/1000x600/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 600,
+  },
+  {
+    id: 3,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+];
+
+const thirdColumn = [
+  {
+    id: 1,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+  {
+    id: 2,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+];
+
+export default function Gallery() {
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="flex flex-col space-y-4 text-center">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Image Gallery
+        </h2>
+
+        <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          Nam posuere, dolor a condimentum rhoncus, leo nisi varius enim, eu
+          scelerisque neque ex quis sem.
+        </p>
+      </div>
+
+      <div className="mt-16 grid gap-4 sm:mt-20 md:grid-cols-3 lg:mt-24">
+        <div className="flex flex-col gap-4">
+          {firstColumn.map((item) => (
+            <div key={item.id}>
+              <img
+                loading="lazy"
+                src={item.src}
+                alt={item.alt}
+                width={item.width}
+                height={item.height}
+                className="h-full w-full rounded-xl object-cover"
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-col gap-4">
+          {secondColumn.map((item) => (
+            <div key={item.id}>
+              <img
+                loading="lazy"
+                src={item.src}
+                alt={item.alt}
+                width={item.width}
+                height={item.height}
+                className="h-full w-full rounded-xl object-cover"
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-col gap-4">
+          {thirdColumn.map((item) => (
+            <div key={item.id}>
+              <img
+                loading="lazy"
+                src={item.src}
+                alt={item.alt}
+                width={item.width}
+                height={item.height}
+                className="h-full w-full rounded-xl object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import Image from ''next/image'';
+
+const firstColumn = [
+  {
+    id: 1,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+  {
+    id: 2,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+];
+
+const secondColumn = [
+  {
+    id: 1,
+    src: ''https://dummyimage.com/1000x600/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 600,
+  },
+  {
+    id: 2,
+    src: ''https://dummyimage.com/1000x600/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 600,
+  },
+  {
+    id: 3,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+];
+
+const thirdColumn = [
+  {
+    id: 1,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+  {
+    id: 2,
+    src: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1000,
+    height: 1000,
+  },
+];
+
+export default function Gallery() {
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="flex flex-col space-y-4 text-center">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Image Gallery
+        </h2>
+
+        <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          Nam posuere, dolor a condimentum rhoncus, leo nisi varius enim, eu
+          scelerisque neque ex quis sem.
+        </p>
+      </div>
+
+      <div className="mt-16 grid gap-4 sm:mt-20 md:grid-cols-3 lg:mt-24">
+        <div className="flex flex-col gap-4">
+          {firstColumn.map((item) => (
+            <div key={item.id}>
+              <Image
+                priority
+                src={item.src}
+                alt={item.alt}
+                width={item.width}
+                height={item.height}
+                className="h-full w-full rounded-xl object-cover"
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-col gap-4">
+          {secondColumn.map((item) => (
+            <div key={item.id}>
+              <Image
+                priority
+                src={item.src}
+                alt={item.alt}
+                width={item.width}
+                height={item.height}
+                className="h-full w-full rounded-xl object-cover"
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-col gap-4">
+          {thirdColumn.map((item) => (
+            <div key={item.id}>
+              <Image
+                priority
+                src={item.src}
+                alt={item.alt}
+                width={item.width}
+                height={item.height}
+                className="h-full w-full rounded-xl object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}', '', ''),
+	('49caf3da-be1c-4dd3-8630-48c345ecdfb8', '2023-11-15 17:53:43.082808+00', 'Gallery 6', 'The following package is required: npm install swiper', true, false, 'marketing', 'gallery', 'https://library.codesnaps.io/api/content/gallery/gallery-6', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/gallery_6-1700070821783.webp', 'Gallery Component', true, '{text-align-center,video-image-center,1-column}', '{multiple-images,slider}', 'import React from ''react'';
+
+import ''swiper/css'';
+import ''swiper/css/pagination'';
+
+import { Swiper, SwiperSlide } from ''swiper/react'';
+import { Pagination } from ''swiper/modules'';
+
+const images = [
+  {
+    id: 1,
+    src: ''https://dummyimage.com/1280x720/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: 2,
+    src: ''https://dummyimage.com/1280x720/fca5a5/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: 3,
+    src: ''https://dummyimage.com/1280x720/fcd34d/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: 4,
+    src: ''https://dummyimage.com/1280x720/bef264/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: 5,
+    src: ''https://dummyimage.com/1280x720/7dd3fc/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: 6,
+    src: ''https://dummyimage.com/1280x720/c4b5fd/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+];
+
+export default function Gallery() {
+  return (
+    <div className="mt-24 px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col space-y-2 text-center md:space-y-6">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Image Gallery
+        </h2>
+
+        <p className="mx-auto max-w-lg text-base text-neutral-600 dark:text-neutral-400 md:text-lg">
+          Nam posuere, dolor a condimentum rhoncus, leo nisi varius enim, eu
+          scelerisque neque ex quis sem.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-16 max-w-6xl sm:mt-20">
+        <Swiper pagination={true} modules={[Pagination]}>
+          {images.map((image) => (
+            <SwiperSlide key={image.id} className="max-w-6xl">
+              <img
+                loading="lazy"
+                src={image.src}
+                alt={image.alt}
+                width={image.width}
+                height={image.height}
+                className="rounded-xl object-cover"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
+  );
+}', '/*
+The following package is required: npm install swiper
+
+You also need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com**'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+''use client'';
+
+import ''swiper/css'';
+import ''swiper/css/pagination'';
+
+import Image from ''next/image'';
+
+import { Swiper, SwiperSlide } from ''swiper/react'';
+import { Pagination } from ''swiper/modules'';
+
+const images = [
+  {
+    id: 1,
+    src: ''https://dummyimage.com/1280x720/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: 2,
+    src: ''https://dummyimage.com/1280x720/fca5a5/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: 3,
+    src: ''https://dummyimage.com/1280x720/fcd34d/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: 4,
+    src: ''https://dummyimage.com/1280x720/bef264/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: 5,
+    src: ''https://dummyimage.com/1280x720/7dd3fc/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: 6,
+    src: ''https://dummyimage.com/1280x720/c4b5fd/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+];
+
+export default function Gallery() {
+  return (
+    <div className="mt-24 px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col space-y-2 text-center md:space-y-6">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Image Gallery
+        </h2>
+
+        <p className="mx-auto max-w-lg text-base text-neutral-600 dark:text-neutral-400 md:text-lg">
+          Nam posuere, dolor a condimentum rhoncus, leo nisi varius enim, eu
+          scelerisque neque ex quis sem.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-16 max-w-6xl sm:mt-20">
+        <Swiper pagination={true} modules={[Pagination]}>
+          {images.map((image) => (
+            <SwiperSlide key={image.id} className="max-w-6xl">
+              <Image
+                priority
+                src={image.src}
+                alt={image.alt}
+                width={image.width}
+                height={image.height}
+                className="rounded-xl object-cover"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
+  );
+}', '', ''),
+	('38376077-928b-4889-ade8-34a4cd04871d', '2023-11-15 17:57:28.662415+00', 'Header 4', '', true, false, 'marketing', 'header', 'https://library.codesnaps.io/api/content/header/header-4', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/header_4-1700071047403.webp', 'Header Component', false, '{text-align-left,1-column}', '{buttons,forms,text-only}', 'import React from ''react'';
+
+export default function Header() {
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="flex max-w-4xl flex-col space-y-7">
+        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
+          Tagline
+        </h3>
+
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Short heading goes in here
+        </h2>
+
+        <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
+          Non, amet, aliquet scelerisque nullam sagittis, pulvinar.
+        </p>
+
+        <div className="flex max-w-lg items-start gap-x-4">
+          <label htmlFor="email-address" className="sr-only">
+            Email address
+          </label>
+
+          <input
+            id="email-address"
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+            className="min-w-0 flex-auto rounded-md border-0 bg-white px-3.5 py-2 text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-200 focus:ring-2 focus:ring-inset focus:ring-neutral-500 dark:bg-white/5 dark:text-white sm:text-sm sm:leading-6"
+            placeholder="Enter your email"
+          />
+
+          <button
+            type="submit"
+            className="flex-none rounded-md bg-neutral-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+          >
+            Subscribe
+          </button>
+        </div>
+
+        <div className="max-w-md text-xs text-neutral-500">
+          By subscribing you agree to with our{'' ''}
+          <a href="#" className="text-xs underline">
+            Privacy Policy
+          </a>{'' ''}
+          and provide consent to receive updates from our company.
+        </div>
+      </div>
+    </div>
+  );
+}', 'import Link from ''next/link'';
+
+export default function Header() {
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="flex max-w-4xl flex-col space-y-7">
+        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
+          Tagline
+        </h3>
+
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Short heading goes in here
+        </h2>
+
+        <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
+          Non, amet, aliquet scelerisque nullam sagittis, pulvinar.
+        </p>
+
+        <div className="flex max-w-lg items-start gap-x-4">
+          <label htmlFor="email-address" className="sr-only">
+            Email address
+          </label>
+
+          <input
+            id="email-address"
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+            className="min-w-0 flex-auto rounded-md border-0 bg-white px-3.5 py-2 text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-200 focus:ring-2 focus:ring-inset focus:ring-neutral-500 dark:bg-white/5 dark:text-white sm:text-sm sm:leading-6"
+            placeholder="Enter your email"
+          />
+
+          <button
+            type="submit"
+            className="flex-none rounded-md bg-neutral-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+          >
+            Subscribe
+          </button>
+        </div>
+
+        <div className="max-w-md text-xs text-neutral-500">
+          By subscribing you agree to with our{'' ''}
+          <Link href="#" className="text-xs underline">
+            Privacy Policy
+          </Link>{'' ''}
+          and provide consent to receive updates from our company.
+        </div>
+      </div>
+    </div>
+  );
+}', '', ''),
+	('e948dcd6-6229-4d7b-bad3-fc79a7b1c1ed', '2023-11-15 18:00:05.859363+00', 'Header 5', '', true, false, 'marketing', 'header', 'https://library.codesnaps.io/api/content/header/header-5', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/header_5-1700071204639.webp', 'Header Component', false, '{text-align-left,video-image-center,2-columns}', '{background-image}', 'import React from ''react'';
+
+export default function Header() {
+  return (
+    <div className="relative h-full w-full">
+      <img
+        loading="lazy"
+        src="https://dummyimage.com/1920x1200/d4d4d4/171717"
+        alt="hero image"
+        className="absolute -z-10 h-full w-full object-cover brightness-[.25]"
+        aria-hidden="true"
+      />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-6xl flex-col justify-between py-24 xl:flex-row xl:items-center">
+          <h1 className="text-4xl font-bold leading-tight tracking-wide text-white xl:text-5xl">
+            Short heading here
+          </h1>
+
+          <p className="mt-6 max-w-md text-lg text-neutral-300">
+            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
+            lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
+            fugiat aliqua.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import Image from ''next/image'';
+
+export default function Header() {
+  return (
+    <div className="relative h-full w-full">
+      <Image
+        priority
+        src="https://dummyimage.com/1920x1200/d4d4d4/171717"
+        fill={true}
+        alt="hero image"
+        className="absolute -z-10 h-full w-full object-cover brightness-[.25]"
+        aria-hidden="true"
+      />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-6xl flex-col justify-between py-24 xl:flex-row xl:items-center">
+          <h1 className="text-4xl font-bold leading-tight tracking-wide text-white xl:text-5xl">
+            Short heading here
+          </h1>
+
+          <p className="mt-6 max-w-md text-lg text-neutral-300">
+            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
+            lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
+            fugiat aliqua.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}', '', ''),
+	('2ca371a3-99c6-41db-b5d3-c47cb1b296f0', '2023-11-15 18:01:58.049376+00', 'Header 6', '', true, false, 'marketing', 'header', 'https://library.codesnaps.io/api/content/header/header-6', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/header_6-1700071316954.webp', 'Header Component', false, '{text-align-center,video-image-center,1-column}', '{background-image}', 'import React from ''react'';
+
+export default function Header() {
+  return (
+    <div className="relative h-full w-full">
+      <img
+        loading="lazy"
+        src="https://dummyimage.com/1920x1200/d4d4d4/171717"
+        alt="hero image"
+        className="absolute -z-10 h-full w-full object-cover brightness-[.25]"
+        aria-hidden="true"
+      />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-6xl flex-col justify-between py-24 xl:flex-row xl:items-center">
+          <h1 className="text-4xl font-bold leading-tight tracking-wide text-white xl:text-5xl">
+            Short heading here
+          </h1>
+
+          <p className="mt-6 max-w-md text-lg text-neutral-300">
+            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
+            lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
+            fugiat aliqua.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import Image from ''next/image'';
+
+export default function Header() {
+  return (
+    <div className="relative h-full w-full">
+      <Image
+        priority
+        src="https://dummyimage.com/1920x1200/d4d4d4/171717"
+        fill={true}
+        alt="hero image"
+        className="absolute -z-10 h-full w-full object-cover brightness-[.25]"
+        aria-hidden="true"
+      />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-6xl flex-col justify-between py-24 xl:flex-row xl:items-center">
+          <h1 className="text-4xl font-bold leading-tight tracking-wide text-white xl:text-5xl">
+            Short heading here
+          </h1>
+
+          <p className="mt-6 max-w-md text-lg text-neutral-300">
+            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
+            lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
+            fugiat aliqua.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}', '', ''),
+	('30dcddd0-6ce1-4e2f-bea5-63174ebe49dd', '2023-11-15 18:04:12.668316+00', 'Header 7', '', true, false, 'marketing', 'header', 'https://library.codesnaps.io/api/content/header/header-7', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/header_7-1700071451635.webp', 'Header Component', false, '{text-align-center,1-column}', '{buttons,text-only}', 'import React from ''react'';
+
+export default function Header() {
+  return (
+    <div className="h-full w-full bg-neutral-700">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-3xl flex-col gap-8 py-24 text-center">
+          <span className="text-lg font-medium text-neutral-100">Tagline</span>
+
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-50 xl:text-5xl">
+            Short heading here
+          </h2>
+
+          <p className="text-lg text-neutral-300">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique. Duis cursus, mi quis
+            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+            vitae erat.
+          </p>
+
+          <div className="flex justify-center space-x-8">
+            <a
+              href="#"
+              className="rounded-md bg-neutral-950 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500"
+            >
+              Button
+            </a>
+
+            <a
+              href="#"
+              className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-neutral-100 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500"
+            >
+              Button
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}', 'import Link from ''next/link'';
+
+export default function Header() {
+  return (
+    <div className="h-full w-full bg-neutral-700">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-3xl flex-col gap-8 py-24 text-center">
+          <span className="text-lg font-medium text-neutral-100">Tagline</span>
+
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-50 xl:text-5xl">
+            Short heading here
+          </h2>
+
+          <p className="text-lg text-neutral-300">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique. Duis cursus, mi quis
+            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+            vitae erat.
+          </p>
+
+          <div className="flex justify-center space-x-8">
+            <Link
+              href="#"
+              className="rounded-md bg-neutral-950 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500"
+            >
+              Button
+            </Link>
+
+            <Link
+              href="#"
+              className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-neutral-100 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500"
+            >
+              Button
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}', '', ''),
+	('7c38c4b6-b9c2-4f69-bbbd-2f5aa55ea67b', '2023-11-15 17:39:05.389239+00', 'Footer 4', '', true, false, 'marketing', 'footer', 'https://library.codesnaps.io/api/content/footer/footer-4', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/footer4-1700069944218.webp', 'Footer Component', false, '{text-align-left,5-or-more-columns}', '{buttons,forms,icons}', 'import React from ''react'';
+
+const navigation = {
+  company: [
+    { name: ''About'', href: ''#'' },
+    { name: ''Blog'', href: ''#'' },
+    { name: ''Jobs'', href: ''#'' },
+    { name: ''Press'', href: ''#'' },
+  ],
+  support: [
+    { name: ''Pricing'', href: ''#'' },
+    { name: ''Documentation'', href: ''#'' },
+    { name: ''Guides'', href: ''#'' },
+    { name: ''API Status'', href: ''#'' },
+  ],
+  product: [
+    { name: ''Features'', href: ''#'' },
+    { name: ''Integrations'', href: ''#'' },
+    { name: ''Pricing'', href: ''#'' },
+    { name: ''Examples'', href: ''#'' },
+  ],
+  downloads: [
+    { name: ''Mac'', href: ''#'' },
+    { name: ''Windows'', href: ''#'' },
+    { name: ''Linux'', href: ''#'' },
+    { name: ''Chrome'', href: ''#'' },
+  ],
+  social: [
+    { name: ''YouTube'', href: ''#'' },
+    { name: ''GitHub'', href: ''#'' },
+    { name: ''aedIn'', href: ''#'' },
+    { name: ''Facebook'', href: ''#'' },
+  ],
+  legal: [
+    { name: ''Privacy Policy'', href: ''#'' },
+    { name: ''Terms of Service'', href: ''#'' },
+    { name: ''Cookies'', href: ''#'' },
+  ],
+};
+
+export default function Footer() {
+  return (
+    <footer aria-labelledby="footer-heading">
+      <h2 id="footer-heading" className="sr-only">
+        Footer
+      </h2>
+
+      <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+        <div className="flex flex-col justify-between gap-10 md:flex-row md:gap-14">
+          <div>
+            <h3 className="text-lg font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
+              Join our newsletter
+            </h3>
+            <p className="text-base text-neutral-600 dark:text-neutral-400">
+              Get the latest news and articles to your inbox every month.
+            </p>
+          </div>
+
+          <div className="flex max-w-xs flex-col gap-3 sm:max-w-lg">
+            <div className="flex items-start gap-x-4">
+              <label htmlFor="email-address" className="sr-only">
+                Email address
+              </label>
+
+              <input
+                id="email-address"
+                name="email"
+                type="email"
+                autoComplete="email"
+                required
+                className="min-w-0 flex-auto rounded-md border-0 bg-white px-3.5 py-2 text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-200 focus:ring-2 focus:ring-inset focus:ring-neutral-500 dark:bg-white/5 dark:text-white sm:text-sm sm:leading-6"
+                placeholder="Enter your email"
+              />
+
+              <button
+                type="submit"
+                className="flex-none rounded-md bg-neutral-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+              >
+                Subscribe
+              </button>
+            </div>
+
+            <div className="max-w-md text-xs text-neutral-500">
+              By subscribing you agree to with our{'' ''}
+              <a href="#" className="text-xs underline">
+                Privacy Policy
+              </a>{'' ''}
+              and provide consent to receive updates from our company.
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 border-t border-neutral-900/10 pt-8 dark:border-white/20 md:gap-14 md:pt-10">
+          <div className="grid sm:grid-cols-2 sm:gap-10 md:grid-cols-3 xl:grid-cols-6 xl:gap-20">
+            <div>
+              <h3 className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
+                Company
+              </h3>
+              <ul role="list" className="mt-2 space-y-4 lg:mt-6">
+                {navigation.company.map((item) => (
+                  <li key={item.name}>
+                    <a
+                      href={item.href}
+                      className="text-sm leading-6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-10 sm:mt-0">
+              <h3 className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
+                Support
+              </h3>
+              <ul role="list" className="mt-2 space-y-4 lg:mt-6">
+                {navigation.support.map((item) => (
+                  <li key={item.name}>
+                    <a
+                      href={item.href}
+                      className="text-sm leading-6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-10 sm:mt-0">
+              <h3 className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
+                Product
+              </h3>
+              <ul role="list" className="mt-2 space-y-4 lg:mt-6">
+                {navigation.product.map((item) => (
+                  <li key={item.name}>
+                    <a
+                      href={item.href}
+                      className="text-sm leading-6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-10 sm:mt-0">
+              <h3 className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
+                Downloads
+              </h3>
+              <ul role="list" className="mt-2 space-y-4 lg:mt-6">
+                {navigation.downloads.map((item) => (
+                  <li key={item.name}>
+                    <a
+                      href={item.href}
+                      className="text-sm leading-6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-10 sm:mt-0">
+              <h3 className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
+                Socials
+              </h3>
+              <ul role="list" className="mt-2 space-y-4 lg:mt-6">
+                {navigation.social.map((item) => (
+                  <li key={item.name}>
+                    <a
+                      href={item.href}
+                      className="text-sm leading-6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-10 sm:mt-0">
+              <h3 className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
+                Legal
+              </h3>
+              <ul role="list" className="mt-2 space-y-4 lg:mt-6">
+                {navigation.legal.map((item) => (
+                  <li key={item.name}>
+                    <a
+                      href={item.href}
+                      className="text-sm leading-6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 flex flex-col justify-between space-y-6 border-t border-neutral-900/10 pt-8 dark:border-white/20 sm:mt-20 md:flex-row md:items-end">
+          <div>
+            <Logo
+              className="h-7 w-auto fill-neutral-950 dark:fill-white"
+              alt="Company name"
+            />
+          </div>
+
+          <p className="text-xs leading-5 text-neutral-500 dark:text-neutral-400">
+            &copy; 2020 Your Company, Inc. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}', 'import Link from ''next/link'';
+
+const navigation = {
+  company: [
+    { name: ''About'', href: ''#'' },
+    { name: ''Blog'', href: ''#'' },
+    { name: ''Jobs'', href: ''#'' },
+    { name: ''Press'', href: ''#'' },
+  ],
+  support: [
+    { name: ''Pricing'', href: ''#'' },
+    { name: ''Documentation'', href: ''#'' },
+    { name: ''Guides'', href: ''#'' },
+    { name: ''API Status'', href: ''#'' },
+  ],
+  product: [
+    { name: ''Features'', href: ''#'' },
+    { name: ''Integrations'', href: ''#'' },
+    { name: ''Pricing'', href: ''#'' },
+    { name: ''Examples'', href: ''#'' },
+  ],
+  downloads: [
+    { name: ''Mac'', href: ''#'' },
+    { name: ''Windows'', href: ''#'' },
+    { name: ''Linux'', href: ''#'' },
+    { name: ''Chrome'', href: ''#'' },
+  ],
+  social: [
+    { name: ''YouTube'', href: ''#'' },
+    { name: ''GitHub'', href: ''#'' },
+    { name: ''LinkedIn'', href: ''#'' },
+    { name: ''Facebook'', href: ''#'' },
+  ],
+  legal: [
+    { name: ''Privacy Policy'', href: ''#'' },
+    { name: ''Terms of Service'', href: ''#'' },
+    { name: ''Cookies'', href: ''#'' },
+  ],
+};
+
+export default function Footer() {
+  return (
+    <footer aria-labelledby="footer-heading">
+      <h2 id="footer-heading" className="sr-only">
+        Footer
+      </h2>
+
+      <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+        <div className="flex flex-col justify-between gap-10 md:flex-row md:gap-14">
+          <div>
+            <h3 className="text-lg font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
+              Join our newsletter
+            </h3>
+            <p className="text-base text-neutral-600 dark:text-neutral-400">
+              Get the latest news and articles to your inbox every month.
+            </p>
+          </div>
+
+          <div className="flex max-w-xs flex-col gap-3 sm:max-w-lg">
+            <div className="flex items-start gap-x-4">
+              <label htmlFor="email-address" className="sr-only">
+                Email address
+              </label>
+
+              <input
+                id="email-address"
+                name="email"
+                type="email"
+                autoComplete="email"
+                required
+                className="min-w-0 flex-auto rounded-md border-0 bg-white px-3.5 py-2 text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-200 focus:ring-2 focus:ring-inset focus:ring-neutral-500 dark:bg-white/5 dark:text-white sm:text-sm sm:leading-6"
+                placeholder="Enter your email"
+              />
+
+              <button
+                type="submit"
+                className="flex-none rounded-md bg-neutral-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+              >
+                Subscribe
+              </button>
+            </div>
+
+            <div className="max-w-md text-xs text-neutral-500">
+              By subscribing you agree to with our{'' ''}
+              <Link href="#" className="text-xs underline">
+                Privacy Policy
+              </Link>{'' ''}
+              and provide consent to receive updates from our company.
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 border-t border-neutral-900/10 pt-8 dark:border-white/20 md:gap-14 md:pt-10">
+          <div className="grid sm:grid-cols-2 sm:gap-10 md:grid-cols-3 xl:grid-cols-6 xl:gap-20">
+            <div>
+              <h3 className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
+                Company
+              </h3>
+              <ul role="list" className="mt-2 space-y-4 lg:mt-6">
+                {navigation.company.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-sm leading-6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-10 sm:mt-0">
+              <h3 className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
+                Support
+              </h3>
+              <ul role="list" className="mt-2 space-y-4 lg:mt-6">
+                {navigation.support.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-sm leading-6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-10 sm:mt-0">
+              <h3 className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
+                Product
+              </h3>
+              <ul role="list" className="mt-2 space-y-4 lg:mt-6">
+                {navigation.product.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-sm leading-6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-10 sm:mt-0">
+              <h3 className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
+                Downloads
+              </h3>
+              <ul role="list" className="mt-2 space-y-4 lg:mt-6">
+                {navigation.downloads.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-sm leading-6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-10 sm:mt-0">
+              <h3 className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
+                Socials
+              </h3>
+              <ul role="list" className="mt-2 space-y-4 lg:mt-6">
+                {navigation.social.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-sm leading-6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-10 sm:mt-0">
+              <h3 className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
+                Legal
+              </h3>
+              <ul role="list" className="mt-2 space-y-4 lg:mt-6">
+                {navigation.legal.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-sm leading-6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 flex flex-col justify-between space-y-6 border-t border-neutral-900/10 pt-8 dark:border-white/20 sm:mt-20 md:flex-row md:items-end">
+          <div>
+            <Logo
+              className="h-7 w-auto fill-neutral-950 dark:fill-white"
+              alt="Company name"
+            />
+          </div>
+
+          <p className="text-xs leading-5 text-neutral-500 dark:text-neutral-400">
+            &copy; 2020 Your Company, Inc. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}', '', ''),
+	('c19f89dd-31b3-4dfb-8604-cd43f2a1c0c2', '2023-11-12 12:37:09.823495+00', 'Logo 6', '', true, false, 'marketing', 'logos', 'https://library.codesnaps.io/api/content/logo/logo-6', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/logo_6-1699792628850.webp', 'Logo Component', false, '{text-align-center,video-image-center,1-column}', '{animation,logos,multiple-images}', '/*
+You need to configure tailwind.config.js to create the animation
+
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      animation: {
+        ''infinite-scroll-horizontal'': ''horizontal-scroll 25s linear infinite'',
+      },
+      keyframes: {
+        ''horizontal-scroll'': {
+          from: { transform: ''translateX(0)'' },
+          to: { transform: ''translateX(-100%)'' },
+        },
+      },
+    },
+  },
+};
+*/
+
+import React from ''react'';
+
+const logos = [
+  {
+    id: 1,
+    name: ''Logo Name'',
+    height: 35,
+    width: 130,
+    src: ''https://img.logoipsum.com/221.svg'',
+  },
+  {
+    id: 2,
+    name: ''Logo Name'',
+    height: 35,
+    width: 130,
+    src: ''https://img.logoipsum.com/220.svg'',
+  },
+  {
+    id: 3,
+    name: ''Logo Name'',
+    height: 35,
+    width: 130,
+    src: ''https://img.logoipsum.com/219.svg'',
+  },
+  {
+    id: 4,
+    name: ''Logo Name'',
+    height: 35,
+    width: 130,
+    src: ''https://img.logoipsum.com/218.svg'',
+  },
+  {
+    id: 5,
+    name: ''Logo Name'',
+    height: 35,
+    width: 130,
+    src: ''https://img.logoipsum.com/217.svg'',
+  },
+  {
+    id: 6,
+    name: ''Logo Name'',
+    height: 35,
+    width: 130,
+    src: ''https://img.logoipsum.com/216.svg'',
+  },
+];
+
+export default function Logo() {
+  return (
+    <div className="mx-auto mt-24 px-4 sm:mt-32 sm:px-6 lg:mt-36 lg:px-8">
+      <h2 className="text-center text-lg font-semibold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50">
+        Trusted by the world’s most unkown companies
+      </h2>
+
+      <div className="mt-14 inline-flex w-full flex-nowrap">
+        <ul className="animate-infinite-scroll-horizontal flex items-center justify-center md:justify-start">
+          {logos.map((logo) => (
+            <li key={logo.id} className="mx-8">
+              <img
+                className="col-span-1 max-w-none object-contain"
+                src={logo.src}
+                alt={logo.name}
+                width={logo.width}
+                height={logo.height}
+              />
+            </li>
+          ))}
+        </ul>
+
+        <ul
+          className="animate-infinite-scroll-horizontal flex items-center justify-center md:justify-start"
+          aria-hidden="true"
+        >
+          {logos.map((logo) => (
+            <li key={logo.id} className="mx-8">
+              <img
+                className="col-span-1 max-w-none object-contain"
+                src={logo.src}
+                alt={logo.name}
+                width={logo.width}
+                height={logo.height}
+              />
+            </li>
+          ))}
+        </ul>
+
+        <ul
+          className="animate-infinite-scroll-horizontal flex items-center justify-center md:justify-start"
+          aria-hidden="true"
+        >
+          {logos.map((logo) => (
+            <li key={logo.id} className="mx-8">
+              <Image
+                priority
+                className="col-span-1 max-w-none object-contain"
+                src={logo.src}
+                alt={logo.name}
+                width={logo.width}
+                height={logo.height}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use logoipsum.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''img.logoipsum.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+
+You also need to configure tailwind.config.js to create the animation
+
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      animation: {
+        ''infinite-scroll-horizontal'': ''horizontal-scroll 25s linear infinite'',
+      },
+      keyframes: {
+        ''horizontal-scroll'': {
+          from: { transform: ''translateX(0)'' },
+          to: { transform: ''translateX(-100%)'' },
+        },
+      },
+    },
+  },
+};
+*/
+
+import Image from ''next/image'';
+
+const logos = [
+  {
+    id: 1,
+    name: ''Logo Name'',
+    height: 35,
+    width: 130,
+    src: ''https://img.logoipsum.com/221.svg'',
+  },
+  {
+    id: 2,
+    name: ''Logo Name'',
+    height: 35,
+    width: 130,
+    src: ''https://img.logoipsum.com/220.svg'',
+  },
+  {
+    id: 3,
+    name: ''Logo Name'',
+    height: 35,
+    width: 130,
+    src: ''https://img.logoipsum.com/219.svg'',
+  },
+  {
+    id: 4,
+    name: ''Logo Name'',
+    height: 35,
+    width: 130,
+    src: ''https://img.logoipsum.com/218.svg'',
+  },
+  {
+    id: 5,
+    name: ''Logo Name'',
+    height: 35,
+    width: 130,
+    src: ''https://img.logoipsum.com/217.svg'',
+  },
+  {
+    id: 6,
+    name: ''Logo Name'',
+    height: 35,
+    width: 130,
+    src: ''https://img.logoipsum.com/216.svg'',
+  },
+];
+
+export default function Logo() {
+  return (
+    <div className="mx-auto mt-24 px-4 sm:mt-32 sm:px-6 lg:mt-36 lg:px-8">
+      <h2 className="text-center text-lg font-semibold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50">
+        Trusted by the world’s most unkown companies
+      </h2>
+
+      <div className="mt-14 inline-flex w-full flex-nowrap">
+        <ul className="animate-infinite-scroll-horizontal flex items-center justify-center md:justify-start">
+          {logos.map((logo) => (
+            <li key={logo.id} className="mx-8">
+              <Image
+                className="col-span-1 max-w-none object-contain"
+                src={logo.src}
+                alt={logo.name}
+                width={logo.width}
+                height={logo.height}
+              />
+            </li>
+          ))}
+        </ul>
+
+        <ul
+          className="animate-infinite-scroll-horizontal flex items-center justify-center md:justify-start"
+          aria-hidden="true"
+        >
+          {logos.map((logo) => (
+            <li key={logo.id} className="mx-8">
+              <Image
+                className="col-span-1 max-w-none object-contain"
+                src={logo.src}
+                alt={logo.name}
+                width={logo.width}
+                height={logo.height}
+              />
+            </li>
+          ))}
+        </ul>
+
+        <ul
+          className="animate-infinite-scroll-horizontal flex items-center justify-center md:justify-start"
+          aria-hidden="true"
+        >
+          {logos.map((logo) => (
+            <li key={logo.id} className="mx-8">
+              <Image
+                priority
+                className="col-span-1 max-w-none object-contain"
+                src={logo.src}
+                alt={logo.name}
+                width={logo.width}
+                height={logo.height}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}', '', ''),
+	('ab237c71-af7b-4c9f-b5c7-ed4f14bc0ad5', '2023-11-16 22:48:53.20385+00', 'Team 3', '', true, false, 'marketing', 'team', 'https://library.codesnaps.io/api/content/team/team-3', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/team_3-1700174931913.webp', 'Team Component', false, '{text-align-left,video-image-left,2-columns}', '{buttons,icons,multiple-images}', 'import React from ''react'';
+
+const team = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+];
+
+export default function Team() {
+  return (
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mt-24 grid grid-cols-1 items-start gap-20 sm:mt-32 lg:mt-40 xl:grid-cols-3">
+        <div className="flex max-w-3xl flex-col gap-8">
+          <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
+            Tagline
+          </h3>
+
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+            Our Team
+          </h2>
+
+          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+            Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum
+            sit nunc in eros scelerisque sed.
+          </p>
+
+          <div>
+            <a
+              href="#"
+              className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Open Positions
+            </a>
+          </div>
+        </div>
+
+        <div className="col-span-2 mt-20 xl:mt-0">
+          <dl className="grid w-full gap-14 sm:grid-cols-2">
+            {team.map((member) => (
+              <div key={member.id} className="flex flex-col space-y-4">
+                <div className="max-w-md">
+                  <img
+                    loading="lazy"
+                    src={member.imageSrc}
+                    alt={member.name}
+                    width={150}
+                    height={150}
+                    className="mx-auto h-full w-full rounded-sm"
+                  />
+                </div>
+
+                <div>
+                  <h3 className="mt-2 text-lg font-semibold leading-tight text-neutral-900 dark:text-neutral-100">
+                    {member.name}
+                  </h3>
+                  <p className="mt-2 text-base font-medium text-neutral-600 dark:text-neutral-400">
+                    {member.title}
+                  </p>
+                </div>
+
+                <p className="mt-2 max-w-md text-base text-neutral-500">
+                  {member.description}
+                </p>
+
+                <div className="flex space-x-4">
+                  {member.socials.map((social) => (
+                    <a
+                      key={social.name}
+                      href={social.url}
+                      className="text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      <span className="sr-only">{social.name}</span>
+                      <social.icon className="h-5 w-5" aria-hidden="true" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function LinkedInIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"
+      ></path>
+    </svg>
+  );
+}
+
+function GitHubIcon(props) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+function XIcon(props) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 300 271" {...props}>
+      <path d="M236 0h46L181 115l118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123L-1.1 0h94.9l65.5 86.6L236 0zm-16.1 244h25.5L80.4 26H53l166.9 218z"></path>
+    </svg>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import Link from ''next/link'';
+import Image from ''next/image'';
+
+const team = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+];
+
+export default function Team() {
+  return (
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mt-24 grid grid-cols-1 items-start gap-20 sm:mt-32 lg:mt-40 xl:grid-cols-3">
+        <div className="flex max-w-3xl flex-col gap-8">
+          <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
+            Tagline
+          </h3>
+
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+            Our Team
+          </h2>
+
+          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+            Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum
+            sit nunc in eros scelerisque sed.
+          </p>
+
+          <div>
+            <Link
+              href="#"
+              className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Open Positions
+            </Link>
+          </div>
+        </div>
+
+        <div className="col-span-2 mt-20 xl:mt-0">
+          <dl className="grid w-full gap-14 sm:grid-cols-2">
+            {team.map((member) => (
+              <div key={member.id} className="flex flex-col space-y-4">
+                <div className="max-w-md">
+                  <Image
+                    priority
+                    src={member.imageSrc}
+                    alt={member.name}
+                    width={150}
+                    height={150}
+                    className="mx-auto h-full w-full rounded-sm"
+                  />
+                </div>
+
+                <div>
+                  <h3 className="mt-2 text-lg font-semibold leading-tight text-neutral-900 dark:text-neutral-100">
+                    {member.name}
+                  </h3>
+                  <p className="mt-2 text-base font-medium text-neutral-600 dark:text-neutral-400">
+                    {member.title}
+                  </p>
+                </div>
+
+                <p className="mt-2 max-w-md text-base text-neutral-500">
+                  {member.description}
+                </p>
+
+                <div className="flex space-x-4">
+                  {member.socials.map((social) => (
+                    <Link
+                      key={social.name}
+                      href={social.url}
+                      className="text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      <span className="sr-only">{social.name}</span>
+                      <social.icon className="h-5 w-5" aria-hidden="true" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function LinkedInIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"
+      ></path>
+    </svg>
+  );
+}
+
+function GitHubIcon(props) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+function XIcon(props) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 300 271" {...props}>
+      <path d="M236 0h46L181 115l118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123L-1.1 0h94.9l65.5 86.6L236 0zm-16.1 244h25.5L80.4 26H53l166.9 218z"></path>
+    </svg>
+  );
+}', '', ''),
+	('79a9c90c-2582-4530-a1cd-95748ba6affa', '2023-11-16 22:50:08.444266+00', 'Team 4', '', true, false, 'marketing', 'team', 'https://library.codesnaps.io/api/content/team/team-4', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/team_4-1700175007216.webp', 'Team Component', false, '{text-align-left,video-image-left,2-columns}', '{buttons,icons,multiple-images}', 'import React from ''react'';
+
+const team = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+];
+
+export default function Team() {
+  return (
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mt-24 grid grid-cols-1 items-start gap-20 sm:mt-32 lg:mt-40 xl:grid-cols-3">
+        <div className="flex max-w-3xl flex-col gap-8">
+          <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
+            Tagline
+          </h3>
+
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+            Our Team
+          </h2>
+
+          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+            Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum
+            sit nunc in eros scelerisque sed.
+          </p>
+
+          <div>
+            <a
+              href="#"
+              className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Open Positions
+            </a>
+          </div>
+        </div>
+
+        <div className="col-span-2 mt-20 xl:mt-0">
+          <dl className="grid w-full gap-14 sm:grid-cols-2">
+            {team.map((member) => (
+              <div key={member.id} className="flex flex-col space-y-4">
+                <div>
+                  <img
+                    loading="lazy"
+                    src={member.imageSrc}
+                    alt={member.name}
+                    width={150}
+                    height={150}
+                    className="h-20 w-20 rounded-full"
+                  />
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold leading-tight text-neutral-900 dark:text-neutral-100">
+                    {member.name}
+                  </h3>
+                  <p className="mt-2 text-base font-medium text-neutral-600 dark:text-neutral-400">
+                    {member.title}
+                  </p>
+                </div>
+
+                <p className="mt-2 max-w-sm text-base text-neutral-500">
+                  {member.description}
+                </p>
+
+                <div className="flex space-x-4">
+                  {member.socials.map((social) => (
+                    <a
+                      key={social.name}
+                      href={social.url}
+                      className="text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      <span className="sr-only">{social.name}</span>
+                      <social.icon className="h-5 w-5" aria-hidden="true" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function LinkedInIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"
+      ></path>
+    </svg>
+  );
+}
+
+function GitHubIcon(props) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+function XIcon(props) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 300 271" {...props}>
+      <path d="M236 0h46L181 115l118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123L-1.1 0h94.9l65.5 86.6L236 0zm-16.1 244h25.5L80.4 26H53l166.9 218z"></path>
+    </svg>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import Link from ''next/link'';
+import Image from ''next/image'';
+
+const team = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+];
+
+export default function Team() {
+  return (
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mt-24 grid grid-cols-1 items-start gap-20 sm:mt-32 lg:mt-40 xl:grid-cols-3">
+        <div className="flex max-w-3xl flex-col gap-8">
+          <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
+            Tagline
+          </h3>
+
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+            Our Team
+          </h2>
+
+          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+            Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum
+            sit nunc in eros scelerisque sed.
+          </p>
+
+          <div>
+            <Link
+              href="#"
+              className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Open Positions
+            </Link>
+          </div>
+        </div>
+
+        <div className="col-span-2 mt-20 xl:mt-0">
+          <dl className="grid w-full gap-14 sm:grid-cols-2">
+            {team.map((member) => (
+              <div key={member.id} className="flex flex-col space-y-4">
+                <div>
+                  <Image
+                    priority
+                    src={member.imageSrc}
+                    alt={member.name}
+                    width={150}
+                    height={150}
+                    className="h-20 w-20 rounded-full"
+                  />
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold leading-tight text-neutral-900 dark:text-neutral-100">
+                    {member.name}
+                  </h3>
+                  <p className="mt-2 text-base font-medium text-neutral-600 dark:text-neutral-400">
+                    {member.title}
+                  </p>
+                </div>
+
+                <p className="mt-2 max-w-sm text-base text-neutral-500">
+                  {member.description}
+                </p>
+
+                <div className="flex space-x-4">
+                  {member.socials.map((social) => (
+                    <Link
+                      key={social.name}
+                      href={social.url}
+                      className="text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      <span className="sr-only">{social.name}</span>
+                      <social.icon className="h-5 w-5" aria-hidden="true" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function LinkedInIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"
+      ></path>
+    </svg>
+  );
+}
+
+function GitHubIcon(props) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+function XIcon(props) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 300 271" {...props}>
+      <path d="M236 0h46L181 115l118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123L-1.1 0h94.9l65.5 86.6L236 0zm-16.1 244h25.5L80.4 26H53l166.9 218z"></path>
+    </svg>
+  );
+}', '', ''),
+	('45572a6c-57fa-4f83-a673-0bb3ad635ecf', '2023-11-16 22:53:34.871856+00', 'Team 6', '', true, false, 'marketing', 'team', 'https://library.codesnaps.io/api/content/team/team-6', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/team_6-1700175213616.webp', 'Team Componrnt', false, '{text-align-left,video-image-left,2-columns}', '{buttons,icons,multiple-images}', 'import React from ''react'';
+
+const team = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+];
+
+export default function Team() {
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="block items-end justify-between lg:flex">
+        <div className="flex max-w-4xl flex-col space-y-7">
+          <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
+            Tagline
+          </h3>
+
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+            Our Team
+          </h2>
+
+          <p className="max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
+            Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum
+            sit nunc in eros scelerisque sed.
+          </p>
+        </div>
+      </div>
+
+      <div className="mx-auto mt-14 lg:mt-20">
+        <dl className="grid grid-cols-1 gap-14 lg:grid-cols-2 xl:gap-20">
+          {team.map((member) => (
+            <div key={member.id} className="mx-auto grid grid-cols-5 gap-8">
+              <div className="col-span-5 max-w-md sm:col-span-2 xl:col-span-3">
+                <img
+                  loading="lazy"
+                  src={member.imageSrc}
+                  alt={member.name}
+                  width={1000}
+                  height={1000}
+                  className="h-full w-full rounded-lg object-cover"
+                />
+              </div>
+
+              <div className="col-span-5 my-auto sm:col-span-3 xl:col-span-2">
+                <dt className="flex flex-col items-start gap-y-3">
+                  <h3 className="text-lg font-semibold leading-tight text-neutral-900 dark:text-neutral-100">
+                    {member.name}
+                  </h3>
+                  <p className="text-base font-medium text-neutral-600 dark:text-neutral-400">
+                    {member.title}
+                  </p>
+                </dt>
+
+                <dd className="flex flex-auto flex-col space-y-4 text-base leading-7">
+                  <p className="mt-2 max-w-sm text-base text-neutral-500">
+                    {member.description}
+                  </p>
+
+                  <div className="flex space-x-4">
+                    {member.socials.map((social) => (
+                      <a
+                        key={social.name}
+                        href={social.url}
+                        className="text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
+                      >
+                        <span className="sr-only">{social.name}</span>
+                        <social.icon className="h-5 w-5" aria-hidden="true" />
+                      </a>
+                    ))}
+                  </div>
+                </dd>
+              </div>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <div className="mx-auto mt-14 lg:mt-24">
+        <h3 className="text-2xl font-semibold leading-tight text-neutral-800 dark:text-neutral-200">
+          We are hiring!
+        </h3>
+
+        <p className="mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed.
+        </p>
+
+        <div className="mt-8">
+          <a
+            href="#"
+            className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+          >
+            Apply Now
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function LinkedInIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"
+      ></path>
+    </svg>
+  );
+}
+
+function GitHubIcon(props) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+function XIcon(props) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 300 271" {...props}>
+      <path d="M236 0h46L181 115l118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123L-1.1 0h94.9l65.5 86.6L236 0zm-16.1 244h25.5L80.4 26H53l166.9 218z"></path>
+    </svg>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import Link from ''next/link'';
+import Image from ''next/image'';
+
+const team = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+];
+
+export default function Team() {
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="block items-end justify-between lg:flex">
+        <div className="flex max-w-4xl flex-col space-y-7">
+          <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
+            Tagline
+          </h3>
+
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+            Our Team
+          </h2>
+
+          <p className="max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
+            Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum
+            sit nunc in eros scelerisque sed.
+          </p>
+        </div>
+      </div>
+
+      <div className="mx-auto mt-14 lg:mt-20">
+        <dl className="grid grid-cols-1 gap-14 lg:grid-cols-2 xl:gap-20">
+          {team.map((member) => (
+            <div key={member.id} className="mx-auto grid grid-cols-5 gap-8">
+              <div className="col-span-5 max-w-md sm:col-span-2 xl:col-span-3">
+                <Image
+                  priority
+                  src={member.imageSrc}
+                  alt={member.name}
+                  width={1000}
+                  height={1000}
+                  className="h-full w-full rounded-lg object-cover"
+                />
+              </div>
+
+              <div className="col-span-5 my-auto sm:col-span-3 xl:col-span-2">
+                <dt className="flex flex-col items-start gap-y-3">
+                  <h3 className="text-lg font-semibold leading-tight text-neutral-900 dark:text-neutral-100">
+                    {member.name}
+                  </h3>
+                  <p className="text-base font-medium text-neutral-600 dark:text-neutral-400">
+                    {member.title}
+                  </p>
+                </dt>
+
+                <dd className="flex flex-auto flex-col space-y-4 text-base leading-7">
+                  <p className="mt-2 max-w-sm text-base text-neutral-500">
+                    {member.description}
+                  </p>
+
+                  <div className="flex space-x-4">
+                    {member.socials.map((social) => (
+                      <Link
+                        key={social.name}
+                        href={social.url}
+                        className="text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
+                      >
+                        <span className="sr-only">{social.name}</span>
+                        <social.icon className="h-5 w-5" aria-hidden="true" />
+                      </Link>
+                    ))}
+                  </div>
+                </dd>
+              </div>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <div className="mx-auto mt-14 lg:mt-24">
+        <h3 className="text-2xl font-semibold leading-tight text-neutral-800 dark:text-neutral-200">
+          We are hiring!
+        </h3>
+
+        <p className="mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed.
+        </p>
+
+        <div className="mt-8">
+          <Link
+            href="#"
+            className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+          >
+            Apply Now
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function LinkedInIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"
+      ></path>
+    </svg>
+  );
+}
+
+function GitHubIcon(props) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+function XIcon(props) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 300 271" {...props}>
+      <path d="M236 0h46L181 115l118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123L-1.1 0h94.9l65.5 86.6L236 0zm-16.1 244h25.5L80.4 26H53l166.9 218z"></path>
+    </svg>
+  );
+}', '', ''),
+	('47e91a87-c0e3-4ee8-9890-207452425244', '2023-11-16 22:56:37.661933+00', 'Testimonial 3', '', true, false, 'marketing', 'testimonial', 'https://library.codesnaps.io/api/content/testimonial/testimonial-3', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/testimonial_3-1700175396447.webp', 'Testimonial Component', false, '{text-align-center,video-image-center,3-columns}', '{icons,list,multiple-images}', 'import React from ''react'';
+
+const testimonials = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    logoImg: ''https://img.logoipsum.com/297.svg'',
+    profileImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    logoImg: ''https://img.logoipsum.com/297.svg'',
+    profileImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 3,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    logoImg: ''https://img.logoipsum.com/297.svg'',
+    profileImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+];
+
+export default function Testimonial() {
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="mx-auto max-w-4xl text-center">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Customer Testimonials
+        </h2>
+
+        <p className="mx-auto mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-10 max-w-md sm:mt-14 md:max-w-2xl lg:mt-20 lg:max-w-none">
+        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.id}>
+              <img
+                width={200}
+                height={40}
+                className="mx-auto h-8 w-full"
+                src={testimonial.logoImg}
+                alt={testimonial.company}
+              />
+
+              <figure className="mt-6">
+                <blockquote className="text-center text-lg font-semibold leading-relaxed text-neutral-900 dark:text-neutral-200">
+                  <p>“{testimonial.content}”</p>
+                </blockquote>
+
+                <figcaption className="mt-6">
+                  <img
+                    width={56}
+                    height={56}
+                    className="mx-auto h-14 w-14 rounded-full"
+                    src={testimonial.profileImg}
+                    alt={testimonial.name}
+                  />
+                  <div className="mt-4 text-base">
+                    <div className="text-center font-semibold text-neutral-900 dark:text-neutral-300">
+                      {testimonial.name}
+                    </div>
+
+                    <div className="flex items-center justify-center space-x-2 text-neutral-600 dark:text-neutral-400">
+                      <span>{testimonial.position}</span>{'' ''}
+                      <svg
+                        viewBox="0 0 2 2"
+                        width={3}
+                        height={3}
+                        aria-hidden="true"
+                        className="fill-neutral-600 dark:fill-neutral-400"
+                      >
+                        <circle cx={1} cy={1} r={1} />
+                      </svg>
+                      <span>{testimonial.company}</span>
+                    </div>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com and logoipsum.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+      {
+        protocol: ''https'',
+        hostname: ''img.logoipsum.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import Image from ''next/image'';
+
+const testimonials = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    logoImg: ''https://img.logoipsum.com/297.svg'',
+    profileImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    logoImg: ''https://img.logoipsum.com/297.svg'',
+    profileImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 3,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    logoImg: ''https://img.logoipsum.com/297.svg'',
+    profileImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+];
+
+export default function Testimonial() {
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="mx-auto max-w-4xl text-center">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Customer Testimonials
+        </h2>
+
+        <p className="mx-auto mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-10 max-w-md sm:mt-14 md:max-w-2xl lg:mt-20 lg:max-w-none">
+        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.id}>
+              <Image
+                width={200}
+                height={40}
+                className="mx-auto h-8 w-full"
+                src={testimonial.logoImg}
+                alt={testimonial.company}
+              />
+
+              <figure className="mt-6">
+                <blockquote className="text-center text-lg font-semibold leading-relaxed text-neutral-900 dark:text-neutral-200">
+                  <p>“{testimonial.content}”</p>
+                </blockquote>
+
+                <figcaption className="mt-6">
+                  <Image
+                    width={56}
+                    height={56}
+                    className="mx-auto h-14 w-14 rounded-full"
+                    src={testimonial.profileImg}
+                    alt={testimonial.name}
+                  />
+                  <div className="mt-4 text-base">
+                    <div className="text-center font-semibold text-neutral-900 dark:text-neutral-300">
+                      {testimonial.name}
+                    </div>
+
+                    <div className="flex items-center justify-center space-x-2 text-neutral-600 dark:text-neutral-400">
+                      <span>{testimonial.position}</span>{'' ''}
+                      <svg
+                        viewBox="0 0 2 2"
+                        width={3}
+                        height={3}
+                        aria-hidden="true"
+                        className="fill-neutral-600 dark:fill-neutral-400"
+                      >
+                        <circle cx={1} cy={1} r={1} />
+                      </svg>
+                      <span>{testimonial.company}</span>
+                    </div>
+                  </div>
+                </figcaption>
+              </figure>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  );
+}', '', ''),
+	('f09dc99e-cea8-4bb8-8fbe-eac83443e2fd', '2023-11-16 22:58:32.812841+00', 'Testimonial 4', '', true, false, 'marketing', 'testimonial', 'https://library.codesnaps.io/api/content/testimonial/testimonial-4', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/testimonial_4-1700175511485.webp', 'Testimonial Component', false, '{text-align-left,text-align-center,video-image-left,3-columns}', '{cards,icons,multiple-images}', 'import React from ''react'';
+
+/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+const firstColumn = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae.'',
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae.'',
+  },
+];
+
+const secondColumn = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+];
+
+const thirdColumn = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae.'',
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae.'',
+  },
+];
+
+export default function Testimonial() {
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="flex flex-col space-y-4 text-center">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Customer Testimonials
+        </h2>
+
+        <p className="mx-auto mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
+        </p>
+      </div>
+
+      <div className="mt-16 grid gap-4 sm:mt-20 md:grid-cols-3 lg:mt-24">
+        <div className="flex flex-col gap-4">
+          {firstColumn.map((testimonial) => (
+            <figure
+              key={testimonial.id}
+              className="flex flex-col rounded-xl border border-neutral-200 px-4 py-8 shadow-md dark:border-neutral-800 lg:px-6 lg:py-10"
+            >
+              <div className="x-space-4 flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    className="h-5 w-5 fill-neutral-900 dark:fill-neutral-100"
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <blockquote className="mt-4 text-base font-semibold leading-relaxed text-neutral-900 dark:text-neutral-200">
+                <p>“{testimonial.content}”</p>
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center">
+                <div className="mr-4 flex-shrink-0 self-center">
+                  <img
+                    width={48}
+                    height={48}
+                    className="mx-auto h-12 w-12 rounded-full"
+                    src={testimonial.imgSrc}
+                    alt={testimonial.name}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
+                    {testimonial.name}
+                  </h4>
+                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                    <span>{testimonial.position}</span>{'' ''}
+                    <svg
+                      viewBox="0 0 2 2"
+                      width={3}
+                      height={3}
+                      aria-hidden="true"
+                      className="fill-neutral-600 dark:fill-neutral-400"
+                    >
+                      <circle cx={1} cy={1} r={1} />
+                    </svg>
+                    <span>{testimonial.company}</span>
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div className="flex flex-col gap-4">
+          {secondColumn.map((testimonial) => (
+            <figure
+              key={testimonial.id}
+              className="flex flex-col rounded-xl border border-neutral-200 px-4 py-8 shadow-md dark:border-neutral-800 lg:px-6 lg:py-10"
+            >
+              <div className="x-space-4 flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    className="h-5 w-5 fill-neutral-900 dark:fill-neutral-100"
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <blockquote className="mt-4 text-base font-semibold leading-relaxed text-neutral-900 dark:text-neutral-200">
+                <p>“{testimonial.content}”</p>
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center">
+                <div className="mr-4 flex-shrink-0 self-center">
+                  <img
+                    width={48}
+                    height={48}
+                    className="mx-auto h-12 w-12 rounded-full"
+                    src={testimonial.imgSrc}
+                    alt={testimonial.name}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
+                    {testimonial.name}
+                  </h4>
+                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                    <span>{testimonial.position}</span>{'' ''}
+                    <svg
+                      viewBox="0 0 2 2"
+                      width={3}
+                      height={3}
+                      aria-hidden="true"
+                      className="fill-neutral-600 dark:fill-neutral-400"
+                    >
+                      <circle cx={1} cy={1} r={1} />
+                    </svg>
+                    <span>{testimonial.company}</span>
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div className="flex flex-col gap-4">
+          {thirdColumn.map((testimonial) => (
+            <figure
+              key={testimonial.id}
+              className="flex flex-col rounded-xl border border-neutral-200 px-4 py-8 shadow-md dark:border-neutral-800 lg:px-6 lg:py-10"
+            >
+              <div className="x-space-4 flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    className="h-5 w-5 fill-neutral-900 dark:fill-neutral-100"
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <blockquote className="mt-4 text-base font-semibold leading-relaxed text-neutral-900 dark:text-neutral-200">
+                <p>“{testimonial.content}”</p>
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center">
+                <div className="mr-4 flex-shrink-0 self-center">
+                  <img
+                    width={48}
+                    height={48}
+                    className="mx-auto h-12 w-12 rounded-full"
+                    src={testimonial.imgSrc}
+                    alt={testimonial.name}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
+                    {testimonial.name}
+                  </h4>
+                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                    <span>{testimonial.position}</span>{'' ''}
+                    <svg
+                      viewBox="0 0 2 2"
+                      width={3}
+                      height={3}
+                      aria-hidden="true"
+                      className="fill-neutral-600 dark:fill-neutral-400"
+                    >
+                      <circle cx={1} cy={1} r={1} />
+                    </svg>
+                    <span>{testimonial.company}</span>
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function StarIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import Image from ''next/image'';
+
+const firstColumn = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae.'',
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae.'',
+  },
+];
+
+const secondColumn = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+];
+
+const thirdColumn = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae.'',
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae.'',
+  },
+];
+
+export default function Testimonial() {
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="flex flex-col space-y-4 text-center">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Customer Testimonials
+        </h2>
+
+        <p className="mx-auto mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
+        </p>
+      </div>
+
+      <div className="mt-16 grid gap-4 sm:mt-20 md:grid-cols-3 lg:mt-24">
+        <div className="flex flex-col gap-4">
+          {firstColumn.map((testimonial) => (
+            <figure
+              key={testimonial.id}
+              className="flex flex-col rounded-xl border border-neutral-200 px-4 py-8 shadow-md dark:border-neutral-800 lg:px-6 lg:py-10"
+            >
+              <div className="x-space-4 flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    className="h-5 w-5 fill-neutral-900 dark:fill-neutral-100"
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <blockquote className="mt-4 text-base font-semibold leading-relaxed text-neutral-900 dark:text-neutral-200">
+                <p>“{testimonial.content}”</p>
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center">
+                <div className="mr-4 flex-shrink-0 self-center">
+                  <Image
+                    width={48}
+                    height={48}
+                    className="mx-auto h-12 w-12 rounded-full"
+                    src={testimonial.imgSrc}
+                    alt={testimonial.name}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
+                    {testimonial.name}
+                  </h4>
+                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                    <span>{testimonial.position}</span>{'' ''}
+                    <svg
+                      viewBox="0 0 2 2"
+                      width={3}
+                      height={3}
+                      aria-hidden="true"
+                      className="fill-neutral-600 dark:fill-neutral-400"
+                    >
+                      <circle cx={1} cy={1} r={1} />
+                    </svg>
+                    <span>{testimonial.company}</span>
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div className="flex flex-col gap-4">
+          {secondColumn.map((testimonial) => (
+            <figure
+              key={testimonial.id}
+              className="flex flex-col rounded-xl border border-neutral-200 px-4 py-8 shadow-md dark:border-neutral-800 lg:px-6 lg:py-10"
+            >
+              <div className="x-space-4 flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    className="h-5 w-5 fill-neutral-900 dark:fill-neutral-100"
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <blockquote className="mt-4 text-base font-semibold leading-relaxed text-neutral-900 dark:text-neutral-200">
+                <p>“{testimonial.content}”</p>
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center">
+                <div className="mr-4 flex-shrink-0 self-center">
+                  <Image
+                    width={48}
+                    height={48}
+                    className="mx-auto h-12 w-12 rounded-full"
+                    src={testimonial.imgSrc}
+                    alt={testimonial.name}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
+                    {testimonial.name}
+                  </h4>
+                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                    <span>{testimonial.position}</span>{'' ''}
+                    <svg
+                      viewBox="0 0 2 2"
+                      width={3}
+                      height={3}
+                      aria-hidden="true"
+                      className="fill-neutral-600 dark:fill-neutral-400"
+                    >
+                      <circle cx={1} cy={1} r={1} />
+                    </svg>
+                    <span>{testimonial.company}</span>
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div className="flex flex-col gap-4">
+          {thirdColumn.map((testimonial) => (
+            <figure
+              key={testimonial.id}
+              className="flex flex-col rounded-xl border border-neutral-200 px-4 py-8 shadow-md dark:border-neutral-800 lg:px-6 lg:py-10"
+            >
+              <div className="x-space-4 flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    className="h-5 w-5 fill-neutral-900 dark:fill-neutral-100"
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <blockquote className="mt-4 text-base font-semibold leading-relaxed text-neutral-900 dark:text-neutral-200">
+                <p>“{testimonial.content}”</p>
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center">
+                <div className="mr-4 flex-shrink-0 self-center">
+                  <Image
+                    width={48}
+                    height={48}
+                    className="mx-auto h-12 w-12 rounded-full"
+                    src={testimonial.imgSrc}
+                    alt={testimonial.name}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
+                    {testimonial.name}
+                  </h4>
+                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                    <span>{testimonial.position}</span>{'' ''}
+                    <svg
+                      viewBox="0 0 2 2"
+                      width={3}
+                      height={3}
+                      aria-hidden="true"
+                      className="fill-neutral-600 dark:fill-neutral-400"
+                    >
+                      <circle cx={1} cy={1} r={1} />
+                    </svg>
+                    <span>{testimonial.company}</span>
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function StarIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}', '', ''),
+	('689adde7-c69b-48f5-b82a-bef2335cc20a', '2023-11-16 23:01:40.549811+00', 'Testimonial 6', '', true, false, 'marketing', 'testimonial', 'https://library.codesnaps.io/api/content/testimonial/testimonial-6', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/testimonial_6-1700175699332.webp', 'Testimonial Component', false, '{text-align-left,text-align-center,video-image-left,1-column}', '{animation,cards,icons,multiple-images}', '/*
+You need to configure tailwind.config.js to create the animation
+
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      animation: {
+        ''infinite-scroll-horizontal'': ''horizontal-scroll 25s linear infinite'',
+      },
+      keyframes: {
+        ''horizontal-scroll'': {
+          from: { transform: ''translateX(0)'' },
+          to: { transform: ''translateX(-100%)'' },
+        },
+      },
+    },
+  },
+};
+*/
+
+import React from ''react'';
+
+const testimonials = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 3,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 4,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 5,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 6,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+];
+
+export default function Logo() {
+  return (
+    <div className="mx-auto mt-24 px-4 sm:mt-32 sm:px-6 lg:mt-36 lg:px-8">
+      <div className="mx-auto max-w-4xl text-center">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Customer Testimonials
+        </h2>
+
+        <p className="mx-auto mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
+        </p>
+      </div>
+
+      <div className="mt-14 inline-flex w-full flex-nowrap">
+        <dl className="flex animate-infinite-scroll-horizontal gap-14">
+          {testimonials.map((testimonial) => (
+            <figure
+              key={testimonial.id}
+              className="flex w-full min-w-[400px] flex-col rounded-xl border border-neutral-200 px-4 py-8 shadow-md dark:border-neutral-800 lg:px-6 lg:py-10"
+            >
+              <div className="x-space-4 flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    className="h-5 w-5 fill-neutral-900 dark:fill-neutral-100"
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <blockquote className="mt-4 text-base font-semibold leading-relaxed text-neutral-900 dark:text-neutral-200">
+                <p>“{testimonial.content}”</p>
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center">
+                <div className="mr-4 flex-shrink-0 self-center">
+                  <img
+                    width={48}
+                    height={48}
+                    className="mx-auto h-12 w-12 rounded-full"
+                    src={testimonial.imgSrc}
+                    alt={testimonial.name}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
+                    {testimonial.name}
+                  </h4>
+                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                    <span>{testimonial.position}</span>{'' ''}
+                    <svg
+                      viewBox="0 0 2 2"
+                      width={3}
+                      height={3}
+                      aria-hidden="true"
+                      className="fill-neutral-600 dark:fill-neutral-400"
+                    >
+                      <circle cx={1} cy={1} r={1} />
+                    </svg>
+                    <span>{testimonial.company}</span>
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </dl>
+
+        <dl className="ml-14 flex animate-infinite-scroll-horizontal gap-14">
+          {testimonials.map((testimonial) => (
+            <figure
+              key={testimonial.id}
+              className="flex w-full min-w-[400px] flex-col rounded-xl border border-neutral-200 px-4 py-8 shadow-md dark:border-neutral-800 lg:px-6 lg:py-10"
+            >
+              <div className="x-space-4 flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    className="h-5 w-5 fill-neutral-900 dark:fill-neutral-100"
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <blockquote className="mt-4 text-base font-semibold leading-relaxed text-neutral-900 dark:text-neutral-200">
+                <p>“{testimonial.content}”</p>
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center">
+                <div className="mr-4 flex-shrink-0 self-center">
+                  <img
+                    width={48}
+                    height={48}
+                    className="mx-auto h-12 w-12 rounded-full"
+                    src={testimonial.imgSrc}
+                    alt={testimonial.name}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
+                    {testimonial.name}
+                  </h4>
+                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                    <span>{testimonial.position}</span>{'' ''}
+                    <svg
+                      viewBox="0 0 2 2"
+                      width={3}
+                      height={3}
+                      aria-hidden="true"
+                      className="fill-neutral-600 dark:fill-neutral-400"
+                    >
+                      <circle cx={1} cy={1} r={1} />
+                    </svg>
+                    <span>{testimonial.company}</span>
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </dl>
+      </div>
+    </div>
+  );
+}
+
+function StarIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use logoipsum.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''img.logoipsum.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+
+You also need to configure tailwind.config.js to create the animation
+
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      animation: {
+        ''infinite-scroll-horizontal'': ''horizontal-scroll 25s linear infinite'',
+      },
+      keyframes: {
+        ''horizontal-scroll'': {
+          from: { transform: ''translateX(0)'' },
+          to: { transform: ''translateX(-100%)'' },
+        },
+      },
+    },
+  },
+};
+*/
+
+import Image from ''next/image'';
+
+const testimonials = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 3,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 4,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 5,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 6,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    imgSrc: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+];
+
+export default function Logo() {
+  return (
+    <div className="mx-auto mt-24 px-4 sm:mt-32 sm:px-6 lg:mt-36 lg:px-8">
+      <div className="mx-auto max-w-4xl text-center">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Customer Testimonials
+        </h2>
+
+        <p className="mx-auto mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
+        </p>
+      </div>
+
+      <div className="mt-14 inline-flex w-full flex-nowrap">
+        <dl className="flex animate-infinite-scroll-horizontal gap-14">
+          {testimonials.map((testimonial) => (
+            <figure
+              key={testimonial.id}
+              className="flex w-full min-w-[400px] flex-col rounded-xl border border-neutral-200 px-4 py-8 shadow-md dark:border-neutral-800 lg:px-6 lg:py-10"
+            >
+              <div className="x-space-4 flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    className="h-5 w-5 fill-neutral-900 dark:fill-neutral-100"
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <blockquote className="mt-4 text-base font-semibold leading-relaxed text-neutral-900 dark:text-neutral-200">
+                <p>“{testimonial.content}”</p>
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center">
+                <div className="mr-4 flex-shrink-0 self-center">
+                  <Image
+                    width={48}
+                    height={48}
+                    className="mx-auto h-12 w-12 rounded-full"
+                    src={testimonial.imgSrc}
+                    alt={testimonial.name}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
+                    {testimonial.name}
+                  </h4>
+                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                    <span>{testimonial.position}</span>{'' ''}
+                    <svg
+                      viewBox="0 0 2 2"
+                      width={3}
+                      height={3}
+                      aria-hidden="true"
+                      className="fill-neutral-600 dark:fill-neutral-400"
+                    >
+                      <circle cx={1} cy={1} r={1} />
+                    </svg>
+                    <span>{testimonial.company}</span>
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </dl>
+
+        <dl className="ml-14 flex animate-infinite-scroll-horizontal gap-14">
+          {testimonials.map((testimonial) => (
+            <figure
+              key={testimonial.id}
+              className="flex w-full min-w-[400px] flex-col rounded-xl border border-neutral-200 px-4 py-8 shadow-md dark:border-neutral-800 lg:px-6 lg:py-10"
+            >
+              <div className="x-space-4 flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    className="h-5 w-5 fill-neutral-900 dark:fill-neutral-100"
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <blockquote className="mt-4 text-base font-semibold leading-relaxed text-neutral-900 dark:text-neutral-200">
+                <p>“{testimonial.content}”</p>
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center">
+                <div className="mr-4 flex-shrink-0 self-center">
+                  <Image
+                    width={48}
+                    height={48}
+                    className="mx-auto h-12 w-12 rounded-full"
+                    src={testimonial.imgSrc}
+                    alt={testimonial.name}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
+                    {testimonial.name}
+                  </h4>
+                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                    <span>{testimonial.position}</span>{'' ''}
+                    <svg
+                      viewBox="0 0 2 2"
+                      width={3}
+                      height={3}
+                      aria-hidden="true"
+                      className="fill-neutral-600 dark:fill-neutral-400"
+                    >
+                      <circle cx={1} cy={1} r={1} />
+                    </svg>
+                    <span>{testimonial.company}</span>
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </dl>
+      </div>
+    </div>
+  );
+}
+
+function StarIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}', '', ''),
+	('64a273d4-160e-49fd-8bd4-d375181f3081', '2023-11-16 22:51:49.515519+00', 'Team 5', 'The following package is required: npm install swiper', true, false, 'marketing', 'team', 'https://library.codesnaps.io/api/content/team/team-5', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/team_5-1700175108148.webp', 'Team Component', true, '{text-align-left,video-image-left,1-column,2-columns}', '{buttons,icons,multiple-images,slider}', '/*
+The following package is required: npm install swiper
+*/
+
+import ''swiper/css'';
+import ''swiper/css/pagination'';
+
+import { Swiper, SwiperSlide } from ''swiper/react'';
+import { Pagination } from ''swiper/modules'';
+
+const team = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 5,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 6,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 7,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 8,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 9,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+];
+
+export default function Team() {
+  return (
+    <div className="mt-24 px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="mx-auto block max-w-6xl items-end justify-between lg:flex">
+        <div className="flex max-w-4xl flex-col space-y-7">
+          <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
+            Tagline
+          </h3>
+
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+            Our Team
+          </h2>
+
+          <p className="max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
+            Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum
+            sit nunc in eros scelerisque sed.
+          </p>
+        </div>
+
+        <div className="mt-6 flex justify-center">
+          <a
+            href="#"
+            className="rounded-md bg-white px-10 py-3 text-base font-medium text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-300 hover:bg-neutral-50 dark:bg-neutral-900 dark:text-white dark:ring-neutral-800 dark:hover:bg-neutral-800"
+          >
+            Apply Now
+          </a>
+        </div>
+      </div>
+
+      <div className="mt-16 sm:mt-20 lg:mt-24">
+        <Swiper
+          slidesPerView={''auto''}
+          centeredSlides={true}
+          spaceBetween={30}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+        >
+          {team.map((member) => (
+            <SwiperSlide key={member.id} className="max-w-md pb-20">
+              <div className="flex flex-col space-y-4">
+                <div className="max-w-sm">
+                  <img
+                    loading="lazy"
+                    src={member.imageSrc}
+                    alt={member.name}
+                    width={150}
+                    height={150}
+                    className="mx-auto h-full w-full rounded-sm"
+                  />
+                </div>
+
+                <div>
+                  <h3 className="mt-2 text-lg font-semibold leading-tight text-neutral-900 dark:text-neutral-100">
+                    {member.name}
+                  </h3>
+                  <p className="mt-2 text-base font-medium text-neutral-600 dark:text-neutral-400">
+                    {member.title}
+                  </p>
+                </div>
+
+                <p className="mt-2 max-w-md text-base text-neutral-500">
+                  {member.description}
+                </p>
+
+                <div className="flex space-x-4">
+                  {member.socials.map((social) => (
+                    <a
+                      key={social.name}
+                      href={social.url}
+                      className="text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      <span className="sr-only">{social.name}</span>
+                      <social.icon className="h-5 w-5" aria-hidden="true" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
+  );
+}
+
+function LinkedInIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"
+      ></path>
+    </svg>
+  );
+}
+
+function GitHubIcon(props) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+function XIcon(props) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 300 271" {...props}>
+      <path d="M236 0h46L181 115l118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123L-1.1 0h94.9l65.5 86.6L236 0zm-16.1 244h25.5L80.4 26H53l166.9 218z"></path>
+    </svg>
+  );
+}', '/*
+The following package is required: npm install swiper
+
+You also need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com**'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+''use client'';
+
+import ''swiper/css'';
+import ''swiper/css/pagination'';
+
+import Image from ''next/image'';
+import Link from ''next/link'';
+
+import { Swiper, SwiperSlide } from ''swiper/react'';
+import { Pagination } from ''swiper/modules'';
+
+const team = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 5,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 6,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 7,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 8,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+  {
+    id: 9,
+    name: ''Full Name'',
+    imageSrc: ''https://dummyimage.com/1000x1000/d4d4d4/171717'',
+    title: ''Job Title'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'',
+    socials: [
+      {
+        name: ''LinkedIn'',
+        url: ''#'',
+        icon: LinkedInIcon,
+      },
+      {
+        name: ''GitHub'',
+        url: ''#'',
+        icon: GitHubIcon,
+      },
+      {
+        name: ''X'',
+        url: ''#'',
+        icon: XIcon,
+      },
+    ],
+  },
+];
+
+export default function Team() {
+  return (
+    <div className="mt-24 px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="mx-auto block max-w-6xl items-end justify-between lg:flex">
+        <div className="flex max-w-4xl flex-col space-y-7">
+          <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
+            Tagline
+          </h3>
+
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+            Our Team
+          </h2>
+
+          <p className="max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
+            Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum
+            sit nunc in eros scelerisque sed.
+          </p>
+        </div>
+
+        <div className="mt-6 flex justify-center">
+          <Link
+            href="#"
+            className="rounded-md bg-white px-10 py-3 text-base font-medium text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-300 hover:bg-neutral-50 dark:bg-neutral-900 dark:text-white dark:ring-neutral-800 dark:hover:bg-neutral-800"
+          >
+            Apply Now
+          </Link>
+        </div>
+      </div>
+
+      <div className="mt-16 sm:mt-20 lg:mt-24">
+        <Swiper
+          slidesPerView={''auto''}
+          centeredSlides={true}
+          spaceBetween={30}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+        >
+          {team.map((member) => (
+            <SwiperSlide key={member.id} className="max-w-md pb-20">
+              <div className="flex flex-col space-y-4">
+                <div className="max-w-sm">
+                  <Image
+                    priority
+                    src={member.imageSrc}
+                    alt={member.name}
+                    width={150}
+                    height={150}
+                    className="mx-auto h-full w-full rounded-sm"
+                  />
+                </div>
+
+                <div>
+                  <h3 className="mt-2 text-lg font-semibold leading-tight text-neutral-900 dark:text-neutral-100">
+                    {member.name}
+                  </h3>
+                  <p className="mt-2 text-base font-medium text-neutral-600 dark:text-neutral-400">
+                    {member.title}
+                  </p>
+                </div>
+
+                <p className="mt-2 max-w-md text-base text-neutral-500">
+                  {member.description}
+                </p>
+
+                <div className="flex space-x-4">
+                  {member.socials.map((social) => (
+                    <Link
+                      key={social.name}
+                      href={social.url}
+                      className="text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
+                    >
+                      <span className="sr-only">{social.name}</span>
+                      <social.icon className="h-5 w-5" aria-hidden="true" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
+  );
+}
+
+function LinkedInIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"
+      ></path>
+    </svg>
+  );
+}
+
+function GitHubIcon(props) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+function XIcon(props) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 300 271" {...props}>
+      <path d="M236 0h46L181 115l118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123L-1.1 0h94.9l65.5 86.6L236 0zm-16.1 244h25.5L80.4 26H53l166.9 218z"></path>
+    </svg>
+  );
+}', '', ''),
+	('e0ec4bb1-cd08-49f3-a088-dd0cec401d48', '2023-11-17 20:43:44.846116+00', 'Navbar 5', 'You need to install the following package: npm install @headlessui/react@latest', true, false, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-5', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_5-1700253823539.webp', 'Navbar Component', true, '{text-align-left,video-image-left,3-columns}', '{buttons,dropdown,icons,multiple-images,navbar}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+import { useState } from ''react'';
+import { Dialog, Menu } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'', dropdown: false },
+  { name: ''Link Two'', href: ''#'', dropdown: false },
+  {
+    name: ''Dropdown Three'',
+    dropdown: true,
+    group: [
+      {
+        name: ''Group Column One'',
+        items: [
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #1'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''/'',
+          },
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #2'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+          ,
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #3'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #4'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+        ],
+      },
+      {
+        name: ''Group Column Two'',
+        items: [
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #1'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #2'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+          ,
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #3'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #4'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+        ],
+      },
+    ],
+    featuredPost: [
+      {
+        title: ''Post Title #1'',
+        description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+        href: ''#'',
+        imageSrc: ''https://dummyimage.com/1280x720/d4d4d4/171717'',
+        imageAlt: ''Post image'',
+      },
+      {
+        title: ''Post Title #2'',
+        description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+        href: ''#'',
+        imageSrc: ''https://dummyimage.com/1280x720/d4d4d4/171717'',
+        imageAlt: ''Post image'',
+      },
+    ],
+  },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="relative">
+      <div className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
+        <nav
+          className="mx-auto flex max-w-[1600px] items-center justify-between lg:px-8"
+          aria-label="Global"
+        >
+          <div className="flex flex-1 gap-12">
+            <Link href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </Link>
+
+            {/* NAVIGATION ITEMS */}
+            <div className="hidden lg:flex lg:items-center lg:gap-x-12">
+              {navigation.map((item) => (
+                <div key={item.name}>
+                  {item.dropdown ? (
+                    <Menu as="div">
+                      <Menu.Button className="flex items-center text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100">
+                        {item.name}
+                        <ChevronDownIcon className="ml-2 h-5 w-5 stroke-neutral-700 dark:stroke-neutral-300" />
+                      </Menu.Button>
+
+                      {/* DROPDOWN ITEMS */}
+                      <Menu.Items className="absolute left-0 right-0 mx-auto mt-5 max-w-[90vw] rounded-lg bg-white shadow-lg ring-1 ring-black/5 focus:outline-none dark:bg-neutral-900">
+                        <div className="grid w-full grid-cols-3 gap-6">
+                          {/* COLUMS */}
+                          {item.group.map((group) => (
+                            <div key={group.name} className="px-4 py-10">
+                              <p className="mb-6 block px-3.5 text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                                {group.name}
+                              </p>
+
+                              <div className="flex flex-col gap-6">
+                                {group.items.map((groupItem) => (
+                                  <Menu.Item
+                                    as="div"
+                                    key={groupItem.name}
+                                    className="flex gap-3 rounded-md px-3.5 py-2.5 hover:bg-neutral-200 dark:hover:bg-neutral-800"
+                                  >
+                                    <a
+                                      href={groupItem.href}
+                                      className="flex gap-4"
+                                    >
+                                      <div>
+                                        <groupItem.icon
+                                          className="h-5 w-5 fill-neutral-700 dark:fill-neutral-300"
+                                          aria-hidden="true"
+                                        />
+                                      </div>
+                                      <div>
+                                        <span className="block text-base font-medium text-neutral-900 dark:text-neutral-100">
+                                          {groupItem.name}
+                                        </span>
+                                        <span className="text-sm leading-none text-neutral-600 dark:text-neutral-400">
+                                          {groupItem.description}
+                                        </span>
+                                      </div>
+                                    </a>
+                                  </Menu.Item>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+
+                          {/* FEATURED POSTS */}
+                          <div className="bg-neutral-200/50 px-10 py-8 dark:bg-neutral-800">
+                            <h4 className="mb-6 block text-base font-medium text-neutral-900 dark:text-neutral-100">
+                              Featured Posts from the Blog
+                            </h4>
+
+                            <div className="flex flex-col gap-6">
+                              {item.featuredPost.map((post) => (
+                                <div key={post.title}>
+                                  <a
+                                    href={post.href}
+                                    className="flex flex-col items-center gap-3 xl:flex-row xl:gap-6"
+                                  >
+                                    <div>
+                                      <img
+                                        src={post.imageSrc}
+                                        alt={post.imageAlt}
+                                        width={240}
+                                        height={135}
+                                        className="rounded-md object-cover"
+                                      />
+                                    </div>
+                                    <div className="flex flex-col gap-3">
+                                      <h3 className="text-base font-medium text-neutral-900 dark:text-neutral-100">
+                                        {post.title}
+                                      </h3>
+                                      <p className="text-sm leading-none text-neutral-600 dark:text-neutral-400">
+                                        {post.description}
+                                      </p>
+                                      <a
+                                        href={post.href}
+                                        className="dark:hover:text-neutral text-sm font-medium text-neutral-600 underline dark:text-neutral-200"
+                                      >
+                                        Read more
+                                      </a>
+                                    </div>
+                                  </a>
+                                </div>
+                              ))}
+
+                              <a
+                                href="#"
+                                className="text-sm font-medium text-neutral-900 hover:text-neutral-600 dark:text-neutral-100 dark:hover:text-neutral-300"
+                              >
+                                View all posts &rarr;
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </Menu.Items>
+                    </Menu>
+                  ) : (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+                    >
+                      {item.name}
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex lg:hidden">
+            <button
+              type="button"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <span className="sr-only">Open main menu</span>
+              <HamburgerIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          <div className="hidden lg:flex lg:justify-end lg:space-x-4">
+            <a
+              href="#"
+              className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Learn more
+            </a>
+
+            <a
+              href="#"
+              className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Contact
+            </a>
+          </div>
+        </nav>
+
+        {/* MOBILE NAVIGATION */}
+        <Dialog
+          as="div"
+          className="lg:hidden"
+          open={mobileMenuOpen}
+          onClose={setMobileMenuOpen}
+        >
+          <div className="fixed inset-0 z-50" />
+          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+            <div className="flex items-center justify-between">
+              <a href="#" className="-m-1.5 p-1.5">
+                <span className="sr-only">Your Company</span>
+                <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+              </a>
+              <button
+                type="button"
+                className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="sr-only">Close menu</span>
+                <XMarkIcon
+                  className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                  aria-hidden="true"
+                />
+              </button>
+            </div>
+
+            {/* MOBILE NAVIGATION ITEMS */}
+            <div className="mt-6 flow-root">
+              <div className="-my-6 divide-y divide-neutral-500/30 dark:divide-white/30">
+                <div className="space-y-2 py-6">
+                  {navigation.map((item) => (
+                    <div key={item.name}>
+                      {item.dropdown ? (
+                        <div>
+                          <span className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 dark:text-neutral-100">
+                            {item.name}
+                          </span>
+
+                          <div>
+                            {item.group.map((group) => (
+                              <div key={group.name} className="mt-6">
+                                <p className="mb-2 block text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                                  {group.name}
+                                </p>
+
+                                <div className="flex flex-col gap-2">
+                                  {group.items.map((groupItem) => (
+                                    <div
+                                      key={groupItem.name}
+                                      className="flex gap-3 rounded-md px-2 py-2.5 hover:bg-neutral-200 dark:hover:bg-neutral-800"
+                                    >
+                                      <a
+                                        href={groupItem.href}
+                                        className="flex items-start gap-3"
+                                      >
+                                        <div>
+                                          <groupItem.icon
+                                            className="h-5 w-5 fill-neutral-700 dark:fill-neutral-300"
+                                            aria-hidden="true"
+                                          />
+                                        </div>
+                                        <div>
+                                          <span className="block text-base font-medium text-neutral-900 dark:text-neutral-100">
+                                            {groupItem.name}
+                                          </span>
+                                          <span className="text-sm leading-none text-neutral-600 dark:text-neutral-400">
+                                            {groupItem.description}
+                                          </span>
+                                        </div>
+                                      </a>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* FEATURED POSTS */}
+                          <div className="mt-10 rounded-xl bg-neutral-200/50 p-6 dark:bg-neutral-800">
+                            <h4 className="mb-6 block text-base font-medium text-neutral-900 dark:text-neutral-100">
+                              Featured Posts from the Blog
+                            </h4>
+
+                            <div className="flex flex-col gap-10">
+                              {item.featuredPost.map((post) => (
+                                <div key={post.title}>
+                                  <a
+                                    href={post.href}
+                                    className="flex flex-col gap-2"
+                                  >
+                                    <div>
+                                      <img
+                                        src={post.imageSrc}
+                                        alt={post.imageAlt}
+                                        width={240}
+                                        height={135}
+                                        className="rounded-md object-cover"
+                                      />
+                                    </div>
+                                    <div className="flex flex-col gap-3">
+                                      <h3 className="text-base font-medium text-neutral-900 dark:text-neutral-100">
+                                        {post.title}
+                                      </h3>
+                                      <p className="text-sm leading-none text-neutral-600 dark:text-neutral-400">
+                                        {post.description}
+                                      </p>
+                                      <a
+                                        href={post.href}
+                                        className="dark:hover:text-neutral text-sm font-medium text-neutral-600 underline dark:text-neutral-200"
+                                      >
+                                        Read more
+                                      </a>
+                                    </div>
+                                  </a>
+                                </div>
+                              ))}
+
+                              <a
+                                href="#"
+                                className="text-sm font-medium text-neutral-900 hover:text-neutral-600 dark:text-neutral-100 dark:hover:text-neutral-300"
+                              >
+                                View all posts &rarr;
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        <a
+                          key={item.name}
+                          href={item.href}
+                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                        >
+                          {item.name}
+                        </a>
+                      )}{'' ''}
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-col space-y-4 py-6">
+                  <a
+                    href="#"
+                    className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                  >
+                    Learn more <span aria-hidden="true">&rarr;</span>
+                  </a>
+
+                  <a
+                    href="#"
+                    className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+                  >
+                    Contact
+                  </a>
+                </div>
+              </div>
+            </div>
+          </Dialog.Panel>
+        </Dialog>
+      </div>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}
+
+function ChevronDownIcon(props) {
+  return (
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+  );
+}
+
+function GroupLinkIcon(props) {
+  return (
+    <svg viewBox="0 0 28 28" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M26.009 8.191a13.253 13.253 0 00-2-3.22 13.53 13.53 0 10-18.68 19.32 13.08 13.08 0 003.2 1.83c1.609.66 3.331.999 5.07 1a13.56 13.56 0 0013.53-13.55 13.392 13.392 0 00-1.12-5.38zm-12.42-5.43c1.562 0 3.104.341 4.52 1a4.364 4.364 0 01-1.08.31 5.731 5.731 0 00-4.85 4.85 2.998 2.998 0 01-2.71 2.65 5.731 5.731 0 00-4.85 4.85 2.905 2.905 0 01-.79 1.74 10.801 10.801 0 019.77-15.42l-.01.02zm-8.27 17.81c.12-.11.24-.21.36-.33a5.474 5.474 0 001.62-3.23 2.916 2.916 0 01.87-1.82 2.827 2.827 0 011.81-.86 5.731 5.731 0 004.85-4.85 2.919 2.919 0 01.87-1.91 2.87 2.87 0 011.83-.83 5.474 5.474 0 003-1.43 10.51 10.51 0 012.36 2.78.907.907 0 01-.13.14 2.868 2.868 0 01-1.81.88 5.704 5.704 0 00-3.234 1.616 5.704 5.704 0 00-1.616 3.234 3.001 3.001 0 01-2.69 2.68 5.76 5.76 0 00-4.88 4.85 3.145 3.145 0 01-.49 1.37 10.89 10.89 0 01-2.72-2.29zm8.27 3.86a10.83 10.83 0 01-3-.42c.334-.622.551-1.3.64-2a3.003 3.003 0 012.68-2.68 5.731 5.731 0 004.86-4.85 3.003 3.003 0 012.68-2.68 5.708 5.708 0 002.56-1 10.82 10.82 0 01-10.42 13.58v.05z"
+      ></path>
+    </svg>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+
+
+You also need to install the following package npm install @headlessui/react@latest
+*/
+
+''use client'';
+
+import Link from ''next/link'';
+import Image from ''next/image'';
+
+import { useState } from ''react'';
+import { Dialog, Menu } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'', dropdown: false },
+  { name: ''Link Two'', href: ''#'', dropdown: false },
+  {
+    name: ''Dropdown Three'',
+    dropdown: true,
+    group: [
+      {
+        name: ''Group Column One'',
+        items: [
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #1'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''/'',
+          },
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #2'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+          ,
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #3'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #4'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+        ],
+      },
+      {
+        name: ''Group Column Two'',
+        items: [
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #1'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #2'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+          ,
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #3'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+          {
+            icon: GroupLinkIcon,
+            name: ''Item #4'',
+            description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+            href: ''#'',
+          },
+        ],
+      },
+    ],
+    featuredPost: [
+      {
+        title: ''Post Title #1'',
+        description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+        href: ''#'',
+        imageSrc: ''https://dummyimage.com/1280x720/d4d4d4/171717'',
+        imageAlt: ''Post image'',
+      },
+      {
+        title: ''Post Title #2'',
+        description: ''Lorem ipsum dolor sit amet consectetur elit.'',
+        href: ''#'',
+        imageSrc: ''https://dummyimage.com/1280x720/d4d4d4/171717'',
+        imageAlt: ''Post image'',
+      },
+    ],
+  },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="relative">
+      <div className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
+        <nav
+          className="mx-auto flex max-w-[1600px] items-center justify-between lg:px-8"
+          aria-label="Global"
+        >
+          <div className="flex flex-1 gap-12">
+            <Link href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </Link>
+
+            {/* NAVIGATION ITEMS */}
+            <div className="hidden lg:flex lg:items-center lg:gap-x-12">
+              {navigation.map((item) => (
+                <div key={item.name}>
+                  {item.dropdown ? (
+                    <Menu as="div">
+                      <Menu.Button className="flex items-center text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100">
+                        {item.name}
+                        <ChevronDownIcon className="ml-2 h-5 w-5 stroke-neutral-700 dark:stroke-neutral-300" />
+                      </Menu.Button>
+
+                      {/* DROPDOWN ITEMS */}
+                      <Menu.Items className="absolute left-0 right-0 mx-auto mt-5 max-w-[90vw] rounded-lg bg-white shadow-lg ring-1 ring-black/5 focus:outline-none dark:bg-neutral-900">
+                        <div className="grid w-full grid-cols-3 gap-6">
+                          {/* COLUMS */}
+                          {item.group.map((group) => (
+                            <div key={group.name} className="px-4 py-10">
+                              <p className="mb-6 block px-3.5 text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                                {group.name}
+                              </p>
+
+                              <div className="flex flex-col gap-6">
+                                {group.items.map((groupItem) => (
+                                  <Menu.Item
+                                    as="div"
+                                    key={groupItem.name}
+                                    className="flex gap-3 rounded-md px-3.5 py-2.5 hover:bg-neutral-200 dark:hover:bg-neutral-800"
+                                  >
+                                    <Link
+                                      href={groupItem.href}
+                                      className="flex gap-4"
+                                    >
+                                      <div>
+                                        <groupItem.icon
+                                          className="h-5 w-5 fill-neutral-700 dark:fill-neutral-300"
+                                          aria-hidden="true"
+                                        />
+                                      </div>
+                                      <div>
+                                        <span className="block text-base font-medium text-neutral-900 dark:text-neutral-100">
+                                          {groupItem.name}
+                                        </span>
+                                        <span className="text-sm leading-none text-neutral-600 dark:text-neutral-400">
+                                          {groupItem.description}
+                                        </span>
+                                      </div>
+                                    </Link>
+                                  </Menu.Item>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+
+                          {/* FEATURED POSTS */}
+                          <div className="bg-neutral-200/50 px-10 py-8 dark:bg-neutral-800">
+                            <h4 className="mb-6 block text-base font-medium text-neutral-900 dark:text-neutral-100">
+                              Featured Posts from the Blog
+                            </h4>
+
+                            <div className="flex flex-col gap-6">
+                              {item.featuredPost.map((post) => (
+                                <div key={post.title}>
+                                  <Link
+                                    href={post.href}
+                                    className="flex flex-col items-center gap-3 xl:flex-row xl:gap-6"
+                                  >
+                                    <div>
+                                      <Image
+                                        src={post.imageSrc}
+                                        alt={post.imageAlt}
+                                        width={240}
+                                        height={135}
+                                        className="rounded-md object-cover"
+                                      />
+                                    </div>
+                                    <div className="flex flex-col gap-3">
+                                      <h3 className="text-base font-medium text-neutral-900 dark:text-neutral-100">
+                                        {post.title}
+                                      </h3>
+                                      <p className="text-sm leading-none text-neutral-600 dark:text-neutral-400">
+                                        {post.description}
+                                      </p>
+                                      <Link
+                                        href={post.href}
+                                        className="dark:hover:text-neutral text-sm font-medium text-neutral-600 underline dark:text-neutral-200"
+                                      >
+                                        Read more
+                                      </Link>
+                                    </div>
+                                  </Link>
+                                </div>
+                              ))}
+
+                              <Link
+                                href="#"
+                                className="text-sm font-medium text-neutral-900 hover:text-neutral-600 dark:text-neutral-100 dark:hover:text-neutral-300"
+                              >
+                                View all posts &rarr;
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                      </Menu.Items>
+                    </Menu>
+                  ) : (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex lg:hidden">
+            <button
+              type="button"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <span className="sr-only">Open main menu</span>
+              <HamburgerIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          <div className="hidden lg:flex lg:justify-end lg:space-x-4">
+            <Link
+              href="#"
+              className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Learn more
+            </Link>
+
+            <Link
+              href="#"
+              className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Contact
+            </Link>
+          </div>
+        </nav>
+
+        {/* MOBILE NAVIGATION */}
+        <Dialog
+          as="div"
+          className="lg:hidden"
+          open={mobileMenuOpen}
+          onClose={setMobileMenuOpen}
+        >
+          <div className="fixed inset-0 z-50" />
+          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+            <div className="flex items-center justify-between">
+              <Link href="#" className="-m-1.5 p-1.5">
+                <span className="sr-only">Your Company</span>
+                <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+              </Link>
+              <button
+                type="button"
+                className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="sr-only">Close menu</span>
+                <XMarkIcon
+                  className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                  aria-hidden="true"
+                />
+              </button>
+            </div>
+
+            {/* MOBILE NAVIGATION ITEMS */}
+            <div className="mt-6 flow-root">
+              <div className="-my-6 divide-y divide-neutral-500/30 dark:divide-white/30">
+                <div className="space-y-2 py-6">
+                  {navigation.map((item) => (
+                    <div key={item.name}>
+                      {item.dropdown ? (
+                        <div>
+                          <span className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 dark:text-neutral-100">
+                            {item.name}
+                          </span>
+
+                          <div>
+                            {item.group.map((group) => (
+                              <div key={group.name} className="mt-6">
+                                <p className="mb-2 block text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                                  {group.name}
+                                </p>
+
+                                <div className="flex flex-col gap-2">
+                                  {group.items.map((groupItem) => (
+                                    <div
+                                      key={groupItem.name}
+                                      className="flex gap-3 rounded-md px-2 py-2.5 hover:bg-neutral-200 dark:hover:bg-neutral-800"
+                                    >
+                                      <Link
+                                        href={groupItem.href}
+                                        className="flex items-start gap-3"
+                                      >
+                                        <div>
+                                          <groupItem.icon
+                                            className="h-5 w-5 fill-neutral-700 dark:fill-neutral-300"
+                                            aria-hidden="true"
+                                          />
+                                        </div>
+                                        <div>
+                                          <span className="block text-base font-medium text-neutral-900 dark:text-neutral-100">
+                                            {groupItem.name}
+                                          </span>
+                                          <span className="text-sm leading-none text-neutral-600 dark:text-neutral-400">
+                                            {groupItem.description}
+                                          </span>
+                                        </div>
+                                      </Link>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* FEATURED POSTS */}
+                          <div className="mt-10 rounded-xl bg-neutral-200/50 p-6 dark:bg-neutral-800">
+                            <h4 className="mb-6 block text-base font-medium text-neutral-900 dark:text-neutral-100">
+                              Featured Posts from the Blog
+                            </h4>
+
+                            <div className="flex flex-col gap-10">
+                              {item.featuredPost.map((post) => (
+                                <div key={post.title}>
+                                  <Link
+                                    href={post.href}
+                                    className="flex flex-col gap-2"
+                                  >
+                                    <div>
+                                      <Image
+                                        src={post.imageSrc}
+                                        alt={post.imageAlt}
+                                        width={240}
+                                        height={135}
+                                        className="rounded-md object-cover"
+                                      />
+                                    </div>
+                                    <div className="flex flex-col gap-3">
+                                      <h3 className="text-base font-medium text-neutral-900 dark:text-neutral-100">
+                                        {post.title}
+                                      </h3>
+                                      <p className="text-sm leading-none text-neutral-600 dark:text-neutral-400">
+                                        {post.description}
+                                      </p>
+                                      <Link
+                                        href={post.href}
+                                        className="dark:hover:text-neutral text-sm font-medium text-neutral-600 underline dark:text-neutral-200"
+                                      >
+                                        Read more
+                                      </Link>
+                                    </div>
+                                  </Link>
+                                </div>
+                              ))}
+
+                              <Link
+                                href="#"
+                                className="text-sm font-medium text-neutral-900 hover:text-neutral-600 dark:text-neutral-100 dark:hover:text-neutral-300"
+                              >
+                                View all posts &rarr;
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                        >
+                          {item.name}
+                        </Link>
+                      )}{'' ''}
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-col space-y-4 py-6">
+                  <Link
+                    href="#"
+                    className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                  >
+                    Learn more <span aria-hidden="true">&rarr;</span>
+                  </Link>
+
+                  <Link
+                    href="#"
+                    className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+                  >
+                    Contact
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Dialog.Panel>
+        </Dialog>
+      </div>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}
+
+function ChevronDownIcon(props) {
+  return (
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+  );
+}
+
+function GroupLinkIcon(props) {
+  return (
+    <svg viewBox="0 0 28 28" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M26.009 8.191a13.253 13.253 0 00-2-3.22 13.53 13.53 0 10-18.68 19.32 13.08 13.08 0 003.2 1.83c1.609.66 3.331.999 5.07 1a13.56 13.56 0 0013.53-13.55 13.392 13.392 0 00-1.12-5.38zm-12.42-5.43c1.562 0 3.104.341 4.52 1a4.364 4.364 0 01-1.08.31 5.731 5.731 0 00-4.85 4.85 2.998 2.998 0 01-2.71 2.65 5.731 5.731 0 00-4.85 4.85 2.905 2.905 0 01-.79 1.74 10.801 10.801 0 019.77-15.42l-.01.02zm-8.27 17.81c.12-.11.24-.21.36-.33a5.474 5.474 0 001.62-3.23 2.916 2.916 0 01.87-1.82 2.827 2.827 0 011.81-.86 5.731 5.731 0 004.85-4.85 2.919 2.919 0 01.87-1.91 2.87 2.87 0 011.83-.83 5.474 5.474 0 003-1.43 10.51 10.51 0 012.36 2.78.907.907 0 01-.13.14 2.868 2.868 0 01-1.81.88 5.704 5.704 0 00-3.234 1.616 5.704 5.704 0 00-1.616 3.234 3.001 3.001 0 01-2.69 2.68 5.76 5.76 0 00-4.88 4.85 3.145 3.145 0 01-.49 1.37 10.89 10.89 0 01-2.72-2.29zm8.27 3.86a10.83 10.83 0 01-3-.42c.334-.622.551-1.3.64-2a3.003 3.003 0 012.68-2.68 5.731 5.731 0 004.86-4.85 3.003 3.003 0 012.68-2.68 5.708 5.708 0 002.56-1 10.82 10.82 0 01-10.42 13.58v.05z"
+      ></path>
+    </svg>
+  );
+}', '', ''),
+	('ad9c42a2-4fe5-4d92-b82a-9b87ee0b84c5', '2023-11-16 23:00:07.468958+00', 'Testimonial 5', 'The following package is required: npm install swiper', true, false, 'marketing', 'testimonial', 'https://library.codesnaps.io/api/content/testimonial/testimonial-5', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/testimonial_5-1700175606234.webp', 'Testimonial Component', true, '{text-align-center,video-image-left,video-image-center,1-column,2-columns}', '{icons,multiple-images,slider}', 'import React from ''react'';
+
+import ''swiper/css'';
+import ''swiper/css/pagination'';
+import ''swiper/css/navigation'';
+
+import { Swiper, SwiperSlide } from ''swiper/react'';
+import { Pagination, Navigation } from ''swiper/modules'';
+
+const testimonials = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    logoImg: ''https://img.logoipsum.com/297.svg'',
+    profileImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    logoImg: ''https://img.logoipsum.com/297.svg'',
+    profileImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 3,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    logoImg: ''https://img.logoipsum.com/297.svg'',
+    profileImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 4,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    logoImg: ''https://img.logoipsum.com/297.svg'',
+    profileImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 5,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    logoImg: ''https://img.logoipsum.com/297.svg'',
+    profileImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+];
+
+export default function Testimonial() {
+  return (
+    <div className="mt-24 px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col space-y-2 text-center md:space-y-6">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Customer Testimonials
+        </h2>
+
+        <p className="mx-auto mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-16 max-w-6xl sm:mt-20">
+        <Swiper navigation={true} modules={[Pagination, Navigation]}>
+          {testimonials.map((testimonial) => (
+            <SwiperSlide key={testimonial.id}>
+              <figure
+                key={testimonial.id}
+                className="mx-auto flex max-w-2xl flex-col"
+              >
+                <div className="x-space-4 flex justify-center">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <StarIcon
+                      key={i}
+                      className="h-7 w-7 fill-neutral-900 dark:fill-neutral-100"
+                      aria-hidden="true"
+                    />
+                  ))}
+                </div>
+
+                <blockquote className="mt-8 text-center text-lg font-semibold leading-loose text-neutral-900 dark:text-neutral-200 md:text-2xl md:leading-loose">
+                  <p>“{testimonial.content}”</p>
+                </blockquote>
+
+                <figcaption className="mt-10 flex flex-col items-center justify-center gap-10 md:flex-row">
+                  <div className="flex items-center justify-center">
+                    <div className="mr-4 flex-shrink-0 self-center">
+                      <img
+                        width={48}
+                        height={48}
+                        className="mx-auto h-12 w-12 rounded-full"
+                        src={testimonial.profileImg}
+                        alt={testimonial.name}
+                      />
+                    </div>
+
+                    <div>
+                      <h4 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
+                        {testimonial.name}
+                      </h4>
+                      <p className="mt-1 flex items-center space-x-2 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                        <span>{testimonial.position}</span>{'' ''}
+                        <svg
+                          viewBox="0 0 2 2"
+                          width={3}
+                          height={3}
+                          aria-hidden="true"
+                          className="fill-neutral-600 dark:fill-neutral-400"
+                        >
+                          <circle cx={1} cy={1} r={1} />
+                        </svg>
+                        <span>{testimonial.company}</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="hidden h-10 rounded-full border-l border-neutral-400 dark:border-neutral-600 md:block" />
+
+                  <div>
+                    <img
+                      width={200}
+                      height={40}
+                      className="mx-auto h-8 w-full"
+                      src={testimonial.logoImg}
+                      alt={testimonial.company}
+                    />
+                  </div>
+                </figcaption>
+              </figure>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
+  );
+}
+
+function StarIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}', '/*
+The following package is required: npm install swiper
+
+You need to configure remotePatterns in next.config.js to use dummyimage.com and logoipsum.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+      {
+        protocol: ''https'',
+        hostname: ''img.logoipsum.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+''use client'';
+
+import ''swiper/css'';
+import ''swiper/css/pagination'';
+import ''swiper/css/navigation'';
+
+import Image from ''next/image'';
+
+import { Swiper, SwiperSlide } from ''swiper/react'';
+import { Pagination, Navigation } from ''swiper/modules'';
+
+const testimonials = [
+  {
+    id: 1,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    logoImg: ''https://img.logoipsum.com/297.svg'',
+    profileImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 2,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    logoImg: ''https://img.logoipsum.com/297.svg'',
+    profileImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 3,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    logoImg: ''https://img.logoipsum.com/297.svg'',
+    profileImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 4,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    logoImg: ''https://img.logoipsum.com/297.svg'',
+    profileImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+  {
+    id: 5,
+    name: ''Full Name'',
+    position: ''Position'',
+    company: ''Company Name'',
+    logoImg: ''https://img.logoipsum.com/297.svg'',
+    profileImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+    content:
+      ''Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.'',
+  },
+];
+
+export default function Testimonial() {
+  return (
+    <div className="mt-24 px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col space-y-2 text-center md:space-y-6">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Customer Testimonials
+        </h2>
+
+        <p className="mx-auto mt-6 max-w-xl text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-16 max-w-6xl sm:mt-20">
+        <Swiper navigation={true} modules={[Pagination, Navigation]}>
+          {testimonials.map((testimonial) => (
+            <SwiperSlide key={testimonial.id}>
+              <figure
+                key={testimonial.id}
+                className="mx-auto flex max-w-2xl flex-col"
+              >
+                <div className="x-space-4 flex justify-center">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <StarIcon
+                      key={i}
+                      className="h-7 w-7 fill-neutral-900 dark:fill-neutral-100"
+                      aria-hidden="true"
+                    />
+                  ))}
+                </div>
+
+                <blockquote className="mt-8 text-center text-lg font-semibold leading-loose text-neutral-900 dark:text-neutral-200 md:text-2xl md:leading-loose">
+                  <p>“{testimonial.content}”</p>
+                </blockquote>
+
+                <figcaption className="mt-10 flex flex-col items-center justify-center gap-10 md:flex-row">
+                  <div className="flex items-center justify-center">
+                    <div className="mr-4 flex-shrink-0 self-center">
+                      <Image
+                        width={48}
+                        height={48}
+                        className="mx-auto h-12 w-12 rounded-full"
+                        src={testimonial.profileImg}
+                        alt={testimonial.name}
+                      />
+                    </div>
+
+                    <div>
+                      <h4 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
+                        {testimonial.name}
+                      </h4>
+                      <p className="mt-1 flex items-center space-x-2 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                        <span>{testimonial.position}</span>{'' ''}
+                        <svg
+                          viewBox="0 0 2 2"
+                          width={3}
+                          height={3}
+                          aria-hidden="true"
+                          className="fill-neutral-600 dark:fill-neutral-400"
+                        >
+                          <circle cx={1} cy={1} r={1} />
+                        </svg>
+                        <span>{testimonial.company}</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="hidden h-10 rounded-full border-l border-neutral-400 dark:border-neutral-600 md:block" />
+
+                  <div>
+                    <Image
+                      width={200}
+                      height={40}
+                      className="mx-auto h-8 w-full"
+                      src={testimonial.logoImg}
+                      alt={testimonial.company}
+                    />
+                  </div>
+                </figcaption>
+              </figure>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
+  );
+}
+
+function StarIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}', '', ''),
+	('53049c66-c65e-4fdd-ab3e-45dcb7a897fe', '2023-11-15 17:51:28.72337+00', 'Gallery 5', 'The following package is required: npm install swiper', true, false, 'marketing', 'gallery', 'https://library.codesnaps.io/api/content/gallery/gallery-5', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/gallery_5-1700070687468.webp', 'Gallery Component', true, '{text-align-center,video-image-center,1-column}', '{multiple-images,slider}', 'import React from ''react'';
+
+import ''swiper/css'';
+import ''swiper/css/pagination'';
+import ''swiper/css/navigation'';
+
+import { Swiper, SwiperSlide } from ''swiper/react'';
+import { Pagination, Navigation } from ''swiper/modules'';
+
+const images = [
+  {
+    id: 1,
+    src: ''https://dummyimage.com/1280x720/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: 2,
+    src: ''https://dummyimage.com/1280x720/fca5a5/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: 3,
+    src: ''https://dummyimage.com/1280x720/fcd34d/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: 4,
+    src: ''https://dummyimage.com/1280x720/bef264/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: 5,
+    src: ''https://dummyimage.com/1280x720/7dd3fc/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: 6,
+    src: ''https://dummyimage.com/1280x720/c4b5fd/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+];
+
+export default function Gallery() {
+  return (
+    <div className="mt-24 px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col space-y-2 text-center md:space-y-6">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Image Gallery
+        </h2>
+
+        <p className="mx-auto max-w-lg text-base text-neutral-600 dark:text-neutral-400 md:text-lg">
+          Nam posuere, dolor a condimentum rhoncus, leo nisi varius enim, eu
+          scelerisque neque ex quis sem.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-16 max-w-6xl sm:mt-20">
+        <Swiper
+          pagination={{
+            type: ''progressbar'',
+          }}
+          navigation={true}
+          modules={[Pagination, Navigation]}
+        >
+          {images.map((image) => (
+            <SwiperSlide key={image.id} className="mt-4 max-w-6xl">
+              <img
+                loading="lazy"
+                src={image.src}
+                alt={image.alt}
+                width={image.width}
+                height={image.height}
+                className="rounded-xl object-cover"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
+  );
+}', '/*
+The following package is required: npm install swiper
+
+You also need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com**'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+''use client'';
+
+import ''swiper/css'';
+import ''swiper/css/pagination'';
+import ''swiper/css/navigation'';
+
+import Image from ''next/image'';
+
+import { Swiper, SwiperSlide } from ''swiper/react'';
+import { Pagination, Navigation } from ''swiper/modules'';
+
+const images = [
+  {
+    id: 1,
+    src: ''https://dummyimage.com/1280x720/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: 2,
+    src: ''https://dummyimage.com/1280x720/fca5a5/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: 3,
+    src: ''https://dummyimage.com/1280x720/fcd34d/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: 4,
+    src: ''https://dummyimage.com/1280x720/bef264/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: 5,
+    src: ''https://dummyimage.com/1280x720/7dd3fc/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: 6,
+    src: ''https://dummyimage.com/1280x720/c4b5fd/171717'',
+    alt: ''Image'',
+    width: 1280,
+    height: 720,
+  },
+];
+
+export default function Gallery() {
+  return (
+    <div className="mt-24 px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col space-y-2 text-center md:space-y-6">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Image Gallery
+        </h2>
+
+        <p className="mx-auto max-w-lg text-base text-neutral-600 dark:text-neutral-400 md:text-lg">
+          Nam posuere, dolor a condimentum rhoncus, leo nisi varius enim, eu
+          scelerisque neque ex quis sem.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-16 max-w-6xl sm:mt-20">
+        <Swiper
+          pagination={{
+            type: ''progressbar'',
+          }}
+          navigation={true}
+          modules={[Pagination, Navigation]}
+        >
+          {images.map((image) => (
+            <SwiperSlide key={image.id} className="mt-4 max-w-6xl">
+              <Image
+                priority
+                src={image.src}
+                alt={image.alt}
+                width={image.width}
+                height={image.height}
+                className="rounded-xl object-cover"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
+  );
+}', '', ''),
+	('e8d7628c-e74e-4ea0-b961-0b056d18c2ce', '2023-11-08 18:55:17.85525+00', 'Hero 2', NULL, true, true, 'marketing', 'hero', 'https://library.codesnaps.io/api/content/hero/hero-2', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/hero_2-1699474691473.webp', 'Hero Component', false, '{text-align-center,video-image-center,1-column}', '{buttons,image}', 'import React from ''react'';
+
+export default function Hero() {
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-36 lg:px-8">
+      <div className="flex flex-col space-y-7 text-center">
+        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
+          Tagline
+        </h3>
+
+        <h1 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Medium length hero section titles goes in here
+        </h1>
+
+        <p className="mx-auto max-w-4xl text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
+          Non, amet, aliquet scelerisque nullam.
+        </p>
+
+        <div className="flex justify-center space-x-8">
+          <a
+            href="#"
+            className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+          >
+            Button
+          </a>
+
+          <a
+            href="#"
+            className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+          >
+            Button
+          </a>
+        </div>
+      </div>
+
+      <div className="mx-auto mt-14 lg:mt-24">
+        <img
+          src="https://dummyimage.com/1920x1200/d4d4d4/171717"
+          alt="Image"
+          width={1920}
+          height={1200}
+          className="rounded-xl object-cover"
+        />
+      </div>
+    </div>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import Image from ''next/image'';
+import Link from ''next/link'';
+
+export default function Hero() {
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-36 lg:px-8">
+      <div className="flex flex-col space-y-7 text-center">
+        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-800 dark:text-neutral-200">
+          Tagline
+        </h3>
+
+        <h1 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Medium length hero section titles goes in here
+        </h1>
+
+        <p className="mx-auto max-w-4xl text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
+          Non, amet, aliquet scelerisque nullam.
+        </p>
+
+        <div className="flex justify-center space-x-8">
+          <Link
+            href="#"
+            className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+          >
+            Button
+          </Link>
+
+          <Link
+            href="#"
+            className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+          >
+            Button
+          </Link>
+        </div>
+      </div>
+
+      <div className="mx-auto mt-14 lg:mt-24">
+        <Image
+          priority
+          src="https://dummyimage.com/1920x1200/d4d4d4/171717"
+          alt="Image"
+          width={1920}
+          height={1200}
+          className="rounded-xl object-cover"
+        />
+      </div>
+    </div>
+  );
+}', '', ''),
+	('1cc21f2d-b307-4fec-8b47-2a7bde7b4b76', '2023-11-19 22:06:15.848099+00', 'Hero 6', '', true, false, 'marketing', 'hero', 'https://library.codesnaps.io/api/content/hero/hero-6', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/hero_6-1700431574656.webp', 'Hero Component', false, '{text-align-left,video-image-center}', '{buttons,image}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import React from ''react'';
+
+import Image from ''next/image'';
+import Link from ''next/link'';
+
+export default function Hero() {
+  return (
+    <div>
+      <img
+        loading="lazy"
+        src="https://dummyimage.com/1920x1200/d4d4d4/171717"
+        alt="hero image"
+        width={1920}
+        height={1200}
+        className="h-full max-h-[30vh] w-full object-cover"
+        aria-hidden="true"
+      />
+
+      <div className="mx-auto mt-14 max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="grid gap-7 xl:grid-cols-2">
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl xl:leading-tight">
+            Medium length hero section titles goes in here
+          </h2>
+
+          <div className="flex flex-col gap-8">
+            <p className="max-w-4xl text-lg text-neutral-600 dark:text-neutral-400">
+              Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum
+              sit nunc in eros scelerisque sed. Commodo in viverra nunc,
+              ullamcorper ut. Non, amet, aliquet scelerisque nullam.
+            </p>
+
+            <div className="flex space-x-8">
+              <a
+                href="#"
+                className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+              >
+                Button
+              </a>
+
+              <a
+                href="#"
+                className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+              >
+                Button
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import Image from ''next/image'';
+import Link from ''next/link'';
+
+export default function Hero() {
+  return (
+    <div>
+      <Image
+        priority
+        src="https://dummyimage.com/1920x1200/d4d4d4/171717"
+        alt="hero image"
+        width={1920}
+        height={1200}
+        className="h-full max-h-[30vh] w-full object-cover"
+        aria-hidden="true"
+      />
+
+      <div className="mx-auto mt-14 max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="grid gap-7 xl:grid-cols-2">
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl xl:leading-tight">
+            Medium length hero section titles goes in here
+          </h2>
+
+          <div className="flex flex-col gap-8">
+            <p className="max-w-4xl text-lg text-neutral-600 dark:text-neutral-400">
+              Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum
+              sit nunc in eros scelerisque sed. Commodo in viverra nunc,
+              ullamcorper ut. Non, amet, aliquet scelerisque nullam.
+            </p>
+
+            <div className="flex space-x-8">
+              <Link
+                href="#"
+                className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+              >
+                Button
+              </Link>
+
+              <Link
+                href="#"
+                className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+              >
+                Button
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}', '', ''),
+	('40896181-bb8a-44d4-b956-14761be399e9', '2023-11-19 22:09:29.990686+00', 'Hero 8', '', true, false, 'marketing', 'hero', 'https://library.codesnaps.io/api/content/hero/hero-8', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/hero_8-1700433056252.webp', 'Hero Component', false, '{text-align-left,video-image-right,2-columns}', '{buttons,image}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import React from ''react'';
+
+import Image from ''next/image'';
+import Link from ''next/link'';
+
+export default function Hero() {
+  return (
+    <div>
+      <div className="grid grid-cols-1 gap-14 lg:grid-cols-2">
+        <div className="mt-20 flex max-w-3xl flex-col gap-8 px-4 sm:my-32 sm:px-6 lg:my-40 lg:ml-auto lg:px-8">
+          <span className="text-lg font-medium text-neutral-800 dark:text-neutral-200">
+            Tagline
+          </span>
+
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+            Medium length section heading goes here
+          </h2>
+
+          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique. Duis cursus, mi quis
+            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+            vitae erat.
+          </p>
+
+          <div className="flex space-x-8">
+            <Link
+              href="#"
+              className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </Link>
+
+            <Link
+              href="#"
+              className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </Link>
+          </div>
+        </div>
+
+        <div className="relative order-last w-full">
+          <Image
+            priority
+            src="https://dummyimage.com/1500x1000/d4d4d4/171717"
+            alt="Image"
+            width={1500}
+            height={1000}
+            className="h-full w-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import Image from ''next/image'';
+import Link from ''next/link'';
+
+export default function Hero() {
+  return (
+    <div>
+      <div className="grid grid-cols-1 gap-14 lg:grid-cols-2">
+        <div className="mt-20 flex max-w-3xl flex-col gap-8 px-4 sm:my-32 sm:px-6 lg:my-40 lg:ml-auto lg:px-8">
+          <span className="text-lg font-medium text-neutral-800 dark:text-neutral-200">
+            Tagline
+          </span>
+
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+            Medium length section heading goes here
+          </h2>
+
+          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique. Duis cursus, mi quis
+            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+            vitae erat.
+          </p>
+
+          <div className="flex space-x-8">
+            <Link
+              href="#"
+              className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </Link>
+
+            <Link
+              href="#"
+              className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </Link>
+          </div>
+        </div>
+
+        <div className="relative order-last w-full">
+          <Image
+            priority
+            src="https://dummyimage.com/1500x1000/d4d4d4/171717"
+            alt="Image"
+            width={1500}
+            height={1000}
+            className="h-full w-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}', '', ''),
+	('d070d81e-b035-4a25-b431-6a40428f2faf', '2023-11-19 22:08:02.17055+00', 'Hero 7', 'You need to install the following package: npm install react-player', true, false, 'marketing', 'hero', 'https://library.codesnaps.io/api/content/hero/hero-7', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/hero_7-1700431681089.webp', 'Hero Component', false, '{text-align-left,video-image-center,2-columns}', '{buttons,video}', '/*
+You need to install the following package: npm install react-player
+*/
+
+''use client'';
+
+import Link from ''next/link'';
+
+import ReactPlayer from ''react-player/lazy'';
+
+export default function Hero() {
+  return (
+    <div>
+      <div className="relative order-last mx-auto bg-neutral-300 pt-[100%] md:pt-[50%] xl:pt-[30%]">
+        <ReactPlayer
+          width="100%"
+          height="100%"
+          url="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+          light="https://dummyimage.com/"
+          className="absolute left-0 top-0"
+        />
+      </div>
+
+      <div className="mx-auto mt-14 max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="grid gap-7 xl:grid-cols-2">
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl xl:leading-tight">
+            Medium length hero section titles goes in here
+          </h2>
+
+          <div className="flex flex-col gap-8">
+            <p className="max-w-4xl text-lg text-neutral-600 dark:text-neutral-400">
+              Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum
+              sit nunc in eros scelerisque sed. Commodo in viverra nunc,
+              ullamcorper ut. Non, amet, aliquet scelerisque nullam.
+            </p>
+
+            <div className="flex space-x-8">
+              <a
+                href="#"
+                className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+              >
+                Button
+              </a>
+
+              <a
+                href="#"
+                className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+              >
+                Button
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}', '/*
+You need to install the following package: npm install react-player
+*/
+
+''use client'';
+
+import Link from ''next/link'';
+
+import ReactPlayer from ''react-player/lazy'';
+
+export default function Hero() {
+  return (
+    <div>
+      <div className="relative order-last mx-auto bg-neutral-300 pt-[100%] md:pt-[50%] xl:pt-[30%]">
+        <ReactPlayer
+          width="100%"
+          height="100%"
+          url="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+          light="https://dummyimage.com/"
+          className="absolute left-0 top-0"
+        />
+      </div>
+
+      <div className="mx-auto mt-14 max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="grid gap-7 xl:grid-cols-2">
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl xl:leading-tight">
+            Medium length hero section titles goes in here
+          </h2>
+
+          <div className="flex flex-col gap-8">
+            <p className="max-w-4xl text-lg text-neutral-600 dark:text-neutral-400">
+              Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum
+              sit nunc in eros scelerisque sed. Commodo in viverra nunc,
+              ullamcorper ut. Non, amet, aliquet scelerisque nullam.
+            </p>
+
+            <div className="flex space-x-8">
+              <Link
+                href="#"
+                className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+              >
+                Button
+              </Link>
+
+              <Link
+                href="#"
+                className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+              >
+                Button
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}', '', ''),
+	('c30c9f54-4c0c-41b9-9f6d-65a00d81fb8c', '2023-11-19 22:16:09.047777+00', 'Hero 13', '', true, false, 'marketing', 'hero', 'https://library.codesnaps.io/api/content/hero/hero-13', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/hero_13-1700432167908.webp', 'Hero Component', false, '{text-align-left,video-image-center,3-columns}', '{background-image,buttons,cards,icons}', 'import React from ''react'';
+
+const items = [
+  {
+    id: 1,
+    name: ''Short heading here'',
+    description: ''Lorem ipsum dolor sit amet, consectetur adipiscing elit.'',
+    icon: Icon,
+  },
+  {
+    id: 2,
+    name: ''Short heading here'',
+    description: ''Lorem ipsum dolor sit amet, consectetur adipiscing elit.'',
+    icon: Icon,
+  },
+  {
+    id: 3,
+    name: ''Short heading here'',
+    description: ''Lorem ipsum dolor sit amet, consectetur adipiscing elit.'',
+    icon: Icon,
+  },
+];
+
+export default function Hero() {
+  return (
+    <div className="relative h-full w-full">
+      <img
+        loading="lazy"
+        src="https://dummyimage.com/1920x1200/f5f5f5/171717"
+        fill={true}
+        alt="hero image"
+        className="absolute -z-50 h-full max-h-[90vh] w-full object-cover brightness-[0.3] lg:brightness-100"
+        aria-hidden="true"
+      />
+
+      <div
+        className="absolute inset-0 hidden bg-gradient-to-r from-neutral-900 to-transparent lg:block"
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="max-w-3xl pt-32 sm:pt-48 lg:pt-56">
+          <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-200">
+            Tagline
+          </h3>
+
+          <div className="mt-6">
+            <h1 className="text-5xl font-bold leading-tight tracking-wide text-white xl:text-6xl">
+              Medium length heading goes in here
+            </h1>
+
+            <div className="mt-10">
+              <a
+                href="#"
+                className="rounded-md bg-neutral-50 px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm hover:bg-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400"
+              >
+                Button
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative z-10 mx-auto grid max-w-7xl translate-y-2/4 gap-2 px-4 sm:grid-cols-3 sm:px-6 lg:gap-10 lg:px-8">
+        {items.map((item) => (
+          <div
+            key={item.id}
+            className="mx-auto max-w-sm rounded-xl bg-white px-10 py-8 shadow-md dark:bg-neutral-800"
+          >
+            <item.icon className="h-8 w-8 fill-neutral-600 dark:fill-neutral-200" />
+
+            <h3 className="mt-4 text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+              {item.name}
+            </h3>
+
+            <p className="mt-4 text-sm text-neutral-600 dark:text-neutral-400">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Icon(props) {
+  return (
+    <svg viewBox="0 0 28 28" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M26.009 8.191a13.253 13.253 0 00-2-3.22 13.53 13.53 0 10-18.68 19.32 13.08 13.08 0 003.2 1.83c1.609.66 3.331.999 5.07 1a13.56 13.56 0 0013.53-13.55 13.392 13.392 0 00-1.12-5.38zm-12.42-5.43c1.562 0 3.104.341 4.52 1a4.364 4.364 0 01-1.08.31 5.731 5.731 0 00-4.85 4.85 2.998 2.998 0 01-2.71 2.65 5.731 5.731 0 00-4.85 4.85 2.905 2.905 0 01-.79 1.74 10.801 10.801 0 019.77-15.42l-.01.02zm-8.27 17.81c.12-.11.24-.21.36-.33a5.474 5.474 0 001.62-3.23 2.916 2.916 0 01.87-1.82 2.827 2.827 0 011.81-.86 5.731 5.731 0 004.85-4.85 2.919 2.919 0 01.87-1.91 2.87 2.87 0 011.83-.83 5.474 5.474 0 003-1.43 10.51 10.51 0 012.36 2.78.907.907 0 01-.13.14 2.868 2.868 0 01-1.81.88 5.704 5.704 0 00-3.234 1.616 5.704 5.704 0 00-1.616 3.234 3.001 3.001 0 01-2.69 2.68 5.76 5.76 0 00-4.88 4.85 3.145 3.145 0 01-.49 1.37 10.89 10.89 0 01-2.72-2.29zm8.27 3.86a10.83 10.83 0 01-3-.42c.334-.622.551-1.3.64-2a3.003 3.003 0 012.68-2.68 5.731 5.731 0 004.86-4.85 3.003 3.003 0 012.68-2.68 5.708 5.708 0 002.56-1 10.82 10.82 0 01-10.42 13.58v.05z"
+      ></path>
+    </svg>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import Image from ''next/image'';
+import Link from ''next/link'';
+
+const items = [
+  {
+    id: 1,
+    name: ''Short heading here'',
+    description: ''Lorem ipsum dolor sit amet, consectetur adipiscing elit.'',
+    icon: Icon,
+  },
+  {
+    id: 2,
+    name: ''Short heading here'',
+    description: ''Lorem ipsum dolor sit amet, consectetur adipiscing elit.'',
+    icon: Icon,
+  },
+  {
+    id: 3,
+    name: ''Short heading here'',
+    description: ''Lorem ipsum dolor sit amet, consectetur adipiscing elit.'',
+    icon: Icon,
+  },
+];
+
+export default function Hero() {
+  return (
+    <div className="relative h-full w-full">
+      <Image
+        priority
+        src="https://dummyimage.com/1920x1200/f5f5f5/171717"
+        fill={true}
+        alt="hero image"
+        className="absolute -z-50 h-full max-h-[90vh] w-full object-cover brightness-[0.3] lg:brightness-100"
+        aria-hidden="true"
+      />
+
+      <div
+        className="absolute inset-0 hidden bg-gradient-to-r from-neutral-900 to-transparent lg:block"
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="max-w-3xl pt-32 sm:pt-48 lg:pt-56">
+          <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-200">
+            Tagline
+          </h3>
+
+          <div className="mt-6">
+            <h1 className="text-5xl font-bold leading-tight tracking-wide text-white xl:text-6xl">
+              Medium length heading goes in here
+            </h1>
+
+            <div className="mt-10">
+              <Link
+                href="#"
+                className="rounded-md bg-neutral-50 px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm hover:bg-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400"
+              >
+                Button
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative z-10 mx-auto grid max-w-7xl translate-y-2/4 gap-2 px-4 sm:grid-cols-3 sm:px-6 lg:gap-10 lg:px-8">
+        {items.map((item) => (
+          <div
+            key={item.id}
+            className="mx-auto max-w-sm rounded-xl bg-white px-10 py-8 shadow-md dark:bg-neutral-800"
+          >
+            <item.icon className="h-8 w-8 fill-neutral-600 dark:fill-neutral-200" />
+
+            <h3 className="mt-4 text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+              {item.name}
+            </h3>
+
+            <p className="mt-4 text-sm text-neutral-600 dark:text-neutral-400">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Icon(props) {
+  return (
+    <svg viewBox="0 0 28 28" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M26.009 8.191a13.253 13.253 0 00-2-3.22 13.53 13.53 0 10-18.68 19.32 13.08 13.08 0 003.2 1.83c1.609.66 3.331.999 5.07 1a13.56 13.56 0 0013.53-13.55 13.392 13.392 0 00-1.12-5.38zm-12.42-5.43c1.562 0 3.104.341 4.52 1a4.364 4.364 0 01-1.08.31 5.731 5.731 0 00-4.85 4.85 2.998 2.998 0 01-2.71 2.65 5.731 5.731 0 00-4.85 4.85 2.905 2.905 0 01-.79 1.74 10.801 10.801 0 019.77-15.42l-.01.02zm-8.27 17.81c.12-.11.24-.21.36-.33a5.474 5.474 0 001.62-3.23 2.916 2.916 0 01.87-1.82 2.827 2.827 0 011.81-.86 5.731 5.731 0 004.85-4.85 2.919 2.919 0 01.87-1.91 2.87 2.87 0 011.83-.83 5.474 5.474 0 003-1.43 10.51 10.51 0 012.36 2.78.907.907 0 01-.13.14 2.868 2.868 0 01-1.81.88 5.704 5.704 0 00-3.234 1.616 5.704 5.704 0 00-1.616 3.234 3.001 3.001 0 01-2.69 2.68 5.76 5.76 0 00-4.88 4.85 3.145 3.145 0 01-.49 1.37 10.89 10.89 0 01-2.72-2.29zm8.27 3.86a10.83 10.83 0 01-3-.42c.334-.622.551-1.3.64-2a3.003 3.003 0 012.68-2.68 5.731 5.731 0 004.86-4.85 3.003 3.003 0 012.68-2.68 5.708 5.708 0 002.56-1 10.82 10.82 0 01-10.42 13.58v.05z"
+      ></path>
+    </svg>
+  );
+}', '', ''),
+	('60c4606a-fa00-4327-849f-37e99872a44d', '2023-11-19 22:12:35.77508+00', 'Hero 10', '', true, false, 'marketing', 'hero', 'https://library.codesnaps.io/api/content/hero/hero-10', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/hero_10-1700433118902.webp', 'Hero Component', true, '{text-align-left,video-image-right,2-columns}', '{buttons,multiple-images,slider}', '/*
+The following package is required: npm install swiper
+*/
+
+import ''swiper/css'';
+import ''swiper/css/pagination'';
+import ''swiper/css/navigation'';
+
+import React from ''react'';
+import Image from ''next/image'';
+import Link from ''next/link'';
+
+import { Swiper, SwiperSlide } from ''swiper/react'';
+import { Autoplay, Pagination, Navigation } from ''swiper/modules'';
+
+const images = [
+  {
+    id: 1,
+    src: ''https://dummyimage.com/1500x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1500,
+    height: 1000,
+  },
+  {
+    id: 2,
+    src: ''https://dummyimage.com/1500x1000/fca5a5/171717'',
+    alt: ''Image'',
+    width: 1500,
+    height: 1000,
+  },
+  {
+    id: 3,
+    src: ''https://dummyimage.com/1500x1000/fcd34d/171717'',
+    alt: ''Image'',
+    width: 1500,
+    height: 1000,
+  },
+];
+
+export default function Hero() {
+  return (
+    <div>
+      <div className="grid grid-cols-1 gap-14 lg:grid-cols-2">
+        <div className="mt-20 flex max-w-3xl flex-col gap-8 px-4 sm:my-32 sm:px-6 lg:my-40 lg:ml-auto lg:px-8">
+          <span className="text-lg font-medium text-neutral-800 dark:text-neutral-200">
+            Tagline
+          </span>
+
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+            Medium length section heading goes here
+          </h2>
+
+          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique. Duis cursus, mi quis
+            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+            vitae erat.
+          </p>
+
+          <div className="flex space-x-8">
+            <a
+              href="#"
+              className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </a>
+
+            <a
+              href="#"
+              className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <Swiper
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={true}
+            modules={[Autoplay, Pagination, Navigation]}
+            className="h-full"
+          >
+            {images.map((image) => (
+              <SwiperSlide key={image.id}>
+                <img
+                  loading="lazy"
+                  src={image.src}
+                  alt={image.alt}
+                  width={image.width}
+                  height={image.height}
+                  className="h-full w-full object-cover"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+    </div>
+  );
+}', '/*
+The following package is required: npm install swiper
+
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+''use client'';
+
+import ''swiper/css'';
+import ''swiper/css/pagination'';
+import ''swiper/css/navigation'';
+
+import Image from ''next/image'';
+import Link from ''next/link'';
+
+import { Swiper, SwiperSlide } from ''swiper/react'';
+import { Autoplay, Pagination, Navigation } from ''swiper/modules'';
+
+const images = [
+  {
+    id: 1,
+    src: ''https://dummyimage.com/1500x1000/d4d4d4/171717'',
+    alt: ''Image'',
+    width: 1500,
+    height: 1000,
+  },
+  {
+    id: 2,
+    src: ''https://dummyimage.com/1500x1000/fca5a5/171717'',
+    alt: ''Image'',
+    width: 1500,
+    height: 1000,
+  },
+  {
+    id: 3,
+    src: ''https://dummyimage.com/1500x1000/fcd34d/171717'',
+    alt: ''Image'',
+    width: 1500,
+    height: 1000,
+  },
+];
+
+export default function Hero() {
+  return (
+    <div>
+      <div className="grid grid-cols-1 gap-14 lg:grid-cols-2">
+        <div className="mt-20 flex max-w-3xl flex-col gap-8 px-4 sm:my-32 sm:px-6 lg:my-40 lg:ml-auto lg:px-8">
+          <span className="text-lg font-medium text-neutral-800 dark:text-neutral-200">
+            Tagline
+          </span>
+
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+            Medium length section heading goes here
+          </h2>
+
+          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique. Duis cursus, mi quis
+            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+            vitae erat.
+          </p>
+
+          <div className="flex space-x-8">
+            <Link
+              href="#"
+              className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </Link>
+
+            <Link
+              href="#"
+              className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </Link>
+          </div>
+        </div>
+
+        <div>
+          <Swiper
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={true}
+            modules={[Autoplay, Pagination, Navigation]}
+            className="h-full"
+          >
+            {images.map((image) => (
+              <SwiperSlide key={image.id}>
+                <Image
+                  priority
+                  src={image.src}
+                  alt={image.alt}
+                  width={image.width}
+                  height={image.height}
+                  className="h-full w-full object-cover"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+    </div>
+  );
+}', '', ''),
+	('1bab9408-46f1-4454-836b-21f91e92fa46', '2023-11-19 22:13:35.363106+00', 'Hero 11', '', true, false, 'marketing', 'hero', 'https://library.codesnaps.io/api/content/hero/hero-11', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/hero_11-1700433130020.webp', 'Hero Component', false, '{text-align-left,video-image-right,2-columns}', '{buttons,image}', 'import React from ''react'';
+
+export default function Hero() {
+  return (
+    <div className="relative">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
+          <div className="mx-auto my-20 flex max-w-3xl flex-col gap-8 px-4 sm:my-32 sm:px-6 lg:my-40 lg:px-8">
+            <span className="text-lg font-medium text-neutral-800 dark:text-neutral-200">
+              Tagline
+            </span>
+
+            <h1 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+              Medium length section heading goes here
+            </h1>
+
+            <p className="text-lg text-neutral-600 dark:text-neutral-400">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse varius enim in eros elementum tristique. Duis cursus,
+              mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam
+              libero vitae erat.
+            </p>
+
+            <div className="flex space-x-8">
+              <a
+                href="#"
+                className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+              >
+                Button
+              </a>
+
+              <a
+                href="#"
+                className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+              >
+                Button
+              </a>
+            </div>
+          </div>
+
+          <div className="bg-neutral-100 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+            <DiagonalShape />
+
+            <img
+              loading="lazy"
+              src="https://dummyimage.com/1000x1000/d4d4d4/171717"
+              alt="Image"
+              width={1000}
+              height={1000}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DiagonalShape(props) {
+  return (
+    <svg
+      className="absolute inset-y-0 -left-10 hidden h-full w-44 transform fill-white dark:fill-black lg:block"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+      {...props}
+    >
+      <polygon points="0,0 90,0 50,100 0,100" />
+    </svg>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import Image from ''next/image'';
+import Link from ''next/link'';
+
+export default function Hero() {
+  return (
+    <div className="relative">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
+          <div className="mx-auto my-20 flex max-w-3xl flex-col gap-8 px-4 sm:my-32 sm:px-6 lg:my-40 lg:px-8">
+            <span className="text-lg font-medium text-neutral-800 dark:text-neutral-200">
+              Tagline
+            </span>
+
+            <h1 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+              Medium length section heading goes here
+            </h1>
+
+            <p className="text-lg text-neutral-600 dark:text-neutral-400">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse varius enim in eros elementum tristique. Duis cursus,
+              mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam
+              libero vitae erat.
+            </p>
+
+            <div className="flex space-x-8">
+              <Link
+                href="#"
+                className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+              >
+                Button
+              </Link>
+
+              <Link
+                href="#"
+                className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+              >
+                Button
+              </Link>
+            </div>
+          </div>
+
+          <div className="bg-neutral-100 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+            <DiagonalShape />
+
+            <Image
+              priority
+              src="https://dummyimage.com/1000x1000/d4d4d4/171717"
+              alt="Image"
+              width={1000}
+              height={1000}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DiagonalShape(props) {
+  return (
+    <svg
+      className="absolute inset-y-0 -left-10 hidden h-full w-44 transform fill-white dark:fill-black lg:block"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+      {...props}
+    >
+      <polygon points="0,0 90,0 50,100 0,100" />
+    </svg>
+  );
+}', '', ''),
+	('bf3d5dd6-cf4f-459d-a7bb-6a0b34a3ac5a', '2023-11-19 22:14:56.362109+00', 'Hero 12', '', true, false, 'marketing', 'hero', 'https://library.codesnaps.io/api/content/hero/hero-12', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/hero_12-1700433142803.webp', 'Hero Component', false, '{text-align-left,video-image-right,2-columns}', '{buttons,image}', 'import React from ''react'';
+
+export default function Hero() {
+  return (
+    <div className="relative">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
+          <div className="mx-auto mt-20 flex max-w-3xl flex-col gap-8 px-4 sm:mt-32 sm:px-6 lg:my-40 lg:px-8">
+            <span className="text-lg font-medium text-neutral-800 dark:text-neutral-200">
+              Tagline
+            </span>
+
+            <h1 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+              Medium length section heading goes here
+            </h1>
+
+            <p className="text-lg text-neutral-600 dark:text-neutral-400">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse varius enim in eros elementum tristique. Duis cursus,
+              mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam
+              libero vitae erat.
+            </p>
+
+            <div className="flex space-x-8">
+              <a
+                href="#"
+                className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+              >
+                Button
+              </a>
+
+              <a
+                href="#"
+                className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+              >
+                Button
+              </a>
+            </div>
+          </div>
+
+          <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/3 lg:bg-neutral-800">
+            <WaveLines className="hidden h-full w-full stroke-white/10 lg:absolute lg:block" />
+
+            <div className="flex h-full items-center justify-center lg:justify-start">
+              <div className="lg:-translate-x-2/4">
+                <img
+                  loading="lazy"
+                  src="https://dummyimage.com/1200x1800/d4d4d4/171717"
+                  alt="Image"
+                  width={1200}
+                  height={1800}
+                  className="aspect-[2/3] h-full max-h-[600px] w-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function WaveLines(props) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" {...props}>
+      <g fill="none" strokeLinecap="round" strokeWidth="5.5">
+        <path
+          d="M10 10c18.75 1.875 50.417 12.542 90 9S158.333-8.25 200-7s58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30S779.167 5.625 800 0M10 1576c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 1522c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 1468c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 1414c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 1360c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 1306c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 1252c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 1198c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 1144c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 1090c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 1036c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 982c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 928c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 874c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 820c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 766c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 712c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 658c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 604c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 550c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 496c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 442c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 388c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 334c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 280c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 226c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 172c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 118c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 64c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27"
+          transform="translate(-5 -392.516)"
+        ></path>
+      </g>
+    </svg>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import Image from ''next/image'';
+import Link from ''next/link'';
+
+export default function Hero() {
+  return (
+    <div className="relative">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
+          <div className="mx-auto mt-20 flex max-w-3xl flex-col gap-8 px-4 sm:mt-32 sm:px-6 lg:my-40 lg:px-8">
+            <span className="text-lg font-medium text-neutral-800 dark:text-neutral-200">
+              Tagline
+            </span>
+
+            <h1 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+              Medium length section heading goes here
+            </h1>
+
+            <p className="text-lg text-neutral-600 dark:text-neutral-400">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse varius enim in eros elementum tristique. Duis cursus,
+              mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam
+              libero vitae erat.
+            </p>
+
+            <div className="flex space-x-8">
+              <Link
+                href="#"
+                className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+              >
+                Button
+              </Link>
+
+              <Link
+                href="#"
+                className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+              >
+                Button
+              </Link>
+            </div>
+          </div>
+
+          <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/3 lg:bg-neutral-800">
+            <WaveLines className="hidden h-full w-full stroke-white/10 lg:absolute lg:block" />
+
+            <div className="flex h-full items-center justify-center lg:justify-start">
+              <div className="lg:-translate-x-2/4">
+                <Image
+                  priority
+                  src="https://dummyimage.com/1200x1800/d4d4d4/171717"
+                  alt="Image"
+                  width={1200}
+                  height={1800}
+                  className="aspect-[2/3] h-full max-h-[600px] w-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function WaveLines(props) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" {...props}>
+      <g fill="none" strokeLinecap="round" strokeWidth="5.5">
+        <path
+          d="M10 10c18.75 1.875 50.417 12.542 90 9S158.333-8.25 200-7s58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30S779.167 5.625 800 0M10 1576c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 1522c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 1468c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 1414c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 1360c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 1306c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 1252c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 1198c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 1144c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 1090c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 1036c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 982c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 928c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 874c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 820c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 766c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 712c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 658c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 604c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 550c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 496c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 442c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 388c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 334c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 280c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 226c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 172c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 118c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27M10 64c18.75 1.875 50.417 12.542 90 9s58.333-27.25 100-26 58.333 32.625 100 32 58.333-35.833 100-35c41.667.833 58.333 37.542 100 39 41.667 1.458 58.333-31.583 100-32 41.667-.417 58.333 29.375 100 30s79.167-21.375 100-27"
+          transform="translate(-5 -392.516)"
+        ></path>
+      </g>
+    </svg>
+  );
+}', '', ''),
+	('b7ec6203-70c7-4e03-9adf-0fb3fa70c903', '2023-11-19 22:11:31.021301+00', 'Hero 9', 'You need to install the following package: npm install react-player', true, false, 'marketing', 'hero', 'https://library.codesnaps.io/api/content/hero/hero-9', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/hero_9-1700433093203.webp', 'Hero Component', false, '{text-align-left,video-image-right,2-columns}', '{buttons,video}', '/*
+You need to install the following package: npm install react-player
+*/
+
+import React from ''react'';
+import ReactPlayer from ''react-player/lazy'';
+
+export default function Hero() {
+  return (
+    <div>
+      <div className="grid grid-cols-1 gap-14 lg:grid-cols-2">
+        <div className="mt-14 flex max-w-3xl flex-col gap-8 px-4 sm:my-32 sm:px-6 lg:my-40 lg:ml-auto lg:px-8">
+          <span className="text-lg font-medium text-neutral-800 dark:text-neutral-200">
+            Tagline
+          </span>
+
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+            Medium length section heading goes here
+          </h2>
+
+          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique. Duis cursus, mi quis
+            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+            vitae erat.
+          </p>
+
+          <div className="flex space-x-8">
+            <a
+              href="#"
+              className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </a>
+
+            <a
+              href="#"
+              className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </a>
+          </div>
+        </div>
+
+        <div className="relative order-last w-full bg-neutral-300 pt-[56.25%]">
+          <ReactPlayer
+            width="100%"
+            height="100%"
+            url="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+            light="https://dummyimage.com/"
+            className="absolute left-0 top-0 h-full w-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}', '/*
+You need to install the following package: npm install react-player
+*/
+
+''use client'';
+
+import Link from ''next/link'';
+
+import ReactPlayer from ''react-player/lazy'';
+
+export default function Hero() {
+  return (
+    <div>
+      <div className="grid grid-cols-1 gap-14 lg:grid-cols-2">
+        <div className="mt-14 flex max-w-3xl flex-col gap-8 px-4 sm:my-32 sm:px-6 lg:my-40 lg:ml-auto lg:px-8">
+          <span className="text-lg font-medium text-neutral-800 dark:text-neutral-200">
+            Tagline
+          </span>
+
+          <h2 className="text-4xl font-bold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+            Medium length section heading goes here
+          </h2>
+
+          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique. Duis cursus, mi quis
+            viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+            vitae erat.
+          </p>
+
+          <div className="flex space-x-8">
+            <Link
+              href="#"
+              className="rounded-md bg-neutral-900 px-10 py-3 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </Link>
+
+            <Link
+              href="#"
+              className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </Link>
+          </div>
+        </div>
+
+        <div className="relative order-last w-full bg-neutral-300 pt-[56.25%]">
+          <ReactPlayer
+            width="100%"
+            height="100%"
+            url="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+            light="https://dummyimage.com/"
+            className="absolute left-0 top-0 h-full w-full object-cover"
+          />
+        </div>
       </div>
     </div>
   );

@@ -15,6 +15,7 @@ import {
 
 import {
   addSubscription,
+  addLifetimeSubscription,
   deleteSubscription,
   updateSubscriptionById,
 } from '~/lib/subscriptions/mutations';
@@ -74,10 +75,28 @@ export async function POST(request: Request) {
         const session = event.data.object as Stripe.Checkout.Session;
         const subscriptionId = session.subscription as string;
 
+        if (session.mode === 'payment') {
+          const paymentIntent = session.payment_intent as string;
+          const amount = session.amount_total as number;
+          const currency = session.currency as string;
+          const status = session.status ?? 'incomplete';
+
+          const payload = {
+            id: paymentIntent,
+            organizationUid: getOrganizationUidFromClientReference(session),
+            amount,
+            currency,
+            status,
+          };
+
+          await onLifetimeSubscriptionCheckoutCompleted(client, payload);
+          break;
+        }
+
         const subscription =
           await stripe.subscriptions.retrieve(subscriptionId);
 
-        await onCheckoutCompleted(client, session, subscription);
+        await onSubscriptionCheckoutCompleted(client, session, subscription);
 
         break;
       }
@@ -117,7 +136,7 @@ export async function POST(request: Request) {
  * subscription is only activated if the order was paid successfully.
  * Otherwise, we have to wait for a further webhook
  */
-async function onCheckoutCompleted(
+async function onSubscriptionCheckoutCompleted(
   client: SupabaseClient,
   session: Stripe.Checkout.Session,
   subscription: Stripe.Subscription,
@@ -143,6 +162,32 @@ async function onCheckoutCompleted(
     customerId,
     subscriptionId: data.id,
   });
+}
+
+interface PaymentIntentPayload {
+  id: string;
+  organizationUid: string;
+  amount: number;
+  currency: string;
+  status: string;
+}
+
+/**
+ * @description When the checkout is completed, we store the order. The
+ * lifetime subscription is only activated if the order was paid successfully.
+ * Otherwise, we have to wait for a further webhook
+ */
+async function onLifetimeSubscriptionCheckoutCompleted(
+  client: SupabaseClient,
+  paymentIntent: PaymentIntentPayload,
+) {
+  const { error } = await addLifetimeSubscription(client, paymentIntent);
+
+  if (error) {
+    return Promise.reject(
+      `Failed to add lifetime subscription to the database: ${error}`,
+    );
+  }
 }
 
 /**

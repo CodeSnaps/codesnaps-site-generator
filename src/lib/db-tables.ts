@@ -9,6 +9,7 @@
 export const USERS_TABLE = `users`;
 export const ORGANIZATIONS_TABLE = `organizations`;
 export const MEMBERSHIPS_TABLE = `memberships`;
+export const LIFETIME_SUBSCRIPTIONS_TABLE = `lifetime_subscriptions`;
 export const SUBSCRIPTIONS_TABLE = `subscriptions`;
 export const ORGANIZATIONS_SUBSCRIPTIONS_TABLE = `organizations_subscriptions`;
 export const COMPONENTS_TABLE = `components`;

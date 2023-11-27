@@ -1,12 +1,23 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { Stripe } from 'stripe';
 
-import { SUBSCRIPTIONS_TABLE } from '~/lib/db-tables';
+import {
+  SUBSCRIPTIONS_TABLE,
+  LIFETIME_SUBSCRIPTIONS_TABLE,
+} from '~/lib/db-tables';
 import type { Database } from '../../database.types';
 
 type Client = SupabaseClient<Database>;
 
 type SubscriptionRow = Database['public']['Tables']['subscriptions']['Row'];
+
+interface PaymentIntentPayload {
+  id: string;
+  organizationUid: string;
+  amount: number;
+  currency: string;
+  status: string;
+}
 
 export async function addSubscription(
   client: Client,
@@ -19,6 +30,25 @@ export async function addSubscription(
       ...data,
       id: subscription.id,
     })
+    .select('id')
+    .throwOnError()
+    .single();
+}
+
+export async function addLifetimeSubscription(
+  client: Client,
+  payload: PaymentIntentPayload,
+) {
+  const data = {
+    id: payload.id,
+    organization_uid: payload.organizationUid,
+    amount: payload.amount,
+    currency: payload.currency,
+    status: payload.status ?? 'incomplete',
+  };
+
+  return getLifetimeSubscriptionsTable(client)
+    .insert(data)
     .select('id')
     .throwOnError()
     .single();
@@ -98,4 +128,8 @@ function toISO(timestamp: number) {
 
 function getSubscriptionsTable(client: Client) {
   return client.from(SUBSCRIPTIONS_TABLE);
+}
+
+function getLifetimeSubscriptionsTable(client: Client) {
+  return client.from(LIFETIME_SUBSCRIPTIONS_TABLE);
 }
