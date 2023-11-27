@@ -104,7 +104,7 @@ const configuration = {
         badge: `Limited Time`,
         recommended: true,
         description:
-          'This is a one time payment for lifetime access. Only available for a limited time.',
+          'First 100 users: Get our lifetime plan at $29 instead of $99.',
         features: [
           'Built in dark mode',
           'Copy and paste code snippets',
@@ -118,8 +118,8 @@ const configuration = {
         plans: [
           {
             name: '',
-            price: '$99',
-            stripePriceId: 'price_1OEWjZCjllA7kCqF9LzgpE12',
+            price: '$29',
+            stripePriceId: 'price_1OH5YRCjllA7kCqFTNo9Ntk7',
             mode: 'payment',
           },
         ],
