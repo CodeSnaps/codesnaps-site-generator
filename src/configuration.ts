@@ -119,8 +119,8 @@ const configuration = {
           {
             name: '',
             price: '$29',
-            // stripePriceId: 'price_1OH5YRCjllA7kCqFTNo9Ntk7',
-            stripePriceId: 'price_1OH8KICjllA7kCqFdfXSZ64J',
+            stripePriceId: 'price_1OH5YRCjllA7kCqFTNo9Ntk7',
+            // stripePriceId: 'price_1OH8KICjllA7kCqFdfXSZ64J',
             mode: 'payment',
           },
         ],
