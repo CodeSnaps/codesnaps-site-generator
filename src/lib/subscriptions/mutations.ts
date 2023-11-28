@@ -47,11 +47,56 @@ export async function addLifetimeSubscription(
     status: payload.status ?? 'incomplete',
   };
 
-  return getLifetimeSubscriptionsTable(client)
-    .insert(data)
-    .select('id')
-    .throwOnError()
-    .single();
+  try {
+    // Check if the subscription already exists
+    const existingSubscription = await getLifetimeSubscriptionsTable(client)
+      .select('id')
+      .match({ id: payload.id })
+      .single();
+
+    if (existingSubscription) {
+      return {
+        error: "Subscription already exists, can't create a new one",
+        data: existingSubscription,
+      };
+    }
+
+    // Insert the new lifetime subscription
+    const insertedSubscription = await getLifetimeSubscriptionsTable(client)
+      .insert(data)
+      .throwOnError()
+      .single();
+
+    return {
+      error: null,
+      data: insertedSubscription,
+    };
+  } catch (error) {
+    // Handle any database insertion errors
+    return {
+      error: `Failed to add lifetime subscription to the database: ${error}`,
+      data: null,
+    };
+  }
+
+  //   // Check if the subscription already exists, if so, do nothing
+  //   const existingSubscription = await getLifetimeSubscriptionsTable(client)
+  //     .select('id')
+  //     .match({ id: payload.id })
+  //     .single();
+
+  //   if (existingSubscription) {
+  //     return {
+  //       error: "Subscription already exists, can't create a new one",
+  //       data: existingSubscription,
+  //     };
+  //   }
+
+  //   return getLifetimeSubscriptionsTable(client)
+  //     .insert(data)
+  //     .select('id')
+  //     .throwOnError()
+  //     .single();
 }
 
 /**
