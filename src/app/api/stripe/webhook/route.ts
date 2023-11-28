@@ -188,6 +188,8 @@ async function onLifetimeSubscriptionCheckoutCompleted(
       `Failed to add lifetime subscription to the database: ${error}`,
     );
   }
+
+  return Promise.resolve();
 }
 
 /**
