@@ -70,7 +70,7 @@ const configuration = {
   },
   stripe: {
     embedded: true,
-    displayMode: StripeCheckoutDisplayMode.Overlay,
+    displayMode: StripeCheckoutDisplayMode.Popup,
     products: [
       {
         name: 'Free',
@@ -119,7 +119,8 @@ const configuration = {
           {
             name: '',
             price: '$29',
-            stripePriceId: 'price_1OH5YRCjllA7kCqFTNo9Ntk7',
+            // stripePriceId: 'price_1OH5YRCjllA7kCqFTNo9Ntk7',
+            stripePriceId: 'price_1OH8KICjllA7kCqFdfXSZ64J',
             mode: 'payment',
           },
         ],
