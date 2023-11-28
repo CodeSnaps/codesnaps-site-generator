@@ -190,6 +190,10 @@ async function canUserAccessPage(organizationUid: string) {
   const appData = await loadAppData(organizationUid);
   const subscription = appData.organization?.subscription?.data;
 
+  console.log('LIFETIME', lifetime);
+  console.log('SUBSCRIPTION', subscription);
+  console.log('ORG UID', organizationUid);
+
   return (
     (subscription && isSubscriptionActive(subscription.status)) || lifetime
   );

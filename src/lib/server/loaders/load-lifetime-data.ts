@@ -20,9 +20,11 @@ const loadLifetimeSubscription = cache(async (organizationUid: string) => {
     // We fetch the lifetime subscription record from the Database
     const { data } = await client
       .from(LIFETIME_SUBSCRIPTIONS_TABLE)
-      .select('*')
+      .select('status')
       .eq('organization_uid', organizationUid)
       .single();
+
+    console.log('DATA FROM LOADER', data);
 
     if (!data) {
       return null;
@@ -31,6 +33,7 @@ const loadLifetimeSubscription = cache(async (organizationUid: string) => {
     return data;
   } catch (error) {
     getLogger().error(error);
+    console.log('error from loader', error);
 
     return null;
   }
