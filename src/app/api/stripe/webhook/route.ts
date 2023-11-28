@@ -73,7 +73,6 @@ export async function POST(request: Request) {
     switch (event.type) {
       case StripeWebhooks.Completed: {
         const session = event.data.object as Stripe.Checkout.Session;
-        const subscriptionId = session.subscription as string;
 
         if (session.mode === 'payment') {
           const paymentIntent = session.payment_intent as string;
@@ -93,11 +92,11 @@ export async function POST(request: Request) {
           break;
         }
 
+        const subscriptionId = session.subscription as string;
         const subscription =
           await stripe.subscriptions.retrieve(subscriptionId);
 
         await onSubscriptionCheckoutCompleted(client, session, subscription);
-
         break;
       }
 
@@ -184,12 +183,10 @@ async function onLifetimeSubscriptionCheckoutCompleted(
   const { error } = await addLifetimeSubscription(client, paymentIntent);
 
   if (error) {
-    return Promise.reject(
+    throw new Error(
       `Webhook: Failed to add lifetime subscription to the database: ${error}`,
     );
   }
-
-  return Promise.resolve();
 }
 
 /**
