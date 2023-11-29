@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
 import { useForm } from 'react-hook-form';
@@ -18,6 +18,8 @@ import type UserData from '~/core/session/types/user-data';
 
 import configuration from '~/configuration';
 
+const AVATARS_BUCKET = 'avatars';
+
 function UpdateProfileForm({
   session,
   onUpdateProfileData,
@@ -36,44 +38,60 @@ function UpdateProfileForm({
   const user = session.auth?.user;
   const email = user?.email ?? '';
 
-  const { register, handleSubmit, reset, setValue } = useForm({
+  const { register, handleSubmit, reset, setValue, getValues } = useForm({
     defaultValues: {
       displayName: currentDisplayName,
-      photoURL: '',
+      photoURL: currentPhotoURL,
     },
   });
 
-  const [avatarIsDirty, setAvatarIsDirty] = useState(false);
-
   const onAvatarCleared = useCallback(() => {
-    setAvatarIsDirty(true);
     setValue('photoURL', '');
   }, [setValue]);
 
   const onSubmit = async (displayName: string, photoFile: Maybe<File>) => {
-    const photoName = photoFile?.name;
-
     if (!user?.id) {
       return;
     }
 
-    const photoUrl = photoName
-      ? await uploadUserProfilePhoto(client, photoFile, user.id)
-      : currentPhotoURL;
+    const photoName = photoFile?.name;
+    const existingPhotoRemoved = getValues('photoURL') !== photoName;
 
-    const isAvatarRemoved = avatarIsDirty && !photoName;
+    let photoUrl = null;
+
+    // if photo is changed, upload the new photo and get the new url
+    if (photoName) {
+      photoUrl = await uploadUserProfilePhoto(client, photoFile, user.id);
+    }
+
+    // if photo is not changed, use the current photo url
+    if (!existingPhotoRemoved) {
+      photoUrl = currentPhotoURL;
+    }
+
+    let shouldRemoveAvatar = false;
+
+    // if photo is removed, set the photo url to null
+    if (!photoUrl) {
+      shouldRemoveAvatar = true;
+    }
+
+    if (photoFile && photoUrl && photoUrl !== currentPhotoURL) {
+      shouldRemoveAvatar = true;
+    }
 
     const info = {
       id: user.id,
       displayName,
-      photoUrl: isAvatarRemoved ? '' : photoUrl,
+      photoUrl,
     };
 
     // delete existing photo if different
-    if (isAvatarRemoved) {
+    if (shouldRemoveAvatar && currentPhotoURL) {
       try {
         await deleteProfilePhoto(client, currentPhotoURL);
       } catch (e) {
+        console.log(e);
         // old photo not found
       }
     }
@@ -192,7 +210,7 @@ async function uploadUserProfilePhoto(
   userId: string,
 ) {
   const bytes = await photoFile.arrayBuffer();
-  const bucket = client.storage.from('avatars');
+  const bucket = client.storage.from(AVATARS_BUCKET);
   const extension = photoFile.name.split('.').pop();
   const fileName = `${userId}.${extension}`;
 
@@ -208,9 +226,14 @@ async function uploadUserProfilePhoto(
 }
 
 function deleteProfilePhoto(client: SupabaseClient, url: string) {
-  const bucket = client.storage.from('logos');
+  const bucket = client.storage.from(AVATARS_BUCKET);
+  const fileName = url.split('/').pop();
 
-  return bucket.remove([url]);
+  if (!fileName) {
+    return Promise.reject(new Error('Invalid file name'));
+  }
+
+  return bucket.remove([fileName]);
 }
 
 export default UpdateProfileForm;

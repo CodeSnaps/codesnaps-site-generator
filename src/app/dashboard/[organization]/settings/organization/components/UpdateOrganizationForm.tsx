@@ -28,7 +28,7 @@ const UpdateOrganizationForm = () => {
   const currentOrganizationName = organization?.name ?? '';
   const currentLogoUrl = organization?.logoURL || null;
 
-  const { register, handleSubmit, reset, setValue } = useForm({
+  const { register, handleSubmit, reset, setValue, getValues } = useForm({
     defaultValues: {
       name: currentOrganizationName,
       logoURL: currentLogoUrl,
@@ -46,12 +46,13 @@ const UpdateOrganizationForm = () => {
       }
 
       const logoName = logoFile?.name;
+      const currentLogoURL = getValues('logoURL');
+      const existingLogoRemoved = currentLogoURL !== logoName;
 
-      let logoURL: string | null | undefined;
+      let logoURL: string | null = null;
 
-      // if the logo is provided and differs from the existing one
-      // upload it to the storage
-      if (logoName && logoName !== currentLogoUrl) {
+      // if photo is changed, upload the new photo and get the new url
+      if (logoName) {
         logoURL = await uploadLogo({
           client,
           logo: logoFile,
@@ -61,6 +62,28 @@ const UpdateOrganizationForm = () => {
 
           return null;
         });
+      }
+
+      // if photo is not changed, use the current photo url
+      if (!existingLogoRemoved) {
+        logoURL = currentLogoURL;
+      }
+
+      let shouldRemoveLogo = false;
+
+      // if photo is removed, set the photo url to null
+      if (!logoURL) {
+        shouldRemoveLogo = true;
+      }
+
+      if (logoFile && logoURL && logoURL !== currentLogoUrl) {
+        shouldRemoveLogo = true;
+      }
+
+      // if the logo is provided and differs from the existing one
+      // upload it to the storage
+      if (shouldRemoveLogo && currentLogoUrl) {
+        await deleteLogo(client, currentLogoUrl);
       }
 
       if (!logoName && currentLogoUrl) {
@@ -77,26 +100,29 @@ const UpdateOrganizationForm = () => {
         organizationData.logoURL = logoURL;
       }
 
-      const promise = updateOrganizationMutation.trigger(organizationData);
+      const promise = updateOrganizationMutation
+        .trigger(organizationData)
+        .then(() => {
+          setOrganization({
+            ...organization,
+            name: organizationName,
+            logoURL: logoURL,
+          });
+        });
 
-      await toast.promise(promise, {
+      toast.promise(promise, {
         loading: t(`updateOrganizationLoadingMessage`),
         success: t(`updateOrganizationSuccessMessage`),
         error: t(`updateOrganizationErrorMessage`),
       });
-
-      setOrganization({
-        ...organization,
-        name: organizationName,
-        logoURL: logoURL ?? organization.logoURL,
-      });
     },
     [
       organization,
-      client,
+      getValues,
       currentLogoUrl,
       updateOrganizationMutation,
       t,
+      client,
       setOrganization,
     ],
   );
@@ -209,6 +235,17 @@ function getLogoFile(value: string | null | FileList) {
   }
 
   return value.item(0) ?? undefined;
+}
+
+function deleteLogo(client: SupabaseClient, url: string) {
+  const bucket = client.storage.from('logos');
+  const fileName = url.split('/').pop();
+
+  if (!fileName) {
+    return Promise.reject(new Error('Invalid file name'));
+  }
+
+  return bucket.remove([fileName]);
 }
 
 export default UpdateOrganizationForm;
