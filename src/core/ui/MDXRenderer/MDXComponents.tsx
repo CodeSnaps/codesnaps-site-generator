@@ -119,7 +119,7 @@ const YouTubeVideo = ({ videoId }: { videoId: String }) => {
 const KeyTakeaways = ({ items }: { items: string[] }) => {
   return (
     <div className="pb-6 px-8 border-2 border-blue-500 dark:border-blue-400 rounded-xl my-14 bg-blue-400/10">
-      <h2>👨🏻‍💻 Here's What You'll Learn</h2>
+      <h2>👨🏻‍💻 Here&apos;s What You&apos;ll Learn</h2>
 
       <ul>
         {items.map((item, index) => (
