@@ -1,0 +1,1275 @@
+---
+title: Build Stunning Documentation With React & Docusaurus
+date: 2023-09-14
+description: Learn how to create stunning documentation in minutes with React and Docusaurus. Spend more time building your product!
+image: /assets/images/posts/stunning-docs-with-docusaurus.webp
+live: true
+---
+
+Having your own documentation for your app is a great way to organize your code. It's especially useful if you're working in a team or have a large codebase.
+
+However, creating a separate documentation site while working on your app can be a hassle.
+
+With Docusaurus, you can create a documentation site for your app in minutes.
+
+The great thing is that it's built on React and uses Markdown for content. It's super easy to get started, and in this post, you'll learn everything you need to know to get started with Docusaurus.
+
+<KeyTakeaways
+  items={[
+    'What is Docusaurus',
+    'Install Docusaurus',
+    'Creating your own documentation',
+    'MDX (Markdown + JSX)',
+    'Import components into Markdown',
+    'Using tabs, alerts and codeblocks',
+    'Customizing the sidebar',
+    'Implementing a table of contents',
+    'Custom styling',
+    'Creating custom pages',
+    'Setting up the blog',
+    'SEO',
+    'Deployment',
+  ]}
+/>
+
+<YouTubeVideo videoId="xKOhIJQi84w" />
+
+## Installation
+
+Let's start by creating a skeleton Docusaurus website.
+
+```bash
+npx create-docusaurus@latest my-own-docs classic
+```
+
+The recommended way is to include the <InlineCode code="classic" /> template. It comes with standard documentation features, a blog, custom pages and a CSS framework with dark mode support right out of the box.
+
+You can also pass the `--typescript` flag to use TypeScript instead of JavaScript.
+
+```bash
+npx create-docusaurus@latest my-own-docs classic --typescript
+```
+
+With that, if you open your project, it should look like this. Let's run the development server.
+
+```bash
+npm run start
+```
+
+## Folder Structure
+
+Let's look at the folder structure. The <InlineCode code="blog" /> folder contains all the blog posts.
+
+The <InlineCode code="docs" /> folder contains all the documentation pages.
+
+In the <InlineCode code="src" /> folder, we would add all non-documentation pages like the homepage, about page, etc. and any custom components we want to add.
+
+This is also where we can add custom styling.
+
+Inside the <InlineCode code="static" /> directory, we can add any static assets like images, videos, etc.
+
+The <InlineCode code="docusaurus.config.js" /> file contains all the configuration for our site.
+
+Finally, <InlineCode code="sidebars.js" /> is where we could create our own custom sidebar instead generating it from the folder structure.
+
+## Docs Folder
+
+The most interesting folder is <InlineCode code="docs" />, so let's take a closer look at it.
+
+If we go back to our local site, we can see some pre-built pages. This is also reflected in the <InlineCode code="docs" /> folder.
+
+If we only have one markdown file, we only have one page. If we have a folder, we have a dropdown with subpages. Each sub page is a markdown file.
+
+When we open the <InlineCode code="_category_.json" /> file, we adjust the page name or the position in the sidebar.
+
+This means you don't have to name the folder the same as the page name, since the name of the file will be the URL of the page.
+
+Let's create a new documentation. First delete all files and folders.
+
+This should throw an error in the browser. That's because we need at least one page in the <InlineCode code="docs" /> folder. So let's start with a single page.
+
+Let's create a new Markdown file named <InlineCode code="single-page.md" /> in the <InlineCode code="docs" /> folder.
+
+```markdown title="docs/single-page.md"
+# Single Page
+
+This is a single page.
+```
+
+If we go back to our local site, we can see the new page in the sidebar. If we click on it, we can see the page content. We can also see the path of the page in the header.
+
+If we want to organize our pages, we can do so by creating a folder. Let's create a new folder called <InlineCode code="getting started" />.
+
+Inside the folder, we'll create two new Markdown files called <InlineCode code="page-1.md" /> and <InlineCode code="page-2.md" />. We'll add some content to them.
+
+```markdown title="docs/getting-started/page-1.md"
+# Page 1
+
+This is page 1.
+```
+
+```markdown title="docs/getting-started/page-2.md"
+# Page 2
+
+This is page 2.
+```
+
+With that we have a sidebar with a dropdown with two pages. At the bottom, we can navigate to the previous and next page.
+
+The navigation is for all pages in the <InlineCode code="docs" /> folder, not just the ones in the same folder.
+
+But if we click on the folder, it doesn't show a separate page that shows all the subpages. If we want to show a separate page for the folder, we can do so by creating a file called <InlineCode code="_category_.json" /> in the folder.
+
+The <InlineCode code="_category_.json" /> file is a file that allows us to customize the page name and position in the sidebar.
+
+```json title="_category_.json"
+{
+  "label": "Custom Title",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "This is a custom description"
+  }
+}
+```
+
+The <InlineCode code="link" /> object creates the separate page for the folder. The <InlineCode code="type" /> property is set to <InlineCode code="generated-index" /> which means it'll generate a page with all the subpages. The <InlineCode code="description" /> property is the description of the page that will show up beneath the title.
+
+And now the label has changed and a separate page has been created for the folder. The label also changes the link in the header.
+
+However, the position hasn't changed. That's because we need to specify a position for our <InlineCode code="Single Page" />.
+
+To add metadata to a page, we use Front Matter. Front Matter is a block of YAML code at the top of a Markdown file. It's enclosed by three dashes <InlineCode code="---" />.
+
+```mdx title="docs/single-page.md"
+---
+title: Our First Page
+sidebar_position: 1
+---
+
+# Single Page
+
+This is a single page.
+```
+
+This property changes the label and this one changes the position in the sidebar. Now the position and label have changed.
+
+## Markdown Features
+
+Okay, let's look at the Markdown features. First delete the current markdown files. We'll create a new Markdown file (<InlineCode code="markdown.md" />).
+
+### Markdown
+
+Docusaurus supports all the standard Markdown features.
+
+```markdown title="docs/markdown.md"
+---
+title: Basic Markdown
+sidebar_position: 1
+---
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+##### Heading 5
+
+###### Heading 6
+
+This is a paragraph. Keep reading.
+
+This is a [link](https://www.google.com).
+
+![alt text](https://picsum.photos/600/400)
+
+This is a list.
+
+- Item 1
+- Item 2
+- Item 3
+
+This is a numbered list.
+
+1. Item 1
+2. Item 2
+3. Item 3
+
+> This is a blockquote.
+
+This is a table.
+
+| Name     | Age |
+| -------- | --- |
+| John Doe | 30  |
+| Jane Doe | 25  |
+
+This is a horizontal rule.
+
+---
+
+`const name = 'John Doe';`
+
+**This is a bold text.**
+
+_This is an italic text._
+```
+
+We can use headings, text, links, images, lists, quotes, codeblocks, tables, horizontal rules, inline code, bold and italic text.
+
+### Headings and Tables of Contents
+
+If we look at the table of contents on the right side, we can see that headings 2 and 3 are automatically added.
+
+We can customize this and add a inline table of contents. Let's add a new Markdown file called <InlineCode code="table-of-contents.md" /> and add some content to it.
+
+```mdx title="docs/table-of-contents.md"
+---
+title: Table of Contents
+sidebar_position: 2
+---
+
+## Heading 2
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
+
+### Heading 3
+
+Some content here.
+
+#### Heading 4
+
+Some content here.
+
+##### Heading 5
+
+Some content here.
+
+###### Heading 6
+
+Some content here.
+
+## Heading 2
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
+
+### Heading 3
+
+Some content here.
+
+#### Heading 4
+
+Some content here.
+
+##### Heading 5
+
+Some content here.
+
+###### Heading 6
+
+Some content here.
+
+## Heading 2
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
+
+### Heading 3
+
+Some content here.
+
+#### Heading 4
+
+Some content here.
+
+##### Heading 5
+
+Some content here.
+
+###### Heading 6
+
+Some content here.
+```
+
+By default, the table of contents on the right shows only from level 2 to level 3 headings. We can change this by adding a <InlineCode code="toc" /> property to the Front Matter.
+
+```mdx title="docs/table-of-contents.md"
+---
+title: Table of Contents
+sidebar_position: 2
+toc_min_heading_level: 2
+toc_max_heading_level: 6
+---
+
+## Heading 2
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
+
+### Heading 3
+
+Some content here.
+
+#### Heading 4
+
+Some content here.
+
+##### Heading 5
+
+Some content here.
+
+###### Heading 6
+
+Some content here.
+
+## Heading 2
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
+
+### Heading 3
+
+Some content here.
+
+#### Heading 4
+
+Some content here.
+
+##### Heading 5
+
+Some content here.
+
+###### Heading 6
+
+Some content here.
+
+## Heading 2
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
+
+### Heading 3
+
+Some content here.
+
+#### Heading 4
+
+Some content here.
+
+##### Heading 5
+
+Some content here.
+
+###### Heading 6
+
+Some content here.
+```
+
+We set the minumum and maximum heading levels with <InlineCode code="min_heading" /> and <InlineCode code="max_heading" />.
+
+Now, all the headings show up in the table of contents. We can also add an inline table of contents.
+
+```mdx title="docs/table-of-contents.md"
+---
+title: Table of Contents
+sidebar_position: 2
+toc_min_heading_level: 2
+toc_max_heading_level: 6
+---
+
+import TOCInline from '@theme/TOCInline';
+
+<TOCInline toc={toc} minHeadingLevel={2} maxHeadingLevel={6} />
+
+## Heading 2
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
+
+### Heading 3
+
+Some content here.
+
+#### Heading 4
+
+Some content here.
+
+##### Heading 5
+
+Some content here.
+
+###### Heading 6
+
+Some content here.
+
+## Heading 2
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
+
+### Heading 3
+
+Some content here.
+
+#### Heading 4
+
+Some content here.
+
+##### Heading 5
+
+Some content here.
+
+###### Heading 6
+
+Some content here.
+
+## Heading 2
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
+
+### Heading 3
+
+Some content here.
+
+#### Heading 4
+
+Some content here.
+
+##### Heading 5
+
+Some content here.
+
+###### Heading 6
+
+Some content here.
+```
+
+Import <InlineCode code="TOCInline" /> and create the component and put it where you want the table of contents to show up.
+
+The <InlineCode code="toc" /> variable is available in any document and contains all the headings. With <InlineCode code="maxHeadingLevel" /> and <InlineCode code="minHeadingLevel" />, we set the minimum and maximum levels that show up in the table of contents.
+
+Now we have an inline table of contents that also works with jumpings to the headings.
+
+And the neat little thing is that the table of contents on the right scrolls with the page and highlights the current heading.
+
+You might ask, how can Docusaurus use <InlineCode code="toc" /> or <InlineCode code="import" /> in the Markdown file?
+
+Well, that's because Docusaurus uses <InlineCode code="MDX" /> which is Markdown with JSX. That means we can create our own React components and use them in Markdown files.
+
+### MDX and React
+
+Let's create a new Markdown file called <InlineCode code="mdx.md" /> to see how this works.
+
+```mdx title="docs/mdx.md"
+---
+title: MDX
+sidebar_position: 3
+---
+
+export const Tag = ({ children, color }) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '4px',
+      color: '#fff',
+      padding: '0.2rem 0.5rem',
+      fontWeight: 'bold',
+    }}
+  >
+    {children}
+  </span>
+);
+
+<Tag color="#FF5733">Important</Tag> information: This is an <Tag color="#3399FF">
+  Exciting
+</Tag> example of custom components!
+
+I can write **Markdown** alongside my _JSX_!
+```
+
+We create a custom component called <InlineCode code="Tag" /> that takes a <InlineCode code="color" /> prop and renders a span with the color as the background.
+
+We can use this component in our Markdown file and use it like any other JSX component, and we can still use Markdown along with it.
+
+Using components like this can become hard to maintain because of risks of parsing errors. It's better to create a separate component and import it.
+
+Inside the <InlineCode code="src" /> folder, go to the <InlineCode code="components" /> folder and create a new file called <InlineCode code="Tag.js" />. We'll modify it a bit to make it a default export.
+
+```jsx title="src/components/Tag.js"
+import React from 'react';
+
+export default function Tag({ children, color }) {
+  return (
+    <span
+      style={{
+        backgroundColor: color,
+        borderRadius: '4px',
+        color: '#fff',
+        padding: '0.2rem 0.5rem',
+        fontWeight: 'bold',
+      }}
+    >
+      {children}
+    </span>
+  );
+}
+```
+
+Now remove the code from the Markdown file and import the component instead.
+
+```mdx title="docs/mdx.md"
+---
+title: MDX
+sidebar_position: 1
+---
+
+import Tag from '@site/src/components/Tag';
+
+<Tag color="#FF5733">Important</Tag> information: This is an <Tag color="#3399FF">
+  Exciting
+</Tag> example of custom components!
+
+I can write **Markdown** alongside my _JSX_!
+```
+
+And we can see, it's still working. This is a much better way to use custom components in Markdown files.
+
+### Tabs
+
+Because we use <InlineCode code="MDX" />, Docusaurus comes with pre-built components like tabs. Let's create a new Markdown file called <InlineCode code="tabs.md" />.
+
+```mdx title="docs/tabs.md"
+---
+title: Tabs in Markdown
+sidebar_position: 4
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="book" label="Book" default>
+    Dive into the world of knowledge with a captivating book 📚
+  </TabItem>
+  <TabItem value="painting" label="Painting">
+    Admire the strokes of artistry on a beautiful painting 🖼️
+  </TabItem>
+  <TabItem value="music" label="Music">
+    Let the soothing melodies of music transport you 🎶
+  </TabItem>
+</Tabs>
+
+I'm a text that doesn't belong to any tab. So I'm always visible.
+```
+
+We import <InlineCode code="Tabs" /> and <InlineCode code="TabItem" /> from the <InlineCode code="theme" /> and create the component.
+
+The <InlineCode code="Tabs" /> component is the container and the <InlineCode code="TabItem" /> component is the tab itself.
+
+The <InlineCode code="value" /> property is the value of the tab and the <InlineCode code="label" /> property is the label of the tab. The <InlineCode code="default" /> property determines which tab is open by default.
+
+### Alerts or Admonitions
+
+In addition to the tabs, Docusaurus comes also with alerts or admonitions. Let's create a new Markdown file called <InlineCode code="alerts.md" />.
+
+```mdx title="docs/alerts.md"
+---
+title: Alerts or Admonitions
+sidebar_position: 5
+---
+
+:::note
+
+Here's some **information** with _Markdown_ styling.
+
+:::
+
+:::tip
+
+Here's a **helpful tip** with _formatted text_.
+
+:::
+
+:::info
+
+Here's some **useful info** presented in a clear way.
+
+:::
+
+:::caution
+
+Please take **extra caution** with this important note.
+
+:::
+
+:::danger
+
+This is a **dangerous situation** you need to be aware of.
+
+:::
+
+:::note This is a _custom title_
+
+And you can add images as well.
+
+![alt text](https://picsum.photos/600/400)
+
+:::
+```
+
+To create an alert, you simply wrap the text with 3 colons and follow it with the type of alert. The available types are <InlineCode code="note" />, <InlineCode code="tip" />, <InlineCode code="info" />, <InlineCode code="caution" /> and <InlineCode code="danger" />.
+
+You can also add a title to the alert by adding a title after the type.
+
+### Codeblocks
+
+Now, let's look at codeblocks, something that most documentation sites need. Let's create a new Markdown file called <InlineCode code="codeblocks.md" />.
+
+```mdx title="docs/codeblocks.md"
+---
+title: Codeblocks
+sidebar_position: 6
+---
+
+<!-- jsx title="Codeblock"
+function Greeting(props) {
+  return <p>Welcome, {props.userName}!</p>;
+}
+
+export default Greeting;
+ -->
+```
+
+Codeblocks are text blocks wrapped around by strings of 3 backticks. But you can add title after after the language.
+
+By default, Docusaurus uses **Prism** for syntax highlighting. You can change the theme in the <InlineCode code="docusaurus.config.js" /> file. Here's an example.
+
+```js title="docusaurus.config.js"
+const lightCodeTheme = require('prism-react-renderer/themes/github');
+const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+
+// TO
+
+const lightCodeTheme = require('prism-react-renderer/themes/duotoneLight');
+const darkCodeTheme = require('prism-react-renderer/themes/nightOwl');
+```
+
+We change the light theme to <InlineCode code="duotoneLight" /> and the dark theme to <InlineCode code="nightOwl" />. If we go back to the codeblocks, we can see that the theme has changed, for both the light and dark mode.
+
+If you want to highlight some lines of code, you can do so by adding a comment.
+
+```jsx title="Highlight Lines"
+function HighlightText(highlight) {
+  if (highlight) {
+    // highlight-next-line
+    return 'This text is highlighted!';
+  }
+  return 'Nothing highlighted';
+}
+
+function HighlightMoreText(highlight) {
+  // highlight-start
+  if (highlight) {
+    return 'This range is highlighted!';
+  }
+  // highlight-end
+  return 'Nothing highlighted';
+}
+```
+
+With <InlineCode code="highlight-next-line" />, you can highlight a single line. With <InlineCode code="highlight-start" /> and <InlineCode code="highlight-end" />, you can highlight a range of lines.
+
+You can also add line numbers to the codeblocks.
+
+```jsx title="Line Numbers" showLineNumbers
+import React from 'react';
+
+function UserProfile(props) {
+  const { username, email, isAdmin } = props;
+
+  return (
+    <div>
+      <h1>User Profile</h1>
+      <p>Username: {username}</p>
+      <p>Email: {email}</p>
+      {isAdmin && <p>Admin User</p>}
+    </div>
+  );
+}
+
+export default UserProfile;
+```
+
+To specify the lines, add the lines after the langauge or title and before the property `showLineNumbers`.
+
+```jsx title="Line Numbers with Highlight" {4,9-11} showLineNumbers
+import React from 'react';
+
+function UserProfile(props) {
+  const { username, email, isAdmin } = props;
+
+  return (
+    <div>
+      <h1>User Profile</h1>
+      <p>Username: {username}</p>
+      <p>Email: {email}</p>
+      {isAdmin && <p>Admin User</p>}
+    </div>
+  );
+}
+
+export default UserProfile;
+```
+
+Each code blocks comes with copy to the clipboard functionality. If you hover over the code, you can see the copy button. If you click on it, it'll copy the code to the clipboard.
+
+And that's how easy it is to create code blocks with many features. You can also create interactive code blocks with the <InlineCode code="theme-live-codeblock" /> plugin, but that's a bit more advanced. Check out the Docusaurus documentation for more information.
+
+## Blog
+
+The blog also comes by default with the <InlineCode code="classic" /> template. If you don't have a blog, then add this line to the <InlineCode code="docusaurus.config.js" /> file.
+
+```js title="Original docusaurus.config.js"
+// @ts-check
+// Note: type annotations allow type checking and IDEs autocompletion
+
+const lightCodeTheme = require('prism-react-renderer/themes/duotoneLight');
+const darkCodeTheme = require('prism-react-renderer/themes/nightOwl');
+
+/** @type {import('@docusaurus/types').Config} */
+const config = {
+  title: 'My Site',
+  tagline: 'Dinosaurs are cool',
+  favicon: 'img/favicon.ico',
+
+  // Set the production url of your site here
+  url: 'https://your-docusaurus-test-site.com',
+  // Set the /<baseUrl>/ pathname under which your site is served
+  // For GitHub pages deployment, it is often '/<projectName>/'
+  baseUrl: '/',
+
+  // GitHub pages deployment config.
+  // If you aren't using GitHub pages, you don't need these.
+  organizationName: 'facebook', // Usually your GitHub org/user name.
+  projectName: 'docusaurus', // Usually your repo name.
+
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+
+  // Even if you don't use internalization, you can use this field to set useful
+  // metadata like html lang. For example, if your site is Chinese, you may want
+  // to replace "en" with "zh-Hans".
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
+
+  presets: [
+    [
+      'classic',
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
+        docs: {
+          sidebarPath: require.resolve('./sidebars.js'),
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+        },
+        blog: {
+          showReadingTime: true,
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+        },
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
+        },
+      }),
+    ],
+  ],
+
+  themeConfig:
+    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    ({
+      // Replace with your project's social card
+      image: 'img/docusaurus-social-card.jpg',
+      navbar: {
+        title: 'My Site',
+        logo: {
+          alt: 'My Site Logo',
+          src: 'img/logo.svg',
+        },
+        items: [
+          {
+            type: 'docSidebar',
+            sidebarId: 'tutorialSidebar',
+            position: 'left',
+            label: 'Tutorial',
+          },
+          { to: '/blog', label: 'Blog', position: 'left' },
+          {
+            href: 'https://github.com/facebook/docusaurus',
+            label: 'GitHub',
+            position: 'right',
+          },
+        ],
+      },
+      footer: {
+        style: 'dark',
+        links: [
+          {
+            title: 'Docs',
+            items: [
+              {
+                label: 'Tutorial',
+                to: '/docs/intro',
+              },
+            ],
+          },
+          {
+            title: 'Community',
+            items: [
+              {
+                label: 'Stack Overflow',
+                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              },
+              {
+                label: 'Discord',
+                href: 'https://discordapp.com/invite/docusaurus',
+              },
+              {
+                label: 'Twitter',
+                href: 'https://twitter.com/docusaurus',
+              },
+            ],
+          },
+          {
+            title: 'More',
+            items: [
+              {
+                label: 'Blog',
+                to: '/blog',
+              },
+              {
+                label: 'GitHub',
+                href: 'https://github.com/facebook/docusaurus',
+              },
+            ],
+          },
+        ],
+        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      },
+      prism: {
+        theme: lightCodeTheme,
+        darkTheme: darkCodeTheme,
+      },
+    }),
+};
+
+module.exports = config;
+```
+
+```js title="Clean docusaurus.config.js"
+const lightCodeTheme = require('prism-react-renderer/themes/duotoneLight');
+const darkCodeTheme = require('prism-react-renderer/themes/nightOwl');
+
+/** @type {import('@docusaurus/types').Config} */
+const config = {
+  title: 'My Site',
+  tagline: 'Dinosaurs are cool',
+  favicon: 'img/favicon.ico',
+  url: 'https://your-docusaurus-test-site.com',
+  baseUrl: '/',
+  organizationName: 'facebook',
+  projectName: 'docusaurus',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
+
+  presets: [
+    [
+      'classic',
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
+        docs: {
+          sidebarPath: require.resolve('./sidebars.js'),
+          editUrl:
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+        },
+        blog: {
+          showReadingTime: true,
+          editUrl:
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+        },
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
+        },
+      }),
+    ],
+  ],
+
+  themeConfig:
+    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    ({
+      image: 'img/docusaurus-social-card.jpg',
+      navbar: {
+        title: 'My Site',
+        logo: {
+          alt: 'My Site Logo',
+          src: 'img/logo.svg',
+        },
+        items: [
+          {
+            type: 'docSidebar',
+            sidebarId: 'tutorialSidebar',
+            position: 'left',
+            label: 'Tutorial',
+          },
+          { to: '/blog', label: 'Blog', position: 'left' },
+          {
+            href: 'https://github.com/facebook/docusaurus',
+            label: 'GitHub',
+            position: 'right',
+          },
+        ],
+      },
+      footer: {
+        style: 'dark',
+        links: [
+          {
+            title: 'Docs',
+            items: [
+              {
+                label: 'Tutorial',
+                to: '/docs/intro',
+              },
+            ],
+          },
+          {
+            title: 'Community',
+            items: [
+              {
+                label: 'Stack Overflow',
+                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              },
+              {
+                label: 'Discord',
+                href: 'https://discordapp.com/invite/docusaurus',
+              },
+              {
+                label: 'Twitter',
+                href: 'https://twitter.com/docusaurus',
+              },
+            ],
+          },
+          {
+            title: 'More',
+            items: [
+              {
+                label: 'Blog',
+                to: '/blog',
+              },
+              {
+                label: 'GitHub',
+                href: 'https://github.com/facebook/docusaurus',
+              },
+            ],
+          },
+        ],
+        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      },
+      prism: {
+        theme: lightCodeTheme,
+        darkTheme: darkCodeTheme,
+      },
+    }),
+};
+
+module.exports = config;
+```
+
+```js title="docusaurus.config.js"
+module.exports = {
+  themeConfig: {
+    // ...
+    navbar: {
+      items: [
+        // ...
+        { to: 'blog', label: 'Blog', position: 'left' }, // or position: 'right'
+      ],
+    },
+  },
+};
+```
+
+The blog is very simple. Go to the `blog` folder and you'll see all the blog posts. The blog posts are <InlineCode code="MDX" /> files, so Markdown with JSX. The blog post date is extracted from the file name.
+
+If we open up a blog post, we can see Front Matter again with more metadata.
+
+You can add a slug to the URL of blog post, a title, a list of authors and a list of tags. The reading time is calculated automatically.
+
+```mdx title="First Blog Post"
+---
+slug: first-blog-post
+title: First Blog Post
+authors:
+  name: Gao Wei
+  title: Docusaurus Core Team
+  url: https://github.com/wgao19
+  image_url: https://github.com/wgao19.png
+tags: [hola, docusaurus]
+---
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet
+```
+
+We can use all the Markdown features + JSX we've seen before in a blog post.
+
+```mdx title="First Blog Post"
+---
+slug: first-blog-post
+title: First Blog Post
+authors:
+  name: Gao Wei
+  title: Docusaurus Core Team
+  url: https://github.com/wgao19
+  image_url: https://github.com/wgao19.png
+tags: [hola, docusaurus]
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="book" label="Book" default>
+    Dive into the world of knowledge with a captivating book 📚
+  </TabItem>
+  <TabItem value="painting" label="Painting">
+    Admire the strokes of artistry on a beautiful painting 🖼️
+  </TabItem>
+  <TabItem value="music" label="Music">
+    Let the soothing melodies of music transport you 🎶
+  </TabItem>
+</Tabs>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet
+
+<!-- jsx title="Line Numbers with Highlight" {4,9-11} showLineNumbers
+import React from 'react';
+
+function UserProfile(props) {
+  const { username, email, isAdmin } = props;
+
+  return (
+    <div>
+      <h1>User Profile</h1>
+      <p>Username: {username}</p>
+      <p>Email: {email}</p>
+      {isAdmin && <p>Admin User</p>}
+    </div>
+  );
+}
+
+export default UserProfile;
+ -->
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet
+
+:::caution
+
+Please take **extra caution** with this important note.
+
+:::
+```
+
+You can add authors directly like so or create a global authors list and then use it like an array.
+
+```markdown
+---
+slug: long-blog-post
+title: Long Blog Post
+authors: endi
+tags: [hello, docusaurus]
+---
+```
+
+If you include <InlineCode code="<!--truncate-->" />, then everything above will be included in the blog post preview. So in this case, Lorem ipsum should not be seen in the blog list page.
+
+If you want to add images to your blog post, create a folder like the <InlineCode code="welcome" /> post and add the images there. Then you can use the images in your blog post like you would in a normal Markdown file.
+
+## Custom Pages
+
+Technically, Docusaurus is not only a documentation site generator with a blog, it's a standanlone static site generator. That means you can create any page you want. Let's create a new about us page <InlineCode code="about.js" /> in the <InlineCode code="src/pages" /> folder.
+
+```jsx title="src/pages/about.js"
+import React from 'react';
+
+export default function About() {
+  return (
+    <div>
+      <h1>About</h1>
+      <p>This is the about page.</p>
+    </div>
+  );
+}
+```
+
+If we go to <InlineCode code="localhost:3000/about" />, we can see the page. We can also add a link to the page in the header. Go to the <InlineCode code="docusaurus.config.js" /> file and add a new item to the <InlineCode code="navbar" /> array.
+
+```js title="docusaurus.config.js"
+module.exports = {
+  themeConfig: {
+    // ...
+    navbar: {
+      items: [
+        // ...
+        { to: 'about', label: 'About', position: 'left' }, // or position: 'right'
+      ],
+    },
+  },
+};
+```
+
+Right now, the page is empty with no styling. If you want the header and footer, you can import <InlineCode code="Layout" /> from <InlineCode code="@theme/Layout" /> and wrap the content with it.
+
+```jsx title="src/pages/about.js"
+import React from 'react';
+import Layout from '@theme/Layout';
+
+export default function About() {
+  return (
+    <Layout>
+      <div>
+        <h1>About</h1>
+        <p>This is the about page.</p>
+      </div>
+    </Layout>
+  );
+}
+```
+
+And that's how easy it is to create custom pages. Routing in Docuasurus is based on the file structure. So if you want to create a new page, just create a new file in the <InlineCode code="src/pages" /> folder.
+
+It's very similar to Next.js. However, Docuasurus doesn't support dynamic routing. So if you want to create a page with a dynamic route, you need to create a separate page for each route.
+
+## Styling
+
+Let's look at how we can style our site. The easiest way is to customize the <InlineCode code="custom.css" /> file inside the <InlineCode code="src/css" /> folder. You can customize the colors here. You can change the whole color scheme of the site. Here's an example.
+
+```css title="src/css/custom.css"
+:root {
+  --ifm-color-primary: #0891b2;
+  --ifm-color-primary-dark: #0782a0;
+  --ifm-color-primary-darker: #077b97;
+  --ifm-color-primary-darkest: #06657d;
+  --ifm-color-primary-light: #099fc4;
+  --ifm-color-primary-lighter: #09a7cd;
+  --ifm-color-primary-lightest: #0abce7;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #22d3ee;
+  --ifm-color-primary-dark: #11c8e3;
+  --ifm-color-primary-darker: #11bcd7;
+  --ifm-color-primary-darkest: #0e9bb1;
+  --ifm-color-primary-light: #3bd8f0;
+  --ifm-color-primary-lighter: #48dbf1;
+  --ifm-color-primary-lightest: #6ee2f4;
+}
+```
+
+Any new CSS you add here will be added to the site.
+
+```css title="src/css/custom.css"
+.red-text {
+  color: red;
+}
+```
+
+```jsx title="src/pages/about.js"
+import React from 'react';
+import Layout from '@theme/Layout';
+
+export default function About() {
+  return (
+    <Layout>
+      <div>
+        <h1 className="red-text">About</h1>
+        <p>This is the about page.</p>
+      </div>
+    </Layout>
+  );
+}
+```
+
+For example, we can add a class called <InlineCode code="red-text" /> and add it to the <InlineCode code="h1" /> tag inside the about us page. Now the text is red.
+
+## SEO
+
+By default, Docusaurus automatically adds <InlineCode code="description" />, <InlineCode code="title" />, <InlineCode code="canonical URL" /> links, and other useful metadata to each Markdown page. You can configure them in Front Matter.
+
+```mdx
+---
+title: Our First Page
+sidebar_position: 1
+
+description: A short description of this page
+image: ../static/img/docusaurus-social-card.jpg
+keywords: [keywords, describing, the main topics]
+---
+
+# Single Page
+
+This is a single page.
+```
+
+If you use <InlineCode code="description" /> with Front Matter, you don't have to worry about other description tags like <InlineCode code="og:description" />. Docuasurus will automatically apply that in the <InlineCode code="head" /> tag.
+
+In JSX pages, you can use <InlineCode code="Head" /> from <InlineCode code="@docusaurus/Head" /> to add metadata to the <InlineCode code="head" /> tag.
+
+```jsx title="src/pages/about.js"
+import React from 'react';
+import Layout from '@theme/Layout';
+import Head from '@docusaurus/Head';
+
+export default function About() {
+  return (
+    <Layout>
+      <Head>
+        <title>About</title>
+        <meta name="description" content="This is the about page" />
+      </Head>
+
+      <div>
+        <h1 className="red-text">About</h1>
+        <p>This is the about page.</p>
+      </div>
+    </Layout>
+  );
+}
+```
+
+For more information about SEO, check out the Docusaurus documentation.
+
+## Deployment
+
+Deployment is very easy with Docusaurus. Since it's a static site, you can deploy it to any static site hosting service. Just run <InlineCode code="npm run build" /> to build the site.
+
+This will create a **build** folder. You can upload the contents of this folder to your hosting service.
+
+## Conclusion
+
+And that's everything you need to know about Docusaurus to create your own documentation site. Docusaurus is a great tool to create documentation sites and blogs.
+
+It's easy to use and has many features out of the box, which saves you a lot of time, so you can focus on building your product instead the documentation of it.
+
+<Materials
+  items={[
+    {
+      name: 'Full Repository',
+      href: 'https://github.com/CodeSnaps/docusaurus-guide',
+    },
+  ]}
+/>

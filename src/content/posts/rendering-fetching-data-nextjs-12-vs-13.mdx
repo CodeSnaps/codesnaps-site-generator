@@ -1,0 +1,669 @@
+---
+title: Next.js 13 Changed Data Fetching and Rendering... But Is It Good?
+date: 2023-08-25
+description: With Next.js 13, you no longer need getStaticProps, getServerSideProps, and getStaticPaths? Here's what to do instead! Hint? It's better!
+image: /assets/images/posts/rendering-fetching-data-next-12-13.webp
+live: true
+---
+
+Do you know the difference between app router, page router, static site generation, static rendering, server-side rendering, dynamic rendering, incremental static regeneration, server components, client components, getStaticProps, getServerSideProps, getStaticPaths, generateStaticParams, and hydration?
+
+With Next.js 13 a lot has changed and it's just too much to keep track of and confusing to know what's really happening.
+
+But today we'll try to clear up the confusion once and for all.
+
+<KeyTakeaways
+  items={[
+    'What are Pages and App Router',
+    'What is hydration',
+    'Rendering differences between Next.js 12 and Next.js 13',
+    'Server and client components in Next.js 13',
+    'How to fetch data in Next.js 12',
+    'How to fetch data in Next.js 13',
+  ]}
+/>
+
+<YouTubeVideo videoId="WfgSm_q6HeE" />
+
+## Basics of Rendering
+
+Let's start with the basics. A web app can be rendered in two ways: on the client or on the server.
+
+- The **client** is the browser on a user's device that sends a request to a server. It then takes the response from the server and turns it into an interface that the user can interact with.
+- The **server** refers to the computer in a data center that stores your code, receives requests from a client, makes some computations, and sends back an appropriate response.
+
+Before React 18, web apps were primarily rendered on the client. Next.js introduced an easier way to break applications into pages and render them on the server as well.
+
+Now, it's important to note that when I say Next.js 12, I specifically mean the Pages Router and not the App Router, which is Next.js 13 specific.
+
+When you create a new app, Next.js will ask you if you want to use the app router. If you select no, you'll use the Pages Router. If you select yes, you'll use the App Router.
+
+```bash title="Next.js prompts"
+npx create-next-app@latest
+
+What is your project named? my-app
+Would you like to use TypeScript? No / Yes
+Would you like to use ESLint? No / Yes
+Would you like to use Tailwind CSS? No / Yes
+Would you like to use `src/` directory? No / Yes
+Would you like to use App Router? (recommended) No / Yes
+Would you like to customize the default import alias? No / Yes
+What import alias would you like configured? @/*
+```
+
+The good news is that in both Next 12 and Next 13, most of your application is pre-rendered on the server.
+
+This means that the HTML for each page is generated in advance, rather than being done by client-side JavaScript. You can see this when you run the build command.
+
+```bash
+npm run build
+```
+
+Both build commands show that Next.js pre-renders each page by default. However, the way Next handles rendering has changed since Next.js 13.
+
+### Rendering in Next 12
+
+Next 12 has two forms of pre-rendering: Static generation and server-side rendering.
+
+When a page is loaded by the browser, its JavaScript code is executed, making the page fully interactive (this process is called hydration in React). The difference is in how the HTML for a page is generated.
+
+Let's start with static generation. The HTML is generated at **build time** and is cached and reused on every request.
+
+Here's an example of a page that uses static generation.
+
+```jsx
+export default function Page() {
+  return (
+    <main>
+      <p>This page uses static site generation by default</p>
+    </main>
+  );
+}
+```
+
+Static site generation is the default. You can also have a statically generated page with data using <InlineCode code="getStaticProps" />.
+
+```jsx
+export default function Page({ data }) {
+  return (
+    <main>
+      {data.users.map((user) => (
+        <div key={user.id}>
+          <h1>{user.name}</h1>
+          <p>{user.email}</p>
+        </div>
+      ))}
+    </main>
+  );
+}
+
+// Will be called at build time
+export async function getStaticProps() {
+  const res = await fetch('https://dummyjson.com/users');
+  const data = await res.json();
+
+  return { props: { data } };
+}
+```
+
+<InlineCode code="getStaticProps" /> is called at build time on the server and the
+page component gets the data as props.
+
+The second form of pre-rendering is server-side rendering. The HTML is generated at **request time**.
+
+Here's an example of a page that uses server-side rendering.
+
+```jsx
+export default function Page({ data }) {
+  return (
+    <main>
+      {data.users.map((user) => (
+        <div key={user.id}>
+          <h1>{user.name}</h1>
+          <p>{user.email}</p>
+        </div>
+      ))}
+    </main>
+  );
+}
+
+// Will be called at request time
+export async function getServerSideProps() {
+  const res = await fetch('https://dummyjson.com/users');
+  const data = await res.json();
+
+  // Pass data to the page via props
+  return { props: { data } };
+}
+```
+
+To use server-side rendering, you need to export a function called <InlineCode code="getServerSideProps" />. This function will be called by Next.js every time the page is requested.
+
+Now, there's also third way to render a page, when you want to update the page after it has been built.
+
+This is called Incremental Static Regeneration (ISR). You don't have to rebuild the entire app to update a page.
+
+To use ISR, simply add the <InlineCode code="revalidate" /> prop to <InlineCode code="getStaticProps" /> and set it to the number of seconds after which a page should be regenerated.
+
+```jsx
+export default function Page({ data }) {
+  return (
+    <main>
+      {data.users.map((user) => (
+        <div key={user.id}>
+          <h1>{user.name}</h1>
+          <p>{user.email}</p>
+        </div>
+      ))}
+    </main>
+  );
+}
+
+// Will be called at build time
+export async function getStaticProps() {
+  const res = await fetch('https://dummyjson.com/users');
+  const data = await res.json();
+
+  return { props: { data }, revalidate: 10 };
+}
+```
+
+With revalidate, Next.js will attempt to regenerate the page at least once every 10 seconds. Subsequent requests will serve the cached HTML until the 10 seconds are up.
+
+This shouldn't be new to you, as this is how Next used to work. However, things have changed in Next 13, and I think it has become much simpler.
+
+### Rendering in Next 13
+
+So instead of using <InlineCode code="getStaticProps" /> and <InlineCode code="getServerSideProps" />, Next 13 renders the page based on certain conditions.
+
+Rendering in Next.js 13, is very similar to Next.js 12. We still have static site generation and server-side rendering. However, Next changed the naming.
+
+Instead of static site generation, we now have static rendering. It's the default way of rendering. And instead of server-side rendering, we now have dynamic rendering.
+
+Static rendering is done at build time, and the result is also cached and reused on subsequent requests. Dynamic rendering happens at request time, and the result is not cached.
+
+But here's the difference. In Next 12, to use server-side rendering, we had to use <InlineCode code="getServerSideProps" />. In Next 13, we don't need to do that anymore. Next.js automatically detects when a route requires dynamic rendering.
+
+If Next.js detects uncached data or a <InlineCode code="dynamic function" />, Next will automatically switch to dynamic rendering.
+
+Dynamic functions are functions that require information that is only known at request time. For example, cookies, headers, or URL search params.
+
+In fact, these are all dynamic functions:
+
+```jsx
+cookies();
+
+headers();
+
+useSearchParams();
+
+export default function Page({ params, searchParams }) {
+  return <h1>Using the Pages props will trigger dynamic rendering</h1>;
+}
+```
+
+### Server Components and Client Components
+
+All right, so far the rendering is not that different. But Next 13 also introduced Server Components, and this may be confusing to some. Are Server Components the same as server-side rendering?
+
+No, they are not. And this is probably why Next.js decided to rename server-side rendering to dynamic rendering, to avoid confusion.
+
+This is what a server component can look like:
+
+```jsx
+export default function ServerComponent() {
+  return <div>Server Component</div>;
+}
+```
+
+It looks like a regular React component, because in Next 13, all components are server components by default.
+
+With server components, the HTML is pre-rendered on the server and then sent to the client.
+
+However, server components are not hydrated on the client. This means that they are not interactive. You can't use state or React hooks with server components.
+
+Server components were introduced in React 18 and Next.js 13 has officially adopted them.
+
+Server components are great for static content and for keeping large dependencies or sensitive data away from the client. But if you need interactivity, you should use client components.
+
+To use client components, just add the <InlineCode code="'use client'" /> directive at the top of the file, before any import statements. Here's an example.
+
+```jsx
+'use client';
+
+import { useState } from 'react';
+
+export default function ClientComponent() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
+    </div>
+  );
+}
+```
+
+It's important to understand that client components are also pre-rendered on the server, but they're hydrated on the client, so they only fully render on the client.
+
+That's how they can use listeners, hooks, and other things.
+
+Next.js recommends, that you use server components and only client components when needed, as server components are better for performance.
+
+So what's the difference between server components and server-side rendering?
+
+Dynamic rendering is the process of rendering an entire web page on the server. A web page can consist of several components.
+
+On the other hand, a server component doesn't work the same way. It doesn't dynamically render an entire web page.
+
+Instead, it takes a single individual component and pre-renders it on the server during the build process. When the user visits the page, the pre-rendered HTML is then sent to the client.
+
+Server-side rendering and server components work together, not against each other.
+
+In fact, you can have server-side rendering and server components at the same time. Here's our very simple server component from earlier.
+
+```jsx
+export default function ServerComponent() {
+  return <div>Server Component</div>;
+}
+```
+
+To trigger dynamic rendering, we need to fetch data. Because remember Next will switch to dynamic rendering when it detects uncached data or a dynamic function in the page.
+
+```jsx
+async function getData() {
+  const res = await fetch('https://dummyjson.com/users');
+  return res.json();
+}
+
+export default async function ServerComponent() {
+  const data = await getData();
+
+  return (
+    <main>
+      {data.users.map((user) => (
+        <div key={user.id}>
+          <h1>{user.name}</h1>
+          <p>{user.email}</p>
+        </div>
+      ))}
+    </main>
+  );
+}
+```
+
+When we fetch data and call it from within the component, Next will switch to dynamic rendering because it detects uncached data. That's how you can use dynamic rendering with server components.
+
+This is also a perfect segue into the next topic. In Next.js 12, the way we determine rendering is by using either <InlineCode code="getStaticProps" /> or <InlineCode code="getServerSideProps" />.
+
+But in Next.js 13, <InlineCode code="getStaticProps" /> and <InlineCode code="getServerSideProps" /> don't exist anymore.
+
+Instead, Next 13 uses the native fetch API to fetch data. This is a huge change, as Next now combines everything into one API.
+
+## Fetching Data in Next 13 vs Next 12
+
+And I think it actually makes it more intuitive and easier. Let's go through these methods one at a time. Let's look at <InlineCode code="getStaticProps" /> first. Here's a simple example how we would use <InlineCode code="getStaticProps" /> in Next 12.
+
+```jsx
+export default function Page({ data }) {
+  return (
+    <main>
+      {data.users.map((user) => (
+        <div key={user.id}>
+          <h1>{user.name}</h1>
+          <p>{user.email}</p>
+        </div>
+      ))}
+    </main>
+  );
+}
+
+// Will be called at build time
+export async function getStaticProps() {
+  const res = await fetch('https://dummyjson.com/users');
+  const data = await res.json();
+
+  return { props: { data } };
+}
+```
+
+In this example, we fetch a list of users from an API and then render the data on the page. We use <InlineCode code="getStaticProps" /> to fetch the data at build time.
+
+We then pass the data as props to the page component and map through the users.
+
+In Next 13, we can replace <InlineCode code="getStaticProps" /> with the fetch web API.
+
+First, we remove the <InlineCode code="getStaticProps" /> function. Then, we create a new async function called `getData`. Inside `getData`, we make a fetch request to the API.
+
+We add the <InlineCode code="cache: 'force-cache'" /> option to force the browser to cache the response. We then return the response as JSON.
+
+```jsx
+async function getData() {
+  const res = await fetch('https://dummyjson.com/users', {
+    cache: 'force-cache',
+  });
+  return res.json();
+}
+
+export default async function Page() {
+  const data = await getData();
+
+  return (
+    <main>
+      {data.users.map((user) => (
+        <div key={user.id}>
+          <h1>{user.name}</h1>
+          <p>{user.email}</p>
+        </div>
+      ))}
+    </main>
+  );
+}
+```
+
+Then remove the prop inside the page component, since we can call <InlineCode code="getData" /> directly and don't need to pass props anymore. The <InlineCode code="force-cache" /> option is on by default, so we can actually remove it.
+
+```jsx
+async function getData() {
+  const res = await fetch('https://dummyjson.com/users');
+  return res.json();
+}
+
+export default async function Page() {
+  const data = await getData();
+
+  return (
+    <main>
+      {data.map((user) => (
+        <div key={user.id}>
+          <h1>{user.name}</h1>
+          <p>{user.email}</p>
+        </div>
+      ))}
+    </main>
+  );
+}
+```
+
+So by simply using the native fetch API with the default options, we can replace <InlineCode code="getStaticProps" /> in Next 13. Now let's look at how we would call <InlineCode code="getServerSideProps" />.
+
+```jsx
+export default function Page({ data }) {
+  return (
+    <main>
+      {data.users.map((user) => (
+        <div key={user.id}>
+          <h1>{user.name}</h1>
+          <p>{user.email}</p>
+        </div>
+      ))}
+    </main>
+  );
+}
+
+// Will be called at request time
+export async function getServerSideProps() {
+  const res = await fetch('https://dummyjson.com/users');
+  const data = await res.json();
+
+  // Pass data to the page via props
+  return { props: { data } };
+}
+```
+
+Here's the example from earlier. It's similar to <InlineCode code="getStaticProps" />, except we use <InlineCode code="getServerSideProps" /> and Next will fetch the data at request time instead of build time.
+
+To use the native fetch API in Next 13, remove <InlineCode code="getServerSideProps" /> and create the same new async function called <InlineCode code="getData" />.
+
+The only difference here, is that this time we need to add `cache: <InlineCode code="no-store" />.
+
+This tells Next not to cache the data and to fetch it on each request. We will then return the response as JSON.
+
+```jsx
+async function getData() {
+  const res = await fetch('https://dummyjson.com/users', {
+    cache: 'no-store',
+  });
+  return res.json();
+}
+
+export default async function Page() {
+  const data = await getData();
+
+  return (
+    <main>
+      {data.map((user) => (
+        <div key={user.id}>
+          <h1>{user.name}</h1>
+          <p>{user.email}</p>
+        </div>
+      ))}
+    </main>
+  );
+}
+```
+
+We also remove the prop inside the page component and call <InlineCode code="getData" /> directly.
+
+With that, we have replaced <InlineCode code="getStaticProps" /> and <InlineCode code="getServerSideProps" /> with the native fetch API.
+
+How would we do incremental site regeneration in Next 13? Let's take a look at that next.
+
+Let's go back at our previous <InlineCode code="getStaticProps" /> example.
+
+To make it incremental, we can add <InlineCode code="revalidate" /> to the <InlineCode code="getStaticProps" /> function. This tells Next to revalidate the data every 10 seconds.
+
+```jsx
+export default function Page({ data }) {
+  return (
+    <main>
+      {data.users.map((user) => (
+        <div key={user.id}>
+          <h1>{user.name}</h1>
+          <p>{user.email}</p>
+        </div>
+      ))}
+    </main>
+  );
+}
+
+// Will be called at build time
+export async function getStaticProps() {
+  const res = await fetch('https://dummyjson.com/users');
+  const data = await res.json();
+
+  return { props: { data }, revalidate: 10 };
+}
+```
+
+To make this work in Next 13, we can simply add <InlineCode code="next: { revalidate: 10 }" /> to the fetch function.
+
+Let's modify our <InlineCode code="getData" /> function in our Next 12 <InlineCode code="getStaticProps" /> example.
+
+We add the <InlineCode code="next: { revalidate: 10 }" /> option to the fetch function.
+
+```jsx
+async function getData() {
+  const res = await fetch('https://dummyjson.com/users', {
+    next: { revalidate: 10 },
+  });
+  return res.json();
+}
+
+export default async function Page() {
+  const data = await getData();
+
+  return (
+    <main>
+      {data.users.map((user) => (
+        <div key={user.id}>
+          <h1>{user.name}</h1>
+          <p>{user.email}</p>
+        </div>
+      ))}
+    </main>
+  );
+}
+```
+
+This tells Next also to revalidate the data every 10 seconds.
+
+And that's how easy it is to fetch data in Next 13. Instead of using different methods, we can just use one API.
+
+This makes everything so much easier and Next.js takes care of the proper rendering in the background.
+
+Okay, that is great! But you might ask, what about <InlineCode code="getStaticPaths" /> for dynamic routes? Next 13 has that covered as well. <InlineCode code="getStaticPaths" /> is now called <InlineCode code="generateStaticParams" />.
+
+```jsx
+export default function Post({ post }) {
+  return (
+    <main>
+      <h1>{post.title}</h1>
+      <p>{post.body}</p>
+    </main>
+  );
+}
+
+export async function getStaticPaths() {
+  const res = await fetch('https://dummyjson.com/posts');
+  const data = await res.json();
+
+  const paths = data.posts.map((post) => ({
+    params: { id: post.id.toString() }, // => [{ params: { id: '1' } }, { params: { id: '2' } }, ...}]
+  }));
+
+  // { fallback: false } means other routes should 404.
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  const res = await fetch(`https://dummyjson.com/users/${params.id}`);
+  const post = await res.json();
+
+  return { props: { post } };
+}
+```
+
+Here's a simple example using <InlineCode code="getStaticPaths" />.
+
+First we fetch a list of posts. Then we create the paths array by mapping over the posts. Then we return the paths to pass it to <InlineCode code="getStaticProps" /> function.
+
+Remember, <InlineCode code="getStaticPaths" /> must be used with <InlineCode code="getStaticProps" /> and <InlineCode code="getStaticPaths" /> runs during build time. This shouldn't be new to you.
+
+Now let's change it for Next 13. First, remove all the functions.
+
+```jsx
+export default function Post({ post }) {
+  return (
+    <main>
+      <h1>{post.title}</h1>
+      <p>{post.body}</p>
+    </main>
+  );
+}
+```
+
+Then create the <InlineCode code="generateStaticParams" /> function.
+
+```jsx
+export async function generateStaticParams() {
+  const res = await fetch('https://dummyjson.com/posts');
+  const data = await res.json();
+
+  return data.posts.map((post) => ({
+    id: post.id.toString(),
+    // => [{ id: '1' }, { id: '2' }, { id: '3' }, ...]
+  }));
+}
+
+export default function Post({ post }) {
+  return (
+    <main>
+      <h1>{post.title}</h1>
+      <p>{post.body}</p>
+    </main>
+  );
+}
+```
+
+<InlineCode code="generateStaticParams" /> is like <InlineCode code="getStaticPaths" />
+, but simpler.
+
+It returns an array of objects, where each object represents the
+dynamic parameters of a specific route, like the id of a post. This is simpler
+than returning nested params objects.
+
+We can capture the returned objects in the <InlineCode code="params" /> prop of the page component. And then we can use the <InlineCode code="params" /> prop to fetch the post.
+
+```jsx
+export async function generateStaticParams() {
+  const res = await fetch('https://dummyjson.com/posts');
+  const data = await res.json();
+
+  return data.posts.map((post) => ({
+    id: post.id.toString(),
+    // => [{ id: '1' }, { id: '2' }, { id: '3' }, ...]
+  }));
+}
+
+export default async function Post({ params }) {
+  const res = await fetch(`https://dummyjson.com/posts/${params.id}`);
+  const post = await res.json();
+
+  return (
+    <main>
+      <h1>{post.title}</h1>
+      <p>{post.body}</p>
+    </main>
+  );
+}
+```
+
+We can optimize the code by moving the fetch call to a separate function. Create a new <InlineCode code="getPost" /> function and move the fetch call to it.
+
+```jsx
+export async function generateStaticParams() {
+  const res = await fetch('https://dummyjson.com/posts');
+  const data = await res.json();
+
+  return data.posts.map((post) => ({
+    id: post.id.toString(),
+    // => [{ id: '1' }, { id: '2' }, { id: '3' }, ...]
+  }));
+}
+
+async function getPost(id) {
+  const res = await fetch(`https://dummyjson.com/posts/${id}`);
+  const post = await res.json();
+  return post;
+}
+
+export default async function Post({ params }) {
+  const post = await getPost(params.id);
+
+  return (
+    <main>
+      <h1>{post.title}</h1>
+      <p>{post.body}</p>
+    </main>
+  );
+}
+```
+
+Then just call <InlineCode code="getPost" /> in the page component. And that's how we would create dynamic routes in Next 13. I think once you get used to it, it's a lot easier than the old way.
+
+## Conclusion
+
+Okay, that was a lot to take in, so here's a quick recap of the changes.
+
+- Static site generation is now called static rendering, both are the default
+- Server-side rendering is now called dynamic rendering
+- With server components, we can now pre-render individual components on the server
+- Server components and server-side rendering or dynamic rendering ARE NOT THE SAME. Server components are pre-rendered once on the server at build time. Dynamic rendering renders an entire route on the server at request time, not just a single component
+- Instead of <InlineCode code="getStaticProps" /> use the default fetch function <InlineCode code="fetch(URL)" /> and instead of <InlineCode code="getServerSideProps" /> use the <InlineCode code="cache: 'no-store'" /> option <InlineCode code="fetch(URL, { cache: 'no-store' })" />
+- If you want incremental static regeneration, use the <InlineCode code="next: { revalidate }" /> option <InlineCode code="fetch(URL, { next: { revalidate: 10 } })" />
+
+Next.js 13 changed the whole game, but once you get your head around it, it's much easier than the old way. I find the new approach much more intuitive.
+
+And that brings us to the end. I hope you enjoyed it, and I'll see you in the next one.

@@ -20,6 +20,12 @@ async function BlogPage() {
     return isProduction ? true : post.live;
   });
 
+  livePosts.sort((a, b) => {
+    const dateA = new Date(a.date).getTime();
+    const dateB = new Date(b.date).getTime();
+    return dateB - dateA; // Sort in descending order
+  });
+
   return (
     <Container>
       <div className={'flex flex-col space-y-16 my-8'}>
