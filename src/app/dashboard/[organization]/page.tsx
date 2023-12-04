@@ -30,7 +30,7 @@ function DashboardPage({ searchParams, params }: DasbboardPageParams) {
         description="Browse, search & filter components here"
       />
 
-      <div>
+      <div className="3xl:max-w-[85%] w-full mx-auto">
         <ComponentsDashboard
           searchParams={searchParams}
           organization={params.organization}

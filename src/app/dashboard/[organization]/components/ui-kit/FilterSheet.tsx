@@ -51,9 +51,14 @@ function FilterSheet({
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant={'outline'} className={'xl:hidden'}>
-          <AdjustmentsHorizontalIcon className={'h-6 dark:text-white'} />
-        </Button>
+        <div className="max-w-xl mx-auto w-full px-10">
+          <Button variant={'outline'} className={'xl:hidden w-full'}>
+            <span className="text-lg font-semibold text-neutral-800 dark:text-neutral-200 mr-4">
+              Filter
+            </span>
+            <AdjustmentsHorizontalIcon className={'h-6 dark:text-white'} />
+          </Button>
+        </div>
       </SheetTrigger>
       <SheetContent className="overflow-y-scroll">
         <form

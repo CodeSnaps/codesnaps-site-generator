@@ -61,12 +61,10 @@ export default function ComponentGridItem(
   };
 
   return (
-    <div className="overflow-hidden rounded-2xl bg-white shadow-md dark:bg-neutral-900 max-w-md mx-auto">
+    <div className="overflow-hidden rounded-2xl bg-white shadow-md dark:bg-neutral-900">
       <div className="m-2.5 rounded-2xl bg-neutral-300 dark:bg-neutral-700 lg:mx-3 lg:my-3.5">
         <div className="flex items-center justify-center px-6">
-          <div
-            className={`flex w-full justify-center bg-neutral-200 dark:bg-neutral-500 py-10`}
-          >
+          <div className="flex w-full justify-center bg-neutral-200 dark:bg-neutral-500 py-10">
             <Image
               priority
               src={image_src}
@@ -74,6 +72,7 @@ export default function ComponentGridItem(
               width={400}
               height={200}
               style={{ objectFit: 'contain' }}
+              className="w-full h-full"
             />
           </div>
         </div>

@@ -26,7 +26,7 @@ export default function CategoryDashboard({
   category,
 }: DasbboardPageParams) {
   const pageIndex = getPageFromQueryParams(searchParams.page);
-  const perPage = 30;
+  const perPage = 20;
 
   const { components, count } = use(
     fetchComponents({

@@ -29,7 +29,7 @@ export default function CategoryDashboard({
   category,
 }: DasbboardPageParams) {
   const pageIndex = getPageFromQueryParams(searchParams.page);
-  const perPage = 21;
+  const perPage = 20;
   const client = getSupabaseServerComponentClient();
 
   const { components, count } = use(

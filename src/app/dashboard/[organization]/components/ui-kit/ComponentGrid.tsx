@@ -29,7 +29,7 @@ export default function ComponentGrid(
   return (
     <>
       <div className="xl:max-w-[calc(100%-18rem)] w-full">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 3xl:grid-cols-3 px-10 py-6 justify-center max-w-[1500px] mx-auto">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 px-10 py-6 justify-center">
           {components.map((component) => (
             <ComponentGridItem
               key={component.id}

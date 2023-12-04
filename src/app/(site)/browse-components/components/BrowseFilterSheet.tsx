@@ -48,9 +48,14 @@ function BrowseFilterSheet({
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant={'outline'} className={'xl:hidden'}>
-          <AdjustmentsHorizontalIcon className={'h-6 dark:text-white'} />
-        </Button>
+        <div className="max-w-xl mx-auto w-full px-10">
+          <Button variant={'outline'} className={'xl:hidden w-full'}>
+            <span className="text-lg font-semibold text-neutral-800 dark:text-neutral-200 mr-4">
+              Filter
+            </span>
+            <AdjustmentsHorizontalIcon className={'h-6 dark:text-white'} />
+          </Button>
+        </div>
       </SheetTrigger>
       <SheetContent className="overflow-y-scroll">
         <form
@@ -272,25 +277,6 @@ function BrowseFilterSheet({
         </SheetFooter>
       </SheetContent>
     </Sheet>
-  );
-}
-
-function SearchIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={2}
-      stroke="currentColor"
-      {...props}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-      />
-    </svg>
   );
 }
 

@@ -61,25 +61,19 @@ function ComponentsFilter({
   return (
     <>
       {/* For mobile (hidden on larger screens) */}
-      <div className="flex items-center justify-end space-x-4 px-10">
-        <p className="text-lg font-semibold text-neutral-800 dark:text-neutral-200 xl:hidden">
-          Filter
-        </p>
-
-        <FilterSheet
-          organization={organization}
-          isFree={isFree}
-          search={search}
-          setSearch={setSearch}
-          setIsFree={setIsFree}
-          layout={layoutOptions}
-          setLayout={setLayoutOptions}
-          elements={elementsOptions}
-          setElements={setElementsOptions}
-          isInteractive={isInteractive}
-          setInteraction={setIsInteractive}
-        />
-      </div>
+      <FilterSheet
+        organization={organization}
+        isFree={isFree}
+        search={search}
+        setSearch={setSearch}
+        setIsFree={setIsFree}
+        layout={layoutOptions}
+        setLayout={setLayoutOptions}
+        elements={elementsOptions}
+        setElements={setElementsOptions}
+        isInteractive={isInteractive}
+        setInteraction={setIsInteractive}
+      />
 
       {/* Secondary column (hidden on smaller screens) */}
       <FilterSidebar

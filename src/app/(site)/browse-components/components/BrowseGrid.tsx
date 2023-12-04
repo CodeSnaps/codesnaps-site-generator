@@ -21,8 +21,8 @@ export default function ComponentGrid(
 
   return (
     <>
-      <div className="xl:max-w-[calc(100%-18rem)] 3xl:max-w-none w-full">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 3xl:grid-cols-3 2xl:max-w-[1200px] 3xl:max-w-none px-10 py-6 justify-center mx-auto">
+      <div className="xl:max-w-[calc(100%-14rem)] 3xl:max-w-none w-full">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 px-10 py-6 justify-center">
           {components.map((component) => (
             <BrowseGridItem
               key={component.id}
