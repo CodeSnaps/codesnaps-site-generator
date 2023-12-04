@@ -22,10 +22,10 @@ function GridItem() {
       </div>
 
       <div className="px-4 py-6 sm:px-6 sm:pb-8 sm:pt-4">
-        <div className="mt-4 flex items-center space-x-2 animate-pulse">
-          <div className="h-10 w-full bg-neutral-600 rounded-sm"></div>
-          <div className="h-10 w-28 bg-neutral-600 rounded-sm"></div>
-          <div className="h-10 w-28 bg-neutral-600 rounded-sm"></div>
+        <div className="mt-10 flex items-center space-x-2 animate-pulse">
+          <div className="h-14 w-full bg-neutral-600 rounded-sm"></div>
+          <div className="h-14 w-28 bg-neutral-600 rounded-sm"></div>
+          <div className="h-14 w-28 bg-neutral-600 rounded-sm"></div>
         </div>
       </div>
     </div>
