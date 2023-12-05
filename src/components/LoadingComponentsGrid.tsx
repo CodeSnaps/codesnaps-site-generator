@@ -1,7 +1,9 @@
+import Image from 'next/image';
+
 function LoadingComponentsGrid() {
   return (
     <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 px-10 py-6 justify-center mt-40 xl:mt-20">
-      {Array.from(Array(12).keys()).map((_, index) => (
+      {Array.from(Array(4).keys()).map((_, index) => (
         <GridItem key={index} />
       ))}
     </div>
@@ -16,7 +18,14 @@ function GridItem() {
       <div className="m-2.5 rounded-2xl bg-neutral-300 dark:bg-neutral-700 lg:mx-3 lg:my-3.5 animate-pulse">
         <div className="flex items-center justify-center px-6">
           <div className="flex w-full justify-center bg-neutral-200 dark:bg-neutral-500 py-10">
-            <div className="h-[200px] lg:h-[342px] w-full bg-neutral-400"></div>
+            <Image
+              priority
+              src="/assets/images/placeholder-image.webp"
+              alt="Placeholder"
+              width={400}
+              height={200}
+              className="animate-pulse w-full h-full"
+            />
           </div>
         </div>
       </div>
