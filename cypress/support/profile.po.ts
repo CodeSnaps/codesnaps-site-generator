@@ -20,7 +20,7 @@ export const profilePo = {
       },
       (req) => {
         req.continue((res) => {
-          expect(res.statusCode).to.equal(200);
+          expect(res.statusCode).to.equal(303);
         });
       },
     ).as('deleteAccount');
