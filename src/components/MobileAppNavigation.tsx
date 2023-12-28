@@ -48,8 +48,10 @@ const MobileAppNavigation = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
-        <Bars3Icon className={'h-9'} />
+      <DropdownMenuTrigger asChild>
+        <button aria-label="Open the main menu">
+          <Bars3Icon className={'h-9'} />
+        </button>
       </DropdownMenuTrigger>
 
       <DropdownMenuContent sideOffset={10} className={'rounded-none w-screen'}>

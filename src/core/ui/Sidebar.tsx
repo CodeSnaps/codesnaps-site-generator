@@ -3,13 +3,12 @@
 import React, { useContext } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { cn } from '~/core/generic/shadcn-utils';
-
 import { cva } from 'cva';
+
+import { cn } from '~/core/generic/shadcn-utils';
 import If from '~/core/ui/If';
 import { TooltipContent, Tooltip, TooltipTrigger } from '~/core/ui/Tooltip';
 import SidebarContext from '~/lib/contexts/sidebar';
-
 import isRouteActive from '~/core/generic/is-route-active';
 
 export function Sidebar({
@@ -33,7 +32,7 @@ export function SidebarContent({
 }>) {
   return (
     <div
-      className={cn('flex w-full flex-col space-y-1 px-container', className)}
+      className={cn('flex w-full flex-col px-container space-y-1.5', className)}
     >
       {children}
     </div>
@@ -65,7 +64,11 @@ export function SidebarItem({
       <If condition={collapsed} fallback={<Icon className={'h-6'} />}>
         <Tooltip>
           <TooltipTrigger>
-            <Icon className={'h-6'} />
+            <Icon
+              className={getSidebarIconClassBuilder()({
+                collapsed,
+              })}
+            />
           </TooltipTrigger>
 
           <TooltipContent side={'right'} sideOffset={20}>
@@ -84,14 +87,14 @@ export default Sidebar;
 function getClassNameBuilder() {
   return cva(
     [
-      'relative flex hidden h-screen flex-col border-r ' +
-        ' border-neutral-200 dark:border-dark-800 lg:flex space-y-4',
+      'fixed flex box-content hidden h-screen flex-col border-r border-gray-100 dark:border-dark-800 lg:flex ' +
+        'transition-[width] duration-100 motion-reduce:transition-none',
     ],
     {
       variants: {
         collapsed: {
-          true: `w-[5rem]`,
-          false: `w-2/12 max-w-xs sm:min-w-[12rem] lg:min-w-[17rem]`,
+          true: `w-[6rem]`,
+          false: `w-2/12 lg:w-[17rem]`,
         },
       },
     },
@@ -101,17 +104,17 @@ function getClassNameBuilder() {
 function getSidebarItemClassBuilder() {
   return cva(
     [
-      `flex w-full items-center rounded-md border-transparent text-sm font-base transition-colors duration-300`,
+      `flex w-full items-center rounded-md border-transparent text-sm font-base transition-colors duration-100`,
     ],
     {
       variants: {
         collapsed: {
-          true: `justify-center space-x-0 px-0.5 py-2 [&>span]:hidden`,
-          false: `py-2 px-3 pr-12 space-x-2.5`,
+          true: `px-4 py-2 [&>span]:hidden`,
+          false: `px-4 py-2 space-x-2.5`,
         },
         active: {
           true: `bg-primary/5 dark:bg-primary-300/10 font-medium`,
-          false: `ring-transparent hover:bg-neutral-50 dark:hover:bg-dark-800/40 active:bg-neutral-100 dark:text-neutral-300 dark:hover:text-white dark:active:bg-dark-700`,
+          false: `ring-transparent hover:bg-gray-50 dark:hover:bg-dark-800/40 active:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:active:bg-dark-700`,
         },
       },
       compoundVariants: [
@@ -128,9 +131,30 @@ function getSidebarItemClassBuilder() {
         {
           collapsed: true,
           active: false,
-          className: `dark:text-neutral-300`,
+          className: `dark:text-gray-300`,
         },
       ],
     },
   );
+}
+
+function getSidebarIconClassBuilder() {
+  return cva([''], {
+    variants: {
+      collapsed: {
+        true: `flex-none h-6 w-6`,
+        false: `flex-none h-6 w-6`,
+      },
+      active: {
+        true: `transition-colors`,
+      },
+    },
+    compoundVariants: [
+      {
+        collapsed: true,
+        active: true,
+        className: `transition-none`,
+      },
+    ],
+  });
 }

@@ -12,7 +12,7 @@ import Logo from '~/core/ui/Logo';
 function AdminSidebar() {
   return (
     <Sidebar>
-      <SidebarContent className={'my-4'}>
+      <SidebarContent className={'mt-4 mb-8 pt-2'}>
         <Logo href={'/admin'} />
       </SidebarContent>
 

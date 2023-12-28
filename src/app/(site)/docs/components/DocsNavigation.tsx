@@ -39,10 +39,10 @@ const DocsNavLink: FC<{
   return (
     <div className={getNavLinkClassName(isCurrent, isFirstLevel)}>
       <Link
-        className="flex items-center h-full space-x-2 grow"
+        className="flex items-center h-full space-x-2 grow max-w-full"
         href={`/docs/${url}`}
       >
-        <span className="truncate">{label}</span>
+        <span className="truncate max-w-full block">{label}</span>
       </Link>
 
       {collapsible && (

@@ -57,7 +57,7 @@ export default NavigationMenuItem;
 function getNavigationMenuItemClassBuilder() {
   return cva(
     [
-      `flex items-center justify-center font-medium lg:justify-start rounded-md text-sm transition colors transform active:translate-y-[2px]`,
+      `flex items-center justify-center font-medium lg:justify-start rounded-md text-sm transition colors transform [&>*]:active:translate-y-[2px]`,
       '[&>*]:p-1 [&>*]:lg:px-2.5 [&>*]:w-full [&>*]:h-full [&>*]:flex [&>*]:items-center',
     ],
     {
@@ -65,37 +65,37 @@ function getNavigationMenuItemClassBuilder() {
         // not active - shared
         {
           active: false,
-          className: `active:text-current text-neutral-500 dark:text-neutral-300
+          className: `active:text-current text-gray-500 dark:text-gray-300
         hover:text-current dark:hover:text-white`,
         },
         // active - shared
         {
           active: true,
-          className: `text-neutral-800 dark:text-white`,
+          className: `text-gray-800 dark:text-white`,
         },
         // active - pill
         {
           active: true,
           pill: true,
-          className: `bg-neutral-50 text-neutral-800 dark:bg-primary-300/10`,
+          className: `bg-gray-50 text-gray-800 dark:bg-primary-300/10`,
         },
         // not active - pill
         {
           active: false,
           pill: true,
-          className: `hover:bg-neutral-50 active:bg-neutral-100 text-neutral-500 dark:text-neutral-300 dark:hover:bg-background dark:active:bg-dark-900/90`,
+          className: `hover:bg-gray-50 active:bg-gray-100 text-gray-500 dark:text-gray-300 dark:hover:bg-background dark:active:bg-dark-900/90`,
         },
         // not active - bordered
         {
           active: false,
           bordered: true,
-          className: `hover:bg-neutral-50 active:bg-neutral-100 dark:active:bg-dark-800 dark:hover:bg-dark/90 transition-colors rounded-lg border-transparent`,
+          className: `hover:bg-gray-50 active:bg-gray-100 dark:active:bg-dark-800 dark:hover:bg-dark/90 transition-colors rounded-lg border-transparent`,
         },
         // active - bordered
         {
           active: true,
           bordered: true,
-          className: `top-[0.4rem] border-b-[0.25rem] rounded-none border-primary bg-transparent pb-[0.8rem] text-primary-700 dark:text-white`,
+          className: `top-[0.4rem] border-b-[0.25rem] rounded-none border-primary bg-transparent pb-[0.55rem] text-primary-700 dark:text-white`,
         },
         // active - secondary
         {

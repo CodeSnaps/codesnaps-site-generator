@@ -31,7 +31,7 @@ const AppSidebar: React.FC<{
 
   return (
     <Sidebar collapsed={ctx.collapsed}>
-      <SidebarContent className={'mt-4'}>
+      <SidebarContent className={'my-4'}>
         <OrganizationsSelector displayName={!ctx.collapsed} />
       </SidebarContent>
 
@@ -39,7 +39,7 @@ const AppSidebar: React.FC<{
         <AppSidebarNavigation organization={organizationUid} />
       </SidebarContent>
 
-      <div className={'absolute bottom-0 w-full'}>
+      <div className={'absolute left-0 bottom-4 w-full'}>
         <SidebarContent>
           <ProfileDropdownContainer collapsed={ctx.collapsed} />
         </SidebarContent>
@@ -64,11 +64,11 @@ function CollapsibleButton({
   onClick: (collapsed: boolean) => void;
 }>) {
   const className = classNames(
-    `bg-background absolute -right-[10px] bottom-[30px] cursor-pointer block`,
+    `bg-background absolute -right-[10.5px] bottom-4 cursor-pointer block`,
   );
 
   const iconClassName =
-    'bg-background text-neutral-300 dark:text-neutral-600 h-5 w-5';
+    'bg-background text-gray-300 dark:text-gray-600 h-5 w-5';
 
   return (
     <Tooltip>
@@ -91,7 +91,11 @@ function CollapsibleButton({
       </TooltipTrigger>
 
       <TooltipContent sideOffset={20}>
-        <Trans i18nKey={'common:expandSidebar'} />
+        <Trans
+          i18nKey={
+            collapsed ? 'common:expandSidebar' : 'common:collapseSidebar'
+          }
+        />
       </TooltipContent>
     </Tooltip>
   );
@@ -102,12 +106,7 @@ function ProfileDropdownContainer(props: { collapsed: boolean }) {
   const signOut = useSignOut();
 
   return (
-    <div
-      className={classNames('flex flex-col space-y-4', {
-        ['py-4']: !props.collapsed,
-        ['py-6']: props.collapsed,
-      })}
-    >
+    <div className={props.collapsed ? '' : 'w-full'}>
       <StatusBadge />
 
       <ProfileDropdown

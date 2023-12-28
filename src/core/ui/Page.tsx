@@ -4,15 +4,18 @@ import Heading from '~/core/ui/Heading';
 export function Page(
   props: React.PropsWithChildren<{
     sidebar?: React.ReactNode;
+    contentContainerClassName?: string;
+    className?: string;
   }>,
 ) {
   return (
-    <div className={'flex overflow-hidden'}>
+    <div className={props.className}>
       <div className={'hidden lg:block'}>{props.sidebar}</div>
 
       <div
         className={
-          'relative mx-auto flex flex-col h-screen w-full overflow-y-auto'
+          props.contentContainerClassName ??
+          'mx-auto flex flex-col h-screen w-full overflow-y-auto'
         }
       >
         {props.children}
@@ -61,9 +64,7 @@ export function PageHeader({
         </Heading>
 
         <Heading type={5} className={'hidden lg:block'}>
-          <span
-            className={'dark:text-neutral-400 text-neutral-600 font-normal'}
-          >
+          <span className={'dark:text-gray-400 text-gray-600 font-normal'}>
             {description}
           </span>
         </Heading>

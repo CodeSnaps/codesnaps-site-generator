@@ -18,9 +18,15 @@ async function AdminLayout({ children }: React.PropsWithChildren) {
 
   const csrfToken = headers().get('X-CSRF-Token');
 
+  const className =
+    'ml-0 transition-[margin] duration-300' +
+    ' motion-reduce:transition-none lg:ml-[17rem]';
+
   return (
     <AdminProviders csrfToken={csrfToken} language={language}>
-      <Page sidebar={<AdminSidebar />}>{children}</Page>
+      <Page contentContainerClassName={className} sidebar={<AdminSidebar />}>
+        {children}
+      </Page>
     </AdminProviders>
   );
 }

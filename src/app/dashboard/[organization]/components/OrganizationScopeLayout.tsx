@@ -20,6 +20,7 @@ import { setCookie } from '~/core/generic/cookies';
 import AuthChangeListener from '~/components/AuthChangeListener';
 import type loadAppData from '~/lib/server/loaders/load-app-data';
 import { Page } from '~/core/ui/Page';
+import { cva } from 'cva';
 
 const OrganizationScopeLayout: React.FCC<{
   data: Awaited<ReturnType<typeof loadAppData>>;
@@ -97,12 +98,30 @@ function RouteShellWithSidebar(
   }>,
 ) {
   const [collapsed, setCollapsed] = useCollapsible(props.collapsed);
+  const className = getClassNameBuilder()({ collapsed });
 
   return (
     <SidebarContext.Provider value={{ collapsed, setCollapsed }}>
-      <Page sidebar={<AppSidebar organizationUid={props.organization} />}>
+      <Page
+        contentContainerClassName={className}
+        sidebar={<AppSidebar organizationUid={props.organization} />}
+      >
         {props.children}
       </Page>
     </SidebarContext.Provider>
+  );
+}
+
+function getClassNameBuilder() {
+  return cva(
+    ['ml-0 transition-[margin] duration-300 motion-reduce:transition-none'],
+    {
+      variants: {
+        collapsed: {
+          true: 'lg:ml-[6rem]',
+          false: 'lg:ml-[17rem]',
+        },
+      },
+    },
   );
 }
