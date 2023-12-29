@@ -1,6 +1,6 @@
 'use client';
 
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useState } from 'react';
 
 import {
   getCoreRowModel,
@@ -89,14 +89,26 @@ function DataTable<T extends object>({
       columnVisibility,
       rowSelection,
     },
-    onPaginationChange: setPagination,
+    onPaginationChange: (updater) => {
+      if (typeof updater === 'function') {
+        setPagination((prevState) => {
+          const nextState = updater(prevState);
+
+          if (onPaginationChange) {
+            onPaginationChange(nextState);
+          }
+
+          return nextState;
+        });
+      } else {
+        setPagination(updater);
+
+        if (onPaginationChange) {
+          onPaginationChange(updater);
+        }
+      }
+    },
   });
-
-  useEffect(() => {
-    if (pagination.pageIndex === pageIndex) return;
-
-    onPaginationChange?.(pagination);
-  }, [onPaginationChange, pageIndex, pagination]);
 
   return (
     <div
