@@ -30,8 +30,7 @@ export async function getMembershipByInviteCode<Response>(
       `,
     )
     .eq('code', params.code)
-    .throwOnError()
-    .single();
+    .maybeSingle();
 }
 
 /**

@@ -1,7 +1,7 @@
-import { use } from 'react';
-import { notFound, redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import { headers } from 'next/headers';
-import { isNotFoundError } from 'next/dist/client/components/not-found';
+import { SupabaseClient } from '@supabase/supabase-js';
+
 import If from '~/core/ui/If';
 import Heading from '~/core/ui/Heading';
 import Trans from '~/core/ui/Trans';
@@ -14,6 +14,7 @@ import ExistingUserInviteForm from '~/app/invite/components/ExistingUserInviteFo
 import NewUserInviteForm from '~/app/invite/components/NewUserInviteForm';
 import InviteCsrfTokenProvider from '~/app/invite/components/InviteCsrfTokenProvider';
 import { withI18n } from '~/i18n/with-i18n';
+import { Database } from '~/database.types';
 
 interface Context {
   params: {
@@ -25,9 +26,13 @@ export const metadata = {
   title: `Join Organization`,
 };
 
-const InvitePage = ({ params }: Context) => {
+async function InvitePage({ params }: Context) {
   const code = params.code;
-  const data = use(loadInviteData(code));
+  const data = await loadInviteData(code);
+
+  if (!data.membership) {
+    notFound();
+  }
 
   const organization = data.membership.organization;
 
@@ -72,7 +77,7 @@ const InvitePage = ({ params }: Context) => {
       </InviteCsrfTokenProvider>
     </>
   );
-};
+}
 
 export default withI18n(InvitePage);
 
@@ -84,58 +89,50 @@ async function loadInviteData(code: string) {
   // without having to be logged in
   const adminClient = getSupabaseServerComponentClient({ admin: true });
 
-  try {
-    const { data: membership, error } = await getMembershipByInviteCode<{
-      id: number;
-      code: string;
-      organization: {
-        name: string;
-        id: number;
-      };
-    }>(adminClient, {
-      code,
-      query: `
-        id,
+  const { data: membership, error } = await getInvite(adminClient, code);
+
+  // if the invite wasn't found, it's 404
+  if (error) {
+    logger.warn(
+      {
         code,
-        organization: organization_id (
-          name,
-          id
-        )
-      `,
-    });
-
-    // if the invite wasn't found, it's 404
-    if (error) {
-      logger.warn(
-        {
-          code,
-        },
-        `User navigated to invite page, but it wasn't found. Redirecting to home page...`,
-      );
-
-      return notFound();
-    }
-
-    const { data: userSession } = await client.auth.getSession();
-    const session = userSession?.session;
-    const csrfToken = headers().get('x-csrf-token');
-
-    return {
-      csrfToken,
-      session,
-      membership,
-      code,
-    };
-  } catch (error) {
-    if (isNotFoundError(error)) {
-      return notFound();
-    }
-
-    logger.error(
-      error,
-      `Error encountered while fetching invite. Redirecting to home page...`,
+        error,
+      },
+      `User navigated to invite page, but it wasn't found. Redirecting to home page...`,
     );
 
-    redirect('/');
+    notFound();
   }
+
+  const { data: userSession } = await client.auth.getSession();
+  const session = userSession?.session;
+  const csrfToken = headers().get('x-csrf-token');
+
+  return {
+    csrfToken,
+    session,
+    membership,
+    code,
+  };
+}
+
+async function getInvite(adminClient: SupabaseClient<Database>, code: string) {
+  return getMembershipByInviteCode<{
+    id: number;
+    code: string;
+    organization: {
+      name: string;
+      id: number;
+    };
+  }>(adminClient, {
+    code,
+    query: `
+      id,
+      code,
+      organization: organization_id (
+        name,
+        id
+      )
+    `,
+  });
 }

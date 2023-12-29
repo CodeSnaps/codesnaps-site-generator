@@ -18,20 +18,19 @@ import MembershipRole from '~/lib/organizations/types/membership-role';
 import { getOrganizationByUid } from '~/lib/organizations/database/queries';
 
 import configuration from '~/configuration';
-import verifyCsrfToken from '~/core/verify-csrf-token';
 import removeMembership from '~/lib/server/organizations/remove-membership';
 import deleteOrganization from '~/lib/server/organizations/delete-organization';
 import { MEMBERSHIPS_TABLE } from '~/lib/db-tables';
 
 export const createNewOrganizationAction = withSession(
-  async (params: { organization: string; csrfToken: string }) => {
+  async (formData: FormData) => {
     const logger = getLogger();
 
-    const { organization } = await z
-      .object({
-        organization: z.string().min(1),
-      })
-      .parseAsync(params);
+    const organization = await z
+      .string()
+      .min(1)
+      .max(50)
+      .parseAsync(formData.get('organization'));
 
     const client = getSupabaseServerActionClient();
     const session = await requireSession(client);
@@ -244,10 +243,6 @@ export async function leaveOrganizationAction(data: FormData) {
   const { user } = await requireSession(client);
 
   const id = z.coerce.number().parse(data.get('id'));
-  const csrfToken = z.string().parse(data.get('csrfToken'));
-
-  // validate the csrf token
-  await verifyCsrfToken(csrfToken);
 
   // remove the user from the organization
   const params = {
@@ -272,10 +267,6 @@ export async function deleteOrganizationAction(data: FormData) {
 
   // validate the form data
   const id = z.coerce.number().parse(data.get('id'));
-  const csrfToken = z.string().parse(data.get('csrfToken'));
-
-  // validate the csrf token
-  await verifyCsrfToken(csrfToken);
 
   const userId = user.id;
   const params = { organizationId: id, userId };
@@ -321,7 +312,6 @@ export async function deleteOrganizationAction(data: FormData) {
 
 function getInviteMembersBodySchema() {
   return z.object({
-    csrfToken: z.string().min(1),
     organizationUid: z.string().uuid(),
     invites: z.array(
       z.object({
@@ -335,7 +325,6 @@ function getInviteMembersBodySchema() {
 function getTransferOrganizationOwnershipBodySchema() {
   return z.object({
     membershipId: z.coerce.number(),
-    csrfToken: z.string().min(1),
     organizationUid: z.string().uuid(),
   });
 }

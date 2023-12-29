@@ -33,14 +33,16 @@ export async function updateOrganization(
     payload.logo_url = params.data.logoURL;
   }
 
-  const { data } = await client
+  const { data, error } = await client
     .from(ORGANIZATIONS_TABLE)
     .update(payload)
-    .match({ id: params.id })
-    .throwOnError()
-    .select<string, Organization>('*')
-    .throwOnError()
+    .eq('id', params.id)
+    .select('id, name')
     .single();
+
+  if (error) {
+    throw error;
+  }
 
   return data;
 }

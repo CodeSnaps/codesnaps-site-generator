@@ -3,7 +3,6 @@
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 
 import Button from '~/core/ui/Button';
-import useCsrfToken from '~/core/hooks/use-csrf-token';
 import { createBillingPortalSessionAction } from '~/lib/stripe/actions';
 
 const BillingPortalRedirectButton: React.FCC<{
@@ -13,8 +12,6 @@ const BillingPortalRedirectButton: React.FCC<{
   return (
     <form action={createBillingPortalSessionAction}>
       <input type={'hidden'} name={'customerId'} value={customerId} />
-
-      <CsrfTokenInput />
 
       <Button
         data-cy={'manage-billing-redirect-button'}
@@ -30,11 +27,5 @@ const BillingPortalRedirectButton: React.FCC<{
     </form>
   );
 };
-
-function CsrfTokenInput() {
-  const csrfToken = useCsrfToken();
-
-  return <input type="hidden" name={'csrfToken'} defaultValue={csrfToken} />;
-}
 
 export default BillingPortalRedirectButton;

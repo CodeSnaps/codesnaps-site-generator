@@ -3,7 +3,7 @@ import MembershipRole from '~/lib/organizations/types/membership-role';
 import authPo from '../../support/auth.po';
 
 describe(`Create Invite`, () => {
-  const email = `invited-member+${Math.round(
+  const email = `invited-member-${Math.round(
     Math.random() * 1000,
   )}@makerkit.dev`;
 

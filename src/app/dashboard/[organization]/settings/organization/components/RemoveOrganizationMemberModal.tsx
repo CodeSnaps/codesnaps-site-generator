@@ -5,7 +5,6 @@ import Button from '~/core/ui/Button';
 import Modal from '~/core/ui/Modal';
 
 import { deleteMemberAction } from '~/lib/memberships/actions';
-import useCsrfToken from '~/core/hooks/use-csrf-token';
 
 const Heading = <Trans i18nKey="organization:removeMemberModalHeading" />;
 
@@ -14,16 +13,15 @@ const RemoveOrganizationMemberModal: React.FCC<{
   setIsOpen: (isOpen: boolean) => void;
   membershipId: number;
 }> = ({ isOpen, setIsOpen, membershipId }) => {
-  const csrfToken = useCsrfToken();
   const [isSubmitting, startTransition] = useTransition();
 
   const onMemberRemoved = useCallback(() => {
     startTransition(async () => {
-      await deleteMemberAction({ membershipId, csrfToken });
+      await deleteMemberAction({ membershipId });
 
       setIsOpen(false);
     });
-  }, [csrfToken, membershipId, setIsOpen]);
+  }, [membershipId, setIsOpen]);
 
   return (
     <Modal heading={Heading} isOpen={isOpen} setIsOpen={setIsOpen}>

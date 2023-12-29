@@ -23,6 +23,9 @@ import {
 } from '~/lib/memberships/mutations';
 
 import type Membership from '~/lib/organizations/types/membership';
+import { Database } from '~/database.types';
+
+type Client = SupabaseClient<Database>;
 
 interface Invite {
   email: string;
@@ -31,10 +34,10 @@ interface Invite {
 
 interface Params {
   // we use the normal client to query/insert data and leverage RLS for security
-  client: SupabaseClient;
+  client: Client;
 
   // we use the admin client to retrieve the user's email address
-  adminClient: SupabaseClient;
+  adminClient: Client;
   organizationUid: string;
   inviterId: string;
   invites: Invite[];
@@ -158,7 +161,7 @@ export default async function inviteMembers(params: Params) {
             role: invite.role,
           };
 
-          await updateMembershipById(client, params);
+          await updateMembershipById(adminClient, params);
         } catch (error) {
           return catchCallback(error, membershipId);
         }
@@ -200,6 +203,7 @@ export default async function inviteMembers(params: Params) {
             {
               organizationId,
               membershipId,
+              code,
             },
             `Membership successfully created`,
           );

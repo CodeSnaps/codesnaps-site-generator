@@ -4,10 +4,10 @@ import csrf from 'edge-csrf';
 import HttpStatusCode from '~/core/generic/http-status-code.enum';
 import configuration from '~/configuration';
 import createMiddlewareClient from '~/core/supabase/middleware-client';
+import GlobalRole from '~/core/session/types/global-role';
 
 const CSRF_TOKEN_HEADER = 'X-CSRF-Token';
 const CSRF_SECRET_COOKIE = 'csrfSecret';
-const CSRF_TOKEN_BODY_FIELD = 'csrfToken';
 const NEXT_ACTION_HEADER = 'next-action';
 const NEXT_ACTION_REDIRECT_HEADER = 'x-action-redirect';
 
@@ -25,9 +25,10 @@ const csrfMiddleware = csrf({
 });
 
 export async function middleware(request: NextRequest) {
-  const response = await withCsrfMiddleware(request);
+  const csrfResponse = await withCsrfMiddleware(request);
+  const sessionResponse = await sessionMiddleware(request, csrfResponse);
 
-  return sessionMiddleware(request, response);
+  return await adminMiddleware(request, sessionResponse);
 }
 
 async function sessionMiddleware(req: NextRequest, res: NextResponse) {
@@ -41,17 +42,9 @@ async function sessionMiddleware(req: NextRequest, res: NextResponse) {
 async function withCsrfMiddleware(request: NextRequest) {
   const csrfResponse = NextResponse.next();
 
-  // If the request is a Next action
-  // we need to decorate the headers with the CSRF token passed in the body
-  if (isNextAction(request)) {
-    const decorated = await decorateHeadersWithCsrfToken(request);
-
-    // If the request is not JSON, we can't correctly infer the CSRF token
-    // so we return the response without the CSRF token
-    // and let the action handle the CSRF check itself
-    if (!decorated) {
-      return csrfResponse;
-    }
+  // CSRF checks for Server Actions is built-in
+  if (isServerAction(request)) {
+    return csrfResponse;
   }
 
   const csrfError = await csrfMiddleware(request, csrfResponse);
@@ -91,11 +84,11 @@ async function withCsrfMiddleware(request: NextRequest) {
 }
 
 /**
- * Check if the request is a Next action
- * Also check if the request is not a redirect from a Next action
+ * Check if the request is a Server Action
+ * Also check if the request is not a redirect from a Server Action
  * @param request
  */
-function isNextAction(request: NextRequest) {
+function isServerAction(request: NextRequest) {
   const headers = new Headers(request.headers);
 
   return (
@@ -103,51 +96,29 @@ function isNextAction(request: NextRequest) {
   );
 }
 
-/**
- * Decorate the headers with the CSRF token passed in the body
- * @param request
- */
-async function decorateHeadersWithCsrfToken(request: NextRequest) {
-  const { data, type } = await parsePayload(request);
+async function adminMiddleware(request: NextRequest, response: NextResponse) {
+  const isAdminPath = request.nextUrl.pathname.startsWith('/admin');
 
-  if (type === 'json') {
-    if (!Array.isArray(data) || data.length === 0) {
-      return false;
-    }
-
-    const csrfToken = data[0][CSRF_TOKEN_BODY_FIELD];
-
-    if (csrfToken) {
-      request.headers.set(CSRF_TOKEN_HEADER, csrfToken);
-    }
-
-    return true;
+  if (!isAdminPath) {
+    return response;
   }
 
-  return false;
-}
+  const supabase = createMiddlewareClient(request, response);
+  const user = await supabase.auth.getUser();
 
-/**
- * @name parsePayload
- * @description Parse the payload of the request
- * @param request
- */
-async function parsePayload(request: NextRequest) {
-  const clone = request.clone();
-
-  try {
-    const type = 'json' as const;
-    const data = await clone.json();
-
-    return {
-      type,
-      data,
-    };
-  } catch (e) {
-    // we cannot parse the body
-    return {
-      type: undefined,
-      data: null,
-    };
+  // If user is not logged in, redirect to sign in page.
+  // This should never happen, but just in case.
+  if (!user) {
+    return NextResponse.redirect(configuration.paths.signIn);
   }
+
+  const role = user.data.user?.app_metadata['role'];
+
+  // If user is not an admin, redirect to 404 page.
+  if (!role || role !== GlobalRole.SuperAdmin) {
+    return NextResponse.redirect(`${configuration.site.siteUrl}/404`);
+  }
+
+  // in all other cases, return the response
+  return response;
 }

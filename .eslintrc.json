@@ -1,5 +1,5 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": ["next", "prettier"],
   "rules": {
     "no-restricted-imports": [
       "error",
@@ -8,7 +8,7 @@
           {
             "name": "react-i18next",
             "importNames": ["Trans"],
-            "message": "Please use `~core/ui/Trans` instead of `react-i18next/Trans`."
+            "message": "Please use `~/core/ui/Trans` instead of `react-i18next/Trans`."
           }
         ]
       }

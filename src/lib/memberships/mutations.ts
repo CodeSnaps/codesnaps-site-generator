@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid';
 import { MEMBERSHIPS_TABLE } from '~/lib/db-tables';
 import type Membership from '~/lib/organizations/types/membership';
 import type { Database } from '../../database.types';
+import MembershipRole from '~/lib/organizations/types/membership-role';
 
 type Client = SupabaseClient<Database>;
 
@@ -29,16 +30,20 @@ export async function acceptInviteToOrganization(
 /**
  * @name createOrganizationMembership
  * @description Mutation to create a new membership record for a user within an organization.
- * @param client
+ * @param adminClient
  * @param membership
  */
 export async function createOrganizationMembership(
-  client: Client,
+  adminClient: Client,
   membership: Partial<Membership>,
 ) {
-  const code = nanoid(16);
+  const code = nanoid(36);
 
-  return getMembershipsTable(client)
+  if (membership.role === MembershipRole.Owner) {
+    throw new Error('Cannot create an owner membership');
+  }
+
+  return getMembershipsTable(adminClient)
     .insert({
       role: membership.role,
       organization_id: membership.organizationId,

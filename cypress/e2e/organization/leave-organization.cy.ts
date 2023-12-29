@@ -6,9 +6,11 @@ describe(`Leave Organization`, () => {
   describe(`When the user is a member`, () => {
     it(`should be able to leave the organization`, () => {
       const email = getRandomEmail();
+      const defaultOrganization =
+        organizationPageObject.getDefaultOrganizationId();
 
       cy.signIn(configuration.paths.appHome);
-      cy.cyGet('organization-card-button').eq(0).click();
+      cy.signIn(configuration.paths.appHome + '/' + defaultOrganization);
 
       cy.contains('Settings').click();
       cy.contains('Organization').click();

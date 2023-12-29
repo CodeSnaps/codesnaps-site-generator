@@ -17,7 +17,7 @@ describe(`Create Subscription`, () => {
       before(() => {
         signIn();
 
-        organizationPageObject.createOrganization(`Stripe Test ${Date.now()}`);
+        organizationPageObject.createOrganization(`Stripe ${Date.now()}`);
 
         navigateToSubscription();
 

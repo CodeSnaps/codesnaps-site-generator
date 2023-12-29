@@ -1,6 +1,7 @@
-import { useCallback, useContext } from 'react';
+import { useCallback, useContext, useState } from 'react';
 import Image from 'next/image';
 import { useParams, usePathname, useRouter } from 'next/navigation';
+import classNames from 'clsx';
 
 import {
   EllipsisVerticalIcon,
@@ -25,17 +26,17 @@ import {
 
 import If from '~/core/ui/If';
 import Trans from '~/core/ui/Trans';
+import { Avatar, AvatarFallback } from '~/core/ui/Avatar';
 
 import UserSessionContext from '~/core/session/contexts/user-session';
 import CreateOrganizationModal from './CreateOrganizationModal';
 import type MembershipRole from '~/lib/organizations/types/membership-role';
 import useCurrentOrganization from '~/lib/organizations/hooks/use-current-organization';
 import configuration from '~/configuration';
-import { Avatar, AvatarFallback } from '~/core/ui/Avatar';
-import classNames from 'clsx';
 
 const OrganizationsSelector = ({ displayName = true }) => {
   const changeOrganization = useChangeOrganization();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const organization = useCurrentOrganization();
   const { userSession } = useContext(UserSessionContext);
@@ -55,7 +56,7 @@ const OrganizationsSelector = ({ displayName = true }) => {
           <div
             role={'button'}
             className={classNames(
-              `text-sm lg:text-base w-full group hover:bg-neutral-50 cursor-pointer border-transparent dark:hover:bg-dark-900/50 dark:hover:text-white`,
+              `text-sm lg:text-base w-full group hover:bg-gray-50 cursor-pointer border-transparent dark:hover:bg-dark-900/50 dark:hover:text-white`,
               {
                 ['justify-between max-h-12']: displayName,
                 ['rounded-full border-none !p-0.5 mx-auto']: !displayName,
@@ -70,7 +71,7 @@ const OrganizationsSelector = ({ displayName = true }) => {
 
             <If condition={displayName}>
               <EllipsisVerticalIcon
-                className={'h-5 hidden group-hover:block text-neutral-500'}
+                className={'h-5 hidden group-hover:block text-gray-500'}
               />
             </If>
 
@@ -102,25 +103,27 @@ const OrganizationsSelector = ({ displayName = true }) => {
           <SelectSeparator />
 
           <SelectGroup>
-            <CreateOrganizationModal
-              Trigger={
-                <SelectAction
-                  data-cy={'create-organization-button'}
-                  className={'flex flex-row items-center space-x-2 truncate'}
-                >
-                  <PlusCircleIcon className={'h-5'} />
+            <SelectAction
+              data-cy={'create-organization-button'}
+              className={'flex flex-row items-center space-x-2 truncate'}
+              onClick={() => setIsModalOpen(true)}
+            >
+              <PlusCircleIcon className={'h-5'} />
 
-                  <span>
-                    <Trans
-                      i18nKey={'organization:createOrganizationDropdownLabel'}
-                    />
-                  </span>
-                </SelectAction>
-              }
-            />
+              <span>
+                <Trans
+                  i18nKey={'organization:createOrganizationDropdownLabel'}
+                />
+              </span>
+            </SelectAction>
           </SelectGroup>
         </SelectContent>
       </Select>
+
+      <CreateOrganizationModal
+        isOpen={isModalOpen}
+        setIsOpen={setIsModalOpen}
+      />
     </>
   );
 };

@@ -1,6 +1,6 @@
 {
   "name": "codesnaps-website",
-  "version": "0.9.6",
+  "version": "0.10.0",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -72,7 +72,7 @@
     "contentlayer": "0.3.4",
     "cva": "npm:class-variance-authority@^0.7.0",
     "date-fns": "^2.30.0",
-    "edge-csrf": "^1.0.6",
+    "edge-csrf": "^1.0.7-rc1",
     "framer-motion": "^10.16.4",
     "heroicons": "^2.0.18",
     "i": "^0.3.7",
@@ -92,7 +92,7 @@
     "react": "18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.48.2",
+    "react-hook-form": "^7.49.0",
     "react-i18next": "^13.5.0",
     "react-top-loading-bar": "^2.3.1",
     "recharts": "^2.10.3",
@@ -113,9 +113,9 @@
   "devDependencies": {
     "@types/eslint": "^8.44.8",
     "@types/i18next-fs-backend": "^1.1.5",
-    "@types/node": "20.10.0",
+    "@types/node": "20.10.4",
     "@types/nodemailer": "^6.4.14",
-    "@types/react": "^18.2.42",
+    "@types/react": "^18.2.43",
     "@types/react-copy-to-clipboard": "^5.0.6",
     "@types/react-dom": "^18.2.17",
     "@types/react-syntax-highlighter": "^15.5.10",
@@ -128,13 +128,16 @@
     "eslint-plugin-cypress": "^2.15.1",
     "pino-pretty": "10.2.3",
     "postcss": "^8.4.32",
-    "prettier": "3.1.0",
+    "prettier": "3.1.1",
     "prettier-plugin-tailwindcss": "^0.5.9",
-    "supabase": "^1.115.5",
+    "supabase": "^1.123.0",
     "tailwindcss": "^3.3.6",
-    "typescript": "5.1.6"
+    "typescript": "5.3.3"
   },
   "engines": {
     "node": ">=18.17.0"
+  },
+  "overrides": {
+    "@typescript-eslint/parser": "6.13.2"
   }
 }

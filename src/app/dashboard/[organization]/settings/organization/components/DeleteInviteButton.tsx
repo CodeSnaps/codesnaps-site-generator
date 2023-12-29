@@ -7,7 +7,6 @@ import IconButton from '~/core/ui/IconButton';
 import Modal from '~/core/ui/Modal';
 import Button from '~/core/ui/Button';
 import Trans from '~/core/ui/Trans';
-import useCsrfToken from '~/core/hooks/use-csrf-token';
 import { deleteMemberAction } from '~/lib/memberships/actions';
 
 const Heading = <Trans i18nKey={'organization:deleteInviteModalHeading'} />;
@@ -17,13 +16,12 @@ const DeleteInviteButton: React.FCC<{
   memberEmail: string;
 }> = ({ membershipId, memberEmail }) => {
   const [isSubmitting, startTransition] = useTransition();
-  const csrfToken = useCsrfToken();
 
   const onInviteDeleteRequested = useCallback(async () => {
     startTransition(async () => {
-      await deleteMemberAction({ membershipId, csrfToken });
+      await deleteMemberAction({ membershipId });
     });
-  }, [csrfToken, membershipId]);
+  }, [membershipId]);
 
   return (
     <Modal

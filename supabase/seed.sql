@@ -30,12 +30,45 @@ insert into auth.users
   'test-update-password@makerkit.dev', '$2a$10$xTcejQ5rqsn2R3p9jx4XhO18/Gv844c38YhXLgle5sbbtruLcr.x2', '2022-12-15 19:24:42.345467+00',
   null, '', NULL, '', null, '', '', null, '2022-12-15 19:24:42.347755+00', '{"provider": "email", "providers": ["email"]}', '{}', null, '2022-12-15 19:24:42.341975+00', '2022-12-15 19:24:42.349475+00', null, null, '', '', null, default, '', 0, NULL, '', null);
 
-insert into auth.identities (id, provider, user_id, identity_data, last_sign_in_at, created_at, updated_at) values (
-    '059b89cf-0417-4692-abdf-cb065496ea4c', 'email', '059b89cf-0417-4692-abdf-cb065496ea4c', '{}', '2022-12-15 19:24:42.345467+00', '2022-12-15 19:24:42.345467+00', '2022-12-15 19:24:42.345467+00'
+insert into auth.identities (id, provider, provider_id, user_id, identity_data, last_sign_in_at, created_at, updated_at) values (
+    '059b89cf-0417-4692-abdf-cb065496ea4c', 'email', 'email_01',
+    '059b89cf-0417-4692-abdf-cb065496ea4c', '{"provider": "email", "providers": ["email"]}', '2022-12-15 19:24:42.345467+00', '2022-12-15 19:24:42.345467+00', '2022-12-15 19:24:42.345467+00'
 );
 
-insert into auth.identities (id, provider, user_id, identity_data, last_sign_in_at, created_at, updated_at) values (
-    'e6058751-75dc-4831-b773-dd6e0c821963', 'email', 'e6058751-75dc-4831-b773-dd6e0c821963', '{}', '2022-12-15 19:24:42.345467+00', '2022-12-15 19:24:42.345467+00', '2022-12-15 19:24:42.345467+00'
+insert into auth.identities (id, provider, provider_id, user_id,
+identity_data, last_sign_in_at, created_at, updated_at) values (
+    'e6058751-75dc-4831-b773-dd6e0c821963', 'email', 'email_02',
+    'e6058751-75dc-4831-b773-dd6e0c821963', '{"provider": "email", "providers": ["email"]}', '2022-12-15 19:24:42.345467+00', '2022-12-15 19:24:42.345467+00', '2022-12-15 19:24:42.345467+00'
+);
+
+insert into auth.identities (id, provider, provider_id, user_id,
+identity_data, last_sign_in_at, created_at, updated_at) values (
+    '2b4a6624-7118-4551-8f0f-6b753e32e139', 'email', 'email_03',
+    '2b4a6624-7118-4551-8f0f-6b753e32e139', '{"provider": "email", "providers": ["email"]}', '2022-12-15 19:24:42.345467+00', '2022-12-15 19:24:42.345467+00', '2022-12-15 19:24:42.345467+00'
+);
+
+insert into auth.identities (id, provider, provider_id, user_id,
+identity_data, last_sign_in_at, created_at, updated_at) values (
+    '34fac252-fd02-4bb9-bdf2-3492aab4e211', 'email', 'email_04',
+    '34fac252-fd02-4bb9-bdf2-3492aab4e211', '{"provider": "email", "providers": ["email"]}', '2022-12-15 19:24:42.345467+00', '2022-12-15 19:24:42.345467+00', '2022-12-15 19:24:42.345467+00'
+);
+
+insert into auth.identities (id, provider, provider_id, user_id,
+identity_data, last_sign_in_at, created_at, updated_at) values (
+    '3dacd099-052e-461f-a17d-e62ed50a6c4e', 'email', 'email_05',
+    '3dacd099-052e-461f-a17d-e62ed50a6c4e', '{"provider": "email", "providers": ["email"]}', '2022-12-15 19:24:42.345467+00', '2022-12-15 19:24:42.345467+00', '2022-12-15 19:24:42.345467+00'
+);
+
+insert into auth.identities (id, provider, provider_id, user_id,
+identity_data, last_sign_in_at, created_at, updated_at) values (
+    '337ad11f-42c1-4ab8-844d-961aa13d154b', 'email', 'email_06',
+    '337ad11f-42c1-4ab8-844d-961aa13d154b', '{"provider": "email", "providers": ["email"]}', '2022-12-15 19:24:42.345467+00', '2022-12-15 19:24:42.345467+00', '2022-12-15 19:24:42.345467+00'
+);
+
+insert into auth.identities (id, provider, provider_id, user_id,
+identity_data, last_sign_in_at, created_at, updated_at) values (
+    'b2e506f1-0ff6-43de-8437-67a870564ab2', 'email', 'email_07',
+    'b2e506f1-0ff6-43de-8437-67a870564ab2', '{"provider": "email", "providers": ["email"]}', '2022-12-15 19:24:42.345467+00', '2022-12-15 19:24:42.345467+00', '2022-12-15 19:24:42.345467+00'
 );
 
 insert into public.users (id, display_name, photo_url, onboarded)
@@ -2607,528 +2640,7 @@ export default function Logo() {
     </div>
   );
 }', '', ''),
-	('95fc95d9-1da3-4818-ab2c-8f862579381c', '2023-11-08 18:55:17.85525+00', 'Navbar 1', 'You need to install the following package: npm install @headlessui/react@latest', true, true, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-1', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_1-1700253191223.webp', 'Navbar Component', true, '{text-align-left,video-image-left,2-columns}', '{buttons,dropdown,icons,navbar}', '/*
-You need to install the following package npm install @headlessui/react@latest
-*/
-
-import { useState } from ''react'';
-import { Dialog, Menu } from ''@headlessui/react'';
-
-const navigation = [
-  { name: ''Link One'', href: ''#'', dropdown: false },
-  { name: ''Link Two'', href: ''#'', dropdown: false },
-  {
-    name: ''Dropdown Three'',
-    dropdown: true,
-    dropdownItems: [
-      {
-        name: ''Item #1'',
-        href: ''#'',
-      },
-      {
-        name: ''Item #2'',
-        href: ''#'',
-      },
-      {
-        name: ''Item #3'',
-        href: ''#'',
-      },
-    ],
-  },
-];
-
-export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  return (
-    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
-      <nav
-        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
-        aria-label="Global"
-      >
-        <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
-          </a>
-        </div>
-
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <HamburgerIcon
-              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
-              aria-hidden="true"
-            />
-          </button>
-        </div>
-
-        {/* NAVIGATION ITEMS */}
-        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
-          {navigation.map((item) => (
-            <div key={item.name}>
-              {item.dropdown ? (
-                <Menu as="div" className="relative">
-                  <Menu.Button className="flex items-center text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100">
-                    {item.name}
-                    <ChevronDownIcon className="ml-2 h-5 w-5 stroke-neutral-700 dark:stroke-neutral-300" />
-                  </Menu.Button>
-
-                  {/* DROPDOWN ITEMS */}
-                  <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white py-4 shadow-lg ring-1 ring-black/5 focus:outline-none dark:bg-neutral-900">
-                    {item.dropdownItems.map((item) => (
-                      <Menu.Item key={item.name}>
-                        {({ active }) => (
-                          <a
-                            href={item.href}
-                            className={`${
-                              active && ''bg-neutral-100 dark:bg-neutral-800''
-                            } block px-4 py-2`}
-                          >
-                            {item.name}
-                          </a>
-                        )}
-                      </Menu.Item>
-                    ))}
-                  </Menu.Items>
-                </Menu>
-              ) : (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
-                >
-                  {item.name}
-                </a>
-              )}
-            </div>
-          ))}
-
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
-            <a
-              href="#"
-              className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-            >
-              Learn more <span aria-hidden="true">&rarr;</span>
-            </a>
-
-            <a
-              href="#"
-              className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
-            >
-              Contact
-            </a>
-          </div>
-        </div>
-      </nav>
-
-      {/* MOBILE NAVIGATION */}
-      <Dialog
-        as="div"
-        className="lg:hidden"
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-      >
-        <div className="fixed inset-0 z-50" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
-          <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
-            </a>
-            <button
-              type="button"
-              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon
-                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
-                aria-hidden="true"
-              />
-            </button>
-          </div>
-
-          {/* MOBILE NAVIGATION ITEMS */}
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-neutral-500/30 dark:divide-white/30">
-              <div className="space-y-2 py-6">
-                {navigation.map((item) => (
-                  <div key={item.name}>
-                    {item.dropdown ? (
-                      <div>
-                        <span className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 dark:text-neutral-100">
-                          {item.name}
-                        </span>
-
-                        <div className="ml-4 mt-1">
-                          {item.dropdownItems.map((item) => (
-                            <a
-                              key={item.name}
-                              href={item.href}
-                              className="-mx-3 block rounded-lg px-3 py-2 text-sm font-medium leading-7 text-neutral-600 hover:bg-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-900"
-                            >
-                              {item.name}
-                            </a>
-                          ))}
-                        </div>
-                      </div>
-                    ) : (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
-                      >
-                        {item.name}
-                      </a>
-                    )}{'' ''}
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex flex-col space-y-4 py-6">
-                <a
-                  href="#"
-                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-                >
-                  Learn more <span aria-hidden="true">&rarr;</span>
-                </a>
-
-                <a
-                  href="#"
-                  className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
-                >
-                  Contact
-                </a>
-              </div>
-            </div>
-          </div>
-        </Dialog.Panel>
-      </Dialog>
-    </header>
-  );
-}
-
-function Logo(props) {
-  return (
-    <svg viewBox="0 0 167 41" {...props}>
-      <path
-        fillRule="nonzero"
-        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
-      ></path>
-      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
-    </svg>
-  );
-}
-
-function HamburgerIcon(props) {
-  return (
-    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-      />
-    </svg>
-  );
-}
-
-function XMarkIcon(props) {
-  return (
-    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M6 18L18 6M6 6l12 12"
-      />
-    </svg>
-  );
-}
-
-function ChevronDownIcon(props) {
-  return (
-    <svg
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      {...props}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-      />
-    </svg>
-  );
-}', '/*
-You need to install the following package npm install @headlessui/react@latest
-*/
-
-''use client'';
-
-import Link from ''next/link'';
-
-import { useState } from ''react'';
-import { Dialog, Menu } from ''@headlessui/react'';
-
-const navigation = [
-  { name: ''Link One'', href: ''#'', dropdown: false },
-  { name: ''Link Two'', href: ''#'', dropdown: false },
-  {
-    name: ''Dropdown Three'',
-    dropdown: true,
-    dropdownItems: [
-      {
-        name: ''Item #1'',
-        href: ''#'',
-      },
-      {
-        name: ''Item #2'',
-        href: ''#'',
-      },
-      {
-        name: ''Item #3'',
-        href: ''#'',
-      },
-    ],
-  },
-];
-
-export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  return (
-    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
-      <nav
-        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
-        aria-label="Global"
-      >
-        <div className="flex lg:flex-1">
-          <Link href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
-          </Link>
-        </div>
-
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <HamburgerIcon
-              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
-              aria-hidden="true"
-            />
-          </button>
-        </div>
-
-        {/* NAVIGATION ITEMS */}
-        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
-          {navigation.map((item) => (
-            <div key={item.name}>
-              {item.dropdown ? (
-                <Menu as="div" className="relative">
-                  <Menu.Button className="flex items-center text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100">
-                    {item.name}
-                    <ChevronDownIcon className="ml-2 h-5 w-5 stroke-neutral-700 dark:stroke-neutral-300" />
-                  </Menu.Button>
-
-                  {/* DROPDOWN ITEMS */}
-                  <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white py-4 shadow-lg ring-1 ring-black/5 focus:outline-none dark:bg-neutral-900">
-                    {item.dropdownItems.map((item) => (
-                      <Menu.Item key={item.name}>
-                        {({ active }) => (
-                          <Link
-                            href={item.href}
-                            className={`${
-                              active && ''bg-neutral-100 dark:bg-neutral-800''
-                            } block px-4 py-2`}
-                          >
-                            {item.name}
-                          </Link>
-                        )}
-                      </Menu.Item>
-                    ))}
-                  </Menu.Items>
-                </Menu>
-              ) : (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
-                >
-                  {item.name}
-                </Link>
-              )}
-            </div>
-          ))}
-
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
-            <Link
-              href="#"
-              className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-            >
-              Learn more <span aria-hidden="true">&rarr;</span>
-            </Link>
-
-            <Link
-              href="#"
-              className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
-            >
-              Contact
-            </Link>
-          </div>
-        </div>
-      </nav>
-
-      {/* MOBILE NAVIGATION */}
-      <Dialog
-        as="div"
-        className="lg:hidden"
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-      >
-        <div className="fixed inset-0 z-50" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
-          <div className="flex items-center justify-between">
-            <Link href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
-            </Link>
-            <button
-              type="button"
-              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon
-                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
-                aria-hidden="true"
-              />
-            </button>
-          </div>
-
-          {/* MOBILE NAVIGATION ITEMS */}
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-neutral-500/30 dark:divide-white/30">
-              <div className="space-y-2 py-6">
-                {navigation.map((item) => (
-                  <div key={item.name}>
-                    {item.dropdown ? (
-                      <div>
-                        <span className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 dark:text-neutral-100">
-                          {item.name}
-                        </span>
-
-                        <div className="ml-4 mt-1">
-                          {item.dropdownItems.map((item) => (
-                            <Link
-                              key={item.name}
-                              href={item.href}
-                              className="-mx-3 block rounded-lg px-3 py-2 text-sm font-medium leading-7 text-neutral-600 hover:bg-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-900"
-                            >
-                              {item.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    ) : (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
-                      >
-                        {item.name}
-                      </Link>
-                    )}{'' ''}
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex flex-col space-y-4 py-6">
-                <Link
-                  href="#"
-                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-                >
-                  Learn more <span aria-hidden="true">&rarr;</span>
-                </Link>
-
-                <Link
-                  href="#"
-                  className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
-                >
-                  Contact
-                </Link>
-              </div>
-            </div>
-          </div>
-        </Dialog.Panel>
-      </Dialog>
-    </header>
-  );
-}
-
-function Logo(props) {
-  return (
-    <svg viewBox="0 0 167 41" {...props}>
-      <path
-        fillRule="nonzero"
-        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
-      ></path>
-      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
-    </svg>
-  );
-}
-
-function HamburgerIcon(props) {
-  return (
-    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-      />
-    </svg>
-  );
-}
-
-function XMarkIcon(props) {
-  return (
-    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M6 18L18 6M6 6l12 12"
-      />
-    </svg>
-  );
-}
-
-function ChevronDownIcon(props) {
-  return (
-    <svg
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      {...props}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-      />
-    </svg>
-  );
-}', '', ''),
-	('0687c21d-23d7-4e9f-b4e2-cf2bc4982e8e', '2023-11-08 18:55:17.85525+00', 'Navbar 3', 'You need to install the following package: npm install @headlessui/react@latest', true, true, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-3', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_3-1699474947122.webp', 'Navbar Component', false, '{text-align-center,video-image-center,3-columns}', '{buttons,icons,navbar}', '/*
+	('0687c21d-23d7-4e9f-b4e2-cf2bc4982e8e', '2023-11-08 18:55:17.85525+00', 'Navbar 3', 'You need to install the following package: npm install @headlessui/react@latest', true, true, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-3', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_3-1699474947122.webp', 'Navbar Component', false, '{text-align-center,video-image-center,3-columns}', '{buttons,logos,navbar}', '/*
 You need to install the following package npm install @headlessui/react@latest
 */
 
@@ -3406,6 +2918,327 @@ export default function Navbar() {
               </div>
 
               {/* MOBILE NAVIGATION CTA */}
+              <div className="py-6">
+                <Link
+                  href="#"
+                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  Button
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}', '', ''),
+	('3225c75e-9d31-47c1-ba65-4ed68648df0b', '2023-11-08 18:55:17.85525+00', 'Navbar 2', 'You need to install the following package: npm install @headlessui/react@latest', true, true, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-2', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_2-1699474914969.webp', 'Navbar Component', false, '{text-align-center,video-image-left,3-columns}', '{buttons,logos,navbar}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+import { useState } from ''react'';
+import { Dialog } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'' },
+  { name: ''Link Two'', href: ''#'' },
+  { name: ''Link Three'', href: ''#'' },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
+        aria-label="Global"
+      >
+        <div className="flex lg:flex-1">
+          <a href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Your Company</span>
+            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+          </a>
+        </div>
+
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <HamburgerIcon
+              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
+          <a
+            href="#"
+            className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+          >
+            Button
+          </a>
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <a href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </a>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-neutral-500/10">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+
+              <div className="py-6">
+                <a
+                  href="#"
+                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  Button
+                </a>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+''use client'';
+
+import Link from ''next/link'';
+
+import { useState } from ''react'';
+import { Dialog } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'' },
+  { name: ''Link Two'', href: ''#'' },
+  { name: ''Link Three'', href: ''#'' },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
+        aria-label="Global"
+      >
+        <div className="flex lg:flex-1">
+          <Link href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Your Company</span>
+            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+          </Link>
+        </div>
+
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <HamburgerIcon
+              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
+          <Link
+            href="#"
+            className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+          >
+            Button
+          </Link>
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <Link href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </Link>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-neutral-500/10">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+
               <div className="py-6">
                 <Link
                   href="#"
@@ -3719,327 +3552,6 @@ function MinusIcon(props) {
   return (
     <svg viewBox="0 0 24 24" stroke="currentColor" {...props}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15" />
-    </svg>
-  );
-}', '', ''),
-	('3225c75e-9d31-47c1-ba65-4ed68648df0b', '2023-11-08 18:55:17.85525+00', 'Navbar 2', 'You need to install the following package: npm install @headlessui/react@latest', true, true, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-2', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_2-1699474914969.webp', 'Navbar Component', false, '{text-align-center,video-image-left,3-columns}', '{buttons,icons,navbar}', '/*
-You need to install the following package npm install @headlessui/react@latest
-*/
-
-import { useState } from ''react'';
-import { Dialog } from ''@headlessui/react'';
-
-const navigation = [
-  { name: ''Link One'', href: ''#'' },
-  { name: ''Link Two'', href: ''#'' },
-  { name: ''Link Three'', href: ''#'' },
-];
-
-export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  return (
-    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
-      <nav
-        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
-        aria-label="Global"
-      >
-        <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
-          </a>
-        </div>
-
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <HamburgerIcon
-              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
-              aria-hidden="true"
-            />
-          </button>
-        </div>
-
-        {/* NAVIGATION ITEMS */}
-        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
-          {navigation.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
-            >
-              {item.name}
-            </a>
-          ))}
-        </div>
-
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
-          <a
-            href="#"
-            className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-          >
-            Button
-          </a>
-        </div>
-      </nav>
-
-      {/* MOBILE NAVIGATION */}
-      <Dialog
-        as="div"
-        className="lg:hidden"
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-      >
-        <div className="fixed inset-0 z-50" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
-          <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
-            </a>
-            <button
-              type="button"
-              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon
-                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
-                aria-hidden="true"
-              />
-            </button>
-          </div>
-
-          {/* MOBILE NAVIGATION ITEMS */}
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-neutral-500/10">
-              <div className="space-y-2 py-6">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
-                  >
-                    {item.name}
-                  </a>
-                ))}
-              </div>
-
-              <div className="py-6">
-                <a
-                  href="#"
-                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-                >
-                  Button
-                </a>
-              </div>
-            </div>
-          </div>
-        </Dialog.Panel>
-      </Dialog>
-    </header>
-  );
-}
-
-function Logo(props) {
-  return (
-    <svg viewBox="0 0 167 41" {...props}>
-      <path
-        fillRule="nonzero"
-        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
-      ></path>
-      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
-    </svg>
-  );
-}
-
-function HamburgerIcon(props) {
-  return (
-    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-      />
-    </svg>
-  );
-}
-
-function XMarkIcon(props) {
-  return (
-    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M6 18L18 6M6 6l12 12"
-      />
-    </svg>
-  );
-}', '/*
-You need to install the following package npm install @headlessui/react@latest
-*/
-
-''use client'';
-
-import Link from ''next/link'';
-
-import { useState } from ''react'';
-import { Dialog } from ''@headlessui/react'';
-
-const navigation = [
-  { name: ''Link One'', href: ''#'' },
-  { name: ''Link Two'', href: ''#'' },
-  { name: ''Link Three'', href: ''#'' },
-];
-
-export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  return (
-    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
-      <nav
-        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
-        aria-label="Global"
-      >
-        <div className="flex lg:flex-1">
-          <Link href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
-          </Link>
-        </div>
-
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <HamburgerIcon
-              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
-              aria-hidden="true"
-            />
-          </button>
-        </div>
-
-        {/* NAVIGATION ITEMS */}
-        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </div>
-
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
-          <Link
-            href="#"
-            className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-          >
-            Button
-          </Link>
-        </div>
-      </nav>
-
-      {/* MOBILE NAVIGATION */}
-      <Dialog
-        as="div"
-        className="lg:hidden"
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-      >
-        <div className="fixed inset-0 z-50" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
-          <div className="flex items-center justify-between">
-            <Link href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
-            </Link>
-            <button
-              type="button"
-              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon
-                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
-                aria-hidden="true"
-              />
-            </button>
-          </div>
-
-          {/* MOBILE NAVIGATION ITEMS */}
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-neutral-500/10">
-              <div className="space-y-2 py-6">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-
-              <div className="py-6">
-                <Link
-                  href="#"
-                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
-                >
-                  Button
-                </Link>
-              </div>
-            </div>
-          </div>
-        </Dialog.Panel>
-      </Dialog>
-    </header>
-  );
-}
-
-function Logo(props) {
-  return (
-    <svg viewBox="0 0 167 41" {...props}>
-      <path
-        fillRule="nonzero"
-        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
-      ></path>
-      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
-    </svg>
-  );
-}
-
-function HamburgerIcon(props) {
-  return (
-    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-      />
-    </svg>
-  );
-}
-
-function XMarkIcon(props) {
-  return (
-    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M6 18L18 6M6 6l12 12"
-      />
     </svg>
   );
 }', '', ''),
@@ -5080,7 +4592,363 @@ export default function Testimonial() {
     </div>
   );
 }', '', ''),
-	('8b6882dc-f8ef-452d-a246-5141369e046c', '2023-11-17 20:46:33.566283+00', 'Navbar 6', 'You need to install the following package: npm install @headlessui/react@latest', true, false, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-6', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_6-1700253992183.webp', 'Navbar Component', true, '{text-align-left,video-image-left,2-columns}', '{buttons,dropdown,icons,navbar}', '/*
+	('50d8e0bc-c7c3-4537-a558-fb0941c93b29', '2023-11-12 12:22:28.847967+00', 'Blog 3', '', true, false, 'marketing', 'blog', 'https://library.codesnaps.io/api/content/blog/blog-3', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/blog_3-1699791747165.webp', 'Blog Component', false, '{text-align-left,text-align-center,video-image-center,2-columns}', '{multiple-images}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import React from ''react'';
+
+const posts = [
+  {
+    id: 1,
+    category: ''Category'',
+    title: ''Blog title heading will go here'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.'',
+    href: ''#'',
+    imgSrc: ''https://dummyimage.com/1280x800/d4d4d4/171717'',
+    alt: ''Image'',
+    metadata: {
+      author: ''Full Name'',
+      authorImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+      datetime: ''2023-05-01'',
+      date: ''May 1, 2023'',
+      readingTime: ''5 min read'',
+    },
+  },
+  {
+    id: 2,
+    category: ''Category'',
+    title: ''Blog title heading will go here'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.'',
+    href: ''#'',
+    imgSrc: ''https://dummyimage.com/1280x800/d4d4d4/171717'',
+    alt: ''Image'',
+    metadata: {
+      author: ''Full Name'',
+      authorImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+      datetime: ''2023-05-01'',
+      date: ''May 1, 2023'',
+      readingTime: ''5 min read'',
+    },
+  },
+  {
+    id: 3,
+    category: ''Category'',
+    title: ''Blog title heading will go here'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.'',
+    href: ''#'',
+    imgSrc: ''https://dummyimage.com/1280x800/d4d4d4/171717'',
+    alt: ''Image'',
+    metadata: {
+      author: ''Full Name'',
+      authorImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+      datetime: ''2023-05-01'',
+      date: ''May 1, 2023'',
+      readingTime: ''5 min read'',
+    },
+  },
+  {
+    id: 4,
+    category: ''Category'',
+    title: ''Blog title heading will go here'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.'',
+    href: ''#'',
+    imgSrc: ''https://dummyimage.com/1280x800/d4d4d4/171717'',
+    alt: ''Image'',
+    metadata: {
+      author: ''Full Name'',
+      authorImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+      datetime: ''2023-05-01'',
+      date: ''May 1, 2023'',
+      readingTime: ''5 min read'',
+    },
+  },
+];
+
+export default function Blog() {
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="mx-auto flex max-w-4xl flex-col space-y-7 text-center">
+        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-900 dark:text-neutral-300">
+          Blog
+        </h3>
+
+        <h2 className="text-4xl font-semibold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Short heading goes here
+        </h2>
+
+        <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-10 max-w-md sm:mt-14 md:max-w-2xl lg:mt-20 lg:max-w-none">
+        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2">
+          {posts.map((post) => (
+            <div key={post.id} className="flex flex-col">
+              <a href={post.href}>
+                <img
+                  loading="lazy"
+                  src={post.imgSrc}
+                  alt={post.alt}
+                  width={400}
+                  height={240}
+                  className="w-full"
+                />
+              </a>
+
+              <dt className="mt-8 flex flex-col items-start gap-y-3">
+                <span className="text-xs font-medium uppercase text-neutral-600 dark:text-neutral-400">
+                  {post.category}
+                </span>
+                <h3 className="text-2xl font-semibold leading-tight text-neutral-900 dark:text-neutral-100">
+                  {post.title}
+                </h3>
+              </dt>
+
+              <dd className="mt-4 flex flex-auto flex-col text-base leading-7">
+                <p className="flex-auto text-base text-neutral-500 dark:text-neutral-500">
+                  {post.description}
+                </p>
+
+                <div className="mt-6 flex items-center">
+                  <div className="mr-4 flex-shrink-0 self-center">
+                    <img
+                      src={post.metadata.authorImg}
+                      alt={post.metadata.author}
+                      width={50}
+                      height={50}
+                      className="rounded-full"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-medium text-neutral-600 dark:text-neutral-200">
+                      {post.metadata.author}
+                    </h4>
+                    <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
+                      <time dateTime={post.metadata.datetime}>
+                        {post.metadata.date}
+                      </time>{'' ''}
+                      &middot; <span>{post.metadata.readingTime}</span>
+                    </p>
+                  </div>
+                </div>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <div className="mt-10 flex justify-center lg:mt-14">
+        <a
+          href="#"
+          className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+        >
+          View All
+        </a>
+      </div>
+    </div>
+  );
+}', '/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: ''https'',
+        hostname: ''dummyimage.com'',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
+
+import Link from ''next/link'';
+import Image from ''next/image'';
+
+const posts = [
+  {
+    id: 1,
+    category: ''Category'',
+    title: ''Blog title heading will go here'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.'',
+    href: ''#'',
+    imgSrc: ''https://dummyimage.com/1280x800/d4d4d4/171717'',
+    alt: ''Image'',
+    metadata: {
+      author: ''Full Name'',
+      authorImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+      datetime: ''2023-05-01'',
+      date: ''May 1, 2023'',
+      readingTime: ''5 min read'',
+    },
+  },
+  {
+    id: 2,
+    category: ''Category'',
+    title: ''Blog title heading will go here'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.'',
+    href: ''#'',
+    imgSrc: ''https://dummyimage.com/1280x800/d4d4d4/171717'',
+    alt: ''Image'',
+    metadata: {
+      author: ''Full Name'',
+      authorImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+      datetime: ''2023-05-01'',
+      date: ''May 1, 2023'',
+      readingTime: ''5 min read'',
+    },
+  },
+  {
+    id: 3,
+    category: ''Category'',
+    title: ''Blog title heading will go here'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.'',
+    href: ''#'',
+    imgSrc: ''https://dummyimage.com/1280x800/d4d4d4/171717'',
+    alt: ''Image'',
+    metadata: {
+      author: ''Full Name'',
+      authorImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+      datetime: ''2023-05-01'',
+      date: ''May 1, 2023'',
+      readingTime: ''5 min read'',
+    },
+  },
+  {
+    id: 4,
+    category: ''Category'',
+    title: ''Blog title heading will go here'',
+    description:
+      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.'',
+    href: ''#'',
+    imgSrc: ''https://dummyimage.com/1280x800/d4d4d4/171717'',
+    alt: ''Image'',
+    metadata: {
+      author: ''Full Name'',
+      authorImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
+      datetime: ''2023-05-01'',
+      date: ''May 1, 2023'',
+      readingTime: ''5 min read'',
+    },
+  },
+];
+
+export default function Blog() {
+  return (
+    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
+      <div className="mx-auto flex max-w-4xl flex-col space-y-7 text-center">
+        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-900 dark:text-neutral-300">
+          Blog
+        </h3>
+
+        <h2 className="text-4xl font-semibold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
+          Short heading goes here
+        </h2>
+
+        <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
+          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
+        </p>
+      </div>
+
+      <div className="mx-auto mt-10 max-w-md sm:mt-14 md:max-w-2xl lg:mt-20 lg:max-w-none">
+        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2">
+          {posts.map((post) => (
+            <div key={post.id} className="flex flex-col">
+              <Link href={post.href}>
+                <Image
+                  priority
+                  src={post.imgSrc}
+                  alt={post.alt}
+                  width={400}
+                  height={240}
+                  className="w-full"
+                />
+              </div>
+
+              <dt className="mt-8 flex flex-col items-start gap-y-3">
+                <span className="text-xs font-medium uppercase text-neutral-600 dark:text-neutral-400">
+                  {post.category}
+                </span>
+                <h3 className="text-2xl font-semibold leading-tight text-neutral-900 dark:text-neutral-100">
+                  {post.title}
+                </h3>
+              </dt>
+
+              <dd className="mt-4 flex flex-auto flex-col text-base leading-7">
+                <p className="flex-auto text-base text-neutral-500 dark:text-neutral-500">
+                  {post.description}
+                </p>
+
+                <div className="mt-6 flex items-center">
+                  <div className="mr-4 flex-shrink-0 self-center">
+                    <Image
+                      src={post.metadata.authorImg}
+                      alt={post.metadata.author}
+                      width={50}
+                      height={50}
+                      className="rounded-full"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-medium text-neutral-600 dark:text-neutral-200">
+                      {post.metadata.author}
+                    </h4>
+                    <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
+                      <time dateTime={post.metadata.datetime}>
+                        {post.metadata.date}
+                      </time>{'' ''}
+                      &middot; <span>{post.metadata.readingTime}</span>
+                    </p>
+                  </div>
+                </div>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <div className="mt-10 flex justify-center lg:mt-14">
+        <Link
+          href="#"
+          className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+        >
+          View All
+        </Link>
+      </div>
+    </div>
+  );
+}', '', ''),
+	('8b6882dc-f8ef-452d-a246-5141369e046c', '2023-11-17 20:46:33.566283+00', 'Navbar 6', 'You need to install the following package: npm install @headlessui/react@latest', true, false, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-6', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_6-1700253992183.webp', 'Navbar Component', true, '{text-align-left,video-image-left,2-columns}', '{buttons,dropdown,icons,logos,navbar}', '/*
 You need to install the following package npm install @headlessui/react@latest
 */
 
@@ -5818,362 +5686,6 @@ function GroupLinkIcon(props) {
         d="M26.009 8.191a13.253 13.253 0 00-2-3.22 13.53 13.53 0 10-18.68 19.32 13.08 13.08 0 003.2 1.83c1.609.66 3.331.999 5.07 1a13.56 13.56 0 0013.53-13.55 13.392 13.392 0 00-1.12-5.38zm-12.42-5.43c1.562 0 3.104.341 4.52 1a4.364 4.364 0 01-1.08.31 5.731 5.731 0 00-4.85 4.85 2.998 2.998 0 01-2.71 2.65 5.731 5.731 0 00-4.85 4.85 2.905 2.905 0 01-.79 1.74 10.801 10.801 0 019.77-15.42l-.01.02zm-8.27 17.81c.12-.11.24-.21.36-.33a5.474 5.474 0 001.62-3.23 2.916 2.916 0 01.87-1.82 2.827 2.827 0 011.81-.86 5.731 5.731 0 004.85-4.85 2.919 2.919 0 01.87-1.91 2.87 2.87 0 011.83-.83 5.474 5.474 0 003-1.43 10.51 10.51 0 012.36 2.78.907.907 0 01-.13.14 2.868 2.868 0 01-1.81.88 5.704 5.704 0 00-3.234 1.616 5.704 5.704 0 00-1.616 3.234 3.001 3.001 0 01-2.69 2.68 5.76 5.76 0 00-4.88 4.85 3.145 3.145 0 01-.49 1.37 10.89 10.89 0 01-2.72-2.29zm8.27 3.86a10.83 10.83 0 01-3-.42c.334-.622.551-1.3.64-2a3.003 3.003 0 012.68-2.68 5.731 5.731 0 004.86-4.85 3.003 3.003 0 012.68-2.68 5.708 5.708 0 002.56-1 10.82 10.82 0 01-10.42 13.58v.05z"
       ></path>
     </svg>
-  );
-}', '', ''),
-	('50d8e0bc-c7c3-4537-a558-fb0941c93b29', '2023-11-12 12:22:28.847967+00', 'Blog 3', '', true, false, 'marketing', 'blog', 'https://library.codesnaps.io/api/content/blog/blog-3', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/blog_3-1699791747165.webp', 'Blog Component', false, '{text-align-left,text-align-center,video-image-center,2-columns}', '{multiple-images}', '/*
-You need to configure remotePatterns in next.config.js to use dummyimage.com
-  
-// next.config.js
-const nextConfig = {
-// ... other configs
-  images: {
-    // ... other configs
-    remotePatterns: [
-      {
-        protocol: ''https'',
-        hostname: ''dummyimage.com'',
-      },
-    // ... other configs
-    ],
-  },
-};
-*/
-
-import React from ''react'';
-
-const posts = [
-  {
-    id: 1,
-    category: ''Category'',
-    title: ''Blog title heading will go here'',
-    description:
-      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.'',
-    href: ''#'',
-    imgSrc: ''https://dummyimage.com/1280x800/d4d4d4/171717'',
-    alt: ''Image'',
-    metadata: {
-      author: ''Full Name'',
-      authorImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
-      datetime: ''2023-05-01'',
-      date: ''May 1, 2023'',
-      readingTime: ''5 min read'',
-    },
-  },
-  {
-    id: 2,
-    category: ''Category'',
-    title: ''Blog title heading will go here'',
-    description:
-      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.'',
-    href: ''#'',
-    imgSrc: ''https://dummyimage.com/1280x800/d4d4d4/171717'',
-    alt: ''Image'',
-    metadata: {
-      author: ''Full Name'',
-      authorImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
-      datetime: ''2023-05-01'',
-      date: ''May 1, 2023'',
-      readingTime: ''5 min read'',
-    },
-  },
-  {
-    id: 3,
-    category: ''Category'',
-    title: ''Blog title heading will go here'',
-    description:
-      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.'',
-    href: ''#'',
-    imgSrc: ''https://dummyimage.com/1280x800/d4d4d4/171717'',
-    alt: ''Image'',
-    metadata: {
-      author: ''Full Name'',
-      authorImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
-      datetime: ''2023-05-01'',
-      date: ''May 1, 2023'',
-      readingTime: ''5 min read'',
-    },
-  },
-  {
-    id: 4,
-    category: ''Category'',
-    title: ''Blog title heading will go here'',
-    description:
-      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.'',
-    href: ''#'',
-    imgSrc: ''https://dummyimage.com/1280x800/d4d4d4/171717'',
-    alt: ''Image'',
-    metadata: {
-      author: ''Full Name'',
-      authorImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
-      datetime: ''2023-05-01'',
-      date: ''May 1, 2023'',
-      readingTime: ''5 min read'',
-    },
-  },
-];
-
-export default function Blog() {
-  return (
-    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
-      <div className="mx-auto flex max-w-4xl flex-col space-y-7 text-center">
-        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-900 dark:text-neutral-300">
-          Blog
-        </h3>
-
-        <h2 className="text-4xl font-semibold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-          Short heading goes here
-        </h2>
-
-        <p className="text-lg text-neutral-600 dark:text-neutral-400">
-          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
-          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
-        </p>
-      </div>
-
-      <div className="mx-auto mt-10 max-w-md sm:mt-14 md:max-w-2xl lg:mt-20 lg:max-w-none">
-        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2">
-          {posts.map((post) => (
-            <div key={post.id} className="flex flex-col">
-              <a href={post.href}>
-                <img
-                  loading="lazy"
-                  src={post.imgSrc}
-                  alt={post.alt}
-                  width={400}
-                  height={240}
-                  className="w-full"
-                />
-              </a>
-
-              <dt className="mt-8 flex flex-col items-start gap-y-3">
-                <span className="text-xs font-medium uppercase text-neutral-600 dark:text-neutral-400">
-                  {post.category}
-                </span>
-                <h3 className="text-2xl font-semibold leading-tight text-neutral-900 dark:text-neutral-100">
-                  {post.title}
-                </h3>
-              </dt>
-
-              <dd className="mt-4 flex flex-auto flex-col text-base leading-7">
-                <p className="flex-auto text-base text-neutral-500 dark:text-neutral-500">
-                  {post.description}
-                </p>
-
-                <div className="mt-6 flex items-center">
-                  <div className="mr-4 flex-shrink-0 self-center">
-                    <img
-                      src={post.metadata.authorImg}
-                      alt={post.metadata.author}
-                      width={50}
-                      height={50}
-                      className="rounded-full"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-medium text-neutral-600 dark:text-neutral-200">
-                      {post.metadata.author}
-                    </h4>
-                    <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
-                      <time dateTime={post.metadata.datetime}>
-                        {post.metadata.date}
-                      </time>{'' ''}
-                      &middot; <span>{post.metadata.readingTime}</span>
-                    </p>
-                  </div>
-                </div>
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-
-      <div className="mt-10 flex justify-center lg:mt-14">
-        <a
-          href="#"
-          className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
-        >
-          View All
-        </a>
-      </div>
-    </div>
-  );
-}', '/*
-You need to configure remotePatterns in next.config.js to use dummyimage.com
-
-// next.config.js
-const nextConfig = {
-// ... other configs
-  images: {
-    // ... other configs
-    remotePatterns: [
-      {
-        protocol: ''https'',
-        hostname: ''dummyimage.com'',
-      },
-    // ... other configs
-    ],
-  },
-};
-*/
-
-import Link from ''next/link'';
-import Image from ''next/image'';
-
-const posts = [
-  {
-    id: 1,
-    category: ''Category'',
-    title: ''Blog title heading will go here'',
-    description:
-      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.'',
-    href: ''#'',
-    imgSrc: ''https://dummyimage.com/1280x800/d4d4d4/171717'',
-    alt: ''Image'',
-    metadata: {
-      author: ''Full Name'',
-      authorImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
-      datetime: ''2023-05-01'',
-      date: ''May 1, 2023'',
-      readingTime: ''5 min read'',
-    },
-  },
-  {
-    id: 2,
-    category: ''Category'',
-    title: ''Blog title heading will go here'',
-    description:
-      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.'',
-    href: ''#'',
-    imgSrc: ''https://dummyimage.com/1280x800/d4d4d4/171717'',
-    alt: ''Image'',
-    metadata: {
-      author: ''Full Name'',
-      authorImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
-      datetime: ''2023-05-01'',
-      date: ''May 1, 2023'',
-      readingTime: ''5 min read'',
-    },
-  },
-  {
-    id: 3,
-    category: ''Category'',
-    title: ''Blog title heading will go here'',
-    description:
-      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.'',
-    href: ''#'',
-    imgSrc: ''https://dummyimage.com/1280x800/d4d4d4/171717'',
-    alt: ''Image'',
-    metadata: {
-      author: ''Full Name'',
-      authorImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
-      datetime: ''2023-05-01'',
-      date: ''May 1, 2023'',
-      readingTime: ''5 min read'',
-    },
-  },
-  {
-    id: 4,
-    category: ''Category'',
-    title: ''Blog title heading will go here'',
-    description:
-      ''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.'',
-    href: ''#'',
-    imgSrc: ''https://dummyimage.com/1280x800/d4d4d4/171717'',
-    alt: ''Image'',
-    metadata: {
-      author: ''Full Name'',
-      authorImg: ''https://dummyimage.com/100x100/d4d4d4/171717'',
-      datetime: ''2023-05-01'',
-      date: ''May 1, 2023'',
-      readingTime: ''5 min read'',
-    },
-  },
-];
-
-export default function Blog() {
-  return (
-    <div className="mx-auto mt-24 max-w-7xl px-4 sm:mt-32 sm:px-6 lg:mt-40 lg:px-8">
-      <div className="mx-auto flex max-w-4xl flex-col space-y-7 text-center">
-        <h3 className="text-lg font-medium uppercase tracking-wide text-neutral-900 dark:text-neutral-300">
-          Blog
-        </h3>
-
-        <h2 className="text-4xl font-semibold leading-tight tracking-wide text-neutral-900 dark:text-neutral-50 xl:text-5xl">
-          Short heading goes here
-        </h2>
-
-        <p className="text-lg text-neutral-600 dark:text-neutral-400">
-          Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit
-          nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.
-        </p>
-      </div>
-
-      <div className="mx-auto mt-10 max-w-md sm:mt-14 md:max-w-2xl lg:mt-20 lg:max-w-none">
-        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2">
-          {posts.map((post) => (
-            <div key={post.id} className="flex flex-col">
-              <Link href={post.href}>
-                <Image
-                  priority
-                  src={post.imgSrc}
-                  alt={post.alt}
-                  width={400}
-                  height={240}
-                  className="w-full"
-                />
-              </div>
-
-              <dt className="mt-8 flex flex-col items-start gap-y-3">
-                <span className="text-xs font-medium uppercase text-neutral-600 dark:text-neutral-400">
-                  {post.category}
-                </span>
-                <h3 className="text-2xl font-semibold leading-tight text-neutral-900 dark:text-neutral-100">
-                  {post.title}
-                </h3>
-              </dt>
-
-              <dd className="mt-4 flex flex-auto flex-col text-base leading-7">
-                <p className="flex-auto text-base text-neutral-500 dark:text-neutral-500">
-                  {post.description}
-                </p>
-
-                <div className="mt-6 flex items-center">
-                  <div className="mr-4 flex-shrink-0 self-center">
-                    <Image
-                      src={post.metadata.authorImg}
-                      alt={post.metadata.author}
-                      width={50}
-                      height={50}
-                      className="rounded-full"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-medium text-neutral-600 dark:text-neutral-200">
-                      {post.metadata.author}
-                    </h4>
-                    <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
-                      <time dateTime={post.metadata.datetime}>
-                        {post.metadata.date}
-                      </time>{'' ''}
-                      &middot; <span>{post.metadata.readingTime}</span>
-                    </p>
-                  </div>
-                </div>
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-
-      <div className="mt-10 flex justify-center lg:mt-14">
-        <Link
-          href="#"
-          className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
-        >
-          View All
-        </Link>
-      </div>
-    </div>
   );
 }', '', ''),
 	('381df556-7dc6-4efa-8357-faf761b893c0', '2023-11-08 18:55:17.85525+00', 'CTA 1', NULL, true, true, 'marketing', 'cta', 'https://library.codesnaps.io/api/content/cta/cta-1', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/cta_1-1699473157739.webp', 'CTA Component', false, '{text-align-center,1-column}', '{banner,buttons,text-only}', 'import React from ''react'';
@@ -18866,7 +18378,7 @@ export default function FAQ() {
     </div>
   );
 }', '', ''),
-	('e63a4b94-4f7b-4944-8782-cd2ed2cf6c87', '2023-11-17 20:37:33.501315+00', 'Navbar 4', 'You need to install the following package: npm install @headlessui/react@latest', true, false, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-4', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_4-1700253452156.webp', 'Navbar Component', true, '{text-align-left,video-image-left,3-columns}', '{buttons,dropdown,icons,navbar}', '/*
+	('e63a4b94-4f7b-4944-8782-cd2ed2cf6c87', '2023-11-17 20:37:33.501315+00', 'Navbar 4', 'You need to install the following package: npm install @headlessui/react@latest', true, false, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-4', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_4-1700253452156.webp', 'Navbar Component', true, '{text-align-left,video-image-left,3-columns}', '{buttons,dropdown,logos,navbar}', '/*
 You need to install the following package npm install @headlessui/react@latest
 */
 
@@ -27288,7 +26800,7 @@ function XIcon(props) {
     </svg>
   );
 }', '', ''),
-	('e0ec4bb1-cd08-49f3-a088-dd0cec401d48', '2023-11-17 20:43:44.846116+00', 'Navbar 5', 'You need to install the following package: npm install @headlessui/react@latest', true, false, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-5', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_5-1700253823539.webp', 'Navbar Component', true, '{text-align-left,video-image-left,3-columns}', '{buttons,dropdown,icons,multiple-images,navbar}', '/*
+	('e0ec4bb1-cd08-49f3-a088-dd0cec401d48', '2023-11-17 20:43:44.846116+00', 'Navbar 5', 'You need to install the following package: npm install @headlessui/react@latest', true, false, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-5', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_5-1700253823539.webp', 'Navbar Component', true, '{text-align-left,video-image-left,3-columns}', '{buttons,dropdown,icons,logos,multiple-images,navbar}', '/*
 You need to install the following package npm install @headlessui/react@latest
 */
 
@@ -27682,7 +27194,7 @@ export default function Navbar() {
                         >
                           {item.name}
                         </a>
-                      )}{'' ''}
+                      )}
                     </div>
                   ))}
                 </div>
@@ -27791,7 +27303,6 @@ const nextConfig = {
     ],
   },
 };
-
 
 You also need to install the following package npm install @headlessui/react@latest
 */
@@ -28191,7 +27702,7 @@ export default function Navbar() {
                         >
                           {item.name}
                         </Link>
-                      )}{'' ''}
+                      )}
                     </div>
                   ))}
                 </div>
@@ -30242,4 +29753,3006 @@ export default function Hero() {
       </div>
     </div>
   );
+}', '', ''),
+	('95dc6a74-1109-4b62-8290-7f910665ae54', '2023-11-30 23:22:02.600583+00', 'Navbar 8', 'You need to install the following package: npm install @headlessui/react@latest', true, false, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-8', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_8-1701386521252.webp', 'Navbar Component', true, '{text-align-left,2-columns}', '{buttons,logos,navbar}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+import { useState } from ''react'';
+import { Dialog } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'' },
+  { name: ''Link Two'', href: ''#'' },
+  { name: ''Link Three'', href: ''#'' },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50 mx-2">
+      <nav
+        className="mx-auto my-10 flex max-w-4xl items-center justify-between rounded-xl border border-neutral-100 px-8 py-6 shadow-md dark:border-neutral-900 dark:bg-neutral-900"
+        aria-label="Global"
+      >
+        <div className="flex lg:flex-1">
+          <a href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Your Company</span>
+            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+          </a>
+        </div>
+
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <HamburgerIcon
+              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <div key={item.name}>
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+              >
+                {item.name}
+              </a>
+            </div>
+          ))}
+
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
+            <a
+              href="#"
+              className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Learn more <span aria-hidden="true">&rarr;</span>
+            </a>
+
+            <a
+              href="#"
+              className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 mt-10 w-full overflow-y-auto bg-white px-10 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <a href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </a>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-neutral-500/30 dark:divide-white/30">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <div key={item.name}>
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                    >
+                      {item.name}
+                    </a>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col space-y-4 py-6">
+                <a
+                  href="#"
+                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  Learn more <span aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a
+                  href="#"
+                  className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+''use client'';
+
+import Link from ''next/link'';
+
+import { useState } from ''react'';
+import { Dialog } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'' },
+  { name: ''Link Two'', href: ''#'' },
+  { name: ''Link Three'', href: ''#'' },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50 mx-2">
+      <nav
+        className="mx-auto my-10 flex max-w-4xl items-center justify-between rounded-xl border border-neutral-100 px-8 py-6 shadow-md dark:border-neutral-900 dark:bg-neutral-900"
+        aria-label="Global"
+      >
+        <div className="flex lg:flex-1">
+          <Link href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Your Company</span>
+            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+          </Link>
+        </div>
+
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <HamburgerIcon
+              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <div key={item.name}>
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+              >
+                {item.name}
+              </Link>
+            </div>
+          ))}
+
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
+            <Link
+              href="#"
+              className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Learn more <span aria-hidden="true">&rarr;</span>
+            </Link>
+
+            <Link
+              href="#"
+              className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Contact
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 mt-10 w-full overflow-y-auto bg-white px-10 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <Link href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </Link>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-neutral-500/30 dark:divide-white/30">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <div key={item.name}>
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                    >
+                      {item.name}
+                    </Link>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col space-y-4 py-6">
+                <Link
+                  href="#"
+                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  Learn more <span aria-hidden="true">&rarr;</span>
+                </Link>
+
+                <Link
+                  href="#"
+                  className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+                >
+                  Contact
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}', '', ''),
+	('95fc95d9-1da3-4818-ab2c-8f862579381c', '2023-11-08 18:55:17.85525+00', 'Navbar 1', 'You need to install the following package: npm install @headlessui/react@latest', true, true, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-1', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_1-1700253191223.webp', 'Navbar Component', true, '{text-align-left,video-image-left,2-columns}', '{buttons,dropdown,logos,navbar}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+import { useState } from ''react'';
+import { Dialog, Menu } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'', dropdown: false },
+  { name: ''Link Two'', href: ''#'', dropdown: false },
+  {
+    name: ''Dropdown Three'',
+    dropdown: true,
+    dropdownItems: [
+      {
+        name: ''Item #1'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #2'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #3'',
+        href: ''#'',
+      },
+    ],
+  },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
+        aria-label="Global"
+      >
+        <div className="flex lg:flex-1">
+          <a href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Your Company</span>
+            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+          </a>
+        </div>
+
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <HamburgerIcon
+              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <div key={item.name}>
+              {item.dropdown ? (
+                <Menu as="div" className="relative">
+                  <Menu.Button className="flex items-center text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100">
+                    {item.name}
+                    <ChevronDownIcon className="ml-2 h-5 w-5 stroke-neutral-700 dark:stroke-neutral-300" />
+                  </Menu.Button>
+
+                  {/* DROPDOWN ITEMS */}
+                  <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white py-4 shadow-lg ring-1 ring-black/5 focus:outline-none dark:bg-neutral-900">
+                    {item.dropdownItems.map((item) => (
+                      <Menu.Item key={item.name}>
+                        {({ active }) => (
+                          <a
+                            href={item.href}
+                            className={`${
+                              active && ''bg-neutral-100 dark:bg-neutral-800''
+                            } block px-4 py-2`}
+                          >
+                            {item.name}
+                          </a>
+                        )}
+                      </Menu.Item>
+                    ))}
+                  </Menu.Items>
+                </Menu>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+                >
+                  {item.name}
+                </a>
+              )}
+            </div>
+          ))}
+
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
+            <a
+              href="#"
+              className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Learn more <span aria-hidden="true">&rarr;</span>
+            </a>
+
+            <a
+              href="#"
+              className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <a href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </a>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-neutral-500/30 dark:divide-white/30">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <div key={item.name}>
+                    {item.dropdown ? (
+                      <div>
+                        <span className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 dark:text-neutral-100">
+                          {item.name}
+                        </span>
+
+                        <div className="ml-4 mt-1">
+                          {item.dropdownItems.map((item) => (
+                            <a
+                              key={item.name}
+                              href={item.href}
+                              className="-mx-3 block rounded-lg px-3 py-2 text-sm font-medium leading-7 text-neutral-600 hover:bg-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-900"
+                            >
+                              {item.name}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                      >
+                        {item.name}
+                      </a>
+                    )}{'' ''}
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col space-y-4 py-6">
+                <a
+                  href="#"
+                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  Learn more <span aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a
+                  href="#"
+                  className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}
+
+function ChevronDownIcon(props) {
+  return (
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+  );
+}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+''use client'';
+
+import Link from ''next/link'';
+
+import { useState } from ''react'';
+import { Dialog, Menu } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'', dropdown: false },
+  { name: ''Link Two'', href: ''#'', dropdown: false },
+  {
+    name: ''Dropdown Three'',
+    dropdown: true,
+    dropdownItems: [
+      {
+        name: ''Item #1'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #2'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #3'',
+        href: ''#'',
+      },
+    ],
+  },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
+        aria-label="Global"
+      >
+        <div className="flex lg:flex-1">
+          <Link href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Your Company</span>
+            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+          </Link>
+        </div>
+
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <HamburgerIcon
+              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <div key={item.name}>
+              {item.dropdown ? (
+                <Menu as="div" className="relative">
+                  <Menu.Button className="flex items-center text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100">
+                    {item.name}
+                    <ChevronDownIcon className="ml-2 h-5 w-5 stroke-neutral-700 dark:stroke-neutral-300" />
+                  </Menu.Button>
+
+                  {/* DROPDOWN ITEMS */}
+                  <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white py-4 shadow-lg ring-1 ring-black/5 focus:outline-none dark:bg-neutral-900">
+                    {item.dropdownItems.map((item) => (
+                      <Menu.Item key={item.name}>
+                        {({ active }) => (
+                          <Link
+                            href={item.href}
+                            className={`${
+                              active && ''bg-neutral-100 dark:bg-neutral-800''
+                            } block px-4 py-2`}
+                          >
+                            {item.name}
+                          </Link>
+                        )}
+                      </Menu.Item>
+                    ))}
+                  </Menu.Items>
+                </Menu>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+                >
+                  {item.name}
+                </Link>
+              )}
+            </div>
+          ))}
+
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
+            <Link
+              href="#"
+              className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Learn more <span aria-hidden="true">&rarr;</span>
+            </Link>
+
+            <Link
+              href="#"
+              className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Contact
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <Link href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </Link>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-neutral-500/30 dark:divide-white/30">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <div key={item.name}>
+                    {item.dropdown ? (
+                      <div>
+                        <span className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 dark:text-neutral-100">
+                          {item.name}
+                        </span>
+
+                        <div className="ml-4 mt-1">
+                          {item.dropdownItems.map((item) => (
+                            <Link
+                              key={item.name}
+                              href={item.href}
+                              className="-mx-3 block rounded-lg px-3 py-2 text-sm font-medium leading-7 text-neutral-600 hover:bg-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-900"
+                            >
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                      >
+                        {item.name}
+                      </Link>
+                    )}{'' ''}
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col space-y-4 py-6">
+                <Link
+                  href="#"
+                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  Learn more <span aria-hidden="true">&rarr;</span>
+                </Link>
+
+                <Link
+                  href="#"
+                  className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+                >
+                  Contact
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}
+
+function ChevronDownIcon(props) {
+  return (
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+  );
+}', '', ''),
+	('3c165130-e86a-471a-93ee-74f79e69d6b4', '2023-11-30 23:19:49.850683+00', 'Navbar 7', 'You need to install the following package: npm install @headlessui/react@latest', true, false, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-7', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_7-1701386388754.webp', 'Navbar Component', true, '{text-align-left,2-columns}', '{buttons,logos,navbar}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+import { useState } from ''react'';
+import { Dialog } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'' },
+  { name: ''Link Two'', href: ''#'' },
+  { name: ''Link Three'', href: ''#'' },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50 mx-2">
+      <nav
+        className="mx-auto my-10 flex max-w-4xl items-center justify-between rounded-xl border border-neutral-100 px-8 py-6 shadow-md dark:border-neutral-900 dark:bg-neutral-900"
+        aria-label="Global"
+      >
+        <div className="flex lg:flex-1">
+          <a href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Your Company</span>
+            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+          </a>
+        </div>
+
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <HamburgerIcon
+              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <div key={item.name}>
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+              >
+                {item.name}
+              </a>
+            </div>
+          ))}
+
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
+            <a
+              href="#"
+              className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Learn more <span aria-hidden="true">&rarr;</span>
+            </a>
+
+            <a
+              href="#"
+              className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 mt-10 w-full overflow-y-auto bg-white px-10 py-6 dark:bg-neutral-900 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <a href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </a>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-neutral-500/30 dark:divide-white/30">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <div key={item.name}>
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                    >
+                      {item.name}
+                    </a>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col space-y-4 py-6">
+                <a
+                  href="#"
+                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  Learn more <span aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a
+                  href="#"
+                  className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+''use client'';
+
+import Link from ''next/link'';
+
+import { useState } from ''react'';
+import { Dialog } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'' },
+  { name: ''Link Two'', href: ''#'' },
+  { name: ''Link Three'', href: ''#'' },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50 mx-2">
+      <nav
+        className="mx-auto my-10 flex max-w-4xl items-center justify-between rounded-xl border border-neutral-100 px-8 py-6 shadow-md dark:border-neutral-900 dark:bg-neutral-900"
+        aria-label="Global"
+      >
+        <div className="flex lg:flex-1">
+          <Link href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Your Company</span>
+            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+          </Link>
+        </div>
+
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <HamburgerIcon
+              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <div key={item.name}>
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+              >
+                {item.name}
+              </Link>
+            </div>
+          ))}
+
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
+            <Link
+              href="#"
+              className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Learn more <span aria-hidden="true">&rarr;</span>
+            </Link>
+
+            <Link
+              href="#"
+              className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+            >
+              Contact
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 mt-10 w-full overflow-y-auto bg-white px-10 py-6 dark:bg-neutral-900 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <Link href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </Link>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-neutral-500/30 dark:divide-white/30">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <div key={item.name}>
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                    >
+                      {item.name}
+                    </Link>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col space-y-4 py-6">
+                <Link
+                  href="#"
+                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  Learn more <span aria-hidden="true">&rarr;</span>
+                </Link>
+
+                <Link
+                  href="#"
+                  className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+                >
+                  Contact
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}', '', ''),
+	('9a452f4b-9e71-46e9-9ccb-a73c3342243f', '2023-11-30 23:25:27.661458+00', 'Navbar 9', 'You need to install the following package: npm install @headlessui/react@latest', true, false, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-9', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_9-1701386726405.webp', 'Navbar Component', true, '{text-align-left,2-columns}', '{dropdown,logos,navbar,search-bar}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+import { useState } from ''react'';
+import { Dialog, Menu } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'', dropdown: false },
+  { name: ''Link Two'', href: ''#'', dropdown: false },
+  {
+    name: ''Dropdown Three'',
+    dropdown: true,
+    dropdownItems: [
+      {
+        name: ''Item #1'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #2'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #3'',
+        href: ''#'',
+      },
+    ],
+  },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
+        aria-label="Global"
+      >
+        <div className="flex flex-1 items-center gap-x-6">
+          <a href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Your Company</span>
+            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+          </a>
+
+          <div className="hidden w-full max-w-sm lg:block">
+            <label htmlFor="search" className="sr-only">
+              Search
+            </label>
+            <div className="relative">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <SearchIcon
+                  className="h-5 w-5 text-neutral-400"
+                  aria-hidden="true"
+                />
+              </div>
+              <input
+                id="search"
+                name="search"
+                className="block w-full rounded-md border-0 bg-white py-2 pl-10 pr-3.5 text-neutral-900 ring-1 ring-inset ring-neutral-300 placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-neutral-600 dark:bg-neutral-900 dark:text-white dark:ring-neutral-600 dark:focus:ring-neutral-400 sm:text-sm sm:leading-6"
+                placeholder="Search"
+                type="search"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <HamburgerIcon
+              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <div key={item.name}>
+              {item.dropdown ? (
+                <Menu as="div" className="relative">
+                  <Menu.Button className="flex items-center text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100">
+                    {item.name}
+                    <ChevronDownIcon className="ml-2 h-5 w-5 stroke-neutral-700 dark:stroke-neutral-300" />
+                  </Menu.Button>
+
+                  {/* DROPDOWN ITEMS */}
+                  <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white py-4 shadow-lg ring-1 ring-black/5 focus:outline-none dark:bg-neutral-900">
+                    {item.dropdownItems.map((item) => (
+                      <Menu.Item key={item.name}>
+                        {({ active }) => (
+                          <a
+                            href={item.href}
+                            className={`${
+                              active && ''bg-neutral-100 dark:bg-neutral-800''
+                            } block px-4 py-2`}
+                          >
+                            {item.name}
+                          </a>
+                        )}
+                      </Menu.Item>
+                    ))}
+                  </Menu.Items>
+                </Menu>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+                >
+                  {item.name}
+                </a>
+              )}
+            </div>
+          ))}
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <a href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </a>
+
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          <div className="mt-6 block w-full">
+            <label htmlFor="search" className="sr-only">
+              Search
+            </label>
+            <div className="relative">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <SearchIcon
+                  className="h-5 w-5 text-neutral-400"
+                  aria-hidden="true"
+                />
+              </div>
+              <input
+                id="search"
+                name="search"
+                className="block w-full rounded-md border-0 bg-white py-2 pl-10 pr-3.5 text-neutral-900 ring-1 ring-inset ring-neutral-300 placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-neutral-600 dark:bg-neutral-900 dark:text-white dark:ring-neutral-600 dark:focus:ring-neutral-400 sm:text-sm sm:leading-6"
+                placeholder="Search"
+                type="search"
+              />
+            </div>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-neutral-500/30 dark:divide-white/30">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <div key={item.name}>
+                    {item.dropdown ? (
+                      <div>
+                        <span className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 dark:text-neutral-100">
+                          {item.name}
+                        </span>
+
+                        <div className="ml-4 mt-1">
+                          {item.dropdownItems.map((item) => (
+                            <a
+                              key={item.name}
+                              href={item.href}
+                              className="-mx-3 block rounded-lg px-3 py-2 text-sm font-medium leading-7 text-neutral-600 hover:bg-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-900"
+                            >
+                              {item.name}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                      >
+                        {item.name}
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}
+
+function ChevronDownIcon(props) {
+  return (
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+  );
+}
+
+function SearchIcon(props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+      />
+    </svg>
+  );
+}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+''use client'';
+
+import Link from ''next/link'';
+
+import { useState } from ''react'';
+import { Dialog, Menu } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'', dropdown: false },
+  { name: ''Link Two'', href: ''#'', dropdown: false },
+  {
+    name: ''Dropdown Three'',
+    dropdown: true,
+    dropdownItems: [
+      {
+        name: ''Item #1'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #2'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #3'',
+        href: ''#'',
+      },
+    ],
+  },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
+        aria-label="Global"
+      >
+        <div className="flex flex-1 items-center gap-x-6">
+          <Link href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Your Company</span>
+            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+          </Link>
+
+          <div className="hidden w-full max-w-sm lg:block">
+            <label htmlFor="search" className="sr-only">
+              Search
+            </label>
+            <div className="relative">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <SearchIcon
+                  className="h-5 w-5 text-neutral-400"
+                  aria-hidden="true"
+                />
+              </div>
+              <input
+                id="search"
+                name="search"
+                className="block w-full rounded-md border-0 bg-white py-2 pl-10 pr-3.5 text-neutral-900 ring-1 ring-inset ring-neutral-300 placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-neutral-600 dark:bg-neutral-900 dark:text-white dark:ring-neutral-600 dark:focus:ring-neutral-400 sm:text-sm sm:leading-6"
+                placeholder="Search"
+                type="search"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <HamburgerIcon
+              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <div key={item.name}>
+              {item.dropdown ? (
+                <Menu as="div" className="relative">
+                  <Menu.Button className="flex items-center text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100">
+                    {item.name}
+                    <ChevronDownIcon className="ml-2 h-5 w-5 stroke-neutral-700 dark:stroke-neutral-300" />
+                  </Menu.Button>
+
+                  {/* DROPDOWN ITEMS */}
+                  <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white py-4 shadow-lg ring-1 ring-black/5 focus:outline-none dark:bg-neutral-900">
+                    {item.dropdownItems.map((item) => (
+                      <Menu.Item key={item.name}>
+                        {({ active }) => (
+                          <Link
+                            href={item.href}
+                            className={`${
+                              active && ''bg-neutral-100 dark:bg-neutral-800''
+                            } block px-4 py-2`}
+                          >
+                            {item.name}
+                          </Link>
+                        )}
+                      </Menu.Item>
+                    ))}
+                  </Menu.Items>
+                </Menu>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+                >
+                  {item.name}
+                </Link>
+              )}
+            </div>
+          ))}
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <Link href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </Link>
+
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          <div className="mt-6 block w-full">
+            <label htmlFor="search" className="sr-only">
+              Search
+            </label>
+            <div className="relative">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <SearchIcon
+                  className="h-5 w-5 text-neutral-400"
+                  aria-hidden="true"
+                />
+              </div>
+              <input
+                id="search"
+                name="search"
+                className="block w-full rounded-md border-0 bg-white py-2 pl-10 pr-3.5 text-neutral-900 ring-1 ring-inset ring-neutral-300 placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-neutral-600 dark:bg-neutral-900 dark:text-white dark:ring-neutral-600 dark:focus:ring-neutral-400 sm:text-sm sm:leading-6"
+                placeholder="Search"
+                type="search"
+              />
+            </div>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-neutral-500/30 dark:divide-white/30">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <div key={item.name}>
+                    {item.dropdown ? (
+                      <div>
+                        <span className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 dark:text-neutral-100">
+                          {item.name}
+                        </span>
+
+                        <div className="ml-4 mt-1">
+                          {item.dropdownItems.map((item) => (
+                            <Link
+                              key={item.name}
+                              href={item.href}
+                              className="-mx-3 block rounded-lg px-3 py-2 text-sm font-medium leading-7 text-neutral-600 hover:bg-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-900"
+                            >
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}
+
+function ChevronDownIcon(props) {
+  return (
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+  );
+}
+
+function SearchIcon(props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+      />
+    </svg>
+  );
+}', '', ''),
+	('7139e1d3-a385-435f-9017-0d57e6cd120b', '2023-11-30 23:28:07.796157+00', 'Navbar 10', 'You need to install the following package: npm install @headlessui/react@latest', true, false, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-10', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_10-1701386886725.webp', 'Navbar Component', true, '{text-align-left,2-columns}', '{buttons,dropdown,logos,navbar,search-bar}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+import { useState } from ''react'';
+import { Dialog, Menu } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'', dropdown: false },
+  { name: ''Link Two'', href: ''#'', dropdown: false },
+  {
+    name: ''Dropdown Three'',
+    dropdown: true,
+    dropdownItems: [
+      {
+        name: ''Item #1'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #2'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #3'',
+        href: ''#'',
+      },
+    ],
+  },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
+        aria-label="Global"
+      >
+        <div className="flex flex-1 items-center gap-x-6">
+          <a href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Your Company</span>
+            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+          </a>
+
+          <div className="hidden w-full max-w-sm lg:block">
+            <label htmlFor="search" className="sr-only">
+              Search
+            </label>
+            <div className="relative">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <SearchIcon
+                  className="h-5 w-5 text-neutral-400"
+                  aria-hidden="true"
+                />
+              </div>
+              <input
+                id="search"
+                name="search"
+                className="block w-full rounded-md border-0 bg-white py-2 pl-10 pr-3.5 text-neutral-900 ring-1 ring-inset ring-neutral-300 placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-neutral-600 dark:bg-neutral-900 dark:text-white dark:ring-neutral-600 dark:focus:ring-neutral-400 sm:text-sm sm:leading-6"
+                placeholder="Search"
+                type="search"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <HamburgerIcon
+              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <div key={item.name}>
+              {item.dropdown ? (
+                <Menu as="div" className="relative">
+                  <Menu.Button className="flex items-center text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100">
+                    {item.name}
+                    <ChevronDownIcon className="ml-2 h-5 w-5 stroke-neutral-700 dark:stroke-neutral-300" />
+                  </Menu.Button>
+
+                  {/* DROPDOWN ITEMS */}
+                  <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white py-4 shadow-lg ring-1 ring-black/5 focus:outline-none dark:bg-neutral-900">
+                    {item.dropdownItems.map((item) => (
+                      <Menu.Item key={item.name}>
+                        {({ active }) => (
+                          <a
+                            href={item.href}
+                            className={`${
+                              active && ''bg-neutral-100 dark:bg-neutral-800''
+                            } block px-4 py-2`}
+                          >
+                            {item.name}
+                          </a>
+                        )}
+                      </Menu.Item>
+                    ))}
+                  </Menu.Items>
+                </Menu>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+                >
+                  {item.name}
+                </a>
+              )}
+            </div>
+          ))}
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <a href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </a>
+
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          <div className="mt-6 block w-full lg:hidden">
+            <label htmlFor="search" className="sr-only">
+              Search
+            </label>
+            <div className="relative">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <SearchIcon
+                  className="h-5 w-5 text-neutral-400"
+                  aria-hidden="true"
+                />
+              </div>
+              <input
+                id="search"
+                name="search"
+                className="block w-full rounded-md border-0 bg-white py-2 pl-10 pr-3.5 text-neutral-900 ring-1 ring-inset ring-neutral-300 placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-neutral-600 dark:bg-neutral-900 dark:text-white dark:ring-neutral-600 dark:focus:ring-neutral-400 sm:text-sm sm:leading-6"
+                placeholder="Search"
+                type="search"
+              />
+            </div>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-neutral-500/30 dark:divide-white/30">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <div key={item.name}>
+                    {item.dropdown ? (
+                      <div>
+                        <span className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 dark:text-neutral-100">
+                          {item.name}
+                        </span>
+
+                        <div className="ml-4 mt-1">
+                          {item.dropdownItems.map((item) => (
+                            <a
+                              key={item.name}
+                              href={item.href}
+                              className="-mx-3 block rounded-lg px-3 py-2 text-sm font-medium leading-7 text-neutral-600 hover:bg-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-900"
+                            >
+                              {item.name}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                      >
+                        {item.name}
+                      </a>
+                    )}{'' ''}
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col space-y-4 py-6">
+                <a
+                  href="#"
+                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  Learn more <span aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a
+                  href="#"
+                  className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}
+
+function ChevronDownIcon(props) {
+  return (
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+  );
+}
+
+function SearchIcon(props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+      />
+    </svg>
+  );
+}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+''use client'';
+
+import Link from ''next/link'';
+
+import { useState } from ''react'';
+import { Dialog, Menu } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'', dropdown: false },
+  { name: ''Link Two'', href: ''#'', dropdown: false },
+  {
+    name: ''Dropdown Three'',
+    dropdown: true,
+    dropdownItems: [
+      {
+        name: ''Item #1'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #2'',
+        href: ''#'',
+      },
+      {
+        name: ''Item #3'',
+        href: ''#'',
+      },
+    ],
+  },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50 border-b border-neutral-300 p-6 dark:border-neutral-700">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between lg:px-8"
+        aria-label="Global"
+      >
+        <div className="flex flex-1 items-center gap-x-6">
+          <Link href="#" className="-m-1.5 p-1.5">
+            <span className="sr-only">Your Company</span>
+            <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+          </Link>
+
+          <div className="hidden w-full max-w-sm lg:block">
+            <label htmlFor="search" className="sr-only">
+              Search
+            </label>
+            <div className="relative">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <SearchIcon
+                  className="h-5 w-5 text-neutral-400"
+                  aria-hidden="true"
+                />
+              </div>
+              <input
+                id="search"
+                name="search"
+                className="block w-full rounded-md border-0 bg-white py-2 pl-10 pr-3.5 text-neutral-900 ring-1 ring-inset ring-neutral-300 placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-neutral-600 dark:bg-neutral-900 dark:text-white dark:ring-neutral-600 dark:focus:ring-neutral-400 sm:text-sm sm:leading-6"
+                placeholder="Search"
+                type="search"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <HamburgerIcon
+              className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <div key={item.name}>
+              {item.dropdown ? (
+                <Menu as="div" className="relative">
+                  <Menu.Button className="flex items-center text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100">
+                    {item.name}
+                    <ChevronDownIcon className="ml-2 h-5 w-5 stroke-neutral-700 dark:stroke-neutral-300" />
+                  </Menu.Button>
+
+                  {/* DROPDOWN ITEMS */}
+                  <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white py-4 shadow-lg ring-1 ring-black/5 focus:outline-none dark:bg-neutral-900">
+                    {item.dropdownItems.map((item) => (
+                      <Menu.Item key={item.name}>
+                        {({ active }) => (
+                          <Link
+                            href={item.href}
+                            className={`${
+                              active && ''bg-neutral-100 dark:bg-neutral-800''
+                            } block px-4 py-2`}
+                          >
+                            {item.name}
+                          </Link>
+                        )}
+                      </Menu.Item>
+                    ))}
+                  </Menu.Items>
+                </Menu>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+                >
+                  {item.name}
+                </Link>
+              )}
+            </div>
+          ))}
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <Link href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </Link>
+
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          <div className="mt-6 block w-full lg:hidden">
+            <label htmlFor="search" className="sr-only">
+              Search
+            </label>
+            <div className="relative">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <SearchIcon
+                  className="h-5 w-5 text-neutral-400"
+                  aria-hidden="true"
+                />
+              </div>
+              <input
+                id="search"
+                name="search"
+                className="block w-full rounded-md border-0 bg-white py-2 pl-10 pr-3.5 text-neutral-900 ring-1 ring-inset ring-neutral-300 placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-neutral-600 dark:bg-neutral-900 dark:text-white dark:ring-neutral-600 dark:focus:ring-neutral-400 sm:text-sm sm:leading-6"
+                placeholder="Search"
+                type="search"
+              />
+            </div>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-neutral-500/30 dark:divide-white/30">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <div key={item.name}>
+                    {item.dropdown ? (
+                      <div>
+                        <span className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 dark:text-neutral-100">
+                          {item.name}
+                        </span>
+
+                        <div className="ml-4 mt-1">
+                          {item.dropdownItems.map((item) => (
+                            <Link
+                              key={item.name}
+                              href={item.href}
+                              className="-mx-3 block rounded-lg px-3 py-2 text-sm font-medium leading-7 text-neutral-600 hover:bg-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-900"
+                            >
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                      >
+                        {item.name}
+                      </Link>
+                    )}{'' ''}
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col space-y-4 py-6">
+                <Link
+                  href="#"
+                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  Learn more <span aria-hidden="true">&rarr;</span>
+                </Link>
+
+                <Link
+                  href="#"
+                  className="rounded-md bg-transparent px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-500 hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400"
+                >
+                  Contact
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}
+
+function ChevronDownIcon(props) {
+  return (
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+  );
+}
+
+function SearchIcon(props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+      />
+    </svg>
+  );
+}', '', ''),
+	('439e4c47-9c19-4805-ac25-94769f2f156b', '2023-11-30 23:29:34.677813+00', 'Navbar 11', 'You need to install the following package: npm install @headlessui/react@latest', true, false, 'marketing', 'navbar', 'https://library.codesnaps.io/api/content/navbar/navbar-11', 'https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/navbar_11-1701386973510.webp', 'Navbar Component', true, '{text-align-center,3-columns}', '{buttons,logos,navbar,search-bar}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+import { useState } from ''react'';
+import { Dialog } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'' },
+  { name: ''Link Two'', href: ''#'' },
+  { name: ''Link Three'', href: ''#'' },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50">
+      <nav
+        className="flex flex-col divide-y divide-neutral-300 px-6 dark:divide-neutral-700 lg:px-0"
+        aria-label="Global"
+      >
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between py-6 lg:px-8">
+          <div className="flex lg:flex-1">
+            <a href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </a>
+          </div>
+
+          <div className="flex lg:hidden">
+            <button
+              type="button"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <span className="sr-only">Open main menu</span>
+              <HamburgerIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          <div className="hidden w-full max-w-sm lg:block">
+            <label htmlFor="search" className="sr-only">
+              Search
+            </label>
+            <div className="relative">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <SearchIcon
+                  className="h-5 w-5 text-neutral-400"
+                  aria-hidden="true"
+                />
+              </div>
+              <input
+                id="search"
+                name="search"
+                className="block w-full rounded-md border-0 bg-white py-2 pl-10 pr-3.5 text-neutral-900 ring-1 ring-inset ring-neutral-300 placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-neutral-600 dark:bg-neutral-900 dark:text-white dark:ring-neutral-600 dark:focus:ring-neutral-400 sm:text-sm sm:leading-6"
+                placeholder="Search"
+                type="search"
+              />
+            </div>
+          </div>
+
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
+            <a
+              href="#"
+              className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </a>
+          </div>
+        </div>
+
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden w-full justify-center py-6 lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <a href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </a>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          <div className="mt-6 w-full">
+            <label htmlFor="search" className="sr-only">
+              Search
+            </label>
+            <div className="relative">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <SearchIcon
+                  className="h-5 w-5 text-neutral-400"
+                  aria-hidden="true"
+                />
+              </div>
+              <input
+                id="search"
+                name="search"
+                className="block w-full rounded-md border-0 bg-white py-2 pl-10 pr-3.5 text-neutral-900 ring-1 ring-inset ring-neutral-300 placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-neutral-600 dark:bg-neutral-900 dark:text-white dark:ring-neutral-600 dark:focus:ring-neutral-400 sm:text-sm sm:leading-6"
+                placeholder="Search"
+                type="search"
+              />
+            </div>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-neutral-500/10">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+
+              <div className="py-6">
+                <a
+                  href="#"
+                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  Button
+                </a>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}
+
+function SearchIcon(props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+      />
+    </svg>
+  );
+}', '/*
+You need to install the following package npm install @headlessui/react@latest
+*/
+
+''use client'';
+
+import Link from ''next/link'';
+
+import { useState } from ''react'';
+import { Dialog } from ''@headlessui/react'';
+
+const navigation = [
+  { name: ''Link One'', href: ''#'' },
+  { name: ''Link Two'', href: ''#'' },
+  { name: ''Link Three'', href: ''#'' },
+];
+
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <header className="absolute inset-x-0 top-0 z-50">
+      <nav
+        className="flex flex-col divide-y divide-neutral-300 px-6 dark:divide-neutral-700 lg:px-0"
+        aria-label="Global"
+      >
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between py-6 lg:px-8">
+          <div className="flex lg:flex-1">
+            <Link href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </Link>
+          </div>
+
+          <div className="flex lg:hidden">
+            <button
+              type="button"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <span className="sr-only">Open main menu</span>
+              <HamburgerIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          <div className="hidden w-full max-w-sm lg:block">
+            <label htmlFor="search" className="sr-only">
+              Search
+            </label>
+            <div className="relative">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <SearchIcon
+                  className="h-5 w-5 text-neutral-400"
+                  aria-hidden="true"
+                />
+              </div>
+              <input
+                id="search"
+                name="search"
+                className="block w-full rounded-md border-0 bg-white py-2 pl-10 pr-3.5 text-neutral-900 ring-1 ring-inset ring-neutral-300 placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-neutral-600 dark:bg-neutral-900 dark:text-white dark:ring-neutral-600 dark:focus:ring-neutral-400 sm:text-sm sm:leading-6"
+                placeholder="Search"
+                type="search"
+              />
+            </div>
+          </div>
+
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-4">
+            <Link
+              href="#"
+              className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+            >
+              Button
+            </Link>
+          </div>
+        </div>
+
+        {/* NAVIGATION ITEMS */}
+        <div className="hidden w-full justify-center py-6 lg:flex lg:items-center lg:gap-x-12">
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-100"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+      </nav>
+
+      {/* MOBILE NAVIGATION */}
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-neutral-950 sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
+          <div className="flex items-center justify-between">
+            <Link href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <Logo className="h-8 w-auto fill-neutral-900 dark:fill-white" />
+            </Link>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-neutral-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon
+                className="h-6 w-6 stroke-neutral-800 dark:stroke-white"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+
+          <div className="mt-6 w-full">
+            <label htmlFor="search" className="sr-only">
+              Search
+            </label>
+            <div className="relative">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <SearchIcon
+                  className="h-5 w-5 text-neutral-400"
+                  aria-hidden="true"
+                />
+              </div>
+              <input
+                id="search"
+                name="search"
+                className="block w-full rounded-md border-0 bg-white py-2 pl-10 pr-3.5 text-neutral-900 ring-1 ring-inset ring-neutral-300 placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-neutral-600 dark:bg-neutral-900 dark:text-white dark:ring-neutral-600 dark:focus:ring-neutral-400 sm:text-sm sm:leading-6"
+                placeholder="Search"
+                type="search"
+              />
+            </div>
+          </div>
+
+          {/* MOBILE NAVIGATION ITEMS */}
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-neutral-500/10">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-900 hover:bg-neutral-200 dark:text-neutral-100 dark:hover:bg-neutral-900"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+
+              <div className="py-6">
+                <Link
+                  href="#"
+                  className="rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400"
+                >
+                  Button
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Dialog.Panel>
+      </Dialog>
+    </header>
+  );
+}
+
+function Logo(props) {
+  return (
+    <svg viewBox="0 0 167 41" {...props}>
+      <path
+        fillRule="nonzero"
+        d="M48.631 28.794h11.952v-3.6h-7.704v-13.56h-4.248v17.16zM67.664 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM81.094 33.042c1.824 0 3.432-.408 4.512-1.368.984-.888 1.632-2.232 1.632-4.08V16.506h-3.744v1.32h-.048c-.72-1.032-1.824-1.68-3.456-1.68-3.048 0-5.16 2.544-5.16 6.144 0 3.768 2.568 5.832 5.328 5.832 1.488 0 2.424-.6 3.144-1.416h.096v1.224c0 1.488-.696 2.352-2.352 2.352-1.296 0-1.944-.552-2.16-1.2h-3.792c.384 2.568 2.616 3.96 6 3.96zm-.024-7.824c-1.464 0-2.424-1.2-2.424-3.048 0-1.872.96-3.072 2.424-3.072 1.632 0 2.496 1.392 2.496 3.048 0 1.728-.792 3.072-2.496 3.072zM94.937 26.394c-1.704 0-2.592-1.488-2.592-3.72s.888-3.744 2.592-3.744c1.704 0 2.616 1.512 2.616 3.744s-.912 3.72-2.616 3.72zm.024 2.784c3.96 0 6.552-2.808 6.552-6.504 0-3.696-2.592-6.504-6.552-6.504-3.936 0-6.576 2.808-6.576 6.504 0 3.696 2.64 6.504 6.576 6.504zM102.655 28.794h3.912V16.506h-3.912v12.288zm0-13.992h3.912v-3.168h-3.912v3.168zM108.264 32.85h3.912v-5.328h.048c.768 1.032 1.896 1.656 3.48 1.656 3.216 0 5.352-2.544 5.352-6.528 0-3.696-1.992-6.504-5.256-6.504-1.68 0-2.88.744-3.72 1.848h-.072v-1.488h-3.744V32.85zm6.432-6.696c-1.68 0-2.64-1.368-2.64-3.36 0-1.992.864-3.504 2.568-3.504 1.68 0 2.472 1.392 2.472 3.504 0 2.088-.912 3.36-2.4 3.36zM127.426 29.178c3.216 0 5.592-1.392 5.592-4.08 0-3.144-2.544-3.696-4.704-4.056-1.56-.288-2.952-.408-2.952-1.272 0-.768.744-1.128 1.704-1.128 1.08 0 1.824.336 1.968 1.44h3.6c-.192-2.424-2.064-3.936-5.544-3.936-2.904 0-5.304 1.344-5.304 3.936 0 2.88 2.28 3.456 4.416 3.816 1.632.288 3.12.408 3.12 1.512 0 .792-.744 1.224-1.92 1.224-1.296 0-2.112-.6-2.256-1.824h-3.696c.12 2.712 2.376 4.368 5.976 4.368zM138.331 29.154c1.704 0 2.784-.672 3.672-1.872h.072v1.512h3.744V16.506h-3.912v6.864c0 1.464-.816 2.472-2.16 2.472-1.248 0-1.848-.744-1.848-2.088v-7.248h-3.888v8.064c0 2.736 1.488 4.584 4.32 4.584zM147.521 28.794h3.912v-6.888c0-1.464.72-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-6.888c0-1.464.696-2.496 1.944-2.496 1.176 0 1.728.768 1.728 2.088v7.296h3.912v-7.992c0-2.76-1.392-4.656-4.176-4.656-1.584 0-2.904.672-3.864 2.16h-.048c-.624-1.32-1.848-2.16-3.456-2.16-1.776 0-2.952.84-3.72 2.112h-.072v-1.752h-3.744v12.288z"
+      ></path>
+      <path d="M8.654 3.891a20.168 20.168 0 00-3.847 3.515c4.589-.426 10.42.27 17.189 3.654 7.228 3.614 13.049 3.737 17.1 2.955a19.842 19.842 0 00-1.378-3.199c-4.638.489-10.583-.158-17.511-3.622-4.4-2.2-8.278-3.106-11.553-3.303zM35.009 6.96A19.952 19.952 0 0020.101.294c-1.739 0-3.427.222-5.036.639 2.179.595 4.494 1.465 6.931 2.683 5.072 2.536 9.452 3.353 13.013 3.344zm4.953 10.962c-4.894.966-11.652.768-19.755-3.284-7.576-3.788-13.605-3.74-17.672-2.836-.21.046-.415.095-.615.146a19.9 19.9 0 00-1.262 3.64c.326-.087.662-.17 1.01-.247 4.933-1.096 11.903-1.049 20.328 3.164 7.575 3.787 13.605 3.74 17.672 2.836.139-.031.276-.063.411-.096a20.186 20.186 0 00-.117-3.323zm-.536 7.544c-4.846.847-11.408.522-19.219-3.384-7.576-3.787-13.605-3.74-17.672-2.836-.902.2-1.714.445-2.431.703-.002.114-.003.229-.003.345 0 11.045 8.955 20 20 20 9.258 0 17.046-6.289 19.325-14.828z"></path>
+    </svg>
+  );
+}
+
+function HamburgerIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+}
+
+function XMarkIcon(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}
+
+function SearchIcon(props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      {...props}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+      />
+    </svg>
+  );
 }', '', '');
+
+
+INSERT INTO "storage"."objects" ("id", "bucket_id", "name", "owner", "created_at", "updated_at", "last_accessed_at", "metadata", "version", "owner_id") VALUES
+	('fc94f0fb-ccb9-4fa0-99b6-22762b15d8f5', 'components', 'team_6-1700175213616.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-16 22:53:34.475816+00', '2023-11-16 22:53:34.475816+00', '2023-11-16 22:53:34.475816+00', '{"eTag": "\"2b24af9121e829c8afed0577dc8d7a2e\"", "size": 35156, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-16T22:53:35.000Z", "contentLength": 35156, "httpStatusCode": 200}', '60a71be9-354f-4eae-9319-485e90f5280a', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('65417ed1-b5b5-4682-be66-6d5f4a565d99', 'components', 'blog_1-1699470138430.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 19:02:18.703072+00', '2023-11-08 19:02:18.933144+00', '2023-11-08 19:02:18.703072+00', '{"eTag": "\"96a2e0429ec7b845f0b05cf24b7d2ce1\"", "size": 58476, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T19:02:19.000Z", "contentLength": 58476, "httpStatusCode": 200}', NULL, NULL),
+	('08840bd2-61bb-4095-911c-72f75ad7e902', 'components', 'blog_2-1699470183514.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 19:03:04.184643+00', '2023-11-08 19:03:04.332168+00', '2023-11-08 19:03:04.184643+00', '{"eTag": "\"5547e53032cdcd8247d4d54283395011\"", "size": 55228, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T19:03:05.000Z", "contentLength": 55228, "httpStatusCode": 200}', NULL, NULL),
+	('4c321f2b-e195-4328-8c15-85c5f79a81d2', 'components', 'contact_1-1699470234852.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 19:03:55.499632+00', '2023-11-08 19:03:55.677993+00', '2023-11-08 19:03:55.499632+00', '{"eTag": "\"316c1a0e2afb12b8a59e0455493881ae\"", "size": 16270, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T19:03:56.000Z", "contentLength": 16270, "httpStatusCode": 200}', NULL, NULL),
+	('edffcef4-22d5-4ef3-8092-c80cde503248', 'components', 'cta_1-1699473157739.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 19:52:38.529879+00', '2023-11-08 19:52:38.646654+00', '2023-11-08 19:52:38.529879+00', '{"eTag": "\"59e43acc20b41f42ba14789700f3bd3e\"", "size": 21238, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T19:52:39.000Z", "contentLength": 21238, "httpStatusCode": 200}', NULL, NULL),
+	('02a4345f-a00c-493d-bb7e-7481990fbf2a', 'components', 'cta_2-1699473186986.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 19:53:07.275879+00', '2023-11-08 19:53:07.444311+00', '2023-11-08 19:53:07.275879+00', '{"eTag": "\"426afee967f22d9064834a9618b3fcb1\"", "size": 22090, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T19:53:08.000Z", "contentLength": 22090, "httpStatusCode": 200}', NULL, NULL),
+	('175d5fcd-6ddb-4863-a236-091a68c26256', 'components', 'faq_1-1699473259987.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 19:54:20.980132+00', '2023-11-08 19:54:21.172041+00', '2023-11-08 19:54:20.980132+00', '{"eTag": "\"65261e0d0618919528c55b8aab2a5865\"", "size": 43228, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T19:54:22.000Z", "contentLength": 43228, "httpStatusCode": 200}', NULL, NULL),
+	('55d21ea8-d111-4132-897a-2aa278dde731', 'components', 'faq_2-1699473325672.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 19:55:26.501155+00', '2023-11-08 19:55:26.652605+00', '2023-11-08 19:55:26.501155+00', '{"eTag": "\"7edc3c96d71356da329ece546ec496d1\"", "size": 35830, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T19:55:27.000Z", "contentLength": 35830, "httpStatusCode": 200}', NULL, NULL),
+	('b2f392aa-cafa-43d5-bd0e-4d8abc9eae26', 'components', 'feature_1-1699473452739.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 19:57:33.429304+00', '2023-11-08 19:57:33.583035+00', '2023-11-08 19:57:33.429304+00', '{"eTag": "\"4eb114ad4e544e3468837b30967cee2d\"", "size": 32576, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T19:57:34.000Z", "contentLength": 32576, "httpStatusCode": 200}', NULL, NULL),
+	('3213cb89-cd7e-4b6e-b61a-5ebe15291978', 'components', 'feature_2-1699473479589.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 19:58:00.225773+00', '2023-11-08 19:58:00.447792+00', '2023-11-08 19:58:00.225773+00', '{"eTag": "\"1a052b61a8b13b22d51656cb52b59648\"", "size": 34636, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T19:58:01.000Z", "contentLength": 34636, "httpStatusCode": 200}', NULL, NULL),
+	('08d542a6-a337-4837-b799-15a369428c9a', 'components', 'feature_3-1699473512140.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 19:58:32.505421+00', '2023-11-08 19:58:32.640859+00', '2023-11-08 19:58:32.505421+00', '{"eTag": "\"d00df3c72311a0c31b807108f22fadf1\"", "size": 75730, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T19:58:33.000Z", "contentLength": 75730, "httpStatusCode": 200}', NULL, NULL),
+	('a7a910db-d535-4a1e-8a8c-cf8f6943a6c3', 'components', 'feature_4-1699473579423.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 19:59:40.348972+00', '2023-11-08 19:59:40.505236+00', '2023-11-08 19:59:40.348972+00', '{"eTag": "\"1970e628b3ce635b99ed65224db6c24b\"", "size": 64380, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T19:59:41.000Z", "contentLength": 64380, "httpStatusCode": 200}', NULL, NULL),
+	('2a76faab-a4a5-43e2-b1cb-4730afc12112', 'components', 'feature_5-1699473625505.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:00:25.938686+00', '2023-11-08 20:00:26.073312+00', '2023-11-08 20:00:25.938686+00', '{"eTag": "\"a00b6eecb68e5364d00d8245b36b5155\"", "size": 64606, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:00:26.000Z", "contentLength": 64606, "httpStatusCode": 200}', NULL, NULL),
+	('a758bb8f-5eb0-46c0-95e1-0e7b58662a3f', 'components', 'feature_6-1699473668939.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:01:09.70135+00', '2023-11-08 20:01:09.854037+00', '2023-11-08 20:01:09.70135+00', '{"eTag": "\"4aa87970c4e3f1bcfd07bfd8cdba1655\"", "size": 33002, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:01:10.000Z", "contentLength": 33002, "httpStatusCode": 200}', NULL, NULL),
+	('a08dcc53-5ad3-4e49-9af2-18b96957d319', 'components', 'footer_1-1699473725055.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:02:05.664335+00', '2023-11-08 20:02:05.838159+00', '2023-11-08 20:02:05.664335+00', '{"eTag": "\"c403536968020a20b8bdbb16d7ed3069\"", "size": 26420, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:02:06.000Z", "contentLength": 26420, "httpStatusCode": 200}', NULL, NULL),
+	('1268723c-6693-40bf-8839-feaceb9a5513', 'components', 'footer_2-1699473756826.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:02:37.624066+00', '2023-11-08 20:02:37.797246+00', '2023-11-08 20:02:37.624066+00', '{"eTag": "\"808e1c583eca67babe7fdbe234ebd033\"", "size": 18714, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:02:38.000Z", "contentLength": 18714, "httpStatusCode": 200}', NULL, NULL),
+	('c2a9c9ce-6cfc-4b81-ac02-d8fd95ad50db', 'components', 'gallery_1-1699474133472.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:08:54.240348+00', '2023-11-08 20:08:54.462806+00', '2023-11-08 20:08:54.240348+00', '{"eTag": "\"1db678d6b1b8d5093d4856f78824e8d9\"", "size": 21874, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:08:55.000Z", "contentLength": 21874, "httpStatusCode": 200}', NULL, NULL),
+	('797eec1b-cc55-4099-9b65-14c8cd31ed6a', 'components', 'gallery_1-1699474134056.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:08:54.729692+00', '2023-11-08 20:08:54.946143+00', '2023-11-08 20:08:54.729692+00', '{"eTag": "\"1db678d6b1b8d5093d4856f78824e8d9\"", "size": 21874, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:08:55.000Z", "contentLength": 21874, "httpStatusCode": 200}', NULL, NULL),
+	('f8fda011-13aa-448a-8325-4cdb80a74834', 'components', 'gallery_2-1699474163590.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:09:24.009808+00', '2023-11-08 20:09:24.162185+00', '2023-11-08 20:09:24.009808+00', '{"eTag": "\"16a04bcd97e0a5dbe430fbd105f77091\"", "size": 19804, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:09:25.000Z", "contentLength": 19804, "httpStatusCode": 200}', NULL, NULL),
+	('8b1d0703-dace-4563-9203-cac55a1e402f', 'components', 'header_1-1699474507204.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:15:07.922612+00', '2023-11-08 20:15:08.072572+00', '2023-11-08 20:15:07.922612+00', '{"eTag": "\"6e196b34a3fe9ccfd1d4f0d7df398d7e\"", "size": 32162, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:15:08.000Z", "contentLength": 32162, "httpStatusCode": 200}', NULL, NULL),
+	('3229fbca-0f25-4b58-ae62-339fef492cea', 'components', 'header_2-1699474545772.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:15:46.187102+00', '2023-11-08 20:15:46.344705+00', '2023-11-08 20:15:46.187102+00', '{"eTag": "\"b3836d67875d353c7962fcd7b68cfc02\"", "size": 29478, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:15:47.000Z", "contentLength": 29478, "httpStatusCode": 200}', NULL, NULL),
+	('ed1a5d6d-8ee4-43f7-9fd5-57ad949df9aa', 'components', 'testimonial_3-1700175396447.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-16 22:56:37.27551+00', '2023-11-16 22:56:37.27551+00', '2023-11-16 22:56:37.27551+00', '{"eTag": "\"5fb9263d9ca8967532b4552038f44972\"", "size": 75668, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-16T22:56:38.000Z", "contentLength": 75668, "httpStatusCode": 200}', '46fe2af5-f6bf-4ee0-ba22-e22cf5dc42d4', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('366ba106-9faf-4852-b705-e0ce24d46f65', 'components', 'hero_1-1699474655423.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:17:36.112401+00', '2023-11-08 20:17:36.279915+00', '2023-11-08 20:17:36.112401+00', '{"eTag": "\"ec2c9e8d8e7341050a41236c6c2d25c9\"", "size": 30102, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:17:37.000Z", "contentLength": 30102, "httpStatusCode": 200}', NULL, NULL),
+	('84ad3730-a751-4d21-af20-23931d2fd5fd', 'components', 'hero_2-1699474691473.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:18:12.209619+00', '2023-11-08 20:18:12.435635+00', '2023-11-08 20:18:12.209619+00', '{"eTag": "\"a380af304a26a1d81d83eac443a9562e\"", "size": 32942, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:18:13.000Z", "contentLength": 32942, "httpStatusCode": 200}', NULL, NULL),
+	('4a6a48c6-9c64-46f9-8cd7-d27c4c39ae09', 'components', 'hero_3-1699474722438.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:18:43.141957+00', '2023-11-08 20:18:43.33669+00', '2023-11-08 20:18:43.141957+00', '{"eTag": "\"bf13a5a2a36d757e00ba180119f68385\"", "size": 29982, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:18:44.000Z", "contentLength": 29982, "httpStatusCode": 200}', NULL, NULL),
+	('62faf9fd-ea87-4615-8499-5eeb8b7530de', 'components', 'hero_4-1699474753156.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:19:14.489567+00', '2023-11-08 20:19:14.685088+00', '2023-11-08 20:19:14.489567+00', '{"eTag": "\"2e1652989c47f193564da989d1e326d4\"", "size": 31612, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:19:15.000Z", "contentLength": 31612, "httpStatusCode": 200}', NULL, NULL),
+	('8c2403b7-bfb5-4ef0-be33-59b61e4f731a', 'components', 'hero_5-1699474787787.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:19:48.452283+00', '2023-11-08 20:19:48.68362+00', '2023-11-08 20:19:48.452283+00', '{"eTag": "\"70021f9ceb2724a3e5e7f0a093b9b9db\"", "size": 31508, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:19:49.000Z", "contentLength": 31508, "httpStatusCode": 200}', NULL, NULL),
+	('da33f3cd-0099-4451-9a49-9d89ab4b67bf', 'components', 'logo_1-1699474825204.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:20:26.086469+00', '2023-11-08 20:20:26.196359+00', '2023-11-08 20:20:26.086469+00', '{"eTag": "\"d125676753011a5cfd790294e48f4bbd\"", "size": 22916, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:20:27.000Z", "contentLength": 22916, "httpStatusCode": 200}', NULL, NULL),
+	('5bf98e30-869d-4ef4-a7d8-71f816dd1ceb', 'components', 'navbar_2-1699474914969.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:21:55.856787+00', '2023-11-08 20:21:55.946213+00', '2023-11-08 20:21:55.856787+00', '{"eTag": "\"de2be0d36aeb49d277f0b9eb186f7348\"", "size": 5472, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:21:56.000Z", "contentLength": 5472, "httpStatusCode": 200}', NULL, NULL),
+	('dfe7a036-e664-4ea5-9df4-b2f29ad04033', 'components', 'navbar_3-1699474947122.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:22:27.876824+00', '2023-11-08 20:22:27.971646+00', '2023-11-08 20:22:27.876824+00', '{"eTag": "\"4d1551a99200bae549e5329b92db4550\"", "size": 5270, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:22:28.000Z", "contentLength": 5270, "httpStatusCode": 200}', NULL, NULL),
+	('c71a84d4-2040-4b6e-9587-aa6562a23f9b', 'components', 'pricing_1-1699474984054.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:23:04.880315+00', '2023-11-08 20:23:05.035977+00', '2023-11-08 20:23:04.880315+00', '{"eTag": "\"b9e59d7f75d86191b772a7846001db57\"", "size": 45934, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:23:05.000Z", "contentLength": 45934, "httpStatusCode": 200}', NULL, NULL),
+	('73d13166-b511-4483-a035-c6687925118a', 'components', 'team_1-1699475022901.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:23:43.801408+00', '2023-11-08 20:23:43.981553+00', '2023-11-08 20:23:43.801408+00', '{"eTag": "\"9bbe7389e2b9da878a7fdd637f4f8257\"", "size": 59388, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:23:44.000Z", "contentLength": 59388, "httpStatusCode": 200}', NULL, NULL),
+	('872616e7-42fa-46ae-ac51-9bbe882913fa', 'components', 'testimonial_1-1699475100918.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:25:01.715237+00', '2023-11-08 20:25:01.935253+00', '2023-11-08 20:25:01.715237+00', '{"eTag": "\"e30e675047033ee86e5a0a1ab7e9ac6e\"", "size": 33156, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:25:02.000Z", "contentLength": 33156, "httpStatusCode": 200}', NULL, NULL),
+	('7bdc8a70-9283-457e-a01f-7749f3e3ec4b', 'components', 'testimonial_2-1699475129787.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-08 20:25:30.422967+00', '2023-11-08 20:25:30.646564+00', '2023-11-08 20:25:30.422967+00', '{"eTag": "\"cb6efc78dd0a54373818fb749cacd203\"", "size": 61322, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-08T20:25:31.000Z", "contentLength": 61322, "httpStatusCode": 200}', NULL, NULL),
+	('2f772478-5b0d-44a1-86a4-dcd3028259d4', 'logos', '2.png', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-09 20:10:21.730488+00', '2023-11-09 20:10:21.730488+00', '2023-11-09 20:10:21.730488+00', '{"eTag": "\"d627a4b9fe3704de9469a2cd21c4a730\"", "size": 308321, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2023-11-09T20:10:22.000Z", "contentLength": 308321, "httpStatusCode": 200}', '3c3db287-1a2d-4ecc-bbf5-a1bddf3eda82', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('33c7d7bb-b181-44d1-9162-65a73e6d604e', 'components', 'pricing_2-1699646728798.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-10 20:05:29.628055+00', '2023-11-10 20:05:29.628055+00', '2023-11-10 20:05:29.628055+00', '{"eTag": "\"d07efe58304645c99cc9ccbeec45a505\"", "size": 37626, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-10T20:05:30.000Z", "contentLength": 37626, "httpStatusCode": 200}', '173886f7-199a-4682-b231-db24c028b4c1', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('6c7f0c76-a3a5-4373-b70f-fbdc6845ad09', 'components', 'testimonial_4-1700175511485.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-16 22:58:32.411423+00', '2023-11-16 22:58:32.411423+00', '2023-11-16 22:58:32.411423+00', '{"eTag": "\"35632a8cf4484c413b928256291bc84e\"", "size": 87748, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-16T22:58:33.000Z", "contentLength": 87748, "httpStatusCode": 200}', 'f2b5a227-b343-47a3-ae7b-fe3a459d72fe', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('4272e44d-6590-4948-9255-48dd13754101', 'components', 'pricing_3-1699646859014.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-10 20:07:39.824825+00', '2023-11-10 20:07:39.824825+00', '2023-11-10 20:07:39.824825+00', '{"eTag": "\"760ef7f68cb53a442f59dce208c49315\"", "size": 29922, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-10T20:07:40.000Z", "contentLength": 29922, "httpStatusCode": 200}', '0462f529-7559-452c-935f-8c09b1ccf59e', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('ec4aeb5c-bb56-45a0-9541-83b85afd4bcf', 'components', 'team_2-1699789696636.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-12 11:48:17.370346+00', '2023-11-12 11:48:17.370346+00', '2023-11-12 11:48:17.370346+00', '{"eTag": "\"890bafebdaefe0d6dd0344e46931d74b\"", "size": 40094, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-12T11:48:18.000Z", "contentLength": 40094, "httpStatusCode": 200}', '72beb1a9-b0b3-461f-aa5e-7fb089566880', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('15332f70-4282-41e4-9fe7-8f5a0f59da58', 'components', 'testimonial_5-1700175606234.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-16 23:00:07.055046+00', '2023-11-16 23:00:07.055046+00', '2023-11-16 23:00:07.055046+00', '{"eTag": "\"f4dbee7a592f7ac0a1c02e72a2769927\"", "size": 47090, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-16T23:00:07.000Z", "contentLength": 47090, "httpStatusCode": 200}', 'c1d6999f-fbc5-4c7f-a2ca-0bab664c063e', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('996fc014-8877-4464-8352-3758160e4a3a', 'components', 'blog_3-1699791747165.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-12 12:22:28.401441+00', '2023-11-12 12:22:28.401441+00', '2023-11-12 12:22:28.401441+00', '{"eTag": "\"674dc65de2219ae6aed27dc49bfaccfb\"", "size": 48742, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-12T12:22:29.000Z", "contentLength": 48742, "httpStatusCode": 200}', 'c581d65a-2680-40cb-82e8-a5fb0a6e3c52', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('9183b91a-2032-42f6-af3e-f70b0e1f882c', 'components', 'blog_3-1699791918578.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-12 12:25:19.551872+00', '2023-11-12 12:25:19.551872+00', '2023-11-12 12:25:19.551872+00', '{"eTag": "\"674dc65de2219ae6aed27dc49bfaccfb\"", "size": 48742, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-12T12:25:20.000Z", "contentLength": 48742, "httpStatusCode": 200}', 'd1f37430-7f64-4ad7-b708-2da3e580ebea', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('ea47dc37-4d12-4afd-8778-d10aef23e01a', 'components', 'testimonial_6-1700175699332.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-16 23:01:40.145955+00', '2023-11-16 23:01:40.145955+00', '2023-11-16 23:01:40.145955+00', '{"eTag": "\"56199ad9fad504ab98a679347639c2c8\"", "size": 61112, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-16T23:01:41.000Z", "contentLength": 61112, "httpStatusCode": 200}', 'f14a4b48-c56c-41a0-80b1-7c11a8a6aad7', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('49448149-fbb1-489b-b5f2-f03c9cebd627', 'components', 'blog_4-1699792050080.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-12 12:27:30.869115+00', '2023-11-12 12:27:30.869115+00', '2023-11-12 12:27:30.869115+00', '{"eTag": "\"06ba4f7e6639a664ca1161def34133f9\"", "size": 65310, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-12T12:27:31.000Z", "contentLength": 65310, "httpStatusCode": 200}', '331aaeea-e56a-4b8a-b527-3a4828b9ae33', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('910eba43-83c8-4768-aae0-413bd18a72ac', 'components', 'blog_5-1699792121565.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-12 12:28:42.428302+00', '2023-11-12 12:28:42.428302+00', '2023-11-12 12:28:42.428302+00', '{"eTag": "\"2f5957822accd564386520ac10bc7b73\"", "size": 54812, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-12T12:28:43.000Z", "contentLength": 54812, "httpStatusCode": 200}', '5b5e76c5-61e9-4ae1-8448-4da26781642a', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('46a5e42b-fb47-4cba-8e9a-29037b555b26', 'components', 'logo_2-1699792321814.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-12 12:32:02.480818+00', '2023-11-12 12:32:02.480818+00', '2023-11-12 12:32:02.480818+00', '{"eTag": "\"a5db7e551fdc1bcd345a6ea5a775a2bf\"", "size": 13958, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-12T12:32:03.000Z", "contentLength": 13958, "httpStatusCode": 200}', 'b961b6ff-193a-4a31-b5c3-ff368a6ca898', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('8b15cf11-b86f-4d11-bb92-60f9411386b5', 'components', 'logo_3-1699792424185.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-12 12:33:44.917092+00', '2023-11-12 12:33:44.917092+00', '2023-11-12 12:33:44.917092+00', '{"eTag": "\"85e2e87a205c1148e29c2936e5247616\"", "size": 19012, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-12T12:33:45.000Z", "contentLength": 19012, "httpStatusCode": 200}', '2cdeb597-6330-4507-afa4-1cd3ecbd1c8a', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('53159957-25b2-4213-ae7e-47f1006055ba', 'components', 'logo_4-1699792492896.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-12 12:34:53.548182+00', '2023-11-12 12:34:53.548182+00', '2023-11-12 12:34:53.548182+00', '{"eTag": "\"c46606dec58350296bd86f7ec0e2086f\"", "size": 15676, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-12T12:34:54.000Z", "contentLength": 15676, "httpStatusCode": 200}', '101f4d3e-9ea9-42a0-ba21-0e3afbd8f709', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('113976c1-fbb4-44a0-a80d-eed0697aa681', 'components', 'logo_5-1699792567281.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-12 12:36:08.10424+00', '2023-11-12 12:36:08.10424+00', '2023-11-12 12:36:08.10424+00', '{"eTag": "\"b613bd3cbe568a8cf183aa036a4aae01\"", "size": 30448, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-12T12:36:08.000Z", "contentLength": 30448, "httpStatusCode": 200}', '314f88ff-71eb-417d-bf9b-08012cfad74b', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('1a2fb14c-8c43-429e-94be-8fa01dd4b9ac', 'components', 'logo_6-1699792628850.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-12 12:37:09.618282+00', '2023-11-12 12:37:09.618282+00', '2023-11-12 12:37:09.618282+00', '{"eTag": "\"347fdcf8e49f611676e8bf07543a4ae2\"", "size": 19266, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-12T12:37:10.000Z", "contentLength": 19266, "httpStatusCode": 200}', '46e2b3f8-ecec-464c-8769-1a85dce012da', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('f4925c1e-7dc1-4c80-a391-870c3a798116', 'components', 'pricing_2-1699792873797.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-12 12:41:14.631808+00', '2023-11-12 12:41:14.631808+00', '2023-11-12 12:41:14.631808+00', '{"eTag": "\"d07efe58304645c99cc9ccbeec45a505\"", "size": 37626, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-12T12:41:15.000Z", "contentLength": 37626, "httpStatusCode": 200}', 'ea0d351c-7886-4b27-81a5-3572c462d979', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('530c849b-6792-459b-a0af-10bead869006', 'components', 'pricing_3-1699793065566.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-12 12:44:26.379033+00', '2023-11-12 12:44:26.379033+00', '2023-11-12 12:44:26.379033+00', '{"eTag": "\"760ef7f68cb53a442f59dce208c49315\"", "size": 29922, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-12T12:44:27.000Z", "contentLength": 29922, "httpStatusCode": 200}', '48a59a21-309d-4374-94e2-b1f1e52d919c', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('fb196e1e-298f-4cf9-be5e-76f82e1d7dff', 'components', 'navbar_1-1700253191223.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-17 20:33:11.933088+00', '2023-11-17 20:33:11.933088+00', '2023-11-17 20:33:11.933088+00', '{"eTag": "\"f8510e651b1fe59641991a521134dfa1\"", "size": 6428, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-17T20:33:12.000Z", "contentLength": 6428, "httpStatusCode": 200}', 'f1476825-284f-473f-b7a0-cb33bc859e25', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('2f9dc3e6-f320-444b-9ac9-06f9d245dd8c', 'components', 'pricing_4-1699793178202.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-12 12:46:19.152416+00', '2023-11-12 12:46:19.152416+00', '2023-11-12 12:46:19.152416+00', '{"eTag": "\"999d49ea3cea263ac8baea245e46756f\"", "size": 35214, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-12T12:46:20.000Z", "contentLength": 35214, "httpStatusCode": 200}', '744d0ad8-ebcc-4e5b-af75-2e45735f29b0', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('9de35c31-d9e1-462a-ae59-8a4c83e4c289', 'components', 'pricing_5-1699794379624.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-12 13:06:20.534279+00', '2023-11-12 13:06:20.534279+00', '2023-11-12 13:06:20.534279+00', '{"eTag": "\"d9265566d089d2fc1251d91aa4811f25\"", "size": 52108, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-12T13:06:21.000Z", "contentLength": 52108, "httpStatusCode": 200}', 'e68d15dd-0a9f-4170-bd17-c51a39e5caa2', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('e240e81a-2c29-47de-bbb6-38ece3745727', 'components', 'navbar_4-1700253452156.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-17 20:37:32.966357+00', '2023-11-17 20:37:32.966357+00', '2023-11-17 20:37:32.966357+00', '{"eTag": "\"6062569d0b03061a7b67f1cba45cf826\"", "size": 6906, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-17T20:37:33.000Z", "contentLength": 6906, "httpStatusCode": 200}', '964149ad-09ab-4154-8670-6ac1ae299300', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('96d43c9c-40cf-4341-88f1-2bc6577a9aa4', 'components', 'pricing_6-1699801115797.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-12 14:58:36.567205+00', '2023-11-12 14:58:36.567205+00', '2023-11-12 14:58:36.567205+00', '{"eTag": "\"9d170c056d8878bdc2ad7dc9e2721dbe\"", "size": 34006, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-12T14:58:37.000Z", "contentLength": 34006, "httpStatusCode": 200}', 'f224f9a9-8137-495f-9a14-7c2b4d8cecd6', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('b9fd6b8d-204d-4681-a1cf-a04a40533ff5', 'components', 'pricing_7-1699801200776.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-12 15:00:01.144249+00', '2023-11-12 15:00:01.144249+00', '2023-11-12 15:00:01.144249+00', '{"eTag": "\"3642c63c46de08d057fcefe9e2572285\"", "size": 31412, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-12T15:00:02.000Z", "contentLength": 31412, "httpStatusCode": 200}', '8d54b949-b0a7-4628-9c88-1a3bd062a7f6', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('a1f602eb-aaaf-4cdc-b858-ef81628e6036', 'components', 'navbar_5-1700253823539.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-17 20:43:44.327902+00', '2023-11-17 20:43:44.327902+00', '2023-11-17 20:43:44.327902+00', '{"eTag": "\"01bd48a4dbe7b2bc6febae88beba47bf\"", "size": 27342, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-17T20:43:45.000Z", "contentLength": 27342, "httpStatusCode": 200}', '44960ea4-4fdc-462a-a5f7-e8d724438f5a', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('c4451ede-1355-488b-bdf1-98e51f675e13', 'components', 'pricing_8-1699801295249.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-12 15:01:35.96457+00', '2023-11-12 15:01:35.96457+00', '2023-11-12 15:01:35.96457+00', '{"eTag": "\"1e0baf1a217b2ac5e72826a991fdfbff\"", "size": 30390, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-12T15:01:36.000Z", "contentLength": 30390, "httpStatusCode": 200}', 'b42d5b3d-8afa-4ec3-bb4d-5d8a3626f667', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('2236171c-29eb-4529-9626-dad3b297c8c8', 'components', 'pricing_9-1699801367444.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-12 15:02:48.300278+00', '2023-11-12 15:02:48.300278+00', '2023-11-12 15:02:48.300278+00', '{"eTag": "\"934d90889e36ab288f272351667cd878\"", "size": 30256, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-12T15:02:49.000Z", "contentLength": 30256, "httpStatusCode": 200}', '2cb0e2ef-c488-43f9-a3fc-a21ea669720c', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('c59544af-3c68-4813-9930-c60bea212750', 'components', 'navbar_6-1700253992183.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-17 20:46:33.06079+00', '2023-11-17 20:46:33.06079+00', '2023-11-17 20:46:33.06079+00', '{"eTag": "\"a77050334699630d674d9e803506801f\"", "size": 28160, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-17T20:46:33.000Z", "contentLength": 28160, "httpStatusCode": 200}', '23cd0c70-1b9f-4d51-8e82-a056448016f7', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('850bc417-6a1f-4297-bcfa-e10f1904f027', 'components', 'contact_2-1699916317084.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-13 22:58:38.06703+00', '2023-11-13 22:58:38.06703+00', '2023-11-13 22:58:38.06703+00', '{"eTag": "\"d632ce88e38f7a05b1ed4a8f4d91a6b6\"", "size": 19622, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-13T22:58:39.000Z", "contentLength": 19622, "httpStatusCode": 200}', 'c75944e9-c8d0-4d0e-9467-02d971f3217c', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('91dfe8f4-3f88-4fd7-8a00-328714051378', 'components', 'contact_3-1699916439682.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-13 23:00:40.373217+00', '2023-11-13 23:00:40.373217+00', '2023-11-13 23:00:40.373217+00', '{"eTag": "\"803a0f217449a8ef2e49aae1283b2cf6\"", "size": 14906, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-13T23:00:41.000Z", "contentLength": 14906, "httpStatusCode": 200}', '2b6c2555-6138-46e6-879e-25b003a838e8', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('68b9884e-473f-420a-b82b-642f8c4040af', 'components', 'contact_4-1699916532329.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-13 23:02:13.006425+00', '2023-11-13 23:02:13.006425+00', '2023-11-13 23:02:13.006425+00', '{"eTag": "\"beb3850bdb26ce55c620ce9ac40f9a72\"", "size": 22348, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-13T23:02:13.000Z", "contentLength": 22348, "httpStatusCode": 200}', 'ffc2ba32-47b4-4310-a75a-18f452f9b9e8', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('955d741e-89e7-4138-9381-8b6ba4013924', 'components', 'hero_6-1700431574656.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-19 22:06:15.405489+00', '2023-11-19 22:06:15.405489+00', '2023-11-19 22:06:15.405489+00', '{"eTag": "\"60008632bfeae4f9e3b3e09f680fcaaf\"", "size": 36822, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-19T22:06:16.000Z", "contentLength": 36822, "httpStatusCode": 200}', 'a12723eb-f5bf-4f91-8f10-b55e4de36558', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('bffc6216-ef76-43f9-b61b-590cfad1d5cf', 'components', 'contact_5-1699916681253.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-13 23:04:42.068379+00', '2023-11-13 23:04:42.068379+00', '2023-11-13 23:04:42.068379+00', '{"eTag": "\"8d7d7204a8207f78bb4e861e3f88ee80\"", "size": 34664, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-13T23:04:42.000Z", "contentLength": 34664, "httpStatusCode": 200}', 'e75e937a-9c08-4d7e-8f1f-20db97ceb458', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('1421e732-a70c-4923-95e8-7b736ee429bc', 'components', 'contact_6-1699916785051.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-13 23:06:25.694582+00', '2023-11-13 23:06:25.694582+00', '2023-11-13 23:06:25.694582+00', '{"eTag": "\"6d7fb03ce9a6b900cdeeeb66d9d039d2\"", "size": 15666, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-13T23:06:26.000Z", "contentLength": 15666, "httpStatusCode": 200}', '2444e624-9b61-47b0-9982-59c9b4d1aa64', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('f14483a2-f53a-4455-bf33-6e534ffa1750', 'components', 'hero_7-1700431681089.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-19 22:08:01.779495+00', '2023-11-19 22:08:01.779495+00', '2023-11-19 22:08:01.779495+00', '{"eTag": "\"0b0467679635bd28448b3deec71d8ee4\"", "size": 24338, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-19T22:08:02.000Z", "contentLength": 24338, "httpStatusCode": 200}', 'af4ea9bd-7418-4966-8317-dae4ba5b84c5', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('f1a1ecb5-00ee-4b65-bedc-d7589bb20ca1', 'components', 'cta_3-1699969452897.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-14 13:44:13.680656+00', '2023-11-14 13:44:13.680656+00', '2023-11-14 13:44:13.680656+00', '{"eTag": "\"0b4d0a28098b43a4b0d6c7feaaa9d675\"", "size": 26628, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-14T13:44:14.000Z", "contentLength": 26628, "httpStatusCode": 200}', '676b24d5-9a85-4489-8534-0aab6c89cc94', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('767e02b2-0a14-4548-9f40-f18d042e7297', 'components', 'cta_4-1699969766223.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-14 13:49:26.943924+00', '2023-11-14 13:49:26.943924+00', '2023-11-14 13:49:26.943924+00', '{"eTag": "\"eb7b1b4e448e182ff8e8f8f4f0b148d9\"", "size": 34870, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-14T13:49:27.000Z", "contentLength": 34870, "httpStatusCode": 200}', '5616dfd1-f7e9-416b-b3f1-d08f6f0ed49e', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('93758319-8cfc-4988-afd5-d56cd69e2531', 'components', 'cta_4-1699969766553.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-14 13:49:27.174995+00', '2023-11-14 13:49:27.174995+00', '2023-11-14 13:49:27.174995+00', '{"eTag": "\"eb7b1b4e448e182ff8e8f8f4f0b148d9\"", "size": 34870, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-14T13:49:28.000Z", "contentLength": 34870, "httpStatusCode": 200}', '4e3f0b6c-96ff-4158-89eb-8641cbc61403', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('03f00ab1-e0a4-422d-b2d4-75798372e72b', 'components', 'cta_5-1699970736276.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-14 14:05:37.026475+00', '2023-11-14 14:05:37.026475+00', '2023-11-14 14:05:37.026475+00', '{"eTag": "\"64f8330db2726fd95034e8e4293a193e\"", "size": 30778, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-14T14:05:37.000Z", "contentLength": 30778, "httpStatusCode": 200}', 'e0d3817b-4e1d-4041-aa69-e8ebf96dce0a', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('7fbeefee-6756-45b1-9ef1-62b9f72e5db1', 'components', 'faq_3-1699970900176.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-14 14:08:20.968649+00', '2023-11-14 14:08:20.968649+00', '2023-11-14 14:08:20.968649+00', '{"eTag": "\"62cd190e39d5d0b053b0845118690520\"", "size": 68942, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-14T14:08:21.000Z", "contentLength": 68942, "httpStatusCode": 200}', '35fd3ff3-2bf5-4b78-9066-eb56d9a45655', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('a8aa3ed0-6731-4bc0-9042-1b8a38039273', 'avatars', 'c9931676-631f-406a-a5ac-9ed587d4add6.jpg', 'c9931676-631f-406a-a5ac-9ed587d4add6', '2023-11-27 21:10:40.951536+00', '2023-11-27 21:10:40.951536+00', '2023-11-27 21:10:40.951536+00', '{"eTag": "\"d4754be1d3f1f4caa51ce2acd21eae86\"", "size": 13317, "mimetype": "text/plain;charset=UTF-8", "cacheControl": "max-age=3600", "lastModified": "2023-11-27T21:10:41.000Z", "contentLength": 13317, "httpStatusCode": 200}', '71508c28-1c1d-4786-a30f-e4e4b5ebe4f5', 'c9931676-631f-406a-a5ac-9ed587d4add6'),
+	('0d9f8df1-a969-49e2-9583-f8d2aa6dff90', 'components', 'faq_4-1699971191142.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-14 14:13:11.991603+00', '2023-11-14 14:13:11.991603+00', '2023-11-14 14:13:11.991603+00', '{"eTag": "\"3cb8ccea0c25187ca14ac139b6915b56\"", "size": 88478, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-14T14:13:12.000Z", "contentLength": 88478, "httpStatusCode": 200}', 'f35859e6-432d-41d6-a4f8-46d3132e9e7b', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('7e0d4886-614f-48d3-b8e4-9e59578b8041', 'components', 'faq_5-1699971359131.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-14 14:15:59.994821+00', '2023-11-14 14:15:59.994821+00', '2023-11-14 14:15:59.994821+00', '{"eTag": "\"bb7eb47840fa80772961e4553bc2fc8e\"", "size": 74084, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-14T14:16:00.000Z", "contentLength": 74084, "httpStatusCode": 200}', '5060c893-2660-4a48-abad-9ab47dbab963', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('039ea1e2-8449-482d-a406-17166e1e707f', 'logos', '30.jpg', 'c9931676-631f-406a-a5ac-9ed587d4add6', '2023-11-27 21:11:21.138402+00', '2023-11-27 21:11:21.138402+00', '2023-11-27 21:11:21.138402+00', '{"eTag": "\"8d6ce6d45fd1ebd645d1a641d463c963\"", "size": 128165, "mimetype": "image/jpeg", "cacheControl": "max-age=3600", "lastModified": "2023-11-27T21:11:21.000Z", "contentLength": 128165, "httpStatusCode": 200}', 'd5b30890-c8b2-4f33-9e88-8cc775cf5ce3', 'c9931676-631f-406a-a5ac-9ed587d4add6'),
+	('3ea15907-9bb5-4a0a-8f19-c54f45044952', 'components', 'feature_7-1699971589851.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-14 14:19:50.563103+00', '2023-11-14 14:19:50.563103+00', '2023-11-14 14:19:50.563103+00', '{"eTag": "\"45bd2f5b1646512cf8d101ca7a7c20e9\"", "size": 29606, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-14T14:19:51.000Z", "contentLength": 29606, "httpStatusCode": 200}', 'c4d9a45a-6ddb-47ea-b1b3-278d5ad2cbab', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('63de4663-f0df-4b42-971a-1ffef905adf8', 'components', 'feature_8-1699971684332.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-14 14:21:25.253129+00', '2023-11-14 14:21:25.253129+00', '2023-11-14 14:21:25.253129+00', '{"eTag": "\"3df195cc68b78ec214e6f7d5929f89e3\"", "size": 32048, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-14T14:21:26.000Z", "contentLength": 32048, "httpStatusCode": 200}', '24b870c0-87b1-4aaf-ac90-d895f65e60f0', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('f685aea8-3cdd-4d8e-868e-da58b80a304a', 'components', 'feature_9-1699971755515.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-14 14:22:36.384176+00', '2023-11-14 14:22:36.384176+00', '2023-11-14 14:22:36.384176+00', '{"eTag": "\"9fc026f2f30e23664b9c1c1a135ef29d\"", "size": 28036, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-14T14:22:37.000Z", "contentLength": 28036, "httpStatusCode": 200}', '7fa12f96-ede8-43f5-a1d2-c361b5703234', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('30df1c85-4322-4507-9d8f-49b1794d622c', 'components', 'feature_10-1699972896258.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-14 14:41:36.945385+00', '2023-11-14 14:41:36.945385+00', '2023-11-14 14:41:36.945385+00', '{"eTag": "\"e3fd07a5a34f5cfe2713412e28a16a30\"", "size": 39194, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-14T14:41:37.000Z", "contentLength": 39194, "httpStatusCode": 200}', 'aae6818d-05c6-456e-8e00-28aa5e5c338d', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('9b800522-8fec-4861-a931-f454d949845a', 'components', 'feature_11-1699973112463.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-14 14:45:13.299572+00', '2023-11-14 14:45:13.299572+00', '2023-11-14 14:45:13.299572+00', '{"eTag": "\"f144357c12c0dfaee092a58a8f8d5b3a\"", "size": 34306, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-14T14:45:14.000Z", "contentLength": 34306, "httpStatusCode": 200}', 'd6e8b8a0-7709-4f96-bcab-e13c0be305c3', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('ab727c8f-f52a-4e10-b7c5-074570d5551d', 'components', 'feature_12-1699973327096.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-14 14:48:47.892998+00', '2023-11-14 14:48:47.892998+00', '2023-11-14 14:48:47.892998+00', '{"eTag": "\"e93725b3623dac5d5bd077542180c585\"", "size": 44894, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-14T14:48:48.000Z", "contentLength": 44894, "httpStatusCode": 200}', 'd087011a-b084-4fd5-b5be-b6255615501e', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('6562230c-4a0f-4a7a-a563-703bae0b3597', 'components', 'feature_13-1699973506581.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-14 14:51:47.386263+00', '2023-11-14 14:51:47.386263+00', '2023-11-14 14:51:47.386263+00', '{"eTag": "\"4b2d9356d921093cd646cb61540ac96f\"", "size": 47032, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-14T14:51:48.000Z", "contentLength": 47032, "httpStatusCode": 200}', '095e5545-e301-45c9-8c0a-ef0e1bf50c35', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('37609c9d-87b2-40c7-b237-081254565dc8', 'components', 'feature_14-1699973712417.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-14 14:55:13.208271+00', '2023-11-14 14:55:13.208271+00', '2023-11-14 14:55:13.208271+00', '{"eTag": "\"d8931b51e489c4d47e70f32357f37a91\"", "size": 45102, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-14T14:55:14.000Z", "contentLength": 45102, "httpStatusCode": 200}', '3b1ee102-334b-4417-8eaa-d1740c6219a3', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('8186b636-72ed-43ca-a4ac-cf1b25de119b', 'avatars', '36a5c0c2-83ed-431c-a8ba-503692c3479b.jpg', '36a5c0c2-83ed-431c-a8ba-503692c3479b', '2023-11-29 01:53:52.787459+00', '2023-11-29 01:53:52.787459+00', '2023-11-29 01:53:52.787459+00', '{"eTag": "\"f1095fa7ec5245a13deed1b745d0fde9\"", "size": 24087, "mimetype": "text/plain;charset=UTF-8", "cacheControl": "max-age=3600", "lastModified": "2023-11-29T01:53:53.000Z", "contentLength": 24087, "httpStatusCode": 200}', '8a60840b-16aa-473e-afff-20ee03f98fc6', '36a5c0c2-83ed-431c-a8ba-503692c3479b'),
+	('720bcdc0-4e0c-4ed7-a8f7-6045afd0ab20', 'components', 'feature_15-1699973895768.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-14 14:58:16.525552+00', '2023-11-14 14:58:16.525552+00', '2023-11-14 14:58:16.525552+00', '{"eTag": "\"35df03fced9d0ba5ca8bef0f09f272c3\"", "size": 33232, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-14T14:58:17.000Z", "contentLength": 33232, "httpStatusCode": 200}', '9d9afc4a-6803-48c2-861b-64f9b325f937', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('931176e4-64da-4772-a254-6ce6e1dcaf8e', 'components', 'feature_16-1699974040701.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-14 15:00:41.556282+00', '2023-11-14 15:00:41.556282+00', '2023-11-14 15:00:41.556282+00', '{"eTag": "\"2f1939a06e44c095e50ee9cf18d09116\"", "size": 38286, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-14T15:00:42.000Z", "contentLength": 38286, "httpStatusCode": 200}', '304ae2df-1f05-400d-9924-b6f334f8c810', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('37265e06-0445-4176-b15d-578e33877f98', 'logos', '54.png', '36a5c0c2-83ed-431c-a8ba-503692c3479b', '2023-11-29 01:54:08.532352+00', '2023-11-29 01:54:08.532352+00', '2023-11-29 01:54:08.532352+00', '{"eTag": "\"aaa6627c52d52eccfca8921c437516bd\"", "size": 676048, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2023-11-29T01:54:09.000Z", "contentLength": 676048, "httpStatusCode": 200}', '732bdd76-34c4-402a-92af-8c735bc4d379', '36a5c0c2-83ed-431c-a8ba-503692c3479b'),
+	('c8e4e218-b7a7-494c-83ba-87afda9dbba6', 'components', 'feature_17-1699974131716.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-14 15:02:12.463771+00', '2023-11-14 15:02:12.463771+00', '2023-11-14 15:02:12.463771+00', '{"eTag": "\"240e5d2b82bdb881772f65e244d9730f\"", "size": 33608, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-14T15:02:13.000Z", "contentLength": 33608, "httpStatusCode": 200}', '69923dc1-4983-48da-97d9-4761879661b7', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('aa752617-4fb1-420b-b95c-22711a46bbaa', 'components', 'navbar_7-1701386388754.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-30 23:19:49.428374+00', '2023-11-30 23:19:49.428374+00', '2023-11-30 23:19:49.428374+00', '{"eTag": "\"9baf02d27b1116c63bfc5b5aaf97cadf\"", "size": 24692, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-30T23:19:50.000Z", "contentLength": 24692, "httpStatusCode": 200}', 'f0723648-7019-4d28-b5e4-5980f7a6dadb', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('1ce7dbd4-10c3-41d0-86a1-6ec3dfe55b13', 'components', 'feature_18-1699974207665.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-14 15:03:28.41276+00', '2023-11-14 15:03:28.41276+00', '2023-11-14 15:03:28.41276+00', '{"eTag": "\"3dd478a6d77ea092582c186545b0ed41\"", "size": 20936, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-14T15:03:29.000Z", "contentLength": 20936, "httpStatusCode": 200}', '84ae3d77-f08e-4584-8c9d-8cfb9f4bd0af', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('f804a276-7183-419f-bc13-e51d439f562c', 'logos', '3.svg', 'e19eb081-4a53-4dd9-906e-140c4fed4049', '2023-11-15 12:23:23.869924+00', '2023-11-15 12:23:23.869924+00', '2023-11-15 12:23:23.869924+00', '{"eTag": "\"7693bc1dabd55b5b8e91d57847b7899d\"", "size": 1438, "mimetype": "image/svg+xml", "cacheControl": "max-age=3600", "lastModified": "2023-11-15T12:23:24.000Z", "contentLength": 1438, "httpStatusCode": 200}', 'b294943d-4343-4fca-bbd6-e455641203c3', 'e19eb081-4a53-4dd9-906e-140c4fed4049'),
+	('499a9834-e1a0-479c-b803-843f1184d5ea', 'components', 'header_3-1700068993038.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-15 17:23:13.68019+00', '2023-11-15 17:23:13.68019+00', '2023-11-15 17:23:13.68019+00', '{"eTag": "\"497d9bb0210410587b76ce6982490607\"", "size": 34676, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-15T17:23:14.000Z", "contentLength": 34676, "httpStatusCode": 200}', '3f0cbb44-33b8-4107-82ea-f57d078b24f8', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('4df3dd02-a4cd-4028-91aa-899395ffe257', 'components', 'hero_13-1700432167908.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-19 22:16:08.647596+00', '2023-11-19 22:16:08.647596+00', '2023-11-19 22:16:08.647596+00', '{"eTag": "\"56f7f87e5d7b55b6278cad5314f37d23\"", "size": 43434, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-19T22:16:09.000Z", "contentLength": 43434, "httpStatusCode": 200}', 'fb66b0ab-0bb9-43b8-8efb-6f41e53ccf74', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('7cb3805c-6a6e-4d5c-bfb8-540bdff98dbd', 'components', 'footer_3-1700069837318.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-15 17:37:17.985157+00', '2023-11-15 17:37:17.985157+00', '2023-11-15 17:37:17.985157+00', '{"eTag": "\"04b6827809d3e6624e631cfe5264917e\"", "size": 28578, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-15T17:37:18.000Z", "contentLength": 28578, "httpStatusCode": 200}', 'b1307b7a-69a1-4396-8f48-5b671d7a146b', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('a23478c2-b0cb-4b86-9501-cc1598e6c2bf', 'components', 'footer4-1700069944218.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-15 17:39:04.949151+00', '2023-11-15 17:39:04.949151+00', '2023-11-15 17:39:04.949151+00', '{"eTag": "\"0147213bbad1b2967dd2fe9ea7186835\"", "size": 29828, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-15T17:39:05.000Z", "contentLength": 29828, "httpStatusCode": 200}', '1d2129d0-14dc-493f-be38-9b421590d88e', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('6e2e868b-a152-423e-a6cd-5e98772dc27e', 'components', 'hero_14-1700432252890.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-19 22:17:33.646936+00', '2023-11-19 22:17:33.646936+00', '2023-11-19 22:17:33.646936+00', '{"eTag": "\"e00f55603fee814289e05c8341e5db42\"", "size": 46146, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-19T22:17:34.000Z", "contentLength": 46146, "httpStatusCode": 200}', '0b6c6640-6d14-44da-99b8-26de2d82c65f', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('5d07a360-37e6-4b2d-b394-aa179fe50668', 'components', 'footer_5-1700070102798.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-15 17:41:43.414554+00', '2023-11-15 17:41:43.414554+00', '2023-11-15 17:41:43.414554+00', '{"eTag": "\"105407b7059e8b9c27275690accaf8ec\"", "size": 9906, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-15T17:41:44.000Z", "contentLength": 9906, "httpStatusCode": 200}', '90540d77-81c2-4718-8441-57f57a96acc2', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('bcd308d6-15d8-49ea-a999-8f0d13c79553', 'avatars', 'c85848d1-a0ba-4b26-8209-950a4e63363a.png', 'c85848d1-a0ba-4b26-8209-950a4e63363a', '2023-11-27 16:41:31.929046+00', '2023-11-27 16:41:31.929046+00', '2023-11-27 16:41:31.929046+00', '{"eTag": "\"734b1ad7ef2132bbb9237a54b18d6943\"", "size": 449643, "mimetype": "text/plain;charset=UTF-8", "cacheControl": "max-age=3600", "lastModified": "2023-11-27T16:41:32.000Z", "contentLength": 449643, "httpStatusCode": 200}', '6c3beb93-75c6-4875-a75c-0036b207ddc4', 'c85848d1-a0ba-4b26-8209-950a4e63363a'),
+	('4487a7db-e66b-4b36-b51b-15ba3bc5c48c', 'components', 'gallery_3-1700070260616.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-15 17:44:21.537828+00', '2023-11-15 17:44:21.537828+00', '2023-11-15 17:44:21.537828+00', '{"eTag": "\"22cffd6d0c0a549138d92371debd0fed\"", "size": 22374, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-15T17:44:22.000Z", "contentLength": 22374, "httpStatusCode": 200}', '5ff77c46-b2d6-4536-af27-ef87502423bc', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('9d13ad15-f96b-4f40-a97e-ad849c0a63f2', 'logos', '21.png', 'c85848d1-a0ba-4b26-8209-950a4e63363a', '2023-11-27 16:41:52.328229+00', '2023-11-27 16:41:52.328229+00', '2023-11-27 16:41:52.328229+00', '{"eTag": "\"3bad8f26dfba3c6e5e3e95595da0e395\"", "size": 7283, "mimetype": "image/png", "cacheControl": "max-age=3600", "lastModified": "2023-11-27T16:41:53.000Z", "contentLength": 7283, "httpStatusCode": 200}', '9e6dadcd-56ef-4a0c-aba6-5c0f2acbc4fc', 'c85848d1-a0ba-4b26-8209-950a4e63363a'),
+	('bc38915b-c2e5-4fa9-9f9c-bc21496a7549', 'components', 'gallery_4-1700070606401.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-15 17:50:07.283228+00', '2023-11-15 17:50:07.283228+00', '2023-11-15 17:50:07.283228+00', '{"eTag": "\"15a729a20915af4e4cc237c49d617094\"", "size": 25536, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-15T17:50:08.000Z", "contentLength": 25536, "httpStatusCode": 200}', '5cec04eb-4041-44af-a3b1-33bc1507d47b', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('bbd77368-70c0-450a-a12c-d6ba4472582a', 'components', 'gallery_5-1700070687468.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-15 17:51:28.293779+00', '2023-11-15 17:51:28.293779+00', '2023-11-15 17:51:28.293779+00', '{"eTag": "\"7ed484b90c0fe6259441ef34463ec7b1\"", "size": 20548, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-15T17:51:29.000Z", "contentLength": 20548, "httpStatusCode": 200}', 'c968af0d-1cf3-4c0d-9cd2-3cd8b18a4ad5', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('7998372e-7e79-463b-898a-116f0a9e6a0f', 'components', 'gallery_6-1700070821783.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-15 17:53:42.697261+00', '2023-11-15 17:53:42.697261+00', '2023-11-15 17:53:42.697261+00', '{"eTag": "\"b4901b85209f5de40428066221fb80c8\"", "size": 19468, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-15T17:53:43.000Z", "contentLength": 19468, "httpStatusCode": 200}', '3ec42e0a-b670-40c2-b003-2f74f6f062f3', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('ab1eb865-2132-4568-b8d9-944bba20eceb', 'components', 'header_4-1700071047403.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-15 17:57:28.270295+00', '2023-11-15 17:57:28.270295+00', '2023-11-15 17:57:28.270295+00', '{"eTag": "\"3f654ecea358aa6d6c896335bf81cacd\"", "size": 35454, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-15T17:57:29.000Z", "contentLength": 35454, "httpStatusCode": 200}', 'd07e2f3c-d3f6-4dab-8c2a-d572490381a3', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('5a89d1d6-a07d-49c9-8580-fd0ab591104c', 'components', 'header_5-1700071204639.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-15 18:00:05.48093+00', '2023-11-15 18:00:05.48093+00', '2023-11-15 18:00:05.48093+00', '{"eTag": "\"b16ef299839b96e7479380df95b37847\"", "size": 26484, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-15T18:00:06.000Z", "contentLength": 26484, "httpStatusCode": 200}', 'c83ff438-2236-4400-bc0c-ebbbd05135ea', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('952e80c3-9525-4a8d-8ad4-f6366969ab0c', 'components', 'header_6-1700071316954.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-15 18:01:57.659689+00', '2023-11-15 18:01:57.659689+00', '2023-11-15 18:01:57.659689+00', '{"eTag": "\"4108008ec9d6c2254a8149691567808e\"", "size": 24264, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-15T18:01:58.000Z", "contentLength": 24264, "httpStatusCode": 200}', '177a36cb-725c-425d-ad82-6d24a8906bc6', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('4fda33be-6e05-4f69-b913-745c3dc833fd', 'components', 'hero_8-1700433056252.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-19 22:30:56.953078+00', '2023-11-19 22:30:56.953078+00', '2023-11-19 22:30:56.953078+00', '{"eTag": "\"15762444bf0155f167f4e5226753d745\"", "size": 36114, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-19T22:30:57.000Z", "contentLength": 36114, "httpStatusCode": 200}', '04fab287-be80-4660-bd03-e8fe5f8f51c5', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('4082a0d1-ae07-43ce-afb5-391088a30110', 'components', 'header_7-1700071451635.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-15 18:04:12.273502+00', '2023-11-15 18:04:12.273502+00', '2023-11-15 18:04:12.273502+00', '{"eTag": "\"f3c0d607fb547a3619424a258f0ed36c\"", "size": 23842, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-15T18:04:13.000Z", "contentLength": 23842, "httpStatusCode": 200}', '3bda2aa4-52a8-4b24-8875-aa780fcfbc55', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('728b501b-2685-4b21-b426-35003e9c8b28', 'components', 'team_3-1700174931913.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-16 22:48:52.746177+00', '2023-11-16 22:48:52.746177+00', '2023-11-16 22:48:52.746177+00', '{"eTag": "\"faa406d18bf79e56ad1c7ea32f5d2054\"", "size": 36442, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-16T22:48:53.000Z", "contentLength": 36442, "httpStatusCode": 200}', '4f1b55f6-6917-48c3-8595-c4130496f41d', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('be245375-779f-4c4e-81ff-2e9ac51e7e70', 'components', 'hero_9-1700433093203.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-19 22:31:33.941402+00', '2023-11-19 22:31:33.941402+00', '2023-11-19 22:31:33.941402+00', '{"eTag": "\"7aff0b0ab4270f8ff28862ccd57eee08\"", "size": 31204, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-19T22:31:34.000Z", "contentLength": 31204, "httpStatusCode": 200}', 'bd7b7a51-e854-4ab8-b287-9da450d1fa4e', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('60f33912-fdfb-448f-bff0-efe1c8a72e8f', 'components', 'team_4-1700175007216.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-16 22:50:08.056751+00', '2023-11-16 22:50:08.056751+00', '2023-11-16 22:50:08.056751+00', '{"eTag": "\"ec9824a72e5f0b31dbcd8e1b89c4e86a\"", "size": 52340, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-16T22:50:08.000Z", "contentLength": 52340, "httpStatusCode": 200}', '4b871553-3a4e-4b82-bef8-5de131dc371e', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('cdfae490-6ebc-4675-a054-1ef0ea18fcec', 'components', 'team_5-1700175108148.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-16 22:51:49.079937+00', '2023-11-16 22:51:49.079937+00', '2023-11-16 22:51:49.079937+00', '{"eTag": "\"80a26f38aea8b8436884cb42072b967b\"", "size": 31080, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-16T22:51:49.000Z", "contentLength": 31080, "httpStatusCode": 200}', 'c4831686-4bf6-41ca-b2f4-e9c1050bbbc1', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('79fc9cb9-f69d-4d2f-8476-dcce24e1adc4', 'components', 'hero_10-1700433118902.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-19 22:31:59.595472+00', '2023-11-19 22:31:59.595472+00', '2023-11-19 22:31:59.595472+00', '{"eTag": "\"4ea695d5ad0e4a18ab76b4f9c327dd0c\"", "size": 34718, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-19T22:32:00.000Z", "contentLength": 34718, "httpStatusCode": 200}', 'd73f423a-7750-4564-817f-40fa8076cb38', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('4f305395-7e53-4c3f-ab3c-c1a21851e33e', 'components', 'hero_11-1700433130020.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-19 22:32:10.712881+00', '2023-11-19 22:32:10.712881+00', '2023-11-19 22:32:10.712881+00', '{"eTag": "\"ad8349d5bfa3afc75fc9a73cbcd99d5a\"", "size": 39434, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-19T22:32:11.000Z", "contentLength": 39434, "httpStatusCode": 200}', 'c159fe63-1d60-4a5d-bce7-4df89338ef5e', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('4c6b2260-1495-4321-8639-5143a25b6768', 'components', 'hero_12-1700433142803.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-19 22:32:23.17545+00', '2023-11-19 22:32:23.17545+00', '2023-11-19 22:32:23.17545+00', '{"eTag": "\"5e53985dac8f3ed7f14028c4ee154415\"", "size": 50646, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-19T22:32:24.000Z", "contentLength": 50646, "httpStatusCode": 200}', 'a0336460-adc3-4553-b649-58575feafe02', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('dbc07d11-fd35-4793-bcc9-8af9b5752efe', 'avatars', '97078c42-8bd0-4b3d-ab3a-285a502ed167.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-29 21:33:13.977323+00', '2023-11-29 21:33:13.977323+00', '2023-11-29 21:33:13.977323+00', '{"eTag": "\"19f124db9f7606181dce06acb01612a9\"", "size": 103548, "mimetype": "text/plain;charset=UTF-8", "cacheControl": "max-age=3600", "lastModified": "2023-11-29T21:33:14.000Z", "contentLength": 103548, "httpStatusCode": 200}', '73f52f2b-a655-4ef5-84f8-e289de2b1c12', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('7d71f8c1-9c80-40aa-8585-b09f76f25792', 'components', 'navbar_8-1701386521252.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-30 23:22:02.224589+00', '2023-11-30 23:22:02.224589+00', '2023-11-30 23:22:02.224589+00', '{"eTag": "\"c7fe248180fd8f7b8129b42e294e8109\"", "size": 24700, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-30T23:22:02.000Z", "contentLength": 24700, "httpStatusCode": 200}', '0c2234e6-d2ad-457a-aed0-2fe9d0b7b54e', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('fcb5023b-f292-4d59-b6f4-53dbe56d0426', 'components', 'navbar_9-1701386726405.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-30 23:25:27.245523+00', '2023-11-30 23:25:27.245523+00', '2023-11-30 23:25:27.245523+00', '{"eTag": "\"352dcb78902fb176af7f129b31ca4f1a\"", "size": 24448, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-30T23:25:28.000Z", "contentLength": 24448, "httpStatusCode": 200}', 'e173c536-93de-4580-8655-57af34c24e74', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('063cd274-80ae-4e12-a2cd-d5ef678868e8', 'components', 'navbar_10-1701386886725.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-30 23:28:07.408111+00', '2023-11-30 23:28:07.408111+00', '2023-11-30 23:28:07.408111+00', '{"eTag": "\"27298fcd4423bfc8609a47a5bab75b46\"", "size": 26568, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-30T23:28:08.000Z", "contentLength": 26568, "httpStatusCode": 200}', '2274d823-5240-467d-a486-907b14bd8e5e', '97078c42-8bd0-4b3d-ab3a-285a502ed167'),
+	('9bd05747-efbb-424b-9124-ab2dd3367462', 'components', 'navbar_11-1701386973510.webp', '97078c42-8bd0-4b3d-ab3a-285a502ed167', '2023-11-30 23:29:34.270833+00', '2023-11-30 23:29:34.270833+00', '2023-11-30 23:29:34.270833+00', '{"eTag": "\"63f0f39f8b386ab5d938ffc7d44c9019\"", "size": 19024, "mimetype": "image/webp", "cacheControl": "max-age=3600", "lastModified": "2023-11-30T23:29:35.000Z", "contentLength": 19024, "httpStatusCode": 200}', '3da0e36e-064f-4961-a0d7-00a2ef6e9db7', '97078c42-8bd0-4b3d-ab3a-285a502ed167');

@@ -13,9 +13,8 @@ import Button from '~/core/ui/Button';
 import Trans from '~/core/ui/Trans';
 
 import configuration from '~/configuration';
-import PageLoadingIndicator from '~/core/ui/PageLoadingIndicator';
+import LoadingOverlay from '~/core/ui/LoadingOverlay';
 import isBrowser from '~/core/generic/is-browser';
-import useCsrfToken from '~/core/hooks/use-csrf-token';
 import { acceptInviteAction } from '~/lib/memberships/actions';
 import EmailOtpContainer from '~/app/auth/components/EmailOtpContainer';
 
@@ -31,8 +30,6 @@ function NewUserInviteForm(
 ) {
   const [mode, setMode] = useState<Mode>(Mode.SignUp);
   const [isSubmitting, startTransition] = useTransition();
-  const csrfToken = useCsrfToken();
-
   const oAuthReturnUrl = isBrowser() ? window.location.pathname : '';
 
   const onInviteAccepted = useCallback(
@@ -41,19 +38,18 @@ function NewUserInviteForm(
         await acceptInviteAction({
           code: props.code,
           userId,
-          csrfToken,
         });
       });
     },
-    [csrfToken, props.code],
+    [props.code],
   );
 
   return (
     <>
       <If condition={isSubmitting}>
-        <PageLoadingIndicator fullPage>
+        <LoadingOverlay fullPage>
           Accepting invite. Please wait...
-        </PageLoadingIndicator>
+        </LoadingOverlay>
       </If>
 
       <OAuthProviders inviteCode={props.code} returnUrl={oAuthReturnUrl} />

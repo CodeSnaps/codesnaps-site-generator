@@ -109,6 +109,8 @@ function UpdateProfileForm({
 
   const displayNameControl = register('displayName', {
     value: currentDisplayName,
+    maxLength: 100,
+    minLength: 2,
   });
 
   const photoURLControl = register('photoURL');
@@ -137,6 +139,7 @@ function UpdateProfileForm({
               data-cy={'profile-display-name'}
               minLength={2}
               placeholder={''}
+              maxLength={100}
             />
           </TextField.Label>
         </TextField>
