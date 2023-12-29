@@ -134,11 +134,10 @@ export default async function inviteMembers(params: Params) {
           inviter: inviter.id,
           inviteId,
           organizationId,
+          error,
         },
         `Error while sending invite to member`,
       );
-
-      logger.debug(error);
 
       return Promise.reject(error);
     };

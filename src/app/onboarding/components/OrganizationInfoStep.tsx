@@ -2,6 +2,7 @@
 
 import type { FormEvent } from 'react';
 import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Heading from '~/core/ui/Heading';
 import Button from '~/core/ui/Button';
@@ -16,6 +17,8 @@ export interface OrganizationInfoStepData {
 const OrganizationInfoStep: React.FCC<{
   onSubmit: (data: OrganizationInfoStepData) => void;
 }> = ({ onSubmit }) => {
+  const { t } = useTranslation('onboarding');
+
   const handleFormSubmit = useCallback(
     (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
@@ -56,7 +59,7 @@ const OrganizationInfoStep: React.FCC<{
               data-cy={'organization-name-input'}
               required
               name={'organization'}
-              placeholder={'Ex. Acme Inc.'}
+              placeholder={t('organizationNamePlaceholder')}
             />
           </TextField.Label>
         </TextField>

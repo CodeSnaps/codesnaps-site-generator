@@ -79,5 +79,6 @@
   "deleteOrganizationDisclaimer": "You are deleting the organization {{ organizationName }}. This action cannot be undone.",
   "leaveOrganizationDisclaimer": "You are leaving the organization {{ organizationName }}. You will no longer have access to it.",
   "deleteOrganizationErrorHeading": "Sorry, we couldn't delete your organization.",
-  "leaveOrganizationErrorHeading": "Sorry, we couldn't leave your organization."
+  "leaveOrganizationErrorHeading": "Sorry, we couldn't leave your organization.",
+  "searchMembersPlaceholder": "Search members"
 }

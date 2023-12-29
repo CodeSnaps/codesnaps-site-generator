@@ -13,6 +13,7 @@ import {
   MoonIcon,
   BuildingLibraryIcon,
   CheckCircleIcon,
+  QuestionMarkCircleIcon,
   EllipsisVerticalIcon,
 } from '@heroicons/react/24/outline';
 
@@ -74,9 +75,9 @@ const ProfileDropdown: React.FCC<{
           'flex cursor-pointer focus:outline-none group items-center',
           className,
           {
-            ['items-center space-x-2.5 rounded-lg border border-neutral-100' +
+            ['items-center space-x-2.5 rounded-lg border border-gray-100' +
             ' dark:border-dark-900 p-2 transition-colors' +
-            ' hover:bg-neutral-50 dark:hover:bg-dark-800/40']: displayName,
+            ' hover:bg-gray-50 dark:hover:bg-dark-800/40']: displayName,
           },
         )}
       >
@@ -87,16 +88,14 @@ const ProfileDropdown: React.FCC<{
             <span className={'text-sm truncate'}>{userDisplayName}</span>
 
             <span
-              className={
-                'text-xs text-neutral-500 dark:text-neutral-400 truncate'
-              }
+              className={'text-xs text-gray-500 dark:text-gray-400 truncate'}
             >
               {signedInAsLabel}
             </span>
           </div>
 
           <EllipsisVerticalIcon
-            className={'h-8 hidden text-neutral-500 group-hover:flex'}
+            className={'h-8 hidden text-gray-500 group-hover:flex'}
           />
         </If>
       </DropdownMenuTrigger>
@@ -110,7 +109,9 @@ const ProfileDropdown: React.FCC<{
           <div
             className={'flex flex-col justify-start truncate text-left text-xs'}
           >
-            <div className={'text-neutral-500'}>Signed in as</div>
+            <div className={'text-gray-500'}>
+              <Trans i18nKey={'common:signedInAs'} />
+            </div>
 
             <div>
               <span className={'block truncate'}>{signedInAsLabel}</span>
@@ -128,6 +129,21 @@ const ProfileDropdown: React.FCC<{
             <Squares2X2Icon className={'h-5'} />
             <span>
               <Trans i18nKey={'common:dashboardTabLabel'} />
+            </span>
+          </Link>
+        </DropdownMenuItem>
+
+        <DropdownMenuSeparator />
+
+        <DropdownMenuItem asChild>
+          <Link
+            className={'flex h-full w-full items-center space-x-2'}
+            href={'/docs'}
+          >
+            <QuestionMarkCircleIcon className={'h-5'} />
+
+            <span>
+              <Trans i18nKey={'common:documentation'} />
             </span>
           </Link>
         </DropdownMenuItem>

@@ -184,8 +184,8 @@ async function getUserCanAccessCheckout(
     }
 
     return canChangeBilling(role);
-  } catch (e) {
-    getLogger().error(e, `Could not retrieve user role`);
+  } catch (error) {
+    getLogger().error({ error }, `Could not retrieve user role`);
 
     return false;
   }
@@ -284,8 +284,8 @@ async function getUserCanAccessCustomerPortal(
     }
 
     return canChangeBilling(role);
-  } catch (e) {
-    logger.error(e, `Could not retrieve user role`);
+  } catch (error) {
+    logger.error({ error }, `Could not retrieve user role`);
 
     return false;
   }

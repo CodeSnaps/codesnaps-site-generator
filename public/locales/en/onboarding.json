@@ -10,5 +10,6 @@
   "complete": "Complete",
   "successStepHeading": "You're all set! You can now start using the app.",
   "continue": "Continue to your Dashboard",
-  "settingAccount": "We're setting up your account. Please wait..."
+  "settingAccount": "We're setting up your account. Please wait...",
+  "organizationNamePlaceholder": "Ex. Acme Inc."
 }

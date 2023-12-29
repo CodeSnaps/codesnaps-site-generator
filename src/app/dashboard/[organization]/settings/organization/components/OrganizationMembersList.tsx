@@ -18,6 +18,7 @@ import type MembershipRole from '~/lib/organizations/types/membership-role';
 import ProfileAvatar from '~/components/ProfileAvatar';
 import useUserId from '~/core/hooks/use-user-id';
 import useUserCanInviteUsers from '~/lib/organizations/hooks/use-user-can-invite-users';
+import { useTranslation } from 'react-i18next';
 
 function OrganizationMembersList({
   members,
@@ -31,6 +32,7 @@ function OrganizationMembersList({
 }>) {
   const currentUserId = useUserId();
   const [search, setSearch] = useState('');
+  const { t } = useTranslation('organization');
 
   const currentUser = useMemo(() => {
     return members.find((member) => {
@@ -54,7 +56,7 @@ function OrganizationMembersList({
       >
         <TextFieldInput
           value={search}
-          placeholder={'Search member...'}
+          placeholder={t('organization:searchMembersPlaceholder')}
           className={'w-full'}
           onInput={(event: React.FormEvent<HTMLInputElement>) =>
             setSearch(event.currentTarget.value)
@@ -66,7 +68,7 @@ function OrganizationMembersList({
         </div>
       </div>
 
-      <div className="flex flex-col divide-y divide-neutral-100 dark:divide-dark-800">
+      <div className="flex flex-col divide-y divide-gray-100 dark:divide-dark-800">
         {members.map((member) => {
           const userDisplayName = member.data.displayName ?? '';
           const userEmail = member.auth.email ?? '';

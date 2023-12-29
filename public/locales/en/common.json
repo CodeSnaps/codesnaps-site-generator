@@ -35,6 +35,7 @@
   "yourOrganizations": "Your Organizations",
   "continue": "Continue",
   "skip": "Skip",
+  "signedInAs": "Signed in as",
   "roles": {
     "owner": {
       "label": "Owner",
