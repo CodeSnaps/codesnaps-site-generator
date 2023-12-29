@@ -33,10 +33,11 @@ const itemClassName = `flex justify-center lg:justify-start items-center w-full`
 const ProfileSettingsTabs: React.FC<{
   organizationId: string;
 }> = ({ organizationId }) => {
-  const canEditPassword = useCanUpdatePassword();
+  const canUpdatePasswordCredentials = useCanUpdatePassword();
+
   const links = useMemo(
     () => profileTabLinks(organizationId),
-    [organizationId]
+    [organizationId],
   );
 
   return (
@@ -54,11 +55,15 @@ const ProfileSettingsTabs: React.FC<{
             link={links.Authentication}
           />
 
-          <NavigationItem className={itemClassName} link={links.Email} />
+          <NavigationItem
+            className={itemClassName}
+            disabled={!canUpdatePasswordCredentials}
+            link={links.Email}
+          />
 
           <NavigationItem
             className={itemClassName}
-            disabled={!canEditPassword}
+            disabled={!canUpdatePasswordCredentials}
             link={links.Password}
           />
         </NavigationMenu>
