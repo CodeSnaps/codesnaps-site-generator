@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/outline';
+import { getI18n } from 'react-i18next';
 
 import type { OrganizationSubscription } from '~/lib/organizations/types/organization-subscription';
 
@@ -19,15 +20,20 @@ const SubscriptionCard: React.FC<{
   const details = useSubscriptionDetails(subscription.priceId);
   const cancelAtPeriodEnd = subscription.cancelAtPeriodEnd;
   const isActive = subscription.status === 'active';
+  const language = useMemo(() => getI18n().language, []);
 
   const dates = useMemo(() => {
+    const endDate = new Date(subscription.periodEndsAt);
+    const trialEndDate =
+      subscription.trialEndsAt && new Date(subscription.trialEndsAt);
+
     return {
-      endDate: new Date(subscription.periodEndsAt).toLocaleDateString(),
-      trialEndDate: subscription.trialEndsAt
-        ? new Date(subscription.trialEndsAt).toLocaleDateString()
+      endDate: endDate.toLocaleDateString(language),
+      trialEndDate: trialEndDate
+        ? trialEndDate.toLocaleDateString(language)
         : null,
     };
-  }, [subscription]);
+  }, [language, subscription]);
 
   if (!details) {
     return null;

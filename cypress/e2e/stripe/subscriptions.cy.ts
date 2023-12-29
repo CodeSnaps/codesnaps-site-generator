@@ -14,7 +14,7 @@ describe(`Create Subscription`, () => {
 
   describe('Using the UI', () => {
     describe('The session should be created successfully', () => {
-      before(() => {
+      it('should redirect to the success page', () => {
         signIn();
 
         organizationPageObject.createOrganization(`Stripe ${Date.now()}`);
@@ -22,11 +22,10 @@ describe(`Create Subscription`, () => {
         navigateToSubscription();
 
         stripePo.selectPlan(0);
+        stripePo.$getStripeCheckoutIframe().should('exist');
         stripePo.$fillForm();
         stripePo.$cardForm().submit();
-      });
 
-      it('should redirect to the success page', () => {
         cy.cyGet('payment-return-success').should('exist');
 
         // Wait for the webhook to be called

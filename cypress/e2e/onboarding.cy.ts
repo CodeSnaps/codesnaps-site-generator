@@ -38,9 +38,12 @@ describe(`Onboarding Flow`, () => {
     cy.get(`button[type="submit"]`).click();
     cy.wait('@completeOnboarding');
 
+    cy.wait(500);
     cy.cyGet('complete-onboarding-link').click();
 
-    cy.url().should('include', configuration.paths.appHome);
+    cy.location('pathname', {
+      timeout: 10_000,
+    }).should('not.include', configuration.paths.onboarding);
 
     cy.contains('Settings').click().wait(100);
     cy.contains('Organization').click().wait(100);

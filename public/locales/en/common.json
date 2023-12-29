@@ -36,6 +36,7 @@
   "continue": "Continue",
   "skip": "Skip",
   "signedInAs": "Signed in as",
+  "pageOfPages": "Page {{page}} of {{total}}",
   "roles": {
     "owner": {
       "label": "Owner",

@@ -25,6 +25,7 @@ const authPageObject = {
     callback();
 
     cy.wait('@signUp');
+    cy.wait(100);
   },
   signInWithEmailAndPassword(email: string, password: string) {
     this.$getEmailInput().clear().type(email);

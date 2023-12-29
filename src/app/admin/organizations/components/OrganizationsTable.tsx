@@ -4,6 +4,7 @@ import { ColumnDef } from '@tanstack/react-table';
 import { usePathname, useRouter } from 'next/navigation';
 import { EllipsisHorizontalIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
+import { getI18n } from 'react-i18next';
 
 import DataTable from '~/core/ui/DataTable';
 import { getOrganizations } from '~/app/admin/organizations/queries';
@@ -82,6 +83,8 @@ const columns: Array<ColumnDef<Organizations[0]>> = [
     id: 'subscription-period',
     cell: ({ row }) => {
       const subscription = row.original?.subscription?.data;
+      const i18n = getI18n();
+      const language = i18n.language ?? 'en';
 
       if (!subscription) {
         return '-';
@@ -89,7 +92,7 @@ const columns: Array<ColumnDef<Organizations[0]>> = [
 
       const canceled = subscription.cancelAtPeriodEnd;
       const date = subscription.periodEndsAt;
-      const formattedDate = new Date(date).toLocaleDateString();
+      const formattedDate = new Date(date).toLocaleDateString(language);
 
       return canceled ? (
         <span className={'text-orange-500'}>Stops on {formattedDate}</span>

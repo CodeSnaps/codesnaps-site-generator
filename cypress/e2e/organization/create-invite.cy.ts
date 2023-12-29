@@ -76,6 +76,7 @@ describe(`Create Invite`, () => {
         organizationPageObject.inviteMember(email, MembershipRole.Member);
 
         cy.wait('@createInvite');
+        cy.wait(1000);
 
         organizationPageObject.$getInvitedMemberByEmail(email).should('exist');
       });

@@ -21,6 +21,7 @@ import { EllipsisHorizontalIcon } from '@heroicons/react/24/outline';
 import IconButton from '~/core/ui/IconButton';
 import Badge from '~/core/ui/Badge';
 import If from '~/core/ui/If';
+import { getI18n } from 'react-i18next';
 
 type UserRow = {
   id: string;
@@ -99,10 +100,11 @@ const columns: Array<ColumnDef<UserRow>> = [
     id: 'createdAt',
     cell: ({ row }) => {
       const date = new Date(row.original.createdAt);
+      const i18n = getI18n();
+      const language = i18n.language ?? 'en';
+      const createdAtLabel = date.toLocaleDateString(language);
 
-      return (
-        <span title={date.toLocaleString()}>{date.toLocaleDateString()}</span>
-      );
+      return <span>{createdAtLabel}</span>;
     },
   },
   {
@@ -175,11 +177,22 @@ const columns: Array<ColumnDef<UserRow>> = [
                 <DropdownMenuItem asChild>
                   <Link
                     className={
-                      'text-red-500 hover:bg-red-50 dark:hover:bg-red-500/5'
+                      'text-orange-500 hover:bg-orange-50 dark:hover:bg-orange-500/5'
                     }
                     href={`/admin/users/${user.id}/ban`}
                   >
                     Ban User
+                  </Link>
+                </DropdownMenuItem>
+
+                <DropdownMenuItem asChild>
+                  <Link
+                    className={
+                      'text-red-500 hover:bg-red-50 dark:hover:bg-red-500/5'
+                    }
+                    href={`/admin/users/${user.id}/delete`}
+                  >
+                    Delete User
                   </Link>
                 </DropdownMenuItem>
               </If>
