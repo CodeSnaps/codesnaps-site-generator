@@ -144,7 +144,7 @@ function MultiFactorAuthSetupForm({
                 type={'submit'}
               >
                 {state.loading ? (
-                  <Trans i18nKey={'profile:verificationCodeLoading'} />
+                  <Trans i18nKey={'profile:verifyingCode'} />
                 ) : (
                   <Trans i18nKey={'profile:enableMfaFactor'} />
                 )}

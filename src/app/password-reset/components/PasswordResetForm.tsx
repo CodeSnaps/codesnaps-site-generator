@@ -16,7 +16,7 @@ function PasswordResetForm() {
       <div className={'flex flex-col space-y-4'}>
         <Alert type={'error'}>
           <Alert.Heading>
-            Sorry, we were unable to reset your password.
+            <Trans i18nKey={'auth:resetPasswordError'} />
           </Alert.Heading>
 
           <Trans i18nKey={'common:genericError'} />

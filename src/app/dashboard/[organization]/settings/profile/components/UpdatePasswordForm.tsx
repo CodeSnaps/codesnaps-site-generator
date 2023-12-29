@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import type { User } from '@supabase/gotrue-js';
 
 import { toast } from 'sonner';
@@ -20,6 +20,7 @@ import configuration from '~/configuration';
 const UpdatePasswordForm = ({ user }: { user: User }) => {
   const { t } = useTranslation();
   const updateUserMutation = useUpdateUserMutation();
+  const [needsReauthentication, setNeedsReauthentication] = useState(false);
 
   const { register, handleSubmit, reset, getValues, formState } = useForm({
     defaultValues: {
@@ -72,6 +73,11 @@ const UpdatePasswordForm = ({ user }: { user: User }) => {
         .trigger({ password, redirectTo })
         .then(() => {
           reset();
+        })
+        .catch((error) => {
+          if (error.includes('Password update requires reauthentication')) {
+            setNeedsReauthentication(true);
+          }
         });
 
       toast.promise(promise, {
@@ -113,6 +119,16 @@ const UpdatePasswordForm = ({ user }: { user: User }) => {
             </Alert.Heading>
 
             <Trans i18nKey={'profile:updatePasswordSuccessMessage'} />
+          </Alert>
+        </If>
+
+        <If condition={needsReauthentication}>
+          <Alert type={'warn'}>
+            <Alert.Heading>
+              <Trans i18nKey={'profile:needsReauthentication'} />
+            </Alert.Heading>
+
+            <Trans i18nKey={'profile:needsReauthenticationDescription'} />
           </Alert>
         </If>
 

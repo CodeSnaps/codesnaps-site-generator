@@ -122,5 +122,7 @@
   "deleteAccount": "Delete your Account",
   "deleteAccountDescription": "This will delete your account and the organizations you own. Furthermore, we will immediately cancel any active subscriptions. This action cannot be undone. You will be asked to confirm this action in the next step.",
   "deleteProfileConfirmationInputLabel": "Type DELETE to confirm",
-  "deleteAccountErrorHeading": "Sorry, we couldn't delete your account"
+  "deleteAccountErrorHeading": "Sorry, we couldn't delete your account",
+  "needsReauthentication": "Reauthentication Required",
+  "needsReauthenticationDescription": "You need to reauthenticate to change your password. Please sign out and sign in again to change your password."
 }
