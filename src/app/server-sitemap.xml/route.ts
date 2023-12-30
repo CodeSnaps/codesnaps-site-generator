@@ -15,10 +15,6 @@ export async function GET() {
   const posts = getPostsSitemap();
   const components = getAllComponents();
 
-  console.log('urls', urls);
-  console.log('posts', posts);
-  console.log('components', components);
-
   return getServerSideSitemap([...urls, ...posts, ...components]);
 }
 
