@@ -1,7 +1,7 @@
 import Container from '~/core/ui/Container';
 import Heading from '~/core/ui/Heading';
 import SubHeading from '~/core/ui/SubHeading';
-import LoadingComponentsGrid from '~/components/LoadingComponentsGrid';
+import GlobalLoadingIndicator from '~/components/GlobalLoadingIndicator';
 
 function Loading() {
   return (
@@ -18,7 +18,7 @@ function Loading() {
           </SubHeading>
         </div>
 
-        <LoadingComponentsGrid />
+        <GlobalLoadingIndicator />
       </div>
     </Container>
   );

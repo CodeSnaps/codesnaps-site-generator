@@ -21,17 +21,19 @@ export default function ComponentGrid(
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-10 xl:grid-cols-2 3xl:grid-cols-3 px-4 py-6 xl:max-w-[1400px] mx-auto">
-        {components.map((component) => (
-          <ComponentGridItem
-            key={component.id}
-            component={component}
-            organization={organization}
-          />
-        ))}
-      </div>
+      <div className="w-full xl:max-w-[1600px] mx-auto">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 px-10 py-6 justify-center">
+          {components.map((component) => (
+            <ComponentGridItem
+              key={component.id}
+              component={component}
+              organization={organization}
+            />
+          ))}
+        </div>
 
-      <PaginationControl pageIndex={pageIndex} pageCount={pageCount} />
+        <PaginationControl pageIndex={pageIndex} pageCount={pageCount} />
+      </div>
     </>
   );
 }
