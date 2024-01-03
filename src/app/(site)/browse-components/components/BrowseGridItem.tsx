@@ -34,7 +34,7 @@ export default function BrowseGridItem(
         <div className="mt-4 flex items-center space-x-2">
           <div className="group flex-1">
             <Link href="/dashboard">
-              <div className="flex items-center justify-center gap-2 rounded-md bg-transparent py-3.5 text-center text-base font-semibold text-neutral-600 shadow-sm ring-1 ring-inset ring-neutral-300 hover:bg-neutral-50 group-hover:text-neutral-800 group-hover:ring-neutral-800 dark:text-neutral-400 dark:ring-neutral-400 dark:hover:bg-neutral-800 dark:hover:ring-neutral-100 dark:group-hover:text-white">
+              <div className="flex items-center justify-center gap-2 rounded-md bg-transparent py-3.5 text-center text-base font-semibold text-neutral-600 shadow-sm ring-1 ring-inset ring-neutral-300 hover:bg-neutral-50 group-hover:text-neutral-800 group-hover:ring-neutral-800 dark:text-neutral-400 dark:ring-neutral-400 dark:hover:bg-neutral-800 dark:group-hover:ring-neutral-100 dark:group-hover:text-white">
                 <CodeIcon className="h-6 w-6" />
                 Code
               </div>
@@ -43,7 +43,7 @@ export default function BrowseGridItem(
 
           <div className="group">
             <Link href={preview_url} target="_blank">
-              <div className="rounded-md bg-transparent p-3 text-sm font-semibold shadow-sm ring-1 ring-inset ring-neutral-300 hover:bg-neutral-50 group-hover:ring-neutral-800 dark:ring-neutral-400 dark:hover:bg-neutral-800 dark:hover:ring-neutral-100">
+              <div className="rounded-md bg-transparent p-3 text-sm font-semibold shadow-sm ring-1 ring-inset ring-neutral-300 hover:bg-neutral-50 group-hover:ring-neutral-800 dark:ring-neutral-400 dark:hover:bg-neutral-800 dark:group-hover:ring-neutral-100">
                 <PreviewLinkIcon className="h-6 w-6 text-neutral-600 group-hover:text-neutral-800 dark:text-neutral-400 dark:group-hover:text-white" />
               </div>
             </Link>
@@ -51,7 +51,7 @@ export default function BrowseGridItem(
 
           <div className="group">
             <Link href="/dashboard">
-              <div className="rounded-md bg-transparent p-3 text-center text-sm font-semibold shadow-sm ring-1 ring-inset ring-neutral-300 hover:bg-neutral-50 group-hover:ring-neutral-800 dark:ring-neutral-400 dark:hover:bg-neutral-800 dark:hover:ring-neutral-100">
+              <div className="rounded-md bg-transparent p-3 text-center text-sm font-semibold shadow-sm ring-1 ring-inset ring-neutral-300 hover:bg-neutral-50 group-hover:ring-neutral-800 dark:ring-neutral-400 dark:hover:bg-neutral-800 dark:group-hover:ring-neutral-100">
                 <SaveIcon className="h-6 w-6 text-neutral-600 group-hover:text-neutral-800 dark:text-neutral-400 dark:group-hover:text-white" />
               </div>
             </Link>
