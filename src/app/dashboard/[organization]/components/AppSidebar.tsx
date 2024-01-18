@@ -68,7 +68,7 @@ function CollapsibleButton({
   );
 
   const iconClassName =
-    'bg-background text-gray-300 dark:text-gray-600 h-5 w-5';
+    'bg-background text-neutral-300 dark:text-neutral-600 h-5 w-5';
 
   return (
     <Tooltip>

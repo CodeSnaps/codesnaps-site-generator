@@ -67,7 +67,7 @@ export function SidebarGroup({
     return (
       <span
         className={
-          'text-xs font-semibold uppercase text-gray-500 dark:text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300'
+          'text-xs font-semibold uppercase text-neutral-500 dark:text-neutral-400 group-hover:text-neutral-600 dark:group-hover:text-neutral-300'
         }
       >
         {props.children}
@@ -126,7 +126,7 @@ export function SidebarGroup({
 
 export function SidebarDivider() {
   return (
-    <div className={'border-t border-gray-100 dark:border-dark-800 my-2'} />
+    <div className={'border-t border-neutral-100 dark:border-dark-800 my-2'} />
   );
 }
 
@@ -174,7 +174,7 @@ export default Sidebar;
 function getClassNameBuilder() {
   return cva(
     [
-      'fixed flex box-content hidden h-screen flex-col border-r border-gray-100 dark:border-dark-800 lg:flex ' +
+      'fixed flex box-content hidden h-screen flex-col border-r border-neutral-100 dark:border-dark-800 lg:flex ' +
         'transition-[width] duration-100 motion-reduce:transition-none',
     ],
     {
@@ -201,7 +201,7 @@ function getSidebarItemClassBuilder() {
         },
         active: {
           true: `bg-primary/5 dark:bg-primary-300/10 font-medium`,
-          false: `ring-transparent hover:bg-gray-50 dark:hover:bg-dark-800/40 active:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:active:bg-dark-700`,
+          false: `ring-transparent hover:bg-neutral-50 dark:hover:bg-dark-800/40 active:bg-neutral-100 dark:text-neutral-300 dark:hover:text-white dark:active:bg-dark-700`,
         },
       },
       compoundVariants: [
@@ -218,7 +218,7 @@ function getSidebarItemClassBuilder() {
         {
           collapsed: true,
           active: false,
-          className: `dark:text-gray-300`,
+          className: `dark:text-neutral-300`,
         },
       ],
     },

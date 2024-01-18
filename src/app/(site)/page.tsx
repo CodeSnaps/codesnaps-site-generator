@@ -64,11 +64,11 @@ export default function Home() {
             <Pill>Production-ready components. Simply copy and paste.</Pill>
 
             <div className="flex flex-col space-y-2.5 text-center justify-center">
-              <h2 className="font-heading scroll-m-20 text-4xl font-semibold tracking-tight dark:text-white max-w-sm md:max-w-none">
+              <Heading type={2}>
                 Components created with ❤️ by CodeSnaps
-              </h2>
+              </Heading>
 
-              <SubHeading>
+              <SubHeading as={'h3'}>
                 <span>Build websites as quickly as with no-code tools.</span>
                 <span>Each week, we add several new components.</span>
               </SubHeading>
@@ -93,11 +93,14 @@ export default function Home() {
           <FeatureShowcaseContainer>
             <LeftFeatureContainer>
               <div className="flex flex-col space-y-4">
-                <h2 className="font-heading scroll-m-20 text-4xl font-semibold tracking-tight text-primary-600 dark:text-primary-500">
+                <Heading
+                  type={2}
+                  className="text-primary-600 dark:text-primary-500"
+                >
                   Code Snippets
-                </h2>
+                </Heading>
 
-                <SubHeading>
+                <SubHeading as={'h3'}>
                   Detailed React and next.js Code Snippets Ready to Use in Your
                   Projects
                 </SubHeading>
@@ -147,11 +150,14 @@ export default function Home() {
 
             <RightFeatureContainer>
               <div className={'flex flex-col space-y-4'}>
-                <h2 className="font-heading scroll-m-20 text-4xl font-semibold tracking-tight text-primary-600 dark:text-primary-500">
+                <Heading
+                  type={2}
+                  className="text-primary-600 dark:text-primary-500"
+                >
                   Advanced Filtering
-                </h2>
+                </Heading>
 
-                <SubHeading>
+                <SubHeading as={'h3'}>
                   Real-Time and Extensive Filtering to Find the Right Components
                   in Seconds
                 </SubHeading>
@@ -190,9 +196,9 @@ export default function Home() {
             </Pill>
 
             <div className={'flex flex-col space-y-2.5'}>
-              <Heading type={1}>Start building with CodeSnaps today.</Heading>
+              <Heading type={2}>Start building with CodeSnaps today.</Heading>
 
-              <SubHeading>
+              <SubHeading as={'h3'}>
                 Get started on our free plan and upgrade when you are ready.
               </SubHeading>
             </div>

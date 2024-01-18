@@ -64,7 +64,9 @@ export function PageHeader({
         </Heading>
 
         <Heading type={5} className={'hidden lg:block'}>
-          <span className={'dark:text-gray-400 text-gray-600 font-normal'}>
+          <span
+            className={'dark:text-neutral-400 text-neutral-600 font-normal'}
+          >
             {description}
           </span>
         </Heading>

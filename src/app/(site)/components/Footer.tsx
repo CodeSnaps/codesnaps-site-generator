@@ -3,8 +3,6 @@ import Link from 'next/link';
 import Container from '~/core/ui/Container';
 import LogoImage from '~/core/ui/Logo/LogoImage';
 import configuration from '~/configuration';
-import Heading from '~/core/ui/Heading';
-import NewsletterSignup from '~/app/(site)/components/NewsletterSignup';
 
 const YEAR = new Date().getFullYear();
 
@@ -52,7 +50,7 @@ function Footer() {
           >
             <div>
               <div className={'flex flex-col space-y-4'}>
-                <Heading type={6}>Company</Heading>
+                <FooterSectionHeading>About</FooterSectionHeading>
 
                 <FooterSectionList>
                   <FooterLink>
@@ -69,7 +67,7 @@ function Footer() {
             </div>
 
             <div className={'flex flex-col space-y-4'}>
-              <Heading type={6}>Auth</Heading>
+              <FooterSectionHeading>Auth</FooterSectionHeading>
 
               <FooterSectionList>
                 <FooterLink>
@@ -83,7 +81,7 @@ function Footer() {
 
             <div>
               <div className={'flex flex-col space-y-4'}>
-                <Heading type={6}>Legal</Heading>
+                <FooterSectionHeading>Legal</FooterSectionHeading>
 
                 <FooterSectionList>
                   <FooterLink>
@@ -102,6 +100,14 @@ function Footer() {
         </div>
       </Container>
     </footer>
+  );
+}
+
+function FooterSectionHeading(props: React.PropsWithChildren) {
+  return (
+    <p>
+      <span className={'font-semibold'}>{props.children}</span>
+    </p>
   );
 }
 

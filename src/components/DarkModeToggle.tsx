@@ -54,6 +54,7 @@ const DarkModeToggle = () => {
     <Select value={currentTheme} onValueChange={setCurrentTheme}>
       <SelectTrigger asChild>
         <Button
+          aria-label={'Toggle dark mode'}
           variant={'ghost'}
           size={'icon'}
           data-cy={'dark-mode-toggle'}

@@ -268,7 +268,7 @@ function PlansSwitcher(
           'rounded-r-none border-r-transparent': index === 0,
           'rounded-l-none': index === props.plans.length - 1,
           ['hover:bg-neutral-50 dark:hover:bg-background/80']: !selected,
-          ['text-primary-700 dark:text-primary-600 font-semibold' +
+          ['text-primary-800 dark:text-primary-500 font-semibold' +
           ' hover:bg-background hover:text-initial']: selected,
         });
 

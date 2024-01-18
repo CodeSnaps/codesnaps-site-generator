@@ -25,7 +25,7 @@ function DeleteProfileContainer() {
           <Trans i18nKey={'profile:deleteAccount'} />
         </Heading>
 
-        <p className={'text-gray-500 text-sm'}>
+        <p className={'text-neutral-500 text-sm'}>
           <Trans i18nKey={'profile:deleteAccountDescription'} />
         </p>
       </div>

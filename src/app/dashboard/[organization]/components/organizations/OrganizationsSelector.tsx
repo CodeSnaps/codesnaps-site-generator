@@ -56,7 +56,7 @@ const OrganizationsSelector = ({ displayName = true }) => {
           <div
             role={'button'}
             className={classNames(
-              `text-sm lg:text-base w-full group hover:bg-gray-50 cursor-pointer border-transparent dark:hover:bg-dark-900/50 dark:hover:text-white`,
+              `text-sm lg:text-base w-full group hover:bg-neutral-50 cursor-pointer border-transparent dark:hover:bg-dark-900/50 dark:hover:text-white`,
               {
                 ['justify-between max-h-12']: displayName,
                 ['rounded-full border-none !p-0.5 mx-auto']: !displayName,
@@ -71,7 +71,7 @@ const OrganizationsSelector = ({ displayName = true }) => {
 
             <If condition={displayName}>
               <EllipsisVerticalIcon
-                className={'h-5 hidden group-hover:block text-gray-500'}
+                className={'h-5 hidden group-hover:block text-neutral-500'}
               />
             </If>
 

@@ -68,7 +68,7 @@ function OrganizationMembersList({
         </div>
       </div>
 
-      <div className="flex flex-col divide-y divide-gray-100 dark:divide-dark-800">
+      <div className="flex flex-col divide-y divide-neutral-100 dark:divide-dark-800">
         {members.map((member) => {
           const userDisplayName = member.data.displayName ?? '';
           const userEmail = member.auth.email ?? '';

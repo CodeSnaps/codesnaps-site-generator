@@ -1,6 +1,6 @@
 {
   "name": "codesnaps-website",
-  "version": "0.10.13",
+  "version": "0.10.14",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -128,9 +128,9 @@
     "pino-pretty": "10.3.1",
     "postcss": "^8.4.33",
     "prettier": "3.1.1",
-    "prettier-plugin-tailwindcss": "^0.5.10",
+    "prettier-plugin-tailwindcss": "^0.5.11",
     "supabase": "^1.127.4",
-    "tailwindcss": "^3.4.0",
+    "tailwindcss": "^3.4.1",
     "typescript": "5.3.3"
   },
   "engines": {

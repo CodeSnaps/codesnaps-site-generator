@@ -1,12 +1,11 @@
 import ConvertkitSignupForm from '~/components/newsletter/ConvertkitSignupForm';
 import configuration from '~/configuration';
-import Heading from '~/core/ui/Heading';
 
 function NewsletterSignup() {
   return (
     <div className={'flex flex-col space-y-4'}>
       <div>
-        <Heading type={6}>Subscribe to our Newsletter</Heading>
+        <span className={'font-semibold'}>Subscribe to our Newsletter</span>
 
         <div className={'text-sm text-neutral-500 dark:text-neutral-400'}>
           Get the latest updates from our team.
