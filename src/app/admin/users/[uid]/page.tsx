@@ -1,4 +1,3 @@
-import { use } from 'react';
 import Link from 'next/link';
 
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
@@ -6,7 +5,6 @@ import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 import AdminHeader from '~/app/admin/components/AdminHeader';
 import AdminGuard from '~/app/admin/components/AdminGuard';
-import { PageBody } from '~/core/ui/Page';
 import { TextFieldInput, TextFieldLabel } from '~/core/ui/TextField';
 import Heading from '~/core/ui/Heading';
 
@@ -19,14 +17,16 @@ import {
   TableRow,
 } from '~/core/ui/Table';
 
-import RoleBadge from '~/app/dashboard/[organization]/settings/organization/components/RoleBadge';
-import UserActionsDropdown from '~/app/admin/users/[uid]/components/UserActionsDropdown';
-
 import Tile from '~/core/ui/Tile';
 import Badge from '~/core/ui/Badge';
 import Label from '~/core/ui/Label';
+import { PageBody } from '~/core/ui/Page';
+
+import RoleBadge from '~/app/dashboard/[organization]/settings/organization/components/RoleBadge';
+import UserActionsDropdown from '~/app/admin/users/[uid]/components/UserActionsDropdown';
 
 import configuration from '~/configuration';
+import MembershipRole from '~/lib/organizations/types/membership-role';
 
 interface Params {
   params: {
@@ -38,14 +38,16 @@ export const metadata = {
   title: `Manage User | ${configuration.site.siteName}`,
 };
 
-function AdminUserPage({ params }: Params) {
+async function AdminUserPage({ params }: Params) {
   const uid = params.uid;
 
-  const { auth, user, organizations } = use(loadData(uid));
+  const data = await loadData(uid);
+  const { auth, user } = data;
   const displayName = user?.displayName;
   const authUser = auth?.user;
   const email = authUser?.email;
   const phone = authUser?.phone;
+  const organizations = data.organizations ?? [];
 
   const isBanned = Boolean(
     authUser && 'banned_until' in authUser && authUser.banned_until !== 'none',
@@ -121,16 +123,27 @@ function AdminUserPage({ params }: Params) {
               <TableHeader>
                 <TableRow>
                   <TableHead>Organization ID</TableHead>
+                  <TableHead>UUID</TableHead>
                   <TableHead>Organization</TableHead>
                   <TableHead>Role</TableHead>
                 </TableRow>
               </TableHeader>
+
               <TableBody>
-                {organizations?.map((membership: any) => {
+                {organizations.map((membership) => {
+                  const organization = membership.organization;
+                  const href = `/admin/organizations/${organization.uuid}/members`;
+
                   return (
                     <TableRow key={membership.id}>
-                      <TableCell>{membership.organization.id}</TableCell>
-                      <TableCell>{membership.organization.name}</TableCell>
+                      <TableCell>{organization.id}</TableCell>
+                      <TableCell>{organization.uuid}</TableCell>
+
+                      <TableCell>
+                        <Link className={'hover:underline'} href={href}>
+                          {organization.name}
+                        </Link>
+                      </TableCell>
 
                       <TableCell>
                         <div className={'inline-flex'}>
@@ -170,12 +183,27 @@ async function loadData(uid: string) {
 
   const organizationsQuery = client
     .from('memberships')
-    .select(
+    .select<
+      string,
+      {
+        id: number;
+        role: MembershipRole;
+        organization: {
+          id: number;
+          uuid: string;
+          name: string;
+        };
+      }
+    >(
       `
-      id,
-      organization: organization_id !inner (id, name),
-      role
-  `,
+        id,
+        role,
+        organization: organization_id !inner (
+          id, 
+          uuid,
+          name
+        )
+    `,
     )
     .eq('user_id', uid);
 
