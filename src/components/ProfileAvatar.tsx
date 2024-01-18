@@ -10,21 +10,23 @@ type ProfileAvatarProps =
     };
 
 const ProfileAvatar: React.FCC<ProfileAvatarProps> = (props) => {
+  const avatarClassName = 'mx-auto w-9 h-9 group-focus:ring-2';
+
   if ('user' in props && props.user) {
     const photoUrl = props.user.data?.photoUrl;
+    const initials = getDisplayName(props.user)[0];
 
     return (
-      <Avatar className={'mx-auto w-9 h-9 group-focus:ring-2'}>
-        {photoUrl ? <AvatarImage src={photoUrl} /> : null}
-
-        <AvatarFallback>{getUserInitials(props.user)}</AvatarFallback>
+      <Avatar className={avatarClassName}>
+        <AvatarImage src={photoUrl ?? ''} />
+        <AvatarFallback>{initials}</AvatarFallback>
       </Avatar>
     );
   }
 
   if ('text' in props && props.text) {
     return (
-      <Avatar className={'mx-auto w-9 h-9 group-focus:ring-2'}>
+      <Avatar className={avatarClassName}>
         <AvatarFallback>{props.text[0]}</AvatarFallback>
       </Avatar>
     );
@@ -33,21 +35,15 @@ const ProfileAvatar: React.FCC<ProfileAvatarProps> = (props) => {
   return null;
 };
 
-function getUserInitials(session: Maybe<UserSession>) {
-  const displayName = getDisplayName(session);
-
-  return displayName[0] ?? '';
-}
-
 function getDisplayName(session: Maybe<UserSession>) {
   if (!session) {
     return '';
   }
 
   return (
-    session.data?.displayName ??
-    session.auth?.user.email ??
-    session.auth?.user.phone ??
+    session.data?.displayName ||
+    session.auth?.user.email ||
+    session.auth?.user.phone ||
     ''
   );
 }

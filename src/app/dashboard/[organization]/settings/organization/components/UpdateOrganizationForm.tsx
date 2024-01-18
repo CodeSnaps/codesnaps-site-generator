@@ -205,7 +205,7 @@ async function uploadLogo({
 }) {
   const bytes = await logo.arrayBuffer();
   const bucket = client.storage.from('logos');
-  const fileName = getLogoName(logo.name, organizationId);
+  const fileName = await getLogoName(logo.name, organizationId);
 
   const result = await bucket.upload(fileName, bytes, {
     upsert: true,
@@ -219,10 +219,12 @@ async function uploadLogo({
   throw result.error;
 }
 
-function getLogoName(fileName: string, organizationId: number) {
+async function getLogoName(fileName: string, organizationId: number) {
+  const { nanoid } = await import('nanoid');
+  const uniqueId = nanoid(16);
   const extension = fileName.split('.').pop();
 
-  return `${organizationId}.${extension}`;
+  return `${organizationId}.${extension}?v=${uniqueId}`;
 }
 
 function getLogoFile(value: string | null | FileList) {
@@ -239,7 +241,7 @@ function getLogoFile(value: string | null | FileList) {
 
 function deleteLogo(client: SupabaseClient, url: string) {
   const bucket = client.storage.from('logos');
-  const fileName = url.split('/').pop();
+  const fileName = url.split('/').pop()?.split('?')[0];
 
   if (!fileName) {
     return Promise.reject(new Error('Invalid file name'));

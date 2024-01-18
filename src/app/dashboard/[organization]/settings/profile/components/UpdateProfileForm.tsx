@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
 import { useForm } from 'react-hook-form';
@@ -44,10 +44,6 @@ function UpdateProfileForm({
       photoURL: currentPhotoURL,
     },
   });
-
-  const onAvatarCleared = useCallback(() => {
-    setValue('photoURL', '');
-  }, [setValue]);
 
   const onSubmit = async (displayName: string, photoFile: Maybe<File>) => {
     if (!user?.id) {
@@ -151,7 +147,7 @@ function UpdateProfileForm({
             <ImageUploadInput
               {...photoURLControl}
               multiple={false}
-              onClear={onAvatarCleared}
+              onClear={() => setValue('photoURL', '')}
               image={currentPhotoURL}
             >
               <Trans i18nKey={'common:imageInputLabel'} />
@@ -215,7 +211,7 @@ async function uploadUserProfilePhoto(
   const bytes = await photoFile.arrayBuffer();
   const bucket = client.storage.from(AVATARS_BUCKET);
   const extension = photoFile.name.split('.').pop();
-  const fileName = `${userId}.${extension}`;
+  const fileName = await getAvatarFileName(userId, extension);
 
   const result = await bucket.upload(fileName, bytes, {
     upsert: true,
@@ -230,13 +226,23 @@ async function uploadUserProfilePhoto(
 
 function deleteProfilePhoto(client: SupabaseClient, url: string) {
   const bucket = client.storage.from(AVATARS_BUCKET);
-  const fileName = url.split('/').pop();
+  const fileName = url.split('/').pop()?.split('?')[0];
 
   if (!fileName) {
-    return Promise.reject(new Error('Invalid file name'));
+    return;
   }
 
   return bucket.remove([fileName]);
+}
+
+async function getAvatarFileName(
+  userId: string,
+  extension: string | undefined,
+) {
+  const { nanoid } = await import('nanoid');
+  const uniqueId = nanoid(16);
+
+  return `${userId}.${extension}?v=${uniqueId}`;
 }
 
 export default UpdateProfileForm;
