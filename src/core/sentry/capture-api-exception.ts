@@ -13,7 +13,7 @@ export async function captureApiException(
 
   const { captureException } = await import('@sentry/node');
 
-  initializeNodeSentry();
+  await initializeNodeSentry();
 
   return captureException(exception, { extra: requestContext });
 }

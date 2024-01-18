@@ -1,13 +1,7 @@
-import * as Sentry from '@sentry/node';
-
-// Importing @sentry/tracing patches the global hub for tracing to work
-// Fore more info: https://docs.sentry.io/platforms/node/
-import '@sentry/tracing';
-
 import configuration from '~/configuration';
 import isBrowser from '~/core/generic/is-browser';
 
-export function initializeNodeSentry() {
+export async function initializeNodeSentry() {
   const dsn = configuration.sentry.dsn;
 
   if (!dsn) {
@@ -19,6 +13,8 @@ export function initializeNodeSentry() {
 
     return;
   }
+
+  const Sentry = await import('@sentry/node');
 
   Sentry.init({
     dsn,

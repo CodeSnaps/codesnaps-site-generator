@@ -1,3 +1,5 @@
+import 'server-only';
+
 import configuration from '../../configuration';
 import type { Options } from 'nodemailer/lib/smtp-transport';
 

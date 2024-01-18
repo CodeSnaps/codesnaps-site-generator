@@ -1,6 +1,6 @@
 {
   "name": "codesnaps-website",
-  "version": "0.10.17",
+  "version": "0.10.18",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -53,8 +53,8 @@
     "@radix-ui/react-switch": "^1.0.3",
     "@radix-ui/react-tooltip": "^1.0.7",
     "@react-email/components": "0.0.12",
-    "@sentry/node": "^7.92.0",
-    "@sentry/react": "^7.92.0",
+    "@sentry/node": "^7.93.0",
+    "@sentry/react": "^7.93.0",
     "@stripe/react-stripe-js": "^2.4.0",
     "@stripe/stripe-js": "^2.3.0",
     "@supabase/auth-helpers-nextjs": "^0.8.7",
@@ -110,9 +110,9 @@
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/line-clamp": "^0.4.4",
-    "@types/eslint": "^8.56.1",
+    "@types/eslint": "^8.56.2",
     "@types/i18next-fs-backend": "^1.1.5",
-    "@types/node": "20.10.8",
+    "@types/node": "20.11.0",
     "@types/nodemailer": "^6.4.14",
     "@types/react": "^18.2.47",
     "@types/react-copy-to-clipboard": "^5.0.6",

@@ -13,7 +13,7 @@ type Size = 'default' | 'small' | 'large' | 'custom' | 'sm' | 'lg';
 const large = `[&>*]:py-2.5 [&>*]:px-6 h-14 text-lg`;
 const small = `[&>*]:py-2 [&>*]:px-3 text-xs`;
 
-export const buttonVariants = cva(
+const buttonVariants = cva(
   `inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors
    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
     disabled:pointer-events-none disabled:opacity-50 active:[&>*]:translate-y-0.5`,
@@ -137,3 +137,5 @@ function InnerButtonContainerElement({
 }
 
 export default Button;
+
+export { Button, buttonVariants };
