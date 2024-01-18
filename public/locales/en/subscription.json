@@ -6,15 +6,15 @@
   "notSubscribedToAnyPlan": "You are not currently subscribed to any plan",
   "choosePlan": "Select a plan below",
   "currentPlan": "Your Plan",
-  "subscriptionWillEndOn": "The subscription will end on {{ endDate }}",
+  "subscriptionWillEndOn": "The subscription will end on {{- endDate }}",
   "unknownErrorAlertHeading": "Sorry, something went wrong",
   "unknownErrorAlert": "We encountered an unknown error while processing your payment. Please try again or contact support.",
   "checkOutCanceledAlertHeading": "The checkout was canceled",
   "checkOutCanceledAlert": "The checkout was canceled. Please contact us if you're experiencing any issues.",
   "checkOutCompletedAlertHeading": "Checkout successfully completed",
   "checkOutCompletedAlert": "Yay, your payment went through!",
-  "cancelAtPeriodEndDescription": "Your subscription is scheduled to be canceled on {{ endDate }}.",
-  "renewAtPeriodEndDescription": "Your subscription is scheduled to be renewed on {{ endDate }}",
+  "cancelAtPeriodEndDescription": "Your subscription is scheduled to be canceled on {{- endDate }}.",
+  "renewAtPeriodEndDescription": "Your subscription is scheduled to be renewed on {{- endDate }}",
   "noPermissionsAlertHeading": "You don't have permissions to change the billing",
   "noPermissionsAlertBody": "Please contact your organization owner to change the billing settings for your organization.",
   "checkoutSuccessTitle": "Done! You're all set.",
@@ -34,7 +34,7 @@
     "trialing": {
       "label": "Trial",
       "heading": "You're on a trial",
-      "description": "Your trial will end on {{ trialEndDate }}."
+      "description": "Your trial will end on {{- trialEndDate }}."
     },
     "past_due": {
       "label": "Past Due",
@@ -44,7 +44,7 @@
     "canceled": {
       "label": "Canceled",
       "heading": "Your subscription is canceled",
-      "description": "Your subscription is canceled. It is scheduled to end on {{ endDate }}."
+      "description": "Your subscription is canceled. It is scheduled to end on {{- endDate }}."
     },
     "unpaid": {
       "label": "Unpaid",
