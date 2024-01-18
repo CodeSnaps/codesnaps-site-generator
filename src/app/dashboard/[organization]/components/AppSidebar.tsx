@@ -35,7 +35,7 @@ const AppSidebar: React.FC<{
         <OrganizationsSelector displayName={!ctx.collapsed} />
       </SidebarContent>
 
-      <SidebarContent>
+      <SidebarContent className={`h-[calc(100%-160px)] overflow-y-auto`}>
         <AppSidebarNavigation organization={organizationUid} />
       </SidebarContent>
 
