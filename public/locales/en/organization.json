@@ -24,6 +24,7 @@
   "removeMemberModalHeading": "You are removing this user",
   "removeMemberSuccessMessage": "Member removed successfully",
   "removeMemberErrorMessage": "Sorry, we encountered an error. Please try again",
+  "removeMemberErrorHeading": "Sorry, we couldn't remove the selected member.",
   "removeMemberLoadingMessage": "Removing member...",
   "removeMemberSubmitLabel": "Remove User from Organization",
   "chooseDifferentRoleError": "Role is the same as the current one",
@@ -80,5 +81,11 @@
   "leaveOrganizationDisclaimer": "You are leaving the organization {{ organizationName }}. You will no longer have access to it.",
   "deleteOrganizationErrorHeading": "Sorry, we couldn't delete your organization.",
   "leaveOrganizationErrorHeading": "Sorry, we couldn't leave your organization.",
-  "searchMembersPlaceholder": "Search members"
+  "searchMembersPlaceholder": "Search members",
+  "createOrganizationErrorHeading": "Sorry, we couldn't create your organization.",
+  "createOrganizationErrorMessage": "We encountered an error creating your organization. Please try again.",
+  "transferOrganizationErrorHeading": "Sorry, we couldn't transfer ownership of your organization.",
+  "transferOrganizationErrorMessage": "We encountered an error transferring ownership of your organization. Please try again.",
+  "updateRoleErrorHeading": "Sorry, we couldn't update the role of the selected member.",
+  "updateRoleErrorMessage": "We encountered an error updating the role of the selected member. Please try again."
 }

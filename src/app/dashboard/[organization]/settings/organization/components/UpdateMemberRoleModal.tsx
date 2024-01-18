@@ -3,14 +3,14 @@ import Trans from '~/core/ui/Trans';
 
 import Button from '~/core/ui/Button';
 import Modal from '~/core/ui/Modal';
+import If from '~/core/ui/If';
+import Alert from '~/core/ui/Alert';
 
 import type MembershipRole from '~/lib/organizations/types/membership-role';
 import { updateMemberAction } from '~/lib/memberships/actions';
 
 import MembershipRoleSelector from './MembershipRoleSelector';
 import useCurrentUserRole from '~/lib/organizations/hooks/use-current-user-role';
-
-const Heading = <Trans i18nKey={'organization:updateMemberRoleModalHeading'} />;
 
 const UpdateMemberRoleModal: React.FCC<{
   isOpen: boolean;
@@ -19,7 +19,11 @@ const UpdateMemberRoleModal: React.FCC<{
   memberRole: MembershipRole;
 }> = ({ isOpen, setIsOpen, memberRole, membershipId }) => {
   return (
-    <Modal heading={Heading} isOpen={isOpen} setIsOpen={setIsOpen}>
+    <Modal
+      heading={<Trans i18nKey={'organization:updateMemberRoleModalHeading'} />}
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+    >
       <UpdateMemberForm
         setIsOpen={setIsOpen}
         memberRole={memberRole}
@@ -41,13 +45,18 @@ function UpdateMemberForm({
   const [role, setRole] = useState<MembershipRole>(memberRole);
   const [isSubmitting, startTransition] = useTransition();
   const currentUserRole = useCurrentUserRole();
+  const [error, setError] = useState<boolean>();
 
   const onRoleUpdated = useCallback(async () => {
     if (role !== undefined) {
       startTransition(async () => {
-        await updateMemberAction({ membershipId, role });
+        try {
+          await updateMemberAction({ membershipId, role });
 
-        setIsOpen(false);
+          setIsOpen(false);
+        } catch (e) {
+          setError(true);
+        }
       });
     }
   }, [membershipId, role, setIsOpen]);
@@ -59,6 +68,10 @@ function UpdateMemberForm({
         value={role}
         onChange={setRole}
       />
+
+      <If condition={error}>
+        <UpdateRoleErrorAlert />
+      </If>
 
       <div className={'flex justify-end space-x-2'}>
         <Modal.CancelButton onClick={() => setIsOpen(false)} />
@@ -77,3 +90,15 @@ function UpdateMemberForm({
 }
 
 export default UpdateMemberRoleModal;
+
+function UpdateRoleErrorAlert() {
+  return (
+    <Alert type={'error'}>
+      <Alert.Heading>
+        <Trans i18nKey={'organization:updateRoleErrorHeading'} />
+      </Alert.Heading>
+
+      <Trans i18nKey={'organization:updateRoleErrorMessage'} />
+    </Alert>
+  );
+}

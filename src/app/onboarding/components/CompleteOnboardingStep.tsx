@@ -15,6 +15,10 @@ import configuration from '~/configuration';
 
 interface CompleteOnboardingStepData {
   organization: string;
+  invites: Array<{
+    email: string;
+    role: number;
+  }>;
 }
 
 const CompleteOnboardingStep: React.FC<{
