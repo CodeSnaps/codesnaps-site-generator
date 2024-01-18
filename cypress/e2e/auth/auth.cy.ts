@@ -75,4 +75,20 @@ describe(`Authentication`, () => {
       });
     });
   });
+
+  describe(`When the user is signed in`, () => {
+    it(`should be redirected away from the sign up page`, () => {
+      cy.signIn(`/`);
+      cy.contains('Get Started').click();
+
+      cy.url().should('not.contain', '/auth/sign-up');
+    });
+
+    it(`should be redirected away from the sign in page`, () => {
+      cy.signIn(`/`);
+      cy.visit(`/auth/sign-in`);
+
+      cy.url().should('not.contain', '/auth/sign-in');
+    });
+  });
 });

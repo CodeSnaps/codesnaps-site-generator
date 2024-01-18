@@ -1,6 +1,6 @@
 import 'server-only';
 
-import { permanentRedirect } from 'next/navigation';
+import { redirect } from 'next/navigation';
 import configuration from '~/configuration';
 
 import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
@@ -20,27 +20,21 @@ const loadAuthPageData = async () => {
   const { language } = await initializeServerI18n(getLanguageCookie());
   const client = getSupabaseServerComponentClient();
 
-  try {
-    const {
-      data: { user },
-    } = await client.auth.getUser();
+  const {
+    data: { user },
+  } = await client.auth.getUser();
 
-    const requiresMultiFactorAuthentication = await verifyRequiresMfa(client);
+  const requiresMultiFactorAuthentication = await verifyRequiresMfa(client);
 
-    // If the user is logged in and does not require multi-factor authentication,
-    // redirect them to the home page.
-    if (user && !requiresMultiFactorAuthentication) {
-      permanentRedirect(configuration.paths.appHome);
-    }
-
-    return {
-      language,
-    };
-  } catch (error) {
-    return {
-      language,
-    };
+  // If the user is logged in and does not require multi-factor authentication,
+  // redirect them to the home page.
+  if (user && !requiresMultiFactorAuthentication) {
+    redirect(configuration.paths.appHome);
   }
+
+  return {
+    language,
+  };
 };
 
 export default loadAuthPageData;
