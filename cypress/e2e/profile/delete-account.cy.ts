@@ -23,7 +23,7 @@ describe(`Delete Account`, () => {
     it(`should delete the user's account`, () => {
       setupUser();
 
-      cy.contains('Settings').click();
+      cy.contains('Profile').click();
 
       profilePo.deleteAccount();
     });

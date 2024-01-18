@@ -9,10 +9,8 @@ describe(`Leave Organization`, () => {
       const defaultOrganization =
         organizationPageObject.getDefaultOrganizationId();
 
-      cy.signIn(configuration.paths.appHome);
       cy.signIn(configuration.paths.appHome + '/' + defaultOrganization);
 
-      cy.contains('Settings').click();
       cy.contains('Organization').click();
       cy.contains('Members').click();
       cy.contains('Invite Members').click();
@@ -38,7 +36,6 @@ describe(`Leave Organization`, () => {
 
       cy.wait(500);
 
-      cy.contains('Settings').click();
       cy.contains('Organization').click();
 
       cy.wait(500);

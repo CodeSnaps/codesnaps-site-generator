@@ -9,7 +9,6 @@ describe(`Delete Organization`, () => {
       const orgName = `Org ${Math.random()}`;
       organizationPageObject.createOrganization(orgName);
 
-      cy.contains('Settings').click();
       cy.contains('Organization').click();
 
       organizationPageObject.$getDeleteOrganizationButton().click();

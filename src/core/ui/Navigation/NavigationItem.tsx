@@ -42,7 +42,12 @@ const NavigationMenuItem: React.FCC<{
       href={disabled ? '' : link.path}
       shallow={shallow ?? active}
     >
-      <span className={'transition-transform duration-500'}>
+      <span
+        className={
+          'transition-transform duration-500 justify-center' +
+          ' lg:justify-start'
+        }
+      >
         <Trans i18nKey={label} defaults={label} />
       </span>
     </Link>

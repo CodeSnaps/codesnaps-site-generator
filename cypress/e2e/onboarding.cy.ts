@@ -45,7 +45,6 @@ describe(`Onboarding Flow`, () => {
       timeout: 10_000,
     }).should('not.include', configuration.paths.onboarding);
 
-    cy.contains('Settings').click().wait(100);
     cy.contains('Organization').click().wait(100);
     cy.contains('Members').click();
 

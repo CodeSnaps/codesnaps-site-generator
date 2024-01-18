@@ -17,14 +17,12 @@ const loadLifetimeSubscription = cache(async (organizationUid: string) => {
   try {
     const client = getSupabaseServerComponentClient();
 
-    // We fetch the lifetime subscription record from the Database
+    // We fetch the lifetime subscription record from the database
     const { data } = await client
       .from(LIFETIME_SUBSCRIPTIONS_TABLE)
       .select('status')
       .eq('organization_uid', organizationUid)
       .single();
-
-    console.log('DATA FROM LOADER', data);
 
     if (!data) {
       return null;

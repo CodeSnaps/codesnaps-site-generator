@@ -61,8 +61,16 @@ function DeleteProfileForm() {
       className={'flex flex-col space-y-4'}
     >
       <div className={'flex flex-col space-y-6'}>
-        <div>
-          <Trans i18nKey={'profile:deleteAccountDescription'} />
+        <div className={'border-2 border-red-500 p-4 text-sm text-red-500'}>
+          <div className={'flex flex-col space-y-2'}>
+            <div>
+              <Trans i18nKey={'profile:deleteAccountDescription'} />
+            </div>
+
+            <div>
+              <Trans i18nKey={'common:modalConfirmationQuestion'} />
+            </div>
+          </div>
         </div>
 
         <TextFieldLabel>
@@ -77,10 +85,6 @@ function DeleteProfileForm() {
             pattern={`DELETE`}
           />
         </TextFieldLabel>
-
-        <div>
-          <Trans i18nKey={'common:modalConfirmationQuestion'} />
-        </div>
       </div>
 
       <div className={'flex justify-end space-x-2.5'}>

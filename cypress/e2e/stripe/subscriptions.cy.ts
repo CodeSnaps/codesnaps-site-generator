@@ -8,7 +8,6 @@ function signIn() {
 
 describe(`Create Subscription`, () => {
   function navigateToSubscription() {
-    cy.contains('Settings').click();
     cy.contains('Subscription').click();
   }
 

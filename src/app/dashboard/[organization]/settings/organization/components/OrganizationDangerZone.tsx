@@ -26,8 +26,6 @@ import {
   leaveOrganizationAction,
 } from '~/lib/organizations/actions';
 
-import useCsrfToken from '~/core/hooks/use-csrf-token';
-
 export function OrganizationDangerZone() {
   const useRole = useCurrentUserRole();
   const isOwner = useRole === MembershipRole.Owner;
@@ -55,7 +53,7 @@ function DeleteOrganizationContainer() {
           <Trans i18nKey={'organization:deleteOrganization'} />
         </Heading>
 
-        <p className={'text-neutral-500 text-sm'}>
+        <p className={'text-gray-500 text-sm'}>
           <Trans
             i18nKey={'organization:deleteOrganizationDescription'}
             values={{
@@ -88,8 +86,6 @@ function DeleteOrganizationContainer() {
 }
 
 function DeleteOrganizationForm({ name, id }: { name: string; id: number }) {
-  const csrfToken = useCsrfToken();
-
   return (
     <ErrorBoundary fallback={<DeleteOrganizationErrorAlert />}>
       <form
@@ -97,17 +93,27 @@ function DeleteOrganizationForm({ name, id }: { name: string; id: number }) {
         action={deleteOrganizationAction}
       >
         <div className={'flex flex-col space-y-2'}>
-          <div>
-            <Trans
-              i18nKey={'organization:deleteOrganizationDisclaimer'}
-              values={{
-                organizationName: name,
-              }}
-            />
+          <div
+            className={
+              'border-2 border-red-500 p-4 text-sm text-red-500' +
+              ' flex flex-col space-y-2'
+            }
+          >
+            <div>
+              <Trans
+                i18nKey={'organization:deleteOrganizationDisclaimer'}
+                values={{
+                  organizationName: name,
+                }}
+              />
+            </div>
+
+            <div className={'text-sm'}>
+              <Trans i18nKey={'common:modalConfirmationQuestion'} />
+            </div>
           </div>
 
           <input type="hidden" value={id} name={'id'} />
-          <input type="hidden" value={csrfToken} name={'csrfToken'} />
 
           <TextFieldLabel>
             <Trans i18nKey={'organization:organizationNameInputLabel'} />
@@ -152,7 +158,6 @@ function DeleteOrganizationSubmitButton() {
 
 function LeaveOrganizationContainer() {
   const organization = useCurrentOrganization();
-  const csrfToken = useCsrfToken();
 
   if (!organization) {
     return null;
@@ -189,7 +194,6 @@ function LeaveOrganizationContainer() {
           <ErrorBoundary fallback={<LeaveOrganizationErrorAlert />}>
             <form action={leaveOrganizationAction}>
               <input type={'hidden'} value={id} name={'id'} />
-              <input type="hidden" value={csrfToken} name={'csrfToken'} />
 
               <div className={'flex flex-col space-y-4'}>
                 <div>
