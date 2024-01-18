@@ -64,6 +64,7 @@ function UpdateMemberForm({
   return (
     <div className={'flex flex-col space-y-6'}>
       <MembershipRoleSelector
+        targetUserRole={memberRole}
         currentUserRole={currentUserRole}
         value={role}
         onChange={setRole}

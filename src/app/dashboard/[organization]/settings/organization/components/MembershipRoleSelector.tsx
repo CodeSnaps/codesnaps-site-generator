@@ -15,12 +15,13 @@ import { canInviteUser } from '~/lib/organizations/permissions';
 const MembershipRoleSelector: React.FCC<{
   value?: MembershipRole;
   onChange?: (role: MembershipRole) => unknown;
+  targetUserRole?: MembershipRole;
   currentUserRole: Maybe<MembershipRole>;
-}> = ({ value, onChange, currentUserRole }) => {
+}> = ({ value, onChange, currentUserRole, targetUserRole }) => {
   const selectedRole = getSelectedRoleModel(value);
 
   const allowedRoles = roles.filter((role) => {
-    if (currentUserRole === undefined) {
+    if (currentUserRole === undefined || targetUserRole === role.value) {
       return false;
     }
 
