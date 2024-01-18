@@ -8,16 +8,17 @@ select
 select
   tests.create_supabase_user('user');
 
-grant USAGE on schema tests to service_role;
-
-set local role service_role;
+select
+  tests.authenticate_as('user');
 
 select
   lives_ok($$
     select
-      create_new_organization('Supabase', tests.get_supabase_uid('user'));
+      create_new_organization('Supabase');
 
 $$);
+
+set local role service_role;
 
 select
   (lives_ok($$ insert into subscriptions(

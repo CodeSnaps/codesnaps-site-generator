@@ -368,7 +368,6 @@ export interface Database {
       create_new_organization: {
         Args: {
           org_name: string;
-          user_id: string;
           create_user?: boolean;
         };
         Returns: string;
@@ -394,6 +393,10 @@ export interface Database {
           membership_id: number;
         };
         Returns: number;
+      };
+      install_extensions: {
+        Args: Record<PropertyKey, never>;
+        Returns: undefined;
       };
       transfer_organization: {
         Args: {

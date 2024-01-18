@@ -13,19 +13,23 @@ select
 
 grant USAGE on schema tests to service_role;
 
-set local role service_role;
+select
+  tests.authenticate_as('user');
 
 select
   lives_ok($$
     select
-      create_new_organization('Supabase', tests.get_supabase_uid('user'));
+      create_new_organization('Supabase');
 
 $$);
 
 select
+  tests.authenticate_as('user-2');
+
+select
   lives_ok($$
     select
-      create_new_organization('Organization 2', tests.get_supabase_uid('user-2'));
+      create_new_organization('Organization 2');
 
 $$);
 

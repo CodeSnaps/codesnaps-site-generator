@@ -35,7 +35,6 @@ export const createNewOrganizationAction = withSession(
 
     const client = getSupabaseServerActionClient();
     const session = await requireSession(client);
-
     const userId = session.user.id;
 
     logger.info(
@@ -49,7 +48,6 @@ export const createNewOrganizationAction = withSession(
     const { data: organizationUid, error } = await client
       .rpc('create_new_organization', {
         org_name: organization,
-        user_id: userId,
         create_user: false,
       })
       .throwOnError()

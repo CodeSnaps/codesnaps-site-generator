@@ -59,7 +59,7 @@ export const acceptInviteAction = async (params: {
   const code = params.code;
 
   const logger = getLogger();
-  const adminClient = getSupabaseServerActionClient({ admin: true });
+  const client = getSupabaseServerActionClient();
 
   // if the user ID is provided, we use it
   // (for example, when signing up for the 1st time)
@@ -68,16 +68,19 @@ export const acceptInviteAction = async (params: {
 
   // if the user ID is not provided, we try to get it from the session
   if (!userId) {
-    const client = getSupabaseServerActionClient();
-    const { data } = await client.auth.getSession();
+    const { data } = await client.auth.getUser();
 
     // if the session is not available, we throw an error
-    if (!data.session) {
+    if (!data.user) {
       throw new Error(`Session not available`);
     }
 
-    userId = data.session.user.id;
+    userId = data.user.id;
     signedIn = true;
+  }
+
+  if (params.userId && params.userId !== userId) {
+    throw new Error(`User ID mismatch`);
   }
 
   logger.info(
@@ -87,6 +90,10 @@ export const acceptInviteAction = async (params: {
     },
     `Adding member to organization...`,
   );
+
+  const adminClient = getSupabaseServerActionClient({
+    admin: true,
+  });
 
   const { data, error } = await acceptInviteToOrganization(adminClient, {
     code,

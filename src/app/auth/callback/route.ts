@@ -100,12 +100,15 @@ async function acceptInviteFromEmailLink(params: {
 
   logger.info(params, `Found invite code. Accepting invite...`);
 
-  const adminClient = getSupabaseRouteHandlerClient({ admin: true });
-
-  await acceptInviteToOrganization(adminClient, {
-    code: params.inviteCode,
-    userId: params.userId,
-  });
+  await acceptInviteToOrganization(
+    getSupabaseRouteHandlerClient({
+      admin: true,
+    }),
+    {
+      code: params.inviteCode,
+      userId: params.userId,
+    },
+  );
 
   logger.info(params, `Invite successfully accepted`);
 }

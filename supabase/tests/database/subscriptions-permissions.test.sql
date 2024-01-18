@@ -11,15 +11,19 @@ select
 select
   tests.create_supabase_user('user-2');
 
-grant USAGE on schema tests to service_role;
+select
+  tests.authenticate_as('user');
+
+select
+  create_new_organization('Organization');
+
+select
+  tests.authenticate_as('user-2');
+
+select
+  create_new_organization('Organization 2');
 
 set local role service_role;
-
-select
-  create_new_organization('Organization', tests.get_supabase_uid('user'));
-
-select
-  create_new_organization('Organization 2', tests.get_supabase_uid('user-2'));
 
 insert into subscriptions(
   id,

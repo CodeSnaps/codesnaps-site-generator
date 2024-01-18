@@ -14,7 +14,7 @@ select
 $$,
 'can create an auth user');
 
-set LOCAL role anon;
+set local role authenticated;
 
 select
   throws_ok($$ insert into users(

@@ -38,12 +38,13 @@ select
 select
   tests.create_supabase_user('user-2');
 
-set local role service_role;
+select
+  tests.authenticate_as('user');
 
 select
   lives_ok($$
     select
-      create_new_organization('Test Organization', tests.get_supabase_uid('user'));
+      create_new_organization('Test Organization');
 
 $$,
 'can create an organization');

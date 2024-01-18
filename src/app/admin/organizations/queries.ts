@@ -62,8 +62,6 @@ export async function getOrganizations(
     query = query.ilike('name', `%${search}%`);
   }
 
-  console.log({ startOffset, endOffset });
-
   const {
     data: organizations,
     count,

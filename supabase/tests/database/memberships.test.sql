@@ -15,10 +15,22 @@ select
   tests.create_supabase_user('user-3');
 
 select
+  tests.create_supabase_user('user-4');
+
+select
   tests.authenticate_as('user');
 
 select
-  create_new_organization('Supabase', tests.get_supabase_uid('user'));
+  create_new_organization('Supabase');
+
+select
+  tests.authenticate_as('user-3');
+
+select
+  create_new_organization('User 3 Organization');
+
+select
+  tests.authenticate_as('user');
 
 select
   isnt_empty($$
@@ -68,20 +80,32 @@ select
         'user-2'), 0) $$, 'insert membership into new organization');
 
 select
-  throws_ok($$ update
-      memberships
-    set
-      role = 1
-      where
-        user_id = tests.get_supabase_uid('user-1') $$);
+  throws_ok($$ insert into memberships(
+      organization_id, user_id, role)
+    values (
+      makerkit.get_organization_id(
+        'Supabase'), tests.get_supabase_uid(
+        'user-3'), 2) $$, 'duplicate key value violates unique constraint "unique_owner"');
 
 select
-  lives_ok($$ update
-      memberships
-    set
-      role = 1
-      where
-        user_id = tests.get_supabase_uid('user-2') $$);
+  lives_ok($$ insert into memberships(
+      organization_id, user_id, role)
+    values (
+      makerkit.get_organization_id(
+        'Supabase'), tests.get_supabase_uid(
+        'user-3'), 1) $$, 'user can be added as an admin');
+
+select
+  tests.authenticate_as('user-2');
+
+select
+  is_empty($$ delete from memberships
+    where user_id = tests.get_supabase_uid('user-2')
+    returning
+      id $$);
+
+select
+  tests.authenticate_as('user');
 
 select
   isnt_empty($$ delete from memberships
@@ -89,12 +113,14 @@ select
     returning
       id $$);
 
+set local role postgres;
+
 insert into users(
   id,
   onboarded)
 values (
   tests.get_supabase_uid(
-    'user-3'),
+    'user-4'),
   true);
 
 insert into memberships(
@@ -105,8 +131,10 @@ values (
   makerkit.get_organization_id(
     'Supabase'),
   tests.get_supabase_uid(
-    'user-3'),
+    'user-4'),
   0);
+
+set local role anon;
 
 select
   (throws_ok($$
@@ -120,25 +148,24 @@ select
               name = 'Supabase'), tests.get_supabase_uid('user-2')));
 
 $$,
-'authentication required'));
-
-set local role service_role;
+'permission denied for function transfer_organization'));
 
 select
   tests.authenticate_as('user');
 
 select
-  (lives_ok($$
-      select
-	transfer_organization(makerkit.get_organization_id('Supabase'),
-	  makerkit.get_membership_id((
-            select
-              id
-            from organizations
-            where
-              name = 'Supabase'), tests.get_supabase_uid('user-3')));
+  lives_ok($$
+    select
+      transfer_organization(makerkit.get_organization_id('Supabase'),
+	makerkit.get_membership_id((
+          select
+            id
+          from organizations
+          where
+            name = 'Supabase'), tests.get_supabase_uid('user-3')));
 
-$$));
+$$,
+'transfer ownership of organization to another user');
 
 select
   (isnt_empty($$
@@ -147,7 +174,7 @@ select
         where
           user_id = tests.get_supabase_uid('user-3')
           and organization_id = makerkit.get_organization_id('Supabase')
-          and role = 2 $$, 'verify transfer worked'));
+          and role = 2 $$, 'verify transfer worked for new owner'));
 
 select
   (isnt_empty($$
@@ -156,7 +183,7 @@ select
         where
           user_id = tests.get_supabase_uid('user')
           and organization_id = makerkit.get_organization_id('Supabase')
-          and role = 1 $$, 'verify transfer worked'));
+          and role = 1 $$, 'verify transfer worked for previous owner'));
 
 select
   *
