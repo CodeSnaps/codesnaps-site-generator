@@ -167,12 +167,7 @@ export const transferOrganizationOwnershipAction = withSession(
       `Ownership successfully transferred to target user`,
     );
 
-    const appHome = configuration.paths.appHome;
-    const path = `settings/organization/members`;
-    const pathToRevalidate = [appHome, organizationUid, path].join('/');
-
-    // revalidate the organization members page
-    revalidatePath(pathToRevalidate, 'page');
+    revalidatePath('/', 'layout');
 
     return {
       success: true,
@@ -257,6 +252,8 @@ export async function leaveOrganizationAction(data: FormData) {
   // redirect to the app home page
   const redirectPath = configuration.paths.appHome;
 
+  revalidatePath('/', 'layout');
+
   return redirect(redirectPath, RedirectType.replace);
 }
 
@@ -305,6 +302,8 @@ export async function deleteOrganizationAction(data: FormData) {
   await deleteOrganization(client, {
     organizationId: id,
   });
+
+  revalidatePath('/', 'layout');
 
   // redirect to the app home page
   return redirect(configuration.paths.appHome, RedirectType.replace);

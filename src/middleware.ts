@@ -6,10 +6,8 @@ import configuration from '~/configuration';
 import createMiddlewareClient from '~/core/supabase/middleware-client';
 import GlobalRole from '~/core/session/types/global-role';
 
-const CSRF_TOKEN_HEADER = 'X-CSRF-Token';
 const CSRF_SECRET_COOKIE = 'csrfSecret';
 const NEXT_ACTION_HEADER = 'next-action';
-const NEXT_ACTION_REDIRECT_HEADER = 'x-action-redirect';
 
 export const config = {
   matcher: [
@@ -17,15 +15,9 @@ export const config = {
   ],
 };
 
-const csrfMiddleware = csrf({
-  cookie: {
-    secure: configuration.production,
-    name: CSRF_SECRET_COOKIE,
-  },
-});
-
 export async function middleware(request: NextRequest) {
-  const csrfResponse = await withCsrfMiddleware(request);
+  const response = NextResponse.next();
+  const csrfResponse = await withCsrfMiddleware(request, response);
   const sessionResponse = await sessionMiddleware(request, csrfResponse);
 
   return await adminMiddleware(request, sessionResponse);
@@ -39,61 +31,40 @@ async function sessionMiddleware(req: NextRequest, res: NextResponse) {
   return res;
 }
 
-async function withCsrfMiddleware(request: NextRequest) {
-  const csrfResponse = NextResponse.next();
+async function withCsrfMiddleware(
+  request: NextRequest,
+  response = new NextResponse(),
+) {
+  // set up CSRF protection
+  const csrfMiddleware = csrf({
+    cookie: {
+      secure: configuration.production,
+      name: CSRF_SECRET_COOKIE,
+    },
+    // ignore CSRF errors for server actions since protection is built-in
+    ignoreMethods: isServerAction(request)
+      ? ['POST']
+      : // always ignore GET, HEAD, and OPTIONS requests
+        ['GET', 'HEAD', 'OPTIONS'],
+  });
 
-  // CSRF checks for Server Actions is built-in
-  if (isServerAction(request)) {
-    return csrfResponse;
-  }
+  const csrfError = await csrfMiddleware(request, response);
 
-  const csrfError = await csrfMiddleware(request, csrfResponse);
-
+  // if there is a CSRF error, return a 403 response
   if (csrfError) {
     return NextResponse.json('Invalid CSRF token', {
       status: HttpStatusCode.Forbidden,
     });
   }
 
-  const token = csrfResponse.headers.get(CSRF_TOKEN_HEADER);
-
-  if (token) {
-    const requestHeaders = new Headers(request.headers);
-    requestHeaders.set(CSRF_TOKEN_HEADER, token);
-
-    const response = NextResponse.next({
-      request: { headers: requestHeaders },
-    });
-
-    const nextCsrfSecret =
-      csrfResponse.cookies.get(CSRF_SECRET_COOKIE)?.value ?? '';
-
-    if (nextCsrfSecret) {
-      response.cookies.set(CSRF_SECRET_COOKIE, nextCsrfSecret, {
-        secure: configuration.production,
-        path: '/',
-        sameSite: 'lax',
-        httpOnly: true,
-      });
-    }
-
-    return response;
-  }
-
-  return csrfResponse;
+  // otherwise, return the response
+  return response;
 }
 
-/**
- * Check if the request is a Server Action
- * Also check if the request is not a redirect from a Server Action
- * @param request
- */
 function isServerAction(request: NextRequest) {
   const headers = new Headers(request.headers);
 
-  return (
-    headers.has(NEXT_ACTION_HEADER) && !headers.has(NEXT_ACTION_REDIRECT_HEADER)
-  );
+  return headers.has(NEXT_ACTION_HEADER);
 }
 
 async function adminMiddleware(request: NextRequest, response: NextResponse) {
