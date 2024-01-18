@@ -1,28 +1,29 @@
 begin;
+
 create extension "basejump-supabase_test_helpers" version '0.0.6';
 
 select
-  no_plan ();
+  no_plan();
 
 select
-  tests.create_supabase_user ('user');
+  tests.create_supabase_user('user');
 
 select
-  tests.create_supabase_user ('user-2');
+  tests.create_supabase_user('user-2');
 
 select
-  tests.authenticate_as ('user');
+  tests.authenticate_as('user');
 
 select
-  lives_ok ($$
+  lives_ok($$
     select
-      create_new_organization ('Supabase', tests.get_supabase_uid ('user'));
+      create_new_organization('Supabase', tests.get_supabase_uid('user'));
 
 $$,
 'can kickstart the creation of an organization and user');
 
 select
-  isnt_empty ($$
+  isnt_empty($$
     select
       (id, name)
       from organizations
@@ -33,13 +34,13 @@ $$,
 'an authenticated user can read an organization it is a member of');
 
 select
-  tests.authenticate_as ('user-2');
+  tests.authenticate_as('user-2');
 
 select
-  create_new_organization ('Test', tests.get_supabase_uid ('user-2'));
+  create_new_organization('Test', tests.get_supabase_uid('user-2'));
 
 select
-  is_empty ($$
+  is_empty($$
     select
       * from organizations
       where
@@ -48,7 +49,6 @@ select
 select
   *
 from
-  finish ();
+  finish();
 
 rollback;
-
