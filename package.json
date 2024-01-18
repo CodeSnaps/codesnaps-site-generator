@@ -1,6 +1,6 @@
 {
   "name": "codesnaps-website",
-  "version": "0.10.15",
+  "version": "0.10.16",
   "private": true,
   "sideEffects": false,
   "scripts": {

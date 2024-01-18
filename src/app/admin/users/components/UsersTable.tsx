@@ -1,8 +1,9 @@
 'use client';
 
 import type { ColumnDef } from '@tanstack/react-table';
-import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { getI18n } from 'react-i18next';
+import { EllipsisHorizontalIcon } from '@heroicons/react/24/outline';
 
 import DataTable from '~/core/ui/DataTable';
 import UserData from '~/core/session/types/user-data';
@@ -17,11 +18,9 @@ import {
   DropdownMenuTrigger,
 } from '~/core/ui/Dropdown';
 
-import { EllipsisHorizontalIcon } from '@heroicons/react/24/outline';
 import IconButton from '~/core/ui/IconButton';
 import Badge from '~/core/ui/Badge';
 import If from '~/core/ui/If';
-import { getI18n } from 'react-i18next';
 
 type UserRow = {
   id: string;
@@ -223,16 +222,10 @@ function UsersTable({
   page: number;
   perPage: number;
 }>) {
-  const router = useRouter();
-  const pathname = usePathname();
-
   return (
     <DataTable
       tableProps={{
         'data-cy': 'admin-users-table',
-      }}
-      onPaginationChange={({ pageIndex }) => {
-        router.push(`${pathname}?page=${pageIndex + 1}`);
       }}
       pageIndex={page - 1}
       pageSize={perPage}

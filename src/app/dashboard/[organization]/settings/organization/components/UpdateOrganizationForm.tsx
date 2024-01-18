@@ -76,8 +76,13 @@ const UpdateOrganizationForm = () => {
         shouldRemoveLogo = true;
       }
 
-      if (logoFile && logoURL && logoURL !== currentLogoUrl) {
-        shouldRemoveLogo = true;
+      if (logoFile && logoURL && currentLogoUrl) {
+        const urlWithoutParams = logoURL?.split('?')[0];
+        const currentPhotoWithoutParams = currentLogoUrl?.split('?')[0];
+
+        if (urlWithoutParams !== currentPhotoWithoutParams) {
+          shouldRemoveLogo = true;
+        }
       }
 
       // if the logo is provided and differs from the existing one

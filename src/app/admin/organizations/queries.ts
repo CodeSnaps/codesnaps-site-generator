@@ -14,7 +14,7 @@ export async function getOrganizations(
   perPage = 20,
 ) {
   const startOffset = (page - 1) * perPage;
-  const endOffset = startOffset + perPage;
+  const endOffset = startOffset - 1 + perPage;
 
   let query = client.from(ORGANIZATIONS_TABLE).select<
     string,
@@ -61,6 +61,8 @@ export async function getOrganizations(
   if (search) {
     query = query.ilike('name', `%${search}%`);
   }
+
+  console.log({ startOffset, endOffset });
 
   const {
     data: organizations,

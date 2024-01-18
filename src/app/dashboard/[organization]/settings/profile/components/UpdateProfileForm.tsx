@@ -72,8 +72,13 @@ function UpdateProfileForm({
       shouldRemoveAvatar = true;
     }
 
-    if (photoFile && photoUrl && photoUrl !== currentPhotoURL) {
-      shouldRemoveAvatar = true;
+    if (photoFile && photoUrl) {
+      const urlWithoutParams = photoUrl.split('?')[0];
+      const currentPhotoWithoutParams = currentPhotoURL?.split('?')[0];
+
+      if (urlWithoutParams !== currentPhotoWithoutParams) {
+        shouldRemoveAvatar = true;
+      }
     }
 
     const info = {

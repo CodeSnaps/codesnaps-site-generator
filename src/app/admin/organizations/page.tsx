@@ -1,11 +1,12 @@
 import AdminHeader from '~/app/admin/components/AdminHeader';
-import { PageBody } from '~/core/ui/Page';
 import AdminGuard from '~/app/admin/components/AdminGuard';
 import OrganizationsTable from '~/app/admin/organizations/components/OrganizationsTable';
 import { getOrganizations } from '~/app/admin/organizations/queries';
 import getPageFromQueryParams from '~/app/admin/utils/get-page-from-query-param';
 
 import { TextFieldInput } from '~/core/ui/TextField';
+import { PageBody } from '~/core/ui/Page';
+
 import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
 
 import configuration from '~/configuration';
@@ -26,10 +27,16 @@ async function OrganizationsAdminPage({
 }: OrganizationsAdminPageProps) {
   const page = getPageFromQueryParams(searchParams.page);
   const client = getSupabaseServerComponentClient({ admin: true });
-  const perPage = 20;
+  const perPage = 10;
   const search = searchParams.search || '';
 
-  const { organizations, count } = await getOrganizations(client, search, page);
+  const { organizations, count } = await getOrganizations(
+    client,
+    search,
+    page,
+    perPage,
+  );
+
   const pageCount = count ? Math.ceil(count / perPage) : 0;
 
   return (

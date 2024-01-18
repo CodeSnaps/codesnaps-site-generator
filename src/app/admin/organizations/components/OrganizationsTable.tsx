@@ -1,7 +1,6 @@
 'use client';
 
 import { ColumnDef } from '@tanstack/react-table';
-import { usePathname, useRouter } from 'next/navigation';
 import { EllipsisHorizontalIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { getI18n } from 'react-i18next';
@@ -180,16 +179,10 @@ function OrganizationsTable({
   perPage: number;
   page: number;
 }>) {
-  const router = useRouter();
-  const pathname = usePathname();
-
   return (
     <DataTable
       tableProps={{
         'data-cy': 'admin-organizations-table',
-      }}
-      onPaginationChange={({ pageIndex }) => {
-        router.push(`${pathname}?page=${pageIndex + 1}`);
       }}
       pageSize={perPage}
       pageIndex={page - 1}

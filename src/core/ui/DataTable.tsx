@@ -1,6 +1,7 @@
 'use client';
 
-import { Fragment, useState } from 'react';
+import { Fragment, useCallback, useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 import {
   getCoreRowModel,
@@ -18,7 +19,7 @@ import type {
   PaginationState,
 } from '@tanstack/react-table';
 
-import classNames from 'classnames';
+import classNames from 'clsx';
 import IconButton from '~/core/ui/IconButton';
 
 import {
@@ -37,6 +38,7 @@ import {
   TableHeader,
   TableRow,
 } from '~/core/ui/Table';
+
 import Trans from '~/core/ui/Trans';
 
 interface ReactTableProps<T extends object> {
@@ -72,6 +74,8 @@ function DataTable<T extends object>({
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = useState({});
 
+  const navigateToPage = useNavigateToNewPage();
+
   const table = useReactTable({
     data,
     columns,
@@ -90,12 +94,16 @@ function DataTable<T extends object>({
       rowSelection,
     },
     onPaginationChange: (updater) => {
+      const navigate = (page: number) => setTimeout(() => navigateToPage(page));
+
       if (typeof updater === 'function') {
         setPagination((prevState) => {
           const nextState = updater(prevState);
 
           if (onPaginationChange) {
             onPaginationChange(nextState);
+          } else {
+            navigate(nextState.pageIndex);
           }
 
           return nextState;
@@ -105,6 +113,8 @@ function DataTable<T extends object>({
 
         if (onPaginationChange) {
           onPaginationChange(updater);
+        } else {
+          navigate(updater.pageIndex);
         }
       }
     },
@@ -231,3 +241,25 @@ function Pagination<T>({
 }
 
 export default DataTable;
+
+/**
+ * Navigates to a new page using the provided page index and optional page parameter.
+ */
+function useNavigateToNewPage(
+  props: { pageParam?: string } = {
+    pageParam: 'page',
+  },
+) {
+  const router = useRouter();
+  const param = props.pageParam ?? 'page';
+
+  return useCallback(
+    (pageIndex: number) => {
+      const url = new URL(window.location.href);
+      url.searchParams.set(param, String(pageIndex + 1));
+
+      router.push(url.pathname + url.search);
+    },
+    [param, router],
+  );
+}
