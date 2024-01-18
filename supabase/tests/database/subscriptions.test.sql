@@ -1,18 +1,20 @@
 begin;
+create extension "basejump-supabase_test_helpers" version '0.0.6';
 
 select
   no_plan ();
 
 select
-  tests.create_supabase_user ('user');
+    tests.create_supabase_user ('user');
+
+GRANT USAGE ON SCHEMA tests TO service_role;
+set local role service_role;
 
 select
   lives_ok ($$
     select
       create_new_organization ('Supabase', tests.get_supabase_uid ('user'));
-
-$$,
-'can kickstart the creation of an organization and user');
+$$);
 
 select
   (lives_ok ($$ insert into subscriptions (cancel_at_period_end, price_id, id, status)
@@ -23,7 +25,7 @@ $$,
 
 select
   (lives_ok ($$ insert into organizations_subscriptions (organization_id, subscription_id, customer_id)
-        values (tests.get_organization_id ('Supabase'), '1', '1'); $$, 'can insert an organization subscription as an admin'));
+        values (makerkit.get_organization_id ('Supabase'), '1', '1'); $$, 'can insert an organization subscription as an admin'));
 
 select
   tests.authenticate_as ('user');
@@ -33,8 +35,7 @@ select
     values ('1', '1', 'active');
 
 $$,
-'new row violates row-level security policy for table "subscriptions"',
-'cannot insert a subscription as an authenticated user'));
+'new row violates row-level security policy for table "subscriptions"'));
 
 select
   isnt_empty ($$
@@ -42,6 +43,13 @@ select
       * from subscriptions
       where
         id = '1' $$, 'an user can read a subscription if it belongs to the same organization');
+
+select isnt_empty
+    ($$
+        select
+        * from organizations_subscriptions
+        where
+            subscription_id = '1' $$, 'an user can read an organization subscription if it does belong to the same organization');
 
 select
   tests.create_supabase_user ('user-2');
@@ -56,9 +64,17 @@ select
       where
         id = '1' $$, 'an user cannot read a subscription if it does not belong to the same organization');
 
+select is_empty
+    ($$
+        select
+        * from organizations_subscriptions
+        where
+            subscription_id = '1' $$, 'an user cannot read an organization subscription if it does not belong to the same organization');
+
 select
   *
 from
   finish ();
 
 rollback;
+

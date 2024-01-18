@@ -1,4 +1,5 @@
 begin;
+create extension "basejump-supabase_test_helpers" version '0.0.6';
 
 select
   no_plan ();
@@ -8,6 +9,9 @@ select
 
 select
   tests.create_supabase_user ('user-2');
+
+select
+  tests.create_supabase_user ('user-3');
 
 select
   tests.authenticate_as ('user');
@@ -25,8 +29,8 @@ select
     select
       * from memberships
       where
-        id = tests.get_membership_id (
-          tests.get_organization_id ('Supabase'),
+        id = makerkit.get_membership_id (
+          makerkit.get_organization_id ('Supabase'),
           tests.get_supabase_uid ('user')
         ) $$, 'an authenticated user can read a membership if it
         belongs to the same organization');
@@ -53,11 +57,11 @@ set local role postgres;
 select
   lives_ok ($$
     select
-      tests.create_db_user (tests.get_supabase_uid ('user-2')) $$, 'can create a db user');
+      makerkit.create_db_user (tests.get_supabase_uid ('user-2')) $$, 'can create a db user');
 
 select
   lives_ok ($$ insert into memberships (organization_id, user_id, role)
-      values (tests.get_organization_id('Supabase'), tests.get_supabase_uid ('user-2')
+      values (makerkit.get_organization_id('Supabase'), tests.get_supabase_uid ('user-2')
       , 0) $$, 'insert membership into new organization');
 
 select
@@ -81,6 +85,57 @@ select
     where user_id = tests.get_supabase_uid ('user-2')
     returning
       id $$);
+
+insert into users (id, onboarded)
+    values (tests.get_supabase_uid ('user-3'), true);
+
+insert into memberships (organization_id, user_id, role)
+    values (makerkit.get_organization_id ('Supabase'), tests.get_supabase_uid ('user-3'), 0);
+
+select (throws_ok(
+    $$
+       select transfer_organization (
+         makerkit.get_organization_id ('Supabase'),
+         makerkit.get_membership_id (makerkit.get_organization_id ('Supabase'), tests.get_supabase_uid ('user-2'))
+       );
+    $$,
+    'authentication required'
+));
+
+set local role service_role;
+
+select
+  tests.authenticate_as ('user');
+
+select (lives_ok(
+    $$
+       select transfer_organization (
+         makerkit.get_organization_id ('Supabase'),
+         makerkit.get_membership_id (
+            makerkit.get_organization_id ('Supabase'),
+            tests.get_supabase_uid ('user-3')
+         )
+       );
+    $$
+));
+
+select (
+    isnt_empty ($$
+      select * from memberships where user_id = tests.get_supabase_uid ('user-3')
+      and organization_id = makerkit.get_organization_id ('Supabase')
+      and role = 2 $$,
+      'verify transfer worked'
+    )
+);
+
+select (
+    isnt_empty ($$
+      select * from memberships where user_id = tests.get_supabase_uid ('user')
+      and organization_id = makerkit.get_organization_id ('Supabase')
+      and role = 1 $$,
+      'verify transfer worked'
+    )
+);
 
 select
   *

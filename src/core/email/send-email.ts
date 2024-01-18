@@ -40,7 +40,7 @@ function getProductionSMTPConfiguration() {
   const pass = process.env.EMAIL_PASSWORD;
   const host = process.env.EMAIL_HOST;
   const port = Number(process.env.EMAIL_PORT);
-  const secure = port === 465 && !configuration.production;
+  const secure = port === 465;
 
   // validate that we have all the required configuration
   if (!user || !pass || !host || !port) {

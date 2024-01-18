@@ -21,6 +21,7 @@ import configuration from '~/configuration';
 import removeMembership from '~/lib/server/organizations/remove-membership';
 import deleteOrganization from '~/lib/server/organizations/delete-organization';
 import { MEMBERSHIPS_TABLE } from '~/lib/db-tables';
+import { getUserMembershipByOrganization } from '~/lib/memberships/queries';
 
 export const createNewOrganizationAction = withSession(
   async (formData: FormData) => {
@@ -135,6 +136,37 @@ export const transferOrganizationOwnershipAction = withSession(
       );
 
       throw new Error(`Error retrieving organization`);
+    }
+
+    const membership = await getUserMembershipByOrganization(client, {
+      organizationUid,
+      userId: currentUserId,
+    });
+
+    if (!membership) {
+      logger.error(
+        {
+          organizationUid,
+          currentUserId,
+          targetUserMembershipId,
+        },
+        `Error retrieving membership`,
+      );
+
+      throw new Error(`Error retrieving membership`);
+    }
+
+    if (membership.role !== MembershipRole.Owner) {
+      logger.error(
+        {
+          organizationUid,
+          currentUserId,
+          targetUserMembershipId,
+        },
+        `Error transferring organization ownership. The user is not the owner of the organization`,
+      );
+
+      throw new Error(`Error transferring organization ownership`);
     }
 
     // transfer ownership to the target user
