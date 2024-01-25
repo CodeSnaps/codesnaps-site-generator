@@ -129,19 +129,19 @@ select
 
 set local role postgres;
 
-create table tasks(
+create table _tasks(
   id bigint generated always as identity primary key,
   name text not null,
   organization_id bigint not null references public.organizations,
   created_at timestamptz not null default now()
 );
 
-alter table tasks enable row level security;
+alter table _tasks enable row level security;
 
 select
   tests.rls_enabled('tasks');
 
-create policy "Can insert tasks with an active subscription" on tasks
+create policy "Can insert tasks with an active subscription" on _tasks
   for insert to authenticated
     with check (
 exists (
@@ -150,7 +150,7 @@ exists (
       from
         makerkit.get_active_subscription(organization_id)));
 
-create policy "Can read tasks if they belong to the organization" on tasks
+create policy "Can read tasks if they belong to the organization" on _tasks
   for select to authenticated
     using (current_user_is_member_of_organization(organization_id));
 
@@ -158,7 +158,7 @@ select
   tests.authenticate_as('user');
 
 select
-  lives_ok($$ insert into tasks(
+  lives_ok($$ insert into _tasks(
       name, organization_id)
     values (
       'Task 1', makerkit.get_organization_id(
@@ -168,34 +168,34 @@ $$,
 'can insert tasks with an active subscription');
 
 select
-  throws_ok($$ insert into tasks(
+  throws_ok($$ insert into _tasks(
       name, organization_id)
     values (
       'Task 2', makerkit.get_organization_id(
-        'Organization 2')) $$, 'new row violates row-level security policy for table "tasks"');
+        'Organization 2')) $$, 'new row violates row-level security policy for table "_tasks"');
 
 select
   tests.authenticate_as('user-2');
 
 select
-  throws_ok($$ insert into tasks(
+  throws_ok($$ insert into _tasks(
       name, organization_id)
     values (
       'Task 2', makerkit.get_organization_id(
         'Organization 2'));
 
 $$,
-'new row violates row-level security policy for table "tasks"');
+'new row violates row-level security policy for table "_tasks"');
 
 select
-  throws_ok($$ insert into tasks(
+  throws_ok($$ insert into _tasks(
       name, organization_id)
     values (
       'Task 2', makerkit.get_organization_id(
         'Organization'));
 
 $$,
-'new row violates row-level security policy for table "tasks"');
+'new row violates row-level security policy for table "_tasks"');
 
 select
   *
