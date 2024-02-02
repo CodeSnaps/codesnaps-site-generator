@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import Link from 'next/link';
+import Trans from '~/core/ui/Trans';
 
 import {
   categories,
@@ -40,7 +41,7 @@ function FilterSheet({
   setElements,
 }: FilterProps) {
   return (
-    <aside className="border-neutral-300 dark:border-slate-800 fixed inset-y-0 right-0 hidden h-full w-72 overflow-y-auto border-l px-4 py-6 sm:px-6 lg:px-8 xl:block">
+    <aside className="border-neutral-300 dark:border-neutral-800 fixed inset-y-0 right-0 hidden h-full w-72 overflow-y-auto border-l px-4 py-6 sm:px-6 lg:px-8 xl:block">
       <form
         method={'GET'}
         className="flex flex-col divide-y divide-neutral-300 dark:divide-neutral-800 space-y-8"
@@ -50,7 +51,7 @@ function FilterSheet({
             htmlFor="isFree"
             className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-800 dark:text-white"
           >
-            Free Components
+            <Trans i18nKey="components:filterFreeComponentsLabel" />
           </label>
           <Switch id="isFree" checked={isFree} onCheckedChange={setIsFree} />
         </div>
@@ -60,7 +61,7 @@ function FilterSheet({
             htmlFor="search"
             className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mt-6"
           >
-            Search
+            <Trans i18nKey="components:filterSearchLabel" />
           </label>
 
           <TextFieldInput
@@ -74,15 +75,15 @@ function FilterSheet({
 
         <div className="flex flex-col space-y-4">
           <h4 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mt-6">
-            Categories
+            <Trans i18nKey="components:filterCategoriesLabel" />
           </h4>
 
           {categories.map((category) => (
             <Link
               href={clsx(
                 category.value === 'all'
-                  ? `/dashboard/${organization}`
-                  : `/dashboard/${organization}/${category.value}`,
+                  ? `/dashboard/${organization}/browse-components`
+                  : `/dashboard/${organization}/browse-components/${category.value}`,
               )}
               key={category.value}
               className="underline text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-left text-neutral-900 dark:text-neutral-100 hover:text-primary-600 dark:hover:text-primary-400"
@@ -94,7 +95,7 @@ function FilterSheet({
 
         <div className="flex flex-col space-y-4">
           <h4 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mt-6">
-            Interaction
+            <Trans i18nKey="components:filterInteractionsLabel" />
           </h4>
 
           <div className="flex items-center space-x-4">
@@ -107,19 +108,19 @@ function FilterSheet({
               htmlFor="isInteractive"
               className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-800 dark:text-neutral-200"
             >
-              Interactive
+              <Trans i18nKey="components:filterInteractionsDescription" />
             </label>
           </div>
         </div>
 
         <div className="flex flex-col space-y-4">
           <h3 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-4 mt-6">
-            Layout
+            <Trans i18nKey="components:filterLayoutLabel" />
           </h3>
 
           <div>
             <h4 className="text-base font-semibold text-neutral-900 dark:text-neutral-100">
-              Text Alignment
+              <Trans i18nKey="components:filterLayoutTextAlignmentLabel" />
             </h4>
 
             {textLayout.map((property) => (
@@ -152,7 +153,7 @@ function FilterSheet({
 
           <div>
             <h4 className="text-base font-semibold text-neutral-900 dark:text-neutral-100 mt-6">
-              Visual Layout
+              <Trans i18nKey="components:filterLayoutVisualLayoutLabel" />
             </h4>
 
             {visualLayout.map((property) => (
@@ -185,7 +186,7 @@ function FilterSheet({
 
           <div>
             <h4 className="text-base font-semibold text-neutral-900 dark:text-neutral-100 mt-6">
-              Columns
+              <Trans i18nKey="components:filterColumnsLabel" />
             </h4>
 
             {columnLayout.map((property) => (
@@ -219,7 +220,7 @@ function FilterSheet({
 
         <div className="flex flex-col space-y-4 pb-20">
           <h4 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-4 mt-6">
-            Elements
+            <Trans i18nKey="components:filterElementsLabel" />
           </h4>
 
           {elementsProps.map((property) => (

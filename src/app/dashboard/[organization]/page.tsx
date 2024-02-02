@@ -31,10 +31,10 @@ function DashboardPage({ searchParams, params }: DasbboardPageParams) {
       />
 
       <div className="3xl:max-w-[85%] w-full mx-auto">
-        <ComponentsDashboard
+        {/* <ComponentsDashboard
           searchParams={searchParams}
           organization={params.organization}
-        />
+        /> */}
       </div>
     </>
   );

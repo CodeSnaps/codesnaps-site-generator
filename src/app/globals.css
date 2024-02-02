@@ -30,12 +30,12 @@
   .dark {
     --background: 250 0% 0%;
     --foreground: 0 0% 98%;
-    --card: 224 71.4% 4.1%;
+    --card: 250 0% 7%;
     --card-foreground: 0 0% 98%;
-    --popover: 224 71.4% 4.1%;
+    --popover: 250 0% 7%;
     --popover-foreground: 0 0% 98%;
     --primary: 36 96% 53%;
-    --primary-foreground: 224 71.4% 4.1%;
+    --primary-foreground: 250 0% 7%;
     --secondary: 0 0% 15%;
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 15%;
@@ -62,4 +62,17 @@
       'rlig' 1,
       'calt' 1;
   }
+}
+
+.component-selected {
+  @apply relative;
+}
+
+.component-selected::after {
+  content: ' ';
+  @apply border-blue-500 border border-dashed w-full h-full absolute left-0 top-0 pointer-events-none block;
+}
+
+.transition {
+  transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }

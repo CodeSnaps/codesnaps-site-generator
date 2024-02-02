@@ -3,6 +3,7 @@
 import SavedComponent from '~/lib/components/types/saved-component';
 import Image from 'next/image';
 import Link from 'next/link';
+import Trans from '~/core/ui/Trans';
 
 import { toast } from 'sonner';
 import useSupabase from '~/core/hooks/use-supabase';
@@ -83,7 +84,9 @@ export default function ComponentGridItem(
             >
               <div className="flex items-center justify-center gap-2 rounded-md bg-transparent py-3.5 text-center text-base font-semibold text-neutral-600 shadow-sm ring-1 ring-inset ring-neutral-300 hover:bg-neutral-50 group-hover:text-neutral-800 group-hover:ring-neutral-800 dark:text-neutral-400 dark:ring-neutral-400 dark:hover:bg-neutral-800 dark:group-hover:ring-neutral-100 dark:group-hover:text-white">
                 <CodeIcon className="h-6 w-6" />
-                Code
+                <span>
+                  <Trans i18nKey="components:componentGridItemCodeButton" />
+                </span>
               </div>
             </Link>
           </div>
@@ -107,21 +110,21 @@ export default function ComponentGridItem(
             <AlertDialogContent>
               <AlertDialogHeader>
                 <AlertDialogTitle>
-                  Do you want to remove the component?
+                  <Trans i18nKey="components:removeComponent.title" />
                 </AlertDialogTitle>
                 <AlertDialogDescription>
-                  This action will remove the component from your saved
-                  components. You will need to add it back manually from the
-                  Dashboard.
+                  <Trans i18nKey="components:removeComponent.description" />
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
-                <AlertDialogCancel className="px-10">Cancel</AlertDialogCancel>
+                <AlertDialogCancel className="px-10">
+                  <Trans i18nKey="components:removeComponent.cancelButtonLabel" />
+                </AlertDialogCancel>
                 <AlertDialogAction
                   className="px-10"
                   onClick={() => handleRemoveComponent()}
                 >
-                  Remove
+                  <Trans i18nKey="components:removeComponent.confirmButtonLabel" />
                 </AlertDialogAction>
               </AlertDialogFooter>
             </AlertDialogContent>

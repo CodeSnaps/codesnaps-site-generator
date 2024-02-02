@@ -4,6 +4,7 @@ import {
   UserGroupIcon,
   UserIcon,
   BookmarkIcon,
+  WindowIcon,
 } from '@heroicons/react/24/outline';
 
 import configuration from '~/configuration';
@@ -33,6 +34,8 @@ type NavigationConfig = {
 };
 
 const paths = configuration.paths.settings;
+const componentsPaths = configuration.paths.components;
+const sitesPaths = configuration.paths.sites;
 
 const NAVIGATION_CONFIG = (organization: string): NavigationConfig => ({
   items: [
@@ -45,11 +48,37 @@ const NAVIGATION_CONFIG = (organization: string): NavigationConfig => ({
       end: true,
     },
     {
-      label: 'common:savedComponentsTabLabel',
-      path: getPath(organization, 'ui-kit/saved'),
-      Icon: ({ className }: { className: string }) => {
-        return <BookmarkIcon className={className} />;
-      },
+      label: 'common:sitesTabLabel',
+      collapsible: false,
+      children: [
+        {
+          label: 'common:siteGeneratorTabLabel',
+          path: getPath(organization, sitesPaths.dashboard),
+          Icon: ({ className }: { className: string }) => {
+            return <WindowIcon className={className} />;
+          },
+        },
+      ],
+    },
+    {
+      label: 'common:componentsTabLabel',
+      collapsible: false,
+      children: [
+        {
+          label: 'common:browseComponentsTabLabel',
+          path: getPath(organization, componentsPaths.all),
+          Icon: ({ className }: { className: string }) => {
+            return <Squares2X2Icon className={className} />;
+          },
+        },
+        {
+          label: 'common:savedComponentsTabLabel',
+          path: getPath(organization, componentsPaths.saved),
+          Icon: ({ className }: { className: string }) => {
+            return <BookmarkIcon className={className} />;
+          },
+        },
+      ],
     },
     {
       label: 'common:settingsTabLabel',

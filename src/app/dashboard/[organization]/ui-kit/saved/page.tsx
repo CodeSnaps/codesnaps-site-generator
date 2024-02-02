@@ -1,8 +1,8 @@
 import { use } from 'react';
 
-import AppHeader from '~/app/dashboard/[organization]/components/AppHeader';
-import { PageBody } from '~/core/ui/Page';
+import { PageHeader, PageBody } from '~/core/ui/Page';
 import ComponentGrid from '~/app/dashboard/[organization]/ui-kit/saved/components/ComponentGrid';
+import Trans from '~/core/ui/Trans';
 
 import { getSavedComponents } from '~/lib/components/database/queries';
 import getSupabaseServerComponentClient from '~/core/supabase/server-component-client';
@@ -32,9 +32,11 @@ function SavedComponentsPage({ params }: SavedComponentsPageParams) {
 
   return (
     <>
-      <AppHeader
-        title="Saved Components"
-        description="Your saved components. It is empty if you have not saved any components."
+      <PageHeader
+        title={<Trans i18nKey="components:savedComponentsPageTitle" />}
+        description={
+          <Trans i18nKey="components:savedComponentsPageDescription" />
+        }
       />
 
       <PageBody>

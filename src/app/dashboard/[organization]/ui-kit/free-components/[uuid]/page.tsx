@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import Trans from '~/core/ui/Trans';
 
 import { use } from 'react';
 import {
@@ -55,8 +56,8 @@ function ComponentDetailPage({ params }: ComponentDetailPageProps) {
   return (
     <>
       <ComponentAppHeader
-        title={`Component ${name}`}
-        description="Code snippets to copy and paste from the component"
+        title={name}
+        description={<Trans i18nKey="components:uiKitPageDescription" />}
       />
 
       <div className="mx-auto my-14 w-full max-w-4xl px-4 sm:px-6 lg:px-8">
@@ -105,7 +106,7 @@ function ComponentDetailPage({ params }: ComponentDetailPageProps) {
         <div className="mt-10 grid grid-cols-4 gap-4">
           <div className="col-span-2 space-y-1 lg:col-span-1">
             <h3 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
-              Type
+              <Trans i18nKey="components:uiKitTypeLabel" />
             </h3>
             <p className="text-base text-neutral-600 dark:text-neutral-400">
               {type.charAt(0).toUpperCase() + type.slice(1)}
@@ -114,7 +115,7 @@ function ComponentDetailPage({ params }: ComponentDetailPageProps) {
 
           <div className="col-span-2 space-y-1 lg:col-span-1">
             <h3 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
-              Category
+              <Trans i18nKey="components:uiKitCategoryLabel" />
             </h3>
             <p className="text-base text-neutral-600 dark:text-neutral-400">
               {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -123,7 +124,7 @@ function ComponentDetailPage({ params }: ComponentDetailPageProps) {
 
           <div className="col-span-2 space-y-1 lg:col-span-1">
             <h3 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
-              Membership
+              <Trans i18nKey="components:uiKitMembershipLabel" />
             </h3>
             <p className="text-base text-neutral-600 dark:text-neutral-400">
               {is_free ? 'Free' : 'Pro'}
@@ -132,7 +133,7 @@ function ComponentDetailPage({ params }: ComponentDetailPageProps) {
 
           <div className="col-span-2 space-y-1 lg:col-span-1">
             <h3 className="text-base font-semibold text-neutral-800 dark:text-neutral-200">
-              Interaction
+              <Trans i18nKey="components:uiKitInteractionLabel" />
             </h3>
             <p className="text-base text-neutral-600 dark:text-neutral-400">
               {is_interactive ? 'Interactive' : 'Static'}
@@ -143,7 +144,7 @@ function ComponentDetailPage({ params }: ComponentDetailPageProps) {
         {description && (
           <div className="mt-10 border-t border-neutral-300 dark:border-neutral-700">
             <h2 className="mt-6 text-lg font-semibold text-neutral-800 dark:text-neutral-200">
-              Description
+              <Trans i18nKey="components:uiKitDescriptionLabel" />
             </h2>
 
             <p className="mt-4 text-base text-neutral-700 dark:text-neutral-300">
@@ -154,7 +155,7 @@ function ComponentDetailPage({ params }: ComponentDetailPageProps) {
 
         <div className="mt-10 border-t border-neutral-300 dark:border-neutral-700">
           <h2 className="mt-6 text-lg font-semibold text-neutral-800 dark:text-neutral-200">
-            Code Snippets
+            <Trans i18nKey="components:uiKitCodeSnippetsLabel" />
           </h2>
 
           <CodeTabs

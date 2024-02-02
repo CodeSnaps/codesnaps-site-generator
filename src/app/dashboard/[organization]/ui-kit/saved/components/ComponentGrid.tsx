@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Trans from '~/core/ui/Trans';
 
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
@@ -110,7 +111,9 @@ function PaginationControl({
               }
               className="relative inline-flex items-center px-2.5 py-2 rounded-r-lg border bg-white dark:bg-black border-neutral-300 dark:border-neutral-600 text-sm font-medium text-neutral-500 hover:bg-neutral-50 dark:hover:bg-neutral-800 dark:text-neutral-100"
             >
-              <span className="sr-only">Next</span>
+              <span className="sr-only">
+                <Trans i18nKey="components:nextButtonLabel" />
+              </span>
               <ChevronRightIcon
                 className="h-5 w-5 stroke-neutral-600 dark:stroke-neutral-100"
                 aria-hidden="true"

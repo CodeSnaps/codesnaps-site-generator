@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import Link from 'next/link';
+import Trans from '~/core/ui/Trans';
 
 import {
   categories,
@@ -54,7 +55,7 @@ function FilterSheet({
         <div className="max-w-xl mx-auto w-full px-10">
           <Button variant={'outline'} className={'xl:hidden w-full'}>
             <span className="text-lg font-semibold text-neutral-800 dark:text-neutral-200 mr-4">
-              Filter
+              <Trans i18nKey="components:mobileFilterButtonLabel" />
             </span>
             <AdjustmentsHorizontalIcon className={'h-6 dark:text-white'} />
           </Button>
@@ -71,7 +72,7 @@ function FilterSheet({
                 htmlFor="isFree"
                 className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-800 dark:text-white"
               >
-                Free Components
+                <Trans i18nKey="components:filterFreeComponentsLabel" />
               </label>
               <Switch
                 id="isFree"
@@ -86,7 +87,7 @@ function FilterSheet({
               htmlFor="search"
               className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mt-6"
             >
-              Search
+              <Trans i18nKey="components:filterSearchLabel" />
             </label>
 
             <TextFieldInput
@@ -100,15 +101,15 @@ function FilterSheet({
 
           <div className="flex flex-col space-y-4">
             <h4 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mt-6">
-              Categories
+              <Trans i18nKey="components:filterCategoriesLabel" />
             </h4>
 
             {categories.map((category) => (
               <Link
                 href={clsx(
                   category.value === 'all'
-                    ? `/dashboard/${organization}`
-                    : `/dashboard/${organization}/${category.value}`,
+                    ? `/dashboard/${organization}/browse-components`
+                    : `/dashboard/${organization}/browse-components/${category.value}`,
                 )}
                 key={category.value}
                 className="underline text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-left text-neutral-900 dark:text-neutral-100 hover:text-primary-600 dark:hover:text-primary-400"
@@ -120,7 +121,7 @@ function FilterSheet({
 
           <div className="flex flex-col space-y-4">
             <h4 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-4 mt-6">
-              Interaction
+              <Trans i18nKey="components:filterInteractionsLabel" />
             </h4>
 
             <div className="flex items-center space-x-2">
@@ -133,19 +134,19 @@ function FilterSheet({
                 htmlFor="isInteractive"
                 className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-neutral-800 dark:text-neutral-200"
               >
-                Interactive
+                <Trans i18nKey="components:filterInteractionsDescription" />
               </label>
             </div>
           </div>
 
           <div className="flex flex-col space-y-6">
             <h3 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-4 mt-6">
-              Layout
+              <Trans i18nKey="components:filterLayoutLabel" />
             </h3>
 
             <div>
               <h4 className="text-base font-semibold text-neutral-900 dark:text-neutral-100">
-                Text Alignment
+                <Trans i18nKey="components:filterLayoutTextAlignmentLabel" />
               </h4>
 
               {textLayout.map((property) => (
@@ -178,7 +179,7 @@ function FilterSheet({
 
             <div>
               <h4 className="text-base font-semibold text-neutral-900 dark:text-neutral-100 mt-6">
-                Visual Layout
+                <Trans i18nKey="components:filterLayoutVisualLayoutLabel" />
               </h4>
 
               {visualLayout.map((property) => (
@@ -211,7 +212,7 @@ function FilterSheet({
 
             <div>
               <h4 className="text-base font-semibold text-neutral-900 dark:text-neutral-100 mt-6">
-                Columns
+                <Trans i18nKey="components:filterColumnsLabel" />
               </h4>
 
               {columnLayout.map((property) => (
@@ -245,7 +246,7 @@ function FilterSheet({
 
           <div className="flex flex-col space-y-6">
             <h4 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-4 mt-6">
-              Elements
+              <Trans i18nKey="components:filterElementsLabel" />
             </h4>
 
             {elementsProps.map((property) => (
@@ -279,30 +280,13 @@ function FilterSheet({
 
         <SheetFooter className="mt-10">
           <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
+            <Button type="submit">
+              <Trans i18nKey="components:mobileFilterApplyButtonLabel" />
+            </Button>
           </SheetClose>
         </SheetFooter>
       </SheetContent>
     </Sheet>
-  );
-}
-
-function SearchIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={2}
-      stroke="currentColor"
-      {...props}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-      />
-    </svg>
   );
 }
 

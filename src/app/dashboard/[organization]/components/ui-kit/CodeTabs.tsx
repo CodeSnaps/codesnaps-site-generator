@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import Trans from '~/core/ui/Trans';
 
 import { useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -161,7 +162,9 @@ function CodeTabs({
             <span className="rounded-full bg-transparent px-3.5 py-3 text-sm font-semibold text-white hover:bg-neutral-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400">
               <>
                 <ClipboardIcon className="w-5 h-5" />
-                <span className="sr-only">Copy code to clipboard</span>
+                <span className="sr-only">
+                  <Trans i18nKey="components:screenReaderCopyCodeInstruction" />
+                </span>
               </>
             </span>
           </CopyToClipboard>

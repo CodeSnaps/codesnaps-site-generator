@@ -35,10 +35,7 @@ export function SidebarContent({
 }>) {
   return (
     <div
-      className={cn(
-        'flex w-full flex-col space-y-1 px-container space-y-1.5',
-        className,
-      )}
+      className={cn('flex w-full flex-col px-container space-y-2', className)}
     >
       {children}
     </div>
@@ -174,7 +171,7 @@ export default Sidebar;
 function getClassNameBuilder() {
   return cva(
     [
-      'fixed flex box-content hidden h-screen flex-col border-r border-neutral-100 dark:border-dark-800 lg:flex ' +
+      'fixed box-content flex h-screen flex-col border-r border-neutral-200 bg-background lg:flex dark:border-dark-800 ' +
         'transition-[width] duration-100 motion-reduce:transition-none',
     ],
     {

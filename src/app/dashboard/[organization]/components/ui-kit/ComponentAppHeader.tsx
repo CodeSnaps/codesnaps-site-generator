@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 
 import MobileAppNavigation from '~/components/MobileAppNavigation';
+import Trans from '~/core/ui/Trans';
 import { PageHeader } from '~/core/ui/Page';
 
 const ComponentAppHeader: React.FCC<{
@@ -26,7 +27,7 @@ const ComponentAppHeader: React.FCC<{
           className="h-4 w-4 text-neutral-500 dark:text-neutral-300"
           aria-hidden="true"
         />
-        Back
+        <Trans i18nKey="components:backButtonLabel" />
       </button>
     </PageHeader>
   );

@@ -1,7 +1,8 @@
-import AppHeader from '~/app/dashboard/[organization]/components/AppHeader';
+import { PageHeader } from '~/core/ui/Page';
 import { withI18n } from '~/i18n/with-i18n';
 
 import CategoryDashboard from '~/app/dashboard/[organization]/components/ui-kit/CategoryDashboard';
+import Trans from '~/core/ui/Trans';
 
 import { Metadata } from 'next';
 
@@ -40,9 +41,9 @@ interface DasbboardPageParams {
 function CategoryPage({ searchParams, params }: DasbboardPageParams) {
   return (
     <>
-      <AppHeader
-        title="Components Dashboard"
-        description="Browse, search & filter components here"
+      <PageHeader
+        title={<Trans i18nKey="components:componentsPageTitle" />}
+        description={<Trans i18nKey="componentsPageDescription" />}
       />
 
       <div className="3xl:max-w-[85%] w-full mx-auto">

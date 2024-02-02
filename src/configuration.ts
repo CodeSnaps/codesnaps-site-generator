@@ -58,6 +58,13 @@ const configuration = {
     appPrefix: '/dashboard',
     appHome: '/dashboard',
     authCallback: '/auth/callback',
+    sites: {
+      dashboard: 'sites',
+    },
+    components: {
+      all: 'browse-components',
+      saved: 'ui-kit/saved',
+    },
     settings: {
       profile: 'settings/profile',
       organization: 'settings/organization',
@@ -157,6 +164,30 @@ const configuration = {
       },
     ],
   },
+  colorPalette: [
+    'slate',
+    'gray',
+    'zinc',
+    'neutral',
+    'stone',
+    'red',
+    'orange',
+    'amber',
+    'yellow',
+    'lime',
+    'green',
+    'emerald',
+    'teal',
+    'cyan',
+    'sky',
+    'blue',
+    'indigo',
+    'violet',
+    'purple',
+    'fuchsia',
+    'pink',
+    'rose',
+  ],
 };
 
 export default configuration;
