@@ -63,7 +63,10 @@ export async function addLifetimeSubscription(
 
     // Insert the new lifetime subscription
     const insertedSubscription = await getLifetimeSubscriptionsTable(client)
-      .insert(data)
+      .insert({
+        ...data,
+        status: 'incomplete', // Update the status property to one of the expected values
+      })
       .throwOnError()
       .single();
 
@@ -158,4 +161,39 @@ function getSubscriptionsTable(client: Client) {
 
 function getLifetimeSubscriptionsTable(client: Client) {
   return client.from(LIFETIME_SUBSCRIPTIONS_TABLE);
+}
+
+export async function updateTokensCountQuota(
+  client: SupabaseClient<Database>,
+  subscription: Stripe.Subscription,
+) {
+  const { price_id } = subscriptionMapper(subscription);
+
+  // Get the max tokens for the price based on the price ID
+  const plan = await client
+    .from('plans')
+    .select('tokens')
+    .eq('price_id', price_id)
+    .single();
+
+  if (plan.error) {
+    throw plan.error;
+  }
+
+  const { tokens } = plan.data;
+
+  // Get the organization ID from the subscription metadata we added this when we created the subscription
+  const organizationId = Number(subscription.metadata.organizationId);
+
+  // Upsert the message count for the organization and set the period start and end dates (from the subscription)
+  const response = await client
+    .from('organization_usage')
+    .update({
+      tokens_quota: tokens,
+    })
+    .eq('organization_id', organizationId);
+
+  if (response.error) {
+    throw response.error;
+  }
 }

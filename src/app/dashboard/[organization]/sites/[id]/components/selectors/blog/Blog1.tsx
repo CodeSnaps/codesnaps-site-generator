@@ -16,6 +16,7 @@ import {
   AccordionTrigger,
 } from '~/core/ui/Accordion';
 import { Button } from '~/core/ui/Button';
+import SidebarItem from '~/app/dashboard/[organization]/sites/[id]/components/editor/SidebarItem';
 import PaddingMarginWrapper from '~/app/dashboard/[organization]/sites/[id]/components/selectors/PaddingMarginWrapper';
 import ToolbarSettingsForm from '~/app/dashboard/[organization]/sites/[id]/components/editor/toolbar/ToolbarSettingsForm';
 
@@ -83,7 +84,7 @@ export const Blog1 = ({
   cta = '',
   paddingArray = ['px-4', 'sm:px-6', 'lg:px-8'],
   marginArray = ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
-  maxWidth = '',
+  maxWidth = 'max-w-7xl',
   color = 'neutral',
   textColor = 'neutral',
   isBeingDragged = false,
@@ -170,7 +171,7 @@ export const Blog1 = ({
 
       <div className="mx-auto mt-10 max-w-md sm:mt-14 md:max-w-2xl lg:mt-20 lg:max-w-none">
         <dl className="grid grid-cols-1 gap-x-8 gap-y-16 xl:grid-cols-2 2xl:grid-cols-3">
-          {posts.map((post) => (
+          {posts.map((post, index) => (
             <div key={post.id} className="flex flex-col">
               <div className="xl:mx-auto">
                 <Image
@@ -188,7 +189,7 @@ export const Blog1 = ({
                   html={post.category}
                   onChange={(e) =>
                     setProp((props: any) => {
-                      props.posts[post.id - 1].category = e.target.value;
+                      props.posts[index].category = e.target.value;
                     })
                   }
                   tagName="span"
@@ -204,7 +205,7 @@ export const Blog1 = ({
                   html={post.title}
                   onChange={(e) =>
                     setProp((props: any) => {
-                      props.posts[post.id - 1].title = e.target.value;
+                      props.posts[index].title = e.target.value;
                     })
                   }
                   tagName="h3"
@@ -222,7 +223,7 @@ export const Blog1 = ({
                   html={post.description}
                   onChange={(e) =>
                     setProp((props: any) => {
-                      props.posts[post.id - 1].description = e.target.value;
+                      props.posts[index].description = e.target.value;
                     })
                   }
                   tagName="p"
@@ -249,8 +250,7 @@ export const Blog1 = ({
                       html={post.metadata.author}
                       onChange={(e) =>
                         setProp((props: any) => {
-                          props.posts[post.id - 1].metadata.author =
-                            e.target.value;
+                          props.posts[index].metadata.author = e.target.value;
                         })
                       }
                       tagName="h4"
@@ -267,8 +267,7 @@ export const Blog1 = ({
                         html={post.metadata.date}
                         onChange={(e) =>
                           setProp((props: any) => {
-                            props.posts[post.id - 1].metadata.date =
-                              e.target.value;
+                            props.posts[index].metadata.date = e.target.value;
                           })
                         }
                         tagName="time"
@@ -283,7 +282,7 @@ export const Blog1 = ({
                         html={post.metadata.readingTime}
                         onChange={(e) =>
                           setProp((props: any) => {
-                            props.posts[post.id - 1].metadata.readingTime =
+                            props.posts[index].metadata.readingTime =
                               e.target.value;
                           })
                         }
@@ -313,6 +312,7 @@ export const Blog1 = ({
           disabled={query.getOptions().enabled ? false : true}
           className={clsx(
             'rounded-md px-10 py-3 text-sm font-semibold shadow-sm ring-2 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ',
+            'outline-none focus:outline-offset-4',
             colors[colorKey].cta,
           )}
         />
@@ -321,24 +321,15 @@ export const Blog1 = ({
   );
 };
 
-function SidebarDraggableItem() {
-  const { connectors } = useEditor();
-
+function SidebarDraggableItem({ hasActiveSub }: { hasActiveSub: boolean }) {
   return (
-    <div
-      ref={(ref) =>
-        connectors.create(ref as HTMLElement, <Blog1 isBeingDragged={true} />)
-      }
-      className="w-full shadow border rounded-md cursor-move"
-    >
-      <Image
-        src="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/blog_1-1699470138430.webp"
-        alt="Blog 1"
-        width={232}
-        height={145}
-        className="rounded-md"
-      />
-    </div>
+    <SidebarItem
+      hasActiveSub={hasActiveSub}
+      isFreeComponent={true}
+      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/blog_1-1699470138430.webp"
+      name="Blog 1"
+      Component={Blog1}
+    />
   );
 }
 
@@ -408,7 +399,7 @@ function ToolbarSettings() {
               className="bg-neutral-950 hover:bg-neutral-800 w-full"
               onClick={() => {
                 const content = generateComponentString({
-                  isNextjs: true,
+                  isNextjs: false,
                   posts,
                   maxWidth,
                   marginArray,
@@ -504,125 +495,125 @@ const colors: ColorObject = {
     cta: 'ring-stone-500 dark:ring-stone-600 text-stone-900 bg-transparent hover:bg-stone-50 focus-visible:outline-stone-500 dark:text-stone-100 dark:hover:bg-stone-800 dark:focus-visible:outline-stone-400',
   },
   red: {
-    tagline: 'text-red-900 dark:text-red-300',
+    tagline: 'text-red-600 dark:text-red-400/80',
     heading: 'text-red-900 dark:text-red-50',
-    description: 'text-red-600 dark:text-red-400',
-    postCategory: 'text-red-600 dark:text-red-400',
-    postTitle: 'text-red-900 dark:text-red-100',
-    postDescription: 'text-red-600 dark:text-red-400',
-    postAuthor: 'text-red-600 dark:text-red-200',
-    postMetadata: 'text-red-600 dark:text-red-400',
-    cta: 'ring-red-500 dark:ring-red-600 text-red-900 bg-transparent hover:bg-red-50 focus-visible:outline-red-500 dark:text-red-100 dark:hover:bg-red-800 dark:focus-visible:outline-red-400',
+    description: 'text-red-950/70 dark:text-red-50/70',
+    postCategory: 'text-red-600 dark:text-red-400/80',
+    postTitle: 'text-red-900 dark:text-red-50',
+    postDescription: 'text-red-950/70 dark:text-red-50/70',
+    postAuthor: 'text-red-900 dark:text-red-400',
+    postMetadata: 'text-red-800/70 dark:text-red-200/60',
+    cta: 'bg-transparent text-red-900 ring-red-500 hover:bg-red-100 focus-visible:outline-red-500 dark:text-red-100 dark:ring-red-800 dark:hover:bg-red-900/30 dark:focus-visible:outline-red-400',
   },
   orange: {
-    tagline: 'text-orange-900 dark:text-orange-300',
+    tagline: 'text-orange-600 dark:text-orange-400/80',
     heading: 'text-orange-900 dark:text-orange-50',
-    description: 'text-orange-600 dark:text-orange-400',
-    postCategory: 'text-orange-600 dark:text-orange-400',
-    postTitle: 'text-orange-900 dark:text-orange-100',
-    postDescription: 'text-orange-600 dark:text-orange-400',
-    postAuthor: 'text-orange-600 dark:text-orange-200',
-    postMetadata: 'text-orange-600 dark:text-orange-400',
-    cta: 'ring-orange-500 dark:ring-orange-600 text-orange-900 bg-transparent hover:bg-orange-50 focus-visible:outline-orange-500 dark:text-orange-100 dark:hover:bg-orange-800 dark:focus-visible:outline-orange-400',
+    description: 'text-orange-950/70 dark:text-orange-50/70',
+    postCategory: 'text-orange-600 dark:text-orange-400/80',
+    postTitle: 'text-orange-900 dark:text-orange-50',
+    postDescription: 'text-orange-950/70 dark:text-orange-50/70',
+    postAuthor: 'text-orange-900 dark:text-orange-400',
+    postMetadata: 'text-orange-800/70 dark:text-orange-200/60',
+    cta: 'bg-transparent text-orange-900 ring-orange-500 hover:bg-orange-100 focus-visible:outline-orange-500 dark:text-orange-100 dark:ring-orange-800 dark:hover:bg-orange-900/30 dark:focus-visible:outline-orange-400',
   },
   amber: {
-    tagline: 'text-amber-900 dark:text-amber-300',
+    tagline: 'text-amber-600 dark:text-amber-400/80',
     heading: 'text-amber-900 dark:text-amber-50',
-    description: 'text-amber-600 dark:text-amber-400',
-    postCategory: 'text-amber-600 dark:text-amber-400',
-    postTitle: 'text-amber-900 dark:text-amber-100',
-    postDescription: 'text-amber-600 dark:text-amber-400',
-    postAuthor: 'text-amber-600 dark:text-amber-200',
-    postMetadata: 'text-amber-600 dark:text-amber-400',
-    cta: 'ring-amber-500 dark:ring-amber-600 text-amber-900 bg-transparent hover:bg-amber-50 focus-visible:outline-amber-500 dark:text-amber-100 dark:hover:bg-amber-800 dark:focus-visible:outline-amber-400',
+    description: 'text-amber-950/70 dark:text-amber-50/70',
+    postCategory: 'text-amber-600 dark:text-amber-400/80',
+    postTitle: 'text-amber-900 dark:text-amber-50',
+    postDescription: 'text-amber-950/70 dark:text-amber-50/70',
+    postAuthor: 'text-amber-900 dark:text-amber-400',
+    postMetadata: 'text-amber-800/70 dark:text-amber-200/60',
+    cta: 'bg-transparent text-amber-900 ring-amber-500 hover:bg-amber-100 focus-visible:outline-amber-500 dark:text-amber-100 dark:ring-amber-800 dark:hover:bg-amber-900/30 dark:focus-visible:outline-amber-400',
   },
   yellow: {
-    tagline: 'text-yellow-900 dark:text-yellow-300',
+    tagline: 'text-yellow-600 dark:text-yellow-400/80',
     heading: 'text-yellow-900 dark:text-yellow-50',
-    description: 'text-yellow-600 dark:text-yellow-400',
-    postCategory: 'text-yellow-600 dark:text-yellow-400',
-    postTitle: 'text-yellow-900 dark:text-yellow-100',
-    postDescription: 'text-yellow-600 dark:text-yellow-400',
-    postAuthor: 'text-yellow-600 dark:text-yellow-200',
-    postMetadata: 'text-yellow-600 dark:text-yellow-400',
-    cta: 'ring-yellow-500 dark:ring-yellow-600 text-yellow-900 bg-transparent hover:bg-yellow-50 focus-visible:outline-yellow-500 dark:text-yellow-100 dark:hover:bg-yellow-800 dark:focus-visible:outline-yellow-400',
+    description: 'text-yellow-950/70 dark:text-yellow-50/70',
+    postCategory: 'text-yellow-600 dark:text-yellow-400/80',
+    postTitle: 'text-yellow-900 dark:text-yellow-50',
+    postDescription: 'text-yellow-950/70 dark:text-yellow-50/70',
+    postAuthor: 'text-yellow-900 dark:text-yellow-400',
+    postMetadata: 'text-yellow-800/70 dark:text-yellow-200/60',
+    cta: 'bg-transparent text-yellow-900 ring-yellow-500 hover:bg-yellow-100 focus-visible:outline-yellow-500 dark:text-yellow-100 dark:ring-yellow-800 dark:hover:bg-yellow-900/30 dark:focus-visible:outline-yellow-400',
   },
   lime: {
-    tagline: 'text-lime-900 dark:text-lime-300',
+    tagline: 'text-lime-600 dark:text-lime-400/80',
     heading: 'text-lime-900 dark:text-lime-50',
-    description: 'text-lime-600 dark:text-lime-400',
-    postCategory: 'text-lime-600 dark:text-lime-400',
-    postTitle: 'text-lime-900 dark:text-lime-100',
-    postDescription: 'text-lime-600 dark:text-lime-400',
-    postAuthor: 'text-lime-600 dark:text-lime-200',
-    postMetadata: 'text-lime-600 dark:text-lime-400',
-    cta: 'ring-lime-500 dark:ring-lime-600 text-lime-900 bg-transparent hover:bg-lime-50 focus-visible:outline-lime-500 dark:text-lime-100 dark:hover:bg-lime-800 dark:focus-visible:outline-lime-400',
+    description: 'text-lime-950/70 dark:text-lime-50/70',
+    postCategory: 'text-lime-600 dark:text-lime-400/80',
+    postTitle: 'text-lime-900 dark:text-lime-50',
+    postDescription: 'text-lime-950/70 dark:text-lime-50/70',
+    postAuthor: 'text-lime-900 dark:text-lime-400',
+    postMetadata: 'text-lime-800/70 dark:text-lime-200/60',
+    cta: 'bg-transparent text-lime-900 ring-lime-500 hover:bg-lime-100 focus-visible:outline-lime-500 dark:text-lime-100 dark:ring-lime-800 dark:hover:bg-lime-900/30 dark:focus-visible:outline-lime-400',
   },
   green: {
-    tagline: 'text-green-900 dark:text-green-300',
+    tagline: 'text-green-600 dark:text-green-400/80',
     heading: 'text-green-900 dark:text-green-50',
-    description: 'text-green-600 dark:text-green-400',
-    postCategory: 'text-green-600 dark:text-green-400',
-    postTitle: 'text-green-900 dark:text-green-100',
-    postDescription: 'text-green-600 dark:text-green-400',
-    postAuthor: 'text-green-600 dark:text-green-200',
-    postMetadata: 'text-green-600 dark:text-green-400',
-    cta: 'ring-green-500 dark:ring-green-600 text-green-900 bg-transparent hover:bg-green-50 focus-visible:outline-green-500 dark:text-green-100 dark:hover:bg-green-800 dark:focus-visible:outline-green-400',
+    description: 'text-green-950/70 dark:text-green-50/70',
+    postCategory: 'text-green-600 dark:text-green-400/80',
+    postTitle: 'text-green-900 dark:text-green-50',
+    postDescription: 'text-green-950/70 dark:text-green-50/70',
+    postAuthor: 'text-green-900 dark:text-green-400',
+    postMetadata: 'text-green-800/70 dark:text-green-200/60',
+    cta: 'bg-transparent text-green-900 ring-green-500 hover:bg-green-100 focus-visible:outline-green-500 dark:text-green-100 dark:ring-green-800 dark:hover:bg-green-900/30 dark:focus-visible:outline-green-400',
   },
   emerald: {
-    tagline: 'text-emerald-900 dark:text-emerald-300',
+    tagline: 'text-emerald-600 dark:text-emerald-400/80',
     heading: 'text-emerald-900 dark:text-emerald-50',
-    description: 'text-emerald-600 dark:text-emerald-400',
-    postCategory: 'text-emerald-600 dark:text-emerald-400',
-    postTitle: 'text-emerald-900 dark:text-emerald-100',
-    postDescription: 'text-emerald-600 dark:text-emerald-400',
-    postAuthor: 'text-emerald-600 dark:text-emerald-200',
-    postMetadata: 'text-emerald-600 dark:text-emerald-400',
-    cta: 'ring-emerald-500 dark:ring-emerald-600 text-emerald-900 bg-transparent hover:bg-emerald-50 focus-visible:outline-emerald-500 dark:text-emerald-100 dark:hover:bg-emerald-800 dark:focus-visible:outline-emerald-400',
+    description: 'text-emerald-950/70 dark:text-emerald-50/70',
+    postCategory: 'text-emerald-600 dark:text-emerald-400/80',
+    postTitle: 'text-emerald-900 dark:text-emerald-50',
+    postDescription: 'text-emerald-950/70 dark:text-emerald-50/70',
+    postAuthor: 'text-emerald-900 dark:text-emerald-400',
+    postMetadata: 'text-emerald-800/70 dark:text-emerald-200/60',
+    cta: 'bg-transparent text-emerald-900 ring-emerald-500 hover:bg-emerald-100 focus-visible:outline-emerald-500 dark:text-emerald-100 dark:ring-emerald-800 dark:hover:bg-emerald-900/30 dark:focus-visible:outline-emerald-400',
   },
   teal: {
-    tagline: 'text-teal-900 dark:text-teal-300',
+    tagline: 'text-teal-600 dark:text-teal-400/80',
     heading: 'text-teal-900 dark:text-teal-50',
-    description: 'text-teal-600 dark:text-teal-400',
-    postCategory: 'text-teal-600 dark:text-teal-400',
-    postTitle: 'text-teal-900 dark:text-teal-100',
-    postDescription: 'text-teal-600 dark:text-teal-400',
-    postAuthor: 'text-teal-600 dark:text-teal-200',
-    postMetadata: 'text-teal-600 dark:text-teal-400',
-    cta: 'ring-teal-500 dark:ring-teal-600 text-teal-900 bg-transparent hover:bg-teal-50 focus-visible:outline-teal-500 dark:text-teal-100 dark:hover:bg-teal-800 dark:focus-visible:outline-teal-400',
+    description: 'text-teal-950/70 dark:text-teal-50/70',
+    postCategory: 'text-teal-600 dark:text-teal-400/80',
+    postTitle: 'text-teal-900 dark:text-teal-50',
+    postDescription: 'text-teal-950/70 dark:text-teal-50/70',
+    postAuthor: 'text-teal-900 dark:text-teal-400',
+    postMetadata: 'text-teal-800/70 dark:text-teal-200/60',
+    cta: 'bg-transparent text-teal-900 ring-teal-500 hover:bg-teal-100 focus-visible:outline-teal-500 dark:text-teal-100 dark:ring-teal-800 dark:hover:bg-teal-900/30 dark:focus-visible:outline-teal-400',
   },
   cyan: {
-    tagline: 'text-cyan-900 dark:text-cyan-300',
+    tagline: 'text-cyan-600 dark:text-cyan-400/80',
     heading: 'text-cyan-900 dark:text-cyan-50',
-    description: 'text-cyan-600 dark:text-cyan-400',
-    postCategory: 'text-cyan-600 dark:text-cyan-400',
-    postTitle: 'text-cyan-900 dark:text-cyan-100',
-    postDescription: 'text-cyan-600 dark:text-cyan-400',
-    postAuthor: 'text-cyan-600 dark:text-cyan-200',
-    postMetadata: 'text-cyan-600 dark:text-cyan-400',
-    cta: 'ring-cyan-500 dark:ring-cyan-600 text-cyan-900 bg-transparent hover:bg-cyan-50 focus-visible:outline-cyan-500 dark:text-cyan-100 dark:hover:bg-cyan-800 dark:focus-visible:outline-cyan-400',
+    description: 'text-cyan-950/70 dark:text-cyan-50/70',
+    postCategory: 'text-cyan-600 dark:text-cyan-400/80',
+    postTitle: 'text-cyan-900 dark:text-cyan-50',
+    postDescription: 'text-cyan-950/70 dark:text-cyan-50/70',
+    postAuthor: 'text-cyan-900 dark:text-cyan-400',
+    postMetadata: 'text-cyan-800/70 dark:text-cyan-200/60',
+    cta: 'bg-transparent text-cyan-900 ring-cyan-500 hover:bg-cyan-100 focus-visible:outline-cyan-500 dark:text-cyan-100 dark:ring-cyan-800 dark:hover:bg-cyan-900/30 dark:focus-visible:outline-cyan-400',
   },
   sky: {
-    tagline: 'text-sky-900 dark:text-sky-300',
+    tagline: 'text-sky-600 dark:text-sky-400/80',
     heading: 'text-sky-900 dark:text-sky-50',
-    description: 'text-sky-600 dark:text-sky-400',
-    postCategory: 'text-sky-600 dark:text-sky-400',
-    postTitle: 'text-sky-900 dark:text-sky-100',
-    postDescription: 'text-sky-600 dark:text-sky-400',
-    postAuthor: 'text-sky-600 dark:text-sky-200',
-    postMetadata: 'text-sky-600 dark:text-sky-400',
-    cta: 'ring-sky-500 dark:ring-sky-600 text-sky-900 bg-transparent hover:bg-sky-50 focus-visible:outline-sky-500 dark:text-sky-100 dark:hover:bg-sky-800 dark:focus-visible:outline-sky-400',
+    description: 'text-sky-950/70 dark:text-sky-50/70',
+    postCategory: 'text-sky-600 dark:text-sky-400/80',
+    postTitle: 'text-sky-900 dark:text-sky-50',
+    postDescription: 'text-sky-950/70 dark:text-sky-50/70',
+    postAuthor: 'text-sky-900 dark:text-sky-400',
+    postMetadata: 'text-sky-800/70 dark:text-sky-200/60',
+    cta: 'bg-transparent text-sky-900 ring-sky-500 hover:bg-sky-100 focus-visible:outline-sky-500 dark:text-sky-100 dark:ring-sky-800 dark:hover:bg-sky-900/30 dark:focus-visible:outline-sky-400',
   },
   blue: {
-    tagline: 'text-blue-900 dark:text-blue-300',
+    tagline: 'text-blue-600 dark:text-blue-400/80',
     heading: 'text-blue-900 dark:text-blue-50',
-    description: 'text-blue-600 dark:text-blue-400',
-    postCategory: 'text-blue-600 dark:text-blue-400',
-    postTitle: 'text-blue-900 dark:text-blue-100',
-    postDescription: 'text-blue-600 dark:text-blue-400',
-    postAuthor: 'text-blue-600 dark:text-blue-200',
-    postMetadata: 'text-blue-600 dark:text-blue-400',
-    cta: 'ring-blue-500 dark:ring-blue-600 text-blue-900 bg-transparent hover:bg-blue-50 focus-visible:outline-blue-500 dark:text-blue-100 dark:hover:bg-blue-800 dark:focus-visible:outline-blue-400',
+    description: 'text-blue-950/70 dark:text-blue-50/70',
+    postCategory: 'text-blue-600 dark:text-blue-400/80',
+    postTitle: 'text-blue-900 dark:text-blue-50',
+    postDescription: 'text-blue-950/70 dark:text-blue-50/70',
+    postAuthor: 'text-blue-900 dark:text-blue-400',
+    postMetadata: 'text-blue-800/70 dark:text-blue-200/60',
+    cta: 'bg-transparent text-blue-900 ring-blue-500 hover:bg-blue-100 focus-visible:outline-blue-500 dark:text-blue-100 dark:ring-blue-800 dark:hover:bg-blue-900/30 dark:focus-visible:outline-blue-400',
   },
   indigo: {
     tagline: 'text-indigo-900 dark:text-indigo-300',
@@ -636,59 +627,59 @@ const colors: ColorObject = {
     cta: 'ring-indigo-500 dark:ring-indigo-600 text-indigo-900 bg-transparent hover:bg-indigo-50 focus-visible:outline-indigo-500 dark:text-indigo-100 dark:hover:bg-indigo-800 dark:focus-visible:outline-indigo-400',
   },
   violet: {
-    tagline: 'text-violet-900 dark:text-violet-300',
+    tagline: 'text-violet-600 dark:text-violet-400/80',
     heading: 'text-violet-900 dark:text-violet-50',
-    description: 'text-violet-600 dark:text-violet-400',
-    postCategory: 'text-violet-600 dark:text-violet-400',
-    postTitle: 'text-violet-900 dark:text-violet-100',
-    postDescription: 'text-violet-600 dark:text-violet-400',
-    postAuthor: 'text-violet-600 dark:text-violet-200',
-    postMetadata: 'text-violet-600 dark:text-violet-400',
-    cta: 'ring-violet-500 dark:ring-violet-600 text-violet-900 bg-transparent hover:bg-violet-50 focus-visible:outline-violet-500 dark:text-violet-100 dark:hover:bg-violet-800 dark:focus-visible:outline-violet-400',
+    description: 'text-violet-950/70 dark:text-violet-50/70',
+    postCategory: 'text-violet-600 dark:text-violet-400/80',
+    postTitle: 'text-violet-900 dark:text-violet-50',
+    postDescription: 'text-violet-950/70 dark:text-violet-50/70',
+    postAuthor: 'text-violet-900 dark:text-violet-400',
+    postMetadata: 'text-violet-800/70 dark:text-violet-200/60',
+    cta: 'bg-transparent text-violet-900 ring-violet-500 hover:bg-violet-100 focus-visible:outline-violet-500 dark:text-violet-100 dark:ring-violet-800 dark:hover:bg-violet-900/30 dark:focus-visible:outline-violet-400',
   },
   purple: {
-    tagline: 'text-purple-900 dark:text-purple-300',
+    tagline: 'text-purple-600 dark:text-purple-400/80',
     heading: 'text-purple-900 dark:text-purple-50',
-    description: 'text-purple-600 dark:text-purple-400',
-    postCategory: 'text-purple-600 dark:text-purple-400',
-    postTitle: 'text-purple-900 dark:text-purple-100',
-    postDescription: 'text-purple-600 dark:text-purple-400',
-    postAuthor: 'text-purple-600 dark:text-purple-200',
-    postMetadata: 'text-purple-600 dark:text-purple-400',
-    cta: 'ring-purple-500 dark:ring-purple-600 text-purple-900 bg-transparent hover:bg-purple-50 focus-visible:outline-purple-500 dark:text-purple-100 dark:hover:bg-purple-800 dark:focus-visible:outline-purple-400',
+    description: 'text-purple-950/70 dark:text-purple-50/70',
+    postCategory: 'text-purple-600 dark:text-purple-400/80',
+    postTitle: 'text-purple-900 dark:text-purple-50',
+    postDescription: 'text-purple-950/70 dark:text-purple-50/70',
+    postAuthor: 'text-purple-900 dark:text-purple-400',
+    postMetadata: 'text-purple-800/70 dark:text-purple-200/60',
+    cta: 'bg-transparent text-purple-900 ring-purple-500 hover:bg-purple-100 focus-visible:outline-purple-500 dark:text-purple-100 dark:ring-purple-800 dark:hover:bg-purple-900/30 dark:focus-visible:outline-purple-400',
   },
   fuchsia: {
-    tagline: 'text-fuchsia-900 dark:text-fuchsia-300',
+    tagline: 'text-fuchsia-600 dark:text-fuchsia-400/80',
     heading: 'text-fuchsia-900 dark:text-fuchsia-50',
-    description: 'text-fuchsia-600 dark:text-fuchsia-400',
-    postCategory: 'text-fuchsia-600 dark:text-fuchsia-400',
-    postTitle: 'text-fuchsia-900 dark:text-fuchsia-100',
-    postDescription: 'text-fuchsia-600 dark:text-fuchsia-400',
-    postAuthor: 'text-fuchsia-600 dark:text-fuchsia-200',
-    postMetadata: 'text-fuchsia-600 dark:text-fuchsia-400',
-    cta: 'ring-fuchsia-500 dark:ring-fuchsia-600 text-fuchsia-900 bg-transparent hover:bg-fuchsia-50 focus-visible:outline-fuchsia-500 dark:text-fuchsia-100 dark:hover:bg-fuchsia-800 dark:focus-visible:outline-fuchsia-400',
+    description: 'text-fuchsia-950/70 dark:text-fuchsia-50/70',
+    postCategory: 'text-fuchsia-600 dark:text-fuchsia-400/80',
+    postTitle: 'text-fuchsia-900 dark:text-fuchsia-50',
+    postDescription: 'text-fuchsia-950/70 dark:text-fuchsia-50/70',
+    postAuthor: 'text-fuchsia-900 dark:text-fuchsia-400',
+    postMetadata: 'text-fuchsia-800/70 dark:text-fuchsia-200/60',
+    cta: 'bg-transparent text-fuchsia-900 ring-fuchsia-500 hover:bg-fuchsia-100 focus-visible:outline-fuchsia-500 dark:text-fuchsia-100 dark:ring-fuchsia-800 dark:hover:bg-fuchsia-900/30 dark:focus-visible:outline-fuchsia-400',
   },
   pink: {
-    tagline: 'text-pink-900 dark:text-pink-300',
+    tagline: 'text-pink-600 dark:text-pink-400/80',
     heading: 'text-pink-900 dark:text-pink-50',
-    description: 'text-pink-600 dark:text-pink-400',
-    postCategory: 'text-pink-600 dark:text-pink-400',
-    postTitle: 'text-pink-900 dark:text-pink-100',
-    postDescription: 'text-pink-600 dark:text-pink-400',
-    postAuthor: 'text-pink-600 dark:text-pink-200',
-    postMetadata: 'text-pink-600 dark:text-pink-400',
-    cta: 'ring-pink-500 dark:ring-pink-600 text-pink-900 bg-transparent hover:bg-pink-50 focus-visible:outline-pink-500 dark:text-pink-100 dark:hover:bg-pink-800 dark:focus-visible:outline-pink-400',
+    description: 'text-pink-950/70 dark:text-pink-50/70',
+    postCategory: 'text-pink-600 dark:text-pink-400/80',
+    postTitle: 'text-pink-900 dark:text-pink-50',
+    postDescription: 'text-pink-950/70 dark:text-pink-50/70',
+    postAuthor: 'text-pink-900 dark:text-pink-400',
+    postMetadata: 'text-pink-800/70 dark:text-pink-200/60',
+    cta: 'bg-transparent text-pink-900 ring-pink-500 hover:bg-pink-100 focus-visible:outline-pink-500 dark:text-pink-100 dark:ring-pink-800 dark:hover:bg-pink-900/30 dark:focus-visible:outline-pink-400',
   },
   rose: {
-    tagline: 'text-rose-900 dark:text-rose-300',
+    tagline: 'text-rose-600 dark:text-rose-400/80',
     heading: 'text-rose-900 dark:text-rose-50',
-    description: 'text-rose-600 dark:text-rose-400',
-    postCategory: 'text-rose-600 dark:text-rose-400',
-    postTitle: 'text-rose-900 dark:text-rose-100',
-    postDescription: 'text-rose-600 dark:text-rose-400',
-    postAuthor: 'text-rose-600 dark:text-rose-200',
-    postMetadata: 'text-rose-600 dark:text-rose-400',
-    cta: 'ring-rose-500 dark:ring-rose-600 text-rose-900 bg-transparent hover:bg-rose-50 focus-visible:outline-rose-500 dark:text-rose-100 dark:hover:bg-rose-800 dark:focus-visible:outline-rose-400',
+    description: 'text-rose-950/70 dark:text-rose-50/70',
+    postCategory: 'text-rose-600 dark:text-rose-400/80',
+    postTitle: 'text-rose-900 dark:text-rose-50',
+    postDescription: 'text-rose-950/70 dark:text-rose-50/70',
+    postAuthor: 'text-rose-900 dark:text-rose-400',
+    postMetadata: 'text-rose-800/70 dark:text-rose-200/60',
+    cta: 'bg-transparent text-rose-900 ring-rose-500 hover:bg-rose-100 focus-visible:outline-rose-500 dark:text-rose-100 dark:ring-rose-800 dark:hover:bg-rose-900/30 dark:focus-visible:outline-rose-400',
   },
 };
 
@@ -782,15 +773,15 @@ export default function Blog() {
     )}">
       <div className="mx-auto flex max-w-4xl flex-col space-y-7 text-center">
         <h3 className="text-lg font-medium uppercase tracking-wide ${colors[textColorKey].tagline}">
-          ${tagline}
+          ${removeHtmlTags(tagline)}
         </h3>
 
         <h2 className="text-4xl font-semibold leading-tight tracking-wide xl:text-5xl ${colors[textColorKey].heading}">
-          ${heading}
+          ${removeHtmlTags(heading)}
         </h2>
 
         <p className="text-lg ${colors[textColorKey].description}">
-          ${description}
+          ${removeHtmlTags(description)}
         </p>
       </div>
 
@@ -856,7 +847,7 @@ export default function Blog() {
           href="#"
           className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${colors[colorKey].cta}"
         >
-          ${cta}
+          ${removeHtmlTags(cta)}
         </Link>
       </div>
     </div>
@@ -877,15 +868,15 @@ export default function Blog() {
     )}">
       <div className="mx-auto flex max-w-4xl flex-col space-y-7 text-center">
         <h3 className="text-lg font-medium uppercase tracking-wide ${colors[textColorKey].tagline}">
-          ${tagline}
+          ${removeHtmlTags(tagline)}
         </h3>
 
         <h2 className="text-4xl font-semibold leading-tight tracking-wide xl:text-5xl ${colors[textColorKey].heading}">
-          ${heading}
+          ${removeHtmlTags(heading)}
         </h2>
 
         <p className="text-lg ${colors[textColorKey].description}">
-          ${description}
+          ${removeHtmlTags(description)}
         </p>
       </div>
 
@@ -950,7 +941,7 @@ export default function Blog() {
           href="#"
           className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${colors[colorKey].cta}"
         >
-          ${cta}
+          ${removeHtmlTags(cta)}
         </a>
       </div>
     </div>
@@ -1001,9 +992,9 @@ function prepForPageExport(
     textColor,
   });
 
-  importStatements.push(`import Blog from './components/Blog';`);
-  componentContent.push('<Blog />');
-  return zip.file('components/Blog.jsx', content);
+  importStatements.push(`import Blog1 from './components/Blog1';`);
+  componentContent.push('<Blog1 />');
+  return zip.file('components/Blog1.jsx', content);
 }
 
 Blog1.craft = {

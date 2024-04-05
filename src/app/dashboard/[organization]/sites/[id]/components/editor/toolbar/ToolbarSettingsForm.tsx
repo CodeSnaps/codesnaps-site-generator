@@ -23,7 +23,19 @@ import ToolbarColor from '~/app/dashboard/[organization]/sites/[id]/components/e
 import ToolbarTextColor from '~/app/dashboard/[organization]/sites/[id]/components/editor/toolbar/ToolbarTextColor';
 import ToolbarMaxWidth from '~/app/dashboard/[organization]/sites/[id]/components/editor/toolbar/ToolbarMaxWidth';
 
-function ToolbarSettingsForm({ children }: { children: React.ReactNode }) {
+type ToolbarSettingsFormProps = {
+  children: React.ReactNode;
+  hasColor?: boolean;
+  hasTextColor?: boolean;
+  hasMarginAndPadding?: boolean;
+};
+
+function ToolbarSettingsForm({
+  children,
+  hasColor = true,
+  hasTextColor = true,
+  hasMarginAndPadding = true,
+}: ToolbarSettingsFormProps) {
   const { color, textColor, maxWidth, name } = useNode((node) => ({
     color: node.data.props.color,
     textColor: node.data.props.textColor,
@@ -32,7 +44,7 @@ function ToolbarSettingsForm({ children }: { children: React.ReactNode }) {
   }));
 
   return (
-    <div className="my-10 flex flex-col gap-4">
+    <div className="mb-14 mt-36 flex flex-col gap-4">
       <Heading type={2}>{name}</Heading>
 
       <Accordion
@@ -46,49 +58,54 @@ function ToolbarSettingsForm({ children }: { children: React.ReactNode }) {
               <Trans i18nKey="sites:toolbarSettingsColorLabel" />
             </h3>
           </AccordionTrigger>
+
           <AccordionContent>
             <div className="flex flex-col space-y-4">
-              <ToolbarColor currentColor={color} />
-              <ToolbarTextColor currentColor={textColor} />
+              {hasColor && <ToolbarColor currentColor={color} />}
+              {hasTextColor && <ToolbarTextColor currentColor={textColor} />}
             </div>
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="marginPadding">
-          <AccordionTrigger>
-            <h3 className="text-sm font-medium leading-6 text-gray-900 dark:text-gray-50">
-              <Trans i18nKey="sites:toolbarSettingsMarginPaddingLabel" />
-            </h3>
-          </AccordionTrigger>
-          <AccordionContent>
-            <div className="flex flex-col space-y-10">
-              <div>
-                <ToolbarMarginCombobox />
-                <div className="mt-4">
-                  <MarginClassBadges />
-                </div>
-              </div>
+        {hasMarginAndPadding && (
+          <>
+            {' '}
+            <AccordionItem value="marginPadding">
+              <AccordionTrigger>
+                <h3 className="text-sm font-medium leading-6 text-gray-900 dark:text-gray-50">
+                  <Trans i18nKey="sites:toolbarSettingsMarginPaddingLabel" />
+                </h3>
+              </AccordionTrigger>
+              <AccordionContent>
+                <div className="flex flex-col space-y-10">
+                  <div>
+                    <ToolbarMarginCombobox />
+                    <div className="mt-4">
+                      <MarginClassBadges />
+                    </div>
+                  </div>
 
-              <div>
-                <ToolbarPaddingCombobox />
-                <div className="mt-4">
-                  <PaddingClassBadges />
+                  <div>
+                    <ToolbarPaddingCombobox />
+                    <div className="mt-4">
+                      <PaddingClassBadges />
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </AccordionContent>
-        </AccordionItem>
-
-        <AccordionItem value="maxWidth">
-          <AccordionTrigger>
-            <h3 className="text-sm font-medium leading-6 text-gray-900 dark:text-gray-50">
-              <Trans i18nKey="sites:toolbarMaxWidthLabel" />
-            </h3>
-          </AccordionTrigger>
-          <AccordionContent>
-            <ToolbarMaxWidth maxWidth={maxWidth} />
-          </AccordionContent>
-        </AccordionItem>
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="maxWidth">
+              <AccordionTrigger>
+                <h3 className="text-sm font-medium leading-6 text-gray-900 dark:text-gray-50">
+                  <Trans i18nKey="sites:toolbarMaxWidthLabel" />
+                </h3>
+              </AccordionTrigger>
+              <AccordionContent>
+                <ToolbarMaxWidth maxWidth={maxWidth} />
+              </AccordionContent>
+            </AccordionItem>
+          </>
+        )}
 
         <div>{children}</div>
       </Accordion>

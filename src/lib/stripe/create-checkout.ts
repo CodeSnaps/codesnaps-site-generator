@@ -5,6 +5,7 @@ import getStripeInstance from '~/core/stripe/get-stripe';
 interface CreateCheckoutParams {
   returnUrl: string;
   organizationUid: string;
+  organizationId: number;
   priceId: string;
   customerId?: string;
   trialPeriodDays?: Maybe<number>;
@@ -73,6 +74,7 @@ export default async function createStripeCheckout(
       trial_period_days: params.trialPeriodDays,
       metadata: {
         organizationUid: params.organizationUid,
+        organizationId: params.organizationId.toString(),
       },
     };
 

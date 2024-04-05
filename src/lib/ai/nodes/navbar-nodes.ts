@@ -1,13 +1,32 @@
-export const navbarNodes = [
+export const freeNavbarNodes = [
   {
     type: { resolvedName: 'Navbar1' },
     isCanvas: false,
     props: {
-      tagline: '',
-      title: '',
-      subtitle: '',
-      primaryBtn: '',
-      secondaryBtn: '',
+      primaryCta: '',
+      secondaryCta: '',
+      navigation: [
+        { name: '', href: '#', dropdown: false },
+        { name: '', href: '#', dropdown: false },
+        {
+          name: '',
+          dropdown: true,
+          dropdownItems: [
+            {
+              name: '',
+              href: '#',
+            },
+            {
+              name: '',
+              href: '#',
+            },
+            {
+              name: '',
+              href: '#',
+            },
+          ],
+        },
+      ],
     },
     displayName: 'Navbar1',
     custom: {},
@@ -20,11 +39,12 @@ export const navbarNodes = [
     type: { resolvedName: 'Navbar2' },
     isCanvas: false,
     props: {
-      tagline: '',
-      title: '',
-      subtitle: '',
-      primaryBtn: '',
-      secondaryBtn: '',
+      primaryCta: '',
+      navigation: [
+        { name: '', href: '#' },
+        { name: '', href: '#' },
+        { name: '', href: '#' },
+      ],
     },
     displayName: 'Navbar2',
     custom: {},
@@ -37,10 +57,12 @@ export const navbarNodes = [
     type: { resolvedName: 'Navbar3' },
     isCanvas: false,
     props: {
-      tagline: '',
-      title: '',
-      subtitle: '',
-      btn: '',
+      primaryCta: '',
+      navigation: [
+        { name: '', href: '#' },
+        { name: '', href: '#' },
+        { name: '', href: '#' },
+      ],
     },
     displayName: 'Navbar3',
     custom: {},
@@ -49,37 +71,6 @@ export const navbarNodes = [
     nodes: [],
     linkedNodes: {},
   },
-  {
-    type: { resolvedName: 'Navbar4' },
-    isCanvas: false,
-    props: {
-      tagline: '',
-      title: '',
-      subtitle: '',
-      btn: '',
-    },
-    displayName: 'Navbar4',
-    custom: {},
-    parent: 'ROOT',
-    hidden: false,
-    nodes: [],
-    linkedNodes: {},
-  },
-  {
-    type: { resolvedName: 'Navbar5' },
-    isCanvas: false,
-    props: {
-      tagline: '',
-      title: '',
-      subtitle: '',
-      primaryBtn: '',
-      secondaryBtn: '',
-    },
-    displayName: 'Navbar5',
-    custom: {},
-    parent: 'ROOT',
-    hidden: false,
-    nodes: [],
-    linkedNodes: {},
-  },
 ];
+
+export const navbarNodes = [...freeNavbarNodes];

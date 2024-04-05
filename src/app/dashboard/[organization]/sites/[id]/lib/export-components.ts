@@ -52,19 +52,15 @@ export const exportPage = async (
       return;
     }
 
-    switch (nodeName) {
-      case 'Blog1':
-        components['Blog1'].craft.utils.prepForPageExport(
-          isNextjs,
-          node,
-          importStatements,
-          componentContent,
-          zip,
-        );
-      default:
-        console.log('Default Case');
-        break;
-    }
+    handleNodeByType(
+      nodeName,
+      isNextjs,
+      node,
+      components,
+      importStatements,
+      componentContent,
+      zip,
+    );
   });
 
   zip.file(
@@ -84,7 +80,6 @@ export const exportPage = async (
 /*
  * DESERIALIZE NODES
  */
-
 const deserializeNodes = (
   nodes: SerializedNodes,
   id: NodeId = 'ROOT',
@@ -116,12 +111,55 @@ const generateIndexFile = (
     
     export default function Page() {
         return (
-        <div>
+        <main>
             ${componentContent.join('\n')}
-        </div>
+        </main>
         );
     }
     `;
 
   return content;
+};
+
+/*
+ * HANDLE NODE BY TYPE
+ */
+export const handleNodeByType = (
+  nodeName: string,
+  isNextjs: boolean,
+  node: any,
+  components: any,
+  importStatements: string[],
+  componentContent: string[],
+  zip: JSZip,
+) => {
+  switch (nodeName) {
+    case 'Blog1':
+    case 'Contact1':
+    case 'CTA1':
+    case 'FAQ1':
+    case 'Feature1':
+    case 'Footer1':
+    case 'Gallery1':
+    case 'Header1':
+    case 'Hero1':
+    case 'Logo1':
+    case 'Navbar1':
+    case 'Pricing1':
+    case 'Team1':
+    case 'Testimonial1':
+      if (components[nodeName]?.craft?.utils?.prepForPageExport) {
+        components[nodeName].craft.utils.prepForPageExport(
+          isNextjs,
+          node,
+          importStatements,
+          componentContent,
+          zip,
+        );
+      }
+      break;
+    default:
+      console.log('Default Case');
+      break;
+  }
 };

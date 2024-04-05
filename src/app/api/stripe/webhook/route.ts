@@ -18,6 +18,7 @@ import {
   addLifetimeSubscription,
   deleteSubscription,
   updateSubscriptionById,
+  updateTokensCountQuota,
 } from '~/lib/subscriptions/mutations';
 
 import getSupabaseRouteHandlerClient from '~/core/supabase/route-handler-client';
@@ -80,9 +81,12 @@ export async function POST(request: Request) {
           const currency = session.currency as string;
           const status = session.status ?? 'incomplete';
 
+          const organizationUid =
+            getOrganizationUidFromClientReference(session);
+
           const payload = {
             id: paymentIntent,
-            organizationUid: getOrganizationUidFromClientReference(session),
+            organizationUid: organizationUid,
             amount,
             currency,
             status,
@@ -112,6 +116,17 @@ export async function POST(request: Request) {
         const subscription = event.data.object as Stripe.Subscription;
 
         await updateSubscriptionById(client, subscription);
+
+        break;
+      }
+
+      case StripeWebhooks.InvoicePaid: {
+        const subscriptionId = event.data.object.subscription as string;
+
+        const subscription =
+          await stripe.subscriptions.retrieve(subscriptionId);
+
+        await updateTokensCountQuota(client, subscription);
 
         break;
       }

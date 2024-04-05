@@ -110,10 +110,15 @@ export const createCheckoutAction = withSession(
 
     const embedded = configuration.stripe.embedded;
 
+    if (!data?.id) {
+      return redirectToErrorPage(`Organization not found`);
+    }
+
     // create the Stripe Checkout session
     const session = await createStripeCheckout({
       returnUrl,
       organizationUid,
+      organizationId: data.id,
       priceId,
       customerId,
       trialPeriodDays,

@@ -14,3 +14,5 @@ export const SUBSCRIPTIONS_TABLE = `subscriptions`;
 export const ORGANIZATIONS_SUBSCRIPTIONS_TABLE = `organizations_subscriptions`;
 export const COMPONENTS_TABLE = `components`;
 export const SAVED_COMPONENTS_TABLE = `saved_components`;
+export const SITES_TABLE = `sites`;
+export const ORGANIZATIONS_USAGE_TABLE = `organization_usage`;

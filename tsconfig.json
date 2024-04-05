@@ -32,6 +32,7 @@
     ".next/types/**/*.ts",
     ".contentlayer/generated",
     "src/app/ui-kit/**/*.jsx",
+    "src/app/dashboard/[organization]/sites/[id]/components/selectors/navbar/Navbar.1tsx",
   ],
   "exclude": ["node_modules", ".next"],
 }

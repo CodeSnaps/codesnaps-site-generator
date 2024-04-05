@@ -149,7 +149,7 @@ function ItemActions(props: {
     'Gallery',
     'Heading',
     'Hero',
-    'Logos',
+    'Logo',
     'Navbar',
     'Pricing',
     'Team',

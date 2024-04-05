@@ -1,14 +1,13 @@
 import { withI18n } from '~/i18n/with-i18n';
 import { PageBody, PageHeader } from '~/core/ui/Page';
-
 import Trans from '~/core/ui/Trans';
-import NewSiteWizard from '~/app/dashboard/[organization]/sites/new/components/NewSiteWizard';
+import NewSiteWizardWrapper from '~/app/dashboard/[organization]/sites/new/components/NewSiteWizardWrapper';
 
 export const metadata = {
   title: 'AI Site Generator | CodeSnaps',
 };
 
-function NewSitePage() {
+async function NewSitePage() {
   return (
     <>
       <PageHeader
@@ -17,7 +16,7 @@ function NewSitePage() {
       />
 
       <PageBody>
-        <NewSiteWizard />
+        <NewSiteWizardWrapper />
       </PageBody>
     </>
   );

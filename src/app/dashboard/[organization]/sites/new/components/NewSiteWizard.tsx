@@ -49,7 +49,7 @@ export function useFormContext() {
   return useContext(FormContext);
 }
 
-function NewSiteWizard() {
+function NewSiteWizard({ activeSub }: { activeSub: boolean }) {
   const [step, setStep] = useState(NewSiteCreationStep.Description);
 
   return (
@@ -57,13 +57,13 @@ function NewSiteWizard() {
       <div className="flex flex-col space-y-16">
         <NewSiteWizardSteps />
 
-        <NewSiteWizardFormContainer />
+        <NewSiteWizardFormContainer activeSub={activeSub} />
       </div>
     </FormContext.Provider>
   );
 }
 
-function NewSiteWizardFormContainer() {
+function NewSiteWizardFormContainer({ activeSub }: { activeSub: boolean }) {
   const { step, setStep } = useFormContext();
 
   const descriptionForm = useForm<{
@@ -95,6 +95,7 @@ function NewSiteWizardFormContainer() {
           description: descriptionForm.getValues('description'),
           structure: structureForm.getValues('structure'),
           color: colorForm.getValues('color'),
+          activeSubscription: activeSub,
         });
       };
       generateSite();

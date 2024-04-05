@@ -5,20 +5,23 @@ import OpenAI from 'openai';
 import getLogger from '~/core/logger';
 import configuration from '~/configuration';
 
-import { blogNodes } from '~/lib/ai/nodes/blog-nodes';
-import { contactNodes } from '~/lib/ai/nodes/contact-nodes';
-import { ctaNodes } from '~/lib/ai/nodes/cta-nodes';
-import { faqNodes } from '~/lib/ai/nodes/faq-nodes';
-import { featureNodes } from '~/lib/ai/nodes/feature-nodes';
-import { footerNodes } from '~/lib/ai/nodes/footer-nodes';
-import { galleryNodes } from '~/lib/ai/nodes/gallery-nodes';
-import { headingNodes } from '~/lib/ai/nodes/heading-nodes';
-import { heroNodes } from '~/lib/ai/nodes/hero-nodes';
-import { logosNodes } from '~/lib/ai/nodes/logos-nodes';
-import { navbarNodes } from '~/lib/ai/nodes/navbar-nodes';
-import { pricingNodes } from '~/lib/ai/nodes/pricing-nodes';
-import { teamNodes } from '~/lib/ai/nodes/team-nodes';
-import { testimonialNodes } from '~/lib/ai/nodes/testimonial-nodes';
+import { blogNodes, freeBlogNodes } from '~/lib/ai/nodes/blog-nodes';
+import { contactNodes, freeContactNodes } from '~/lib/ai/nodes/contact-nodes';
+import { ctaNodes, freeCtaNodes } from '~/lib/ai/nodes/cta-nodes';
+import { faqNodes, freeFaqNodes } from '~/lib/ai/nodes/faq-nodes';
+import { featureNodes, freeFeatureNodes } from '~/lib/ai/nodes/feature-nodes';
+import { footerNodes, freeFooterNodes } from '~/lib/ai/nodes/footer-nodes';
+import { galleryNodes, freeGalleryNodes } from '~/lib/ai/nodes/gallery-nodes';
+import { headingNodes, freeHeadingNodes } from '~/lib/ai/nodes/heading-nodes';
+import { heroNodes, freeHeroNodes } from '~/lib/ai/nodes/hero-nodes';
+import { logosNodes, freeLogosNodes } from '~/lib/ai/nodes/logos-nodes';
+import { navbarNodes, freeNavbarNodes } from '~/lib/ai/nodes/navbar-nodes';
+import { pricingNodes, freePricingNodes } from '~/lib/ai/nodes/pricing-nodes';
+import { teamNodes, freeTeamNodes } from '~/lib/ai/nodes/team-nodes';
+import {
+  testimonialNodes,
+  freeTestimonialNodes,
+} from '~/lib/ai/nodes/testimonial-nodes';
 
 function getOpenAIClient() {
   const logger = getLogger();
@@ -56,7 +59,6 @@ export class SitesLlmService {
         type: 'json_object' as const,
       },
       temperature: 0.8,
-      max_tokens: 1600,
     };
   }
 
@@ -109,7 +111,7 @@ export class SitesLlmService {
         description: 'Should not come before the Navbar component.',
       },
       {
-        type: 'Logos',
+        type: 'Logo',
         description: 'Displays a list of logos',
       },
       {
@@ -138,7 +140,7 @@ export class SitesLlmService {
       messages: [
         {
           role: 'user',
-          content: `As a website page builder,, you are tasked with creating a site structure for a site described as "${params.description}". Return a JSON object using the schema such as: "{"structure": [{ "component": string, "content": string }]}". The "component" is a string from the list of components: "${stringifyComponents}". Please include only components that are listed in the component list. The "content" is a string of text that describes the copy of the component in one sentence. Create at least 5 components in the structure JSON object.`,
+          content: `As a website page builder, you are tasked with creating a site structure for a site described as "${params.description}". Return a JSON object using the schema such as: "{"structure": [{ "component": string, "content": string }]}". The "component" is a string from the list of components: "${stringifyComponents}". Please include only components that are listed in the component list. Please don't change the URLs. The "content" is a string of text that describes the copy of the component. Create at least 5 components in the structure JSON object.`,
         },
       ],
     });
@@ -254,261 +256,281 @@ export class SitesLlmService {
       component: string;
       content: string;
     }>;
+    activeSubscription: boolean;
   }) {
-    this.logger.info(params, `Generating site schema...`);
+    try {
+      this.logger.info(params, `Generating site schema in LLM...`);
 
-    type Node = {
-      type: {
-        resolvedName: string;
-      };
-      isCanvas: boolean;
-      props: any;
-      displayName: string;
-      custom: {};
-      parent: string;
-      hidden: boolean;
-      nodes: any[];
-      linkedNodes: {};
-    };
-
-    const selectNode = (nodes: Array<Node>) => {
-      const randomIndex = Math.floor(Math.random() * nodes.length);
-      return nodes[randomIndex];
-    };
-
-    const mappedStructure = params.structure.map((item) => {
-      const componentName = item.component;
-
-      let selectedNode: Node;
-
-      switch (componentName) {
-        case 'Blog':
-          selectedNode = selectNode(blogNodes);
-          break;
-        case 'Contact':
-          selectedNode = selectNode(contactNodes);
-          break;
-        case 'CTA':
-          selectedNode = selectNode(ctaNodes);
-          break;
-        case 'FAQ':
-          selectedNode = selectNode(faqNodes);
-          break;
-        case 'Feature':
-          selectedNode = selectNode(featureNodes);
-          break;
-        case 'Footer':
-          selectedNode = selectNode(footerNodes);
-          break;
-        case 'Gallery':
-          selectedNode = selectNode(galleryNodes);
-          break;
-        case 'Heading':
-          selectedNode = selectNode(headingNodes);
-          break;
-        case 'Hero':
-          selectedNode = selectNode(heroNodes);
-          break;
-        case 'Logos':
-          selectedNode = selectNode(logosNodes);
-          break;
-        case 'Navbar':
-          selectedNode = selectNode(navbarNodes);
-          break;
-        case 'Pricing':
-          selectedNode = selectNode(pricingNodes);
-          break;
-        case 'Team':
-          selectedNode = selectNode(teamNodes);
-          break;
-        case 'Testimonial':
-          selectedNode = selectNode(testimonialNodes);
-          break;
-        default:
-          selectedNode = selectNode(featureNodes);
-          break;
-      }
-
-      const llmNode = {
-        type: selectedNode.type.resolvedName,
-        copyDescription: item.content,
-        props: selectedNode.props,
+      type Node = {
+        type: {
+          resolvedName: string;
+        };
+        isCanvas: boolean;
+        props: any;
+        displayName: string;
+        custom: {};
+        parent: string;
+        hidden: boolean;
+        nodes: any[];
+        linkedNodes: {};
       };
 
-      return llmNode;
-    });
+      const selectNode = (nodes: Array<Node>) => {
+        const randomIndex = Math.floor(Math.random() * nodes.length);
+        return nodes[randomIndex];
+      };
 
-    const llmNodes = JSON.stringify(mappedStructure);
+      const mappedStructure = params.structure.map((item) => {
+        const componentName = item.component;
 
-    const response = await this.client.chat.completions.create({
-      ...this.getBaseParams(),
-      messages: [
-        {
-          role: 'user',
-          content: `As a website page builder, you are tasked with creating a site schema for a site described as "${params.description}". Return a JSON object using the schema such as: "{"schema": [{ "type": string, "props": object }]}". The "type" is a string from the list of nodes. Please don't modify "type" and only modify "props" object. "props" is an object containing the props for the component. Fill the "props" object with copy based on the "copyDescription". Make sure every key inside "props" has copy. Leave nothing as an empty string. Nodes: "${llmNodes}"`,
-        },
-      ],
-    });
+        let selectedNode: Node;
 
-    if (this.debug) {
-      this.logger.info(
-        `Response from generateSiteSchema`,
-        JSON.stringify(response, null, 2),
-      );
-    }
+        const hasSub = params.activeSubscription;
 
-    const data = response.choices[0].message.content ?? '';
-    const tokens = this.getTokenCountFromResponse(response);
+        switch (componentName) {
+          case 'Blog':
+            selectedNode = selectNode(hasSub ? blogNodes : freeBlogNodes);
+            break;
+          case 'Contact':
+            selectedNode = selectNode(hasSub ? contactNodes : freeContactNodes);
+            break;
+          case 'CTA':
+            selectedNode = selectNode(hasSub ? ctaNodes : freeCtaNodes);
+            break;
+          case 'FAQ':
+            selectedNode = selectNode(hasSub ? faqNodes : freeFaqNodes);
+            break;
+          case 'Feature':
+            selectedNode = selectNode(hasSub ? featureNodes : freeFeatureNodes);
+            break;
+          case 'Footer':
+            selectedNode = selectNode(hasSub ? footerNodes : freeFooterNodes);
+            break;
+          case 'Gallery':
+            selectedNode = selectNode(hasSub ? galleryNodes : freeGalleryNodes);
+            break;
+          case 'Heading':
+            selectedNode = selectNode(hasSub ? headingNodes : freeHeadingNodes);
+            break;
+          case 'Hero':
+            selectedNode = selectNode(hasSub ? heroNodes : freeHeroNodes);
+            break;
+          case 'Logo':
+            selectedNode = selectNode(hasSub ? logosNodes : freeLogosNodes);
+            break;
+          case 'Navbar':
+            selectedNode = selectNode(hasSub ? navbarNodes : freeNavbarNodes);
+            break;
+          case 'Pricing':
+            selectedNode = selectNode(hasSub ? pricingNodes : freePricingNodes);
+            break;
+          case 'Team':
+            selectedNode = selectNode(hasSub ? teamNodes : freeTeamNodes);
+            break;
+          case 'Testimonial':
+            selectedNode = selectNode(
+              hasSub ? testimonialNodes : freeTestimonialNodes,
+            );
+            break;
+          default:
+            selectedNode = selectNode(hasSub ? featureNodes : freeFeatureNodes);
+            break;
+        }
 
-    const json = z
-      .object({
-        schema: z.array(
-          z.object({
-            type: z.string().min(1),
-            props: z.record(z.unknown()),
-          }),
-        ),
-      })
-      .safeParse(JSON.parse(data));
+        const llmNode = {
+          type: selectedNode.type.resolvedName,
+          copyDescription: item.content,
+          props: selectedNode.props,
+        };
 
-    if (!json.success) {
-      throw new Error(
-        `Failed to parse response: ${JSON.stringify(json.error)}`,
-      );
-    }
-
-    this.logger.info('Site schema generated successfully');
-
-    if (this.debug) {
-      this.logger.info('Site Schema', JSON.stringify(json.data, null, 2));
-    }
-
-    const findNode = (
-      nodeType: string,
-      nodes: Array<Node>,
-    ): Node | undefined => {
-      const foundNode = nodes.find((item) => {
-        return _.lowerCase(item.type.resolvedName) === _.lowerCase(nodeType);
+        return llmNode;
       });
 
-      return foundNode;
-    };
+      const llmNodes = JSON.stringify(mappedStructure);
 
-    const generateRandomString = (length: number) => {
-      const result = [];
-      const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-      const charactersLength = characters.length;
-      for (let i = 0; i < length; i++) {
-        result.push(
-          characters.charAt(Math.floor(Math.random() * charactersLength)),
+      const response = await this.client.chat.completions.create({
+        ...this.getBaseParams(),
+        messages: [
+          {
+            role: 'user',
+            content: `As a website page builder, you are tasked with creating a site schema for a site described as "${params.description}". Return a JSON object using the schema such as: "{"schema": [{ "type": string, "props": object }]}". The "type" is a string from the list of nodes. Please don't modify "type" and only modify "props" object. "props" is an object containing the props for the component. Fill the "props" object with copy based on the "copyDescription". Make sure every key inside "props" has copy. Leave nothing as an empty string. Nodes: "${llmNodes}"`,
+          },
+        ],
+      });
+
+      if (this.debug) {
+        this.logger.info(
+          `Response from generateSiteSchema`,
+          JSON.stringify(response, null, 2),
         );
       }
-      return result.join('');
-    };
 
-    let craftsJsSchema = {
-      ROOT: {
-        type: 'div',
-        isCanvas: true,
-        props: {
-          height: 'auto',
-          className:
-            'mx-auto my-14 max-w-4xl flex-1 rounded-lg bg-white shadow-sm dark:bg-black',
-        },
-        displayName: 'div',
-        custom: {
-          displayName: 'App',
-        },
-        hidden: false,
-        nodes: [],
-        linkedNodes: {},
-      },
-    };
+      const data = response.choices[0].message.content ?? '';
+      const tokens = this.getTokenCountFromResponse(response);
 
-    json.data.schema.map((item) => {
-      const nodeType = item.type;
-      const nodeTypeWithoutNumbers = nodeType.replace(/[0-9]/g, '');
+      const json = z
+        .object({
+          schema: z.array(
+            z.object({
+              type: z.string().min(1),
+              props: z.record(z.unknown()),
+            }),
+          ),
+        })
+        .safeParse(JSON.parse(data));
 
-      let schemaNode: Node | undefined;
-
-      switch (nodeTypeWithoutNumbers) {
-        case 'Blog':
-          schemaNode = findNode(nodeType, blogNodes);
-          break;
-        case 'Contact':
-          schemaNode = findNode(nodeType, contactNodes);
-          break;
-        case 'CTA':
-          schemaNode = findNode(nodeType, ctaNodes);
-          break;
-        case 'FAQ':
-          schemaNode = findNode(nodeType, faqNodes);
-          break;
-        case 'Feature':
-          schemaNode = findNode(nodeType, featureNodes);
-          break;
-        case 'Footer':
-          schemaNode = findNode(nodeType, footerNodes);
-          break;
-        case 'Gallery':
-          schemaNode = findNode(nodeType, galleryNodes);
-          break;
-        case 'Heading':
-          schemaNode = findNode(nodeType, headingNodes);
-          break;
-        case 'Hero':
-          schemaNode = findNode(nodeType, heroNodes);
-          break;
-        case 'Logos':
-          schemaNode = findNode(nodeType, logosNodes);
-          break;
-        case 'Navbar':
-          schemaNode = findNode(nodeType, navbarNodes);
-          break;
-        case 'Pricing':
-          schemaNode = findNode(nodeType, pricingNodes);
-          break;
-        case 'Team':
-          schemaNode = findNode(nodeType, teamNodes);
-          break;
-        case 'Testimonial':
-          schemaNode = findNode(nodeType, testimonialNodes);
-          break;
-        default:
-          schemaNode = findNode(nodeType, featureNodes);
-          break;
+      if (!json.success) {
+        throw new Error(
+          `Failed to parse response: ${JSON.stringify(json.error)}`,
+        );
       }
 
-      const newProps = {
-        ...item.props,
+      this.logger.info('Site schema generated successfully');
+
+      if (this.debug) {
+        this.logger.info('Site Schema', JSON.stringify(json.data, null, 2));
+      }
+
+      const findNode = (
+        nodeType: string,
+        nodes: Array<Node>,
+      ): Node | undefined => {
+        const foundNode = nodes.find((item) => {
+          return _.lowerCase(item.type.resolvedName) === _.lowerCase(nodeType);
+        });
+
+        return foundNode;
+      };
+
+      const generateRandomString = (length: number) => {
+        const result = [];
+        const characters =
+          'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const charactersLength = characters.length;
+        for (let i = 0; i < length; i++) {
+          result.push(
+            characters.charAt(Math.floor(Math.random() * charactersLength)),
+          );
+        }
+        return result.join('');
+      };
+
+      let craftsJsSchema = {
+        ROOT: {
+          type: 'div',
+          isCanvas: true,
+          props: {
+            height: 'auto',
+            id: 'root',
+            className: 'w-full h-full',
+          },
+          displayName: 'div',
+          custom: {
+            displayName: 'App',
+          },
+          hidden: false,
+          nodes: [],
+          linkedNodes: {},
+        },
+      };
+
+      json.data.schema.map((item) => {
+        const nodeType = item.type;
+        const nodeTypeWithoutNumbers = nodeType.replace(/[0-9]/g, '');
+
+        let schemaNode: Node | undefined;
+
+        switch (nodeTypeWithoutNumbers) {
+          case 'Blog':
+            schemaNode = findNode(nodeType, blogNodes);
+            break;
+          case 'Contact':
+            schemaNode = findNode(nodeType, contactNodes);
+            break;
+          case 'CTA':
+            schemaNode = findNode(nodeType, ctaNodes);
+            break;
+          case 'FAQ':
+            schemaNode = findNode(nodeType, faqNodes);
+            break;
+          case 'Feature':
+            schemaNode = findNode(nodeType, featureNodes);
+            break;
+          case 'Footer':
+            schemaNode = findNode(nodeType, footerNodes);
+            break;
+          case 'Gallery':
+            schemaNode = findNode(nodeType, galleryNodes);
+            break;
+          case 'Heading':
+            schemaNode = findNode(nodeType, headingNodes);
+            break;
+          case 'Hero':
+            schemaNode = findNode(nodeType, heroNodes);
+            break;
+          case 'Logo':
+            schemaNode = findNode(nodeType, logosNodes);
+            break;
+          case 'Navbar':
+            schemaNode = findNode(nodeType, navbarNodes);
+            break;
+          case 'Pricing':
+            schemaNode = findNode(nodeType, pricingNodes);
+            break;
+          case 'Team':
+            schemaNode = findNode(nodeType, teamNodes);
+            break;
+          case 'Testimonial':
+            schemaNode = findNode(nodeType, testimonialNodes);
+            break;
+          default:
+            schemaNode = findNode(nodeType, featureNodes);
+            break;
+        }
+
+        const newProps = {
+          ...item.props,
+          color: params.color,
+        };
+
+        schemaNode = {
+          ...(schemaNode as Node),
+          props: newProps,
+        };
+
+        const newNodeId = generateRandomString(10);
+
+        craftsJsSchema = {
+          ...craftsJsSchema,
+          [newNodeId]: schemaNode,
+        };
+
+        return (craftsJsSchema.ROOT.nodes as string[]).push(newNodeId);
+      });
+
+      const craftsJsSchemaString = JSON.stringify(craftsJsSchema);
+
+      this.logger.info('Crafts.js schema generated successfully');
+
+      return {
+        pageDescription: params.description,
+        siteStructure: params.structure,
         color: params.color,
+        siteSchema: craftsJsSchemaString,
+        success: true,
+        tokens,
       };
+    } catch (error) {
+      this.logger.error('Failed to generate site schema', error);
 
-      schemaNode = {
-        ...(schemaNode as Node),
-        props: newProps,
+      return {
+        pageDescription: params.description,
+        siteStructure: params.structure,
+        color: params.color,
+        siteSchema: '',
+        success: false,
+        tokens: 0,
       };
-
-      const newNodeId = generateRandomString(10);
-
-      craftsJsSchema = {
-        ...craftsJsSchema,
-        [newNodeId]: schemaNode,
-      };
-
-      return (craftsJsSchema.ROOT.nodes as string[]).push(newNodeId);
-    });
-
-    const craftsJsSchemaString = JSON.stringify(craftsJsSchema);
-
-    this.logger.info('Crafts.js schema generated successfully');
-
-    return {
-      pageDescription: params.description,
-      siteStructure: params.structure,
-      color: params.color,
-      siteSchema: craftsJsSchemaString,
-      tokens,
-    };
+    }
   }
 }

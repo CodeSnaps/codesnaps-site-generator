@@ -2,7 +2,11 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 import type { User } from '@supabase/gotrue-js';
 import type { Database } from '~/database.types';
 
-import { MEMBERSHIPS_TABLE, ORGANIZATIONS_TABLE } from '~/lib/db-tables';
+import {
+  MEMBERSHIPS_TABLE,
+  ORGANIZATIONS_TABLE,
+  ORGANIZATIONS_USAGE_TABLE,
+} from '~/lib/db-tables';
 import type Membership from '~/lib/organizations/types/membership';
 import type MembershipRole from '~/lib/organizations/types/membership-role';
 import type Organization from '~/lib/organizations/types/organization';
@@ -132,9 +136,10 @@ export function getOrganizationMembers(client: Client, organizationId: number) {
 export function getOrganizationByUid(client: Client, uid: string) {
   return client
     .from(ORGANIZATIONS_TABLE)
-    .select<string, UserOrganizationData['organization']>(
-      FETCH_ORGANIZATION_QUERY,
-    )
+    .select<
+      string,
+      UserOrganizationData['organization']
+    >(FETCH_ORGANIZATION_QUERY)
     .eq('uuid', uid)
     .throwOnError()
     .maybeSingle();
@@ -148,9 +153,10 @@ export function getOrganizationByUid(client: Client, uid: string) {
 export function getOrganizationById(client: Client, organizationId: number) {
   return client
     .from(ORGANIZATIONS_TABLE)
-    .select<string, UserOrganizationData['organization']>(
-      FETCH_ORGANIZATION_QUERY,
-    )
+    .select<
+      string,
+      UserOrganizationData['organization']
+    >(FETCH_ORGANIZATION_QUERY)
     .eq('id', organizationId)
     .throwOnError()
     .single();
@@ -216,4 +222,28 @@ export async function getMembersAuthMetadata(
   );
 
   return users.filter(Boolean) as User[];
+}
+
+/**
+ * @name getOrganizationUsage
+ * @description Get the usage data for an organization
+ * @param client
+ * @param organizationId
+ * @returns
+ */
+export async function getOrganizationUsage(
+  client: Client,
+  organizationId: number,
+) {
+  return client
+    .from(ORGANIZATIONS_USAGE_TABLE)
+    .select(
+      `
+        id,
+        tokens_quota
+        `,
+    )
+    .eq('organization_id', organizationId)
+    .throwOnError()
+    .single();
 }
