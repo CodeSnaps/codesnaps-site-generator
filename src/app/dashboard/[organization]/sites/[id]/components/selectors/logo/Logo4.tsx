@@ -8,11 +8,6 @@ import Trans from '~/core/ui/Trans';
 import { useNode, useEditor, SerializedNode } from '@craftjs/core';
 import ContentEditable from 'react-contenteditable';
 
-import 'swiper/css';
-import 'swiper/css/pagination';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-
 import { exportSingleComponent } from '~/app/dashboard/[organization]/sites/[id]/lib/export-components';
 
 import {
@@ -28,72 +23,63 @@ import ToolbarSettingsForm from '~/app/dashboard/[organization]/sites/[id]/compo
 import { NextJsIcon, ReactIcon } from '~/core/ui/Logo/NextReactLogos';
 import JSZip from 'jszip';
 
-const images = [
+const logos = [
   {
     id: 1,
-    src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
-    alt: 'Image',
-    width: 1000,
-    height: 1000,
+    name: 'Logo Name',
+    height: 35,
+    width: 130,
+    src: 'https://img.logoipsum.com/221.svg',
   },
   {
     id: 2,
-    src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
-    alt: 'Image',
-    width: 1000,
-    height: 1000,
+    name: 'Logo Name',
+    height: 35,
+    width: 130,
+    src: 'https://img.logoipsum.com/220.svg',
   },
   {
     id: 3,
-    src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
-    alt: 'Image',
-    width: 1000,
-    height: 1000,
+    name: 'Logo Name',
+    height: 35,
+    width: 130,
+    src: 'https://img.logoipsum.com/219.svg',
   },
   {
     id: 4,
-    src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
-    alt: 'Image',
-    width: 1000,
-    height: 1000,
+    name: 'Logo Name',
+    height: 35,
+    width: 130,
+    src: 'https://img.logoipsum.com/218.svg',
   },
   {
     id: 5,
-    src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
-    alt: 'Image',
-    width: 1000,
-    height: 1000,
+    name: 'Logo Name',
+    height: 35,
+    width: 130,
+    src: 'https://img.logoipsum.com/217.svg',
   },
   {
     id: 6,
-    src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
-    alt: 'Image',
-    width: 1000,
-    height: 1000,
-  },
-  {
-    id: 7,
-    src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
-    alt: 'Image',
-    width: 1000,
-    height: 1000,
+    name: 'Logo Name',
+    height: 35,
+    width: 130,
+    src: 'https://img.logoipsum.com/216.svg',
   },
 ];
 
 type SerializedNodeWithId = SerializedNode & { id: string };
 
-export const Gallery2 = ({
+export const Logo4 = ({
   heading = '',
-  description = '',
-  paddingArray = [],
-  marginArray = ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
-  maxWidth = '',
+  paddingArray = ['px-4', 'sm:px-6', 'lg:px-8'],
+  marginArray = ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-36'],
+  maxWidth = 'max-w-7xl',
   color = 'amber',
   textColor = 'neutral',
   isBeingDragged = false,
 }: {
   heading?: string;
-  description?: string;
   paddingArray?: string[];
   marginArray?: string[];
   maxWidth?: string;
@@ -118,7 +104,7 @@ export const Gallery2 = ({
       paddingArray={paddingArray}
       marginArray={marginArray}
     >
-      <div className="mx-auto flex max-w-7xl flex-col space-y-4">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ContentEditable
           html={heading}
           onChange={(e) =>
@@ -129,53 +115,32 @@ export const Gallery2 = ({
           tagName="h2"
           disabled={query.getOptions().enabled ? false : true}
           className={clsx(
-            'text-4xl font-bold leading-tight tracking-wide xl:text-5xl',
+            'text-left text-lg font-semibold leading-tight tracking-wide',
             'outline-none focus:outline-offset-4 focus:outline-primary',
             colors[textColorKey].heading,
           )}
         />
 
-        <ContentEditable
-          html={description}
-          onChange={(e) =>
-            setProp(
-              (props: { description: string }) =>
-                (props.description = e.target.value),
-            )
-          }
-          tagName="p"
-          disabled={query.getOptions().enabled ? false : true}
-          className={clsx(
-            'text-lg',
-            'outline-none focus:outline-offset-4 focus:outline-primary',
-            colors[textColorKey].description,
-          )}
-        />
-      </div>
-
-      <div className="mt-16 sm:mt-20 lg:mt-24">
-        <Swiper
-          slidesPerView={'auto'}
-          centeredSlides={true}
-          spaceBetween={30}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Pagination]}
-        >
-          {images.map((image) => (
-            <SwiperSlide key={image.id} className="max-w-xl">
+        <div className="mx-auto mt-10 grid max-w-lg grid-cols-1 items-center gap-8 sm:max-w-xl sm:grid-cols-2 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+          {logos.map((logo) => (
+            <div
+              key={logo.id}
+              className={clsx(
+                'col-span-1 flex h-full min-h-[100px] items-center justify-center rounded-md px-2 py-4 shadow-sm',
+                colors[colorKey].card,
+              )}
+            >
               <Image
                 priority
-                src={image.src}
-                alt={image.alt}
-                width={image.width}
-                height={image.height}
-                className="rounded-xl object-cover"
+                className="w-auto object-contain"
+                src={logo.src}
+                alt={logo.name}
+                width={logo.width}
+                height={logo.height}
               />
-            </SwiperSlide>
+            </div>
           ))}
-        </Swiper>
+        </div>
       </div>
     </PaddingMarginWrapper>
   );
@@ -185,10 +150,10 @@ function SidebarDraggableItem({ hasActiveSub }: { hasActiveSub: boolean }) {
   return (
     <SidebarItem
       hasActiveSub={hasActiveSub}
-      isFreeComponent={true}
-      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/gallery_2-1699474163590.webp"
-      name="Gallery 2"
-      Component={Gallery2}
+      isFreeComponent={false}
+      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/logo_4-1699792492896.webp"
+      name="Logo 4"
+      Component={Logo4}
     />
   );
 }
@@ -199,7 +164,6 @@ function ToolbarSettings() {
     marginArray,
     paddingArray,
     heading,
-    description,
     color,
     textColor,
     name,
@@ -208,14 +172,13 @@ function ToolbarSettings() {
     marginArray: node.data.props.marginArray,
     paddingArray: node.data.props.paddingArray,
     heading: node.data.props.heading,
-    description: node.data.props.description,
     color: node.data.props.color,
     textColor: node.data.props.textColor,
     name: node.data.custom.displayName || node.data.displayName,
   }));
 
   return (
-    <ToolbarSettingsForm hasColor={false}>
+    <ToolbarSettingsForm>
       <AccordionItem value="export">
         <AccordionTrigger>
           <h3 className="text-sm font-medium leading-6 text-gray-900 dark:text-gray-50">
@@ -231,7 +194,6 @@ function ToolbarSettings() {
                 const content = generateComponentString({
                   isNextjs: true,
                   heading,
-                  description,
                   paddingArray,
                   marginArray,
                   maxWidth,
@@ -252,7 +214,6 @@ function ToolbarSettings() {
                 const content = generateComponentString({
                   isNextjs: false,
                   heading,
-                  description,
                   paddingArray,
                   marginArray,
                   maxWidth,
@@ -275,105 +236,104 @@ function ToolbarSettings() {
 interface ColorObject {
   [key: string]: {
     heading: string;
-    description: string;
+    card: string;
   };
 }
 
 const colors: ColorObject = {
   slate: {
     heading: 'text-slate-900 dark:text-slate-50',
-    description: 'text-slate-600 dark:text-slate-400',
+    card: 'bg-slate-200/50 dark:bg-slate-900',
   },
   gray: {
     heading: 'text-gray-900 dark:text-gray-50',
-    description: 'text-gray-600 dark:text-gray-400',
+    card: 'bg-gray-200/50 dark:bg-gray-900',
   },
   zinc: {
     heading: 'text-zinc-900 dark:text-zinc-50',
-    description: 'text-zinc-600 dark:text-zinc-400',
+    card: 'bg-zinc-200/50 dark:bg-zinc-900',
   },
   neutral: {
     heading: 'text-neutral-900 dark:text-neutral-50',
-    description: 'text-neutral-600 dark:text-neutral-400',
+    card: 'bg-neutral-200/50 dark:bg-neutral-900',
   },
   stone: {
     heading: 'text-stone-900 dark:text-stone-50',
-    description: 'text-stone-600 dark:text-stone-400',
+    card: 'bg-stone-200/50 dark:bg-stone-900',
   },
   red: {
     heading: 'text-red-900 dark:text-red-50',
-    description: 'text-red-950/70 dark:text-red-50/70',
+    card: 'bg-red-100/50 dark:bg-red-950',
   },
   orange: {
     heading: 'text-orange-900 dark:text-orange-50',
-    description: 'text-orange-950/70 dark:text-orange-50/70',
+    card: 'bg-orange-100/50 dark:bg-orange-950',
   },
   amber: {
     heading: 'text-amber-900 dark:text-amber-50',
-    description: 'text-amber-950/70 dark:text-amber-50/70',
+    card: 'bg-amber-100/50 dark:bg-amber-950',
   },
   yellow: {
     heading: 'text-yellow-900 dark:text-yellow-50',
-    description: 'text-yellow-950/70 dark:text-yellow-50/70',
+    card: 'bg-yellow-100/50 dark:bg-yellow-950',
   },
   lime: {
     heading: 'text-lime-900 dark:text-lime-50',
-    description: 'text-lime-950/70 dark:text-lime-50/70',
+    card: 'bg-lime-100/50 dark:bg-lime-950',
   },
   green: {
     heading: 'text-green-900 dark:text-green-50',
-    description: 'text-green-950/70 dark:text-green-50/70',
+    card: 'bg-green-100/50 dark:bg-green-950',
   },
   emerald: {
     heading: 'text-emerald-900 dark:text-emerald-50',
-    description: 'text-emerald-950/70 dark:text-emerald-50/70',
+    card: 'bg-emerald-100/50 dark:bg-emerald-950',
   },
   teal: {
     heading: 'text-teal-900 dark:text-teal-50',
-    description: 'text-teal-950/70 dark:text-teal-50/70',
+    card: 'bg-teal-100/50 dark:bg-teal-950',
   },
   cyan: {
     heading: 'text-cyan-900 dark:text-cyan-50',
-    description: 'text-cyan-950/70 dark:text-cyan-50/70',
+    card: 'bg-cyan-100/50 dark:bg-cyan-950',
   },
   sky: {
     heading: 'text-sky-900 dark:text-sky-50',
-    description: 'text-sky-950/70 dark:text-sky-50/70',
+    card: 'bg-sky-100/50 dark:bg-sky-950',
   },
   blue: {
     heading: 'text-blue-900 dark:text-blue-50',
-    description: 'text-blue-950/70 dark:text-blue-50/70',
+    card: 'bg-blue-100/50 dark:bg-blue-950',
   },
   indigo: {
     heading: 'text-indigo-900 dark:text-indigo-50',
-    description: 'text-indigo-950/70 dark:text-indigo-50/70',
+    card: 'bg-indigo-100/50 dark:bg-indigo-950',
   },
   violet: {
     heading: 'text-violet-900 dark:text-violet-50',
-    description: 'text-violet-950/70 dark:text-violet-50/70',
+    card: 'bg-violet-100/50 dark:bg-violet-950',
   },
   purple: {
     heading: 'text-purple-900 dark:text-purple-50',
-    description: 'text-purple-950/70 dark:text-purple-50/70',
+    card: 'bg-purple-100/50 dark:bg-purple-950',
   },
   fuchsia: {
     heading: 'text-fuchsia-900 dark:text-fuchsia-50',
-    description: 'text-fuchsia-950/70 dark:text-fuchsia-50/70',
+    card: 'bg-fuchsia-100/50 dark:bg-fuchsia-950',
   },
   pink: {
     heading: 'text-pink-900 dark:text-pink-50',
-    description: 'text-pink-950/70 dark:text-pink-50/70',
+    card: 'bg-pink-100/50 dark:bg-pink-950',
   },
   rose: {
     heading: 'text-rose-900 dark:text-rose-50',
-    description: 'text-rose-950/70 dark:text-rose-50/70',
+    card: 'bg-rose-100/50 dark:bg-rose-950',
   },
 };
 
 function generateComponentString({
   isNextjs,
   heading,
-  description,
   paddingArray,
   marginArray,
   maxWidth,
@@ -382,7 +342,6 @@ function generateComponentString({
 }: {
   isNextjs: boolean;
   heading: string;
-  description: string;
   paddingArray: string[];
   marginArray: string[];
   maxWidth: string;
@@ -398,10 +357,7 @@ function generateComponentString({
 
   let content: string;
 
-  const nextContent = `/*
-  The following package is required: npm install swiper
-
-You need to configure remotePatterns in next.config.js to use dummyimage.com
+  const nextContent = `/*You need to configure remotePatterns in next.config.js to use logoipsum.com
   
 // next.config.js
 const nextConfig = {
@@ -411,7 +367,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'dummyimage.com',
+        hostname: 'img.logoipsum.com',
       },
     // ... other configs
     ],
@@ -419,125 +375,167 @@ const nextConfig = {
 };
 */
 
-'use client';
-
-import 'swiper/css';
-import 'swiper/css/pagination';
-
 import Image from 'next/image';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
+const logos = [
+  {
+    id: 1,
+    name: 'Logo Name',
+    height: 35,
+    width: 130,
+    src: 'https://img.logoipsum.com/221.svg',
+  },
+  {
+    id: 2,
+    name: 'Logo Name',
+    height: 35,
+    width: 130,
+    src: 'https://img.logoipsum.com/220.svg',
+  },
+  {
+    id: 3,
+    name: 'Logo Name',
+    height: 35,
+    width: 130,
+    src: 'https://img.logoipsum.com/219.svg',
+  },
+  {
+    id: 4,
+    name: 'Logo Name',
+    height: 35,
+    width: 130,
+    src: 'https://img.logoipsum.com/218.svg',
+  },
+  {
+    id: 5,
+    name: 'Logo Name',
+    height: 35,
+    width: 130,
+    src: 'https://img.logoipsum.com/217.svg',
+  },
+  {
+    id: 6,
+    name: 'Logo Name',
+    height: 35,
+    width: 130,
+    src: 'https://img.logoipsum.com/216.svg',
+  },
+];
 
-const images = ${JSON.stringify(images)};
-
-export default function Gallery() {
+export default function Logo() {
   return (
     <div className="${clsx(
       maxWidth,
       marginArray.join(' '),
       paddingArray.join(' '),
     )}">
-      <div className="flex flex-col space-y-4 text-center">
-        <h2 className="text-4xl font-bold leading-tight tracking-wide xl:text-5xl ${
-          colors[textColorKey].heading
-        }">
+       <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <h2 className="text-center text-lg font-semibold leading-tight tracking-wide ${colors[textColorKey].heading}">
           ${removeHtmlTags(heading)}
         </h2>
 
-        <p className="text-lg ${colors[textColorKey].description}">
-          ${removeHtmlTags(description)}
-        </p>
-      </div>
-
-      <div className="mt-16 grid gap-4 sm:mt-20 md:grid-cols-2 lg:mt-24">
-        <Swiper
-          slidesPerView={'auto'}
-          centeredSlides={true}
-          spaceBetween={30}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Pagination]}
-        >
-          {images.map((image) => (
-            <SwiperSlide key={image.id} className="max-w-xl">
+        <div className="mx-auto mt-10 grid max-w-lg grid-cols-1 items-center gap-8 sm:max-w-xl sm:grid-cols-2 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+          {logos.map((logo) => (
+            <div
+              key={logo.id}
+              className="col-span-1 flex h-full min-h-[100px] items-center justify-center rounded-md px-2 py-4 shadow-sm ${colors[colorKey].card}"
+            >
               <Image
                 priority
-                src={image.src}
-                alt={image.alt}
-                width={image.width}
-                height={image.height}
-                className="rounded-xl object-cover"
+                className="w-auto object-contain"
+                src={logo.src}
+                alt={logo.name}
+                width={logo.width}
+                height={logo.height}
               />
-            </SwiperSlide>
+            </div>
           ))}
-        </Swiper>
+        </div>
       </div>
     </div>
   );
 }`;
 
-  const reactContent = `
-  /*
-  The following package is required: npm install swiper
-  */
-  
-  import React from 'react';
-  
-  import 'swiper/css';
-  import 'swiper/css/pagination';
-  
-  import { Swiper, SwiperSlide } from 'swiper/react';
-  import { Pagination } from 'swiper/modules';
-  
-  const images = ${JSON.stringify(images)};
-  
-  export default function Gallery() {
-    return (
-      <div className="${clsx(
-        maxWidth,
-        marginArray.join(' '),
-        paddingArray.join(' '),
-      )}">
-        <div className="flex flex-col space-y-4 text-center">
-          <h2 className="text-4xl font-bold leading-tight tracking-wide xl:text-5xl ${
-            colors[textColorKey].heading
-          }">
-            ${removeHtmlTags(heading)}
-          </h2>
-  
-          <p className="text-lg ${colors[textColorKey].description}">
-            ${removeHtmlTags(description)}
-          </p>
-        </div>
-  
-        <div className="mt-16 grid gap-4 sm:mt-20 md:grid-cols-2 lg:mt-24">
-          <Swiper
-            slidesPerView={'auto'}
-            centeredSlides={true}
-            spaceBetween={30}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[Pagination]}
-          >
-            {images.map((image) => (
-              <SwiperSlide key={image.id} className="max-w-xl">
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  width={image.width}
-                  height={image.height}
-                  className="rounded-xl object-cover"
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+  const reactContent = `import React from 'react';
+
+const logos = [
+  {
+    id: 1,
+    name: 'Logo Name',
+    height: 35,
+    width: 130,
+    src: 'https://img.logoipsum.com/221.svg',
+  },
+  {
+    id: 2,
+    name: 'Logo Name',
+    height: 35,
+    width: 130,
+    src: 'https://img.logoipsum.com/220.svg',
+  },
+  {
+    id: 3,
+    name: 'Logo Name',
+    height: 35,
+    width: 130,
+    src: 'https://img.logoipsum.com/219.svg',
+  },
+  {
+    id: 4,
+    name: 'Logo Name',
+    height: 35,
+    width: 130,
+    src: 'https://img.logoipsum.com/218.svg',
+  },
+  {
+    id: 5,
+    name: 'Logo Name',
+    height: 35,
+    width: 130,
+    src: 'https://img.logoipsum.com/217.svg',
+  },
+  {
+    id: 6,
+    name: 'Logo Name',
+    height: 35,
+    width: 130,
+    src: 'https://img.logoipsum.com/216.svg',
+  },
+];
+
+export default function Logo() {
+  return (
+    <div className="${clsx(
+      maxWidth,
+      marginArray.join(' '),
+      paddingArray.join(' '),
+    )}">
+       <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <h2 className="text-center text-lg font-semibold leading-tight tracking-wide ${colors[textColorKey].heading}">
+          ${removeHtmlTags(heading)}
+        </h2>
+
+        <div className="mx-auto mt-10 grid max-w-lg grid-cols-1 items-center gap-8 sm:max-w-xl sm:grid-cols-2 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+          {logos.map((logo) => (
+            <div
+              key={logo.id}
+              className="col-span-1 flex h-full min-h-[100px] items-center justify-center rounded-md px-2 py-4 shadow-sm ${colors[colorKey].card}"
+            >
+              <Image
+                priority
+                className="w-auto object-contain"
+                src={logo.src}
+                alt={logo.name}
+                width={logo.width}
+                height={logo.height}
+              />
+            </div>
+          ))}
         </div>
       </div>
-    );
-  }`;
+    </div>
+  );
+}`;
 
   if (!isNextjs) {
     content = reactContent;
@@ -555,20 +553,12 @@ function prepForPageExport(
   componentContent: string[],
   zip: JSZip,
 ) {
-  const {
-    heading,
-    description,
-    paddingArray,
-    marginArray,
-    maxWidth,
-    color,
-    textColor,
-  } = node.props;
+  const { heading, paddingArray, marginArray, maxWidth, color, textColor } =
+    node.props;
 
   const content = generateComponentString({
     isNextjs,
     heading,
-    description,
     paddingArray,
     marginArray,
     maxWidth,
@@ -576,19 +566,17 @@ function prepForPageExport(
     textColor,
   });
 
-  importStatements.push(`import Gallery2 from './components/Gallery2';`);
-  componentContent.push('<Gallery2 />');
-  return zip.file('components/Gallery2.jsx', content);
+  importStatements.push(`import Logo4 from './components/Logo4';`);
+  componentContent.push('<Logo4 />');
+  return zip.file('components/Logo4.jsx', content);
 }
 
-Gallery2.craft = {
+Logo4.craft = {
   props: {
-    heading: 'Medium length section heading goes here',
-    description:
-      'Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.',
-    paddingArray: [],
-    marginArray: ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
-    maxWidth: '',
+    heading: 'Trusted by the world’s most unkown companies',
+    paddingArray: ['px-4', 'sm:px-6', 'lg:px-8'],
+    marginArray: ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-36'],
+    maxWidth: 'max-w-7xl',
     color: 'amber',
     textColor: 'neutral',
   },

@@ -78,7 +78,7 @@
     "date-fns": "^3.3.1",
     "edge-csrf": "^1.0.7",
     "file-saver": "^2.0.5",
-    "framer-motion": "^10.16.4",
+    "framer-motion": "^10.18.0",
     "fuse.js": "^7.0.0",
     "heroicons": "^2.1.1",
     "i18next": "23.7.16",

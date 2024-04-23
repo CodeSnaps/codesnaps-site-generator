@@ -16,6 +16,7 @@ import {
   AccordionTrigger,
 } from '~/core/ui/Accordion';
 import { Button } from '~/core/ui/Button';
+import { TextFieldLabel } from '~/core/ui/TextField';
 import SidebarItem from '~/app/dashboard/[organization]/sites/[id]/components/editor/SidebarItem';
 import PaddingMarginWrapper from '~/app/dashboard/[organization]/sites/[id]/components/selectors/PaddingMarginWrapper';
 import ToolbarSettingsForm from '~/app/dashboard/[organization]/sites/[id]/components/editor/toolbar/ToolbarSettingsForm';
@@ -51,17 +52,44 @@ const testimonials = [
     content:
       '"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis."',
   },
+  {
+    id: 4,
+    name: 'Full Name',
+    position: 'Position',
+    company: 'Company Name',
+    imgSrc: 'https://dummyimage.com/100x100/d4d4d4/171717',
+    content:
+      '"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis."',
+  },
+  {
+    id: 5,
+    name: 'Full Name',
+    position: 'Position',
+    company: 'Company Name',
+    imgSrc: 'https://dummyimage.com/100x100/d4d4d4/171717',
+    content:
+      '"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis."',
+  },
+  {
+    id: 6,
+    name: 'Full Name',
+    position: 'Position',
+    company: 'Company Name',
+    imgSrc: 'https://dummyimage.com/100x100/d4d4d4/171717',
+    content:
+      '"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis."',
+  },
 ];
 
 type SerializedNodeWithId = SerializedNode & { id: string };
 
-export const Testimonial2 = ({
+export const Testimonial6 = ({
   heading = '',
   description = '',
   testimonials = [],
   paddingArray = ['px-4', 'sm:px-6', 'lg:px-8'],
-  marginArray = ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
-  maxWidth = 'max-w-4xl',
+  marginArray = ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-36'],
+  maxWidth = '',
   color = 'amber',
   textColor = 'neutral',
   isBeingDragged = false,
@@ -96,7 +124,7 @@ export const Testimonial2 = ({
   return (
     <PaddingMarginWrapper
       ref={(ref) => connect(drag(ref as HTMLElement))}
-      classes={clsx(maxWidth)}
+      classes={clsx(maxWidth, query.getOptions().enabled && 'max-w-7xl')}
       paddingArray={paddingArray}
       marginArray={marginArray}
     >
@@ -135,13 +163,25 @@ export const Testimonial2 = ({
         />
       </div>
 
-      <div className="mx-auto mt-10 max-w-md sm:mt-14 md:max-w-2xl lg:mt-20 lg:max-w-none">
-        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
+      <div
+        className={clsx(
+          'mt-14 inline-flex w-full flex-nowrap',
+          query.getOptions().enabled ? 'overflow-auto' : 'overflow-hidden',
+        )}
+      >
+        <dl
+          className={clsx(
+            'flex gap-14',
+            query.getOptions().enabled
+              ? ''
+              : 'animate-infinite-scroll-horizontal-testimonials',
+          )}
+        >
           {testimonials.map((testimonial) => (
             <figure
               key={testimonial.id}
               className={clsx(
-                'flex flex-col rounded-xl border px-4 py-8 shadow-md lg:px-6 lg:py-10',
+                'flex w-full min-w-[400px] flex-col rounded-xl border px-4 py-8 shadow-md lg:px-6 lg:py-10',
                 colors[colorKey].border,
               )}
             >
@@ -253,6 +293,126 @@ export const Testimonial2 = ({
             </figure>
           ))}
         </dl>
+
+        {!query.getOptions().enabled && (
+          <dl className="ml-14 flex gap-14 animate-infinite-scroll-horizontal-testimonials">
+            {testimonials.map((testimonial) => (
+              <figure
+                key={testimonial.id}
+                className={clsx(
+                  'flex w-full min-w-[400px] flex-col rounded-xl border px-4 py-8 shadow-md lg:px-6 lg:py-10',
+                  colors[colorKey].border,
+                )}
+              >
+                <div className="x-space-4 flex">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <StarIcon
+                      key={i}
+                      className={clsx('h-5 w-5', colors[colorKey].icon)}
+                      aria-hidden="true"
+                    />
+                  ))}
+                </div>
+
+                <blockquote
+                  className={clsx(
+                    'mt-4 text-base font-semibold leading-relaxed',
+                    colors[textColorKey].testimonial,
+                  )}
+                >
+                  <ContentEditable
+                    html={testimonial.content}
+                    onChange={(e) =>
+                      setProp(
+                        (props: any) =>
+                          (props.testimonials[testimonial.id - 1].content =
+                            e.target.value),
+                      )
+                    }
+                    tagName="p"
+                    disabled={query.getOptions().enabled ? false : true}
+                    className="outline-none focus:outline-offset-4 focus:outline-primary"
+                  />
+                </blockquote>
+
+                <figcaption className="mt-6 flex items-center">
+                  <div className="mr-4 flex-shrink-0 self-center">
+                    <Image
+                      priority
+                      width={48}
+                      height={48}
+                      className="mx-auto h-12 w-12 rounded-full"
+                      src={testimonial.imgSrc}
+                      alt={testimonial.name}
+                    />
+                  </div>
+                  <div>
+                    <ContentEditable
+                      html={testimonial.name}
+                      onChange={(e) =>
+                        setProp(
+                          (props: any) =>
+                            (props.testimonials[testimonial.id - 1].name =
+                              e.target.value),
+                        )
+                      }
+                      tagName="h4"
+                      disabled={query.getOptions().enabled ? false : true}
+                      className={clsx(
+                        'text-base font-semibold',
+                        colors[textColorKey].name,
+                        'outline-none focus:outline-offset-4 focus:outline-primary',
+                      )}
+                    />
+
+                    <p
+                      className={clsx(
+                        'mt-1 flex items-center space-x-2 text-sm font-medium',
+                        colors[textColorKey].metaData,
+                      )}
+                    >
+                      <ContentEditable
+                        html={testimonial.position}
+                        onChange={(e) =>
+                          setProp(
+                            (props: any) =>
+                              (props.testimonials[testimonial.id - 1].position =
+                                e.target.value),
+                          )
+                        }
+                        tagName="span"
+                        disabled={query.getOptions().enabled ? false : true}
+                        className="outline-none focus:outline-offset-4 focus:outline-primary"
+                      />{' '}
+                      <svg
+                        viewBox="0 0 2 2"
+                        width={3}
+                        height={3}
+                        aria-hidden="true"
+                        className={colors[textColorKey].circle}
+                      >
+                        <circle cx={1} cy={1} r={1} />
+                      </svg>
+                      <ContentEditable
+                        html={testimonial.company}
+                        onChange={(e) =>
+                          setProp(
+                            (props: any) =>
+                              (props.testimonials[testimonial.id - 1].company =
+                                e.target.value),
+                          )
+                        }
+                        tagName="span"
+                        disabled={query.getOptions().enabled ? false : true}
+                        className="outline-none focus:outline-offset-4 focus:outline-primary"
+                      />
+                    </p>
+                  </div>
+                </figcaption>
+              </figure>
+            ))}
+          </dl>
+        )}
       </div>
     </PaddingMarginWrapper>
   );
@@ -274,10 +434,10 @@ function SidebarDraggableItem({ hasActiveSub }: { hasActiveSub: boolean }) {
   return (
     <SidebarItem
       hasActiveSub={hasActiveSub}
-      isFreeComponent={true}
-      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/testimonial_2-1699475129787.webp"
-      name="Testimonial 2"
-      Component={Testimonial2}
+      isFreeComponent={false}
+      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/testimonial_6-1700175699332.webp"
+      name="Testimonial 6"
+      Component={Testimonial6}
     />
   );
 }
@@ -661,7 +821,7 @@ function generateComponentString({
   let content: string;
 
   const nextContent = `/*
-You need to configure remotePatterns in next.config.js to use dummyimage.com
+You need to configure remotePatterns in next.config.js to use logoipsum.com
   
 // next.config.js
 const nextConfig = {
@@ -671,10 +831,29 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'dummyimage.com',
+        hostname: 'img.logoipsum.com',
       },
     // ... other configs
     ],
+  },
+};
+
+You also need to configure tailwind.config.js to create the animation
+
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      animation: {
+        'infinite-scroll-horizontal': 'horizontal-scroll 35s linear infinite',
+      },
+      keyframes: {
+        'horizontal-scroll': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-100%)' },
+        },
+      },
+    },
   },
 };
 */
@@ -690,7 +869,7 @@ export default function Testimonial() {
       marginArray.join(' '),
       paddingArray.join(' '),
     )}">
-       <div className="mx-auto max-w-4xl text-center">
+      <div className="mx-auto max-w-4xl text-center">
         <h2 className="text-4xl font-semibold leading-tight tracking-wide xl:text-5xl ${colors[textColorKey].heading}">
           ${removeHtmlTags(heading)}
         </h2>
@@ -700,12 +879,12 @@ export default function Testimonial() {
         </p>
       </div>
 
-      <div className="mx-auto mt-10 max-w-md sm:mt-14 md:max-w-2xl lg:mt-20 lg:max-w-none">
-        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-14 inline-flex w-full flex-nowrap">
+        <dl className="flex animate-infinite-scroll-horizontal gap-14">
           {testimonials.map((testimonial) => (
             <figure
               key={testimonial.id}
-              className="flex flex-col rounded-xl border px-4 py-8 shadow-md lg:px-6 lg:py-10 ${colors[colorKey].border}"
+              className="flex w-full min-w-[400px] flex-col rounded-xl border px-4 py-8 shadow-md lg:px-6 lg:py-10 ${colors[colorKey].border}"
             >
               <div className="x-space-4 flex">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -718,7 +897,60 @@ export default function Testimonial() {
               </div>
 
               <blockquote className="mt-4 text-base font-semibold leading-relaxed ${colors[textColorKey].testimonial}">
-                <p>{testimonial.content}</p>
+                <p>“{testimonial.content}”</p>
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center">
+                <div className="mr-4 flex-shrink-0 self-center">
+                  <Image
+                    width={48}
+                    height={48}
+                    className="mx-auto h-12 w-12 rounded-full"
+                    src={testimonial.imgSrc}
+                    alt={testimonial.name}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold ${colors[textColorKey].name}">
+                    {testimonial.name}
+                  </h4>
+                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium ${colors[textColorKey].metaData}">
+                    <span>{testimonial.position}</span>{' '}
+                    <svg
+                      viewBox="0 0 2 2"
+                      width={3}
+                      height={3}
+                      aria-hidden="true"
+                      className="${colors[textColorKey].circle}"
+                    >
+                      <circle cx={1} cy={1} r={1} />
+                    </svg>
+                    <span>{testimonial.company}</span>
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </dl>
+
+        <dl className=""ml-14 flex animate-infinite-scroll-horizontal gap-14">
+          {testimonials.map((testimonial) => (
+            <figure
+              key={testimonial.id}
+              className="flex w-full min-w-[400px] flex-col rounded-xl border px-4 py-8 shadow-md lg:px-6 lg:py-10 ${colors[colorKey].border}"
+            >
+              <div className="x-space-4 flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    className="h-5 w-5 ${colors[colorKey].icon}"
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <blockquote className="mt-4 text-base font-semibold leading-relaxed ${colors[textColorKey].testimonial}">
+                <p>“{testimonial.content}”</p>
               </blockquote>
 
               <figcaption className="mt-6 flex items-center">
@@ -781,7 +1013,7 @@ export default function Testimonial() {
       marginArray.join(' '),
       paddingArray.join(' '),
     )}">
-       <div className="mx-auto max-w-4xl text-center">
+      <div className="mx-auto max-w-4xl text-center">
         <h2 className="text-4xl font-semibold leading-tight tracking-wide xl:text-5xl ${colors[textColorKey].heading}">
           ${removeHtmlTags(heading)}
         </h2>
@@ -791,12 +1023,12 @@ export default function Testimonial() {
         </p>
       </div>
 
-      <div className="mx-auto mt-10 max-w-md sm:mt-14 md:max-w-2xl lg:mt-20 lg:max-w-none">
-        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-14 inline-flex w-full flex-nowrap">
+        <dl className="flex animate-infinite-scroll-horizontal gap-14">
           {testimonials.map((testimonial) => (
             <figure
               key={testimonial.id}
-              className="flex flex-col rounded-xl border px-4 py-8 shadow-md lg:px-6 lg:py-10 ${colors[colorKey].border}"
+              className="flex w-full min-w-[400px] flex-col rounded-xl border px-4 py-8 shadow-md lg:px-6 lg:py-10 ${colors[colorKey].border}"
             >
               <div className="x-space-4 flex">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -809,12 +1041,65 @@ export default function Testimonial() {
               </div>
 
               <blockquote className="mt-4 text-base font-semibold leading-relaxed ${colors[textColorKey].testimonial}">
-                <p>{testimonial.content}</p>
+                <p>“{testimonial.content}”</p>
               </blockquote>
 
               <figcaption className="mt-6 flex items-center">
                 <div className="mr-4 flex-shrink-0 self-center">
-                  <img
+                  <Image
+                    width={48}
+                    height={48}
+                    className="mx-auto h-12 w-12 rounded-full"
+                    src={testimonial.imgSrc}
+                    alt={testimonial.name}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold ${colors[textColorKey].name}">
+                    {testimonial.name}
+                  </h4>
+                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium ${colors[textColorKey].metaData}">
+                    <span>{testimonial.position}</span>{' '}
+                    <svg
+                      viewBox="0 0 2 2"
+                      width={3}
+                      height={3}
+                      aria-hidden="true"
+                      className="${colors[textColorKey].circle}"
+                    >
+                      <circle cx={1} cy={1} r={1} />
+                    </svg>
+                    <span>{testimonial.company}</span>
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </dl>
+
+        <dl className=""ml-14 flex animate-infinite-scroll-horizontal gap-14">
+          {testimonials.map((testimonial) => (
+            <figure
+              key={testimonial.id}
+              className="flex w-full min-w-[400px] flex-col rounded-xl border px-4 py-8 shadow-md lg:px-6 lg:py-10 ${colors[colorKey].border}"
+            >
+              <div className="x-space-4 flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    className="h-5 w-5 ${colors[colorKey].icon}"
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <blockquote className="mt-4 text-base font-semibold leading-relaxed ${colors[textColorKey].testimonial}">
+                <p>“{testimonial.content}”</p>
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center">
+                <div className="mr-4 flex-shrink-0 self-center">
+                  <Image
                     width={48}
                     height={48}
                     className="mx-auto h-12 w-12 rounded-full"
@@ -901,21 +1186,21 @@ function prepForPageExport(
   });
 
   importStatements.push(
-    `import Testimonial2 from './components/Testimonial2';`,
+    `import Testimonial6 from './components/Testimonial6';`,
   );
-  componentContent.push('<Testimonial2 />');
-  return zip.file('components/Testimonial2.jsx', content);
+  componentContent.push('<Testimonial6 />');
+  return zip.file('components/Testimonial6.jsx', content);
 }
 
-Testimonial2.craft = {
+Testimonial6.craft = {
   props: {
     heading: 'Customer Testimonials',
     description:
       'Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.',
     testimonials: testimonials,
     paddingArray: ['px-4', 'sm:px-6', 'lg:px-8'],
-    marginArray: ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
-    maxWidth: 'max-w-7xl',
+    marginArray: ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-36'],
+    maxWidth: '',
     color: 'amber',
     textColor: 'neutral',
   },

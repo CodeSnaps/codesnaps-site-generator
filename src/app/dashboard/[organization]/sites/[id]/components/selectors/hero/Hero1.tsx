@@ -541,7 +541,7 @@ const nextConfig = {
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Feature() {
+export default function Hero() {
   return (
     <div className="${clsx(
       maxWidth,
@@ -595,7 +595,7 @@ export default function Feature() {
 
   const reactContent = `import React from 'react';
 
-export default function Feature() {
+export default function Hero() {
   return (
     <div className="${clsx(
       maxWidth,

@@ -35,4 +35,87 @@ export const freeHeadingNodes = [
   },
 ];
 
-export const headingNodes = [...freeHeadingNodes];
+export const headingNodes = [
+  ...freeHeadingNodes,
+  {
+    type: { resolvedName: 'Heading3' },
+    isCanvas: false,
+    props: {
+      heading: 'Maximum 7 words',
+      description: 'Minimum 2-3 sentences',
+      primaryCta: '1-2 words',
+      secondaryCta: '1-2 words',
+    },
+    displayName: 'Heading3',
+    custom: {},
+    parent: 'ROOT',
+    hidden: false,
+    nodes: [],
+    linkedNodes: {},
+  },
+  {
+    type: { resolvedName: 'Heading4' },
+    isCanvas: false,
+    props: {
+      tagline: '1-3 words. Separate from the heading',
+      heading: 'Maximum 7 words',
+      description:
+        'Minimum 2-3 sentences. This is a description of the newsletter.',
+      primaryCta: '1-2 words',
+      newsletterDisclaimerPart1: '',
+      newsletterDisclaimerPrivatePolicy: 'Privacy Policy',
+      newsletterDisclaimerPart2: '',
+    },
+    displayName: 'Heading4',
+    custom: {},
+    parent: 'ROOT',
+    hidden: false,
+    nodes: [],
+    linkedNodes: {},
+  },
+  {
+    type: { resolvedName: 'Heading5' },
+    isCanvas: false,
+    props: {
+      heading: 'Maximum 7 words',
+      description: 'Minimum 2-3 sentences',
+    },
+    displayName: 'Heading5',
+    custom: {},
+    parent: 'ROOT',
+    hidden: false,
+    nodes: [],
+    linkedNodes: {},
+  },
+  {
+    type: { resolvedName: 'Heading6' },
+    isCanvas: false,
+    props: {
+      heading: 'Maximum 7 words',
+      description: 'Minimum 2-3 sentences',
+    },
+    displayName: 'Heading6',
+    custom: {},
+    parent: 'ROOT',
+    hidden: false,
+    nodes: [],
+    linkedNodes: {},
+  },
+  {
+    type: { resolvedName: 'Heading7' },
+    isCanvas: false,
+    props: {
+      tagline: '1-3 words. Separate from the heading',
+      heading: 'Maximum 7 words',
+      description: 'Minimum 2-3 sentences',
+      primaryCta: '1-2 words',
+      secondaryCta: '1-2 words',
+    },
+    displayName: 'Heading7',
+    custom: {},
+    parent: 'ROOT',
+    hidden: false,
+    nodes: [],
+    linkedNodes: {},
+  },
+];

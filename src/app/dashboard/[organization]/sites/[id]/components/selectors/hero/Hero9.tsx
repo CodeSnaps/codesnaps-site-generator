@@ -22,17 +22,19 @@ import ToolbarSettingsForm from '~/app/dashboard/[organization]/sites/[id]/compo
 import { NextJsIcon, ReactIcon } from '~/core/ui/Logo/NextReactLogos';
 import JSZip from 'jszip';
 
+import ReactPlayer from 'react-player/lazy';
+
 type SerializedNodeWithId = SerializedNode & { id: string };
 
-export const Header2 = ({
+export const Hero9 = ({
   tagline = '',
   heading = '',
   description = '',
   primaryCta = '',
   secondaryCta = '',
-  paddingArray = ['px-4', 'sm:px-6', 'lg:px-8'],
-  marginArray = ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
-  maxWidth = 'max-w-7xl',
+  paddingArray = [''],
+  marginArray = [''],
+  maxWidth = '',
   color = 'amber',
   textColor = 'neutral',
   isBeingDragged = false,
@@ -62,11 +64,11 @@ export const Header2 = ({
   return (
     <PaddingMarginWrapper
       ref={(ref) => connect(drag(ref as HTMLElement))}
-      classes={clsx(maxWidth)}
+      classes={clsx(maxWidth, 'grid grid-cols-1 gap-14 lg:grid-cols-2')}
       paddingArray={paddingArray}
       marginArray={marginArray}
     >
-      <div className="flex max-w-4xl flex-col space-y-7">
+      <div className="mt-20 flex max-w-3xl flex-col gap-8 px-4 sm:my-32 sm:px-6 lg:my-40 lg:ml-auto lg:px-8">
         <ContentEditable
           html={tagline}
           onChange={(e) =>
@@ -74,10 +76,10 @@ export const Header2 = ({
               (props: { tagline: string }) => (props.tagline = e.target.value),
             )
           }
-          tagName="h3"
+          tagName="h2"
           disabled={query.getOptions().enabled ? false : true}
           className={clsx(
-            'text-lg font-medium uppercase tracking-wide',
+            'text-lg font-medium',
             'outline-none focus:outline-offset-4 focus:outline-primary',
             colors[textColorKey].tagline,
           )}
@@ -90,7 +92,7 @@ export const Header2 = ({
               (props: { heading: string }) => (props.heading = e.target.value),
             )
           }
-          tagName="h2"
+          tagName="h1"
           disabled={query.getOptions().enabled ? false : true}
           className={clsx(
             'text-4xl font-bold leading-tight tracking-wide xl:text-5xl',
@@ -145,12 +147,22 @@ export const Header2 = ({
             tagName="a"
             disabled={query.getOptions().enabled ? false : true}
             className={clsx(
-              'rounded-md bg-transparent px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+              'rounded-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
               'outline-none focus:outline-offset-4',
               colors[colorKey].secondaryCta,
             )}
           />
         </div>
+      </div>
+
+      <div className="relative order-last w-full bg-neutral-300 pt-[56.25%]">
+        <ReactPlayer
+          width="100%"
+          height="100%"
+          url="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+          light="https://dummyimage.com/"
+          className="absolute left-0 top-0 h-full w-full object-cover"
+        />
       </div>
     </PaddingMarginWrapper>
   );
@@ -160,10 +172,10 @@ function SidebarDraggableItem({ hasActiveSub }: { hasActiveSub: boolean }) {
   return (
     <SidebarItem
       hasActiveSub={hasActiveSub}
-      isFreeComponent={true}
-      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/header_2-1699474545772.webp"
-      name="Header 2"
-      Component={Header2}
+      isFreeComponent={false}
+      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/hero_9-1700433093203.webp"
+      name="Hero 9"
+      Component={Hero9}
     />
   );
 }
@@ -277,7 +289,7 @@ const colors: ColorObject = {
     primaryCta:
       'bg-slate-900 text-white hover:bg-slate-800 focus-visible:outline-slate-500 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-300 dark:focus-visible:outline-slate-400',
     secondaryCta:
-      'text-slate-900 ring-slate-500 hover:bg-slate-100 focus-visible:outline-slate-500 dark:text-slate-100 dark:ring-slate-600 dark:hover:bg-slate-800 dark:focus-visible:outline-slate-400',
+      'bg-transparent text-slate-900 ring-slate-500 hover:bg-slate-100 focus-visible:outline-slate-500 dark:text-slate-100 dark:ring-slate-600 dark:hover:bg-slate-800 dark:focus-visible:outline-slate-400',
   },
   gray: {
     tagline: 'text-gray-800 dark:text-gray-200',
@@ -286,7 +298,7 @@ const colors: ColorObject = {
     primaryCta:
       'bg-gray-900 text-white hover:bg-gray-800 focus-visible:outline-gray-500 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-300 dark:focus-visible:outline-gray-400',
     secondaryCta:
-      'text-gray-900 ring-gray-500 hover:bg-gray-100 focus-visible:outline-gray-500 dark:text-gray-100 dark:ring-gray-600 dark:hover:bg-gray-800 dark:focus-visible:outline-gray-400',
+      'bg-transparent text-gray-900 ring-gray-500 hover:bg-gray-100 focus-visible:outline-gray-500 dark:text-gray-100 dark:ring-gray-600 dark:hover:bg-gray-800 dark:focus-visible:outline-gray-400',
   },
   zinc: {
     tagline: 'text-zinc-800 dark:text-zinc-200',
@@ -295,7 +307,7 @@ const colors: ColorObject = {
     primaryCta:
       'bg-zinc-900 text-white hover:bg-zinc-800 focus-visible:outline-zinc-500 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-300 dark:focus-visible:outline-zinc-400',
     secondaryCta:
-      'text-zinc-900 ring-zinc-500 hover:bg-zinc-100 focus-visible:outline-zinc-500 dark:text-zinc-100 dark:ring-zinc-600 dark:hover:bg-zinc-800 dark:focus-visible:outline-zinc-400',
+      'bg-transparent text-zinc-900 ring-zinc-500 hover:bg-zinc-100 focus-visible:outline-zinc-500 dark:text-zinc-100 dark:ring-zinc-600 dark:hover:bg-zinc-800 dark:focus-visible:outline-zinc-400',
   },
   neutral: {
     tagline: 'text-neutral-800 dark:text-neutral-200',
@@ -304,7 +316,7 @@ const colors: ColorObject = {
     primaryCta:
       'bg-neutral-900 text-white hover:bg-neutral-800 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400',
     secondaryCta:
-      'text-neutral-900 ring-neutral-500 hover:bg-neutral-100 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400',
+      'bg-transparent text-neutral-900 ring-neutral-500 hover:bg-neutral-100 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400',
   },
   stone: {
     tagline: 'text-stone-800 dark:text-stone-200',
@@ -313,7 +325,7 @@ const colors: ColorObject = {
     primaryCta:
       'bg-stone-900 text-white hover:bg-stone-800 focus-visible:outline-stone-500 dark:bg-stone-50 dark:text-stone-900 dark:hover:bg-stone-300 dark:focus-visible:outline-stone-400',
     secondaryCta:
-      'text-stone-900 ring-stone-500 hover:bg-stone-100 focus-visible:outline-stone-500 dark:text-stone-100 dark:ring-stone-600 dark:hover:bg-stone-800 dark:focus-visible:outline-stone-400',
+      'bg-transparent text-stone-900 ring-stone-500 hover:bg-stone-100 focus-visible:outline-stone-500 dark:text-stone-100 dark:ring-stone-600 dark:hover:bg-stone-800 dark:focus-visible:outline-stone-400',
   },
   red: {
     tagline: 'text-red-600 dark:text-red-400/80',
@@ -504,23 +516,32 @@ function generateComponentString({
 
   let content: string;
 
-  const nextContent = `import Link from 'next/link';
+  const nextContent = `/*
+You need to install the following package: npm install react-player
+*/
 
-export default function Header() {
+'use client';
+
+import Link from 'next/link';
+
+import ReactPlayer from 'react-player/lazy';
+
+export default function Hero() {
   return (
     <div className="${clsx(
       maxWidth,
       marginArray.join(' '),
       paddingArray.join(' '),
+      'grid grid-cols-1 gap-14 lg:grid-cols-2',
     )}">
-       <div className="flex max-w-4xl flex-col space-y-7">
-        <h3 className="text-lg font-medium uppercase tracking-wide ${colors[textColorKey].tagline}">
+      <div className="mt-20 flex max-w-3xl flex-col gap-8 px-4 sm:my-32 sm:px-6 lg:my-40 lg:ml-auto lg:px-8">
+        <h2 className="text-lg font-medium ${colors[textColorKey].tagline}">
           ${removeHtmlTags(tagline)}
-        </h3>
-
-        <h2 className="text-4xl font-bold leading-tight tracking-wide xl:text-5xl ${colors[textColorKey].heading}">
-          ${removeHtmlTags(heading)}
         </h2>
+
+        <h1 className="text-4xl font-bold leading-tight tracking-wide xl:text-5xl ${colors[textColorKey].heading}">
+          ${removeHtmlTags(heading)}
+        </h1>
 
         <p className="text-lg ${colors[textColorKey].description}">
           ${removeHtmlTags(description)}
@@ -536,33 +557,49 @@ export default function Header() {
 
           <Link
             href="#"
-            className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${colors[colorKey].secondaryCta}"
+            className="rounded-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${colors[colorKey].secondaryCta}"
           >
             ${removeHtmlTags(secondaryCta)}
           </Link>
         </div>
       </div>
+
+      <div className="relative order-last w-full bg-neutral-300 pt-[56.25%]">
+        <ReactPlayer
+          width="100%"
+          height="100%"
+          url="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+          light="https://dummyimage.com/"
+          className="absolute left-0 top-0 h-full w-full object-cover"
+        />
+      </div>
     </div>
   );
 }`;
 
-  const reactContent = `import React from 'react';
+  const reactContent = `/*
+You need to install the following package: npm install react-player
+*/
 
-export default function Header() {
+import React from 'react';
+import ReactPlayer from 'react-player/lazy';
+
+export default function Hero() {
   return (
     <div className="${clsx(
       maxWidth,
       marginArray.join(' '),
       paddingArray.join(' '),
+      'grid grid-cols-1 gap-14 lg:grid-cols-2',
     )}">
-      <div className="flex max-w-4xl flex-col space-y-7">
-        <h3 className="text-lg font-medium uppercase tracking-wide ${colors[textColorKey].tagline}">
+      <div className="mt-20 flex max-w-3xl flex-col gap-8 px-4 sm:my-32 sm:px-6 lg:my-40 lg:ml-auto lg:px-8">
+        <h2 className="text-lg font-medium ${colors[textColorKey].tagline}">
           ${removeHtmlTags(tagline)}
-        </h3>
-
-        <h2 className="text-4xl font-bold leading-tight tracking-wide xl:text-5xl ${colors[textColorKey].heading}">
-          ${removeHtmlTags(heading)}
         </h2>
+
+        <h1 className="text-4xl font-bold leading-tight tracking-wide xl:text-5xl ${colors[textColorKey].heading}">
+          ${removeHtmlTags(heading)}
+        </h1>
 
         <p className="text-lg ${colors[textColorKey].description}">
           ${removeHtmlTags(description)}
@@ -578,11 +615,21 @@ export default function Header() {
 
           <a
             href="#"
-            className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${colors[colorKey].secondaryCta}"
+            className="rounded-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${colors[colorKey].secondaryCta}"
           >
             ${removeHtmlTags(secondaryCta)}
           </a>
         </div>
+      </div>
+
+      <div className="relative order-last w-full bg-neutral-300 pt-[56.25%]">
+        <ReactPlayer
+          width="100%"
+          height="100%"
+          url="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+          light="https://dummyimage.com/"
+          className="absolute left-0 top-0 h-full w-full object-cover"
+        />
       </div>
     </div>
   );
@@ -631,22 +678,22 @@ function prepForPageExport(
     textColor,
   });
 
-  importStatements.push(`import Header2 from './components/Header2';`);
-  componentContent.push('<Header2 />');
-  return zip.file('components/Header2.jsx', content);
+  importStatements.push(`import Hero9 from './components/Hero9';`);
+  componentContent.push('<Hero9 />');
+  return zip.file('components/Hero9.jsx', content);
 }
 
-Header2.craft = {
+Hero9.craft = {
   props: {
     tagline: 'Tagline',
-    heading: 'Short heading goes in here',
+    heading: 'Medium length section heading goes here',
     description:
       'Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.',
     primaryCta: 'Get started',
     secondaryCta: 'Learn more',
-    paddingArray: ['px-4', 'sm:px-6', 'lg:px-8'],
-    marginArray: ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
-    maxWidth: 'max-w-7xl',
+    paddingArray: [''],
+    marginArray: [''],
+    maxWidth: '',
     color: 'amber',
     textColor: 'neutral',
   },

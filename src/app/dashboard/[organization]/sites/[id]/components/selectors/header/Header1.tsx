@@ -107,7 +107,7 @@ export const Header1 = ({
                 (props.description = e.target.value),
             )
           }
-          tagName="h2"
+          tagName="p"
           disabled={query.getOptions().enabled ? false : true}
           className={clsx(
             'text-lg',

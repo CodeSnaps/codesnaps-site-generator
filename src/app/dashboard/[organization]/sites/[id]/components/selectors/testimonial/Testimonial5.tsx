@@ -23,13 +23,21 @@ import ToolbarSettingsForm from '~/app/dashboard/[organization]/sites/[id]/compo
 import { NextJsIcon, ReactIcon } from '~/core/ui/Logo/NextReactLogos';
 import JSZip from 'jszip';
 
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper/modules';
+
 const testimonials = [
   {
     id: 1,
     name: 'Full Name',
     position: 'Position',
     company: 'Company Name',
-    imgSrc: 'https://dummyimage.com/100x100/d4d4d4/171717',
+    logoImg: 'https://img.logoipsum.com/297.svg',
+    profileImg: 'https://dummyimage.com/100x100/d4d4d4/171717',
     content:
       '"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis."',
   },
@@ -38,7 +46,8 @@ const testimonials = [
     name: 'Full Name',
     position: 'Position',
     company: 'Company Name',
-    imgSrc: 'https://dummyimage.com/100x100/d4d4d4/171717',
+    logoImg: 'https://img.logoipsum.com/297.svg',
+    profileImg: 'https://dummyimage.com/100x100/d4d4d4/171717',
     content:
       '"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis."',
   },
@@ -47,7 +56,28 @@ const testimonials = [
     name: 'Full Name',
     position: 'Position',
     company: 'Company Name',
-    imgSrc: 'https://dummyimage.com/100x100/d4d4d4/171717',
+    logoImg: 'https://img.logoipsum.com/297.svg',
+    profileImg: 'https://dummyimage.com/100x100/d4d4d4/171717',
+    content:
+      '"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis."',
+  },
+  {
+    id: 4,
+    name: 'Full Name',
+    position: 'Position',
+    company: 'Company Name',
+    logoImg: 'https://img.logoipsum.com/297.svg',
+    profileImg: 'https://dummyimage.com/100x100/d4d4d4/171717',
+    content:
+      '"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis."',
+  },
+  {
+    id: 5,
+    name: 'Full Name',
+    position: 'Position',
+    company: 'Company Name',
+    logoImg: 'https://img.logoipsum.com/297.svg',
+    profileImg: 'https://dummyimage.com/100x100/d4d4d4/171717',
     content:
       '"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis."',
   },
@@ -55,9 +85,9 @@ const testimonials = [
 
 type SerializedNodeWithId = SerializedNode & { id: string };
 
-export const Testimonial2 = ({
-  heading = '',
-  description = '',
+export const Testimonial5 = ({
+  heading = 'Customer Testimonials',
+  description = 'Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.',
   testimonials = [],
   paddingArray = ['px-4', 'sm:px-6', 'lg:px-8'],
   marginArray = ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
@@ -73,7 +103,8 @@ export const Testimonial2 = ({
     name: string;
     position: string;
     company: string;
-    imgSrc: string;
+    logoImg: string;
+    profileImg: string;
     content: string;
   }[];
   paddingArray?: string[];
@@ -100,7 +131,7 @@ export const Testimonial2 = ({
       paddingArray={paddingArray}
       marginArray={marginArray}
     >
-      <div className="mx-auto max-w-4xl text-center">
+      <div className="flex flex-col space-y-2 text-center md:space-y-6">
         <ContentEditable
           html={heading}
           onChange={(e) =>
@@ -135,124 +166,145 @@ export const Testimonial2 = ({
         />
       </div>
 
-      <div className="mx-auto mt-10 max-w-md sm:mt-14 md:max-w-2xl lg:mt-20 lg:max-w-none">
-        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mx-auto mt-16 max-w-6xl sm:mt-20">
+        <Swiper navigation={true} modules={[Pagination, Navigation]}>
           {testimonials.map((testimonial) => (
-            <figure
-              key={testimonial.id}
-              className={clsx(
-                'flex flex-col rounded-xl border px-4 py-8 shadow-md lg:px-6 lg:py-10',
-                colors[colorKey].border,
-              )}
-            >
-              <div className="x-space-4 flex">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <StarIcon
-                    key={i}
-                    className={clsx('h-5 w-5', colors[colorKey].icon)}
-                    aria-hidden="true"
-                  />
-                ))}
-              </div>
+            <SwiperSlide key={testimonial.id}>
+              <div key={testimonial.id}>
+                <figure className="mx-auto flex max-w-2xl flex-col">
+                  <div className="x-space-4 flex justify-center">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <StarIcon
+                        key={i}
+                        className={clsx('h-7 w-7', colors[colorKey].icon)}
+                        aria-hidden="true"
+                      />
+                    ))}
+                  </div>
 
-              <blockquote
-                className={clsx(
-                  'mt-4 text-base font-semibold leading-relaxed',
-                  colors[textColorKey].testimonial,
-                )}
-              >
-                <ContentEditable
-                  html={testimonial.content}
-                  onChange={(e) =>
-                    setProp(
-                      (props: any) =>
-                        (props.testimonials[testimonial.id - 1].content =
-                          e.target.value),
-                    )
-                  }
-                  tagName="p"
-                  disabled={query.getOptions().enabled ? false : true}
-                  className="outline-none focus:outline-offset-4 focus:outline-primary"
-                />
-              </blockquote>
-
-              <figcaption className="mt-6 flex items-center">
-                <div className="mr-4 flex-shrink-0 self-center">
-                  <Image
-                    priority
-                    width={48}
-                    height={48}
-                    className="mx-auto h-12 w-12 rounded-full"
-                    src={testimonial.imgSrc}
-                    alt={testimonial.name}
-                  />
-                </div>
-                <div>
-                  <ContentEditable
-                    html={testimonial.name}
-                    onChange={(e) =>
-                      setProp(
-                        (props: any) =>
-                          (props.testimonials[testimonial.id - 1].name =
-                            e.target.value),
-                      )
-                    }
-                    tagName="h4"
-                    disabled={query.getOptions().enabled ? false : true}
+                  <blockquote
                     className={clsx(
-                      'text-base font-semibold',
-                      colors[textColorKey].name,
-                      'outline-none focus:outline-offset-4 focus:outline-primary',
-                    )}
-                  />
-
-                  <p
-                    className={clsx(
-                      'mt-1 flex items-center space-x-2 text-sm font-medium',
-                      colors[textColorKey].metaData,
+                      'mt-8 text-center text-lg font-semibold leading-loose md:text-2xl md:leading-loose',
+                      colors[textColorKey].testimonial,
                     )}
                   >
                     <ContentEditable
-                      html={testimonial.position}
+                      html={testimonial.content}
                       onChange={(e) =>
                         setProp(
                           (props: any) =>
-                            (props.testimonials[testimonial.id - 1].position =
+                            (props.testimonials[testimonial.id - 1].content =
                               e.target.value),
                         )
                       }
-                      tagName="span"
-                      disabled={query.getOptions().enabled ? false : true}
-                      className="outline-none focus:outline-offset-4 focus:outline-primary"
-                    />{' '}
-                    <svg
-                      viewBox="0 0 2 2"
-                      width={3}
-                      height={3}
-                      aria-hidden="true"
-                      className={colors[textColorKey].circle}
-                    >
-                      <circle cx={1} cy={1} r={1} />
-                    </svg>
-                    <ContentEditable
-                      html={testimonial.company}
-                      onChange={(e) =>
-                        setProp(
-                          (props: any) =>
-                            (props.testimonials[testimonial.id - 1].company =
-                              e.target.value),
-                        )
-                      }
-                      tagName="span"
+                      tagName="p"
                       disabled={query.getOptions().enabled ? false : true}
                       className="outline-none focus:outline-offset-4 focus:outline-primary"
                     />
-                  </p>
-                </div>
-              </figcaption>
-            </figure>
+                  </blockquote>
+
+                  <figcaption className="mt-10 flex flex-col items-center justify-center gap-10 md:flex-row">
+                    <div className="flex items-center justify-center">
+                      <div className="mr-4 flex-shrink-0 self-center">
+                        <Image
+                          priority
+                          width={48}
+                          height={48}
+                          className="mx-auto h-12 w-12 rounded-full"
+                          src={testimonial.profileImg}
+                          alt={testimonial.name}
+                        />
+                      </div>
+
+                      <div>
+                        <ContentEditable
+                          html={testimonial.name}
+                          onChange={(e) =>
+                            setProp(
+                              (props: any) =>
+                                (props.testimonials[testimonial.id - 1].name =
+                                  e.target.value),
+                            )
+                          }
+                          tagName="h4"
+                          disabled={query.getOptions().enabled ? false : true}
+                          className={clsx(
+                            'text-base font-semibold',
+                            colors[textColorKey].name,
+                            'outline-none focus:outline-offset-4 focus:outline-primary',
+                          )}
+                        />
+
+                        <p
+                          className={clsx(
+                            'mt-1 flex items-center space-x-2 text-sm font-medium',
+                            colors[textColorKey].metaData,
+                          )}
+                        >
+                          <ContentEditable
+                            html={testimonial.position}
+                            onChange={(e) =>
+                              setProp(
+                                (props: any) =>
+                                  (props.testimonials[
+                                    testimonial.id - 1
+                                  ].position = e.target.value),
+                              )
+                            }
+                            tagName="span"
+                            disabled={query.getOptions().enabled ? false : true}
+                            className="outline-none focus:outline-offset-4 focus:outline-primary"
+                          />{' '}
+                          <svg
+                            viewBox="0 0 2 2"
+                            width={3}
+                            height={3}
+                            aria-hidden="true"
+                            className={colors[textColorKey].circle}
+                          >
+                            <circle cx={1} cy={1} r={1} />
+                          </svg>
+                          <ContentEditable
+                            html={testimonial.company}
+                            onChange={(e) =>
+                              setProp(
+                                (props: any) =>
+                                  (props.testimonials[
+                                    testimonial.id - 1
+                                  ].company = e.target.value),
+                              )
+                            }
+                            tagName="span"
+                            disabled={query.getOptions().enabled ? false : true}
+                            className="outline-none focus:outline-offset-4 focus:outline-primary"
+                          />
+                        </p>
+                      </div>
+                    </div>
+
+                    <div
+                      className={clsx(
+                        'hidden h-10 rounded-full border-l md:block',
+                        colors[textColorKey].border,
+                      )}
+                    />
+
+                    <div>
+                      <Image
+                        priority
+                        width={200}
+                        height={40}
+                        className="mx-auto h-8 w-full"
+                        src={testimonial.logoImg}
+                        alt={testimonial.company}
+                      />
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+            </SwiperSlide>
           ))}
-        </dl>
+        </Swiper>
       </div>
     </PaddingMarginWrapper>
   );
@@ -274,10 +326,10 @@ function SidebarDraggableItem({ hasActiveSub }: { hasActiveSub: boolean }) {
   return (
     <SidebarItem
       hasActiveSub={hasActiveSub}
-      isFreeComponent={true}
-      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/testimonial_2-1699475129787.webp"
-      name="Testimonial 2"
-      Component={Testimonial2}
+      isFreeComponent={false}
+      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/testimonial_5-1700175606234.webp"
+      name="Testimonial 5"
+      Component={Testimonial5}
     />
   );
 }
@@ -375,237 +427,237 @@ function ToolbarSettings() {
 
 interface ColorObject {
   [key: string]: {
+    icon: string;
     heading: string;
     description: string;
-    border: string;
-    icon: string;
     testimonial: string;
     name: string;
     metaData: string;
     circle: string;
+    border: string;
   };
 }
 
 const colors: ColorObject = {
   slate: {
+    icon: 'fill-slate-800 dark:fill-slate-500',
     heading: 'text-slate-900 dark:text-slate-50',
     description: 'text-slate-600 dark:text-slate-400',
-    border: 'border-slate-200 dark:border-slate-800',
-    icon: 'fill-slate-800 dark:fill-slate-500',
-    testimonial: 'text-slate-900 dark:text-slate-400',
+    testimonial: 'text-slate-900 dark:text-slate-300',
     name: 'text-slate-950 dark:text-slate-300',
     metaData: 'text-slate-600 dark:text-slate-400',
     circle: 'fill-slate-600 dark:fill-slate-400',
+    border: 'border-slate-200 dark:border-slate-800',
   },
   gray: {
+    icon: 'fill-gray-800 dark:fill-gray-500',
     heading: 'text-gray-900 dark:text-gray-50',
     description: 'text-gray-600 dark:text-gray-400',
-    border: 'border-gray-200 dark:border-gray-800',
-    icon: 'fill-gray-800 dark:fill-gray-500',
-    testimonial: 'text-gray-900 dark:text-gray-400',
+    testimonial: 'text-gray-900 dark:text-gray-300',
     name: 'text-gray-950 dark:text-gray-300',
     metaData: 'text-gray-600 dark:text-gray-400',
     circle: 'fill-gray-600 dark:fill-gray-400',
+    border: 'border-gray-200 dark:border-gray-800',
   },
   zinc: {
+    icon: 'fill-zinc-800 dark:fill-zinc-500',
     heading: 'text-zinc-900 dark:text-zinc-50',
     description: 'text-zinc-600 dark:text-zinc-400',
-    border: 'border-zinc-200 dark:border-zinc-800',
-    icon: 'fill-zinc-800 dark:fill-zinc-500',
-    testimonial: 'text-zinc-900 dark:text-zinc-400',
+    testimonial: 'text-zinc-900 dark:text-zinc-300',
     name: 'text-zinc-950 dark:text-zinc-300',
     metaData: 'text-zinc-600 dark:text-zinc-400',
     circle: 'fill-zinc-600 dark:fill-zinc-400',
+    border: 'border-zinc-200 dark:border-zinc-800',
   },
   neutral: {
+    icon: 'fill-neutral-800 dark:fill-neutral-500',
     heading: 'text-neutral-900 dark:text-neutral-50',
     description: 'text-neutral-600 dark:text-neutral-400',
-    border: 'border-neutral-200 dark:border-neutral-800',
-    icon: 'fill-neutral-800 dark:fill-neutral-500',
-    testimonial: 'text-neutral-900 dark:text-neutral-400',
+    testimonial: 'text-neutral-900 dark:text-neutral-300',
     name: 'text-neutral-950 dark:text-neutral-300',
     metaData: 'text-neutral-600 dark:text-neutral-400',
     circle: 'fill-neutral-600 dark:fill-neutral-400',
+    border: 'border-neutral-200 dark:border-neutral-800',
   },
   stone: {
+    icon: 'fill-stone-800 dark:fill-stone-500',
     heading: 'text-stone-900 dark:text-stone-50',
     description: 'text-stone-600 dark:text-stone-400',
-    border: 'border-stone-200 dark:border-stone-800',
-    icon: 'fill-stone-800 dark:fill-stone-500',
-    testimonial: 'text-stone-900 dark:text-stone-400',
+    testimonial: 'text-stone-900 dark:text-stone-300',
     name: 'text-stone-950 dark:text-stone-300',
     metaData: 'text-stone-600 dark:text-stone-400',
     circle: 'fill-stone-600 dark:fill-stone-400',
+    border: 'border-stone-200 dark:border-stone-800',
   },
   red: {
+    icon: 'fill-red-900 dark:fill-red-800',
     heading: 'text-red-900 dark:text-red-50',
     description: 'text-red-950/70 dark:text-red-50/70',
-    border: 'border-red-200 dark:border-red-950',
-    icon: 'fill-red-900 dark:fill-red-800',
-    testimonial: 'text-red-900 dark:text-red-100/80',
+    testimonial: 'text-red-900 dark:text-red-100',
     name: 'text-red-950 dark:text-red-400/70',
     metaData: 'text-red-950/70 dark:text-red-50/50',
     circle: 'fill-red-900 dark:fill-red-200/50',
+    border: 'border-red-200 dark:border-red-950',
   },
   orange: {
+    icon: 'fill-orange-900 dark:fill-orange-800',
     heading: 'text-orange-900 dark:text-orange-50',
     description: 'text-orange-950/70 dark:text-orange-50/70',
-    border: 'border-orange-200 dark:border-orange-950',
-    icon: 'fill-orange-900 dark:fill-orange-800',
-    testimonial: 'text-orange-900 dark:text-orange-100/80',
+    testimonial: 'text-orange-900 dark:text-orange-100',
     name: 'text-orange-950 dark:text-orange-400/70',
     metaData: 'text-orange-950/70 dark:text-orange-50/50',
     circle: 'fill-orange-900 dark:fill-orange-200/50',
+    border: 'border-orange-200 dark:border-orange-950',
   },
   amber: {
+    icon: 'fill-amber-900 dark:fill-amber-800',
     heading: 'text-amber-900 dark:text-amber-50',
     description: 'text-amber-950/70 dark:text-amber-50/70',
-    border: 'border-amber-200 dark:border-amber-950',
-    icon: 'fill-amber-900 dark:fill-amber-800',
-    testimonial: 'text-amber-900 dark:text-amber-100/80',
+    testimonial: 'text-amber-900 dark:text-amber-100',
     name: 'text-amber-950 dark:text-amber-400/70',
     metaData: 'text-amber-950/70 dark:text-amber-50/50',
     circle: 'fill-amber-900 dark:fill-amber-200/50',
+    border: 'border-amber-200 dark:border-amber-950',
   },
   yellow: {
+    icon: 'fill-yellow-900 dark:fill-yellow-800',
     heading: 'text-yellow-900 dark:text-yellow-50',
     description: 'text-yellow-950/70 dark:text-yellow-50/70',
-    border: 'border-yellow-200 dark:border-yellow-950',
-    icon: 'fill-yellow-900 dark:fill-yellow-800',
-    testimonial: 'text-yellow-900 dark:text-yellow-100/80',
+    testimonial: 'text-yellow-900 dark:text-yellow-100',
     name: 'text-yellow-950 dark:text-yellow-400/70',
     metaData: 'text-yellow-950/70 dark:text-yellow-50/50',
     circle: 'fill-yellow-900 dark:fill-yellow-200/50',
+    border: 'border-yellow-200 dark:border-yellow-950',
   },
   lime: {
+    icon: 'fill-lime-900 dark:fill-lime-800',
     heading: 'text-lime-900 dark:text-lime-50',
     description: 'text-lime-950/70 dark:text-lime-50/70',
-    border: 'border-lime-200 dark:border-lime-950',
-    icon: 'fill-lime-900 dark:fill-lime-800',
-    testimonial: 'text-lime-900 dark:text-lime-100/80',
+    testimonial: 'text-lime-900 dark:text-lime-100',
     name: 'text-lime-950 dark:text-lime-400/70',
     metaData: 'text-lime-950/70 dark:text-lime-50/50',
     circle: 'fill-lime-900 dark:fill-lime-200/50',
+    border: 'border-lime-200 dark:border-lime-950',
   },
   green: {
+    icon: 'fill-green-900 dark:fill-green-800',
     heading: 'text-green-900 dark:text-green-50',
     description: 'text-green-950/70 dark:text-green-50/70',
-    border: 'border-green-200 dark:border-green-950',
-    icon: 'fill-green-900 dark:fill-green-800',
-    testimonial: 'text-green-900 dark:text-green-100/80',
+    testimonial: 'text-green-900 dark:text-green-100',
     name: 'text-green-950 dark:text-green-400/70',
     metaData: 'text-green-950/70 dark:text-green-50/50',
     circle: 'fill-green-900 dark:fill-green-200/50',
+    border: 'border-green-200 dark:border-green-950',
   },
   emerald: {
+    icon: 'fill-emerald-900 dark:fill-emerald-800',
     heading: 'text-emerald-900 dark:text-emerald-50',
     description: 'text-emerald-950/70 dark:text-emerald-50/70',
-    border: 'border-emerald-200 dark:border-emerald-950',
-    icon: 'fill-emerald-900 dark:fill-emerald-800',
-    testimonial: 'text-emerald-900 dark:text-emerald-100/80',
+    testimonial: 'text-emerald-900 dark:text-emerald-100',
     name: 'text-emerald-950 dark:text-emerald-400/70',
     metaData: 'text-emerald-950/70 dark:text-emerald-50/50',
     circle: 'fill-emerald-900 dark:fill-emerald-200/50',
+    border: 'border-emerald-200 dark:border-emerald-950',
   },
   teal: {
+    icon: 'fill-teal-900 dark:fill-teal-800',
     heading: 'text-teal-900 dark:text-teal-50',
     description: 'text-teal-950/70 dark:text-teal-50/70',
-    border: 'border-teal-200 dark:border-teal-950',
-    icon: 'fill-teal-900 dark:fill-teal-800',
-    testimonial: 'text-teal-900 dark:text-teal-100/80',
+    testimonial: 'text-teal-900 dark:text-teal-100',
     name: 'text-teal-950 dark:text-teal-400/70',
     metaData: 'text-teal-950/70 dark:text-teal-50/50',
     circle: 'fill-teal-900 dark:fill-teal-200/50',
+    border: 'border-teal-200 dark:border-teal-950',
   },
   cyan: {
+    icon: 'fill-cyan-900 dark:fill-cyan-800',
     heading: 'text-cyan-900 dark:text-cyan-50',
     description: 'text-cyan-950/70 dark:text-cyan-50/70',
-    border: 'border-cyan-200 dark:border-cyan-950',
-    icon: 'fill-cyan-900 dark:fill-cyan-800',
-    testimonial: 'text-cyan-900 dark:text-cyan-100/80',
+    testimonial: 'text-cyan-900 dark:text-cyan-100',
     name: 'text-cyan-950 dark:text-cyan-400/70',
     metaData: 'text-cyan-950/70 dark:text-cyan-50/50',
     circle: 'fill-cyan-900 dark:fill-cyan-200/50',
+    border: 'border-cyan-200 dark:border-cyan-950',
   },
   sky: {
+    icon: 'fill-sky-900 dark:fill-sky-800',
     heading: 'text-sky-900 dark:text-sky-50',
     description: 'text-sky-950/70 dark:text-sky-50/70',
-    border: 'border-sky-200 dark:border-sky-950',
-    icon: 'fill-sky-900 dark:fill-sky-800',
-    testimonial: 'text-sky-900 dark:text-sky-100/80',
+    testimonial: 'text-sky-900 dark:text-sky-100',
     name: 'text-sky-950 dark:text-sky-400/70',
     metaData: 'text-sky-950/70 dark:text-sky-50/50',
     circle: 'fill-sky-900 dark:fill-sky-200/50',
+    border: 'border-sky-200 dark:border-sky-950',
   },
   blue: {
+    icon: 'fill-blue-900 dark:fill-blue-800',
     heading: 'text-blue-900 dark:text-blue-50',
     description: 'text-blue-950/70 dark:text-blue-50/70',
-    border: 'border-blue-200 dark:border-blue-950',
-    icon: 'fill-blue-900 dark:fill-blue-800',
-    testimonial: 'text-blue-900 dark:text-blue-100/80',
+    testimonial: 'text-blue-900 dark:text-blue-100',
     name: 'text-blue-950 dark:text-blue-400/70',
     metaData: 'text-blue-950/70 dark:text-blue-50/50',
     circle: 'fill-blue-900 dark:fill-blue-200/50',
+    border: 'border-blue-200 dark:border-blue-950',
   },
   indigo: {
+    icon: 'fill-indigo-900 dark:fill-indigo-800',
     heading: 'text-indigo-900 dark:text-indigo-50',
     description: 'text-indigo-950/70 dark:text-indigo-50/70',
-    border: 'border-indigo-200 dark:border-indigo-950',
-    icon: 'fill-indigo-900 dark:fill-indigo-800',
-    testimonial: 'text-indigo-900 dark:text-indigo-100/80',
+    testimonial: 'text-indigo-900 dark:text-indigo-100',
     name: 'text-indigo-950 dark:text-indigo-400/70',
     metaData: 'text-indigo-950/70 dark:text-indigo-50/50',
     circle: 'fill-indigo-900 dark:fill-indigo-200/50',
+    border: 'border-indigo-200 dark:border-indigo-950',
   },
   violet: {
+    icon: 'fill-violet-900 dark:fill-violet-800',
     heading: 'text-violet-900 dark:text-violet-50',
     description: 'text-violet-950/70 dark:text-violet-50/70',
-    border: 'border-violet-200 dark:border-violet-950',
-    icon: 'fill-violet-900 dark:fill-violet-800',
-    testimonial: 'text-violet-900 dark:text-violet-100/80',
+    testimonial: 'text-violet-900 dark:text-violet-100',
     name: 'text-violet-950 dark:text-violet-400/70',
     metaData: 'text-violet-950/70 dark:text-violet-50/50',
     circle: 'fill-violet-900 dark:fill-violet-200/50',
+    border: 'border-violet-200 dark:border-violet-950',
   },
   purple: {
+    icon: 'fill-purple-900 dark:fill-purple-800',
     heading: 'text-purple-900 dark:text-purple-50',
     description: 'text-purple-950/70 dark:text-purple-50/70',
-    border: 'border-purple-200 dark:border-purple-950',
-    icon: 'fill-purple-900 dark:fill-purple-800',
-    testimonial: 'text-purple-900 dark:text-purple-100/80',
+    testimonial: 'text-purple-900 dark:text-purple-100',
     name: 'text-purple-950 dark:text-purple-400/70',
     metaData: 'text-purple-950/70 dark:text-purple-50/50',
     circle: 'fill-purple-900 dark:fill-purple-200/50',
+    border: 'border-purple-200 dark:border-purple-950',
   },
   fuchsia: {
+    icon: 'fill-fuchsia-900 dark:fill-fuchsia-800',
     heading: 'text-fuchsia-900 dark:text-fuchsia-50',
     description: 'text-fuchsia-950/70 dark:text-fuchsia-50/70',
-    border: 'border-fuchsia-200 dark:border-fuchsia-950',
-    icon: 'fill-fuchsia-900 dark:fill-fuchsia-800',
-    testimonial: 'text-fuchsia-900 dark:text-fuchsia-100/80',
+    testimonial: 'text-fuchsia-900 dark:text-fuchsia-100',
     name: 'text-fuchsia-950 dark:text-fuchsia-400/70',
     metaData: 'text-fuchsia-950/70 dark:text-fuchsia-50/50',
     circle: 'fill-fuchsia-900 dark:fill-fuchsia-200/50',
+    border: 'border-fuchsia-200 dark:border-fuchsia-950',
   },
   pink: {
+    icon: 'fill-pink-900 dark:fill-pink-800',
     heading: 'text-pink-900 dark:text-pink-50',
     description: 'text-pink-950/70 dark:text-pink-50/70',
-    border: 'border-pink-200 dark:border-pink-950',
-    icon: 'fill-pink-900 dark:fill-pink-800',
-    testimonial: 'text-pink-900 dark:text-pink-100/80',
+    testimonial: 'text-pink-900 dark:text-pink-100',
     name: 'text-pink-950 dark:text-pink-400/70',
     metaData: 'text-pink-950/70 dark:text-pink-50/50',
     circle: 'fill-pink-900 dark:fill-pink-200/50',
+    border: 'border-pink-200 dark:border-pink-950',
   },
   rose: {
+    icon: 'fill-rose-900 dark:fill-rose-800',
     heading: 'text-rose-900 dark:text-rose-50',
     description: 'text-rose-950/70 dark:text-rose-50/70',
-    border: 'border-rose-200 dark:border-rose-950',
-    icon: 'fill-rose-900 dark:fill-rose-800',
-    testimonial: 'text-rose-900 dark:text-rose-100/80',
+    testimonial: 'text-rose-900 dark:text-rose-100',
     name: 'text-rose-950 dark:text-rose-400/70',
     metaData: 'text-rose-950/70 dark:text-rose-50/50',
     circle: 'fill-rose-900 dark:fill-rose-200/50',
+    border: 'border-rose-200 dark:border-rose-950',
   },
 };
 
@@ -628,7 +680,8 @@ function generateComponentString({
     name: string;
     position: string;
     company: string;
-    imgSrc: string;
+    logoImg: string;
+    profileImg: string;
     content: string;
   }[];
   paddingArray: string[];
@@ -651,7 +704,8 @@ function generateComponentString({
     name: '${removeHtmlTags(testimonial.name)}',
     position: '${removeHtmlTags(testimonial.position)}',
     company: '${removeHtmlTags(testimonial.company)}',
-    imgSrc: '${testimonial.imgSrc}',
+    logoImg: '${testimonial.logoImg}',
+    profileImg: '${testimonial.profileImg}',
     content: '${removeHtmlTags(testimonial.content)}',
   }`,
   );
@@ -661,7 +715,9 @@ function generateComponentString({
   let content: string;
 
   const nextContent = `/*
-You need to configure remotePatterns in next.config.js to use dummyimage.com
+The following package is required: npm install swiper
+
+You need to configure remotePatterns in next.config.js to use dummyimage.com and logoipsum.com
   
 // next.config.js
 const nextConfig = {
@@ -673,13 +729,26 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'dummyimage.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'img.logoipsum.com',
+      },
     // ... other configs
     ],
   },
 };
 */
 
+'use client';
+
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
 import Image from 'next/image';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper/modules';
 
 const testimonials = ${teamString};
 
@@ -690,8 +759,8 @@ export default function Testimonial() {
       marginArray.join(' '),
       paddingArray.join(' '),
     )}">
-       <div className="mx-auto max-w-4xl text-center">
-        <h2 className="text-4xl font-semibold leading-tight tracking-wide xl:text-5xl ${colors[textColorKey].heading}">
+      <div className="flex flex-col space-y-2 text-center md:space-y-6">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide xl:text-5xl ${colors[textColorKey].heading}">
           ${removeHtmlTags(heading)}
         </h2>
 
@@ -700,59 +769,74 @@ export default function Testimonial() {
         </p>
       </div>
 
-      <div className="mx-auto mt-10 max-w-md sm:mt-14 md:max-w-2xl lg:mt-20 lg:max-w-none">
-        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mx-auto mt-16 max-w-6xl sm:mt-20">
+        <Swiper navigation={true} modules={[Pagination, Navigation]}>
           {testimonials.map((testimonial) => (
-            <figure
-              key={testimonial.id}
-              className="flex flex-col rounded-xl border px-4 py-8 shadow-md lg:px-6 lg:py-10 ${colors[colorKey].border}"
-            >
-              <div className="x-space-4 flex">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <StarIcon
-                    key={i}
-                    className="h-5 w-5 ${colors[colorKey].icon}"
-                    aria-hidden="true"
-                  />
-                ))}
-              </div>
-
-              <blockquote className="mt-4 text-base font-semibold leading-relaxed ${colors[textColorKey].testimonial}">
-                <p>{testimonial.content}</p>
-              </blockquote>
-
-              <figcaption className="mt-6 flex items-center">
-                <div className="mr-4 flex-shrink-0 self-center">
-                  <Image
-                    width={48}
-                    height={48}
-                    className="mx-auto h-12 w-12 rounded-full"
-                    src={testimonial.imgSrc}
-                    alt={testimonial.name}
-                  />
-                </div>
-                <div>
-                  <h4 className="text-base font-semibold ${colors[textColorKey].name}">
-                    {testimonial.name}
-                  </h4>
-                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium ${colors[textColorKey].metaData}">
-                    <span>{testimonial.position}</span>{' '}
-                    <svg
-                      viewBox="0 0 2 2"
-                      width={3}
-                      height={3}
+            <SwiperSlide key={testimonial.id}>
+              <figure className="mx-auto flex max-w-2xl flex-col">
+                <div className="x-space-4 flex justify-center">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <StarIcon
+                      key={i}
+                      className="h-7 w-7 ${colors[colorKey].icon}"
                       aria-hidden="true"
-                      className="${colors[textColorKey].circle}"
-                    >
-                      <circle cx={1} cy={1} r={1} />
-                    </svg>
-                    <span>{testimonial.company}</span>
-                  </p>
+                    />
+                  ))}
                 </div>
-              </figcaption>
-            </figure>
+
+                <blockquote className="mt-8 text-center text-lg font-semibold leading-loose md:text-2xl md:leading-loose ${colors[textColorKey].testimonial}">
+                  <p>{testimonial.content}</p>
+                </blockquote>
+
+                <figcaption className="mt-10 flex flex-col items-center justify-center gap-10 md:flex-row">
+                  <div className="flex items-center justify-center">
+                    <div className="mr-4 flex-shrink-0 self-center">
+                      <Image
+                        width={48}
+                        height={48}
+                        className="mx-auto h-12 w-12 rounded-full"
+                        src={testimonial.profileImg}
+                        alt={testimonial.name}
+                      />
+                    </div>
+
+                    <div>
+                      <h4 className="text-base font-semibold ${colors[textColorKey].name}">
+                        {testimonial.name}
+                      </h4>
+
+                      <p className="mt-1 flex items-center space-x-2 text-sm font-medium ${colors[textColorKey].metaData}">
+                        <span>{testimonial.position}</span>{' '}
+                        <svg
+                          viewBox="0 0 2 2"
+                          width={3}
+                          height={3}
+                          aria-hidden="true"
+                          className="${colors[textColorKey].circle}"
+                        >
+                          <circle cx={1} cy={1} r={1} />
+                        </svg>
+                        <span>{testimonial.company}</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="hidden h-10 rounded-full border-l md:block ${colors[textColorKey].border}" />
+
+                  <div>
+                    <Image
+                      width={200}
+                      height={40}
+                      className="mx-auto h-8 w-full"
+                      src={testimonial.logoImg}
+                      alt={testimonial.company}
+                    />
+                  </div>
+                </figcaption>
+              </figure>
+            </SwiperSlide>
           ))}
-        </dl>
+        </Swiper>
       </div>
     </div>
   );
@@ -770,7 +854,18 @@ function StarIcon(props) {
   );
 }`;
 
-  const reactContent = `import React from 'react';
+  const reactContent = `/*
+The following package is required: npm install swiper
+*/
+
+import React from 'react';
+
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper/modules';
 
 const testimonials = ${teamString};
 
@@ -781,8 +876,8 @@ export default function Testimonial() {
       marginArray.join(' '),
       paddingArray.join(' '),
     )}">
-       <div className="mx-auto max-w-4xl text-center">
-        <h2 className="text-4xl font-semibold leading-tight tracking-wide xl:text-5xl ${colors[textColorKey].heading}">
+      <div className="flex flex-col space-y-2 text-center md:space-y-6">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide xl:text-5xl ${colors[textColorKey].heading}">
           ${removeHtmlTags(heading)}
         </h2>
 
@@ -791,73 +886,76 @@ export default function Testimonial() {
         </p>
       </div>
 
-      <div className="mx-auto mt-10 max-w-md sm:mt-14 md:max-w-2xl lg:mt-20 lg:max-w-none">
-        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mx-auto mt-16 max-w-6xl sm:mt-20">
+        <Swiper navigation={true} modules={[Pagination, Navigation]}>
           {testimonials.map((testimonial) => (
-            <figure
-              key={testimonial.id}
-              className="flex flex-col rounded-xl border px-4 py-8 shadow-md lg:px-6 lg:py-10 ${colors[colorKey].border}"
-            >
-              <div className="x-space-4 flex">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <StarIcon
-                    key={i}
-                    className="h-5 w-5 ${colors[colorKey].icon}"
-                    aria-hidden="true"
-                  />
-                ))}
-              </div>
-
-              <blockquote className="mt-4 text-base font-semibold leading-relaxed ${colors[textColorKey].testimonial}">
-                <p>{testimonial.content}</p>
-              </blockquote>
-
-              <figcaption className="mt-6 flex items-center">
-                <div className="mr-4 flex-shrink-0 self-center">
-                  <img
-                    width={48}
-                    height={48}
-                    className="mx-auto h-12 w-12 rounded-full"
-                    src={testimonial.imgSrc}
-                    alt={testimonial.name}
-                  />
-                </div>
-                <div>
-                  <h4 className="text-base font-semibold ${colors[textColorKey].name}">
-                    {testimonial.name}
-                  </h4>
-                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium ${colors[textColorKey].metaData}">
-                    <span>{testimonial.position}</span>{' '}
-                    <svg
-                      viewBox="0 0 2 2"
-                      width={3}
-                      height={3}
+            <SwiperSlide key={testimonial.id}>
+              <figure className="mx-auto flex max-w-2xl flex-col">
+                <div className="x-space-4 flex justify-center">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <StarIcon
+                      key={i}
+                      className="h-7 w-7 ${colors[colorKey].icon}"
                       aria-hidden="true"
-                      className="${colors[textColorKey].circle}"
-                    >
-                      <circle cx={1} cy={1} r={1} />
-                    </svg>
-                    <span>{testimonial.company}</span>
-                  </p>
+                    />
+                  ))}
                 </div>
-              </figcaption>
-            </figure>
+
+                <blockquote className="mt-8 text-center text-lg font-semibold leading-loose md:text-2xl md:leading-loose ${colors[textColorKey].testimonial}">
+                  <p>{testimonial.content}</p>
+                </blockquote>
+
+                <figcaption className="mt-10 flex flex-col items-center justify-center gap-10 md:flex-row">
+                  <div className="flex items-center justify-center">
+                    <div className="mr-4 flex-shrink-0 self-center">
+                      <img
+                        width={48}
+                        height={48}
+                        className="mx-auto h-12 w-12 rounded-full"
+                        src={testimonial.profileImg}
+                        alt={testimonial.name}
+                      />
+                    </div>
+
+                    <div>
+                      <h4 className="text-base font-semibold ${colors[textColorKey].name}">
+                        {testimonial.name}
+                      </h4>
+
+                      <p className="mt-1 flex items-center space-x-2 text-sm font-medium ${colors[textColorKey].metaData}">
+                        <span>{testimonial.position}</span>{' '}
+                        <svg
+                          viewBox="0 0 2 2"
+                          width={3}
+                          height={3}
+                          aria-hidden="true"
+                          className="${colors[textColorKey].circle}"
+                        >
+                          <circle cx={1} cy={1} r={1} />
+                        </svg>
+                        <span>{testimonial.company}</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="hidden h-10 rounded-full border-l md:block ${colors[textColorKey].border}" />
+
+                  <div>
+                    <img
+                      width={200}
+                      height={40}
+                      className="mx-auto h-8 w-full"
+                      src={testimonial.logoImg}
+                      alt={testimonial.company}
+                    />
+                  </div>
+                </figcaption>
+              </figure>
+            </SwiperSlide>
           ))}
-        </dl>
+        </Swiper>
       </div>
     </div>
-  );
-}
-
-function StarIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path
-        fillRule="evenodd"
-        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-        clipRule="evenodd"
-      />
-    </svg>
   );
 }`;
 
@@ -901,13 +999,13 @@ function prepForPageExport(
   });
 
   importStatements.push(
-    `import Testimonial2 from './components/Testimonial2';`,
+    `import Testimonial5 from './components/Testimonial5';`,
   );
-  componentContent.push('<Testimonial2 />');
-  return zip.file('components/Testimonial2.jsx', content);
+  componentContent.push('<Testimonial5 />');
+  return zip.file('components/Testimonial5.jsx', content);
 }
 
-Testimonial2.craft = {
+Testimonial5.craft = {
   props: {
     heading: 'Customer Testimonials',
     description:

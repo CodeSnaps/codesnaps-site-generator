@@ -23,7 +23,7 @@ import ToolbarSettingsForm from '~/app/dashboard/[organization]/sites/[id]/compo
 import { NextJsIcon, ReactIcon } from '~/core/ui/Logo/NextReactLogos';
 import JSZip from 'jszip';
 
-const testimonials = [
+const firstColumn = [
   {
     id: 1,
     name: 'Full Name',
@@ -31,7 +31,7 @@ const testimonials = [
     company: 'Company Name',
     imgSrc: 'https://dummyimage.com/100x100/d4d4d4/171717',
     content:
-      '"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis."',
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae.',
   },
   {
     id: 2,
@@ -40,25 +40,69 @@ const testimonials = [
     company: 'Company Name',
     imgSrc: 'https://dummyimage.com/100x100/d4d4d4/171717',
     content:
-      '"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis."',
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae.',
   },
+];
+
+const secondColumn = [
   {
-    id: 3,
+    id: 1,
     name: 'Full Name',
     position: 'Position',
     company: 'Company Name',
     imgSrc: 'https://dummyimage.com/100x100/d4d4d4/171717',
     content:
-      '"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis."',
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.',
+  },
+  {
+    id: 2,
+    name: 'Full Name',
+    position: 'Position',
+    company: 'Company Name',
+    imgSrc: 'https://dummyimage.com/100x100/d4d4d4/171717',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.',
   },
 ];
 
+const thirdColumn = [
+  {
+    id: 1,
+    name: 'Full Name',
+    position: 'Position',
+    company: 'Company Name',
+    imgSrc: 'https://dummyimage.com/100x100/d4d4d4/171717',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae.',
+  },
+  {
+    id: 2,
+    name: 'Full Name',
+    position: 'Position',
+    company: 'Company Name',
+    imgSrc: 'https://dummyimage.com/100x100/d4d4d4/171717',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae.',
+  },
+];
+
+type TestimonialContent = {
+  id: number;
+  name: string;
+  position: string;
+  company: string;
+  imgSrc: string;
+  content: string;
+};
+
 type SerializedNodeWithId = SerializedNode & { id: string };
 
-export const Testimonial2 = ({
+export const Testimonial4 = ({
   heading = '',
   description = '',
-  testimonials = [],
+  firstColumn = [],
+  secondColumn = [],
+  thirdColumn = [],
   paddingArray = ['px-4', 'sm:px-6', 'lg:px-8'],
   marginArray = ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
   maxWidth = 'max-w-4xl',
@@ -68,14 +112,9 @@ export const Testimonial2 = ({
 }: {
   heading?: string;
   description?: string;
-  testimonials?: {
-    id: number;
-    name: string;
-    position: string;
-    company: string;
-    imgSrc: string;
-    content: string;
-  }[];
+  firstColumn?: TestimonialContent[];
+  secondColumn?: TestimonialContent[];
+  thirdColumn?: TestimonialContent[];
   paddingArray?: string[];
   marginArray?: string[];
   maxWidth?: string;
@@ -100,7 +139,7 @@ export const Testimonial2 = ({
       paddingArray={paddingArray}
       marginArray={marginArray}
     >
-      <div className="mx-auto max-w-4xl text-center">
+      <div className="flex flex-col space-y-4 text-center">
         <ContentEditable
           html={heading}
           onChange={(e) =>
@@ -135,9 +174,9 @@ export const Testimonial2 = ({
         />
       </div>
 
-      <div className="mx-auto mt-10 max-w-md sm:mt-14 md:max-w-2xl lg:mt-20 lg:max-w-none">
-        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
-          {testimonials.map((testimonial) => (
+      <div className="mt-16 grid gap-4 sm:mt-20 md:grid-cols-3 lg:mt-24">
+        <div className="flex flex-col gap-4">
+          {firstColumn.map((testimonial) => (
             <figure
               key={testimonial.id}
               className={clsx(
@@ -252,7 +291,243 @@ export const Testimonial2 = ({
               </figcaption>
             </figure>
           ))}
-        </dl>
+        </div>
+
+        <div className="flex flex-col gap-4">
+          {secondColumn.map((testimonial) => (
+            <figure
+              key={testimonial.id}
+              className={clsx(
+                'flex flex-col rounded-xl border px-4 py-8 shadow-md lg:px-6 lg:py-10',
+                colors[colorKey].border,
+              )}
+            >
+              <div className="x-space-4 flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    className={clsx('h-5 w-5', colors[colorKey].icon)}
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <blockquote
+                className={clsx(
+                  'mt-4 text-base font-semibold leading-relaxed',
+                  colors[textColorKey].testimonial,
+                )}
+              >
+                <ContentEditable
+                  html={testimonial.content}
+                  onChange={(e) =>
+                    setProp(
+                      (props: any) =>
+                        (props.testimonials[testimonial.id - 1].content =
+                          e.target.value),
+                    )
+                  }
+                  tagName="p"
+                  disabled={query.getOptions().enabled ? false : true}
+                  className="outline-none focus:outline-offset-4 focus:outline-primary"
+                />
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center">
+                <div className="mr-4 flex-shrink-0 self-center">
+                  <Image
+                    priority
+                    width={48}
+                    height={48}
+                    className="mx-auto h-12 w-12 rounded-full"
+                    src={testimonial.imgSrc}
+                    alt={testimonial.name}
+                  />
+                </div>
+                <div>
+                  <ContentEditable
+                    html={testimonial.name}
+                    onChange={(e) =>
+                      setProp(
+                        (props: any) =>
+                          (props.testimonials[testimonial.id - 1].name =
+                            e.target.value),
+                      )
+                    }
+                    tagName="h4"
+                    disabled={query.getOptions().enabled ? false : true}
+                    className={clsx(
+                      'text-base font-semibold',
+                      colors[textColorKey].name,
+                      'outline-none focus:outline-offset-4 focus:outline-primary',
+                    )}
+                  />
+
+                  <p
+                    className={clsx(
+                      'mt-1 flex items-center space-x-2 text-sm font-medium',
+                      colors[textColorKey].metaData,
+                    )}
+                  >
+                    <ContentEditable
+                      html={testimonial.position}
+                      onChange={(e) =>
+                        setProp(
+                          (props: any) =>
+                            (props.testimonials[testimonial.id - 1].position =
+                              e.target.value),
+                        )
+                      }
+                      tagName="span"
+                      disabled={query.getOptions().enabled ? false : true}
+                      className="outline-none focus:outline-offset-4 focus:outline-primary"
+                    />{' '}
+                    <svg
+                      viewBox="0 0 2 2"
+                      width={3}
+                      height={3}
+                      aria-hidden="true"
+                      className={colors[textColorKey].circle}
+                    >
+                      <circle cx={1} cy={1} r={1} />
+                    </svg>
+                    <ContentEditable
+                      html={testimonial.company}
+                      onChange={(e) =>
+                        setProp(
+                          (props: any) =>
+                            (props.testimonials[testimonial.id - 1].company =
+                              e.target.value),
+                        )
+                      }
+                      tagName="span"
+                      disabled={query.getOptions().enabled ? false : true}
+                      className="outline-none focus:outline-offset-4 focus:outline-primary"
+                    />
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div className="flex flex-col gap-4">
+          {thirdColumn.map((testimonial) => (
+            <figure
+              key={testimonial.id}
+              className={clsx(
+                'flex flex-col rounded-xl border px-4 py-8 shadow-md lg:px-6 lg:py-10',
+                colors[colorKey].border,
+              )}
+            >
+              <div className="x-space-4 flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    className={clsx('h-5 w-5', colors[colorKey].icon)}
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <blockquote
+                className={clsx(
+                  'mt-4 text-base font-semibold leading-relaxed',
+                  colors[textColorKey].testimonial,
+                )}
+              >
+                <ContentEditable
+                  html={testimonial.content}
+                  onChange={(e) =>
+                    setProp(
+                      (props: any) =>
+                        (props.testimonials[testimonial.id - 1].content =
+                          e.target.value),
+                    )
+                  }
+                  tagName="p"
+                  disabled={query.getOptions().enabled ? false : true}
+                  className="outline-none focus:outline-offset-4 focus:outline-primary"
+                />
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center">
+                <div className="mr-4 flex-shrink-0 self-center">
+                  <Image
+                    priority
+                    width={48}
+                    height={48}
+                    className="mx-auto h-12 w-12 rounded-full"
+                    src={testimonial.imgSrc}
+                    alt={testimonial.name}
+                  />
+                </div>
+                <div>
+                  <ContentEditable
+                    html={testimonial.name}
+                    onChange={(e) =>
+                      setProp(
+                        (props: any) =>
+                          (props.testimonials[testimonial.id - 1].name =
+                            e.target.value),
+                      )
+                    }
+                    tagName="h4"
+                    disabled={query.getOptions().enabled ? false : true}
+                    className={clsx(
+                      'text-base font-semibold',
+                      colors[textColorKey].name,
+                      'outline-none focus:outline-offset-4 focus:outline-primary',
+                    )}
+                  />
+
+                  <p
+                    className={clsx(
+                      'mt-1 flex items-center space-x-2 text-sm font-medium',
+                      colors[textColorKey].metaData,
+                    )}
+                  >
+                    <ContentEditable
+                      html={testimonial.position}
+                      onChange={(e) =>
+                        setProp(
+                          (props: any) =>
+                            (props.testimonials[testimonial.id - 1].position =
+                              e.target.value),
+                        )
+                      }
+                      tagName="span"
+                      disabled={query.getOptions().enabled ? false : true}
+                      className="outline-none focus:outline-offset-4 focus:outline-primary"
+                    />{' '}
+                    <svg
+                      viewBox="0 0 2 2"
+                      width={3}
+                      height={3}
+                      aria-hidden="true"
+                      className={colors[textColorKey].circle}
+                    >
+                      <circle cx={1} cy={1} r={1} />
+                    </svg>
+                    <ContentEditable
+                      html={testimonial.company}
+                      onChange={(e) =>
+                        setProp(
+                          (props: any) =>
+                            (props.testimonials[testimonial.id - 1].company =
+                              e.target.value),
+                        )
+                      }
+                      tagName="span"
+                      disabled={query.getOptions().enabled ? false : true}
+                      className="outline-none focus:outline-offset-4 focus:outline-primary"
+                    />
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </div>
     </PaddingMarginWrapper>
   );
@@ -274,10 +549,10 @@ function SidebarDraggableItem({ hasActiveSub }: { hasActiveSub: boolean }) {
   return (
     <SidebarItem
       hasActiveSub={hasActiveSub}
-      isFreeComponent={true}
-      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/testimonial_2-1699475129787.webp"
-      name="Testimonial 2"
-      Component={Testimonial2}
+      isFreeComponent={false}
+      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/testimonial_4-1700175511485.webp"
+      name="Testimonial 4"
+      Component={Testimonial4}
     />
   );
 }
@@ -286,7 +561,9 @@ function ToolbarSettings() {
   const {
     heading,
     description,
-    testimonials,
+    firstColumn,
+    secondColumn,
+    thirdColumn,
     maxWidth,
     marginArray,
     paddingArray,
@@ -296,7 +573,9 @@ function ToolbarSettings() {
   } = useNode((node) => ({
     heading: node.data.props.heading,
     description: node.data.props.description,
-    testimonials: node.data.props.testimonials,
+    firstColumn: node.data.props.firstColumn,
+    secondColumn: node.data.props.secondColumn,
+    thirdColumn: node.data.props.thirdColumn,
     maxWidth: node.data.props.maxWidth,
     marginArray: node.data.props.marginArray,
     paddingArray: node.data.props.paddingArray,
@@ -323,7 +602,9 @@ function ToolbarSettings() {
                   isNextjs: true,
                   heading,
                   description,
-                  testimonials,
+                  firstColumn,
+                  secondColumn,
+                  thirdColumn,
                   paddingArray,
                   marginArray,
                   maxWidth,
@@ -349,7 +630,9 @@ function ToolbarSettings() {
                   isNextjs: false,
                   heading,
                   description,
-                  testimonials,
+                  firstColumn,
+                  secondColumn,
+                  thirdColumn,
                   paddingArray,
                   marginArray,
                   maxWidth,
@@ -613,7 +896,9 @@ function generateComponentString({
   isNextjs,
   heading,
   description,
-  testimonials,
+  firstColumn,
+  secondColumn,
+  thirdColumn,
   paddingArray,
   marginArray,
   maxWidth,
@@ -623,14 +908,9 @@ function generateComponentString({
   isNextjs: boolean;
   heading: string;
   description: string;
-  testimonials: {
-    id: number;
-    name: string;
-    position: string;
-    company: string;
-    imgSrc: string;
-    content: string;
-  }[];
+  firstColumn: TestimonialContent[];
+  secondColumn: TestimonialContent[];
+  thirdColumn: TestimonialContent[];
   paddingArray: string[];
   marginArray: string[];
   maxWidth: string;
@@ -644,7 +924,7 @@ function generateComponentString({
     return input.replace(/<[^>]*>/g, '');
   }
 
-  const mappedTestimonials = testimonials.map(
+  const mappedFirstColumn = firstColumn.map(
     (testimonial) => `
   {
     id: ${testimonial.id},
@@ -656,7 +936,33 @@ function generateComponentString({
   }`,
   );
 
-  const teamString = `[${mappedTestimonials.join(',\n')}]`;
+  const mappedSecondColumn = secondColumn.map(
+    (testimonial) => `
+  {
+    id: ${testimonial.id},
+    name: '${removeHtmlTags(testimonial.name)}',
+    position: '${removeHtmlTags(testimonial.position)}',
+    company: '${removeHtmlTags(testimonial.company)}',
+    imgSrc: '${testimonial.imgSrc}',
+    content: '${removeHtmlTags(testimonial.content)}',
+  }`,
+  );
+
+  const mappedThirdColumn = thirdColumn.map(
+    (testimonial) => `
+  {
+    id: ${testimonial.id},
+    name: '${removeHtmlTags(testimonial.name)}',
+    position: '${removeHtmlTags(testimonial.position)}',
+    company: '${removeHtmlTags(testimonial.company)}',
+    imgSrc: '${testimonial.imgSrc}',
+    content: '${removeHtmlTags(testimonial.content)}',
+  }`,
+  );
+
+  const firstColumnString = `[${mappedFirstColumn.join(',\n')}]`;
+  const secondColumnString = `[${mappedSecondColumn.join(',\n')}]`;
+  const thirdColumnString = `[${mappedThirdColumn.join(',\n')}]`;
 
   let content: string;
 
@@ -681,7 +987,9 @@ const nextConfig = {
 
 import Image from 'next/image';
 
-const testimonials = ${teamString};
+const firstColumn = ${firstColumnString};
+const secondColumn = ${secondColumnString};
+const thirdColumn = ${thirdColumnString};
 
 export default function Testimonial() {
   return (
@@ -690,7 +998,7 @@ export default function Testimonial() {
       marginArray.join(' '),
       paddingArray.join(' '),
     )}">
-       <div className="mx-auto max-w-4xl text-center">
+      <div className="mx-auto max-w-4xl text-center">
         <h2 className="text-4xl font-semibold leading-tight tracking-wide xl:text-5xl ${colors[textColorKey].heading}">
           ${removeHtmlTags(heading)}
         </h2>
@@ -700,9 +1008,9 @@ export default function Testimonial() {
         </p>
       </div>
 
-      <div className="mx-auto mt-10 max-w-md sm:mt-14 md:max-w-2xl lg:mt-20 lg:max-w-none">
-        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
-          {testimonials.map((testimonial) => (
+      <div className="mt-16 grid gap-4 sm:mt-20 md:grid-cols-3 lg:mt-24">
+        <div className="flex flex-col gap-4">
+          {firstColumn.map((testimonial) => (
             <figure
               key={testimonial.id}
               className="flex flex-col rounded-xl border px-4 py-8 shadow-md lg:px-6 lg:py-10 ${colors[colorKey].border}"
@@ -752,7 +1060,113 @@ export default function Testimonial() {
               </figcaption>
             </figure>
           ))}
-        </dl>
+        </div>
+
+        <div className="flex flex-col gap-4">
+          {secondColumn.map((testimonial) => (
+            <figure
+              key={testimonial.id}
+              className="flex flex-col rounded-xl border px-4 py-8 shadow-md lg:px-6 lg:py-10 ${colors[colorKey].border}"
+            >
+              <div className="x-space-4 flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    className="h-5 w-5 ${colors[colorKey].icon}"
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <blockquote className="mt-4 text-base font-semibold leading-relaxed ${colors[textColorKey].testimonial}">
+                <p>“{testimonial.content}”</p>
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center">
+                <div className="mr-4 flex-shrink-0 self-center">
+                  <Image
+                    width={48}
+                    height={48}
+                    className="mx-auto h-12 w-12 rounded-full"
+                    src={testimonial.imgSrc}
+                    alt={testimonial.name}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold ${colors[textColorKey].name}">
+                    {testimonial.name}
+                  </h4>
+                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium ${colors[textColorKey].metaData}">
+                    <span>{testimonial.position}</span>{' '}
+                    <svg
+                      viewBox="0 0 2 2"
+                      width={3}
+                      height={3}
+                      aria-hidden="true"
+                      className="${colors[textColorKey].circle}"
+                    >
+                      <circle cx={1} cy={1} r={1} />
+                    </svg>
+                    <span>{testimonial.company}</span>
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div className="flex flex-col gap-4">
+          {thirdColumn.map((testimonial) => (
+            <figure
+              key={testimonial.id}
+              className="flex flex-col rounded-xl border px-4 py-8 shadow-md lg:px-6 lg:py-10 ${colors[colorKey].border}"
+            >
+              <div className="x-space-4 flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    className="h-5 w-5 ${colors[colorKey].icon}"
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <blockquote className="mt-4 text-base font-semibold leading-relaxed ${colors[textColorKey].testimonial}">
+                <p>{testimonial.content}</p>
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center">
+                <div className="mr-4 flex-shrink-0 self-center">
+                  <Image
+                    width={48}
+                    height={48}
+                    className="mx-auto h-12 w-12 rounded-full"
+                    src={testimonial.imgSrc}
+                    alt={testimonial.name}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold ${colors[textColorKey].name}">
+                    {testimonial.name}
+                  </h4>
+                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium ${colors[textColorKey].metaData}">
+                    <span>{testimonial.position}</span>{' '}
+                    <svg
+                      viewBox="0 0 2 2"
+                      width={3}
+                      height={3}
+                      aria-hidden="true"
+                      className="${colors[textColorKey].circle}"
+                    >
+                      <circle cx={1} cy={1} r={1} />
+                    </svg>
+                    <span>{testimonial.company}</span>
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -772,7 +1186,9 @@ function StarIcon(props) {
 
   const reactContent = `import React from 'react';
 
-const testimonials = ${teamString};
+const firstColumn = ${firstColumnString};
+const secondColumn = ${secondColumnString};
+const thirdColumn = ${thirdColumnString};
 
 export default function Testimonial() {
   return (
@@ -781,7 +1197,7 @@ export default function Testimonial() {
       marginArray.join(' '),
       paddingArray.join(' '),
     )}">
-       <div className="mx-auto max-w-4xl text-center">
+      <div className="mx-auto max-w-4xl text-center">
         <h2 className="text-4xl font-semibold leading-tight tracking-wide xl:text-5xl ${colors[textColorKey].heading}">
           ${removeHtmlTags(heading)}
         </h2>
@@ -791,9 +1207,9 @@ export default function Testimonial() {
         </p>
       </div>
 
-      <div className="mx-auto mt-10 max-w-md sm:mt-14 md:max-w-2xl lg:mt-20 lg:max-w-none">
-        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
-          {testimonials.map((testimonial) => (
+      <div className="mt-16 grid gap-4 sm:mt-20 md:grid-cols-3 lg:mt-24">
+        <div className="flex flex-col gap-4">
+          {firstColumn.map((testimonial) => (
             <figure
               key={testimonial.id}
               className="flex flex-col rounded-xl border px-4 py-8 shadow-md lg:px-6 lg:py-10 ${colors[colorKey].border}"
@@ -809,7 +1225,7 @@ export default function Testimonial() {
               </div>
 
               <blockquote className="mt-4 text-base font-semibold leading-relaxed ${colors[textColorKey].testimonial}">
-                <p>{testimonial.content}</p>
+                <p>“{testimonial.content}”</p>
               </blockquote>
 
               <figcaption className="mt-6 flex items-center">
@@ -843,7 +1259,113 @@ export default function Testimonial() {
               </figcaption>
             </figure>
           ))}
-        </dl>
+        </div>
+
+        <div className="flex flex-col gap-4">
+          {secondColumn.map((testimonial) => (
+            <figure
+              key={testimonial.id}
+              className="flex flex-col rounded-xl border px-4 py-8 shadow-md lg:px-6 lg:py-10 ${colors[colorKey].border}"
+            >
+              <div className="x-space-4 flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    className="h-5 w-5 ${colors[colorKey].icon}"
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <blockquote className="mt-4 text-base font-semibold leading-relaxed ${colors[textColorKey].testimonial}">
+                <p>“{testimonial.content}”</p>
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center">
+                <div className="mr-4 flex-shrink-0 self-center">
+                  <img
+                    width={48}
+                    height={48}
+                    className="mx-auto h-12 w-12 rounded-full"
+                    src={testimonial.imgSrc}
+                    alt={testimonial.name}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold ${colors[textColorKey].name}">
+                    {testimonial.name}
+                  </h4>
+                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium ${colors[textColorKey].metaData}">
+                    <span>{testimonial.position}</span>{' '}
+                    <svg
+                      viewBox="0 0 2 2"
+                      width={3}
+                      height={3}
+                      aria-hidden="true"
+                      className="${colors[textColorKey].circle}"
+                    >
+                      <circle cx={1} cy={1} r={1} />
+                    </svg>
+                    <span>{testimonial.company}</span>
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div className="flex flex-col gap-4">
+          {thirdColumn.map((testimonial) => (
+            <figure
+              key={testimonial.id}
+              className="flex flex-col rounded-xl border px-4 py-8 shadow-md lg:px-6 lg:py-10 ${colors[colorKey].border}"
+            >
+              <div className="x-space-4 flex">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    className="h-5 w-5 ${colors[colorKey].icon}"
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+
+              <blockquote className="mt-4 text-base font-semibold leading-relaxed ${colors[textColorKey].testimonial}">
+                <p>“{testimonial.content}”</p>
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center">
+                <div className="mr-4 flex-shrink-0 self-center">
+                  <img
+                    width={48}
+                    height={48}
+                    className="mx-auto h-12 w-12 rounded-full"
+                    src={testimonial.imgSrc}
+                    alt={testimonial.name}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold ${colors[textColorKey].name}">
+                    {testimonial.name}
+                  </h4>
+                  <p className="mt-1 flex items-center space-x-2 text-sm font-medium ${colors[textColorKey].metaData}">
+                    <span>{testimonial.position}</span>{' '}
+                    <svg
+                      viewBox="0 0 2 2"
+                      width={3}
+                      height={3}
+                      aria-hidden="true"
+                      className="${colors[textColorKey].circle}"
+                    >
+                      <circle cx={1} cy={1} r={1} />
+                    </svg>
+                    <span>{testimonial.company}</span>
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -880,7 +1402,9 @@ function prepForPageExport(
   const {
     heading,
     description,
-    testimonials,
+    firstColumn,
+    secondColumn,
+    thirdColumn,
     paddingArray,
     marginArray,
     maxWidth,
@@ -892,7 +1416,9 @@ function prepForPageExport(
     isNextjs,
     heading,
     description,
-    testimonials,
+    firstColumn,
+    secondColumn,
+    thirdColumn,
     paddingArray,
     marginArray,
     maxWidth,
@@ -901,18 +1427,20 @@ function prepForPageExport(
   });
 
   importStatements.push(
-    `import Testimonial2 from './components/Testimonial2';`,
+    `import Testimonial4 from './components/Testimonial4';`,
   );
-  componentContent.push('<Testimonial2 />');
-  return zip.file('components/Testimonial2.jsx', content);
+  componentContent.push('<Testimonial4 />');
+  return zip.file('components/Testimonial4.jsx', content);
 }
 
-Testimonial2.craft = {
+Testimonial4.craft = {
   props: {
     heading: 'Customer Testimonials',
     description:
       'Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.',
-    testimonials: testimonials,
+    firstColumn: firstColumn,
+    secondColumn: secondColumn,
+    thirdColumn: thirdColumn,
     paddingArray: ['px-4', 'sm:px-6', 'lg:px-8'],
     marginArray: ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
     maxWidth: 'max-w-7xl',

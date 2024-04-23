@@ -62,17 +62,43 @@ import { Footer5 } from '~/app/dashboard/[organization]/sites/[id]/components/se
 // GALERY COMPONENTS
 import { Gallery1 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/gallery/Gallery1';
 import { Gallery2 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/gallery/Gallery2';
+import { Gallery3 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/gallery/Gallery3';
+import { Gallery4 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/gallery/Gallery4';
+import { Gallery5 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/gallery/Gallery5';
+import { Gallery6 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/gallery/Gallery6';
 
 // HEADER COMPONENTS
 import { Header1 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/header/Header1';
 import { Header2 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/header/Header2';
+import { Header3 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/header/Header3';
+import { Header4 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/header/Header4';
+import { Header5 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/header/Header5';
+import { Header6 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/header/Header6';
+import { Header7 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/header/Header7';
 
 // HERO COMPONENTS
 import { Hero1 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/hero/Hero1';
 import { Hero2 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/hero/Hero2';
+import { Hero3 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/hero/Hero3';
+import { Hero4 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/hero/Hero4';
+import { Hero5 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/hero/Hero5';
+import { Hero6 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/hero/Hero6';
+import { Hero7 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/hero/Hero7';
+import { Hero8 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/hero/Hero8';
+import { Hero9 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/hero/Hero9';
+import { Hero10 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/hero/Hero10';
+import { Hero11 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/hero/Hero11';
+import { Hero12 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/hero/Hero12';
+import { Hero13 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/hero/Hero13';
+import { Hero14 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/hero/Hero14';
 
 // LOGO COMPONENTS
 import { Logo1 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/logo/Logo1';
+import { Logo2 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/logo/Logo2';
+import { Logo3 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/logo/Logo3';
+import { Logo4 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/logo/Logo4';
+import { Logo5 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/logo/Logo5';
+import { Logo6 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/logo/Logo6';
 
 // NAVBAR COMPONENTS
 import { Navbar1 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/navbar/Navbar1';
@@ -85,10 +111,18 @@ import { Pricing1 } from '~/app/dashboard/[organization]/sites/[id]/components/s
 // TEAM COMPONENTS
 import { Team1 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/team/Team1';
 import { Team2 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/team/Team2';
+import { Team3 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/team/Team3';
+import { Team4 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/team/Team4';
+import { Team5 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/team/Team5';
+import { Team6 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/team/Team6';
 
 // TESTIMONIAL COMPONENTS
 import { Testimonial1 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/testimonial/Testimonial1';
 import { Testimonial2 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/testimonial/Testimonial2';
+import { Testimonial3 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/testimonial/Testimonial3';
+import { Testimonial4 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/testimonial/Testimonial4';
+import { Testimonial5 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/testimonial/Testimonial5';
+import { Testimonial6 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/testimonial/Testimonial6';
 
 const blogs = {
   Blog1,
@@ -160,20 +194,46 @@ const footers = {
 const galleries = {
   Gallery1,
   Gallery2,
+  Gallery3,
+  Gallery4,
+  Gallery5,
+  Gallery6,
 };
 
 const headers = {
   Header1,
   Header2,
+  Header3,
+  Header4,
+  Header5,
+  Header6,
+  Header7,
 };
 
 const heros = {
   Hero1,
   Hero2,
+  Hero3,
+  Hero4,
+  Hero5,
+  Hero6,
+  Hero7,
+  Hero8,
+  Hero9,
+  Hero10,
+  Hero11,
+  Hero12,
+  Hero13,
+  Hero14,
 };
 
 const logos = {
   Logo1,
+  Logo2,
+  Logo3,
+  Logo4,
+  Logo5,
+  Logo6,
 };
 
 const navbars = {
@@ -189,11 +249,19 @@ const pricings = {
 const teams = {
   Team1,
   Team2,
+  Team3,
+  Team4,
+  Team5,
+  Team6,
 };
 
 const testimonials = {
   Testimonial1,
   Testimonial2,
+  Testimonial3,
+  Testimonial4,
+  Testimonial5,
+  Testimonial6,
 };
 
 export const modules = {

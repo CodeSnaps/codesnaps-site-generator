@@ -2,6 +2,7 @@
 
 import _ from 'lodash';
 import clsx from 'clsx';
+import Image from 'next/image';
 import Trans from '~/core/ui/Trans';
 
 import { useNode, useEditor, SerializedNode } from '@craftjs/core';
@@ -24,15 +25,15 @@ import JSZip from 'jszip';
 
 type SerializedNodeWithId = SerializedNode & { id: string };
 
-export const Header2 = ({
+export const Hero11 = ({
   tagline = '',
   heading = '',
   description = '',
   primaryCta = '',
   secondaryCta = '',
-  paddingArray = ['px-4', 'sm:px-6', 'lg:px-8'],
-  marginArray = ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
-  maxWidth = 'max-w-7xl',
+  paddingArray = [''],
+  marginArray = [''],
+  maxWidth = '',
   color = 'amber',
   textColor = 'neutral',
   isBeingDragged = false,
@@ -62,108 +63,159 @@ export const Header2 = ({
   return (
     <PaddingMarginWrapper
       ref={(ref) => connect(drag(ref as HTMLElement))}
-      classes={clsx(maxWidth)}
+      classes={clsx(maxWidth, 'relative')}
       paddingArray={paddingArray}
       marginArray={marginArray}
     >
-      <div className="flex max-w-4xl flex-col space-y-7">
-        <ContentEditable
-          html={tagline}
-          onChange={(e) =>
-            setProp(
-              (props: { tagline: string }) => (props.tagline = e.target.value),
-            )
-          }
-          tagName="h3"
-          disabled={query.getOptions().enabled ? false : true}
-          className={clsx(
-            'text-lg font-medium uppercase tracking-wide',
-            'outline-none focus:outline-offset-4 focus:outline-primary',
-            colors[textColorKey].tagline,
-          )}
-        />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
+          <div className="mx-auto my-20 flex max-w-3xl flex-col gap-8 px-4 sm:my-32 sm:px-6 lg:my-40 lg:px-8">
+            <ContentEditable
+              html={tagline}
+              onChange={(e) =>
+                setProp(
+                  (props: { tagline: string }) =>
+                    (props.tagline = e.target.value),
+                )
+              }
+              tagName="h2"
+              disabled={query.getOptions().enabled ? false : true}
+              className={clsx(
+                'text-lg font-medium',
+                'outline-none focus:outline-offset-4 focus:outline-primary',
+                colors[textColorKey].tagline,
+              )}
+            />
 
-        <ContentEditable
-          html={heading}
-          onChange={(e) =>
-            setProp(
-              (props: { heading: string }) => (props.heading = e.target.value),
-            )
-          }
-          tagName="h2"
-          disabled={query.getOptions().enabled ? false : true}
-          className={clsx(
-            'text-4xl font-bold leading-tight tracking-wide xl:text-5xl',
-            'outline-none focus:outline-offset-4 focus:outline-primary',
-            colors[textColorKey].heading,
-          )}
-        />
+            <ContentEditable
+              html={heading}
+              onChange={(e) =>
+                setProp(
+                  (props: { heading: string }) =>
+                    (props.heading = e.target.value),
+                )
+              }
+              tagName="h1"
+              disabled={query.getOptions().enabled ? false : true}
+              className={clsx(
+                'text-4xl font-bold leading-tight tracking-wide xl:text-5xl',
+                'outline-none focus:outline-offset-4 focus:outline-primary',
+                colors[textColorKey].heading,
+              )}
+            />
 
-        <ContentEditable
-          html={description}
-          onChange={(e) =>
-            setProp(
-              (props: { description: string }) =>
-                (props.description = e.target.value),
-            )
-          }
-          tagName="p"
-          disabled={query.getOptions().enabled ? false : true}
-          className={clsx(
-            'text-lg',
-            'outline-none focus:outline-offset-4 focus:outline-primary',
-            colors[textColorKey].description,
-          )}
-        />
+            <ContentEditable
+              html={description}
+              onChange={(e) =>
+                setProp(
+                  (props: { description: string }) =>
+                    (props.description = e.target.value),
+                )
+              }
+              tagName="p"
+              disabled={query.getOptions().enabled ? false : true}
+              className={clsx(
+                'text-lg',
+                'outline-none focus:outline-offset-4 focus:outline-primary',
+                colors[textColorKey].description,
+              )}
+            />
 
-        <div className="flex space-x-8">
-          <ContentEditable
-            html={primaryCta}
-            onChange={(e) =>
-              setProp(
-                (props: { primaryCta: string }) =>
-                  (props.primaryCta = e.target.value),
-              )
-            }
-            tagName="a"
-            disabled={query.getOptions().enabled ? false : true}
-            className={clsx(
-              'rounded-md px-10 py-3 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
-              'outline-none focus:outline-offset-4',
-              colors[colorKey].primaryCta,
+            <div className="flex space-x-8">
+              <ContentEditable
+                html={primaryCta}
+                onChange={(e) =>
+                  setProp(
+                    (props: { primaryCta: string }) =>
+                      (props.primaryCta = e.target.value),
+                  )
+                }
+                tagName="a"
+                disabled={query.getOptions().enabled ? false : true}
+                className={clsx(
+                  'rounded-md px-10 py-3 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+                  'outline-none focus:outline-offset-4',
+                  colors[colorKey].primaryCta,
+                )}
+              />
+
+              <ContentEditable
+                html={secondaryCta}
+                onChange={(e) =>
+                  setProp(
+                    (props: { secondaryCta: string }) =>
+                      (props.secondaryCta = e.target.value),
+                  )
+                }
+                tagName="a"
+                disabled={query.getOptions().enabled ? false : true}
+                className={clsx(
+                  'rounded-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+                  'outline-none focus:outline-offset-4',
+                  colors[colorKey].secondaryCta,
+                )}
+              />
+            </div>
+          </div>
+
+          <div className="bg-neutral-100 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+            {query.getOptions().enabled ? (
+              <DiagonalShape />
+            ) : (
+              <DiagonalShapePreview />
             )}
-          />
 
-          <ContentEditable
-            html={secondaryCta}
-            onChange={(e) =>
-              setProp(
-                (props: { secondaryCta: string }) =>
-                  (props.secondaryCta = e.target.value),
-              )
-            }
-            tagName="a"
-            disabled={query.getOptions().enabled ? false : true}
-            className={clsx(
-              'rounded-md bg-transparent px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
-              'outline-none focus:outline-offset-4',
-              colors[colorKey].secondaryCta,
-            )}
-          />
+            <Image
+              priority
+              src="https://dummyimage.com/1000x1000/d4d4d4/171717"
+              alt="Image"
+              width={1000}
+              height={1000}
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
       </div>
     </PaddingMarginWrapper>
   );
 };
 
+function DiagonalShape(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      className="absolute inset-y-0 -left-10 hidden h-full w-44 transform fill-white lg:block dark:fill-black"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+      {...props}
+    >
+      <polygon points="0,0 90,0 50,100 0,100" />
+    </svg>
+  );
+}
+
+function DiagonalShapePreview(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      className="absolute inset-y-0 -left-10 hidden h-full w-44 transform fill-neutral-50 lg:block dark:fill-neutral-950"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+      {...props}
+    >
+      <polygon points="0,0 90,0 50,100 0,100" />
+    </svg>
+  );
+}
+
 function SidebarDraggableItem({ hasActiveSub }: { hasActiveSub: boolean }) {
   return (
     <SidebarItem
       hasActiveSub={hasActiveSub}
-      isFreeComponent={true}
-      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/header_2-1699474545772.webp"
-      name="Header 2"
-      Component={Header2}
+      isFreeComponent={false}
+      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/hero_11-1700433130020.webp"
+      name="Hero 11"
+      Component={Hero11}
     />
   );
 }
@@ -277,7 +329,7 @@ const colors: ColorObject = {
     primaryCta:
       'bg-slate-900 text-white hover:bg-slate-800 focus-visible:outline-slate-500 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-300 dark:focus-visible:outline-slate-400',
     secondaryCta:
-      'text-slate-900 ring-slate-500 hover:bg-slate-100 focus-visible:outline-slate-500 dark:text-slate-100 dark:ring-slate-600 dark:hover:bg-slate-800 dark:focus-visible:outline-slate-400',
+      'bg-transparent text-slate-900 ring-slate-500 hover:bg-slate-100 focus-visible:outline-slate-500 dark:text-slate-100 dark:ring-slate-600 dark:hover:bg-slate-800 dark:focus-visible:outline-slate-400',
   },
   gray: {
     tagline: 'text-gray-800 dark:text-gray-200',
@@ -286,7 +338,7 @@ const colors: ColorObject = {
     primaryCta:
       'bg-gray-900 text-white hover:bg-gray-800 focus-visible:outline-gray-500 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-300 dark:focus-visible:outline-gray-400',
     secondaryCta:
-      'text-gray-900 ring-gray-500 hover:bg-gray-100 focus-visible:outline-gray-500 dark:text-gray-100 dark:ring-gray-600 dark:hover:bg-gray-800 dark:focus-visible:outline-gray-400',
+      'bg-transparent text-gray-900 ring-gray-500 hover:bg-gray-100 focus-visible:outline-gray-500 dark:text-gray-100 dark:ring-gray-600 dark:hover:bg-gray-800 dark:focus-visible:outline-gray-400',
   },
   zinc: {
     tagline: 'text-zinc-800 dark:text-zinc-200',
@@ -295,7 +347,7 @@ const colors: ColorObject = {
     primaryCta:
       'bg-zinc-900 text-white hover:bg-zinc-800 focus-visible:outline-zinc-500 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-300 dark:focus-visible:outline-zinc-400',
     secondaryCta:
-      'text-zinc-900 ring-zinc-500 hover:bg-zinc-100 focus-visible:outline-zinc-500 dark:text-zinc-100 dark:ring-zinc-600 dark:hover:bg-zinc-800 dark:focus-visible:outline-zinc-400',
+      'bg-transparent text-zinc-900 ring-zinc-500 hover:bg-zinc-100 focus-visible:outline-zinc-500 dark:text-zinc-100 dark:ring-zinc-600 dark:hover:bg-zinc-800 dark:focus-visible:outline-zinc-400',
   },
   neutral: {
     tagline: 'text-neutral-800 dark:text-neutral-200',
@@ -304,7 +356,7 @@ const colors: ColorObject = {
     primaryCta:
       'bg-neutral-900 text-white hover:bg-neutral-800 focus-visible:outline-neutral-500 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-300 dark:focus-visible:outline-neutral-400',
     secondaryCta:
-      'text-neutral-900 ring-neutral-500 hover:bg-neutral-100 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400',
+      'bg-transparent text-neutral-900 ring-neutral-500 hover:bg-neutral-100 focus-visible:outline-neutral-500 dark:text-neutral-100 dark:ring-neutral-600 dark:hover:bg-neutral-800 dark:focus-visible:outline-neutral-400',
   },
   stone: {
     tagline: 'text-stone-800 dark:text-stone-200',
@@ -313,7 +365,7 @@ const colors: ColorObject = {
     primaryCta:
       'bg-stone-900 text-white hover:bg-stone-800 focus-visible:outline-stone-500 dark:bg-stone-50 dark:text-stone-900 dark:hover:bg-stone-300 dark:focus-visible:outline-stone-400',
     secondaryCta:
-      'text-stone-900 ring-stone-500 hover:bg-stone-100 focus-visible:outline-stone-500 dark:text-stone-100 dark:ring-stone-600 dark:hover:bg-stone-800 dark:focus-visible:outline-stone-400',
+      'bg-transparent text-stone-900 ring-stone-500 hover:bg-stone-100 focus-visible:outline-stone-500 dark:text-stone-100 dark:ring-stone-600 dark:hover:bg-stone-800 dark:focus-visible:outline-stone-400',
   },
   red: {
     tagline: 'text-red-600 dark:text-red-400/80',
@@ -504,87 +556,171 @@ function generateComponentString({
 
   let content: string;
 
-  const nextContent = `import Link from 'next/link';
+  const nextContent = `/*
+You need to configure remotePatterns in next.config.js to use dummyimage.com
+  
+// next.config.js
+const nextConfig = {
+// ... other configs
+  images: {
+    // ... other configs
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'dummyimage.com',
+      },
+    // ... other configs
+    ],
+  },
+};
+*/
 
-export default function Header() {
+import Image from 'next/image';
+import Link from 'next/link';
+
+export default function Hero() {
   return (
     <div className="${clsx(
       maxWidth,
       marginArray.join(' '),
       paddingArray.join(' '),
+      'relative',
     )}">
-       <div className="flex max-w-4xl flex-col space-y-7">
-        <h3 className="text-lg font-medium uppercase tracking-wide ${colors[textColorKey].tagline}">
-          ${removeHtmlTags(tagline)}
-        </h3>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
+          <div className="mx-auto my-20 flex max-w-3xl flex-col gap-8 px-4 sm:my-32 sm:px-6 lg:my-40 lg:px-8">
+            <h2 className="text-lg font-medium ${colors[textColorKey].tagline}">
+              ${removeHtmlTags(tagline)}
+            </h2>
 
-        <h2 className="text-4xl font-bold leading-tight tracking-wide xl:text-5xl ${colors[textColorKey].heading}">
-          ${removeHtmlTags(heading)}
-        </h2>
+            <h1 className="text-4xl font-bold leading-tight tracking-wide xl:text-5xl ${colors[textColorKey].heading}">
+              ${removeHtmlTags(heading)}
+            </h1>
 
-        <p className="text-lg ${colors[textColorKey].description}">
-          ${removeHtmlTags(description)}
-        </p>
+            <p className="text-lg ${colors[textColorKey].description}">
+              ${removeHtmlTags(description)}
+            </p>
 
-        <div className="flex space-x-8">
-          <Link
-            href="#"
-            className="rounded-md px-10 py-3 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${colors[colorKey].primaryCta}"
-          >
-            ${removeHtmlTags(primaryCta)}
-          </Link>
+            <div className="flex space-x-8">
+              <Link
+                href="#"
+                className="rounded-md px-10 py-3 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${colors[colorKey].primaryCta}"
+              >
+                ${removeHtmlTags(primaryCta)}
+              </Link>
 
-          <Link
-            href="#"
-            className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${colors[colorKey].secondaryCta}"
-          >
-            ${removeHtmlTags(secondaryCta)}
-          </Link>
+              <Link
+                href="#"
+                className="rounded-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${colors[colorKey].secondaryCta}"
+              >
+                ${removeHtmlTags(secondaryCta)}
+              </Link>
+            </div>
+          </div>
+
+          <div className="bg-neutral-100 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+            <DiagonalShape />
+
+            <Image
+              priority
+              src="https://dummyimage.com/1000x1000/d4d4d4/171717"
+              alt="Image"
+              width={1000}
+              height={1000}
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
       </div>
     </div>
+  );
+}
+
+function DiagonalShape(props) {
+  return (
+    <svg
+      className="absolute inset-y-0 -left-10 hidden h-full w-44 transform fill-white lg:block dark:fill-black"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+      {...props}
+    >
+      <polygon points="0,0 90,0 50,100 0,100" />
+    </svg>
   );
 }`;
 
   const reactContent = `import React from 'react';
 
-export default function Header() {
+export default function Hero() {
   return (
     <div className="${clsx(
       maxWidth,
       marginArray.join(' '),
       paddingArray.join(' '),
+      'relative',
     )}">
-      <div className="flex max-w-4xl flex-col space-y-7">
-        <h3 className="text-lg font-medium uppercase tracking-wide ${colors[textColorKey].tagline}">
-          ${removeHtmlTags(tagline)}
-        </h3>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
+          <div className="mx-auto my-20 flex max-w-3xl flex-col gap-8 px-4 sm:my-32 sm:px-6 lg:my-40 lg:px-8">
+            <h2 className="text-lg font-medium ${colors[textColorKey].tagline}">
+              ${removeHtmlTags(tagline)}
+            </h2>
 
-        <h2 className="text-4xl font-bold leading-tight tracking-wide xl:text-5xl ${colors[textColorKey].heading}">
-          ${removeHtmlTags(heading)}
-        </h2>
+            <h1 className="text-4xl font-bold leading-tight tracking-wide xl:text-5xl ${colors[textColorKey].heading}">
+              ${removeHtmlTags(heading)}
+            </h1>
 
-        <p className="text-lg ${colors[textColorKey].description}">
-          ${removeHtmlTags(description)}
-        </p>
+            <p className="text-lg ${colors[textColorKey].description}">
+              ${removeHtmlTags(description)}
+            </p>
 
-        <div className="flex space-x-8">
-          <a
-            href="#"
-            className="rounded-md px-10 py-3 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${colors[colorKey].primaryCta}"
-          >
-            ${removeHtmlTags(primaryCta)}
-          </a>
+            <div className="flex space-x-8">
+              <Link
+                href="#"
+                className="rounded-md px-10 py-3 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${colors[colorKey].primaryCta}"
+              >
+                ${removeHtmlTags(primaryCta)}
+              </Link>
 
-          <a
-            href="#"
-            className="rounded-md bg-transparent px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${colors[colorKey].secondaryCta}"
-          >
-            ${removeHtmlTags(secondaryCta)}
-          </a>
+              <Link
+                href="#"
+                className="rounded-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${colors[colorKey].secondaryCta}"
+              >
+                ${removeHtmlTags(secondaryCta)}
+              </Link>
+            </div>
+          </div>
+
+          <div className="bg-neutral-100 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+            <DiagonalShape />
+
+            <Image
+              priority
+              src="https://dummyimage.com/1000x1000/d4d4d4/171717"
+              alt="Image"
+              width={1000}
+              height={1000}
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
       </div>
     </div>
+  );
+}
+
+function DiagonalShape(props) {
+  return (
+    <svg
+      className="absolute inset-y-0 -left-10 hidden h-full w-44 transform fill-white lg:block dark:fill-black"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+      {...props}
+    >
+      <polygon points="0,0 90,0 50,100 0,100" />
+    </svg>
   );
 }`;
 
@@ -631,22 +767,22 @@ function prepForPageExport(
     textColor,
   });
 
-  importStatements.push(`import Header2 from './components/Header2';`);
-  componentContent.push('<Header2 />');
-  return zip.file('components/Header2.jsx', content);
+  importStatements.push(`import Hero11 from './components/Hero11';`);
+  componentContent.push('<Hero11 />');
+  return zip.file('components/Hero11.jsx', content);
 }
 
-Header2.craft = {
+Hero11.craft = {
   props: {
     tagline: 'Tagline',
-    heading: 'Short heading goes in here',
+    heading: 'Medium length section heading goes here',
     description:
       'Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.',
     primaryCta: 'Get started',
     secondaryCta: 'Learn more',
-    paddingArray: ['px-4', 'sm:px-6', 'lg:px-8'],
-    marginArray: ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
-    maxWidth: 'max-w-7xl',
+    paddingArray: [''],
+    marginArray: [''],
+    maxWidth: '',
     color: 'amber',
     textColor: 'neutral',
   },

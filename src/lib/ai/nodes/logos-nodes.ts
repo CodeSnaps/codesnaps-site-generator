@@ -14,4 +14,74 @@ export const freeLogosNodes = [
   },
 ];
 
-export const logosNodes = [...freeLogosNodes];
+export const logosNodes = [
+  ...freeLogosNodes,
+  {
+    type: { resolvedName: 'Logo2' },
+    isCanvas: false,
+    props: {
+      heading: 'Minimum 5 words',
+    },
+    displayName: 'Logo2',
+    custom: {},
+    parent: 'ROOT',
+    hidden: false,
+    nodes: [],
+    linkedNodes: {},
+  },
+  {
+    type: { resolvedName: 'Logo3' },
+    isCanvas: false,
+    props: {
+      heading: 'Minimum 5 words',
+    },
+    displayName: 'Logo3',
+    custom: {},
+    parent: 'ROOT',
+    hidden: false,
+    nodes: [],
+    linkedNodes: {},
+  },
+  {
+    type: { resolvedName: 'Logo4' },
+    isCanvas: false,
+    props: {
+      heading: 'Minimum 5 words',
+    },
+    displayName: 'Logo4',
+    custom: {},
+    parent: 'ROOT',
+    hidden: false,
+    nodes: [],
+    linkedNodes: {},
+  },
+  {
+    type: { resolvedName: 'Logo5' },
+    isCanvas: false,
+    props: {
+      heading: 'Minimum 5 words',
+      description: 'Minimum 2-3 sentences about the product or service',
+      primaryCta: '1-2 words',
+      secondaryCta: '1-2 words',
+    },
+    displayName: 'Logo5',
+    custom: {},
+    parent: 'ROOT',
+    hidden: false,
+    nodes: [],
+    linkedNodes: {},
+  },
+  {
+    type: { resolvedName: 'Logo6' },
+    isCanvas: false,
+    props: {
+      heading: 'Minimum 5 words',
+    },
+    displayName: 'Logo6',
+    custom: {},
+    parent: 'ROOT',
+    hidden: false,
+    nodes: [],
+    linkedNodes: {},
+  },
+];

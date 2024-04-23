@@ -31,62 +31,56 @@ import JSZip from 'jszip';
 const images = [
   {
     id: 1,
-    src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
+    src: 'https://dummyimage.com/1280x720/d4d4d4/171717',
     alt: 'Image',
-    width: 1000,
-    height: 1000,
+    width: 1280,
+    height: 720,
   },
   {
     id: 2,
-    src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
+    src: 'https://dummyimage.com/1280x720/fca5a5/171717',
     alt: 'Image',
-    width: 1000,
-    height: 1000,
+    width: 1280,
+    height: 720,
   },
   {
     id: 3,
-    src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
+    src: 'https://dummyimage.com/1280x720/fcd34d/171717',
     alt: 'Image',
-    width: 1000,
-    height: 1000,
+    width: 1280,
+    height: 720,
   },
   {
     id: 4,
-    src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
+    src: 'https://dummyimage.com/1280x720/bef264/171717',
     alt: 'Image',
-    width: 1000,
-    height: 1000,
+    width: 1280,
+    height: 720,
   },
   {
     id: 5,
-    src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
+    src: 'https://dummyimage.com/1280x720/7dd3fc/171717',
     alt: 'Image',
-    width: 1000,
-    height: 1000,
+    width: 1280,
+    height: 720,
   },
   {
     id: 6,
-    src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
+    src: 'https://dummyimage.com/1280x720/c4b5fd/171717',
     alt: 'Image',
-    width: 1000,
-    height: 1000,
-  },
-  {
-    id: 7,
-    src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
-    alt: 'Image',
-    width: 1000,
-    height: 1000,
+    width: 1280,
+    height: 720,
   },
 ];
 
 type SerializedNodeWithId = SerializedNode & { id: string };
 
-export const Gallery2 = ({
+export const Gallery6 = ({
   heading = '',
   description = '',
-  paddingArray = [],
-  marginArray = ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
+  images = [],
+  paddingArray = ['px-4', 'sm:px-6', 'lg:px-8'],
+  marginArray = ['mt-24', 'sm:mt-32', 'lg:mt-40'],
   maxWidth = '',
   color = 'amber',
   textColor = 'neutral',
@@ -94,6 +88,13 @@ export const Gallery2 = ({
 }: {
   heading?: string;
   description?: string;
+  images?: {
+    id: number;
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  }[];
   paddingArray?: string[];
   marginArray?: string[];
   maxWidth?: string;
@@ -118,7 +119,7 @@ export const Gallery2 = ({
       paddingArray={paddingArray}
       marginArray={marginArray}
     >
-      <div className="mx-auto flex max-w-7xl flex-col space-y-4">
+      <div className="mx-auto flex max-w-7xl flex-col space-y-2 text-center md:space-y-6">
         <ContentEditable
           html={heading}
           onChange={(e) =>
@@ -146,25 +147,17 @@ export const Gallery2 = ({
           tagName="p"
           disabled={query.getOptions().enabled ? false : true}
           className={clsx(
-            'text-lg',
+            'mx-auto max-w-lg text-base md:text-lg',
             'outline-none focus:outline-offset-4 focus:outline-primary',
             colors[textColorKey].description,
           )}
         />
       </div>
 
-      <div className="mt-16 sm:mt-20 lg:mt-24">
-        <Swiper
-          slidesPerView={'auto'}
-          centeredSlides={true}
-          spaceBetween={30}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Pagination]}
-        >
+      <div className="mx-auto mt-16 max-w-6xl sm:mt-20">
+        <Swiper pagination={true} modules={[Pagination]}>
           {images.map((image) => (
-            <SwiperSlide key={image.id} className="max-w-xl">
+            <SwiperSlide key={image.id} className="max-w-6xl">
               <Image
                 priority
                 src={image.src}
@@ -185,10 +178,10 @@ function SidebarDraggableItem({ hasActiveSub }: { hasActiveSub: boolean }) {
   return (
     <SidebarItem
       hasActiveSub={hasActiveSub}
-      isFreeComponent={true}
-      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/gallery_2-1699474163590.webp"
-      name="Gallery 2"
-      Component={Gallery2}
+      isFreeComponent={false}
+      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/gallery_6-1700070821783.webp"
+      name="Gallery 6"
+      Component={Gallery6}
     />
   );
 }
@@ -438,30 +431,22 @@ export default function Gallery() {
       marginArray.join(' '),
       paddingArray.join(' '),
     )}">
-      <div className="flex flex-col space-y-4 text-center">
+      <div className="mx-auto flex max-w-7xl flex-col space-y-2 text-center md:space-y-6">
         <h2 className="text-4xl font-bold leading-tight tracking-wide xl:text-5xl ${
           colors[textColorKey].heading
         }">
           ${removeHtmlTags(heading)}
         </h2>
 
-        <p className="text-lg ${colors[textColorKey].description}">
+        <p className="mx-auto max-w-lg text-base md:text-lg ${colors[textColorKey].description}">
           ${removeHtmlTags(description)}
         </p>
       </div>
 
-      <div className="mt-16 grid gap-4 sm:mt-20 md:grid-cols-2 lg:mt-24">
-        <Swiper
-          slidesPerView={'auto'}
-          centeredSlides={true}
-          spaceBetween={30}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Pagination]}
-        >
+      <div className="mx-auto mt-16 max-w-6xl sm:mt-20">
+        <Swiper pagination={true} modules={[Pagination]}>
           {images.map((image) => (
-            <SwiperSlide key={image.id} className="max-w-xl">
+            <SwiperSlide key={image.id} className="max-w-6xl">
               <Image
                 priority
                 src={image.src}
@@ -491,7 +476,7 @@ export default function Gallery() {
   import { Swiper, SwiperSlide } from 'swiper/react';
   import { Pagination } from 'swiper/modules';
   
-  const images = ${JSON.stringify(images)};
+  const images = ${images};
   
   export default function Gallery() {
     return (
@@ -500,41 +485,33 @@ export default function Gallery() {
         marginArray.join(' '),
         paddingArray.join(' '),
       )}">
-        <div className="flex flex-col space-y-4 text-center">
-          <h2 className="text-4xl font-bold leading-tight tracking-wide xl:text-5xl ${
-            colors[textColorKey].heading
-          }">
-            ${removeHtmlTags(heading)}
-          </h2>
-  
-          <p className="text-lg ${colors[textColorKey].description}">
-            ${removeHtmlTags(description)}
-          </p>
-        </div>
-  
-        <div className="mt-16 grid gap-4 sm:mt-20 md:grid-cols-2 lg:mt-24">
-          <Swiper
-            slidesPerView={'auto'}
-            centeredSlides={true}
-            spaceBetween={30}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[Pagination]}
-          >
-            {images.map((image) => (
-              <SwiperSlide key={image.id} className="max-w-xl">
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  width={image.width}
-                  height={image.height}
-                  className="rounded-xl object-cover"
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        <div className="mx-auto flex max-w-7xl flex-col space-y-2 text-center md:space-y-6">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide xl:text-5xl ${
+          colors[textColorKey].heading
+        }">
+          ${removeHtmlTags(heading)}
+        </h2>
+
+        <p className="mx-auto max-w-lg text-base md:text-lg ${colors[textColorKey].description}">
+          ${removeHtmlTags(description)}
+        </p>
+      </div>
+
+      <div className="mx-auto mt-16 max-w-6xl sm:mt-20">
+         <Swiper pagination={true} modules={[Pagination]}>
+           {images.map((image) => (
+             <SwiperSlide key={image.id} className="max-w-6xl">
+               <img
+                 src={image.src}
+                 alt={image.alt}
+                 width={image.width}
+                 height={image.height}
+                 className="rounded-xl object-cover"
+               />
+             </SwiperSlide>
+           ))}
+        </Swiper>
+       </div>
       </div>
     );
   }`;
@@ -576,18 +553,19 @@ function prepForPageExport(
     textColor,
   });
 
-  importStatements.push(`import Gallery2 from './components/Gallery2';`);
-  componentContent.push('<Gallery2 />');
-  return zip.file('components/Gallery2.jsx', content);
+  importStatements.push(`import Gallery6 from './components/Gallery6';`);
+  componentContent.push('<Gallery6 />');
+  return zip.file('components/Gallery6.jsx', content);
 }
 
-Gallery2.craft = {
+Gallery6.craft = {
   props: {
     heading: 'Medium length section heading goes here',
     description:
       'Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.',
-    paddingArray: [],
-    marginArray: ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
+    images: images,
+    paddingArray: ['px-4', 'sm:px-6', 'lg:px-8'],
+    marginArray: ['mt-24', 'sm:mt-32', 'lg:mt-40'],
     maxWidth: '',
     color: 'amber',
     textColor: 'neutral',

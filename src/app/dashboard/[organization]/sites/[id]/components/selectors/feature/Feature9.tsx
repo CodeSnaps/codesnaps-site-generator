@@ -2,7 +2,6 @@
 
 import _ from 'lodash';
 import clsx from 'clsx';
-import Image from 'next/image';
 import Trans from '~/core/ui/Trans';
 
 import { useNode, useEditor, SerializedNode } from '@craftjs/core';

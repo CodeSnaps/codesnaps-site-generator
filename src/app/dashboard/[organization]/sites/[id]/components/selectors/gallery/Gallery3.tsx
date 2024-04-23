@@ -8,11 +8,6 @@ import Trans from '~/core/ui/Trans';
 import { useNode, useEditor, SerializedNode } from '@craftjs/core';
 import ContentEditable from 'react-contenteditable';
 
-import 'swiper/css';
-import 'swiper/css/pagination';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-
 import { exportSingleComponent } from '~/app/dashboard/[organization]/sites/[id]/lib/export-components';
 
 import {
@@ -33,67 +28,50 @@ const images = [
     id: 1,
     src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
     alt: 'Image',
-    width: 1000,
-    height: 1000,
   },
   {
     id: 2,
     src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
     alt: 'Image',
-    width: 1000,
-    height: 1000,
   },
   {
     id: 3,
     src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
     alt: 'Image',
-    width: 1000,
-    height: 1000,
   },
   {
     id: 4,
     src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
     alt: 'Image',
-    width: 1000,
-    height: 1000,
   },
   {
     id: 5,
     src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
     alt: 'Image',
-    width: 1000,
-    height: 1000,
   },
   {
     id: 6,
     src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
     alt: 'Image',
-    width: 1000,
-    height: 1000,
-  },
-  {
-    id: 7,
-    src: 'https://dummyimage.com/1000x1000/d4d4d4/171717',
-    alt: 'Image',
-    width: 1000,
-    height: 1000,
   },
 ];
 
 type SerializedNodeWithId = SerializedNode & { id: string };
 
-export const Gallery2 = ({
+export const Gallery3 = ({
   heading = '',
   description = '',
-  paddingArray = [],
+  images = [],
+  paddingArray = ['px-4', 'sm:px-6', 'lg:px-8'],
   marginArray = ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
-  maxWidth = '',
+  maxWidth = 'max-w-7xl',
   color = 'amber',
   textColor = 'neutral',
   isBeingDragged = false,
 }: {
   heading?: string;
   description?: string;
+  images?: { id: number; src: string; alt: string }[];
   paddingArray?: string[];
   marginArray?: string[];
   maxWidth?: string;
@@ -118,7 +96,7 @@ export const Gallery2 = ({
       paddingArray={paddingArray}
       marginArray={marginArray}
     >
-      <div className="mx-auto flex max-w-7xl flex-col space-y-4">
+      <div className="flex flex-col space-y-4 text-center">
         <ContentEditable
           html={heading}
           onChange={(e) =>
@@ -153,29 +131,19 @@ export const Gallery2 = ({
         />
       </div>
 
-      <div className="mt-16 sm:mt-20 lg:mt-24">
-        <Swiper
-          slidesPerView={'auto'}
-          centeredSlides={true}
-          spaceBetween={30}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Pagination]}
-        >
-          {images.map((image) => (
-            <SwiperSlide key={image.id} className="max-w-xl">
-              <Image
-                priority
-                src={image.src}
-                alt={image.alt}
-                width={image.width}
-                height={image.height}
-                className="rounded-xl object-cover"
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+      <div className="mt-16 grid gap-6 sm:mt-20 md:grid-cols-3 lg:mt-24">
+        {images.map((image) => (
+          <div key={image.id} className="col-span-1">
+            <Image
+              priority
+              src={image.src}
+              alt={image.alt}
+              width={1000}
+              height={1000}
+              className="h-full w-full rounded-md object-cover"
+            />
+          </div>
+        ))}
       </div>
     </PaddingMarginWrapper>
   );
@@ -185,10 +153,10 @@ function SidebarDraggableItem({ hasActiveSub }: { hasActiveSub: boolean }) {
   return (
     <SidebarItem
       hasActiveSub={hasActiveSub}
-      isFreeComponent={true}
-      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/gallery_2-1699474163590.webp"
-      name="Gallery 2"
-      Component={Gallery2}
+      isFreeComponent={false}
+      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/gallery_3-1700070260616.webp"
+      name="Gallery 3"
+      Component={Gallery3}
     />
   );
 }
@@ -399,8 +367,6 @@ function generateComponentString({
   let content: string;
 
   const nextContent = `/*
-  The following package is required: npm install swiper
-
 You need to configure remotePatterns in next.config.js to use dummyimage.com
   
 // next.config.js
@@ -419,15 +385,7 @@ const nextConfig = {
 };
 */
 
-'use client';
-
-import 'swiper/css';
-import 'swiper/css/pagination';
-
 import Image from 'next/image';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
 
 const images = ${JSON.stringify(images)};
 
@@ -439,9 +397,7 @@ export default function Gallery() {
       paddingArray.join(' '),
     )}">
       <div className="flex flex-col space-y-4 text-center">
-        <h2 className="text-4xl font-bold leading-tight tracking-wide xl:text-5xl ${
-          colors[textColorKey].heading
-        }">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide xl:text-5xl ${colors[textColorKey].heading}">
           ${removeHtmlTags(heading)}
         </h2>
 
@@ -450,94 +406,61 @@ export default function Gallery() {
         </p>
       </div>
 
-      <div className="mt-16 grid gap-4 sm:mt-20 md:grid-cols-2 lg:mt-24">
-        <Swiper
-          slidesPerView={'auto'}
-          centeredSlides={true}
-          spaceBetween={30}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Pagination]}
-        >
-          {images.map((image) => (
-            <SwiperSlide key={image.id} className="max-w-xl">
-              <Image
-                priority
-                src={image.src}
-                alt={image.alt}
-                width={image.width}
-                height={image.height}
-                className="rounded-xl object-cover"
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+      <div className="mt-16 grid gap-6 sm:mt-20 md:grid-cols-3 lg:mt-24">
+        {images.map((image) => (
+          <div key={image.id} className="col-span-1">
+            <Image
+              priority
+              src={image.src}
+              alt={image.alt}
+              width={1000}
+              height={1000}
+              className="h-full w-full rounded-md object-cover"
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
 }`;
 
-  const reactContent = `
-  /*
-  The following package is required: npm install swiper
-  */
-  
-  import React from 'react';
-  
-  import 'swiper/css';
-  import 'swiper/css/pagination';
-  
-  import { Swiper, SwiperSlide } from 'swiper/react';
-  import { Pagination } from 'swiper/modules';
-  
-  const images = ${JSON.stringify(images)};
-  
-  export default function Gallery() {
-    return (
-      <div className="${clsx(
-        maxWidth,
-        marginArray.join(' '),
-        paddingArray.join(' '),
-      )}">
-        <div className="flex flex-col space-y-4 text-center">
-          <h2 className="text-4xl font-bold leading-tight tracking-wide xl:text-5xl ${
-            colors[textColorKey].heading
-          }">
-            ${removeHtmlTags(heading)}
-          </h2>
-  
-          <p className="text-lg ${colors[textColorKey].description}">
-            ${removeHtmlTags(description)}
-          </p>
-        </div>
-  
-        <div className="mt-16 grid gap-4 sm:mt-20 md:grid-cols-2 lg:mt-24">
-          <Swiper
-            slidesPerView={'auto'}
-            centeredSlides={true}
-            spaceBetween={30}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[Pagination]}
-          >
-            {images.map((image) => (
-              <SwiperSlide key={image.id} className="max-w-xl">
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  width={image.width}
-                  height={image.height}
-                  className="rounded-xl object-cover"
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+  const reactContent = `import React from 'react';
+
+const images = ${JSON.stringify(images)};
+
+export default function Gallery() {
+  return (
+    <div className="${clsx(
+      maxWidth,
+      marginArray.join(' '),
+      paddingArray.join(' '),
+    )}">
+      <div className="flex flex-col space-y-4 text-center">
+        <h2 className="text-4xl font-bold leading-tight tracking-wide xl:text-5xl ${colors[textColorKey].heading}">
+          ${removeHtmlTags(heading)}
+        </h2>
+
+        <p className="text-lg ${colors[textColorKey].description}">
+          ${removeHtmlTags(description)}
+        </p>
       </div>
-    );
-  }`;
+
+      <div className="mt-16 grid gap-6 sm:mt-20 md:grid-cols-3 lg:mt-24">
+        {images.map((image) => (
+          <div key={image.id} className="col-span-1">
+            <img
+              src={image.src}
+              alt={image.alt}
+              width={1000}
+              height={1000}
+              className="h-full w-full rounded-md object-cover"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}`;
 
   if (!isNextjs) {
     content = reactContent;
@@ -576,19 +499,20 @@ function prepForPageExport(
     textColor,
   });
 
-  importStatements.push(`import Gallery2 from './components/Gallery2';`);
-  componentContent.push('<Gallery2 />');
-  return zip.file('components/Gallery2.jsx', content);
+  importStatements.push(`import Gallery3 from './components/Gallery3';`);
+  componentContent.push('<Gallery3 />');
+  return zip.file('components/Gallery3.jsx', content);
 }
 
-Gallery2.craft = {
+Gallery3.craft = {
   props: {
     heading: 'Medium length section heading goes here',
     description:
       'Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.',
-    paddingArray: [],
+    images: images,
+    paddingArray: ['px-4', 'sm:px-6', 'lg:px-8'],
     marginArray: ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
-    maxWidth: '',
+    maxWidth: 'max-w-7xl',
     color: 'amber',
     textColor: 'neutral',
   },
