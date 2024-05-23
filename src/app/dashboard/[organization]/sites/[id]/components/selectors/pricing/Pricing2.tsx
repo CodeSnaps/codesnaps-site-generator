@@ -24,53 +24,37 @@ import JSZip from 'jszip';
 
 type SerializedNodeWithId = SerializedNode & { id: string };
 
-const tiers = [
-  {
-    name: 'Basic',
-    id: 'tier-basic',
-    href: '#',
-    price: { monthly: '$15', annually: '$144' },
-    features: [
-      '1# Feature text goes here',
-      '2# Feature text goes here',
-      '3# Feature text goes here',
-    ],
-    cta: 'Buy plan',
-  },
-  {
-    name: 'Premium',
-    id: 'tier-premium',
-    href: '#',
-    price: { monthly: '$30', annually: '$288' },
-    features: [
-      '1# Feature text goes here',
-      '2# Feature text goes here',
-      '3# Feature text goes here',
-      '4# Feature text goes here',
-    ],
-    cta: 'Buy plan',
-  },
-  {
-    name: 'Enterprise',
-    id: 'tier-enterprise',
-    href: '#',
-    price: { monthly: '$49', annually: '$500' },
-    features: [
-      '1# Feature text goes here',
-      '2# Feature text goes here',
-      '3# Feature text goes here',
-      '4# Feature text goes here',
-      '5# Feature text goes here',
-    ],
-    cta: 'Buy plan',
-  },
-];
+const tier = {
+  name: 'Premium',
+  id: 'premium',
+  href: '#',
+  price: { monthly: '$9.99', annually: '$99.99' },
+  features: [
+    '1# Feature text goes here',
+    '2# Feature text goes here',
+    '3# Feature text goes here',
+    '4# Feature text goes here',
+  ],
+  cta: 'Get Started',
+};
 
-export const Pricing1 = ({
+type Tier = {
+  name: string;
+  price: { monthly: string; annually: string };
+  features: string[];
+  cta: string;
+};
+
+export const Pricing2 = ({
   tagline = '',
   heading = '',
   description = '',
-  tiers = [],
+  tier = {
+    name: '',
+    price: { monthly: '', annually: '' },
+    features: ['', '', ''],
+    cta: '',
+  },
   paddingArray = ['px-4', 'sm:px-6', 'lg:px-8'],
   marginArray = ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
   maxWidth = 'max-w-7xl',
@@ -81,7 +65,7 @@ export const Pricing1 = ({
   tagline?: string;
   heading?: string;
   description?: string;
-  tiers?: any[];
+  tier?: Tier;
   paddingArray?: string[];
   marginArray?: string[];
   maxWidth?: string;
@@ -157,222 +141,188 @@ export const Pricing1 = ({
         />
       </div>
 
-      <div className="isolate mx-auto mt-14 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:mt-24 lg:max-w-none lg:grid-cols-3">
-        {tiers.map((tier, index) => (
-          <div
-            key={tier.id}
-            className={clsx(
-              'flex flex-col justify-between space-y-10 rounded-xl p-8 text-center ring-1 xl:p-10',
-              colors[colorKey].card,
-            )}
-          >
-            <div>
-              <ContentEditable
-                html={tiers[index].name}
-                onChange={(e) =>
-                  setProp(
-                    (props: any) => (props.tiers[index].name = e.target.value),
-                  )
-                }
-                tagName="h3"
-                disabled={query.getOptions().enabled ? false : true}
-                className={clsx(
-                  'text-lg font-semibold leading-8',
-                  'outline-none focus:outline-offset-4 focus:outline-primary',
-                  colors[textColorKey].tierName,
-                )}
-              />
-
-              <div className="mt-2 flex flex-col space-y-4">
-                <p className="flex items-baseline justify-center gap-x-1">
-                  <ContentEditable
-                    html={tiers[index].price.monthly}
-                    onChange={(e) =>
-                      setProp(
-                        (props: any) =>
-                          (props.tiers[index].price.monthly = e.target.value),
-                      )
-                    }
-                    tagName="span"
-                    disabled={query.getOptions().enabled ? false : true}
-                    className={clsx(
-                      'text-5xl font-bold tracking-tight',
-                      'outline-none focus:outline-offset-4 focus:outline-primary',
-                      colors[textColorKey].priceMonthly,
-                    )}
-                  />
-
-                  <span className={colors[textColorKey].monthly}>/month</span>
-                </p>
-
-                <p
-                  className={clsx(
-                    'text-base',
-                    colors[textColorKey].priceAnnually,
-                  )}
-                >
-                  or{' '}
-                  <ContentEditable
-                    html={tiers[index].price.annually}
-                    onChange={(e) =>
-                      setProp(
-                        (props: any) =>
-                          (props.tiers[index].price.annually = e.target.value),
-                      )
-                    }
-                    tagName="span"
-                    disabled={query.getOptions().enabled ? false : true}
-                    className="outline-none focus:outline-offset-4 focus:outline-primary"
-                  />{' '}
-                  yearly
-                </p>
-              </div>
-
-              <ul
-                role="list"
-                className={clsx(
-                  'mt-6 space-y-3 text-sm leading-6',
-                  colors[textColorKey].features,
-                )}
-              >
-                <li className="flex gap-x-3">
-                  <CheckIcon
-                    className={clsx(
-                      'h-6 w-5 flex-none',
-                      colors[colorKey].checkIcon,
-                    )}
-                    aria-hidden="true"
-                  />
-
-                  <ContentEditable
-                    html={tiers[index].features[0]}
-                    onChange={(e) =>
-                      setProp(
-                        (props: any) =>
-                          (props.tiers[index].features[0] = e.target.value),
-                      )
-                    }
-                    tagName="span"
-                    disabled={query.getOptions().enabled ? false : true}
-                    className="outline-none focus:outline-offset-4 focus:outline-primary"
-                  />
-                </li>
-
-                <li className="flex gap-x-3">
-                  <CheckIcon
-                    className={clsx(
-                      'h-6 w-5 flex-none',
-                      colors[colorKey].checkIcon,
-                    )}
-                    aria-hidden="true"
-                  />
-
-                  <ContentEditable
-                    html={tiers[index].features[1]}
-                    onChange={(e) =>
-                      setProp(
-                        (props: any) =>
-                          (props.tiers[index].features[1] = e.target.value),
-                      )
-                    }
-                    tagName="span"
-                    disabled={query.getOptions().enabled ? false : true}
-                    className="outline-none focus:outline-offset-4 focus:outline-primary"
-                  />
-                </li>
-
-                <li className="flex gap-x-3">
-                  <CheckIcon
-                    className={clsx(
-                      'h-6 w-5 flex-none',
-                      colors[colorKey].checkIcon,
-                    )}
-                    aria-hidden="true"
-                  />
-
-                  <ContentEditable
-                    html={tiers[index].features[2]}
-                    onChange={(e) =>
-                      setProp(
-                        (props: any) =>
-                          (props.tiers[index].features[2] = e.target.value),
-                      )
-                    }
-                    tagName="span"
-                    disabled={query.getOptions().enabled ? false : true}
-                    className="outline-none focus:outline-offset-4 focus:outline-primary"
-                  />
-                </li>
-
-                {tier.features[3] && (
-                  <li className="flex gap-x-3">
-                    <CheckIcon
-                      className={clsx(
-                        'h-6 w-5 flex-none',
-                        colors[colorKey].checkIcon,
-                      )}
-                      aria-hidden="true"
-                    />
-
-                    <ContentEditable
-                      html={tiers[index].features[3]}
-                      onChange={(e) =>
-                        setProp(
-                          (props: any) =>
-                            (props.tiers[index].features[3] = e.target.value),
-                        )
-                      }
-                      tagName="span"
-                      disabled={query.getOptions().enabled ? false : true}
-                      className="outline-none focus:outline-offset-4 focus:outline-primary"
-                    />
-                  </li>
-                )}
-
-                {tier.features[4] && (
-                  <li className="flex gap-x-3">
-                    <CheckIcon
-                      className={clsx(
-                        'h-6 w-5 flex-none',
-                        colors[colorKey].checkIcon,
-                      )}
-                      aria-hidden="true"
-                    />
-
-                    <ContentEditable
-                      html={tiers[index].features[4]}
-                      onChange={(e) =>
-                        setProp(
-                          (props: any) =>
-                            (props.tiers[index].features[4] = e.target.value),
-                        )
-                      }
-                      tagName="span"
-                      disabled={query.getOptions().enabled ? false : true}
-                      className="outline-none focus:outline-offset-4 focus:outline-primary"
-                    />
-                  </li>
-                )}
-              </ul>
-            </div>
-
+      <div className="mt-14 flex justify-center lg:mx-0 lg:mt-24">
+        <div
+          className={clsx(
+            'flex w-full max-w-md flex-col justify-between space-y-10 rounded-xl p-8 text-center ring-1 lg:px-10 lg:py-14',
+            colors[colorKey].card,
+          )}
+        >
+          <div>
             <ContentEditable
-              html={tier.cta}
+              html={tier.name}
               onChange={(e) =>
                 setProp(
-                  (props: any) => (props.tiers[index].cta = e.target.value),
+                  (props: { tier: Tier }) => (props.tier.name = e.target.value),
                 )
               }
-              tagName="a"
+              tagName="h3"
               disabled={query.getOptions().enabled ? false : true}
               className={clsx(
-                'rounded-md px-10 py-3 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+                'text-lg font-semibold leading-8',
                 'outline-none focus:outline-offset-4 focus:outline-primary',
-                colors[colorKey].cta,
+                colors[textColorKey].tierName,
               )}
             />
+
+            <div className="mt-2 flex flex-col space-y-4">
+              <p className="flex items-baseline justify-center gap-x-1">
+                <ContentEditable
+                  html={tier.price.monthly}
+                  onChange={(e) =>
+                    setProp(
+                      (props: { tier: Tier }) =>
+                        (props.tier.price.monthly = e.target.value),
+                    )
+                  }
+                  tagName="span"
+                  disabled={query.getOptions().enabled ? false : true}
+                  className={clsx(
+                    'text-5xl font-bold tracking-tight',
+                    'outline-none focus:outline-offset-4 focus:outline-primary',
+                    colors[textColorKey].priceMonthly,
+                  )}
+                />
+
+                <span className={colors[textColorKey].monthly}>/month</span>
+              </p>
+
+              <p
+                className={clsx(
+                  'text-base',
+                  colors[textColorKey].priceAnnually,
+                )}
+              >
+                or{' '}
+                <ContentEditable
+                  html={tier.price.annually}
+                  onChange={(e) =>
+                    setProp(
+                      (props: { tier: Tier }) =>
+                        (props.tier.price.annually = e.target.value),
+                    )
+                  }
+                  tagName="span"
+                  disabled={query.getOptions().enabled ? false : true}
+                  className="outline-none focus:outline-offset-4 focus:outline-primary"
+                />{' '}
+                yearly
+              </p>
+            </div>
+
+            <ul
+              role="list"
+              className={clsx(
+                'mt-6 space-y-3 text-sm leading-6',
+                colors[textColorKey].features,
+              )}
+            >
+              <li className="flex gap-x-3">
+                <CheckIcon
+                  className={clsx(
+                    'h-6 w-5 flex-none',
+                    colors[colorKey].checkIcon,
+                  )}
+                  aria-hidden="true"
+                />
+                <ContentEditable
+                  html={tier.features[0]}
+                  onChange={(e) =>
+                    setProp(
+                      (props: { tier: Tier }) =>
+                        (props.tier.features[0] = e.target.value),
+                    )
+                  }
+                  tagName="span"
+                  disabled={query.getOptions().enabled ? false : true}
+                  className="outline-none focus:outline-offset-4 focus:outline-primary"
+                />
+              </li>
+
+              <li className="flex gap-x-3">
+                <CheckIcon
+                  className={clsx(
+                    'h-6 w-5 flex-none',
+                    colors[colorKey].checkIcon,
+                  )}
+                  aria-hidden="true"
+                />
+                <ContentEditable
+                  html={tier.features[1]}
+                  onChange={(e) =>
+                    setProp(
+                      (props: { tier: Tier }) =>
+                        (props.tier.features[1] = e.target.value),
+                    )
+                  }
+                  tagName="span"
+                  disabled={query.getOptions().enabled ? false : true}
+                  className="outline-none focus:outline-offset-4 focus:outline-primary"
+                />
+              </li>
+
+              <li className="flex gap-x-3">
+                <CheckIcon
+                  className={clsx(
+                    'h-6 w-5 flex-none',
+                    colors[colorKey].checkIcon,
+                  )}
+                  aria-hidden="true"
+                />
+                <ContentEditable
+                  html={tier.features[2]}
+                  onChange={(e) =>
+                    setProp(
+                      (props: { tier: Tier }) =>
+                        (props.tier.features[2] = e.target.value),
+                    )
+                  }
+                  tagName="span"
+                  disabled={query.getOptions().enabled ? false : true}
+                  className="outline-none focus:outline-offset-4 focus:outline-primary"
+                />
+              </li>
+
+              <li className="flex gap-x-3">
+                <CheckIcon
+                  className={clsx(
+                    'h-6 w-5 flex-none',
+                    colors[colorKey].checkIcon,
+                  )}
+                  aria-hidden="true"
+                />
+                <ContentEditable
+                  html={tier.features[3]}
+                  onChange={(e) =>
+                    setProp(
+                      (props: { tier: Tier }) =>
+                        (props.tier.features[3] = e.target.value),
+                    )
+                  }
+                  tagName="span"
+                  disabled={query.getOptions().enabled ? false : true}
+                  className="outline-none focus:outline-offset-4 focus:outline-primary"
+                />
+              </li>
+            </ul>
           </div>
-        ))}
+
+          <ContentEditable
+            html={tier.cta}
+            onChange={(e) =>
+              setProp(
+                (props: { tier: Tier }) => (props.tier.cta = e.target.value),
+              )
+            }
+            tagName="a"
+            disabled={query.getOptions().enabled ? false : true}
+            className={clsx(
+              'rounded-md px-10 py-3 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+              'outline-none focus:outline-offset-4 focus:outline-primary',
+              colors[colorKey].cta,
+            )}
+          />
+        </div>
       </div>
     </PaddingMarginWrapper>
   );
@@ -401,9 +351,9 @@ function SidebarDraggableItem({ hasActiveSub }: { hasActiveSub: boolean }) {
     <SidebarItem
       hasActiveSub={hasActiveSub}
       isFreeComponent={true}
-      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/pricing_1-1699474984054.webp"
-      name="Pricing 1"
-      Component={Pricing1}
+      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/pricing_2-1699646728798.webp"
+      name="Pricing 2"
+      Component={Pricing2}
     />
   );
 }
@@ -413,7 +363,7 @@ function ToolbarSettings() {
     tagline,
     heading,
     description,
-    tiers,
+    tier,
     maxWidth,
     marginArray,
     paddingArray,
@@ -425,7 +375,7 @@ function ToolbarSettings() {
     tagline: node.data.props.tagline,
     heading: node.data.props.heading,
     description: node.data.props.description,
-    tiers: node.data.props.tiers,
+    tier: node.data.props.tier,
     maxWidth: node.data.props.maxWidth,
     marginArray: node.data.props.marginArray,
     paddingArray: node.data.props.paddingArray,
@@ -453,7 +403,7 @@ function ToolbarSettings() {
                   tagline,
                   heading,
                   description,
-                  tiers,
+                  tier,
                   maxWidth,
                   marginArray,
                   paddingArray,
@@ -476,7 +426,7 @@ function ToolbarSettings() {
                   tagline,
                   heading,
                   description,
-                  tiers,
+                  tier,
                   maxWidth,
                   marginArray,
                   paddingArray,
@@ -806,7 +756,7 @@ function generateComponentString({
   tagline,
   heading,
   description,
-  tiers,
+  tier,
   maxWidth,
   marginArray,
   paddingArray,
@@ -817,7 +767,7 @@ function generateComponentString({
   tagline: string;
   heading: string;
   description: string;
-  tiers: any[];
+  tier: Tier;
   maxWidth: string;
   marginArray: string[];
   paddingArray: string[];
@@ -830,25 +780,26 @@ function generateComponentString({
   function removeHtmlTags(input: string) {
     return input.replace(/<(?!br\s*\/?)[^>]*>/g, '');
   }
-  const mappedTiers = tiers.map(
-    (tier) => `
-  {
+
+  const mappedTier = `{
     name: '${removeHtmlTags(tier.name)}',
-    id: '${tier.id}',
+    id: 'premium',
     href: '#',
     price: { monthly: '${removeHtmlTags(tier.price.monthly)}', annually: '${removeHtmlTags(tier.price.annually)}' },
-    features: [${tier.features.map((feature: string) => `'${removeHtmlTags(feature)}'`).join(', ')}],
+    features: [
+        '${removeHtmlTags(tier.features[0])}',
+        '${removeHtmlTags(tier.features[1])}',
+        '${removeHtmlTags(tier.features[2])}',
+        '${removeHtmlTags(tier.features[3])}',
+    ],
     cta: '${removeHtmlTags(tier.cta)}',
-  }`,
-  );
-
-  const tiersString = `[${mappedTiers.join(',\n')}]`;
+},`;
 
   let content: string;
 
   const nextContent = `import Link from 'next/link';
 
-const tiers = ${tiersString};
+const tier = ${mappedTier};
 
 export default function Pricing() {
   return (
@@ -871,60 +822,55 @@ export default function Pricing() {
         </p>
       </div>
 
-      <div className="isolate mx-auto mt-14 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:mt-24 lg:max-w-none lg:grid-cols-3">
-        {tiers.map((tier) => (
-          <div
-            key={tier.id}
-            className="flex flex-col justify-between space-y-10 rounded-xl p-8 text-center ring-1 xl:p-10 ${colors[colorKey].card}"
-          >
-            <div>
-              <h3
-                id={tier.id}
-                className="text-lg font-semibold leading-8 ${colors[textColorKey].tierName}"
-              >
-                {tier.name}
-              </h3>
+      <div className="mt-14 flex justify-center lg:mx-0 lg:mt-24">
+        <div className="flex w-full max-w-md flex-col justify-between space-y-10 rounded-xl p-8 text-center ring-1 lg:px-10 lg:py-14 ${colors[colorKey].card}">
+          <div>
+            <h3
+              id={tier.id}
+              className="text-lg font-semibold leading-8 ${colors[textColorKey].tierName}"
+            >
+              {tier.name}
+            </h3>
 
-              <div className="mt-2 flex flex-col space-y-4">
-                <p className="flex items-baseline justify-center gap-x-1">
-                  <span className="text-5xl font-bold tracking-tight ${colors[textColorKey].priceMonthly}">
-                    {tier.price.monthly}
-                  </span>
-                  <span className="${colors[textColorKey].monthly}">
-                    /month
-                  </span>
-                </p>
+            <div className="mt-2 flex flex-col space-y-4">
+              <p className="flex items-baseline justify-center gap-x-1">
+                <span className="text-5xl font-bold tracking-tight ${colors[textColorKey].priceMonthly}">
+                  {tier.price.monthly}
+                </span>
+                <span className="${colors[textColorKey].monthly}">
+                  /month
+                </span>
+              </p>
 
-                <p className="text-base ${colors[textColorKey].priceAnnually}">
-                  or {tier.price.annually} yearly
-                </p>
-              </div>
-
-              <ul
-                role="list"
-                className="mt-6 space-y-3 text-sm leading-6 ${colors[textColorKey].features}"
-              >
-                {tier.features.map((feature) => (
-                  <li key={feature} className="flex gap-x-3">
-                    <CheckIcon
-                      className="h-6 w-5 flex-none ${colors[textColorKey].checkIcon}"
-                      aria-hidden="true"
-                    />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+              <p className="text-base ${colors[textColorKey].priceAnnually}">
+                or {tier.price.annually} yearly
+              </p>
             </div>
 
-            <Link
-              href={tier.href}
-              aria-describedby={tier.id}
-              className="rounded-md px-10 py-3 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${colors[colorKey].cta}"
+            <ul
+              role="list"
+              className="mt-6 space-y-3 text-sm leading-6 ${colors[textColorKey].features}"
             >
-              {tier.cta}
-            </Link>
+              {tier.features.map((feature) => (
+                <li key={feature} className="flex gap-x-3">
+                  <CheckIcon
+                    className="h-6 w-5 flex-none ${colors[textColorKey].checkIcon}"
+                    aria-hidden="true"
+                  />
+                  {feature}
+                </li>
+              ))}
+            </ul>
           </div>
-        ))}
+
+          <Link
+            href={tier.href}
+            aria-describedby={tier.id}
+            className="rounded-md px-10 py-3 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${colors[colorKey].cta}"
+          >
+            {tier.cta}
+          </Link>
+        </div>
       </div>
     </div>
   );
@@ -932,7 +878,7 @@ export default function Pricing() {
 
   const reactContent = `import React from 'react';
 
-const tiers = ${tiersString};
+const tier = ${mappedTier};
 
 export default function Pricing() {
   return (
@@ -955,60 +901,55 @@ export default function Pricing() {
         </p>
       </div>
 
-      <div className="isolate mx-auto mt-14 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:mt-24 lg:max-w-none lg:grid-cols-3">
-        {tiers.map((tier) => (
-          <div
-            key={tier.id}
-            className="flex flex-col justify-between space-y-10 rounded-xl p-8 text-center ring-1 xl:p-10 ${colors[colorKey].card}"
-          >
-            <div>
-              <h3
-                id={tier.id}
-                className="text-lg font-semibold leading-8 ${colors[textColorKey].tierName}"
-              >
-                {tier.name}
-              </h3>
+      <div className="mt-14 flex justify-center lg:mx-0 lg:mt-24">
+        <div className="flex w-full max-w-md flex-col justify-between space-y-10 rounded-xl p-8 text-center ring-1 lg:px-10 lg:py-14 ${colors[colorKey].card}">
+          <div>
+            <h3
+              id={tier.id}
+              className="text-lg font-semibold leading-8 ${colors[textColorKey].tierName}"
+            >
+              {tier.name}
+            </h3>
 
-              <div className="mt-2 flex flex-col space-y-4">
-                <p className="flex items-baseline justify-center gap-x-1">
-                  <span className="text-5xl font-bold tracking-tight ${colors[textColorKey].priceMonthly}">
-                    {tier.price.monthly}
-                  </span>
-                  <span className="${colors[textColorKey].monthly}">
-                    /month
-                  </span>
-                </p>
+            <div className="mt-2 flex flex-col space-y-4">
+              <p className="flex items-baseline justify-center gap-x-1">
+                <span className="text-5xl font-bold tracking-tight ${colors[textColorKey].priceMonthly}">
+                  {tier.price.monthly}
+                </span>
+                <span className="${colors[textColorKey].monthly}">
+                  /month
+                </span>
+              </p>
 
-                <p className="text-base ${colors[textColorKey].priceAnnually}">
-                  or {tier.price.annually} yearly
-                </p>
-              </div>
-
-              <ul
-                role="list"
-                className="mt-6 space-y-3 text-sm leading-6 ${colors[textColorKey].features}"
-              >
-                {tier.features.map((feature) => (
-                  <li key={feature} className="flex gap-x-3">
-                    <CheckIcon
-                      className="h-6 w-5 flex-none ${colors[textColorKey].checkIcon}"
-                      aria-hidden="true"
-                    />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+              <p className="text-base ${colors[textColorKey].priceAnnually}">
+                or {tier.price.annually} yearly
+              </p>
             </div>
 
-            <a
-              href={tier.href}
-              aria-describedby={tier.id}
-              className="rounded-md px-10 py-3 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${colors[colorKey].cta}"
+            <ul
+              role="list"
+              className="mt-6 space-y-3 text-sm leading-6 ${colors[textColorKey].features}"
             >
-              {tier.cta}
-            </a>
+              {tier.features.map((feature) => (
+                <li key={feature} className="flex gap-x-3">
+                  <CheckIcon
+                    className="h-6 w-5 flex-none ${colors[textColorKey].checkIcon}"
+                    aria-hidden="true"
+                  />
+                  {feature}
+                </li>
+              ))}
+            </ul>
           </div>
-        ))}
+
+          <a
+            href={tier.href}
+            aria-describedby={tier.id}
+            className="rounded-md px-10 py-3 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${colors[colorKey].cta}"
+          >
+            {tier.cta}
+          </a>
+        </div>
       </div>
     </div>
   );
@@ -1034,7 +975,7 @@ function prepForPageExport(
     tagline,
     heading,
     description,
-    tiers,
+    tier,
     paddingArray,
     marginArray,
     maxWidth,
@@ -1047,7 +988,7 @@ function prepForPageExport(
     tagline,
     heading,
     description,
-    tiers,
+    tier,
     paddingArray,
     marginArray,
     maxWidth,
@@ -1055,18 +996,18 @@ function prepForPageExport(
     textColor,
   });
 
-  importStatements.push(`import Pricing1 from './components/Pricing1';`);
-  componentContent.push('<Pricing1 />');
-  return zip.file('components/Pricing1.jsx', content);
+  importStatements.push(`import Pricing2 from './components/Pricing2';`);
+  componentContent.push('<Pricing2 />');
+  return zip.file('components/Pricing2.jsx', content);
 }
 
-Pricing1.craft = {
+Pricing2.craft = {
   props: {
     tagline: 'Tagline',
     heading: 'Short heading goes in here',
     description:
       'Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut. Non, amet, aliquet scelerisque nullam sagittis, pulvinar.',
-    tiers: tiers,
+    tier: tier,
     paddingArray: ['px-4', 'sm:px-6', 'lg:px-8'],
     marginArray: ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
     maxWidth: 'max-w-7xl',

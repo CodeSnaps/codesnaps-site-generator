@@ -16,7 +16,6 @@ import {
   AccordionTrigger,
 } from '~/core/ui/Accordion';
 import { Button } from '~/core/ui/Button';
-import { TextFieldLabel } from '~/core/ui/TextField';
 import SidebarItem from '~/app/dashboard/[organization]/sites/[id]/components/editor/SidebarItem';
 import PaddingMarginWrapper from '~/app/dashboard/[organization]/sites/[id]/components/selectors/PaddingMarginWrapper';
 import ToolbarSettingsForm from '~/app/dashboard/[organization]/sites/[id]/components/editor/toolbar/ToolbarSettingsForm';

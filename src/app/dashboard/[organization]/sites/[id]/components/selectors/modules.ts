@@ -104,9 +104,25 @@ import { Logo6 } from '~/app/dashboard/[organization]/sites/[id]/components/sele
 import { Navbar1 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/navbar/Navbar1';
 import { Navbar2 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/navbar/Navbar2';
 import { Navbar3 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/navbar/Navbar3';
+import { Navbar4 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/navbar/Navbar4';
+import { Navbar5 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/navbar/Navbar5';
+import { Navbar6 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/navbar/Navbar6';
+import { Navbar7 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/navbar/Navbar7';
+import { Navbar8 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/navbar/Navbar8';
+import { Navbar9 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/navbar/Navbar9';
+import { Navbar10 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/navbar/Navbar10';
+import { Navbar11 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/navbar/Navbar11';
 
 // PRICING COMPONENTS
 import { Pricing1 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/pricing/Pricing1';
+import { Pricing2 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/pricing/Pricing2';
+import { Pricing3 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/pricing/Pricing3';
+import { Pricing4 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/pricing/Pricing4';
+import { Pricing5 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/pricing/Pricing5';
+import { Pricing6 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/pricing/Pricing6';
+import { Pricing7 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/pricing/Pricing7';
+import { Pricing8 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/pricing/Pricing8';
+import { Pricing9 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/pricing/Pricing9';
 
 // TEAM COMPONENTS
 import { Team1 } from '~/app/dashboard/[organization]/sites/[id]/components/selectors/team/Team1';
@@ -240,10 +256,26 @@ const navbars = {
   Navbar1,
   Navbar2,
   Navbar3,
+  Navbar4,
+  Navbar5,
+  Navbar6,
+  Navbar7,
+  Navbar8,
+  Navbar9,
+  Navbar10,
+  Navbar11,
 };
 
 const pricings = {
   Pricing1,
+  Pricing2,
+  Pricing3,
+  Pricing4,
+  Pricing5,
+  Pricing6,
+  Pricing7,
+  Pricing8,
+  Pricing9,
 };
 
 const teams = {

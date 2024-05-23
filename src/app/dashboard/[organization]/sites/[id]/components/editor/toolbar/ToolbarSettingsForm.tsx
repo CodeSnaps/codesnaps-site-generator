@@ -28,6 +28,7 @@ type ToolbarSettingsFormProps = {
   hasColor?: boolean;
   hasTextColor?: boolean;
   hasMarginAndPadding?: boolean;
+  defaultValue?: string;
 };
 
 function ToolbarSettingsForm({
@@ -35,6 +36,7 @@ function ToolbarSettingsForm({
   hasColor = true,
   hasTextColor = true,
   hasMarginAndPadding = true,
+  defaultValue = '',
 }: ToolbarSettingsFormProps) {
   const { color, textColor, maxWidth, name } = useNode((node) => ({
     color: node.data.props.color,
@@ -51,6 +53,7 @@ function ToolbarSettingsForm({
         type="single"
         collapsible
         className="w-full flex flex-col gap-6"
+        defaultValue={defaultValue}
       >
         <AccordionItem value="color">
           <AccordionTrigger>

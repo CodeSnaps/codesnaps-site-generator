@@ -4,6 +4,8 @@ import _ from 'lodash';
 import clsx from 'clsx';
 import Trans from '~/core/ui/Trans';
 
+import { useState } from 'react';
+
 import { useNode, useEditor, SerializedNode } from '@craftjs/core';
 import ContentEditable from 'react-contenteditable';
 
@@ -29,7 +31,7 @@ const tiers = [
     name: 'Basic',
     id: 'tier-basic',
     href: '#',
-    price: { monthly: '$15', annually: '$144' },
+    price: { monthly: '$15', annually: '$144', discount: 'Save 15%' },
     features: [
       '1# Feature text goes here',
       '2# Feature text goes here',
@@ -41,7 +43,7 @@ const tiers = [
     name: 'Premium',
     id: 'tier-premium',
     href: '#',
-    price: { monthly: '$30', annually: '$288' },
+    price: { monthly: '$30', annually: '$288', discount: 'Save 20%' },
     features: [
       '1# Feature text goes here',
       '2# Feature text goes here',
@@ -54,7 +56,7 @@ const tiers = [
     name: 'Enterprise',
     id: 'tier-enterprise',
     href: '#',
-    price: { monthly: '$49', annually: '$500' },
+    price: { monthly: '$49', annually: '$500', discount: 'Save 30%' },
     features: [
       '1# Feature text goes here',
       '2# Feature text goes here',
@@ -66,7 +68,16 @@ const tiers = [
   },
 ];
 
-export const Pricing1 = ({
+type Tier = {
+  name: string;
+  id: string;
+  href: string;
+  price: { monthly: string; annually: string; discount: string };
+  features: string[];
+  cta: string;
+};
+
+export const Pricing5 = ({
   tagline = '',
   heading = '',
   description = '',
@@ -81,7 +92,7 @@ export const Pricing1 = ({
   tagline?: string;
   heading?: string;
   description?: string;
-  tiers?: any[];
+  tiers?: Tier[];
   paddingArray?: string[];
   marginArray?: string[];
   maxWidth?: string;
@@ -95,6 +106,8 @@ export const Pricing1 = ({
   } = useNode();
 
   const { query } = useEditor();
+
+  const [isMonthly, setIsMonthly] = useState(false);
 
   const colorKey = color as keyof typeof colors;
   const textColorKey = textColor as keyof typeof colors;
@@ -157,7 +170,28 @@ export const Pricing1 = ({
         />
       </div>
 
-      <div className="isolate mx-auto mt-14 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:mt-24 lg:max-w-none lg:grid-cols-3">
+      <div className="mt-14 flex justify-center lg:mt-24">
+        <button
+          className={clsx(
+            isMonthly ? colors[colorKey].isActive : colors[colorKey].isInactive,
+            'rounded-l-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+          )}
+          onClick={() => setIsMonthly(true)}
+        >
+          Monthly
+        </button>
+        <button
+          className={clsx(
+            isMonthly ? colors[colorKey].isInactive : colors[colorKey].isActive,
+            'rounded-r-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+          )}
+          onClick={() => setIsMonthly(false)}
+        >
+          Annual
+        </button>
+      </div>
+
+      <div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:mt-14 lg:max-w-none lg:grid-cols-3">
         {tiers.map((tier, index) => (
           <div
             key={tier.id}
@@ -185,47 +219,66 @@ export const Pricing1 = ({
 
               <div className="mt-2 flex flex-col space-y-4">
                 <p className="flex items-baseline justify-center gap-x-1">
+                  {isMonthly ? (
+                    <ContentEditable
+                      html={tier.price.monthly}
+                      onChange={(e) =>
+                        setProp(
+                          (props: { tiers: Tier[] }) =>
+                            (props.tiers[index].price.monthly = e.target.value),
+                        )
+                      }
+                      tagName="span"
+                      disabled={query.getOptions().enabled ? false : true}
+                      className={clsx(
+                        'text-5xl font-bold tracking-tight',
+                        'outline-none focus:outline-offset-4 focus:outline-primary',
+                        colors[textColorKey].priceMonthly,
+                      )}
+                    />
+                  ) : (
+                    <ContentEditable
+                      html={tier.price.annually}
+                      onChange={(e) =>
+                        setProp(
+                          (props: { tiers: Tier[] }) =>
+                            (props.tiers[index].price.annually =
+                              e.target.value),
+                        )
+                      }
+                      tagName="span"
+                      disabled={query.getOptions().enabled ? false : true}
+                      className={clsx(
+                        'text-5xl font-bold tracking-tight',
+                        'outline-none focus:outline-offset-4 focus:outline-primary',
+                        colors[textColorKey].priceMonthly,
+                      )}
+                    />
+                  )}
+
+                  <span className={colors[textColorKey].monthly}>
+                    {isMonthly ? '/month' : '/year'}
+                  </span>
+                </p>
+
+                {!isMonthly && (
                   <ContentEditable
-                    html={tiers[index].price.monthly}
+                    html={tier.price.discount}
                     onChange={(e) =>
                       setProp(
-                        (props: any) =>
-                          (props.tiers[index].price.monthly = e.target.value),
+                        (props: { tiers: Tier[] }) =>
+                          (props.tiers[index].price.discount = e.target.value),
                       )
                     }
-                    tagName="span"
+                    tagName="p"
                     disabled={query.getOptions().enabled ? false : true}
                     className={clsx(
-                      'text-5xl font-bold tracking-tight',
+                      'text-base',
                       'outline-none focus:outline-offset-4 focus:outline-primary',
-                      colors[textColorKey].priceMonthly,
+                      colors[textColorKey].priceAnnually,
                     )}
                   />
-
-                  <span className={colors[textColorKey].monthly}>/month</span>
-                </p>
-
-                <p
-                  className={clsx(
-                    'text-base',
-                    colors[textColorKey].priceAnnually,
-                  )}
-                >
-                  or{' '}
-                  <ContentEditable
-                    html={tiers[index].price.annually}
-                    onChange={(e) =>
-                      setProp(
-                        (props: any) =>
-                          (props.tiers[index].price.annually = e.target.value),
-                      )
-                    }
-                    tagName="span"
-                    disabled={query.getOptions().enabled ? false : true}
-                    className="outline-none focus:outline-offset-4 focus:outline-primary"
-                  />{' '}
-                  yearly
-                </p>
+                )}
               </div>
 
               <ul
@@ -401,9 +454,9 @@ function SidebarDraggableItem({ hasActiveSub }: { hasActiveSub: boolean }) {
     <SidebarItem
       hasActiveSub={hasActiveSub}
       isFreeComponent={true}
-      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/pricing_1-1699474984054.webp"
-      name="Pricing 1"
-      Component={Pricing1}
+      image="https://ablcaocvmgtcodafwvoe.supabase.co/storage/v1/object/public/components/pricing_5-1699794379624.webp"
+      name="Pricing 5"
+      Component={Pricing5}
     />
   );
 }
@@ -501,6 +554,8 @@ interface ColorObject {
     tagline: string;
     heading: string;
     description: string;
+    isActive: string;
+    isInactive: string;
     card: string;
     tierName: string;
     priceMonthly: string;
@@ -517,6 +572,10 @@ const colors: ColorObject = {
     tagline: 'text-slate-800 dark:text-slate-200',
     heading: 'text-slate-900 dark:text-slate-50',
     description: 'text-slate-600 dark:text-slate-400',
+    isActive:
+      'bg-slate-900 text-white ring-slate-900 hover:bg-slate-800 dark:bg-slate-50 dark:text-slate-900 dark:ring-white dark:hover:bg-slate-300',
+    isInactive:
+      'bg-transparent text-slate-900 ring-slate-200 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800 dark:hover:text-slate-50',
     card: 'bg-white ring-slate-200 dark:bg-slate-950 dark:ring-slate-800',
     tierName: 'text-slate-900 dark:text-slate-200',
     priceMonthly: 'text-slate-900 dark:text-white',
@@ -530,6 +589,10 @@ const colors: ColorObject = {
     tagline: 'text-gray-800 dark:text-gray-200',
     heading: 'text-gray-900 dark:text-gray-50',
     description: 'text-gray-600 dark:text-gray-400',
+    isActive:
+      'bg-gray-900 text-white ring-gray-900 hover:bg-gray-800 dark:bg-gray-50 dark:text-gray-900 dark:ring-white dark:hover:bg-gray-300',
+    isInactive:
+      'bg-transparent text-gray-900 ring-gray-200 hover:bg-gray-50 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-50',
     card: 'bg-white ring-gray-200 dark:bg-gray-950 dark:ring-gray-800',
     tierName: 'text-gray-900 dark:text-gray-200',
     priceMonthly: 'text-gray-900 dark:text-white',
@@ -543,6 +606,10 @@ const colors: ColorObject = {
     tagline: 'text-zinc-800 dark:text-zinc-200',
     heading: 'text-zinc-900 dark:text-zinc-50',
     description: 'text-zinc-600 dark:text-zinc-400',
+    isActive:
+      'bg-zinc-900 text-white ring-zinc-900 hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-900 dark:ring-white dark:hover:bg-zinc-300',
+    isInactive:
+      'bg-transparent text-zinc-900 ring-zinc-200 hover:bg-zinc-50 dark:text-zinc-200 dark:hover:bg-zinc-800 dark:hover:text-zinc-50',
     card: 'bg-white ring-zinc-200 dark:bg-zinc-950 dark:ring-zinc-800',
     tierName: 'text-zinc-900 dark:text-zinc-200',
     priceMonthly: 'text-zinc-900 dark:text-white',
@@ -556,6 +623,10 @@ const colors: ColorObject = {
     tagline: 'text-neutral-800 dark:text-neutral-200',
     heading: 'text-neutral-900 dark:text-neutral-50',
     description: 'text-neutral-600 dark:text-neutral-400',
+    isActive:
+      'bg-neutral-900 text-white ring-neutral-900 hover:bg-neutral-800 dark:bg-neutral-50 dark:text-neutral-900 dark:ring-white dark:hover:bg-neutral-300',
+    isInactive:
+      'bg-transparent text-neutral-900 ring-neutral-200 hover:bg-neutral-50 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-50',
     card: 'bg-white ring-neutral-200 dark:bg-neutral-950 dark:ring-neutral-800',
     tierName: 'text-neutral-900 dark:text-neutral-200',
     priceMonthly: 'text-neutral-900 dark:text-white',
@@ -569,6 +640,10 @@ const colors: ColorObject = {
     tagline: 'text-stone-800 dark:text-stone-200',
     heading: 'text-stone-900 dark:text-stone-50',
     description: 'text-stone-600 dark:text-stone-400',
+    isActive:
+      'bg-stone-900 text-white ring-stone-900 hover:bg-stone-800 dark:bg-stone-50 dark:text-stone-900 dark:ring-white dark:hover:bg-stone-300',
+    isInactive:
+      'bg-transparent text-stone-900 ring-stone-200 hover:bg-stone-50 dark:text-stone-200 dark:hover:bg-stone-800 dark:hover:text-stone-50',
     card: 'bg-white ring-stone-200 dark:bg-stone-950 dark:ring-stone-800',
     tierName: 'text-stone-900 dark:text-stone-200',
     priceMonthly: 'text-stone-900 dark:text-white',
@@ -582,6 +657,10 @@ const colors: ColorObject = {
     tagline: 'text-red-600 dark:text-red-400/80',
     heading: 'text-red-900 dark:text-red-50',
     description: 'text-red-950/70 dark:text-red-50/70',
+    isActive:
+      'bg-red-900 text-white ring-red-900 hover:bg-red-800 dark:bg-red-900/80 dark:ring-red-900 dark:hover:bg-red-900',
+    isInactive:
+      'bg-transparent text-red-900 ring-red-200 hover:bg-red-50 dark:text-red-200 dark:hover:bg-red-900/30 dark:hover:text-red-100 dark:ring-red-950',
     card: 'bg-red-50/30 ring-red-200 dark:bg-red-950/20 dark:ring-red-950',
     tierName: 'text-red-600 dark:text-red-400/80',
     priceMonthly: 'text-red-950 dark:text-white',
@@ -595,6 +674,10 @@ const colors: ColorObject = {
     tagline: 'text-orange-600 dark:text-orange-400/80',
     heading: 'text-orange-900 dark:text-orange-50',
     description: 'text-orange-950/70 dark:text-orange-50/70',
+    isActive:
+      'bg-orange-900 text-white ring-orange-900 hover:bg-orange-800 dark:bg-orange-900/80 dark:ring-orange-900 dark:hover:bg-orange-900',
+    isInactive:
+      'bg-transparent text-orange-900 ring-orange-200 hover:bg-orange-50 dark:text-orange-200 dark:hover:bg-orange-900/30 dark:hover:text-orange-100 dark:ring-orange-950',
     card: 'bg-orange-50/30 ring-orange-200 dark:bg-orange-950/20 dark:ring-orange-950',
     tierName: 'text-orange-600 dark:text-orange-400/80',
     priceMonthly: 'text-orange-950 dark:text-white',
@@ -608,6 +691,10 @@ const colors: ColorObject = {
     tagline: 'text-amber-600 dark:text-amber-400/80',
     heading: 'text-amber-900 dark:text-amber-50',
     description: 'text-amber-950/70 dark:text-amber-50/70',
+    isActive:
+      'bg-amber-900 text-white ring-amber-900 hover:bg-amber-800 dark:bg-amber-900/80 dark:ring-amber-900 dark:hover:bg-amber-900',
+    isInactive:
+      'bg-transparent text-amber-900 ring-amber-200 hover:bg-amber-50 dark:text-amber-200 dark:hover:bg-amber-900/30 dark:hover:text-amber-100 dark:ring-amber-950',
     card: 'bg-amber-50/30 ring-amber-200 dark:bg-amber-950/20 dark:ring-amber-950',
     tierName: 'text-amber-600 dark:text-amber-400/80',
     priceMonthly: 'text-amber-950 dark:text-white',
@@ -621,6 +708,10 @@ const colors: ColorObject = {
     tagline: 'text-yellow-600 dark:text-yellow-400/80',
     heading: 'text-yellow-900 dark:text-yellow-50',
     description: 'text-yellow-950/70 dark:text-yellow-50/70',
+    isActive:
+      'bg-yellow-900 text-white ring-yellow-900 hover:bg-yellow-800 dark:bg-yellow-900/80 dark:ring-yellow-900 dark:hover:bg-yellow-900',
+    isInactive:
+      'bg-transparent text-yellow-900 ring-yellow-200 hover:bg-yellow-50 dark:text-yellow-200 dark:hover:bg-yellow-900/30 dark:hover:text-yellow-100 dark:ring-yellow-950',
     card: 'bg-yellow-50/30 ring-yellow-200 dark:bg-yellow-950/20 dark:ring-yellow-950',
     tierName: 'text-yellow-600 dark:text-yellow-400/80',
     priceMonthly: 'text-yellow-950 dark:text-white',
@@ -634,6 +725,10 @@ const colors: ColorObject = {
     tagline: 'text-lime-600 dark:text-lime-400/80',
     heading: 'text-lime-900 dark:text-lime-50',
     description: 'text-lime-950/70 dark:text-lime-50/70',
+    isActive:
+      'bg-lime-900 text-white ring-lime-900 hover:bg-lime-800 dark:bg-lime-900/80 dark:ring-lime-900 dark:hover:bg-lime-900',
+    isInactive:
+      'bg-transparent text-lime-900 ring-lime-200 hover:bg-lime-50 dark:text-lime-200 dark:hover:bg-lime-900/30 dark:hover:text-lime-100 dark:ring-lime-950',
     card: 'bg-lime-50/30 ring-lime-200 dark:bg-lime-950/20 dark:ring-lime-950',
     tierName: 'text-lime-600 dark:text-lime-400/80',
     priceMonthly: 'text-lime-950 dark:text-white',
@@ -647,6 +742,10 @@ const colors: ColorObject = {
     tagline: 'text-green-600 dark:text-green-400/80',
     heading: 'text-green-900 dark:text-green-50',
     description: 'text-green-950/70 dark:text-green-50/70',
+    isActive:
+      'bg-green-900 text-white ring-green-900 hover:bg-green-800 dark:bg-green-900/80 dark:ring-green-900 dark:hover:bg-green-900',
+    isInactive:
+      'bg-transparent text-green-900 ring-green-200 hover:bg-green-50 dark:text-green-200 dark:hover:bg-green-900/30 dark:hover:text-green-100 dark:ring-green-950',
     card: 'bg-green-50/30 ring-green-200 dark:bg-green-950/20 dark:ring-green-950',
     tierName: 'text-green-600 dark:text-green-400/80',
     priceMonthly: 'text-green-950 dark:text-white',
@@ -660,6 +759,10 @@ const colors: ColorObject = {
     tagline: 'text-emerald-600 dark:text-emerald-400/80',
     heading: 'text-emerald-900 dark:text-emerald-50',
     description: 'text-emerald-950/70 dark:text-emerald-50/70',
+    isActive:
+      'bg-emerald-900 text-white ring-emerald-900 hover:bg-emerald-800 dark:bg-emerald-900/80 dark:ring-emerald-900 dark:hover:bg-emerald-900',
+    isInactive:
+      'bg-transparent text-emerald-900 ring-emerald-200 hover:bg-emerald-50 dark:text-emerald-200 dark:hover:bg-emerald-900/30 dark:hover:text-emerald-100 dark:ring-emerald-950',
     card: 'bg-emerald-50/30 ring-emerald-200 dark:bg-emerald-950/20 dark:ring-emerald-950',
     tierName: 'text-emerald-600 dark:text-emerald-400/80',
     priceMonthly: 'text-emerald-950 dark:text-white',
@@ -673,6 +776,10 @@ const colors: ColorObject = {
     tagline: 'text-teal-600 dark:text-teal-400/80',
     heading: 'text-teal-900 dark:text-teal-50',
     description: 'text-teal-950/70 dark:text-teal-50/70',
+    isActive:
+      'bg-teal-900 text-white ring-teal-900 hover:bg-teal-800 dark:bg-teal-900/80 dark:ring-teal-900 dark:hover:bg-teal-900',
+    isInactive:
+      'bg-transparent text-teal-900 ring-teal-200 hover:bg-teal-50 dark:text-teal-200 dark:hover:bg-teal-900/30 dark:hover:text-teal-100 dark:ring-teal-950',
     card: 'bg-teal-50/30 ring-teal-200 dark:bg-teal-950/20 dark:ring-teal-950',
     tierName: 'text-teal-600 dark:text-teal-400/80',
     priceMonthly: 'text-teal-950 dark:text-white',
@@ -686,6 +793,10 @@ const colors: ColorObject = {
     tagline: 'text-cyan-600 dark:text-cyan-400/80',
     heading: 'text-cyan-900 dark:text-cyan-50',
     description: 'text-cyan-950/70 dark:text-cyan-50/70',
+    isActive:
+      'bg-cyan-900 text-white ring-cyan-900 hover:bg-cyan-800 dark:bg-cyan-900/80 dark:ring-cyan-900 dark:hover:bg-cyan-900',
+    isInactive:
+      'bg-transparent text-cyan-900 ring-cyan-200 hover:bg-cyan-50 dark:text-cyan-200 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-100 dark:ring-cyan-950',
     card: 'bg-cyan-50/30 ring-cyan-200 dark:bg-cyan-950/20 dark:ring-cyan-950',
     tierName: 'text-cyan-600 dark:text-cyan-400/80',
     priceMonthly: 'text-cyan-950 dark:text-white',
@@ -699,6 +810,10 @@ const colors: ColorObject = {
     tagline: 'text-sky-600 dark:text-sky-400/80',
     heading: 'text-sky-900 dark:text-sky-50',
     description: 'text-sky-950/70 dark:text-sky-50/70',
+    isActive:
+      'bg-sky-900 text-white ring-sky-900 hover:bg-sky-800 dark:bg-sky-900/80 dark:ring-sky-900 dark:hover:bg-sky-900',
+    isInactive:
+      'bg-transparent text-sky-900 ring-sky-200 hover:bg-sky-50 dark:text-sky-200 dark:hover:bg-sky-900/30 dark:hover:text-sky-100 dark:ring-sky-950',
     card: 'bg-sky-50/30 ring-sky-200 dark:bg-sky-950/20 dark:ring-sky-950',
     tierName: 'text-sky-600 dark:text-sky-400/80',
     priceMonthly: 'text-sky-950 dark:text-white',
@@ -712,6 +827,10 @@ const colors: ColorObject = {
     tagline: 'text-blue-600 dark:text-blue-400/80',
     heading: 'text-blue-900 dark:text-blue-50',
     description: 'text-blue-950/70 dark:text-blue-50/70',
+    isActive:
+      'bg-blue-900 text-white ring-blue-900 hover:bg-blue-800 dark:bg-blue-900/80 dark:ring-blue-900 dark:hover:bg-blue-900',
+    isInactive:
+      'bg-transparent text-blue-900 ring-blue-200 hover:bg-blue-50 dark:text-blue-200 dark:hover:bg-blue-900/30 dark:hover:text-blue-100 dark:ring-blue-950',
     card: 'bg-blue-50/30 ring-blue-200 dark:bg-blue-950/20 dark:ring-blue-950',
     tierName: 'text-blue-600 dark:text-blue-400/80',
     priceMonthly: 'text-blue-950 dark:text-white',
@@ -725,6 +844,10 @@ const colors: ColorObject = {
     tagline: 'text-indigo-600 dark:text-indigo-400/80',
     heading: 'text-indigo-900 dark:text-indigo-50',
     description: 'text-indigo-950/70 dark:text-indigo-50/70',
+    isActive:
+      'bg-indigo-900 text-white ring-indigo-900 hover:bg-indigo-800 dark:bg-indigo-900/80 dark:ring-indigo-900 dark:hover:bg-indigo-900',
+    isInactive:
+      'bg-transparent text-indigo-900 ring-indigo-200 hover:bg-indigo-50 dark:text-indigo-200 dark:hover:bg-indigo-900/30 dark:hover:text-indigo-100 dark:ring-indigo-950',
     card: 'bg-indigo-50/30 ring-indigo-200 dark:bg-indigo-950/20 dark:ring-indigo-950',
     tierName: 'text-indigo-600 dark:text-indigo-400/80',
     priceMonthly: 'text-indigo-950 dark:text-white',
@@ -738,6 +861,10 @@ const colors: ColorObject = {
     tagline: 'text-violet-600 dark:text-violet-400/80',
     heading: 'text-violet-900 dark:text-violet-50',
     description: 'text-violet-950/70 dark:text-violet-50/70',
+    isActive:
+      'bg-violet-900 text-white ring-violet-900 hover:bg-violet-800 dark:bg-violet-900/80 dark:ring-violet-900 dark:hover:bg-violet-900',
+    isInactive:
+      'bg-transparent text-violet-900 ring-violet-200 hover:bg-violet-50 dark:text-violet-200 dark:hover:bg-violet-900/30 dark:hover:text-violet-100 dark:ring-violet-950',
     card: 'bg-violet-50/30 ring-violet-200 dark:bg-violet-950/20 dark:ring-violet-950',
     tierName: 'text-violet-600 dark:text-violet-400/80',
     priceMonthly: 'text-violet-950 dark:text-white',
@@ -751,6 +878,10 @@ const colors: ColorObject = {
     tagline: 'text-purple-600 dark:text-purple-400/80',
     heading: 'text-purple-900 dark:text-purple-50',
     description: 'text-purple-950/70 dark:text-purple-50/70',
+    isActive:
+      'bg-purple-900 text-white ring-purple-900 hover:bg-purple-800 dark:bg-purple-900/80 dark:ring-purple-900 dark:hover:bg-purple-900',
+    isInactive:
+      'bg-transparent text-purple-900 ring-purple-200 hover:bg-purple-50 dark:text-purple-200 dark:hover:bg-purple-900/30 dark:hover:text-purple-100 dark:ring-purple-950',
     card: 'bg-purple-50/30 ring-purple-200 dark:bg-purple-950/20 dark:ring-purple-950',
     tierName: 'text-purple-600 dark:text-purple-400/80',
     priceMonthly: 'text-purple-950 dark:text-white',
@@ -764,6 +895,10 @@ const colors: ColorObject = {
     tagline: 'text-fuchsia-600 dark:text-fuchsia-400/80',
     heading: 'text-fuchsia-900 dark:text-fuchsia-50',
     description: 'text-fuchsia-950/70 dark:text-fuchsia-50/70',
+    isActive:
+      'bg-fuchsia-900 text-white ring-fuchsia-900 hover:bg-fuchsia-800 dark:bg-fuchsia-900/80 dark:ring-fuchsia-900 dark:hover:bg-fuchsia-900',
+    isInactive:
+      'bg-transparent text-fuchsia-900 ring-fuchsia-200 hover:bg-fuchsia-50 dark:text-fuchsia-200 dark:hover:bg-fuchsia-900/30 dark:hover:text-fuchsia-100 dark:ring-fuchsia-950',
     card: 'bg-fuchsia-50/30 ring-fuchsia-200 dark:bg-fuchsia-950/20 dark:ring-fuchsia-950',
     tierName: 'text-fuchsia-600 dark:text-fuchsia-400/80',
     priceMonthly: 'text-fuchsia-950 dark:text-white',
@@ -777,6 +912,10 @@ const colors: ColorObject = {
     tagline: 'text-pink-600 dark:text-pink-400/80',
     heading: 'text-pink-900 dark:text-pink-50',
     description: 'text-pink-950/70 dark:text-pink-50/70',
+    isActive:
+      'bg-pink-900 text-white ring-pink-900 hover:bg-pink-800 dark:bg-pink-900/80 dark:ring-pink-900 dark:hover:bg-pink-900',
+    isInactive:
+      'bg-transparent text-pink-900 ring-pink-200 hover:bg-pink-50 dark:text-pink-200 dark:hover:bg-pink-900/30 dark:hover:text-pink-100 dark:ring-pink-950',
     card: 'bg-pink-50/30 ring-pink-200 dark:bg-pink-950/20 dark:ring-pink-950',
     tierName: 'text-pink-600 dark:text-pink-400/80',
     priceMonthly: 'text-pink-950 dark:text-white',
@@ -790,6 +929,10 @@ const colors: ColorObject = {
     tagline: 'text-rose-600 dark:text-rose-400/80',
     heading: 'text-rose-900 dark:text-rose-50',
     description: 'text-rose-950/70 dark:text-rose-50/70',
+    isActive:
+      'bg-rose-900 text-white ring-rose-900 hover:bg-rose-800 dark:bg-rose-900/80 dark:ring-rose-900 dark:hover:bg-rose-900',
+    isInactive:
+      'bg-transparent text-rose-900 ring-rose-200 hover:bg-rose-50 dark:text-rose-200 dark:hover:bg-rose-900/30 dark:hover:text-rose-100 dark:ring-rose-950',
     card: 'bg-rose-50/30 ring-rose-200 dark:bg-rose-950/20 dark:ring-rose-950',
     tierName: 'text-rose-600 dark:text-rose-400/80',
     priceMonthly: 'text-rose-950 dark:text-white',
@@ -817,7 +960,7 @@ function generateComponentString({
   tagline: string;
   heading: string;
   description: string;
-  tiers: any[];
+  tiers: Tier[];
   maxWidth: string;
   marginArray: string[];
   paddingArray: string[];
@@ -830,13 +973,14 @@ function generateComponentString({
   function removeHtmlTags(input: string) {
     return input.replace(/<(?!br\s*\/?)[^>]*>/g, '');
   }
+
   const mappedTiers = tiers.map(
     (tier) => `
   {
     name: '${removeHtmlTags(tier.name)}',
     id: '${tier.id}',
     href: '#',
-    price: { monthly: '${removeHtmlTags(tier.price.monthly)}', annually: '${removeHtmlTags(tier.price.annually)}' },
+    price: { monthly: '${removeHtmlTags(tier.price.monthly)}', annually: '${removeHtmlTags(tier.price.annually)}', discount: '${removeHtmlTags(tier.price.discount)}' },
     features: [${tier.features.map((feature: string) => `'${removeHtmlTags(feature)}'`).join(', ')}],
     cta: '${removeHtmlTags(tier.cta)}',
   }`,
@@ -846,11 +990,22 @@ function generateComponentString({
 
   let content: string;
 
-  const nextContent = `import Link from 'next/link';
+  const nextContent = `/*
+The following package is required: npm install clsx
+*/
+
+'use client';
+
+import clsx from 'clsx';
+import Link from 'next/link';
+
+import { useState } from 'react';
 
 const tiers = ${tiersString};
 
 export default function Pricing() {
+const [isMonthly, setIsMonthly] = useState(false);
+
   return (
     <div className="${clsx(
       maxWidth,
@@ -871,7 +1026,32 @@ export default function Pricing() {
         </p>
       </div>
 
-      <div className="isolate mx-auto mt-14 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:mt-24 lg:max-w-none lg:grid-cols-3">
+      <div className="mt-14 flex justify-center lg:mt-24">
+        <button
+          className={clsx(
+            isMonthly
+              ? '${colors[colorKey].isActive}'
+              : '${colors[colorKey].isInactive}',
+            'rounded-l-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:focus-visible:outline-neutral-400',
+          )}
+          onClick={() => setIsMonthly(true)}
+        >
+          Monthly
+        </button>
+        <button
+          className={clsx(
+            isMonthly
+              ? '${colors[colorKey].isInactive}'
+              : '${colors[colorKey].isActive}',
+            'rounded-r-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+          )}
+          onClick={() => setIsMonthly(false)}
+        >
+          Annual
+        </button>
+      </div>
+
+      <div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:mt-14 lg:max-w-none lg:grid-cols-3">
         {tiers.map((tier) => (
           <div
             key={tier.id}
@@ -888,16 +1068,18 @@ export default function Pricing() {
               <div className="mt-2 flex flex-col space-y-4">
                 <p className="flex items-baseline justify-center gap-x-1">
                   <span className="text-5xl font-bold tracking-tight ${colors[textColorKey].priceMonthly}">
-                    {tier.price.monthly}
+                    {isMonthly ? tier.price.monthly : tier.price.annually}
                   </span>
                   <span className="${colors[textColorKey].monthly}">
-                    /month
+                    {isMonthly ? '/month' : '/year'}
                   </span>
                 </p>
 
-                <p className="text-base ${colors[textColorKey].priceAnnually}">
-                  or {tier.price.annually} yearly
-                </p>
+                {!isMonthly && (
+                  <p className="text-base ${colors[textColorKey].priceAnnually}">
+                    {tier.price.discount}
+                  </p>
+                )}
               </div>
 
               <ul
@@ -907,7 +1089,7 @@ export default function Pricing() {
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex gap-x-3">
                     <CheckIcon
-                      className="h-6 w-5 flex-none ${colors[textColorKey].checkIcon}"
+                      className="h-6 w-5 flex-none ${colors[colorKey].checkIcon}"
                       aria-hidden="true"
                     />
                     {feature}
@@ -930,7 +1112,14 @@ export default function Pricing() {
   );
 }`;
 
-  const reactContent = `import React from 'react';
+  const reactContent = `/*
+The following package is required: npm install clsx
+*/
+
+import React from 'react';
+import clsx from 'clsx';
+
+import { useState } from 'react';
 
 const tiers = ${tiersString};
 
@@ -955,7 +1144,32 @@ export default function Pricing() {
         </p>
       </div>
 
-      <div className="isolate mx-auto mt-14 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:mt-24 lg:max-w-none lg:grid-cols-3">
+      <div className="mt-14 flex justify-center lg:mt-24">
+        <button
+          className={clsx(
+            isMonthly
+              ? '${colors[colorKey].isActive}'
+              : '${colors[colorKey].isInactive}',
+            'rounded-l-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-500 dark:focus-visible:outline-neutral-400',
+          )}
+          onClick={() => setIsMonthly(true)}
+        >
+          Monthly
+        </button>
+        <button
+          className={clsx(
+            isMonthly
+              ? '${colors[colorKey].isInactive}'
+              : '${colors[colorKey].isActive}',
+            'rounded-r-md px-10 py-3 text-sm font-semibold shadow-sm ring-1 ring-inset focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+          )}
+          onClick={() => setIsMonthly(false)}
+        >
+          Annual
+        </button>
+      </div>
+
+      <div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:mt-14 lg:max-w-none lg:grid-cols-3">
         {tiers.map((tier) => (
           <div
             key={tier.id}
@@ -972,16 +1186,18 @@ export default function Pricing() {
               <div className="mt-2 flex flex-col space-y-4">
                 <p className="flex items-baseline justify-center gap-x-1">
                   <span className="text-5xl font-bold tracking-tight ${colors[textColorKey].priceMonthly}">
-                    {tier.price.monthly}
+                    {isMonthly ? tier.price.monthly : tier.price.annually}
                   </span>
                   <span className="${colors[textColorKey].monthly}">
-                    /month
+                    {isMonthly ? '/month' : '/year'}
                   </span>
                 </p>
 
-                <p className="text-base ${colors[textColorKey].priceAnnually}">
-                  or {tier.price.annually} yearly
-                </p>
+                {!isMonthly && (
+                  <p className="text-base ${colors[textColorKey].priceAnnually}">
+                    {tier.price.discount}
+                  </p>
+                )}
               </div>
 
               <ul
@@ -991,7 +1207,7 @@ export default function Pricing() {
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex gap-x-3">
                     <CheckIcon
-                      className="h-6 w-5 flex-none ${colors[textColorKey].checkIcon}"
+                      className="h-6 w-5 flex-none ${colors[colorKey].checkIcon}"
                       aria-hidden="true"
                     />
                     {feature}
@@ -1055,12 +1271,12 @@ function prepForPageExport(
     textColor,
   });
 
-  importStatements.push(`import Pricing1 from './components/Pricing1';`);
-  componentContent.push('<Pricing1 />');
-  return zip.file('components/Pricing1.jsx', content);
+  importStatements.push(`import Pricing5 from './components/Pricing5';`);
+  componentContent.push('<Pricing5 />');
+  return zip.file('components/Pricing5.jsx', content);
 }
 
-Pricing1.craft = {
+Pricing5.craft = {
   props: {
     tagline: 'Tagline',
     heading: 'Short heading goes in here',

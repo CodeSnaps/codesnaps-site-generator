@@ -250,7 +250,23 @@ export const handleNodeByType = (
     case 'Navbar1':
     case 'Navbar2':
     case 'Navbar3':
+    case 'Navbar4':
+    case 'Navbar5':
+    case 'Navbar6':
+    case 'Navbar7':
+    case 'Navbar8':
+    case 'Navbar9':
+    case 'Navbar10':
+    case 'Navbar11':
     case 'Pricing1':
+    case 'Pricing2':
+    case 'Pricing3':
+    case 'Pricing4':
+    case 'Pricing5':
+    case 'Pricing6':
+    case 'Pricing7':
+    case 'Pricing8':
+    case 'Pricing9':
     case 'Team1':
     case 'Team2':
     case 'Team3':
