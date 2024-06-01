@@ -7,6 +7,7 @@ import DocsCards from '~/app/(site)/docs/components/DocsCards';
 import { buildDocumentationTree } from './utils/build-documentation-tree';
 
 import configuration from '~/configuration';
+import { withI18n } from '~/i18n/with-i18n';
 
 export const metadata = {
   title: `Documentation - ${configuration.site.siteName}`,
@@ -30,4 +31,4 @@ function DocsPage() {
   );
 }
 
-export default DocsPage;
+export default withI18n(DocsPage);

@@ -12,8 +12,9 @@ import Divider from '~/core/ui/Divider';
 
 import MDXRenderer from '~/core/ui/MDXRenderer/MDXRenderer';
 import DocsCards from '~/app/(site)/docs/components/DocsCards';
-import DocumentationPageLink from '~/app/(site)/docs/components/DocumentationPageLink';
 import getPageTree from '../utils/get-documentation-page-tree';
+import { withI18n } from '~/i18n/with-i18n';
+import DocumentationPageLink from '../components/DocumentationPageLink';
 
 const getPageBySlug = cache((slug: string) => {
   return allDocumentationPages.find((post) => post.resolvedPath === slug);
@@ -40,7 +41,7 @@ export const generateMetadata = ({ params }: PageParams) => {
   };
 };
 
-export default function DocumentationPage({ params }: PageParams) {
+function DocumentationPage({ params }: PageParams) {
   const page = getPageBySlug(params.slug.join('/'));
 
   if (!page) {
@@ -100,3 +101,5 @@ export default function DocumentationPage({ params }: PageParams) {
     </Container>
   );
 }
+
+export default withI18n(DocumentationPage);

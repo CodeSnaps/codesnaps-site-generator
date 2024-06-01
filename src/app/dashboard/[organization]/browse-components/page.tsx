@@ -28,7 +28,7 @@ function BrowseComponentsPage({ searchParams, params }: DasbboardPageParams) {
     <>
       <PageHeader
         title={<Trans i18nKey="components:componentsPageTitle" />}
-        description={<Trans i18nKey="componentsPageDescription" />}
+        description={<Trans i18nKey={'components:componentsPageDescription'} />}
       />
 
       <div className="3xl:max-w-[85%] w-full mx-auto">

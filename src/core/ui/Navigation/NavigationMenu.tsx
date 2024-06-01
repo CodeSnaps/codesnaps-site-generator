@@ -37,7 +37,7 @@ function getNavigationMenuClassBuilder() {
     variants: {
       vertical: {
         true: `flex items-start justify-between space-x-2
-        lg:flex-col lg:justify-start lg:space-x-0 lg:space-y-1.5`,
+        lg:flex-col lg:justify-start lg:space-x-0 lg:space-y-1.5 [&>li>a]:w-full`,
       },
       bordered: {
         true: `lg:space-x-3 border-b border-neutral-200 dark:border-dark-800 pb-1.5`,

@@ -5,8 +5,10 @@ import Script from 'next/script';
 import { allPosts } from 'contentlayer/generated';
 import Post from '~/app/(site)/blog/components/Post';
 
-import configuration from '~/configuration';
 import Container from '~/core/ui/Container';
+import { withI18n } from '~/i18n/with-i18n';
+
+import configuration from '~/configuration';
 
 export async function generateMetadata({
   params,
@@ -48,7 +50,7 @@ export async function generateMetadata({
   };
 }
 
-async function Blog({ params }: { params: { slug: string } }) {
+async function BlogPost({ params }: { params: { slug: string } }) {
   const post = allPosts.find((post) => post.slug === params.slug);
 
   if (!post) {
@@ -66,4 +68,4 @@ async function Blog({ params }: { params: { slug: string } }) {
   );
 }
 
-export default Blog;
+export default withI18n(BlogPost);

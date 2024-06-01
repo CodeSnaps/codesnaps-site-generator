@@ -33,20 +33,24 @@ function VerificationCodeInput({
   });
 
   const { values } = watch();
+  const isFormValid = formState.isValid;
+  const code = (values ?? []).map(({ value }) => value).join('');
 
   useEffect(() => {
-    if (!formState.isValid) {
+    if (!isFormValid) {
       onInvalid();
-    }
 
-    const code = (values ?? []).map((value) => value.value).join('');
+      return;
+    }
 
     if (code.length === DIGITS) {
       onValid(code);
-    } else {
-      onInvalid();
+
+      return;
     }
-  }, [onInvalid, onValid, values, formState.isValid]);
+
+    onInvalid();
+  }, [onInvalid, onValid, code, isFormValid]);
 
   useEffect(() => {
     setFocus('values.0.value');

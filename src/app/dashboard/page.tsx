@@ -23,6 +23,7 @@ import configuration from '~/configuration';
 import NewOrganizationButtonContainer from './components/NewOrganizationButtonContainer';
 import I18nProvider from '~/i18n/I18nProvider';
 import { getUserById } from '~/lib/user/database/queries';
+import { withI18n } from '~/i18n/with-i18n';
 
 async function OrganizationsPage() {
   const client = getSupabaseServerComponentClient();
@@ -131,7 +132,7 @@ async function OrganizationsPage() {
   );
 }
 
-export default OrganizationsPage;
+export default withI18n(OrganizationsPage);
 
 function OrganizationsPageHeader() {
   return (

@@ -18,7 +18,9 @@ export const defaultI18nNamespaces = [
   'organization',
   'profile',
   'subscription',
+  'sites',
   'onboarding',
+  'components',
 ];
 
 function getI18nSettings(

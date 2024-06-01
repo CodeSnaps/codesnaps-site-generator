@@ -10,8 +10,9 @@ import Heading from '~/core/ui/Heading';
 import PricingTable from '~/components/PricingTable';
 import ThumbnailGrid from '~/app/(site)/components/ThumbnailGrid';
 import FaqComponent from '~/app/(site)/components/FaqComponent';
+import { withI18n } from '~/i18n/with-i18n';
 
-export default function Home() {
+ function Home() {
   return (
     <div className="flex flex-col space-y-16">
       <Container>
@@ -319,6 +320,8 @@ export default function Home() {
     </div>
   );
 }
+
+export default withI18n(Home);
 
 function HeroTitle({ children }: React.PropsWithChildren) {
   return (

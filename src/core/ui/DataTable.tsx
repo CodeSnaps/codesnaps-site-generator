@@ -182,7 +182,7 @@ function DataTable<T extends object>({
 
         <TableFooter>
           <TableRow>
-            <TableCell colSpan={5}>
+            <TableCell colSpan={columns.length}>
               <Pagination table={table} />
             </TableCell>
           </TableRow>

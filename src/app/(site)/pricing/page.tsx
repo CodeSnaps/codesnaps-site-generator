@@ -2,6 +2,7 @@ import Container from '~/core/ui/Container';
 import SubHeading from '~/core/ui/SubHeading';
 import Heading from '~/core/ui/Heading';
 import PricingTable from '~/components/PricingTable';
+import { withI18n } from '~/i18n/with-i18n';
 
 export const metadata = {
   title: 'Pricing',
@@ -25,4 +26,4 @@ function PricingPage() {
   );
 }
 
-export default PricingPage;
+export default withI18n(PricingPage);

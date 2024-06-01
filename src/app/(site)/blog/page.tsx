@@ -6,6 +6,7 @@ import GridList from '~/app/(site)/components/GridList';
 import Container from '~/core/ui/Container';
 import SubHeading from '~/core/ui/SubHeading';
 import Heading from '~/core/ui/Heading';
+import { withI18n } from '~/i18n/with-i18n';
 
 import configuration from '~/configuration';
 
@@ -45,4 +46,4 @@ async function BlogPage() {
   );
 }
 
-export default BlogPage;
+export default withI18n(BlogPage);
