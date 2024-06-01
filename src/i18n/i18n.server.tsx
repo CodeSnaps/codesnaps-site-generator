@@ -1,16 +1,11 @@
 import { createInstance } from 'i18next';
 import { initReactI18next } from 'react-i18next/initReactI18next';
-import getI18nSettings from './i18n.settings';
 import resourcesToBackend from 'i18next-resources-to-backend';
 
-let i18nInstance: ReturnType<typeof createInstance>;
+import getI18nSettings from './i18n.settings';
 
 async function initializeServerI18n(lang?: Maybe<string>) {
-  if (i18nInstance) {
-    return i18nInstance;
-  }
-
-  i18nInstance = createInstance();
+  const i18nInstance = createInstance();
   const settings = getI18nSettings(lang);
 
   await i18nInstance

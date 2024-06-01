@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback } from 'react';
+import { Fragment, useCallback } from 'react';
 import { cva } from 'cva';
 import classNames from 'clsx';
 import If from '~/core/ui/If';
@@ -43,8 +43,8 @@ function Stepper(props: {
       const { label, number } = getStepLabel(labelOrKey, index);
 
       return (
-        <>
-          <div aria-selected={selected} key={index} className={className}>
+        <Fragment key={index}>
+          <div aria-selected={selected} className={className}>
             <span className={labelClassName}>
               {number}
               <If condition={!isNumberVariant}>. {label}</If>
@@ -54,7 +54,7 @@ function Stepper(props: {
           <If condition={isNumberVariant}>
             <StepDivider selected={selected}>{label}</StepDivider>
           </If>
-        </>
+        </Fragment>
       );
     });
   }, [props.steps, props.currentStep, variant]);

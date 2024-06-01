@@ -71,7 +71,7 @@ const EmailLinkAuth: React.FC<{
               data-cy={'email-input'}
               required
               type="email"
-              placeholder={'your@email.com'}
+              placeholder={t('auth:emailPlaceholder')}
               name={'email'}
             />
           </TextField.Label>

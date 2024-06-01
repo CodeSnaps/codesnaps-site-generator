@@ -39,7 +39,7 @@ const PhoneNumberCredentialForm: React.FC<{
             pattern={'^\\+?[1-9]\\d{1,14}$'}
             name={'phoneNumber'}
             type={'tel'}
-            placeholder={'Ex. +919367788755'}
+            placeholder={'+919367788755'}
             disabled={loading}
           />
         </TextField.Label>

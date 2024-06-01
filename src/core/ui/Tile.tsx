@@ -3,8 +3,8 @@ import { useMemo } from 'react';
 import Heading from '~/core/ui/Heading';
 
 import {
-  ArrowSmallDownIcon,
-  ArrowSmallUpIcon,
+  ArrowDownIcon,
+  ArrowUpIcon,
   Bars2Icon,
 } from '@heroicons/react/24/outline';
 
@@ -19,7 +19,7 @@ const Tile: React.FCC & {
   return (
     <div
       className={
-        'flex flex-col space-y-3 rounded-lg border border-neutral-200' +
+        'flex flex-col space-y-3 rounded-lg border border-neutral-100' +
         ' dark:border-dark-900 bg-background p-5'
       }
     >
@@ -58,9 +58,9 @@ function TileTrend(
   const Icon = useMemo(() => {
     switch (props.trend) {
       case 'up':
-        return <ArrowSmallUpIcon className={'h-4 text-green-500'} />;
+        return <ArrowUpIcon className={'h-4 text-green-500'} />;
       case 'down':
-        return <ArrowSmallDownIcon className={'h-4 text-red-500'} />;
+        return <ArrowDownIcon className={'h-4 text-red-500'} />;
       case 'stale':
         return <Bars2Icon className={'h-4 text-yellow-500'} />;
     }
@@ -81,7 +81,7 @@ function TileBadge(
     trend: 'up' | 'down' | 'stale';
   }>,
 ) {
-  const className = `inline-flex items-center rounded-lg py-1 px-2.5 text-sm font-semibold justify-center`;
+  const className = `inline-flex items-center rounded-lg py-1 px-2.5 text-sm font-medium justify-center`;
 
   if (props.trend === `up`) {
     return (

@@ -29,11 +29,12 @@ export default function Home() {
             </HeroTitle>
 
             <SubHeading className="text-center">
+              <span>Access React and Tailwind CSS components instantly.</span>
               <span>
-                Access a library of React and Tailwind CSS components.
+                Design better websites in minutes with no package installation
+                required.
               </span>
-              <span>Design and build better websites in minutes.</span>
-              <span>No package installation required.</span>
+              <span>New: AI site generator for Tailwind CSS and React.</span>
             </SubHeading>
 
             <div className="flex flex-col items-center space-y-4">
@@ -90,6 +91,49 @@ export default function Home() {
 
       <Container>
         <div className="flex flex-col space-y-4">
+          <FeatureShowcaseContainer>
+            <LeftFeatureContainer>
+              <Image
+                className="rounded-2xl dark:border-2 dark:border-neutral-700 my-10 lg:my-0"
+                src="/assets/images/ComponentFiltering.webp"
+                width={626}
+                height={683}
+                alt="Component Filtering"
+              />
+            </LeftFeatureContainer>
+
+            <RightFeatureContainer>
+              <div className={'flex flex-col space-y-4'}>
+                <Heading
+                  type={2}
+                  className="text-primary-600 dark:text-primary-500"
+                >
+                  AI Site Generator
+                </Heading>
+
+                <SubHeading as={'h3'}>
+                  Create Websites with AI in Tailwind CSS and React
+                </SubHeading>
+
+                <div>
+                  Provide a site description, choose a primary color, and let
+                  our AI generate the site structure. Customize margins,
+                  padding, and components before downloading the code in React
+                  or Next.js.
+                </div>
+
+                <div>
+                  <Button round variant="outline" href="/auth/sign-up">
+                    <span className={'flex space-x-2 items-center'}>
+                      <span>Try AI Site Generator</span>
+                      <ChevronRightIcon className={'h-3'} />
+                    </span>
+                  </Button>
+                </div>
+              </div>
+            </RightFeatureContainer>
+          </FeatureShowcaseContainer>
+
           <FeatureShowcaseContainer>
             <LeftFeatureContainer>
               <div className="flex flex-col space-y-4">

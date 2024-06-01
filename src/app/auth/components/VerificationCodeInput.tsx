@@ -32,14 +32,14 @@ function VerificationCodeInput({
     shouldUnregister: true,
   });
 
-  const values = watch();
+  const { values } = watch();
 
   useEffect(() => {
     if (!formState.isValid) {
       onInvalid();
     }
 
-    const code = values.values.map((value) => value.value).join('');
+    const code = (values ?? []).map((value) => value.value).join('');
 
     if (code.length === DIGITS) {
       onValid(code);

@@ -16,8 +16,8 @@ import {
 } from '~/core/ui/Dialog';
 
 type ControlledOpenProps = {
-  isOpen: boolean;
-  setIsOpen: (isOpen: boolean) => unknown;
+  isOpen?: boolean;
+  setIsOpen?: (isOpen: boolean) => unknown;
 };
 
 type TriggerProps = {
@@ -28,7 +28,7 @@ type Props = React.PropsWithChildren<
   {
     heading: string | React.ReactNode;
     closeButton?: boolean;
-  } & (ControlledOpenProps | TriggerProps)
+  } & (ControlledOpenProps & TriggerProps)
 >;
 
 const Modal: React.FC<Props> & {
@@ -36,28 +36,11 @@ const Modal: React.FC<Props> & {
 } = ({ closeButton, heading, children, ...props }) => {
   const isControlled = 'isOpen' in props;
   const useCloseButton = closeButton ?? true;
-  const Trigger = ('Trigger' in props && props.Trigger) || null;
-
-  const DialogWrapper = (wrapperProps: React.PropsWithChildren) =>
-    isControlled ? (
-      <Dialog
-        open={props.isOpen}
-        onOpenChange={(open) => {
-          if (useCloseButton && !open) {
-            props.setIsOpen(false);
-          }
-        }}
-      >
-        {wrapperProps.children}
-      </Dialog>
-    ) : (
-      <Dialog>{wrapperProps.children}</Dialog>
-    );
 
   return (
-    <DialogWrapper>
-      <If condition={Trigger}>
-        <DialogTrigger asChild>{Trigger}</DialogTrigger>
+    <Dialog open={props.isOpen} onOpenChange={props.setIsOpen}>
+      <If condition={props.Trigger}>
+        <DialogTrigger asChild>{props.Trigger}</DialogTrigger>
       </If>
 
       <DialogContent>
@@ -76,7 +59,7 @@ const Modal: React.FC<Props> & {
                 className={'absolute top-0 right-4 flex items-center'}
                 label={'Close Modal'}
                 onClick={() => {
-                  if (isControlled) {
+                  if (isControlled && props.setIsOpen) {
                     props.setIsOpen(false);
                   }
                 }}
@@ -88,7 +71,7 @@ const Modal: React.FC<Props> & {
           </If>
         </div>
       </DialogContent>
-    </DialogWrapper>
+    </Dialog>
   );
 };
 

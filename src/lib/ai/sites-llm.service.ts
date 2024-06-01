@@ -49,7 +49,7 @@ export class SitesLlmService {
   private getModelName() {
     const llm = process.env.LLM_MODEL_NAME;
 
-    return llm || 'gpt-3.5-turbo-1106';
+    return llm || 'gpt-3.5-turbo-0125';
   }
 
   private getBaseParams() {

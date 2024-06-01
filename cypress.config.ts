@@ -155,7 +155,7 @@ async function getInviteEmail(
   const response = await fetch(url);
   const json = (await response.json()) as Maybe<Array<{ id: string }>>;
 
-  if (!json) {
+  if (!json || !json.length) {
     return;
   }
 

@@ -1,13 +1,12 @@
 import { useCallback, useContext, useState } from 'react';
 import Image from 'next/image';
-import { useParams, usePathname, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import classNames from 'clsx';
 
 import {
   EllipsisVerticalIcon,
   PlusCircleIcon,
 } from '@heroicons/react/24/outline';
-import { SelectArrow } from '@radix-ui/react-select';
 
 import type Organization from '~/lib/organizations/types/organization';
 import useUserOrganizationsQuery from '~/lib/organizations/hooks/use-user-organizations-query';
@@ -56,7 +55,7 @@ const OrganizationsSelector = ({ displayName = true }) => {
           <div
             role={'button'}
             className={classNames(
-              `text-sm lg:text-base w-full group hover:bg-neutral-50 cursor-pointer border-transparent dark:hover:bg-dark-900/50 dark:hover:text-white`,
+              `text-sm lg:text-base w-full group hover:bg-gray-50 cursor-pointer border-transparent dark:hover:bg-dark-900/50 dark:hover:text-white`,
               {
                 ['justify-between max-h-12']: displayName,
                 ['rounded-full border-none !p-0.5 mx-auto']: !displayName,
@@ -71,7 +70,7 @@ const OrganizationsSelector = ({ displayName = true }) => {
 
             <If condition={displayName}>
               <EllipsisVerticalIcon
-                className={'h-5 hidden group-hover:block text-neutral-500'}
+                className={'h-5 hidden group-hover:block text-gray-500'}
               />
             </If>
 
@@ -82,8 +81,6 @@ const OrganizationsSelector = ({ displayName = true }) => {
         </SelectTrigger>
 
         <SelectContent>
-          <SelectArrow />
-
           <SelectGroup>
             <SelectLabel>
               <Trans i18nKey={'common:yourOrganizations'} />
@@ -203,21 +200,16 @@ function OrganizationItem({
 export default OrganizationsSelector;
 
 function useChangeOrganization() {
-  const path = usePathname();
-  const params = useParams();
   const router = useRouter();
 
   return useCallback(
     (uuid: string) => {
       const appPrefix = configuration.paths.appPrefix;
       const organizationPath = `${appPrefix}/${uuid}`;
-      const route = path?.replace(`${appPrefix}/${params?.organization}`, '');
 
-      if (route !== undefined) {
-        router.push(`${organizationPath}/${route}`);
-      }
+      router.replace(organizationPath);
     },
-    [params?.organization, path, router],
+    [router],
   );
 }
 

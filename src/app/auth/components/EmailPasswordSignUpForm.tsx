@@ -64,7 +64,7 @@ const EmailPasswordSignUpForm: React.FCC<{
               data-cy={'email-input'}
               required
               type="email"
-              placeholder={'your@email.com'}
+              placeholder={t('auth:emailPlaceholder')}
             />
           </TextField.Label>
 

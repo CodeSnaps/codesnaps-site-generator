@@ -161,7 +161,7 @@ const UpdateOrganizationForm = () => {
               {...nameControl}
               data-cy={'organization-name-input'}
               required
-              placeholder={'Your organization name'}
+              placeholder={''}
             />
           </TextField.Label>
         </TextField>

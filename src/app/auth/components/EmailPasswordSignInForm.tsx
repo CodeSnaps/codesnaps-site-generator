@@ -1,17 +1,21 @@
 'use client';
 
-import Trans from '~/core/ui/Trans';
+
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
 import TextField from '~/core/ui/TextField';
 import Button from '~/core/ui/Button';
 import If from '~/core/ui/If';
+import Trans from '~/core/ui/Trans';
 
 const EmailPasswordSignInForm: React.FCC<{
   onSubmit: (params: { email: string; password: string }) => unknown;
   loading: boolean;
 }> = ({ onSubmit, loading }) => {
+    const { t } = useTranslation('auth');
+
   const { register, handleSubmit } = useForm({
     defaultValues: {
       email: '',
@@ -33,7 +37,7 @@ const EmailPasswordSignInForm: React.FCC<{
               data-cy={'email-input'}
               required
               type="email"
-              placeholder={'your@email.com'}
+              placeholder={t('emailPlaceholder')}
               {...emailControl}
             />
           </TextField.Label>

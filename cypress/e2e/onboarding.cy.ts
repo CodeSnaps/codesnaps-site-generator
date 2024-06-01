@@ -41,9 +41,10 @@ describe(`Onboarding Flow`, () => {
     cy.wait(500);
     cy.cyGet('complete-onboarding-link').click();
 
-    cy.location('pathname', {
-      timeout: 10_000,
-    }).should('not.include', configuration.paths.onboarding);
+    cy.location('pathname').should(
+      'not.include',
+      configuration.paths.onboarding,
+    );
 
     cy.contains('Organization').click().wait(100);
     cy.contains('Members').click();

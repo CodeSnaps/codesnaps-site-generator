@@ -64,7 +64,7 @@ function CreateOrganizationForm({
               required
               minLength={2}
               maxLength={50}
-              placeholder={'ex. IndieCorp'}
+              placeholder={''}
             />
           </TextField.Label>
         </TextField>
