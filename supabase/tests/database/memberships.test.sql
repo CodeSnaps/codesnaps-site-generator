@@ -134,8 +134,6 @@ values (
     'user-4'),
   0);
 
-set local role anon;
-
 select
   (throws_ok($$
       select
@@ -148,7 +146,7 @@ select
               name = 'Supabase'), tests.get_supabase_uid('user-2')));
 
 $$,
-'permission denied for function transfer_organization'));
+'Target user is not a member of this organization'));
 
 select
   tests.authenticate_as('user');

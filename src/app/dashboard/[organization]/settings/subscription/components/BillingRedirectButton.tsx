@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import { ArrowUpRightIcon } from '@heroicons/react/24/outline';
 
 import Button from '~/core/ui/Button';
 import { createBillingPortalSessionAction } from '~/lib/stripe/actions';
@@ -15,13 +15,13 @@ const BillingPortalRedirectButton: React.FCC<{
 
       <Button
         data-cy={'manage-billing-redirect-button'}
-        variant={'secondary'}
+        variant={'outline'}
         className={className}
       >
         <span className={'flex items-center space-x-2'}>
           <span>{children}</span>
 
-          <ArrowRightIcon className={'h-5'} />
+          <ArrowUpRightIcon className={'h-3'} />
         </span>
       </Button>
     </form>

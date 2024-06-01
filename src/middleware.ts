@@ -75,19 +75,20 @@ async function adminMiddleware(request: NextRequest, response: NextResponse) {
   }
 
   const supabase = createMiddlewareClient(request, response);
-  const user = await supabase.auth.getUser();
+  const { data, error } = await supabase.auth.getUser();
+  const origin = request.nextUrl.origin;
 
   // If user is not logged in, redirect to sign in page.
   // This should never happen, but just in case.
-  if (!user) {
-    return NextResponse.redirect(configuration.paths.signIn);
+  if (!data.user || error) {
+    return NextResponse.redirect(`${origin}/auth/sign-in`);
   }
 
-  const role = user.data.user?.app_metadata['role'];
+  const role = data.user?.app_metadata['role'];
 
   // If user is not an admin, redirect to 404 page.
   if (!role || role !== GlobalRole.SuperAdmin) {
-    return NextResponse.redirect(`${configuration.site.siteUrl}/404`);
+    return NextResponse.redirect(`${origin}/404`);
   }
 
   // in all other cases, return the response

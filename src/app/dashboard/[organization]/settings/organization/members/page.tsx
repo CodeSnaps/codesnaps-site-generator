@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation';
 import { use } from 'react';
 
-import type { User } from '@supabase/gotrue-js';
+import type { User } from '@supabase/supabase-js';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import Trans from '~/core/ui/Trans';
 

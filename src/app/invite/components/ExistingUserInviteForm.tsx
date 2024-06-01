@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useTransition } from 'react';
-import type { Session } from '@supabase/gotrue-js';
+import type { Session } from '@supabase/supabase-js';
 
 import Trans from '~/core/ui/Trans';
 import Button from '~/core/ui/Button';

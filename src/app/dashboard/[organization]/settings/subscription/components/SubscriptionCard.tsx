@@ -20,7 +20,7 @@ const SubscriptionCard: React.FC<{
   const details = useSubscriptionDetails(subscription.priceId);
   const cancelAtPeriodEnd = subscription.cancelAtPeriodEnd;
   const isActive = subscription.status === 'active';
-  const language = useMemo(() => getI18n().language, []);
+  const language = getI18n().language;
 
   const dates = useMemo(() => {
     const endDate = new Date(subscription.periodEndsAt);
@@ -41,28 +41,39 @@ const SubscriptionCard: React.FC<{
 
   return (
     <div
-      className={'flex flex-col space-y-6'}
+      className={'flex space-x-2'}
       data-cy={'subscription-card'}
       data-cy-status={subscription.status}
     >
-      <div className={'flex flex-col space-y-2'}>
-        <div className={'flex items-center space-x-4'}>
-          <Heading type={3}>
-            <span data-cy={'subscription-name'}>{details.product.name}</span>
-          </Heading>
+      <div className={'flex flex-col space-y-4 w-9/12'}>
+        <div className={'flex flex-col space-y-1'}>
+          <div className={'flex items-center space-x-4'}>
+            <Heading type={4}>
+              <span data-cy={'subscription-name'}>{details.product.name}</span>
+            </Heading>
 
-          <SubscriptionStatusBadge subscription={subscription} />
-        </div>
+            <div>
+              <SubscriptionStatusBadge subscription={subscription} />
+            </div>
+          </div>
 
-        <Heading type={6}>
-          <span className={'text-neutral-500 dark:text-neutral-400'}>
+          <span className={'text-neutral-500 dark:text-neutral-400 text-sm'}>
             {details.product.description}
           </span>
-        </Heading>
+        </div>
+
+        <If condition={isActive}>
+          <RenewStatusDescription
+            dates={dates}
+            cancelAtPeriodEnd={cancelAtPeriodEnd}
+          />
+        </If>
+
+        <SubscriptionStatusAlert subscription={subscription} values={dates} />
       </div>
 
-      <div>
-        <span className={'flex items-end'}>
+      <div className={'w-3/12'}>
+        <span className={'flex items-center justify-end space-x-1'}>
           <PricingTable.Price>{details.plan.price}</PricingTable.Price>
 
           <span className={'lowercase text-neutral-500 dark:text-neutral-400'}>
@@ -70,15 +81,6 @@ const SubscriptionCard: React.FC<{
           </span>
         </span>
       </div>
-
-      <SubscriptionStatusAlert subscription={subscription} values={dates} />
-
-      <If condition={isActive}>
-        <RenewStatusDescription
-          dates={dates}
-          cancelAtPeriodEnd={cancelAtPeriodEnd}
-        />
-      </If>
     </div>
   );
 };

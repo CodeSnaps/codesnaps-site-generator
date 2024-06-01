@@ -1,6 +1,6 @@
 'use client';
 
-import type { User } from '@supabase/gotrue-js';
+import type { User } from '@supabase/supabase-js';
 import { useMemo, useState } from 'react';
 import { UserPlusIcon } from '@heroicons/react/24/outline';
 

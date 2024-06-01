@@ -4,7 +4,7 @@ import { useCallback, useEffect } from 'react';
 import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
-import type { User } from '@supabase/gotrue-js';
+import type { User } from '@supabase/supabase-js';
 
 import Button from '~/core/ui/Button';
 import TextField from '~/core/ui/TextField';

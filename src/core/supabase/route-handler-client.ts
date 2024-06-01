@@ -2,6 +2,7 @@ import 'server-only';
 
 import { CookieOptions, createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
+import { createClient } from '@supabase/supabase-js';
 
 import { Database } from '~/database.types';
 import getSupabaseClientKeys from './get-supabase-client-keys';
@@ -25,11 +26,12 @@ const getSupabaseRouteHandlerClient = (
       throw new Error('Supabase Service Role Key not provided');
     }
 
-    return createServerClient<Database>(keys.url, serviceRoleKey, {
+    return createClient<Database>(keys.url, serviceRoleKey, {
       auth: {
         persistSession: false,
+        autoRefreshToken: false,
+        detectSessionInUrl: false,
       },
-      cookies: {},
     });
   }
 

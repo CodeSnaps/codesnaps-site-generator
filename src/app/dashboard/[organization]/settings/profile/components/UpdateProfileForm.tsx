@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
 import { useForm } from 'react-hook-form';
@@ -9,7 +9,6 @@ import useUpdateProfileMutation from '~/lib/user/hooks/use-update-profile';
 
 import Button from '~/core/ui/Button';
 import TextField from '~/core/ui/TextField';
-import ImageUploadInput from '~/core/ui/ImageUploadInput';
 import Trans from '~/core/ui/Trans';
 import useSupabase from '~/core/hooks/use-supabase';
 
@@ -17,6 +16,8 @@ import type UserSession from '~/core/session/types/user-session';
 import type UserData from '~/core/session/types/user-data';
 
 import configuration from '~/configuration';
+import ImageUploader from '~/core/ui/ImageUploader';
+import { USERS_TABLE } from '~/lib/db-tables';
 
 const AVATARS_BUCKET = 'avatars';
 
@@ -28,8 +29,6 @@ function UpdateProfileForm({
   onUpdateProfileData: (user: Partial<UserData>) => void;
 }) {
   const updateProfileMutation = useUpdateProfileMutation();
-
-  const client = useSupabase();
   const { t } = useTranslation();
 
   const currentPhotoURL = session.data?.photoUrl ?? '';
@@ -38,64 +37,21 @@ function UpdateProfileForm({
   const user = session.auth?.user;
   const email = user?.email ?? '';
 
-  const { register, handleSubmit, reset, setValue, getValues } = useForm({
+  const { register, handleSubmit, reset } = useForm({
     defaultValues: {
       displayName: currentDisplayName,
-      photoURL: currentPhotoURL,
     },
   });
 
-  const onSubmit = async (displayName: string, photoFile: Maybe<File>) => {
+  const onSubmit = async (displayName: string) => {
     if (!user?.id) {
       return;
-    }
-
-    const photoName = photoFile?.name;
-    const existingPhotoRemoved = getValues('photoURL') !== photoName;
-
-    let photoUrl = null;
-
-    // if photo is changed, upload the new photo and get the new url
-    if (photoName) {
-      photoUrl = await uploadUserProfilePhoto(client, photoFile, user.id);
-    }
-
-    // if photo is not changed, use the current photo url
-    if (!existingPhotoRemoved) {
-      photoUrl = currentPhotoURL;
-    }
-
-    let shouldRemoveAvatar = false;
-
-    // if photo is removed, set the photo url to null
-    if (!photoUrl) {
-      shouldRemoveAvatar = true;
-    }
-
-    if (photoFile && photoUrl) {
-      const urlWithoutParams = photoUrl.split('?')[0];
-      const currentPhotoWithoutParams = currentPhotoURL?.split('?')[0];
-
-      if (urlWithoutParams !== currentPhotoWithoutParams) {
-        shouldRemoveAvatar = true;
-      }
     }
 
     const info = {
       id: user.id,
       displayName,
-      photoUrl,
     };
-
-    // delete existing photo if different
-    if (shouldRemoveAvatar && currentPhotoURL) {
-      try {
-        await deleteProfilePhoto(client, currentPhotoURL);
-      } catch (e) {
-        console.log(e);
-        // old photo not found
-      }
-    }
 
     const promise = updateProfileMutation.trigger(info).then(() => {
       onUpdateProfileData(info);
@@ -114,23 +70,27 @@ function UpdateProfileForm({
     minLength: 2,
   });
 
-  const photoURLControl = register('photoURL');
-
   useEffect(() => {
     reset({
       displayName: currentDisplayName ?? '',
-      photoURL: currentPhotoURL ?? '',
     });
   }, [currentDisplayName, currentPhotoURL, reset]);
 
   return (
-    <form
-      data-cy={'update-profile-form'}
-      onSubmit={handleSubmit((value) => {
-        return onSubmit(value.displayName, getPhotoFile(value.photoURL));
-      })}
-    >
-      <div className={'flex flex-col space-y-4'}>
+    <div className={'flex flex-col space-y-8'}>
+      <UploadProfileAvatarForm
+        currentPhotoURL={currentPhotoURL}
+        userId={user?.id}
+        onAvatarUpdated={(photoUrl) => onUpdateProfileData({ photoUrl })}
+      />
+
+      <form
+        data-cy={'update-profile-form'}
+        className={'flex flex-col space-y-4'}
+        onSubmit={handleSubmit((value) => {
+          return onSubmit(value.displayName);
+        })}
+      >
         <TextField>
           <TextField.Label>
             <Trans i18nKey={'profile:displayNameLabel'} />
@@ -142,21 +102,6 @@ function UpdateProfileForm({
               placeholder={''}
               maxLength={100}
             />
-          </TextField.Label>
-        </TextField>
-
-        <TextField>
-          <TextField.Label>
-            <Trans i18nKey={'profile:profilePictureLabel'} />
-
-            <ImageUploadInput
-              {...photoURLControl}
-              multiple={false}
-              onClear={() => setValue('photoURL', '')}
-              image={currentPhotoURL}
-            >
-              <Trans i18nKey={'common:imageInputLabel'} />
-            </ImageUploadInput>
           </TextField.Label>
         </TextField>
 
@@ -189,23 +134,93 @@ function UpdateProfileForm({
             <Trans i18nKey={'profile:updateProfileSubmitLabel'} />
           </Button>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
 
-/**
- * @name getPhotoFile
- * @param value
- * @description Returns the file of the photo when submitted
- * It returns undefined when the user hasn't selected a file
- */
-function getPhotoFile(value: string | null | FileList) {
-  if (!value || typeof value === 'string') {
-    return;
-  }
+function UploadProfileAvatarForm(props: {
+  currentPhotoURL: string | null;
+  userId: string;
+  onAvatarUpdated: (url: string | null) => void;
+}) {
+  const client = useSupabase();
+  const { t } = useTranslation('profile');
 
-  return value.item(0) ?? undefined;
+  const createToaster = useCallback(
+    (promise: Promise<unknown>) => {
+      return toast.promise(promise, {
+        success: t(`updateProfileSuccess`),
+        error: t(`updateProfileError`),
+        loading: t(`updateProfileLoading`),
+      });
+    },
+    [t],
+  );
+
+  const onValueChange = useCallback(
+    async (file: File | null) => {
+      const removeExistingStorageFile = () => {
+        if (props.currentPhotoURL) {
+          return (
+            deleteProfilePhoto(client, props.currentPhotoURL) ??
+            Promise.resolve()
+          );
+        }
+
+        return Promise.resolve();
+      };
+
+      if (file) {
+        const promise = removeExistingStorageFile().then(() =>
+          uploadUserProfilePhoto(client, file, props.userId).then(
+            (photoUrl) => {
+              props.onAvatarUpdated(photoUrl);
+
+              return client
+                .from(USERS_TABLE)
+                .update({
+                  photo_url: photoUrl,
+                })
+                .eq('id', props.userId)
+                .throwOnError();
+            },
+          ),
+        );
+
+        createToaster(promise);
+      } else {
+        const promise = removeExistingStorageFile().then(() => {
+          props.onAvatarUpdated(null);
+
+          return client
+            .from(USERS_TABLE)
+            .update({
+              photo_url: null,
+            })
+            .eq('id', props.userId)
+            .throwOnError();
+        });
+
+        createToaster(promise);
+      }
+    },
+    [client, createToaster, props],
+  );
+
+  return (
+    <ImageUploader value={props.currentPhotoURL} onValueChange={onValueChange}>
+      <div className={'flex flex-col space-y-1'}>
+        <span className={'text-sm'}>
+          <Trans i18nKey={'profile:profilePictureHeading'} />
+        </span>
+
+        <span className={'text-xs'}>
+          <Trans i18nKey={'profile:profilePictureSubheading'} />
+        </span>
+      </div>
+    </ImageUploader>
+  );
 }
 
 async function uploadUserProfilePhoto(

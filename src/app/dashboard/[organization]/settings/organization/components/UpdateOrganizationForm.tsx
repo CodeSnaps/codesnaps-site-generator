@@ -11,32 +11,46 @@ import useUpdateOrganizationMutation from '~/lib/organizations/hooks/use-update-
 
 import Button from '~/core/ui/Button';
 import TextField from '~/core/ui/TextField';
-import ImageUploadInput from '~/core/ui/ImageUploadInput';
-import Label from '~/core/ui/Label';
 import Trans from '~/core/ui/Trans';
+import ImageUploader from '~/core/ui/ImageUploader';
 
 import useSupabase from '~/core/hooks/use-supabase';
 import type Organization from '~/lib/organizations/types/organization';
 
 const UpdateOrganizationForm = () => {
-  const client = useSupabase();
-
   const { organization, setOrganization } = useContext(OrganizationContext);
   const updateOrganizationMutation = useUpdateOrganizationMutation();
   const { t } = useTranslation('organization');
 
   const currentOrganizationName = organization?.name ?? '';
-  const currentLogoUrl = organization?.logoURL || null;
+  const organizationId = organization?.id as number;
 
-  const { register, handleSubmit, reset, setValue, getValues } = useForm({
+  const { register, handleSubmit, reset } = useForm({
     defaultValues: {
       name: currentOrganizationName,
-      logoURL: currentLogoUrl,
     },
   });
 
+  const updateOrganizationData = useCallback(
+    (data: WithId<Partial<Organization>>) => {
+      const promise = updateOrganizationMutation.trigger(data).then(() => {
+        setOrganization({
+          ...organization,
+          ...data,
+        } as Organization);
+      });
+
+      toast.promise(promise, {
+        loading: t(`updateOrganizationLoadingMessage`),
+        success: t(`updateOrganizationSuccessMessage`),
+        error: t(`updateOrganizationErrorMessage`),
+      });
+    },
+    [organization, setOrganization, t, updateOrganizationMutation],
+  );
+
   const onSubmit = useCallback(
-    async (organizationName: string, logoFile: Maybe<File>) => {
+    async (organizationName: string) => {
       const organizationId = organization?.id;
 
       if (!organizationId) {
@@ -45,97 +59,19 @@ const UpdateOrganizationForm = () => {
         return toast.error(errorMessage);
       }
 
-      const logoName = logoFile?.name;
-      const currentLogoURL = getValues('logoURL');
-      const existingLogoRemoved = currentLogoURL !== logoName;
-
-      let logoURL: string | null = null;
-
-      // if photo is changed, upload the new photo and get the new url
-      if (logoName) {
-        logoURL = await uploadLogo({
-          client,
-          logo: logoFile,
-          organizationId,
-        }).catch(() => {
-          toast.error(t(`updateLogoErrorMessage`));
-
-          return null;
-        });
-      }
-
-      // if photo is not changed, use the current photo url
-      if (!existingLogoRemoved) {
-        logoURL = currentLogoURL;
-      }
-
-      let shouldRemoveLogo = false;
-
-      // if photo is removed, set the photo url to null
-      if (!logoURL) {
-        shouldRemoveLogo = true;
-      }
-
-      if (logoFile && logoURL && currentLogoUrl) {
-        const urlWithoutParams = logoURL?.split('?')[0];
-        const currentPhotoWithoutParams = currentLogoUrl?.split('?')[0];
-
-        if (urlWithoutParams !== currentPhotoWithoutParams) {
-          shouldRemoveLogo = true;
-        }
-      }
-
-      // if the logo is provided and differs from the existing one
-      // upload it to the storage
-      if (shouldRemoveLogo && currentLogoUrl) {
-        await deleteLogo(client, currentLogoUrl);
-      }
-
-      if (!logoName && currentLogoUrl) {
-        // if the user removed the logo
-        logoURL = null;
-      }
-
       const organizationData: WithId<Partial<Organization>> = {
-        id: organization.id,
+        id: organizationId,
         name: organizationName,
       };
 
-      if (logoURL !== undefined) {
-        organizationData.logoURL = logoURL;
-      }
-
-      const promise = updateOrganizationMutation
-        .trigger(organizationData)
-        .then(() => {
-          setOrganization({
-            ...organization,
-            name: organizationName,
-            logoURL: logoURL,
-          });
-        });
-
-      toast.promise(promise, {
-        loading: t(`updateOrganizationLoadingMessage`),
-        success: t(`updateOrganizationSuccessMessage`),
-        error: t(`updateOrganizationErrorMessage`),
-      });
+      return updateOrganizationData(organizationData);
     },
-    [
-      organization,
-      getValues,
-      currentLogoUrl,
-      updateOrganizationMutation,
-      t,
-      client,
-      setOrganization,
-    ],
+    [organization?.id, updateOrganizationData, t],
   );
 
   useEffect(() => {
     reset({
       name: organization?.name,
-      logoURL: organization?.logoURL,
     });
   }, [organization, reset]);
 
@@ -143,16 +79,23 @@ const UpdateOrganizationForm = () => {
     required: true,
   });
 
-  const logoControl = register('logoURL');
-
   return (
-    <form
-      onSubmit={handleSubmit((value) => {
-        return onSubmit(value.name, getLogoFile(value.logoURL));
-      })}
-      className={'space-y-4'}
-    >
-      <div className={'flex flex-col space-y-4'}>
+    <div className={'space-y-8'}>
+      <UploadLogoForm
+        currentLogoUrl={organization?.logoURL}
+        organizationId={organizationId}
+        onLogoUpdated={async (logoUrl) => {
+          return updateOrganizationData({
+            logoURL: logoUrl,
+            id: organizationId,
+          });
+        }}
+      />
+
+      <form
+        onSubmit={handleSubmit((value) => onSubmit(value.name))}
+        className={'flex flex-col space-y-4'}
+      >
         <TextField>
           <TextField.Label>
             <Trans i18nKey={'organization:organizationNameInputLabel'} />
@@ -166,19 +109,6 @@ const UpdateOrganizationForm = () => {
           </TextField.Label>
         </TextField>
 
-        <Label>
-          <Trans i18nKey={'organization:organizationLogoInputLabel'} />
-
-          <ImageUploadInput
-            {...logoControl}
-            multiple={false}
-            image={currentLogoUrl}
-            onClear={() => setValue('logoURL', '')}
-          >
-            <Trans i18nKey={'common:imageInputLabel'} />
-          </ImageUploadInput>
-        </Label>
-
         <div>
           <Button
             className={'w-full md:w-auto'}
@@ -188,17 +118,80 @@ const UpdateOrganizationForm = () => {
             <Trans i18nKey={'organization:updateOrganizationSubmitLabel'} />
           </Button>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 
-/**
- * @description Upload file to Storage
- * @param client
- * @param organizationId
- * @param logo
- */
+function UploadLogoForm(props: {
+  currentLogoUrl: string | null | undefined;
+  organizationId: number;
+  onLogoUpdated: (url: string | null) => void;
+}) {
+  const client = useSupabase();
+  const { t } = useTranslation('organization');
+
+  const createToaster = useCallback(
+    (promise: Promise<unknown>) => {
+      return toast.promise(promise, {
+        loading: t(`updateOrganizationLoadingMessage`),
+        success: t(`updateOrganizationSuccessMessage`),
+        error: t(`updateOrganizationErrorMessage`),
+      });
+    },
+    [t],
+  );
+
+  const onValueChange = useCallback(
+    async (file: File | null) => {
+      const removeExistingStorageFile = () => {
+        if (props.currentLogoUrl) {
+          return deleteLogo(client, props.currentLogoUrl);
+        }
+
+        return Promise.resolve();
+      };
+
+      if (file) {
+        const promise = removeExistingStorageFile()
+          .then(() =>
+            uploadLogo({
+              client,
+              organizationId: props.organizationId,
+              logo: file,
+            }),
+          )
+          .then((url) => {
+            props.onLogoUpdated(url);
+          });
+
+        createToaster(promise);
+      } else {
+        const promise = removeExistingStorageFile().then(() => {
+          props.onLogoUpdated(null);
+        });
+
+        createToaster(promise);
+      }
+    },
+    [client, createToaster, props],
+  );
+
+  return (
+    <ImageUploader value={props.currentLogoUrl} onValueChange={onValueChange}>
+      <div className={'flex flex-col space-y-1'}>
+        <span className={'text-sm'}>
+          <Trans i18nKey={'organization:organizationLogoInputHeading'} />
+        </span>
+
+        <span className={'text-xs'}>
+          <Trans i18nKey={'organization:organizationLogoInputSubheading'} />
+        </span>
+      </div>
+    </ImageUploader>
+  );
+}
+
 async function uploadLogo({
   client,
   organizationId,
@@ -230,18 +223,6 @@ async function getLogoName(fileName: string, organizationId: number) {
   const extension = fileName.split('.').pop();
 
   return `${organizationId}.${extension}?v=${uniqueId}`;
-}
-
-function getLogoFile(value: string | null | FileList) {
-  if (!value) {
-    return;
-  }
-
-  if (typeof value === 'string') {
-    return new File([], value);
-  }
-
-  return value.item(0) ?? undefined;
 }
 
 function deleteLogo(client: SupabaseClient, url: string) {

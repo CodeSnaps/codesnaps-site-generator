@@ -5,6 +5,7 @@ import { cookies } from 'next/headers';
 
 import getSupabaseClientKeys from '~/core/supabase/get-supabase-client-keys';
 import { Database } from '~/database.types';
+import { createClient } from '@supabase/supabase-js';
 
 /**
  * @name getSupabaseServerComponentClient
@@ -25,11 +26,12 @@ const getSupabaseServerComponentClient = (
       throw new Error('Supabase Service Role Key not provided');
     }
 
-    return createServerClient<Database>(keys.url, serviceRoleKey, {
+    return createClient<Database>(keys.url, serviceRoleKey, {
       auth: {
         persistSession: false,
+        autoRefreshToken: false,
+        detectSessionInUrl: false,
       },
-      cookies: {},
     });
   }
 

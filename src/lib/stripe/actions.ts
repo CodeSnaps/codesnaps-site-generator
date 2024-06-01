@@ -6,6 +6,7 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 
 import { redirect } from 'next/navigation';
 import { headers } from 'next/headers';
+
 import { RedirectType } from 'next/dist/client/components/redirect';
 
 import getLogger from '~/core/logger';

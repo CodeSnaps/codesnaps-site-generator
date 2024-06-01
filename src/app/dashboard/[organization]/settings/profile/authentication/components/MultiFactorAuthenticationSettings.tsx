@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from 'react';
 import useMutation from 'swr/mutation';
-import { Factor } from '@supabase/gotrue-js';
+import { Factor } from '@supabase/supabase-js';
 import { useTranslation } from 'react-i18next';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { toast } from 'sonner';

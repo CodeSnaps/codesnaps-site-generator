@@ -91,11 +91,14 @@ export default function Header({
             onClick={async () => {
               const json = query.serialize();
               const compressedSchema = compressToEncodedURIComponent(json);
+              const cleanSiteName = siteNameState
+                .replace(/<\/?[^>]+(>|$)/g, '')
+                .trim();
 
               const response = await saveSite({
                 siteSchema: compressedSchema,
                 siteId: props.id,
-                siteName: siteNameState,
+                siteName: cleanSiteName,
               });
 
               if (response.success) {

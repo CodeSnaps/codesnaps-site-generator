@@ -85,15 +85,22 @@ export default async function createStripeCheckout(
 
   const uiMode = params.embedded ? 'embedded' : 'hosted';
 
+   const customerData = customer
+    ? {
+        customer,
+      }
+    : {
+        customer_email: params.customerEmail,
+      };
+
   return stripe.checkout.sessions.create({
     mode,
     ui_mode: uiMode,
-    customer,
     line_items: [lineItem],
     client_reference_id: clientReferenceId.toString(),
-    customer_email: params.customerEmail,
     allow_promotion_codes: true,
     ...(mode === 'subscription' ? { subscription_data: subscriptionData } : {}),
+    ...customerData,
     ...urls,
   });
 }

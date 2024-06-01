@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useState } from 'react';
-import type { User } from '@supabase/gotrue-js';
+import type { User } from '@supabase/supabase-js';
 
 import { toast } from 'sonner';
 import { useTranslation } from 'react-i18next';

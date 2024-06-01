@@ -1,4 +1,4 @@
-import type { SignInWithOAuthCredentials } from '@supabase/gotrue-js';
+import type { SignInWithOAuthCredentials } from '@supabase/supabase-js';
 import useMutation from 'swr/mutation';
 import useSupabase from '~/core/hooks/use-supabase';
 

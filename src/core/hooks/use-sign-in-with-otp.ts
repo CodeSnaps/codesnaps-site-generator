@@ -3,7 +3,7 @@ import useMutation from 'swr/mutation';
 import type {
   AuthError,
   SignInWithPasswordlessCredentials,
-} from '@supabase/gotrue-js';
+} from '@supabase/supabase-js';
 
 import useSupabase from '~/core/hooks/use-supabase';
 import configuration from '~/configuration';

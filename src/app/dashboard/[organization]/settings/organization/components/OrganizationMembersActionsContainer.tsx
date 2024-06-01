@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { User } from '@supabase/gotrue-js';
+import type { User } from '@supabase/supabase-js';
 
 import MembershipRole from '~/lib/organizations/types/membership-role';
 import type UserData from '~/core/session/types/user-data';

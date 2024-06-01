@@ -290,50 +290,65 @@ export class SitesLlmService {
         switch (componentName) {
           case 'Blog':
             selectedNode = selectNode(hasSub ? blogNodes : freeBlogNodes);
+            this.logger.info('Selected Blog Node', selectedNode);
             break;
           case 'Contact':
             selectedNode = selectNode(hasSub ? contactNodes : freeContactNodes);
+            this.logger.info('Selected Contact Node', selectedNode);
             break;
           case 'CTA':
             selectedNode = selectNode(hasSub ? ctaNodes : freeCtaNodes);
+            this.logger.info('Selected CTA Node', selectedNode);
             break;
           case 'FAQ':
             selectedNode = selectNode(hasSub ? faqNodes : freeFaqNodes);
+            this.logger.info('Selected FAQ Node', selectedNode);
             break;
           case 'Feature':
             selectedNode = selectNode(hasSub ? featureNodes : freeFeatureNodes);
+            this.logger.info('Selected Feature Node', selectedNode);
             break;
           case 'Footer':
             selectedNode = selectNode(hasSub ? footerNodes : freeFooterNodes);
+            this.logger.info('Selected Footer Node', selectedNode);
             break;
           case 'Gallery':
             selectedNode = selectNode(hasSub ? galleryNodes : freeGalleryNodes);
+            this.logger.info('Selected Gallery Node', selectedNode);
             break;
           case 'Heading':
             selectedNode = selectNode(hasSub ? headingNodes : freeHeadingNodes);
+            this.logger.info('Selected Heading Node', selectedNode);
             break;
           case 'Hero':
             selectedNode = selectNode(hasSub ? heroNodes : freeHeroNodes);
+            this.logger.info('Selected Hero Node', selectedNode);
             break;
           case 'Logo':
             selectedNode = selectNode(hasSub ? logosNodes : freeLogosNodes);
+            this.logger.info('Selected Logo Node', selectedNode);
             break;
           case 'Navbar':
             selectedNode = selectNode(hasSub ? navbarNodes : freeNavbarNodes);
+            this.logger.info('Selected Navbar Node', selectedNode);
             break;
           case 'Pricing':
             selectedNode = selectNode(hasSub ? pricingNodes : freePricingNodes);
+            this.logger.info('Selected Pricing Node', selectedNode);
             break;
           case 'Team':
             selectedNode = selectNode(hasSub ? teamNodes : freeTeamNodes);
+            this.logger.info('Selected Team Node', selectedNode);
             break;
           case 'Testimonial':
             selectedNode = selectNode(
               hasSub ? testimonialNodes : freeTestimonialNodes,
             );
+            this.logger.info('Selected Testimonial Node', selectedNode);
             break;
           default:
             selectedNode = selectNode(hasSub ? featureNodes : freeFeatureNodes);
+            this.logger.info('Selected Feature Node', selectedNode);
             break;
         }
 

@@ -16,6 +16,7 @@
   "modalConfirmationQuestion": "Are you sure you want to continue?",
   "imageInputLabel": "Click here to upload an image",
   "cancel": "Cancel",
+  "clear": "Clear",
   "backToHomePage": "Back to Home Page",
   "genericServerError": "Sorry, something went wrong.",
   "genericServerErrorHeading": "Sorry, something went wrong while processing your request. Please contact us if the issue persists.",

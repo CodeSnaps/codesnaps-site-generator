@@ -1,5 +1,5 @@
 import useMutation from 'swr/mutation';
-import type { UserAttributes } from '@supabase/gotrue-js';
+import type { UserAttributes } from '@supabase/supabase-js';
 
 import useSupabase from '~/core/hooks/use-supabase';
 

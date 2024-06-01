@@ -13,7 +13,7 @@ function AdminProviders(
   return (
     <I18nProvider lang={props.language}>
       <CsrfTokenContext.Provider value={props.csrfToken}>
-        <Toaster />
+        <Toaster richColors={false} />
 
         {props.children}
       </CsrfTokenContext.Provider>

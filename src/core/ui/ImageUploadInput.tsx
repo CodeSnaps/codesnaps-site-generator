@@ -11,22 +11,32 @@ import React, {
 } from 'react';
 
 import { CloudArrowUpIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import Image from 'next/image';
 
 import Label from '~/core/ui/Label';
 import If from '~/core/ui/If';
 import IconButton from '~/core/ui/IconButton';
+import classNames from 'clsx';
 
 type Props = Omit<React.InputHTMLAttributes<unknown>, 'value'> & {
   image?: string | null;
   onClear?: () => void;
+  onValueChange?: (props: { image: string; file: File }) => void;
+  visible?: boolean;
 };
 
 const IMAGE_SIZE = 22;
 
 const ImageUploadInput = forwardRef<React.ElementRef<'input'>, Props>(
   function ImageUploadInputComponent(
-    { children, image, onClear, onInput, ...props },
+    {
+      children,
+      image,
+      onClear,
+      onInput,
+      onValueChange,
+      visible = true,
+      ...props
+    },
     forwardedRef,
   ) {
     const localRef = useRef<HTMLInputElement>();
@@ -50,33 +60,44 @@ const ImageUploadInput = forwardRef<React.ElementRef<'input'>, Props>(
             image: data,
             fileName: file.name,
           });
+
+          if (onValueChange) {
+            onValueChange({
+              image: data,
+              file,
+            });
+          }
         }
 
         if (onInput) {
           onInput(e);
         }
       },
-      [onInput],
+      [onInput, onValueChange],
     );
+
+    const onRemove = useCallback(() => {
+      setState({
+        image: '',
+        fileName: '',
+      });
+
+      if (localRef.current) {
+        localRef.current.value = '';
+      }
+
+      if (onClear) {
+        onClear();
+      }
+    }, [onClear]);
 
     const imageRemoved: MouseEventHandler = useCallback(
       (e) => {
         e.preventDefault();
 
-        setState({
-          image: '',
-          fileName: '',
-        });
-
-        if (localRef.current) {
-          localRef.current.value = '';
-        }
-
-        if (onClear) {
-          onClear();
-        }
+        onRemove();
       },
-      [onClear],
+      [onRemove],
     );
 
     const setRef = useCallback(
@@ -94,6 +115,28 @@ const ImageUploadInput = forwardRef<React.ElementRef<'input'>, Props>(
       setState((state) => ({ ...state, image }));
     }, [image]);
 
+    useEffect(() => {
+      if (!image) {
+        onRemove();
+      }
+    }, [image, onRemove]);
+
+    const Input = () => (
+      <input
+        {...props}
+        className={classNames('hidden', props.className)}
+        ref={setRef}
+        type={'file'}
+        onInput={onInputChange}
+        accept="image/*"
+        aria-labelledby={'image-upload-input'}
+      />
+    );
+
+    if (!visible) {
+      return <Input />;
+    }
+
     return (
       <label
         id={'image-upload-input'}
@@ -101,26 +144,18 @@ const ImageUploadInput = forwardRef<React.ElementRef<'input'>, Props>(
         className={`relative cursor-pointer border-dashed outline-none ring-offset-2 transition-all focus:ring-2 ring-primary ring-offset-background
          flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
       >
-        <input
-          {...props}
-          ref={setRef}
-          className={'hidden'}
-          type={'file'}
-          onInput={onInputChange}
-          accept="image/*"
-          aria-labelledby={'image-upload-input'}
-        />
+        <Input />
 
         <div className={'flex items-center space-x-4'}>
           <div className={'flex'}>
             <If condition={!state.image}>
               <CloudArrowUpIcon
-                className={'h-5 text-neutral-500 dark:text-dark-500'}
+                className={'h-5 text-gray-500 dark:text-dark-500'}
               />
             </If>
 
             <If condition={state.image}>
-              <Image
+              <img
                 loading={'lazy'}
                 style={{
                   width: IMAGE_SIZE,

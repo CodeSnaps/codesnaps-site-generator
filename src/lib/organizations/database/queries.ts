@@ -1,5 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
-import type { User } from '@supabase/gotrue-js';
+import type { User } from '@supabase/supabase-js';
 import type { Database } from '~/database.types';
 
 import {
