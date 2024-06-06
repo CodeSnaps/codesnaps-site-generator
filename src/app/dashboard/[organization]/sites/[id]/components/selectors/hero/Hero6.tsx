@@ -9,6 +9,7 @@ import { useNode, useEditor, SerializedNode } from '@craftjs/core';
 import ContentEditable from 'react-contenteditable';
 
 import { exportSingleComponent } from '~/app/dashboard/[organization]/sites/[id]/lib/export-components';
+import { removeHtmlTags } from '~/app/dashboard/[organization]/sites/[id]/lib/helpers';
 
 import {
   AccordionContent,
@@ -59,7 +60,11 @@ export const Hero6 = ({
   const textColorKey = textColor as keyof typeof colors;
 
   return (
-    <div ref={(ref) => connect(drag(ref as HTMLElement))}>
+    <div
+      ref={(ref) => {
+        connect(drag(ref as HTMLElement));
+      }}
+    >
       <Image
         priority
         src="https://dummyimage.com/1920x1200/d4d4d4/171717"
@@ -465,10 +470,6 @@ function generateComponentString({
 }) {
   const colorKey = color as keyof typeof colors;
   const textColorKey = textColor as keyof typeof colors;
-
-  function removeHtmlTags(input: string) {
-    return input.replace(/<[^>]*>/g, '');
-  }
 
   let content: string;
 

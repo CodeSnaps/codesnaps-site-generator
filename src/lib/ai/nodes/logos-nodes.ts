@@ -3,7 +3,7 @@ export const freeLogosNodes = [
     type: { resolvedName: 'Logo1' },
     isCanvas: false,
     props: {
-      heading: 'Minimum 5 words',
+      heading: 'ACTION: Minimum 5 words',
     },
     displayName: 'Logo1',
     custom: {},
@@ -20,7 +20,7 @@ export const logosNodes = [
     type: { resolvedName: 'Logo2' },
     isCanvas: false,
     props: {
-      heading: 'Minimum 5 words',
+      heading: 'ACTION: Minimum 5 words',
     },
     displayName: 'Logo2',
     custom: {},
@@ -33,7 +33,7 @@ export const logosNodes = [
     type: { resolvedName: 'Logo3' },
     isCanvas: false,
     props: {
-      heading: 'Minimum 5 words',
+      heading: 'ACTION: Minimum 5 words',
     },
     displayName: 'Logo3',
     custom: {},
@@ -46,7 +46,7 @@ export const logosNodes = [
     type: { resolvedName: 'Logo4' },
     isCanvas: false,
     props: {
-      heading: 'Minimum 5 words',
+      heading: 'ACTION: Minimum 5 words',
     },
     displayName: 'Logo4',
     custom: {},
@@ -59,10 +59,10 @@ export const logosNodes = [
     type: { resolvedName: 'Logo5' },
     isCanvas: false,
     props: {
-      heading: 'Minimum 5 words',
-      description: 'Minimum 2-3 sentences about the product or service',
-      primaryCta: '1-2 words',
-      secondaryCta: '1-2 words',
+      heading: 'ACTION: Minimum 5 words',
+      description: 'ACTION: Minimum 2-3 sentences about the product or service',
+      primaryCta: 'ACTION: 1-2 words',
+      secondaryCta: 'ACTION: 1-2 words',
     },
     displayName: 'Logo5',
     custom: {},
@@ -75,7 +75,7 @@ export const logosNodes = [
     type: { resolvedName: 'Logo6' },
     isCanvas: false,
     props: {
-      heading: 'Minimum 5 words',
+      heading: 'ACTION: Minimum 5 words',
     },
     displayName: 'Logo6',
     custom: {},

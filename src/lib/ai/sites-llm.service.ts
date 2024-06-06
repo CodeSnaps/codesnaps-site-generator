@@ -368,7 +368,7 @@ export class SitesLlmService {
         messages: [
           {
             role: 'user',
-            content: `As a website page builder, you are tasked with creating a site schema for a site described as "${params.description}". Return a JSON object using the schema such as: "{"schema": [{ "type": string, "props": object }]}". The "type" is a string from the list of nodes. Please don't modify "type" and only modify "props" object. "props" is an object containing the props for the component. Fill the "props" object with copy based on the "copyDescription". Make sure every key inside "props" has copy. Leave nothing as an empty string. Nodes: "${llmNodes}"`,
+            content: `As a website page builder, you are tasked with creating a site schema for a site described as "${params.description}". Return a JSON object using the schema such as: "{"schema": [{ "type": string, "props": object }]}". The "type" is a string from the list of nodes. Please don't modify "type" and only modify "props" object. "props" is an object containing the props for the component. Replace the text with copy in the "props" object wherever it starts with "ACTION" based on the "copyDescription". Make sure every key that starts with "ACTION" is replaced with copy. Leave nothing as an empty string. Nodes: "${llmNodes}"`,
           },
         ],
       });

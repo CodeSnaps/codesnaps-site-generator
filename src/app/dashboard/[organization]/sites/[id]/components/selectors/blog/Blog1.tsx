@@ -9,6 +9,7 @@ import { useNode, useEditor, SerializedNode } from '@craftjs/core';
 import ContentEditable from 'react-contenteditable';
 
 import { exportSingleComponent } from '~/app/dashboard/[organization]/sites/[id]/lib/export-components';
+import { removeHtmlTags } from '~/app/dashboard/[organization]/sites/[id]/lib/helpers';
 
 import {
   AccordionContent,
@@ -85,7 +86,7 @@ export const Blog1 = ({
   paddingArray = ['px-4', 'sm:px-6', 'lg:px-8'],
   marginArray = ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
   maxWidth = 'max-w-7xl',
-  color = 'neutral',
+  color = 'amber',
   textColor = 'neutral',
   isBeingDragged = false,
 }: {
@@ -113,7 +114,9 @@ export const Blog1 = ({
 
   return (
     <PaddingMarginWrapper
-      ref={(ref) => connect(drag(ref as HTMLElement))}
+      ref={(ref) => {
+        connect(drag(ref as HTMLElement));
+      }}
       classes={clsx(maxWidth)}
       paddingArray={paddingArray}
       marginArray={marginArray}
@@ -710,10 +713,6 @@ function generateComponentString({
 }) {
   const colorKey = color as keyof typeof colors;
   const textColorKey = textColor as keyof typeof colors;
-
-  function removeHtmlTags(input: string) {
-    return input.replace(/<[^>]*>/g, '');
-  }
 
   const mappedPosts = posts.map(
     (post) =>

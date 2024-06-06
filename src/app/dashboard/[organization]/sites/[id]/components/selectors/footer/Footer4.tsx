@@ -8,6 +8,7 @@ import { useNode, useEditor, SerializedNode } from '@craftjs/core';
 import ContentEditable from 'react-contenteditable';
 
 import { exportSingleComponent } from '~/app/dashboard/[organization]/sites/[id]/lib/export-components';
+import { removeHtmlTags } from '~/app/dashboard/[organization]/sites/[id]/lib/helpers';
 
 import {
   AccordionContent,
@@ -80,7 +81,7 @@ export const Footer4 = ({
   paddingArray = ['px-6', 'pb-8', 'pt-16', 'sm:pt-24', 'lg:px-8', 'lg:pt-32'],
   marginArray = ['mx-auto'],
   maxWidth = 'max-w-7xl',
-  color = 'neutral',
+  color = 'amber',
   textColor = 'neutral',
   isBeingDragged = false,
 }: {
@@ -126,7 +127,9 @@ export const Footer4 = ({
         classes={clsx(maxWidth)}
         paddingArray={paddingArray}
         marginArray={marginArray}
-        ref={(ref) => connect(drag(ref as HTMLElement))}
+        ref={(ref) => {
+          connect(drag(ref as HTMLElement));
+        }}
       >
         <div className="flex flex-col justify-between gap-10 md:flex-row md:gap-14">
           <div>
@@ -1437,10 +1440,6 @@ function generateComponentString({
 }) {
   const colorKey = color as keyof typeof colors;
   const textColorKey = textColor as keyof typeof colors;
-
-  function removeHtmlTags(input: string) {
-    return input.replace(/<[^>]*>/g, '');
-  }
 
   const navigationObject = `{
   categoryOne: [

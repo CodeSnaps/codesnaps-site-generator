@@ -9,6 +9,7 @@ import { useNode, useEditor, SerializedNode } from '@craftjs/core';
 import ContentEditable from 'react-contenteditable';
 
 import { exportSingleComponent } from '~/app/dashboard/[organization]/sites/[id]/lib/export-components';
+import { removeHtmlTags } from '~/app/dashboard/[organization]/sites/[id]/lib/helpers';
 
 import {
   AccordionContent,
@@ -51,8 +52,8 @@ export const Hero13 = ({
   heading = '',
   items = [],
   primaryCta = '',
-  paddingArray = [''],
-  marginArray = [''],
+  paddingArray = [],
+  marginArray = [],
   maxWidth = '',
   color = 'amber',
   textColor = 'neutral',
@@ -79,13 +80,11 @@ export const Hero13 = ({
   const colorKey = color as keyof typeof colors;
   const textColorKey = textColor as keyof typeof colors;
 
-  function removeHtmlTags(input: string) {
-    return input.replace(/<[^>]*>/g, '');
-  }
-
   return (
     <PaddingMarginWrapper
-      ref={(ref) => connect(drag(ref as HTMLElement))}
+      ref={(ref) => {
+        connect(drag(ref as HTMLElement));
+      }}
       classes={clsx(maxWidth, 'relative')}
       paddingArray={paddingArray}
       marginArray={marginArray}
@@ -779,10 +778,6 @@ function generateComponentString({
   const colorKey = color as keyof typeof colors;
   const textColorKey = textColor as keyof typeof colors;
 
-  function removeHtmlTags(input: string) {
-    return input.replace(/<[^>]*>/g, '');
-  }
-
   const mappedItems = items.map(
     (item) => `
   {
@@ -1030,8 +1025,8 @@ Hero13.craft = {
     heading: 'Medium length section heading goes here',
     items: items,
     primaryCta: 'Get started',
-    paddingArray: [''],
-    marginArray: [''],
+    paddingArray: [],
+    marginArray: [],
     maxWidth: '',
     color: 'amber',
     textColor: 'neutral',

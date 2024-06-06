@@ -10,6 +10,7 @@ import { useNode, useEditor, SerializedNode } from '@craftjs/core';
 import ContentEditable from 'react-contenteditable';
 
 import { exportSingleComponent } from '~/app/dashboard/[organization]/sites/[id]/lib/export-components';
+import { removeHtmlTags } from '~/app/dashboard/[organization]/sites/[id]/lib/helpers';
 
 import {
   AccordionContent,
@@ -36,7 +37,7 @@ export const Navbar7 = ({
   navigation = [],
   primaryCta = '',
   secondaryCta = '',
-  color = 'neutral',
+  color = 'amber',
   textColor = 'neutral',
   isBeingDragged = false,
 }: {
@@ -60,7 +61,12 @@ export const Navbar7 = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div ref={(ref) => connect(drag(ref as HTMLElement))} className="relative">
+    <div
+      ref={(ref) => {
+        connect(drag(ref as HTMLElement));
+      }}
+      className="relative"
+    >
       <header className="absolute inset-x-0 top-0 z-50 mx-2">
         <nav
           className={clsx(
@@ -839,10 +845,6 @@ function generateComponentString({
 }) {
   const colorKey = color as keyof typeof colors;
   const textColorKey = textColor as keyof typeof colors;
-
-  function removeHtmlTags(input: string) {
-    return input.replace(/<[^>]*>/g, '');
-  }
 
   let content: string;
 

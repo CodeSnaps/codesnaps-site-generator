@@ -10,6 +10,7 @@ import { useNode, useEditor, SerializedNode } from '@craftjs/core';
 import ContentEditable from 'react-contenteditable';
 
 import { exportSingleComponent } from '~/app/dashboard/[organization]/sites/[id]/lib/export-components';
+import { removeHtmlTags } from '~/app/dashboard/[organization]/sites/[id]/lib/helpers';
 
 import {
   AccordionContent,
@@ -63,8 +64,8 @@ export const Hero10 = ({
   description = '',
   primaryCta = '',
   secondaryCta = '',
-  paddingArray = [''],
-  marginArray = [''],
+  paddingArray = [],
+  marginArray = [],
   maxWidth = '',
   color = 'amber',
   textColor = 'neutral',
@@ -94,7 +95,9 @@ export const Hero10 = ({
 
   return (
     <PaddingMarginWrapper
-      ref={(ref) => connect(drag(ref as HTMLElement))}
+      ref={(ref) => {
+        connect(drag(ref as HTMLElement));
+      }}
       classes={clsx(maxWidth, 'grid grid-cols-1 gap-14 lg:grid-cols-2')}
       paddingArray={paddingArray}
       marginArray={marginArray}
@@ -559,10 +562,6 @@ function generateComponentString({
   const colorKey = color as keyof typeof colors;
   const textColorKey = textColor as keyof typeof colors;
 
-  function removeHtmlTags(input: string) {
-    return input.replace(/<[^>]*>/g, '');
-  }
-
   let content: string;
 
   const nextContent = `/*
@@ -810,8 +809,8 @@ Hero10.craft = {
       'Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.',
     primaryCta: 'Get started',
     secondaryCta: 'Learn more',
-    paddingArray: [''],
-    marginArray: [''],
+    paddingArray: [],
+    marginArray: [],
     maxWidth: '',
     color: 'amber',
     textColor: 'neutral',

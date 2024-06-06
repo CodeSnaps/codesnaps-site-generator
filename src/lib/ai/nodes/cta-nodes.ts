@@ -3,10 +3,10 @@ export const freeCtaNodes = [
     type: { resolvedName: 'CTA1' },
     isCanvas: false,
     props: {
-      heading: 'Maximum 6 words',
-      description: 'Minimum 2-3 sentences',
-      primaryCta: '1-2 words',
-      secondaryCta: '1-2 words',
+      heading: 'ACTION: Maximum 6 words',
+      description: 'ACTION: Minimum 2-3 sentences',
+      primaryCta: 'ACTION: 1-2 words',
+      secondaryCta: 'ACTION: 1-2 words',
     },
     displayName: 'CTA1',
     custom: {},
@@ -19,8 +19,8 @@ export const freeCtaNodes = [
     type: { resolvedName: 'CTA2' },
     isCanvas: false,
     props: {
-      heading: 'Maximum 6 words',
-      description: 'Minimum 2-3 sentences',
+      heading: 'ACTION: Maximum 6 words',
+      description: 'ACTION: Minimum 2-3 sentences',
       disclaimer:
         "By clicking Subscribe you're confirming that you agree with our",
       termsAndConditions: 'Terms and Conditions',
@@ -40,10 +40,10 @@ export const ctaNodes = [
     type: { resolvedName: 'CTA3' },
     isCanvas: false,
     props: {
-      heading: 'Maximum 6 words',
-      description: 'Minimum 2-3 sentences',
-      primaryCta: '1-2 words',
-      secondaryCta: '1-2 words',
+      heading: 'ACTION: Maximum 6 words',
+      description: 'ACTION: Minimum 2-3 sentences',
+      primaryCta: 'ACTION: 1-2 words',
+      secondaryCta: 'ACTION: 1-2 words',
     },
     displayName: 'CTA3',
     custom: {},
@@ -56,8 +56,8 @@ export const ctaNodes = [
     type: { resolvedName: 'CTA4' },
     isCanvas: false,
     props: {
-      heading: 'Maximum 6 words',
-      description: 'Minimum 2-3 sentences',
+      heading: 'ACTION: Maximum 6 words',
+      description: 'ACTION: Minimum 2-3 sentences',
       cta: '1-2 words',
       disclaimer:
         "By clicking Subscribe you're confirming that you agree with our",
@@ -74,8 +74,8 @@ export const ctaNodes = [
     type: { resolvedName: 'CTA5' },
     isCanvas: false,
     props: {
-      heading: 'Maximum 6 words',
-      description: 'Minimum 2-3 sentences',
+      heading: 'ACTION: Maximum 6 words',
+      description: 'ACTION: Minimum 2-3 sentences',
       cta: '1-2 words',
       disclaimer:
         "By clicking Subscribe you're confirming that you agree with our",

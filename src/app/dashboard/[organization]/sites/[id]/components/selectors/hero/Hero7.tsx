@@ -8,6 +8,7 @@ import { useNode, useEditor, SerializedNode } from '@craftjs/core';
 import ContentEditable from 'react-contenteditable';
 
 import { exportSingleComponent } from '~/app/dashboard/[organization]/sites/[id]/lib/export-components';
+import { removeHtmlTags } from '~/app/dashboard/[organization]/sites/[id]/lib/helpers';
 
 import {
   AccordionContent,
@@ -60,7 +61,11 @@ export const Hero7 = ({
   const textColorKey = textColor as keyof typeof colors;
 
   return (
-    <div ref={(ref) => connect(drag(ref as HTMLElement))}>
+    <div
+      ref={(ref) => {
+        connect(drag(ref as HTMLElement));
+      }}
+    >
       <div className="relative order-last mx-auto bg-neutral-300 pt-[100%] md:pt-[50%] xl:pt-[30%]">
         <ReactPlayer
           width="100%"
@@ -466,10 +471,6 @@ function generateComponentString({
 }) {
   const colorKey = color as keyof typeof colors;
   const textColorKey = textColor as keyof typeof colors;
-
-  function removeHtmlTags(input: string) {
-    return input.replace(/<[^>]*>/g, '');
-  }
 
   let content: string;
 

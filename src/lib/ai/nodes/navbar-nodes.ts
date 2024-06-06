@@ -3,25 +3,25 @@ export const freeNavbarNodes = [
     type: { resolvedName: 'Navbar1' },
     isCanvas: false,
     props: {
-      primaryCta: '',
-      secondaryCta: '',
+      primaryCta: 'ACTION: 1-2 words',
+      secondaryCta: 'ACTION: 1-2 words',
       navigation: [
-        { name: '', href: '#', dropdown: false },
-        { name: '', href: '#', dropdown: false },
+        { name: 'ACTION: 1-2 words', href: '#', dropdown: false },
+        { name: 'ACTION: 1-2 words', href: '#', dropdown: false },
         {
-          name: '',
+          name: 'ACTION: 1-2 words',
           dropdown: true,
           dropdownItems: [
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
           ],
@@ -39,11 +39,11 @@ export const freeNavbarNodes = [
     type: { resolvedName: 'Navbar2' },
     isCanvas: false,
     props: {
-      primaryCta: '',
+      primaryCta: 'ACTION: 1-2 words',
       navigation: [
-        { name: '', href: '#' },
-        { name: '', href: '#' },
-        { name: '', href: '#' },
+        { name: 'ACTION: 1-2 words', href: '#' },
+        { name: 'ACTION: 1-2 words', href: '#' },
+        { name: 'ACTION: 1-2 words', href: '#' },
       ],
     },
     displayName: 'Navbar2',
@@ -57,11 +57,11 @@ export const freeNavbarNodes = [
     type: { resolvedName: 'Navbar3' },
     isCanvas: false,
     props: {
-      primaryCta: '',
+      primaryCta: 'ACTION: 1-2 words',
       navigation: [
-        { name: '', href: '#' },
-        { name: '', href: '#' },
-        { name: '', href: '#' },
+        { name: 'ACTION: 1-2 words', href: '#' },
+        { name: 'ACTION: 1-2 words', href: '#' },
+        { name: 'ACTION: 1-2 words', href: '#' },
       ],
     },
     displayName: 'Navbar3',
@@ -79,67 +79,67 @@ export const navbarNodes = [
     type: { resolvedName: 'Navbar4' },
     isCanvas: false,
     props: {
-      primaryCta: '',
+      primaryCta: 'ACTION: 1-2 words',
       navigation: [
         {
-          name: 'Insert name of dropdown',
+          name: 'ACTION: Insert name of dropdown',
           dropdownItems: [
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
           ],
         },
         {
-          name: 'Insert name of dropdown',
+          name: 'ACTION: Insert name of dropdown',
           dropdownItems: [
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
           ],
         },
         {
-          name: 'Insert name of dropdown',
+          name: 'ACTION: Insert name of dropdown',
           dropdownItems: [
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
           ],
@@ -157,63 +157,63 @@ export const navbarNodes = [
     type: { resolvedName: 'Navbar5' },
     isCanvas: false,
     props: {
-      featuredBlogPostsTitle: '1 sentence title',
-      postCta: '',
-      allPostsCta: '',
-      primaryCta: '',
+      featuredBlogPostsTitle: 'ACTION: 1 sentence title',
+      postCta: 'ACTION: 1-2 words',
+      allPostsCta: 'ACTION: 1-2 words',
+      primaryCta: 'ACTION: 1-2 words',
       navigation: [
-        { name: '', href: '#', dropdown: false },
-        { name: '', href: '#', dropdown: false },
+        { name: 'ACTION: 1-2 words', href: '#', dropdown: false },
+        { name: 'ACTION: 1-2 words', href: '#', dropdown: false },
         {
-          name: 'Insert name of dropdown',
+          name: 'ACTION: Insert name of dropdown',
           dropdown: true,
           group: [
             {
-              name: 'Insert name of link group',
+              name: 'ACTION: Insert name of link group',
               items: [
                 {
-                  name: '',
-                  description: '',
+                  name: 'ACTION: 1-2 words',
+                  description: 'ACTION: 1 sentence',
                   href: '#',
                 },
                 {
-                  name: '',
-                  description: '',
+                  name: 'ACTION: 1-2 words',
+                  description: 'ACTION: 1 sentence',
                   href: '#',
                 },
                 {
-                  name: '',
-                  description: '',
+                  name: 'ACTION: 1-2 words',
+                  description: 'ACTION: 1 sentence',
                   href: '#',
                 },
                 {
                   name: '´',
-                  description: '',
+                  description: 'ACTION: 1 sentence',
                   href: '#',
                 },
               ],
             },
             {
-              name: 'Insert name of link group',
+              name: 'ACTION: Insert name of link group',
               items: [
                 {
-                  name: '',
-                  description: '',
+                  name: 'ACTION: 1-2 words',
+                  description: 'ACTION: 1 sentence',
                   href: '#',
                 },
                 {
-                  name: '',
-                  description: '',
+                  name: 'ACTION: 1-2 words',
+                  description: 'ACTION: 1 sentence',
                   href: '#',
                 },
                 {
-                  name: '',
-                  description: '',
+                  name: 'ACTION: 1-2 words',
+                  description: 'ACTION: 1 sentence',
                   href: '#',
                 },
                 {
                   name: '´',
-                  description: '',
+                  description: 'ACTION: 1 sentence',
                   href: '#',
                 },
               ],
@@ -221,15 +221,15 @@ export const navbarNodes = [
           ],
           featuredPost: [
             {
-              title: '3-5 words title',
-              description: '1 sentence description',
+              title: 'ACTION: 3-5 words title',
+              description: 'ACTION: 1 sentence description',
               href: '#',
               imageSrc: 'https://dummyimage.com/1280x720/d4d4d4/171717',
               imageAlt: 'Post image',
             },
             {
-              title: '3-5 words title',
-              description: '1 sentence description',
+              title: 'ACTION: 3-5 words title',
+              description: 'ACTION: 1 sentence description',
               href: '#',
               imageSrc: 'https://dummyimage.com/1280x720/d4d4d4/171717',
               imageAlt: 'Post image',
@@ -249,61 +249,61 @@ export const navbarNodes = [
     type: { resolvedName: 'Navbar6' },
     isCanvas: false,
     props: {
-      primaryCta: '',
-      secondaryCta: '',
+      primaryCta: 'ACTION: 1-2 words',
+      secondaryCta: 'ACTION: 1-2 words',
       navigation: [
-        { name: '', href: '#', dropdown: false },
-        { name: '', href: '#', dropdown: false },
+        { name: 'ACTION: 1-2 words', href: '#', dropdown: false },
+        { name: 'ACTION: 1-2 words', href: '#', dropdown: false },
         {
-          name: 'Insert name of dropdown',
+          name: 'ACTION: Insert name of dropdown',
           dropdown: true,
           group: [
             {
-              name: 'Insert name of link group',
+              name: 'ACTION: Insert name of link group',
               items: [
                 {
-                  name: '',
-                  description: '',
+                  name: 'ACTION: 1-2 words',
+                  description: 'ACTION: 1 sentence',
                   href: '#',
                 },
                 {
-                  name: '',
-                  description: '',
+                  name: 'ACTION: 1-2 words',
+                  description: 'ACTION: 1 sentence',
                   href: '#',
                 },
                 {
-                  name: '',
-                  description: '',
+                  name: 'ACTION: 1-2 words',
+                  description: 'ACTION: 1 sentence',
                   href: '#',
                 },
                 {
-                  name: '',
-                  description: '',
+                  name: 'ACTION: 1-2 words',
+                  description: 'ACTION: 1 sentence',
                   href: '#',
                 },
               ],
             },
             {
-              name: 'Insert name of link group',
+              name: 'ACTION: Insert name of link group',
               items: [
                 {
-                  name: '',
-                  description: '',
+                  name: 'ACTION: 1-2 words',
+                  description: 'ACTION: 1 sentence',
                   href: '#',
                 },
                 {
-                  name: '',
-                  description: '',
+                  name: 'ACTION: 1-2 words',
+                  description: 'ACTION: 1 sentence',
                   href: '#',
                 },
                 {
-                  name: '',
-                  description: '',
+                  name: 'ACTION: 1-2 words',
+                  description: 'ACTION: 1 sentence',
                   href: '#',
                 },
                 {
-                  name: '',
-                  description: '',
+                  name: 'ACTION: 1-2 words',
+                  description: 'ACTION: 1 sentence',
                   href: '#',
                 },
               ],
@@ -323,12 +323,12 @@ export const navbarNodes = [
     type: { resolvedName: 'Navbar7' },
     isCanvas: false,
     props: {
-      primaryCta: '',
-      secondaryCta: '',
+      primaryCta: 'ACTION: 1-2 words',
+      secondaryCta: 'ACTION: 1-2 words',
       navigation: [
-        { name: '', href: '#', dropdown: false },
-        { name: '', href: '#', dropdown: false },
-        { name: '', href: '#', dropdown: false },
+        { name: 'ACTION: 1-2 words', href: '#', dropdown: false },
+        { name: 'ACTION: 1-2 words', href: '#', dropdown: false },
+        { name: 'ACTION: 1-2 words', href: '#', dropdown: false },
       ],
     },
     displayName: 'Navbar7',
@@ -342,12 +342,12 @@ export const navbarNodes = [
     type: { resolvedName: 'Navbar8' },
     isCanvas: false,
     props: {
-      primaryCta: '',
-      secondaryCta: '',
+      primaryCta: 'ACTION: 1-2 words',
+      secondaryCta: 'ACTION: 1-2 words',
       navigation: [
-        { name: '', href: '#', dropdown: false },
-        { name: '', href: '#', dropdown: false },
-        { name: '', href: '#', dropdown: false },
+        { name: 'ACTION: 1-2 words', href: '#', dropdown: false },
+        { name: 'ACTION: 1-2 words', href: '#', dropdown: false },
+        { name: 'ACTION: 1-2 words', href: '#', dropdown: false },
       ],
     },
     displayName: 'Navbar8',
@@ -362,22 +362,22 @@ export const navbarNodes = [
     isCanvas: false,
     props: {
       navigation: [
-        { name: '', href: '#', dropdown: false },
-        { name: '', href: '#', dropdown: false },
+        { name: 'ACTION: 1-2 words', href: '#', dropdown: false },
+        { name: 'ACTION: 1-2 words', href: '#', dropdown: false },
         {
-          name: 'Insert name of dropdown',
+          name: 'ACTION: Insert name of dropdown',
           dropdown: true,
           dropdownItems: [
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
           ],
@@ -395,24 +395,24 @@ export const navbarNodes = [
     type: { resolvedName: 'Navbar10' },
     isCanvas: false,
     props: {
-      primaryCta: '',
+      primaryCta: 'ACTION: 1-2 words',
       navigation: [
-        { name: '', href: '#', dropdown: false },
-        { name: '', href: '#', dropdown: false },
+        { name: 'ACTION: 1-2 words', href: '#', dropdown: false },
+        { name: 'ACTION: 1-2 words', href: '#', dropdown: false },
         {
-          name: 'Insert name of dropdown',
+          name: 'ACTION: Insert name of dropdown',
           dropdown: true,
           dropdownItems: [
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
             {
-              name: '',
+              name: 'ACTION: 1-2 words',
               href: '#',
             },
           ],
@@ -430,11 +430,11 @@ export const navbarNodes = [
     type: { resolvedName: 'Navbar11' },
     isCanvas: false,
     props: {
-      primaryCta: '',
+      primaryCta: 'ACTION: 1-2 words',
       navigation: [
-        { name: '', href: '#', dropdown: false },
-        { name: '', href: '#', dropdown: false },
-        { name: '', href: '#', dropdown: false },
+        { name: 'ACTION: 1-2 words', href: '#', dropdown: false },
+        { name: 'ACTION: 1-2 words', href: '#', dropdown: false },
+        { name: 'ACTION: 1-2 words', href: '#', dropdown: false },
       ],
     },
     displayName: 'Navbar11',

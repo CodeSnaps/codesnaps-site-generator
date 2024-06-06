@@ -10,6 +10,7 @@ import React, { useState } from 'react';
 import { useNode, useEditor, SerializedNode } from '@craftjs/core';
 
 import { exportSingleComponent } from '~/app/dashboard/[organization]/sites/[id]/lib/export-components';
+import { removeHtmlTags } from '~/app/dashboard/[organization]/sites/[id]/lib/helpers';
 
 import {
   AccordionContent,
@@ -118,7 +119,7 @@ export const Navbar5 = ({
   allPostsCta = '',
   primaryCta = '',
   secondaryCta = '',
-  color = 'neutral',
+  color = 'amber',
   textColor = 'neutral',
   isBeingDragged = false,
 }: {
@@ -146,7 +147,9 @@ export const Navbar5 = ({
 
   return (
     <header
-      ref={(ref) => connect(drag(ref as HTMLElement))}
+      ref={(ref) => {
+        connect(drag(ref as HTMLElement));
+      }}
       className="relative"
     >
       <div
@@ -1391,10 +1394,6 @@ function generateComponentString({
 }) {
   const colorKey = color as keyof typeof colors;
   const textColorKey = textColor as keyof typeof colors;
-
-  function removeHtmlTags(input: string) {
-    return input.replace(/<[^>]*>/g, '');
-  }
 
   const navigationString = `[
   { name: '${removeHtmlTags(navigation[0].name)}', href: '#', dropdown: false },

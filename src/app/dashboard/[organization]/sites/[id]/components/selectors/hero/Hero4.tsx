@@ -10,6 +10,7 @@ import { useNode, useEditor, SerializedNode } from '@craftjs/core';
 import ContentEditable from 'react-contenteditable';
 
 import { exportSingleComponent } from '~/app/dashboard/[organization]/sites/[id]/lib/export-components';
+import { removeHtmlTags } from '~/app/dashboard/[organization]/sites/[id]/lib/helpers';
 
 import {
   AccordionContent,
@@ -65,8 +66,8 @@ export const Hero4 = ({
   heading = '',
   description = '',
   primaryCta = '',
-  paddingArray = [''],
-  marginArray = [''],
+  paddingArray = [],
+  marginArray = [],
   maxWidth = '',
   color = 'amber',
   textColor = 'neutral',
@@ -93,13 +94,11 @@ export const Hero4 = ({
   const colorKey = color as keyof typeof colors;
   const textColorKey = textColor as keyof typeof colors;
 
-  function removeHtmlTags(input: string) {
-    return input.replace(/<[^>]*>/g, '');
-  }
-
   return (
     <PaddingMarginWrapper
-      ref={(ref) => connect(drag(ref as HTMLElement))}
+      ref={(ref) => {
+        connect(drag(ref as HTMLElement));
+      }}
       classes={clsx(maxWidth, 'relative w-full')}
       paddingArray={paddingArray}
       marginArray={marginArray}
@@ -553,10 +552,6 @@ function generateComponentString({
   const colorKey = color as keyof typeof colors;
   const textColorKey = textColor as keyof typeof colors;
 
-  function removeHtmlTags(input: string) {
-    return input.replace(/<[^>]*>/g, '');
-  }
-
   const imagesString = JSON.stringify(images);
 
   let content: string;
@@ -776,8 +771,8 @@ Hero4.craft = {
       'Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.',
     primaryCta: 'Get started',
     secondaryCta: 'Learn more',
-    paddingArray: [''],
-    marginArray: [''],
+    paddingArray: [],
+    marginArray: [],
     maxWidth: '',
     color: 'amber',
     textColor: 'neutral',

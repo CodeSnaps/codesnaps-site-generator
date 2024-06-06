@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import Image from 'next/image';
 
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
@@ -12,7 +13,7 @@ import ThumbnailGrid from '~/app/(site)/components/ThumbnailGrid';
 import FaqComponent from '~/app/(site)/components/FaqComponent';
 import { withI18n } from '~/i18n/with-i18n';
 
- function Home() {
+function Home() {
   return (
     <div className="flex flex-col space-y-16">
       <Container>
@@ -91,19 +92,19 @@ import { withI18n } from '~/i18n/with-i18n';
       </Container>
 
       <Container>
-        <div className="flex flex-col space-y-4">
+        <div className="flex flex-col gap-4">
           <FeatureShowcaseContainer>
             <LeftFeatureContainer>
               <Image
                 className="rounded-2xl dark:border-2 dark:border-neutral-700 my-10 lg:my-0"
-                src="/assets/images/ComponentFiltering.webp"
+                src="/assets/images/SiteGenerator.webp"
                 width={626}
                 height={683}
                 alt="Component Filtering"
               />
             </LeftFeatureContainer>
 
-            <RightFeatureContainer>
+            <RightFeatureContainer isFirst={false}>
               <div className={'flex flex-col space-y-4'}>
                 <Heading
                   type={2}
@@ -171,9 +172,9 @@ import { withI18n } from '~/i18n/with-i18n';
               </div>
             </LeftFeatureContainer>
 
-            <RightFeatureContainer>
+            <RightFeatureContainer isFirst={true}>
               <Image
-                className="rounded-2xl dark:border-2 dark:border-neutral-700"
+                className="rounded-2xl dark:border-2 dark:border-neutral-700 mb-10 lg:mb-0"
                 src="/assets/images/CodeSnippet.webp"
                 width={626}
                 height={683}
@@ -193,7 +194,7 @@ import { withI18n } from '~/i18n/with-i18n';
               />
             </LeftFeatureContainer>
 
-            <RightFeatureContainer>
+            <RightFeatureContainer isFirst={false}>
               <div className={'flex flex-col space-y-4'}>
                 <Heading
                   type={2}
@@ -356,7 +357,7 @@ function FeatureShowcaseContainer(props: React.PropsWithChildren) {
   return (
     <div
       className={
-        'flex flex-col lg:flex-row items-center justify-between' +
+        'flex flex-col lg:flex-row items-center justify-between gap-10' +
         ' lg:space-x-24'
       }
     >
@@ -373,8 +374,20 @@ function LeftFeatureContainer(props: React.PropsWithChildren) {
   );
 }
 
-function RightFeatureContainer(props: React.PropsWithChildren) {
-  return <div className={'flex w-full lg:w-6/12'}>{props.children}</div>;
+function RightFeatureContainer({
+  children,
+  isFirst = false,
+}: React.PropsWithChildren<{ isFirst: boolean }>) {
+  return (
+    <div
+      className={clsx(
+        isFirst ? 'order-first mt-20 lg:mt-0' : 'order-last lg:order-first',
+        'flex w-full lg:w-6/12',
+      )}
+    >
+      {children}
+    </div>
+  );
 }
 
 function MainCallToActionButton() {

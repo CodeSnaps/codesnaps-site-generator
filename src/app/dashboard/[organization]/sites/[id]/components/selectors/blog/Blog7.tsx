@@ -9,6 +9,7 @@ import { useNode, useEditor, SerializedNode } from '@craftjs/core';
 import ContentEditable from 'react-contenteditable';
 
 import { exportSingleComponent } from '~/app/dashboard/[organization]/sites/[id]/lib/export-components';
+import { removeHtmlTags } from '~/app/dashboard/[organization]/sites/[id]/lib/helpers';
 
 import {
   AccordionContent,
@@ -161,12 +162,10 @@ export const Blog7 = ({
   posts = [],
   categories = [],
   cta = '',
-  featuredPostCta = '',
-  postCta = '',
   paddingArray = ['px-4', 'sm:px-6', 'lg:px-8'],
   marginArray = ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
   maxWidth = 'max-w-7xl',
-  color = 'neutral',
+  color = 'amber',
   textColor = 'neutral',
   isBeingDragged = false,
 }: {
@@ -176,8 +175,6 @@ export const Blog7 = ({
   posts?: any[];
   categories?: any[];
   cta?: string;
-  featuredPostCta?: string;
-  postCta?: string;
   paddingArray?: string[];
   marginArray?: string[];
   maxWidth?: string;
@@ -197,7 +194,9 @@ export const Blog7 = ({
 
   return (
     <PaddingMarginWrapper
-      ref={(ref) => connect(drag(ref as HTMLElement))}
+      ref={(ref) => {
+        connect(drag(ref as HTMLElement));
+      }}
       classes={clsx(maxWidth)}
       paddingArray={paddingArray}
       marginArray={marginArray}
@@ -1091,10 +1090,6 @@ function generateComponentString({
   const colorKey = color as keyof typeof colors;
   const textColorKey = textColor as keyof typeof colors;
 
-  function removeHtmlTags(input: string) {
-    return input.replace(/<[^>]*>/g, '');
-  }
-
   const mappedPosts = posts.map(
     (post) =>
       `
@@ -1530,9 +1525,7 @@ Blog7.craft = {
       'Rhoncus morbi et augue nec, in id ullamcorper at sit. Condimentum sit nunc in eros scelerisque sed. Commodo in viverra nunc, ullamcorper ut.',
     posts: posts,
     categories: categories,
-    featuredPostCta: 'Read more',
     cta: 'View all',
-    postCta: 'Read more',
     paddingArray: ['px-4', 'sm:px-6', 'lg:px-8'],
     marginArray: ['mx-auto', 'mt-24', 'sm:mt-32', 'lg:mt-40'],
     maxWidth: 'max-w-7xl',

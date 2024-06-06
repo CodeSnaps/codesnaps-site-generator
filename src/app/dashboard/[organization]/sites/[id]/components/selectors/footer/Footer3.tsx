@@ -8,6 +8,7 @@ import { useNode, useEditor, SerializedNode } from '@craftjs/core';
 import ContentEditable from 'react-contenteditable';
 
 import { exportSingleComponent } from '~/app/dashboard/[organization]/sites/[id]/lib/export-components';
+import { removeHtmlTags } from '~/app/dashboard/[organization]/sites/[id]/lib/helpers';
 
 import {
   AccordionContent,
@@ -127,7 +128,7 @@ export const Footer3 = ({
   paddingArray = ['px-6', 'pb-8', 'pt-16', 'sm:pt-24', 'lg:px-8', 'lg:pt-32'],
   marginArray = ['mx-auto'],
   maxWidth = 'max-w-7xl',
-  color = 'neutral',
+  color = 'amber',
   textColor = 'neutral',
   isBeingDragged = false,
 }: {
@@ -170,7 +171,9 @@ export const Footer3 = ({
         classes={clsx(maxWidth)}
         paddingArray={paddingArray}
         marginArray={marginArray}
-        ref={(ref) => connect(drag(ref as HTMLElement))}
+        ref={(ref) => {
+          connect(drag(ref as HTMLElement));
+        }}
       >
         <div className="flex flex-col justify-between gap-10 md:gap-14 xl:flex-row">
           <div className="sm:grid sm:grid-cols-4 sm:gap-10 xl:gap-20">
@@ -1364,10 +1367,6 @@ function generateComponentString({
   const colorKey = color as keyof typeof colors;
   const textColorKey = textColor as keyof typeof colors;
 
-  function removeHtmlTags(input: string) {
-    return input.replace(/<[^>]*>/g, '');
-  }
-
   const navigationObject = `{
   categoryOne: [
     { name: '${removeHtmlTags(navigation.categoryOne[0].name)}', href: '#' },
@@ -1394,7 +1393,7 @@ function generateComponentString({
   ],
   social: [
     {
-      name: '${removeHtmlTags(navigation[0].name)}',
+      name: 'Facebook',
       href: '#',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
@@ -1407,7 +1406,7 @@ function generateComponentString({
       ),
     },
     {
-      name: '${removeHtmlTags(navigation[1].name)}',
+      name: 'Instagram',
       href: '#',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
@@ -1420,7 +1419,7 @@ function generateComponentString({
       ),
     },
     {
-      name: '${removeHtmlTags(navigation[2].name)}',
+      name: 'X',
       href: '#',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 300 271" {...props}>
@@ -1429,7 +1428,7 @@ function generateComponentString({
       ),
     },
     {
-      name: '${removeHtmlTags(navigation[3].name)}',
+      name: 'LinkedIn',
       href: '#',
       icon: (props) => (
         <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -1441,7 +1440,7 @@ function generateComponentString({
       ),
     },
     {
-      name: '${removeHtmlTags(navigation[4].name)}',
+      name: 'YouTube',
       href: '#',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
