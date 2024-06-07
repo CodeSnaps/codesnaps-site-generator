@@ -16,81 +16,102 @@ export const config = {
 };
 
 export async function middleware(request: NextRequest) {
-  const response = NextResponse.next();
-  const csrfResponse = await withCsrfMiddleware(request, response);
-  const sessionResponse = await sessionMiddleware(request, csrfResponse);
-
-  return await adminMiddleware(request, sessionResponse);
+  try {
+    let response = NextResponse.next();
+    response = await withCsrfMiddleware(request, response);
+    response = await sessionMiddleware(request, response);
+    response = await adminMiddleware(request, response);
+    return response;
+  } catch (error) {
+    console.error('Middleware error:', error);
+    return NextResponse.json(
+      { message: 'Internal Server Error' },
+      { status: HttpStatusCode.InternalServerError },
+    );
+  }
 }
 
 async function sessionMiddleware(req: NextRequest, res: NextResponse) {
-  const supabase = createMiddlewareClient(req, res);
-
-  await supabase.auth.getSession();
-
-  return res;
+  try {
+    const supabase = createMiddlewareClient(req, res);
+    await supabase.auth.getSession();
+    return res;
+  } catch (error) {
+    console.error('Session middleware error:', error);
+    return NextResponse.json(
+      { message: 'Session Error' },
+      { status: HttpStatusCode.InternalServerError },
+    );
+  }
 }
 
 async function withCsrfMiddleware(
   request: NextRequest,
   response = new NextResponse(),
 ) {
-  // set up CSRF protection
-  const csrfMiddleware = csrf({
-    cookie: {
-      secure: configuration.production,
-      name: CSRF_SECRET_COOKIE,
-    },
-    // ignore CSRF errors for server actions since protection is built-in
-    ignoreMethods: isServerAction(request)
-      ? ['POST']
-      : // always ignore GET, HEAD, and OPTIONS requests
-        ['GET', 'HEAD', 'OPTIONS'],
-  });
-
-  const csrfError = await csrfMiddleware(request, response);
-
-  // if there is a CSRF error, return a 403 response
-  if (csrfError) {
-    return NextResponse.json('Invalid CSRF token', {
-      status: HttpStatusCode.Forbidden,
+  try {
+    const csrfMiddleware = csrf({
+      cookie: {
+        secure: configuration.production,
+        name: CSRF_SECRET_COOKIE,
+      },
+      ignoreMethods: isServerAction(request)
+        ? ['POST']
+        : ['GET', 'HEAD', 'OPTIONS'],
     });
-  }
 
-  // otherwise, return the response
-  return response;
+    const csrfError = await csrfMiddleware(request, response);
+
+    if (csrfError) {
+      console.error('CSRF middleware error:', csrfError);
+      return NextResponse.json('Invalid CSRF token', {
+        status: HttpStatusCode.Forbidden,
+      });
+    }
+
+    return response;
+  } catch (error) {
+    console.error('CSRF middleware error:', error);
+    return NextResponse.json(
+      { message: 'CSRF Error' },
+      { status: HttpStatusCode.InternalServerError },
+    );
+  }
 }
 
 function isServerAction(request: NextRequest) {
   const headers = new Headers(request.headers);
-
   return headers.has(NEXT_ACTION_HEADER);
 }
 
 async function adminMiddleware(request: NextRequest, response: NextResponse) {
-  const isAdminPath = request.nextUrl.pathname.startsWith('/admin');
+  try {
+    const isAdminPath = request.nextUrl.pathname.startsWith('/admin');
 
-  if (!isAdminPath) {
+    if (!isAdminPath) {
+      return response;
+    }
+
+    const supabase = createMiddlewareClient(request, response);
+    const { data, error } = await supabase.auth.getUser();
+    const origin = request.nextUrl.origin;
+
+    if (!data.user || error) {
+      return NextResponse.redirect(`${origin}/auth/sign-in`);
+    }
+
+    const role = data.user?.app_metadata['role'];
+
+    if (!role || role !== GlobalRole.SuperAdmin) {
+      return NextResponse.redirect(`${origin}/404`);
+    }
+
     return response;
+  } catch (error) {
+    console.error('Admin middleware error:', error);
+    return NextResponse.json(
+      { message: 'Admin Middleware Error' },
+      { status: HttpStatusCode.InternalServerError },
+    );
   }
-
-  const supabase = createMiddlewareClient(request, response);
-  const { data, error } = await supabase.auth.getUser();
-  const origin = request.nextUrl.origin;
-
-  // If user is not logged in, redirect to sign in page.
-  // This should never happen, but just in case.
-  if (!data.user || error) {
-    return NextResponse.redirect(`${origin}/auth/sign-in`);
-  }
-
-  const role = data.user?.app_metadata['role'];
-
-  // If user is not an admin, redirect to 404 page.
-  if (!role || role !== GlobalRole.SuperAdmin) {
-    return NextResponse.redirect(`${origin}/404`);
-  }
-
-  // in all other cases, return the response
-  return response;
 }
