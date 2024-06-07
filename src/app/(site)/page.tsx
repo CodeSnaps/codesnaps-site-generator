@@ -55,7 +55,7 @@ function Home() {
             className="rounded-2xl animate-in fade-in zoom-in-50 delay-300 duration-1000 ease-out fill-mode-both"
             width={2688}
             height={1824}
-            src="/assets/images/Dashboard.webp"
+            src="/assets/images/Dashboard_SiteGenerator.webp"
             alt="App Image"
           />
         </div>

@@ -24,12 +24,12 @@ const SidebarItem = ({
       {hasActiveSub ? (
         <TooltipTrigger asChild>
           <div
-            ref={(ref) =>
+            ref={(ref) => {
               connectors.create(
                 ref as HTMLElement,
                 <Component isBeingDragged={true} />,
-              )
-            }
+              );
+            }}
             className="w-full shadow border rounded-md cursor-move"
           >
             <Image
@@ -46,12 +46,12 @@ const SidebarItem = ({
       ) : isFreeComponent ? (
         <TooltipTrigger asChild>
           <div
-            ref={(ref) =>
+            ref={(ref) => {
               connectors.create(
                 ref as HTMLElement,
                 <Component isBeingDragged={true} />,
-              )
-            }
+              );
+            }}
             className="w-full shadow border rounded-md cursor-move"
           >
             <Image

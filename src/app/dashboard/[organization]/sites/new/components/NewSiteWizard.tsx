@@ -100,7 +100,7 @@ function NewSiteWizardFormContainer({ activeSub }: { activeSub: boolean }) {
       };
       generateSite();
     });
-  }, [descriptionForm, structureForm, colorForm]);
+  }, [descriptionForm, structureForm, colorForm, activeSub]);
 
   switch (step) {
     case NewSiteCreationStep.Description:

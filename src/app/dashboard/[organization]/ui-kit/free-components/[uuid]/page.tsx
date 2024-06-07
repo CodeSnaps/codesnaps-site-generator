@@ -68,7 +68,7 @@ function ComponentDetailPage({ params }: ComponentDetailPageProps) {
 
           <div className="flex items-center space-x-2">
             <div className="group">
-              <Link href={preview_url} target="_blank">
+              <Link href={preview_url || '#'} target="_blank">
                 <div className="rounded-md bg-transparent p-3 text-sm font-semibold shadow-sm ring-1 ring-inset ring-neutral-400 hover:bg-neutral-50 group-hover:ring-neutral-800 dark:hover:bg-neutral-800 dark:hover:ring-neutral-100">
                   <PreviewLinkIcon className="h-6 w-6 text-neutral-600 group-hover:text-neutral-800 dark:text-neutral-400 dark:group-hover:text-white" />
                 </div>
@@ -93,8 +93,8 @@ function ComponentDetailPage({ params }: ComponentDetailPageProps) {
             >
               <Image
                 priority
-                src={image_src}
-                alt={image_alt}
+                src={image_src || '/assets/images/EmptyComponent.webp'}
+                alt={image_alt || 'Component Image'}
                 width={752}
                 height={470}
                 style={{ objectFit: 'contain' }}
@@ -109,7 +109,7 @@ function ComponentDetailPage({ params }: ComponentDetailPageProps) {
               <Trans i18nKey="components:uiKitTypeLabel" />
             </h3>
             <p className="text-base text-neutral-600 dark:text-neutral-400">
-              {type.charAt(0).toUpperCase() + type.slice(1)}
+              {type ? type.charAt(0).toUpperCase() + type.slice(1) : 'N/A'}
             </p>
           </div>
 
@@ -118,7 +118,9 @@ function ComponentDetailPage({ params }: ComponentDetailPageProps) {
               <Trans i18nKey="components:uiKitCategoryLabel" />
             </h3>
             <p className="text-base text-neutral-600 dark:text-neutral-400">
-              {category.charAt(0).toUpperCase() + category.slice(1)}
+              {category
+                ? category.charAt(0).toUpperCase() + category.slice(1)
+                : 'N/A'}
             </p>
           </div>
 
@@ -159,10 +161,10 @@ function ComponentDetailPage({ params }: ComponentDetailPageProps) {
           </h2>
 
           <CodeTabs
-            code_tailwindcss_react={code_tailwindcss_react}
-            code_tailwindcss_nextjs={code_tailwindcss_nextjs}
-            code_animation_react={code_animation_react}
-            code_animation_nextjs={code_animation_nextjs}
+            code_tailwindcss_react={code_tailwindcss_react || ''}
+            code_tailwindcss_nextjs={code_tailwindcss_nextjs || ''}
+            code_animation_react={code_animation_react || ''}
+            code_animation_nextjs={code_animation_nextjs || ''}
           />
         </div>
       </div>

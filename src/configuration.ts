@@ -127,13 +127,13 @@ const configuration = {
           {
             name: 'Monthly',
             price: '$15',
-            stripePriceId: 'price_1O8ijiCjllA7kCqF1fRsadVw2K',
+            stripePriceId: 'price_1POykYCjllA7kCqFdnimew7k',
             mode: 'subscription',
           },
           {
             name: 'Yearly',
             price: '$139',
-            stripePriceId: 'price_1O8ijiCjllA7kCqFasdg8x7tqD',
+            stripePriceId: 'price_1POyl8CjllA7kCqFxXkQjwL1',
             mode: 'subscription',
           },
         ],
@@ -156,13 +156,13 @@ const configuration = {
           {
             name: 'Monthly',
             price: '$29',
-            stripePriceId: 'price_1O8ijiCjllA7kCqF1fRAVw2K',
+            stripePriceId: 'price_1POym9CjllA7kCqFEoGt7P2t',
             mode: 'subscription',
           },
           {
             name: 'Yearly',
             price: '$249',
-            stripePriceId: 'price_1O8ijiCjllA7kCqFcg8x7tqD',
+            stripePriceId: 'price_1POymUCjllA7kCqFl37o891a',
             mode: 'subscription',
           },
         ],

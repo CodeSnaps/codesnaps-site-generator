@@ -42,9 +42,9 @@ export const Viewport: React.FC<{
                 'bg-renderer-gray': enabled,
               },
             ])}
-            ref={(ref) =>
-              ref && connectors.select(connectors.hover(ref, ''), '')
-            }
+            ref={(ref) => {
+              ref && connectors.select(connectors.hover(ref, ''), '');
+            }}
           >
             <CanvasWrapper>
               <Header

@@ -474,7 +474,7 @@ function ToolbarSettings() {
             </div>
 
             {categories.map((category: any, index: number) => (
-              <div className="flex flex-col gap-1">
+              <div key={index} className="flex flex-col gap-1">
                 <TextFieldLabel htmlFor="linkOne">Dropdown</TextFieldLabel>
                 <input
                   type="text"

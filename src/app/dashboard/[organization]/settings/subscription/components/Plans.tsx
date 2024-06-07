@@ -22,33 +22,39 @@ const Plans = ({ isLifetime }: { isLifetime: boolean }) => {
   const customerId = organization.subscription?.customerId;
   const subscription = organization.subscription?.data;
 
-  if (isLifetime) {
+  if (!subscription) {
     return (
-      <div className="py-10">
-        <div className={'flex flex-col space-y-2'}>
-          <h4 className="font-heading scroll-m-20 text-xl font-semibold tracking-tight">
-            You&apos;re on a lifetime plan
-          </h4>
-          <p className="text-neutral-500 dark:text-neutral-400">
-            You don&apos;t need to worry about billing. Thank you for your
-            support!
-          </p>
-          <p className="text-neutral-500 dark:text-neutral-400">
-            If you have any questions, please contact us at info@codesnaps.io
-          </p>
-        </div>
+      <div>
+        {isLifetime && (
+          <div className="flex flex-col space-y-2 mb-5 max-w-4xl">
+            <h4 className="font-heading scroll-m-20 text-xl font-semibold tracking-tight">
+              You&apos;re on a lifetime plan
+            </h4>
+            <p className="text-neutral-500 dark:text-neutral-400">
+              We truly appreciate your support as a lifetime subscriber!
+              However, due to the ongoing costs associated with AI, we kindly
+              ask that you upgrade your plan to access the AI site generator.
+            </p>
+            <p className="text-neutral-500 dark:text-neutral-400">
+              Rest assured, you will still continue to receive all current and
+              future components as part of your lifetime plan.
+            </p>
+            <p className="text-neutral-500 dark:text-neutral-400">
+              If you have any questions, please contact us at info@codesnaps.io
+            </p>
+          </div>
+        )}
+
+        <PlanSelectionForm
+          customerId={customerId}
+          organization={organization}
+        />
       </div>
     );
   }
 
-  if (!subscription) {
-    return (
-      <PlanSelectionForm customerId={customerId} organization={organization} />
-    );
-  }
-
   return (
-   <div className={'flex flex-col space-y-4'}>
+    <div className={'flex flex-col space-y-4'}>
       <div>
         <div
           className={'border w-full lg:w-9/12 xl:w-6/12 rounded-xl divide-y'}
@@ -67,7 +73,9 @@ const Plans = ({ isLifetime }: { isLifetime: boolean }) => {
                     <Trans i18nKey={'subscription:manageBilling'} />
                   </BillingPortalRedirectButton>
 
-                  <span className={'text-xs text-neutral-500 dark:text-neutral-400'}>
+                  <span
+                    className={'text-xs text-neutral-500 dark:text-neutral-400'}
+                  >
                     <Trans i18nKey={'subscription:manageBillingDescription'} />
                   </span>
                 </div>

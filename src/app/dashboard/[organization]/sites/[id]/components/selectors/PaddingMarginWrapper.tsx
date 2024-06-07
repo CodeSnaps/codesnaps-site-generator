@@ -25,4 +25,6 @@ const PaddingMarginWrapper = forwardRef<
   );
 });
 
+PaddingMarginWrapper.displayName = 'PaddingMarginWrapper';
+
 export default PaddingMarginWrapper;
