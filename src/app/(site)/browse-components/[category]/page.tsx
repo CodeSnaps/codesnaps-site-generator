@@ -32,7 +32,7 @@ export async function generateMetadata({
 
   return {
     title: `${title} Sections – Tailwind CSS UI Components | CodeSnaps`,
-    description: `${title} sections. Free library of React and Tailwind CSS components. Design and build better websites in minutes. No package installations.`,
+    description: `${title} sections. Free library of React and Tailwind CSS components. Design and build better websites in minutes with an AI site generator.`,
   };
 }
 

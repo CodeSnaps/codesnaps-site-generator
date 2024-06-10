@@ -12,7 +12,7 @@ const configuration = {
   site: {
     name: 'Build faster, design better in React and Tailwind CSS | CodeSnaps',
     description:
-      'Access a library of React and Tailwind CSS components. Design and build better websites in minutes. No package installation required.',
+      'Access a library of React and Tailwind CSS components and an AI site generator. Design and build better websites in minutes. No package installation.',
     themeColor: '#ffffff',
     themeColorDark: '#0a0a0a',
     siteUrl: process.env.NEXT_PUBLIC_SITE_URL,
