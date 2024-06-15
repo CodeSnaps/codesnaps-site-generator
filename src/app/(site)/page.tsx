@@ -49,6 +49,7 @@ function Home() {
           </div>
         </div>
 
+        {/*
         <div className="flex justify-center py-12 max-w-5xl mx-auto animate-in fade-in duration-1000 slide-in-from-top-16 fill-mode-both delay-300">
           <Image
             priority
@@ -58,6 +59,28 @@ function Home() {
             src="/assets/images/Dashboard_SiteGenerator.webp"
             alt="App Image"
           />
+        </div>
+        */}
+        <div
+          style={{
+            position: 'relative',
+            paddingBottom: 'calc(45.86607142857143% + 42px)',
+            height: 0,
+          }}
+        >
+          <iframe
+            src="https://app.supademo.com/embed/clxgm2b731ysrt2oeath47c4i"
+            title="CodeSnaps AI Site Generator"
+            allow="clipboard-write"
+            allowFullScreen={true}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+            }}
+          ></iframe>
         </div>
       </Container>
 
