@@ -24,10 +24,10 @@ export const Viewport: React.FC<{
     enabled: state.options.enabled,
   }));
 
-  const subscription =
-    props.organization === process.env.ADMIN_ORG_UUID
-      ? true
-      : useIsSubscriptionActive();
+  const isAdminOrganization = props.organization === process.env.ADMIN_ORG_UUID;
+  const isSubscriptionActive = useIsSubscriptionActive();
+
+  const subscription = isAdminOrganization ? true : isSubscriptionActive;
 
   return (
     <div className="viewport">
