@@ -116,7 +116,7 @@ const configuration = {
         description: 'For individuals and small teams getting started.',
         features: [
           'Unlimited Sites',
-          '1,000,000 tokens per month',
+          '500,000 tokens per month',
           'Built in dark mode',
           'Copy and paste code snippets',
           'Save favorite components',
@@ -126,13 +126,13 @@ const configuration = {
         plans: [
           {
             name: 'Monthly',
-            price: '$15',
+            price: '$9',
             stripePriceId: 'price_1POykYCjllA7kCqFdnimew7k',
             mode: 'subscription',
           },
           {
             name: 'Yearly',
-            price: '$139',
+            price: '$80',
             stripePriceId: 'price_1POyl8CjllA7kCqFxXkQjwL1',
             mode: 'subscription',
           },
